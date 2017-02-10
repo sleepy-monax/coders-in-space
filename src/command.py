@@ -1,4 +1,4 @@
-def parse_command(command, game_stats):
+def parse_command(commands, game_stats):
     """
     Parse a command from a player and run it.
 
@@ -9,9 +9,30 @@ def parse_command(command, game_stats):
 
     Return
     ------
-    new_game_stats : game stat after the command execution (dic).
+    game_stats : game stat after the command execution (dic).
+
+    Version
+    -------
+    specification v1. Nicolas Van Bossuyt (10/2/2017)
+    implementation v1. Nicolas Van Bossuyt (10/2/2017)
     """
-    raise NotImplementedError
+    commands = commands.split(' ')
+
+    for cmd in commands:
+        sub_cmd = cmd.split(':')
+        ship_name = sub_cmd[0]
+        ship_action = sub_cmd[1]
+
+        if ship_action == 'slower' or ship_action == 'faster':
+            game_stats = command_change_speed(ship_name, ship_action, game_stats)
+        elif ship_action == 'left' or ship_action == 'right':
+            game_stats = command_rotate(ship_name, ship_action, game_stats)
+        else:
+            ship_action = ship_action.split('-')
+            coordinate = (int(ship_action[0]), int(ship_action[1]))
+            game_stats = command_attack(ship_name, coordinate, game_stats)
+
+    return game_stats
 
 def command_change_speed(ship, change, game_stats):
     """

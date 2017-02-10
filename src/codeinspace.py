@@ -24,7 +24,7 @@ def new_game(path, list_players):
     implementation : Bayron Mahy (v1. 10/02/2017)
                      Bayron Mahy (v2. 10/02/2017)
     """
-    
+
     # Create game_stats dictionary.
 	game_stats = {'board':{}, 'players':{}, 'rounds': 0, 'max_nb_rounds': 10*len(list_players), 'model_ship':{}, 'ship' {}}
 	game_file = parse_game_file(path)
@@ -101,4 +101,7 @@ def show_board(game_stats):
     ---------
     game_stats : game to show on screen (dic).
     """
+
+
+
     raise NotImplementedError
