@@ -26,10 +26,14 @@ def new_game(path, list_players):
     """
 	game_stats = {'board':{}, 'players':{}, 'rounds': 0, 'max_nb_rounds': 10*len(list_players), 'model_ship':{}, 'ship' {}}
 	game_file = parse_game_file(path)
+
+    # Create the game board.
 	for line in range(game_file['size'][0]):
             for column in range(game_file['size'][1]):
                 game_stats['board'][(game_file['size'][0],game_file['size'][1])] = ''
-	for player in range(list_players):
+
+    # Create players.
+	for player in list_players:
 		if player == 'ai' or player == 'distant':
 			type= player
 		else:
