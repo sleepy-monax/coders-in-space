@@ -25,9 +25,16 @@ def command_change_speed(ship, change, game_stats):
 
     Returns
     -------
-    new_game_stats : the game after the command execution (dic).
+    game_stats : the game after the command execution (dic)
     """
-    raise NotImplementedError
+    type= gamestats['ship'][ship]['type']
+    if change == 'faster' and gamestats['ship'][ship]['speed'] < gamestats['model_ship'][type]['max_speed']:
+        gamestats['ship'][ship]['speed']+=1
+    elif change == 'slower' and gamestats['ship'][ship]['speed'] > 0:
+        gamestats['ship'][ship]['speed']-=1
+    else:
+        print 'you cannot make that change on the speed of this ship'
+    return gamestats
 
 def command_rotate(ship, direction, game_stats):
     """
