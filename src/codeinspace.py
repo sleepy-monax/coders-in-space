@@ -111,12 +111,12 @@ def show_board(game_stats):
 
 	# Create a new game_view.
 	v = creat_game_view(160,60)
-	print game_stats['players']
 
 	# Create the board frame.
 	on_screen_board_size = (game_stats['board_size'][0]*3 + 5, game_stats['board_size'][1] + 3)
 	put_box(v, 0, 0, on_screen_board_size[0], on_screen_board_size[1])
-	put_string(v, 2, 0, '| Game Board |')
+	put_string(v, 2, 0, '| Game Board |', 1, 0, 'blue', 'on_white')
+
 	# Put horizontal coordinate.
 	coordinate_string = ''
 	for i in range(game_stats['board_size'][0]):
@@ -140,20 +140,18 @@ def show_board(game_stats):
 	# Create player liste frame.
 	on_screen_player_board_size = (v['size'][0] - on_screen_board_size[0] - 1, on_screen_board_size[1])
 	put_box(v, on_screen_board_size[0] + 1, 0, on_screen_player_board_size[0], on_screen_player_board_size[1])
-	put_string(v, on_screen_board_size[0] + 3, 0, '| Players |')
+	put_string(v, on_screen_board_size[0] + 3, 0, '| Players |', 1,0, 'blue', 'on_white')
 
 	player_count = 0
-	print game_stats['players']
-	for player in game_stats['players']:
+	for player_key in game_stats['players']:
 		location = (on_screen_board_size[0] + 2, 1 + (player_count * 6))
 		put_box(v, location[0], location[1], on_screen_player_board_size[0] - 2, 6,  'single')
 
 		# Put player informations.
-		put_string(v, location[0] + 1, location[1] + 1, game_stats['players'][player]['name'])
-		put_string(v, location[0] + 1, location[1] + 2, 'Type : ' + game_stats['players'][player]['type'])
-		put_string(v, location[0] + 1, location[1] + 3, 'Money : ' + str(game_stats['players'][player]['money']))
-		put_string(v, location[0] + 1, location[1] + 4, 'Spaceship count : ' + str(game_stats['players'][player]['nb_ship']))
-
+		put_string(v, location[0] + 1, location[1] + 1, game_stats['players'][player_key]['name'],1,0, 'blue', 'on_white')
+		put_string(v, location[0] + 1, location[1] + 2, 'Type : ' + game_stats['players'][player_key]['type'])
+		put_string(v, location[0] + 1, location[1] + 3, 'Money : ' + str(game_stats['players'][player_key]['money']) + '$', 1,0, 'yellow')
+		put_string(v, location[0] + 1, location[1] + 4, 'Spaceship count : ' + str(game_stats['players'][player_key]['nb_ship']))
 
 		player_count += 1
 
