@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
 from termcolor import *
-"""
-=====
-=GUI= This section of code is use for all the user inteface stuff.
-=====
-"""
+
 def creat_game_view(width, height):
     """
     Create a new view buffer for the gui.

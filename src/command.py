@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 def parse_command(commands, game_stats):
     """
     Parse a command from a player and run it.

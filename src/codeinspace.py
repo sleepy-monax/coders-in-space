@@ -1,4 +1,4 @@
-# fleurs
+# -*- coding: utf-8 -*-
 import string
 from command import *
 from gui import *

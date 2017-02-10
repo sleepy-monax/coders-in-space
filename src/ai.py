@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 def get_ai_input(game_stats):
     """
     Get the game input from the ai.
