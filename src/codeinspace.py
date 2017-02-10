@@ -85,12 +85,14 @@ def parse_game_file(path):
 
     # Create parsed data dictionary and return it.
     parsed_data = {'size':size,'ships':ships_list}
+
     return parsed_data
 
 def play_game():
     """
     Main game function thats run the game loop.
     """
+
     raise NotImplementedError
 
 def show_board(game_stats):
@@ -101,7 +103,5 @@ def show_board(game_stats):
     ---------
     game_stats : game to show on screen (dic).
     """
-
-
 
     raise NotImplementedError

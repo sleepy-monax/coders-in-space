@@ -27,6 +27,7 @@ def creat_game_view(width, height):
             game_view['grid'][(x,y)] = {'color':None, 'back_color':None, 'char':' '}
 
     return game_view
+    
 def put(game_view, x, y, char, color = None, back_color = None):
     """
     Put the specified char in the game_view.
