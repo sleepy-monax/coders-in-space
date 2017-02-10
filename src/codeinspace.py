@@ -20,29 +20,27 @@ def new_game(path, list_players):
 	Version
 	-------
 	specification : Nicolas Van Bossuyt (v1. 09/02/2017)
-					Bayron Mahy (v2. 10/02/2017)
+			Bayron Mahy (v2. 10/02/2017)
 
 	implementation : Bayron Mahy (v1. 10/02/2017)
-					 Bayron Mahy (v2. 10/02/2017)
-					 Nicolas Van Bossuyt (v3. 11/02/2017)
+			 Bayron Mahy (v2. 10/02/2017)
+			 Nicolas Van Bossuyt (v3. 10/02/2017)
+			 Bayron Mahy (v4. 10/02/2017)
+			 
 	"""
 
 	# Create game_stats dictionary.
-	game_stats = {'board':{}, 'players':{},'model_ship':{}, 'ship': {},'board_size': (0,0), 'rounds': 0, 'max_nb_rounds': 10*len(list_players)}
 	game_file = parse_game_file(path)
+	game_stats = {'board':{}, 'players':{},'model_ship':{}, 'ship': {},'board_size': game_file['size'], 'rounds': 0, 'max_nb_rounds': 10*len(list_players)}
 
 	# Create the game board.
 	for line in range(game_file['size'][0]):
-			for column in range(game_file['size'][1]):
-				game_stats['board'][(line,column)] = '$none'
-	game_stats['board_size'] = game_file['size']
-
+			for column in range(game_stats['board_size'][1]):
+				game_stats['board'][(line,column)] = []
 	# Create players.
 	for player in list_players:
-		if player == 'ai':
-			player_type = 'ai'
-		elif play_game == 'distant':
-			player_type = 'distant'
+		if player == 'ai' or play_game == 'distant':
+			player_type = player
 		else:
 			player_type = 'human'
 
@@ -111,12 +109,12 @@ def show_board(game_stats):
 
 	# Create a new game_view.
 	v = creat_game_view(160,60)
+	print game_stats['players']
 
 	# Create the board frame.
 	on_screen_board_size = (game_stats['board_size'][0]*3 + 5, game_stats['board_size'][1] + 3)
 	put_box(v, 0, 0, on_screen_board_size[0], on_screen_board_size[1])
-	put_string(v, 2, 0, '| Game Board |', 1, 0, 'blue', 'on_white')
-
+	put_string(v, 2, 0, '| Game Board |')
 	# Put horizontal coordinate.
 	coordinate_string = ''
 	for i in range(game_stats['board_size'][0]):
@@ -140,18 +138,20 @@ def show_board(game_stats):
 	# Create player liste frame.
 	on_screen_player_board_size = (v['size'][0] - on_screen_board_size[0] - 1, on_screen_board_size[1])
 	put_box(v, on_screen_board_size[0] + 1, 0, on_screen_player_board_size[0], on_screen_player_board_size[1])
-	put_string(v, on_screen_board_size[0] + 3, 0, '| Players |', 1,0, 'blue', 'on_white')
+	put_string(v, on_screen_board_size[0] + 3, 0, '| Players |')
 
 	player_count = 0
-	for player_key in game_stats['players']:
+	print game_stats['players']
+	for player in game_stats['players']:
 		location = (on_screen_board_size[0] + 2, 1 + (player_count * 6))
 		put_box(v, location[0], location[1], on_screen_player_board_size[0] - 2, 6,  'single')
 
 		# Put player informations.
-		put_string(v, location[0] + 1, location[1] + 1, game_stats['players'][player_key]['name'],1,0, 'blue', 'on_white')
-		put_string(v, location[0] + 1, location[1] + 2, 'Type : ' + game_stats['players'][player_key]['type'])
-		put_string(v, location[0] + 1, location[1] + 3, 'Money : ' + str(game_stats['players'][player_key]['money']) + '$', 1,0, 'yellow')
-		put_string(v, location[0] + 1, location[1] + 4, 'Spaceship count : ' + str(game_stats['players'][player_key]['nb_ship']))
+		put_string(v, location[0] + 1, location[1] + 1, game_stats['players'][player]['name'])
+		put_string(v, location[0] + 1, location[1] + 2, 'Type : ' + game_stats['players'][player]['type'])
+		put_string(v, location[0] + 1, location[1] + 3, 'Money : ' + str(game_stats['players'][player]['money']))
+		put_string(v, location[0] + 1, location[1] + 4, 'Spaceship count : ' + str(game_stats['players'][player]['nb_ship']))
+
 
 		player_count += 1
 
