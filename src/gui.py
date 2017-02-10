@@ -40,6 +40,7 @@ def put(x, y, char, game_view):
     ---------
     x, y : coordinate of were to put the char (int).
     char : char to put (str).
+    game_view : game view to put the char in (dic).
 
     Version
     -------
@@ -47,8 +48,10 @@ def put(x, y, char, game_view):
     implementation v1. Nicolas Van Bossuyt (10/2/2017)
     """
 
+    # Check if the coordinate is in the bound of the game view.
     if x < game_view['size'][0] and x>=0 and\
     y < game_view['size'][1] and y >= 0:
+        # Put the char a the coordinate.
         game_view['grid'][(x,y)] = char
 
     return game_view
@@ -72,7 +75,11 @@ def put_rectangle(x,y, width, height, char, game_view):
     implementation v1. Nicolas Van Bossuyt (10/2/2017)
     """
 
-    raise NotImplemented
+    for w in range(width):
+        for h in range(height):
+            game_view = put(x + w, y + h, char, game_view)
+
+    return game_view
 
 def put_string(x, y, string, direction_x, direction_y, game_view):
     """
@@ -82,10 +89,15 @@ def put_string(x, y, string, direction_x, direction_y, game_view):
     ---------
     x, y : coordinate of the string (int).
     direction_x, direction_y : direction to draw the string (int).
+    game_view : game view to put the string (dic).
 
     Return
     ------
     game_view : game view with the new string (dic).
+
+    Notes
+    -----
+    direction_x, direction_y : Muste be -1, 0 or 1.
 
     Version
     -------
@@ -120,3 +132,5 @@ def print_game_view(game_view):
             line += j
 
         print line
+
+def print_game_
