@@ -106,7 +106,12 @@ def put_box(game_view, x, y, width, height, mode = 'double', color = None, back_
     implementation v1. Nicolas Van Bossuyt (10/2/2017)
     """
     if mode == 'double':
-        raise NotImplemented
+        put_rectangle(game_view, x, y, width, height, u'═', color, back_color)
+        put_rectangle(game_view, x, y + 1, width, height - 2,u'║', color, back_color)
+        put(game_view, x, y, u'╔', color, back_color)
+        put(game_view, x, y + height - 1, u'╚', color, back_color)
+        put(game_view, x + width - 1, y, u'╗', color, back_color)
+        put(game_view, x + width - 1, y + height - 1, u'╝', color, back_color)
 
     elif mode == 'single':
         put_rectangle(game_view, x, y, width, height, u'─', color, back_color)
@@ -166,7 +171,6 @@ def print_game_view(game_view):
     game_view_width = game_view['size'][0]
     game_view_height = game_view['size'][1]
 
-
     for y in range(game_view_height):
         line = ''
         for x in range(game_view_width):
@@ -178,11 +182,9 @@ def print_game_view(game_view):
 
         print line
 
-
-
 def try_gui_lib():
     v = creat_game_view(20,20)
-    put_box(v, 0,0, 19, 3, 'single', 'yellow', 'on_blue')
+    put_box(v, 0,0, 19, 3, 'double', 'yellow', 'on_blue')
     put_string(v, 1,1,' Code In Space ! ',1,0, 'yellow', 'on_blue')
     print_game_view(v)
 
