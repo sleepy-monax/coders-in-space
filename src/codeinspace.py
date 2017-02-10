@@ -19,8 +19,9 @@ def new_game(path, list_players):
     specification : Nicolas Van Bossuyt (v1. 09/02/2017)
 					Bayron Mahy (v2. 10/02/2017)
     implementation : Bayron Mahy (v1. 10/02/2017)
+    		     Bayron Mahy (v2. 10/02/2017)
     """
-	game_stats = {'board':{}, 'players':{}, 'rounds': 0, 'max_nb_rounds': 10*len(list_players)}
+	game_stats = {'board':{}, 'players':{}, 'rounds': 0, 'max_nb_rounds': 10*len(list_players), 'model_ship':{}, 'ship' {}}
 	game_file= parse_game_file(path)
 	for line in range(game_file['size'][0]):
             for column in range(game_file['size'][1]):
@@ -31,6 +32,9 @@ def new_game(path, list_players):
 		else:
 			type= 'human'
 		game_stats['players'][player]={'money':100, 'nb_ship': 0, 'type':type}
+	game_stats['model_ship']['fighter']={'max_heal':3, 'max_speed':5, 'damages':1, 'range':5, 'price':10}
+	game_stats['model_ship']['destroyer']={'max_heal':8, 'max_speed':2, 'damages':2, 'range':7, 'price':20}
+	game_stats['model_ship']['battlecruiser']={'max_heal':20, 'max_speed':1, 'damages':4, 'range':10, 'price':30}
 		
 	return game_stats
 
