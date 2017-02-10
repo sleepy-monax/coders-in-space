@@ -1,5 +1,8 @@
 # fleurs
 import string
+from command import *
+from gui import *
+from ai import *
 
 def new_game(path, list_players):
     """
@@ -13,7 +16,7 @@ def new_game(path, list_players):
     Return
     -------
     game_stats : new game stats (dic).
-	
+
     Version
     -------
     specification : Nicolas Van Bossuyt (v1. 09/02/2017)
@@ -35,7 +38,7 @@ def new_game(path, list_players):
 	game_stats['model_ship']['fighter']={'max_heal':3, 'max_speed':5, 'damages':1, 'range':5, 'price':10}
 	game_stats['model_ship']['destroyer']={'max_heal':8, 'max_speed':2, 'damages':2, 'range':7, 'price':20}
 	game_stats['model_ship']['battlecruiser']={'max_heal':20, 'max_speed':1, 'damages':4, 'range':10, 'price':30}
-		
+
 	return game_stats
 
 def parse_game_file(path):
