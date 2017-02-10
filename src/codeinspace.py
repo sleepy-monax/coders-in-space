@@ -13,6 +13,7 @@ def new_game(path):
     game_stats : new game stats (dic).
     """
     raise NotImplementedError
+	
 
 def parse_game_file(path):
     """
