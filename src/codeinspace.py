@@ -1,18 +1,36 @@
 # fleurs
 import string
 
-def new_game(path):
+def new_game(path, list_players):
     """
     Create a new game from a '.cis' file.
 
     Parameters
     ----------
     path : to the cis file (str).
+    list_players: list of players (list)
 
     Return
     -------
     game_stats : new game stats (dic).
+	
+	Version
+    -------
+    specification : Nicolas Van Bossuyt (v1. 09/02/2017)
+					Bayron Mahy (v2. 10/02/2017)
+    implementation : Bayron Mahy (v1. 10/02/2017)
     """
+	game_stats = {'board':{}, 'players':{}, 'rounds': 0, 'max_nb_rounds': 10*len(list_players)}
+	game_file= parse_game_file(path)
+	for line in range(game_file['size'][0]):
+            for column in range(game_file['size'][1]):
+                game_stats['board'][(game_file['size'][0],game_file['size'][1])] = ''
+	for player in range(list_players):
+		if player == 'ai' or player == 'distant':
+			type=player
+		else:
+			type= 'human'
+		game_stats['players'][player]={'money':100, 'nb_ship': 0, 'type':type}
     raise NotImplementedError
 	
 
