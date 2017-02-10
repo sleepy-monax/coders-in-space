@@ -27,13 +27,20 @@ def command_change_speed(ship, change, game_stats):
     -------
     game_stats : the game after the command execution (dic)
     """
-    type= game_stats['ship'][ship]['type']
+    type = game_stats['ship'][ship]['type']
+
+    # Make the ship move faster.
     if change == 'faster' and gamestats['ship'][ship]['speed'] < gamestats['model_ship'][type]['max_speed']:
         game_stats['ship'][ship]['speed']+=1
+
+    # make the ship move slower.
     elif change == 'slower' and gamestats['ship'][ship]['speed'] > 0:
         game_stats['ship'][ship]['speed']-=1
+
+    # show a message when is a invalide change.
     else:
         print 'you cannot make that change on the speed of this ship'
+
     return game_stats
 
 def command_rotate(ship, direction, game_stats):
