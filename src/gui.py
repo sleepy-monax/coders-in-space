@@ -27,11 +27,10 @@ def creat_game_view(width, height):
 
     for x in range(width):
         for y in range(height):
-            game_view['grid'][(x,y)] = {'color':'white', 'back_color':'on_black', 'char':' '}
+            game_view['grid'][(x,y)] = {'color':None, 'back_color':None, 'char':' '}
 
     return game_view
-
-def put(game_view, x, y, char, color = 'white', back_color = 'on_black'):
+def put(game_view, x, y, char, color = None, back_color = None):
     """
     Put the specified char in the game_view.
 
@@ -59,7 +58,7 @@ def put(game_view, x, y, char, color = 'white', back_color = 'on_black'):
 
     return game_view
 
-def put_rectangle(game_view, x, y, width, height, char, color = 'white', back_color = 'on_black'):
+def put_rectangle(game_view, x, y, width, height, char, color = None, back_color = None):
     """
     Draw a rectangle in the string buffer.
 
@@ -84,7 +83,7 @@ def put_rectangle(game_view, x, y, width, height, char, color = 'white', back_co
 
     return game_view
 
-def put_string(game_view, x, y, string, direction_x = 1, direction_y = 0, color = 'white', back_color = 'on_black'):
+def put_string(game_view, x, y, string, direction_x = 1, direction_y = 0, color = None, back_color = None):
     """
     Put a specified string in the game_view.
 
@@ -148,5 +147,7 @@ def print_game_view(game_view):
 def try_gui_lib():
     v = creat_game_view(10,10)
     put_rectangle(v,3,3,3,3,'B', 'red')
-    put_string(v, 4,4, 'Ca marche !')
+    put_string(v, 4,4, 'Ca marche !', 1, 1,'blue')
     print_game_view(v)
+
+try_gui_lib()
