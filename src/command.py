@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import math
+
 def parse_command(commands, game_stats):
     """
     Parse a command from a player and run it.
@@ -78,8 +80,44 @@ def command_rotate(ship, direction, game_stats):
     Returns
     -------
     new_game_stats : the game after the command execution.
+
+    Version
+    -------
+    specification v1. Nicolas Van Bossuyt (10/2/2017)
+    implementation v1. Nicolas Van Bossuyt (10/2/2017)
     """
-    raise NotImplementedError
+
+    def rotate_vector_2D(vector, radian):
+        """
+        Rotate a vector in a 2D space by a specified angle in radian.
+
+        Parameters
+        ----------
+        vector : 2D vector ton rotate (tuple(int,int)).
+        radian : angle appli to the 2D vector (float).
+
+        return
+        ------
+        vector : rotate vector 2d (tuple(int,int)).
+
+        Version
+        -------
+        specification v1. Nicolas Van Bossuyt (10/2/2017)
+        implementation v1. Nicolas Van Bossuyt (10/2/2017)
+        """
+        new_vector = (.0,.0)
+
+        # Here is were the magic append.
+        new_vector[0] = vector[0] * math.cos(radian) - vector[1] * math.sin(radian)
+        new_vector[1] = vector[0] * math.sin(radian) + vector[1] * math.cos(radian)
+        return new_vector
+
+    if direction == 'left':
+        gamestats['ship'][ship]['direction'] = rotate_vector_2D(gamestats['ship'][ship]['direction'], -math.pi / 4)
+    elif direction == 'right':
+        gamestats['ship'][ship]['direction'] = rotate_vector_2D(gamestats['ship'][ship]['direction'], math.pi / 4)
+
+    return game_stats
 
 def command_attack(ship, coordinate, game_stats):
     """
