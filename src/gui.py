@@ -27,7 +27,7 @@ def creat_game_view(width, height):
             game_view['grid'][(x,y)] = {'color':None, 'back_color':None, 'char':' '}
 
     return game_view
-    
+
 def put(game_view, x, y, char, color = None, back_color = None):
     """
     Put the specified char in the game_view.
@@ -118,6 +118,8 @@ def put_box(game_view, x, y, width, height, mode = 'double', color = None, back_
         put(game_view, x + width - 1, y, u'┐', color, back_color)
         put(game_view, x + width - 1, y + height - 1, u'┘', color, back_color)
 
+    put_rectangle(game_view, x + 1 , y + 1, width - 2, height - 2, ' ')
+
     return game_view
 
 def put_string(game_view, x, y, string, direction_x = 1, direction_y = 0, color = None, back_color = None):
@@ -184,5 +186,3 @@ def try_gui_lib():
     put_box(v, 0,0, 19, 3, 'double', 'yellow', 'on_blue')
     put_string(v, 1,1,' Code In Space ! ',1,0, 'yellow', 'on_blue')
     print_game_view(v)
-
-try_gui_lib()
