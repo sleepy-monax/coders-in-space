@@ -27,7 +27,7 @@ Et bien sa voudras dire que l'ordinateur auras trouver l'IA ultime pour gagner �
 
 ## Conclusion
 
-Les avantages ce n'est pas trop compliquer à coder, en revanche on ne sait pas combien de de temps il faut pour entrainer l'IA. j'ai déjà vu plusieurs systèmes du même type il faut en moyen au moins 3000 itérations d'apprentissage pour commencer à avoir un IA qui commence à jouer correctement et 100 000 pour qu'elle soit meilleure qu'un humain :/ donc faut voir ce qu'on fait moi je trouve juste sa cool à faire apprendre à jouer un ordinateur par lui-même mais bon faut voir si le prof est d'accord et si ça vous botte.
+L'avantage ce n'est pas trop compliquer à coder, en revanche on ne sait pas combien de de temps il faut pour entrainer l'IA. j'ai déjà vu plusieurs systèmes du même type il faut en moyen au moins 3000 itérations d'apprentissage pour commencer à avoir un IA qui commence à jouer correctement et 100 000 pour qu'elle soit meilleure qu'un humain :/ donc faut voir ce qu'on fait moi je trouve juste sa cool à faire apprendre à jouer un ordinateur par lui-même mais bon faut voir si le prof est d'accord et si ça vous botte.
 Evidament je ne suis pas un expert en machine learning donc si sa se prouve j'ai dit de la merde XD
 
 ### La video qui ma donner l'idée :)
