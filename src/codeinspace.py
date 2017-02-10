@@ -25,8 +25,7 @@ def new_game(path, list_players):
 	implementation : Bayron Mahy (v1. 10/02/2017)
 			 Bayron Mahy (v2. 10/02/2017)
 			 Nicolas Van Bossuyt (v3. 10/02/2017)
-			 Bayron Mahy (v4. 10/02/2017)
-			 
+			 Bayron Mahy (v4. 10/02/2017)	 
 	"""
 
 	# Create game_stats dictionary.
@@ -109,12 +108,12 @@ def show_board(game_stats):
 
 	# Create a new game_view.
 	v = creat_game_view(160,60)
-	print game_stats['players']
 
 	# Create the board frame.
 	on_screen_board_size = (game_stats['board_size'][0]*3 + 5, game_stats['board_size'][1] + 3)
 	put_box(v, 0, 0, on_screen_board_size[0], on_screen_board_size[1])
 	put_string(v, 2, 0, '| Game Board |')
+	
 	# Put horizontal coordinate.
 	coordinate_string = ''
 	for i in range(game_stats['board_size'][0]):
