@@ -14,7 +14,7 @@ def new_game(path, list_players):
     -------
     game_stats : new game stats (dic).
 	
-	Version
+    Version
     -------
     specification : Nicolas Van Bossuyt (v1. 09/02/2017)
 					Bayron Mahy (v2. 10/02/2017)
@@ -31,8 +31,8 @@ def new_game(path, list_players):
 		else:
 			type= 'human'
 		game_stats['players'][player]={'money':100, 'nb_ship': 0, 'type':type}
-    raise NotImplementedError
-	
+		
+	return game_stats
 
 def parse_game_file(path):
     """
