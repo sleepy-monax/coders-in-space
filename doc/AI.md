@@ -17,7 +17,7 @@ On peut très facilement faire une analogie entre les noeuds et les liens, et le
 
 - INPUT : chaque noeud de cette couche auras une valeur égale à une valeur du jeu. par exemple la position d'un ship ou son orientation, etc
 - PROCESS : j'expliquerais celui-ci plus tard car c'est un peux plus complexe ;)
-- OUTPUT : dans cette couche que on y recupereras la décision de l'IA en se basent sur la valeur des noeuds. Par exemple il peut y avoir un noeud que quand la valeur est supérieure à 0 et bien ça veut dire que l'IA veut attaquer.
+- OUTPUT : dans cette couche on y recupereras la décision de l'IA en se basent sur la valeur des noeuds. Par exemple il peut y avoir un noeud que quand la valeur est supérieure à 0 et bien ça veut dire que l'IA veut attaquer.
 
 ## C'est bien jolie tout sa mais comment sa peux faire que notre IA vas aneantire les autre joueur ?
 
