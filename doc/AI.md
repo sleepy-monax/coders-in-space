@@ -1,15 +1,15 @@
 # IA
 Salut bon voila une petite idée pour l'IA du projet :)
-Enfaite ce que je pensais que l'on pourais faire c'est utilisé un résaux de réflexion.
+Enfaite ce que l'on pourais faire, c'est utilisé un résaux de réflexion.
 
 ![resaux de refllexion](https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Colored_neural_network.svg/300px-Colored_neural_network.svg.png)
 
 ## Un réseau de réflexion kesako ?!
 
 En fait un réseau est composé de noeud et de lien, chaque noeud peut contenir une valeur et chaque lien contient une force avec laquelle il connecte deux noeuds.
-Les noeuds et les liens sissaient reparti en couche.
-Tous les noeuds d'une couche sont relié à ceux de la couche inférieure avec un lien.
-On peut très facilement faire une analogie entre les noeuds et les liens avec les neurones de notre cerveau. Avec le noeud correspondent au noyau et les liens aux axones de notre cerveau.
+Les noeuds et les liens sont reparti en couche.
+Tous les noeuds d'une couche sont relié à ceux de la couche inférieure avec des liens.
+On peut très facilement faire une analogie entre les noeuds et les liens, et les neurones de notre cerveau. Avec le noeud correspondent au noyau et les liens aux axones de notre cerveau.
 
 ![neurone biologique](http://physique.unice.fr/sem6/2011-2012/PagesWeb/PT/Modelisation/img/myel.gif)
 
