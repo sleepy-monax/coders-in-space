@@ -1,3 +1,4 @@
+# fleurs
 import string
 
 def new_game(path):
