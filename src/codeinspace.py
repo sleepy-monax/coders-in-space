@@ -34,8 +34,8 @@ def new_game(path, list_players):
 
 	# Create the game board.
 	for line in range(game_file['size'][0]):
-			for column in range(game_stats['board_size'][1]):
-				game_stats['board'][(line,column)] = []
+		for column in range(game_stats['board_size'][1]):
+			game_stats['board'][(line,column)] = []
 
 	# Create players.
 	for player in list_players:
@@ -55,7 +55,6 @@ def new_game(path, list_players):
 	for ships in game_file['ships']:
 		game_stats['ship'][ships[2]]= { 'type':ships[3], 'heal_points':game_stats['model_ship'][ships[3]]['max_heal'],'direction':ships[4], 'speed':0, 'owner': 'none'}
 		game_stats['board'][(ships[0],ships[1])]= ships[2]
-		
 
 	return game_stats
 
