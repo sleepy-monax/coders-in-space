@@ -180,7 +180,7 @@ def show_board(game_stats):
 
 	# Put game board.
 	for x in range(game_stats['board_size'][0]):
-		for y in range(game_stats['board_size'][0]):
+		for y in range(game_stats['board_size'][1]):
 			on_screen_board_tile = (x*3 + 4, y + 2)
 			put_string(v, on_screen_board_tile[0], on_screen_board_tile[1], ' .')
 
