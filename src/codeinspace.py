@@ -25,7 +25,7 @@ def new_game(path, list_players):
 	implementation : Bayron Mahy (v1. 10/02/2017)
 			 Bayron Mahy (v2. 10/02/2017)
 			 Nicolas Van Bossuyt (v3. 10/02/2017)
-			 Bayron Mahy (v4. 10/02/2017)	 
+			 Bayron Mahy (v4. 10/02/2017)
 	"""
 
 	# Create game_stats dictionary.
@@ -36,6 +36,7 @@ def new_game(path, list_players):
 	for line in range(game_file['size'][0]):
 			for column in range(game_stats['board_size'][1]):
 				game_stats['board'][(line,column)] = []
+
 	# Create players.
 	for player in list_players:
 		if player == 'ai' or play_game == 'distant':
@@ -112,8 +113,8 @@ def show_board(game_stats):
 	# Create the board frame.
 	on_screen_board_size = (game_stats['board_size'][0]*3 + 5, game_stats['board_size'][1] + 3)
 	put_box(v, 0, 0, on_screen_board_size[0], on_screen_board_size[1])
-	put_string(v, 2, 0, '| Game Board |')
-	
+	put_string(v, 2, 0, u'| # Game Board |')
+
 	# Put horizontal coordinate.
 	coordinate_string = ''
 	for i in range(game_stats['board_size'][0]):
@@ -134,13 +135,18 @@ def show_board(game_stats):
 			value_string = ' ' + value_string
 		put_string(v,2,i + 2,value_string, 1,0, 'blue', 'on_white')
 
+	# Put game board.
+	for x in range(game_stats['board_size'][0]):
+		for y in range(game_stats['board_size'][0]):
+			on_screen_board_tile = (x*3 + 4, y + 2)
+			put_string(v, on_screen_board_tile[0], on_screen_board_tile[1], ' .')
+
 	# Create player liste frame.
 	on_screen_player_board_size = (v['size'][0] - on_screen_board_size[0] - 1, on_screen_board_size[1])
 	put_box(v, on_screen_board_size[0] + 1, 0, on_screen_player_board_size[0], on_screen_player_board_size[1])
-	put_string(v, on_screen_board_size[0] + 3, 0, '| Players |')
+	put_string(v, on_screen_board_size[0] + 3, 0, u'| (^_^) Players |')
 
 	player_count = 0
-	print game_stats['players']
 	for player in game_stats['players']:
 		location = (on_screen_board_size[0] + 2, 1 + (player_count * 6))
 		put_box(v, location[0], location[1], on_screen_player_board_size[0] - 2, 6,  'single')
