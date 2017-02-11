@@ -70,6 +70,45 @@ def parse_game_file(path):
 	specification : Nicolas Van Bossuyt (v1. 09/02/2017)
 	implementation : Nicolas Van Bossuyt (v1. 09/02/2017)
 	"""
+	def direction_to_vector2D(direction):
+		"""
+		Convert a string direction to a vector2D.
+
+		Parameter
+		---------
+		direction : direction to convert <up|down|left|right|up-left|up-right|down-left|down-right>(str).
+
+		Return
+		------
+		vector : vector2D from direction (tuple(float, float)).
+		"""
+		vector = ()
+
+		if direction == 'up':
+			vector = (0,1)
+
+		elif direction == 'up-right':
+			vector = (1,1)
+
+		elif direction == 'right':
+			vector = (1,0)
+
+		elif direction == 'down-right':
+			vector = (1,-1)
+
+		elif direction == 'down':
+			vector = (0,-1)
+
+		elif direction == 'down-left':
+			vector = (-1,-1)
+
+		elif direction == 'left':
+			vector = (-1,0)
+
+		elif direction == 'up-left':
+			vector = (-1,1)
+
+		return vector
 
 	# Split file lines and remove '\n' chars.
 	with file(path,'r') as f:
@@ -82,9 +121,13 @@ def parse_game_file(path):
 	# Get lost space ship in the new game.
 	ships_list = []
 	for i in range(len(file_content) - 1):
-		ship_str = file_content[i + 1].split(' ')
-		ship = (int(ship_str[0]), int(ship_str[1]), ship_str[2])
-		ships_list.append(ship)
+		try:
+			ship_str = file_content[i + 1].split(' ')
+			ship_name_and_type = ship_str[2].split(':')
+			ship = (int(ship_str[0]), int(ship_str[1]), ship_name_and_type[0], ship_name_and_type[1], direction_to_vector2D(ship_str[3]))
+			ships_list.append(ship)
+		except:
+			pass
 
 	# Create parsed data dictionary and return it.
 	parsed_data = {'size':size,'ships':ships_list}
@@ -108,7 +151,7 @@ def show_board(game_stats):
 	"""
 
 	# Create a new game_view.
-	v = creat_game_view(160,60)
+	v = creat_game_view(190,50)
 
 	# Create the board frame.
 	on_screen_board_size = (game_stats['board_size'][0]*3 + 5, game_stats['board_size'][1] + 3)
@@ -148,14 +191,14 @@ def show_board(game_stats):
 
 	player_count = 0
 	for player in game_stats['players']:
-		location = (on_screen_board_size[0] + 2, 1 + (player_count * 6))
+		location = (on_screen_board_size[0] + 2, 2 + (player_count * 6))
 		put_box(v, location[0], location[1], on_screen_player_board_size[0] - 2, 6,  'single')
 
 		# Put player informations.
-		put_string(v, location[0] + 1, location[1] + 1, game_stats['players'][player]['name'])
-		put_string(v, location[0] + 1, location[1] + 2, 'Type : ' + game_stats['players'][player]['type'])
-		put_string(v, location[0] + 1, location[1] + 3, 'Money : ' + str(game_stats['players'][player]['money']))
-		put_string(v, location[0] + 1, location[1] + 4, 'Spaceship count : ' + str(game_stats['players'][player]['nb_ship']))
+		put_string(v, location[0] + 2, location[1] , '| ' + game_stats['players'][player]['name'] + ' |')
+		put_string(v, location[0] + 2, location[1] + 2, 'Type : ' + game_stats['players'][player]['type'])
+		put_string(v, location[0] + 2, location[1] + 3, 'Money : ' + str(game_stats['players'][player]['money']) + '$')
+		put_string(v, location[0] + 2, location[1] + 4, 'Spaceship count : ' + str(game_stats['players'][player]['nb_ship']))
 
 
 		player_count += 1
