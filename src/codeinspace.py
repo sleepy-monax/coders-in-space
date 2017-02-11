@@ -3,7 +3,12 @@ import string
 from command import *
 from gui import *
 from ai import *
+"""
+ __   __   __   ___               __   __        __   ___
+/  ` /  \ |  \ |__     | |\ |    /__` |__)  /\  /  ` |__
+\__, \__/ |__/ |___    | | \|    .__/ |    /~~\ \__, |___
 
+"""
 def new_game(path, list_players):
 	"""
 	Create a new game from a '.cis' file.
@@ -47,14 +52,15 @@ def new_game(path, list_players):
 		game_stats['players'][player] = {'name': player, 'money':100, 'nb_ship': 0, 'type':player_type, 'color':''}
 
 	# Create ship specs sheet.
-	game_stats['model_ship']['fighter']={'max_heal':3, 'max_speed':5, 'damages':1, 'range':5, 'price':10}
-	game_stats['model_ship']['destroyer']={'max_heal':8, 'max_speed':2, 'damages':2, 'range':7, 'price':20}
-	game_stats['model_ship']['battlecruiser']={'max_heal':20, 'max_speed':1, 'damages':4, 'range':10, 'price':30}
-	
+	game_stats['model_ship']['fighter']={'icon': u'F', 'max_heal':3, 'max_speed':5, 'damages':1, 'range':5, 'price':10}
+	game_stats['model_ship']['destroyer']={'icon': u'D', 'max_heal':8, 'max_speed':2, 'damages':2, 'range':7, 'price':20}
+	game_stats['model_ship']['battlecruiser']={'icon': u'B', 'max_heal':20, 'max_speed':1, 'damages':4, 'range':10, 'price':30}
+
 	#place the bonus ships
 	for ships in game_file['ships']:
 		game_stats['ship'][ships[2]]= { 'type':ships[3], 'heal_points':game_stats['model_ship'][ships[3]]['max_heal'],'direction':ships[4], 'speed':0, 'owner': 'none'}
-		game_stats['board'][(ships[0],ships[1])]= ships[2]
+		game_stats['board'][(ships[0],ships[1])] = []
+		game_stats['board'][(ships[0],ships[1])].append(ships[2])
 
 	return game_stats
 
@@ -187,7 +193,29 @@ def show_board(game_stats):
 	for x in range(game_stats['board_size'][0]):
 		for y in range(game_stats['board_size'][1]):
 			on_screen_board_tile = (x*3 + 4, y + 2)
-			put_string(v, on_screen_board_tile[0], on_screen_board_tile[1], ' .')
+
+			# Check how many ship there are in the board tile.
+			if len(game_stats['board'][(x,y)]) == 0:
+				# When there are only one, show juste nothing.
+				put_string(v, on_screen_board_tile[0], on_screen_board_tile[1], ' .')
+
+			elif len(game_stats['board'][(x,y)]) == 1:
+				# When there are one, show somme information about.
+				ship_name = game_stats['board'][(x,y)][0]
+				ship_type = game_stats['ship'][ship_name]['type']
+				ship_icon = game_stats['model_ship'][ship_type]['icon']
+				ship_owner = game_stats['ship'][ship_name]['owner']
+
+				if ship_owner == 'none':
+					put_string(v, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', 'on_green')
+				else:
+					ship_owner_color = game_stats['player'][['ship'][ship_name]['owner']]['color']
+					put_string(v, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', 'on_green')
+
+			else:
+				pass
+				# in other case show how many ship there are in the tile.
+
 
 	# Create player liste frame.
 	on_screen_player_board_size = (v['size'][0] - on_screen_board_size[0] - 1, on_screen_board_size[1])
@@ -197,14 +225,13 @@ def show_board(game_stats):
 	player_count = 0
 	for player in game_stats['players']:
 		location = (on_screen_board_size[0] + 2, 2 + (player_count * 6))
-		put_box(v, location[0], location[1], on_screen_player_board_size[0] - 2, 6,  'single')
+		put_box(v, location[0], location[1], on_screen_player_board_size[0] - 2, 6, 'single')
 
 		# Put player informations.
 		put_string(v, location[0] + 2, location[1] , '| ' + game_stats['players'][player]['name'] + ' |')
 		put_string(v, location[0] + 2, location[1] + 2, 'Type : ' + game_stats['players'][player]['type'])
 		put_string(v, location[0] + 2, location[1] + 3, 'Money : ' + str(game_stats['players'][player]['money']) + '$')
 		put_string(v, location[0] + 2, location[1] + 4, 'Spaceship count : ' + str(game_stats['players'][player]['nb_ship']))
-
 
 		player_count += 1
 
