@@ -50,6 +50,11 @@ def command_change_speed(ship, change, game_stats):
     Returns
     -------
     game_stats : the game after the command execution (dic)
+    
+    Version
+    -------
+    specification : Nicolas Van Bossuyt (v1. 09/02/2017)
+	implementation : Bayron Mahy (v1. 10/02/2017)
     """
     type = game_stats['ship'][ship]['type']
 
