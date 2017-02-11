@@ -44,12 +44,17 @@ def new_game(path, list_players):
 		else:
 			player_type = 'human'
 
-		game_stats['players'][player] = {'name': player, 'money':100, 'nb_ship': 0, 'type':player_type}
+		game_stats['players'][player] = {'name': player, 'money':100, 'nb_ship': 0, 'type':player_type, 'color':''}
 
 	# Create ship specs sheet.
 	game_stats['model_ship']['fighter']={'max_heal':3, 'max_speed':5, 'damages':1, 'range':5, 'price':10}
 	game_stats['model_ship']['destroyer']={'max_heal':8, 'max_speed':2, 'damages':2, 'range':7, 'price':20}
 	game_stats['model_ship']['battlecruiser']={'max_heal':20, 'max_speed':1, 'damages':4, 'range':10, 'price':30}
+	
+	#place the bonus ships
+	for ships in game_file['ships']:
+		game_stats['ship'][ships[3]]= { 'type':ships[4], 'heal_points':game_stats['model_ship'][ships[4]]['max_heal'],'direction':ships[5], 'speed':0, 'owner': 'none'}
+		
 
 	return game_stats
 
