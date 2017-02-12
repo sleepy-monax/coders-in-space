@@ -88,7 +88,8 @@ def command_rotate(ship, direction, game_stats):
 
     Version
     -------
-    specification v1. Nicolas Van Bossuyt (10/2/2017)
+
+specification v1. Nicolas Van Bossuyt (10/2/2017)
     implementation v1. Nicolas Van Bossuyt (10/2/2017)
     """
 
@@ -138,4 +139,16 @@ def command_attack(ship, coordinate, game_stats):
     -------
     new_game_stats : the game after the command execution.
     """
+	board_widts=game_stats['board_size'][0]
+	board_lenght=game_stats['board_size'][1]
+	damages=game_stats ['ship'][ship]['damages']
+	ship_abscissa=game_stats['ship'][ship]['position'][0] 
+	ship_orderly=game_stats['ship'][ship]['position'][1]
+	distance=(coordinate[0]-ship_abscissa ) + (coordinate[1]-ship_orderly )
+	if distance<=game_stats ['ship'][ship]['range'] :
+		for element in game_stats['board'][coordinate] :
+			game_stats['ship'][element]['heal_point']-=damages
+			if game_stats['ship'][element]['heal_point']<=0:
+				game_stats['board'][coordinate].remove(element)
+	return new_game_stats
     raise NotImplementedError
