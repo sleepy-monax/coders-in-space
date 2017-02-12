@@ -22,7 +22,7 @@ name = 'adr'
 ship = game_stats['ship'][name]
 ```
 
-Les vaiseaux on les parametres suivant :
+Les vaiseaux ont les parametres suivant :
 - type : le type du vaiseaux (string) pouvant être : fighter, destroyer, battlecruiser.
 ```python
 game['ship'][name]['type']
@@ -45,12 +45,14 @@ game['ship'][name]['direction'] = (-1, 1)
 ```
 
 - speed : represent la vitesse du vaisseau (int).
+```python
+game['ship'][name]['speed']
+```
 
 - position : postion sur le plateux de jeux. c'est un tuple content deux int.
 ```python
 # Changer la postion (Atention il ne faut pas oublier de la changer sur le plateau de jeu !):
 game['ship'][name]['postion'] = (y, x)
-
 
 # Position en X :
 game['ship'][name]['postion'][0]
@@ -60,7 +62,68 @@ game['ship'][name]['postion'][1]
 ```
 
 ## Les models de vaisseaux spatiaux.
+Les models de vaisseaux spatiaux sont contenus dans un dictionnaire qui prend en clé le nom du vaisseau.
+```python
+game_stats['model_ship']['fighter']
+```
+
+Un vaiseau a les paramètres suivants:
+
+- icon : represnetation sur le plateaux de jeux (string)
+> Attention cette valeur ne peut faire qu'un seul caratere !
+```python
+game_stats['model_ship'][name]['icon']
+```
+
+- max_heal : vie maximal (int).
+```python
+game_stats['model_ship'][name]['max_heal']
+```
+
+- max_speed : vitessse maximal (int).
+```python
+game_stats['model_ship'][name]['max_speed']
+```
+
+- damages : dégas maximaux du vaisseau (int).
+```python
+game_stats['model_ship'][name]['damages']
+```
+- range : distance d'attack (int).
+```python
+game_stats['model_ship'][name]['range']
+```
+
+- price : prix du vaisseau (int).
+```python
+game_stats['model_ship'][name]['price']
+```
 
 ## Les joueurs.
+Les joueurs sont contenus dans un dictionnaire qui prend en clé le nom du joueur.
+```python
+player = game_stats['playes']['john']
+```
+
+Un joueur a les paramètres suivants:
+- money : argent du joueur (int)
+```python
+game_stats['player'][name]['money']
+```
+- nb_ship : nombre de vaiseaux sur le plateaux (int)
+```python
+game_stats['player'][name]['nb_ship']
+```
+- type : type du joueur (string)<human|ia|remote>
+```python
+game_stats['player'][name]['type']
+```
+- color : couleur du joueur sur le plateaux de jeux (string)
+```python
+game_stats['player'][name]['color']
+```
 
 ## Les autres clés.
+- round
+- max_nb_round :
+- board_size
