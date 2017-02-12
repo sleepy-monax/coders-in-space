@@ -102,25 +102,25 @@ game_stats['model_ship'][name]['price']
 ## Les joueurs.
 Les joueurs sont contenus dans un dictionnaire qui prend en clé le nom du joueur.
 ```python
-player = game_stats['playes']['john']
+player = game_stats['players']['john']
 ```
 
 Un joueur a les paramètres suivants:
 - **money** : argent du joueur (int)
 ```python
-game_stats['player'][name]['money']
+game_stats['players'][name]['money']
 ```
 - **nb_ship** : nombre de vaiseaux sur le plateaux (int)
 ```python
-game_stats['player'][name]['nb_ship']
+game_stats['players'][name]['nb_ship']
 ```
 - **type** : type du joueur (string)```<human|ia|remote>```
 ```python
-game_stats['player'][name]['type']
+game_stats['players'][name]['type']
 ```
 - **color** : couleur du joueur sur le plateaux de jeux (string)
 ```python
-game_stats['player'][name]['color']
+game_stats['players'][name]['color']
 ```
 
 ## Les autres clés.
