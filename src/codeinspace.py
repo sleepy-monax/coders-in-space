@@ -67,7 +67,7 @@ def new_game(path, list_players):
 
 	# Create game_stats dictionary.
 	game_file = parse_game_file(path)
-	game_stats = {'board':{}, 'players':{},'model_ship':{}, 'ship': {},'board_size': game_file['size'], 'rounds': 0, 'max_nb_rounds': 10*len(list_players)}
+	game_stats = {'board':{}, 'players':{},'model_ship':{}, 'ships': {},'board_size': game_file['size'], 'nb_rounds': 0, 'max_nb_rounds': 10*len(list_players)}
 
 	# Create the game board.
 	for line in range(game_file['size'][0]):
@@ -90,7 +90,7 @@ def new_game(path, list_players):
 
 	#place the bonus ships
 	for ships in game_file['ships']:
-		game_stats['ship'][ships[2]]= { 'type':ships[3], 'heal_points':game_stats['model_ship'][ships[3]]['max_heal'],'direction':ships[4], 'speed':0, 'owner': 'none', 'postion': [ships[0],ships[1]] }
+		game_stats['ships'][ships[2]]= { 'type':ships[3], 'heal_points':game_stats['model_ship'][ships[3]]['max_heal'],'direction':ships[4], 'speed':0, 'owner': 'none', 'postion': [ships[0],ships[1]] }
 		game_stats['board'][(ships[0],ships[1])].append(ships[2])
 
 	return game_stats
