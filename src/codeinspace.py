@@ -90,8 +90,7 @@ def new_game(path, list_players):
 
 	#place the bonus ships
 	for ships in game_file['ships']:
-		game_stats['ship'][ships[2]]= { 'type':ships[3], 'heal_points':game_stats['model_ship'][ships[3]]['max_heal'],'direction':ships[4], 'speed':0, 'owner': 'none'}
-		game_stats['board'][(ships[0],ships[1])] = []
+		game_stats['ship'][ships[2]]= { 'type':ships[3], 'heal_points':game_stats['model_ship'][ships[3]]['max_heal'],'direction':ships[4], 'speed':0, 'owner': 'none', 'postion': [ships[0],ships[1]] }
 		game_stats['board'][(ships[0],ships[1])].append(ships[2])
 
 	return game_stats
