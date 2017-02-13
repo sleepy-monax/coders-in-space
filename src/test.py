@@ -7,4 +7,6 @@ print 'please make the windows full screen and press enter...'
 raw_input()
 
 game_stats = codeinspace.new_game('test\\test0.cis', ['Nicolas Rebel Of Space', 'ai'])
-codeinspace.show_board(game_stats)
+codeinspace.show_board(game_stats, False)
+
+raw_input()

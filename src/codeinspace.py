@@ -1,17 +1,9 @@
 # -*- coding: utf-8 -*-
 import string
-# from command import *
+from command import *
 from gui import *
 from ai import *
 """
-  ______   ______    _______   _______ .______          _______.    __  .__   __.         _______..______      ___       ______  _______
- /      | /  __  \  |       \ |   ____||   _  \        /       |   |  | |  \ |  |        /       ||   _  \    /   \     /      ||   ____|
-|  ,----'|  |  |  | |  .--.  ||  |__   |  |_)  |      |   (----`   |  | |   \|  |       |   (----`|  |_)  |  /  ^  \   |  ,----'|  |__
-|  |     |  |  |  | |  |  |  ||   __|  |      /        \   \       |  | |  . `  |        \   \    |   ___/  /  /_\  \  |  |     |   __|
-|  `----.|  `--'  | |  '--'  ||  |____ |  |\  \----.----)   |      |  | |  |\   |    .----)   |   |  |     /  _____  \ |  `----.|  |____
- \______| \______/  |_______/ |_______|| _| `._____|_______/       |__| |__| \__|    |_______/    | _|    /__/     \__\ \______||_______|
-
-
 .     .       .  .   . .   .   . .    +  .
   .     .  :     .    .. :. .___---------___.
        .  .   .    .  :.:. _".^ .^ ^.  '.. :"-_. .
@@ -40,10 +32,10 @@ from ai import *
 
                  .___       .__
   ____  ____   __| _/____   |__| ____     _________________    ____  ____
-_/ ___\/  _ \ / __ |/ __ \  |  |/    \   /  ___/\____ \__  \ _/ ___\/ __ \
+ / ___\/  _ \ / __ |/ __ \  |  |/    \   /  ___/\____ \__  \ _/ ___\/ __ \
 \  \__(  <_> ) /_/ \  ___/  |  |   |  \  \___ \ |  |_> > __ \\  \__\  ___/
- \___  >____/\____ |\___  > |__|___|  / /____  >|   __(____  /\___  >___  >
-     \/           \/    \/          \/       \/ |__|       \/     \/    \/
+ \_____>____/\____ |\_____> |__|___|  / /____  >|   __(______/\_____>_____>
+                                                |__|
 """
 def new_game(path, list_players):
 	"""
@@ -187,7 +179,7 @@ def play_game():
 
 	raise NotImplementedError
 
-def show_board(game_stats):
+def show_board(game_stats, color = True):
 	"""
 	Show the game to the user screen.
 
@@ -197,7 +189,7 @@ def show_board(game_stats):
 	"""
 
 	# Create a new game_view.
-	v = creat_game_view(190,50)
+	v = creat_game_view(190, 50, color)
 
 	# Create the board frame.
 	on_screen_board_size = (game_stats['board_size'][0]*3 + 5, game_stats['board_size'][1] + 3)
@@ -244,11 +236,11 @@ def show_board(game_stats):
 				if ship_owner == 'none':
 					put_string(v, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', 'on_green')
 				else:
-					ship_owner_color = game_stats['player'][['ship'][ship_name]['owner']]['color']
+					ship_owner_color = game_stats['player'][['ships'][ship_name]['owner']]['color']
 					put_string(v, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', 'on_green')
 
 			else:
-				pass
+				put_string(v, on_screen_board_tile[0], on_screen_board_tile[1], '!' + str(len(game_stats['board'][(x,y)])),1,0,'white', 'on_green')
 				# in other case show how many ship there are in the tile.
 
 

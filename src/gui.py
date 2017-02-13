@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from termcolor import *
 
-def creat_game_view(width, height):
+def creat_game_view(width, height, enable_color = True):
     """
     Create a new view buffer for the gui.
 
@@ -9,6 +9,7 @@ def creat_game_view(width, height):
     ---------
     height : height of the game view (int).
     width : width of the game view (int).
+    enable_color : enable color in the game view (bool)
 
     Return
     ------
@@ -20,7 +21,7 @@ def creat_game_view(width, height):
     implementation v1. Nicolas Van Bossuyt (10/2/2017)
     """
 
-    game_view = {'size': (width, height), 'grid': {}}
+    game_view = {'size': (width, height), 'color': enable_color, 'grid': {}}
 
     for x in range(width):
         for y in range(height):
@@ -177,8 +178,11 @@ def print_game_view(game_view):
             char = grid_item['char']
             color = grid_item['color']
             back_color = grid_item['back_color']
-            line = line + char # + colored(char, color, back_color)
 
+            if (game_view['color']):
+                line = line + colored(char, color, back_color)
+            else:
+                line = line + char
         print line
 
 def try_gui_lib():
