@@ -19,18 +19,18 @@ Les vaisseaux sont contenu dans un dictionaire qui prend en clé le nom du vaiss
 ```python
 # Rcupere un vaiseau precis :
 name = 'adr'
-ship = game_stats['ship'][name]
+ship = game_stats['ships'][name]
 ```
 
 Les vaiseaux ont les parametres suivant :
 - **type** : le type du vaiseaux (string) pouvant être : fighter, destroyer, battlecruiser.
 ```python
-game['ship'][name]['type']
+game['ships'][name]['type']
 ```
 
 - **heal_point** : nombre point de vie restant du vaisseau (int).
 ```python
-game['ship'][name]['heal_point']
+game['ships'][name]['heal_point']
 ```
 
 - **owner** : proprietaire du vaiseaux (string)
@@ -43,24 +43,24 @@ game['ship'][name]['owner']
 
 - **direction** : direction vers laquelle il se dirige. c'est un tuple contenat deux int qui reprsent un vecteur 2D.
 ```python
-game['ship'][name]['direction'] = (-1, 1)
+game['ships'][name]['direction'] = (-1, 1)
 ```
 
 - **speed** : represent la vitesse du vaisseau (int).
 ```python
-game['ship'][name]['speed']
+game['ships'][name]['speed']
 ```
 
 - **position** : postion sur le plateux de jeux. c'est un tuple content deux int.
 ```python
 # Changer la postion (Atention il ne faut pas oublier de la changer sur le plateau de jeu !):
-game['ship'][name]['postion'] = (y, x)
+game['ships'][name]['postion'] = (y, x)
 
 # Position en X :
-game['ship'][name]['postion'][0]
+game['ships'][name]['postion'][0]
 
 # Position en y :
-game['ship'][name]['postion'][1]
+game['ships'][name]['postion'][1]
 ```
 
 ## Les models de vaisseaux spatiaux.
@@ -124,6 +124,6 @@ game_stats['players'][name]['color']
 ```
 
 ## Les autres clés.
-- **round**
+- **nb_round**
 - **max_nb_round**
 - **board_size**
