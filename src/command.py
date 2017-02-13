@@ -141,19 +141,24 @@ def command_attack(ship, coordinate, game_stats):
 	board_width=game_stats['board_size'][0]
 	board_lenght=game_stats['board_size'][1]
 
-	damages=game_stats ['ship'][ship]['damages']
-	ship_abscissa=game_stats['ship'][ship]['position'][0]
-	ship_orderly=game_stats['ship'][ship]['position'][1]
+	damages=game_stats ['ships'][ship]['damages']
+	ship_abscissa=game_stats['ships'][ship]['position'][0]
+	ship_orderly=game_stats['ships'][ship]['position'][1]
 
 	distance=(coordinate[0]-ship_abscissa ) + (coordinate[1]-ship_orderly )
 
-	if distance<=game_stats ['ship'][ship]['range'] :
+	if distance<=game_stats ['ships'][ship]['range'] :
 
 		for element in game_stats['board'][coordinate] :
 
-			game_stats['ship'][element]['heal_point']-=damages
+			game_stats['ships'][element]['heal_point']-=damages
 
-			if game_stats['ship'][element]['heal_point']<=0:
+			if game_stats['ships'][element]['heal_point']<=0:
 				game_stats['board'][coordinate].remove(element)
 	return new_game_stats
 	raise NotImplementedError
+
+def convert_coordinate(coordinate):
+    abscissa=game_stats[coordinate][0]
+    orderly=game_stats[coordinate][1]
+	
