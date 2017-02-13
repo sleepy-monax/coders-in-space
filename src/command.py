@@ -148,13 +148,16 @@ def command_attack(ship, coordinate, game_stats):
 	distance=(coordinate[0]-ship_abscissa ) + (coordinate[1]-ship_orderly )
 
 	if distance<=game_stats ['ships'][ship]['range'] :
+		
+		if game_stats['board'][coordinate]=![]:
+		    game_stats['nb_rounds']=0
 
-		for element in game_stats['board'][coordinate] :
+		    for element in game_stats['board'][coordinate] :
 
-			game_stats['ships'][element]['heal_point']-=damages
+		        game_stats['ships'][element]['heal_point']-=damages
 
-			if game_stats['ships'][element]['heal_point']<=0:
-				game_stats['board'][coordinate].remove(element)
+		        if game_stats['ships'][element]['heal_point']<=0:
+			    game_stats['board'][coordinate].remove(element)
 	return new_game_stats
 	raise NotImplementedError
 
