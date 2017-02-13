@@ -177,7 +177,7 @@ def print_game_view(game_view):
             char = grid_item['char']
             color = grid_item['color']
             back_color = grid_item['back_color']
-            line = line # + colored(char, color, back_color)
+            line = line + char # + colored(char, color, back_color)
 
         print line
 
