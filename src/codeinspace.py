@@ -33,13 +33,13 @@ from ai import *
      .         +   .  .  ...:: ..|  --.:|
 .      . . .   .  .  . ... :..:.."(  ..)"
  .   .       .      :  .   .: ::/  .  .::\
- 
-                 .___       .__                                            
-  ____  ____   __| _/____   |__| ____     _________________    ____  ____  
-_/ ___\/  _ \ / __ |/ __ \  |  |/    \   /  ___/\____ \__  \ _/ ___\/ __ \ 
-\  \__(  <_> ) /_/ \  ___/  |  |   |  \  \___ \ |  |_> > __ \\  \__\  ___/ 
+
+                 .___       .__
+  ____  ____   __| _/____   |__| ____     _________________    ____  ____
+_/ ___\/  _ \ / __ |/ __ \  |  |/    \   /  ___/\____ \__  \ _/ ___\/ __ \
+\  \__(  <_> ) /_/ \  ___/  |  |   |  \  \___ \ |  |_> > __ \\  \__\  ___/
  \___  >____/\____ |\___  > |__|___|  / /____  >|   __(____  /\___  >___  >
-     \/           \/    \/          \/       \/ |__|       \/     \/    \/ 
+     \/           \/    \/          \/       \/ |__|       \/     \/    \/
 """
 def new_game(path, list_players):
 	"""
@@ -233,9 +233,9 @@ def show_board(game_stats):
 			elif len(game_stats['board'][(x,y)]) == 1:
 				# When there are one, show somme information about.
 				ship_name = game_stats['board'][(x,y)][0]
-				ship_type = game_stats['ship'][ship_name]['type']
+				ship_type = game_stats['ships'][ship_name]['type']
 				ship_icon = game_stats['model_ship'][ship_type]['icon']
-				ship_owner = game_stats['ship'][ship_name]['owner']
+				ship_owner = game_stats['ships'][ship_name]['owner']
 
 				if ship_owner == 'none':
 					put_string(v, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', 'on_green')
