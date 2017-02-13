@@ -198,7 +198,7 @@ def show_board(game_stats, color = True):
 
 	# Put horizontal coordinate.
 	coordinate_string = ''
-	for i in range(game_stats['board_size'][0]):
+	for i in range(1, game_stats['board_size'][0] + 1):
 		value_string = str(i)
 		if len(value_string) == 1:
 			value_string = ' ' + value_string
@@ -208,11 +208,11 @@ def show_board(game_stats, color = True):
 	put_string(c, 4, 1, coordinate_string, 1, 0, 'blue', 'white')
 
 	# Put vertical coordinate.
-	for i in range(game_stats['board_size'][1]):
+	for i in range(1, game_stats['board_size'][1] +1):
 		value_string = str(i)
 		if len(value_string) == 1:
 			value_string = ' ' + value_string
-		put_string(c,2,i + 2,value_string, 1,0, 'blue', 'white')
+		put_string(c,2,i + 1,value_string, 1,0, 'blue', 'white')
 
 	# Put game board.
 	for x in range(game_stats['board_size'][0]):

@@ -27,12 +27,15 @@ def parse_command(commands, game_stats):
 		ship_action = sub_cmd[1]
 
 		if ship_action == 'slower' or ship_action == 'faster':
+			# Speed command :
 			game_stats = command_change_speed(ship_name, ship_action, game_stats)
 		elif ship_action == 'left' or ship_action == 'right':
+			# Rotate command :
 			game_stats = command_rotate(ship_name, ship_action, game_stats)
 		else:
+			# Attack command :
 			ship_action = ship_action.split('-')
-			coordinate = (int(ship_action[0]), int(ship_action[1]))
+			coordinate = (int(ship_action[0]) - 1, int(ship_action[1]) - 1)
 			game_stats = command_attack(ship_name, coordinate, game_stats)
 
 	return game_stats
@@ -142,10 +145,9 @@ def command_attack(ship, coordinate, game_stats):
 	board_lenght=game_stats['board_size'][1]
 
 	damages=game_stats ['ships'][ship]['damages']
-	ship_abscissa=game_stats['ships'][ship]['position'][0]
-	ship_orderly=game_stats['ships'][ship]['position'][1]
+	ship_location=game_stats['ships'][ship]['position']
 
-	distance=(coordinate[0]-ship_abscissa ) + (coordinate[1]-ship_orderly )
+	distance= (coordinate[0] - ship_location[0]) + (coordinate[1] - ship_location[1])
 
 	if distance<=game_stats ['ships'][ship]['range'] :
 
@@ -159,7 +161,6 @@ def command_attack(ship, coordinate, game_stats):
 		        if game_stats['ships'][element]['heal_point']<=0:
 			    game_stats['board'][coordinate].remove(element)
 	return new_game_stats
-	raise NotImplementedError
 
 def convert_coordinate(coordinate):
     abscissa=game_stats[coordinate][0]
