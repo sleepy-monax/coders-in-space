@@ -188,13 +188,13 @@ def show_board(game_stats, color = True):
 	game_stats : game to show on screen (dic).
 	"""
 
-	# Create a new game_view.
-	v = creat_game_view(190, 50, color)
+	# Create a new canvas.
+	c = creat_canvas(190, 50, color)
 
 	# Create the board frame.
 	on_screen_board_size = (game_stats['board_size'][0]*3 + 5, game_stats['board_size'][1] + 3)
-	put_box(v, 0, 0, on_screen_board_size[0], on_screen_board_size[1])
-	put_string(v, 2, 0, u'| # Game Board |')
+	put_box(c, 0, 0, on_screen_board_size[0], on_screen_board_size[1])
+	put_string(c, 2, 0, u'| # Game Board |')
 
 	# Put horizontal coordinate.
 	coordinate_string = ''
@@ -207,14 +207,14 @@ def show_board(game_stats, color = True):
 
 		coordinate_string += value_string
 
-	put_string(v,4,1,coordinate_string, 1,0, 'blue', 'on_white')
+	put_string(c, 4, 1, coordinate_string, 1, 0, 'blue', 'white')
 
 	# Put vertical coordinate.
 	for i in range(game_stats['board_size'][1]):
 		value_string = str(i)
 		if len(value_string) == 1:
 			value_string = ' ' + value_string
-		put_string(v,2,i + 2,value_string, 1,0, 'blue', 'on_white')
+		put_string(c,2,i + 2,value_string, 1,0, 'blue', 'white')
 
 	# Put game board.
 	for x in range(game_stats['board_size'][0]):
@@ -224,7 +224,7 @@ def show_board(game_stats, color = True):
 			# Check how many ship there are in the board tile.
 			if len(game_stats['board'][(x,y)]) == 0:
 				# When there are only one, show juste nothing.
-				put_string(v, on_screen_board_tile[0], on_screen_board_tile[1], ' .')
+				put_string(c, on_screen_board_tile[0], on_screen_board_tile[1], ' .')
 
 			elif len(game_stats['board'][(x,y)]) == 1:
 				# When there are one, show somme information about.
@@ -234,33 +234,33 @@ def show_board(game_stats, color = True):
 				ship_owner = game_stats['ships'][ship_name]['owner']
 
 				if ship_owner == 'none':
-					put_string(v, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', 'on_green')
+					put_string(c, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', 'green')
 				else:
 					ship_owner_color = game_stats['player'][['ships'][ship_name]['owner']]['color']
-					put_string(v, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', 'on_green')
+					put_string(c, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', ship_owner_color)
 
 			else:
-				put_string(v, on_screen_board_tile[0], on_screen_board_tile[1], '!' + str(len(game_stats['board'][(x,y)])),1,0,'white', 'on_green')
+				put_string(c, on_screen_board_tile[0], on_screen_board_tile[1], '!' + str(len(game_stats['board'][(x,y)])),1,0,'white', 'green')
 				# in other case show how many ship there are in the tile.
 
 
 	# Create player liste frame.
-	on_screen_player_board_size = (v['size'][0] - on_screen_board_size[0] - 1, on_screen_board_size[1])
-	put_box(v, on_screen_board_size[0] + 1, 0, on_screen_player_board_size[0], on_screen_player_board_size[1])
-	put_string(v, on_screen_board_size[0] + 3, 0, u'| (^_^) Players |')
+	on_screen_player_board_size = (c['size'][0] - on_screen_board_size[0] - 1, on_screen_board_size[1])
+	put_box(c, on_screen_board_size[0] + 1, 0, on_screen_player_board_size[0], on_screen_player_board_size[1])
+	put_string(c, on_screen_board_size[0] + 3, 0, u'| (^_^) Players |')
 
 	player_count = 0
 	for player in game_stats['players']:
 		location = (on_screen_board_size[0] + 2, 2 + (player_count * 6))
-		put_box(v, location[0], location[1], on_screen_player_board_size[0] - 2, 6, 'single')
+		put_box(c, location[0], location[1], on_screen_player_board_size[0] - 2, 6, 'single')
 
 		# Put player informations.
-		put_string(v, location[0] + 2, location[1] , '| ' + game_stats['players'][player]['name'] + ' |')
-		put_string(v, location[0] + 2, location[1] + 2, 'Type : ' + game_stats['players'][player]['type'])
-		put_string(v, location[0] + 2, location[1] + 3, 'Money : ' + str(game_stats['players'][player]['money']) + '$')
-		put_string(v, location[0] + 2, location[1] + 4, 'Spaceship count : ' + str(game_stats['players'][player]['nb_ship']))
+		put_string(c, location[0] + 2, location[1] , '| ' + game_stats['players'][player]['name'] + ' |')
+		put_string(c, location[0] + 2, location[1] + 2, 'Type : ' + game_stats['players'][player]['type'])
+		put_string(c, location[0] + 2, location[1] + 3, 'Money : ' + str(game_stats['players'][player]['money']) + '$')
+		put_string(c, location[0] + 2, location[1] + 4, 'Spaceship count : ' + str(game_stats['players'][player]['nb_ship']))
 
 		player_count += 1
 
-
-	print_game_view(v)
+    # Show the game board in the terminal.
+	print_canvas(c)

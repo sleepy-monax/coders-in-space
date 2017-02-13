@@ -148,8 +148,8 @@ def command_attack(ship, coordinate, game_stats):
 	distance=(coordinate[0]-ship_abscissa ) + (coordinate[1]-ship_orderly )
 
 	if distance<=game_stats ['ships'][ship]['range'] :
-		
-		if game_stats['board'][coordinate]=![]:
+
+		if not game_stats['board'][coordinate] == []:
 		    game_stats['nb_rounds']=0
 
 		    for element in game_stats['board'][coordinate] :
@@ -164,4 +164,3 @@ def command_attack(ship, coordinate, game_stats):
 def convert_coordinate(coordinate):
     abscissa=game_stats[coordinate][0]
     orderly=game_stats[coordinate][1]
-	
