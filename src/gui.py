@@ -1,5 +1,15 @@
 # -*- coding: utf-8 -*-
 from termcolor import *
+import os
+
+def cls():
+    """
+    Clear the terminal screen.
+    """
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
 
 def creat_canvas(width, height, enable_color = True):
     """

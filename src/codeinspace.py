@@ -202,9 +202,7 @@ def show_board(game_stats, color = True):
 		value_string = str(i)
 		if len(value_string) == 1:
 			value_string = ' ' + value_string
-
 		value_string += ' '
-
 		coordinate_string += value_string
 
 	put_string(c, 4, 1, coordinate_string, 1, 0, 'blue', 'white')
@@ -234,31 +232,32 @@ def show_board(game_stats, color = True):
 				ship_owner = game_stats['ships'][ship_name]['owner']
 
 				if ship_owner == 'none':
+                    # The ship is a abandoned one.
 					put_string(c, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', 'green')
 				else:
+                    # The ship have a owner.
 					ship_owner_color = game_stats['player'][['ships'][ship_name]['owner']]['color']
 					put_string(c, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', ship_owner_color)
 
 			else:
+                # in other case show how many ship there are in the tile.
 				put_string(c, on_screen_board_tile[0], on_screen_board_tile[1], '!' + str(len(game_stats['board'][(x,y)])),1,0,'white', 'green')
-				# in other case show how many ship there are in the tile.
-
 
 	# Create player liste frame.
-	on_screen_player_board_size = (c['size'][0] - on_screen_board_size[0] - 1, on_screen_board_size[1])
-	put_box(c, on_screen_board_size[0] + 1, 0, on_screen_player_board_size[0], on_screen_player_board_size[1])
-	put_string(c, on_screen_board_size[0] + 3, 0, u'| (^_^) Players |')
+	on_screen_player_board_size = (len(game_stats['players']) * 30 + 2, c['size'][1] - on_screen_board_size[1])
+	put_box(c, 0, on_screen_board_size[1], on_screen_player_board_size[0], on_screen_player_board_size[1])
+	put_string(c, 1, on_screen_board_size[1], u'| (^_^) Players |')
 
 	player_count = 0
 	for player in game_stats['players']:
-		location = (on_screen_board_size[0] + 2, 2 + (player_count * 6))
-		put_box(c, location[0], location[1], on_screen_player_board_size[0] - 2, 6, 'single')
+		location = ((player_count * 30) + 1, on_screen_board_size[1] + 1,)
+		put_box(c, location[0], location[1], 30, 5, 'single')
 
 		# Put player informations.
 		put_string(c, location[0] + 2, location[1] , '| ' + game_stats['players'][player]['name'] + ' |')
-		put_string(c, location[0] + 2, location[1] + 2, 'Type : ' + game_stats['players'][player]['type'])
-		put_string(c, location[0] + 2, location[1] + 3, 'Money : ' + str(game_stats['players'][player]['money']) + '$')
-		put_string(c, location[0] + 2, location[1] + 4, 'Spaceship count : ' + str(game_stats['players'][player]['nb_ship']))
+		put_string(c, location[0] + 2, location[1] + 1, 'Type : ' + game_stats['players'][player]['type'])
+		put_string(c, location[0] + 2, location[1] + 2, 'Money : ' + str(game_stats['players'][player]['money']) + '$')
+		put_string(c, location[0] + 2, location[1] + 3, 'Spaceship count : ' + str(game_stats['players'][player]['nb_ship']))
 
 		player_count += 1
 
