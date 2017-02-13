@@ -65,6 +65,11 @@ def new_game(path, list_players):
 	game_file = parse_game_file(path)
 	game_stats = {'board':{}, 'players':{},'model_ship':{}, 'ships': {},'board_size': game_file['size'], 'nb_rounds': 0, 'max_nb_rounds': 10*len(list_players)}
 
+    # Create ship specs sheet.
+	game_stats['model_ship']['fighter'] = {'icon': u'F', 'max_heal':3, 'max_speed':5, 'damages':1, 'range':5, 'price':10}
+	game_stats['model_ship']['destroyer'] = {'icon': u'D', 'max_heal':8, 'max_speed':2, 'damages':2, 'range':7, 'price':20}
+	game_stats['model_ship']['battlecruiser'] = {'icon': u'B', 'max_heal':20, 'max_speed':1, 'damages':4, 'range':10, 'price':30}
+
 	# Create the game board.
 	for line in range(game_file['size'][0]):
 		for column in range(game_stats['board_size'][1]):
@@ -78,11 +83,6 @@ def new_game(path, list_players):
 			player_type = 'human'
 
 		game_stats['players'][player] = {'name': player, 'money':100, 'nb_ship': 0, 'type':player_type, 'color':''}
-
-	# Create ship specs sheet.
-	game_stats['model_ship']['fighter']={'icon': u'F', 'max_heal':3, 'max_speed':5, 'damages':1, 'range':5, 'price':10}
-	game_stats['model_ship']['destroyer']={'icon': u'D', 'max_heal':8, 'max_speed':2, 'damages':2, 'range':7, 'price':20}
-	game_stats['model_ship']['battlecruiser']={'icon': u'B', 'max_heal':20, 'max_speed':1, 'damages':4, 'range':10, 'price':30}
 
 	#place the bonus ships
 	for ships in game_file['ships']:
