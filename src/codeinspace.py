@@ -212,7 +212,7 @@ def show_board(game_stats, color = True):
 		value_string = str(i)
 		if len(value_string) == 1:
 			value_string = ' ' + value_string
-		put_string(c,2,i + 1,value_string, 1,0, 'blue', 'white')
+		put_string(c,1,i + 1,value_string + ' ', 1,0, 'blue', 'white')
 
 	# Put game board.
 	for x in range(game_stats['board_size'][0]):
