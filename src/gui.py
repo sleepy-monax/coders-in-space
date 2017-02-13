@@ -39,6 +39,8 @@ def creat_canvas(width, height, enable_color = True):
         for y in range(height):
             canvas['grid'][(x,y)] = {'color':None, 'back_color':None, 'char':' '}
 
+    canvas = put_box(canvas, 0, 0, width, height, 'single')
+    canvas = put_string(canvas, width - 32, height - 1, '| canvas size : %d, %d |' % (width, height))
     return canvas
 
 def put(canvas, x, y, char, color = None, back_color = None):
