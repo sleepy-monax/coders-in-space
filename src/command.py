@@ -87,7 +87,7 @@ def command_rotate(ship, direction, game_stats):
     new_game_stats : the game after the command execution.
 
     Version
-    -------
+h    -------
 
 specification v1. Nicolas Van Bossuyt (10/2/2017)
     implementation v1. Nicolas Van Bossuyt (10/2/2017)
@@ -97,8 +97,7 @@ specification v1. Nicolas Van Bossuyt (10/2/2017)
         """
         Rotate a vector in a 2D space by a specified angle in radian.
 
-        Parameters
-        ----------
+        Parameters        ----------
         vector : 2D vector ton rotate (tuple(int,int)).
         radian : angle appli to the 2D vector (float).
 
@@ -139,7 +138,7 @@ def command_attack(ship, coordinate, game_stats):
     -------
     new_game_stats : the game after the command execution.
     """
-	board_widts=game_stats['board_size'][0]
+	board_width=game_stats['board_size'][0]
 	board_lenght=game_stats['board_size'][1]
 	
 	damages=game_stats ['ship'][ship]['damages']
