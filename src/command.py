@@ -148,6 +148,8 @@ def command_attack(ship, coordinate, game_stats):
 	ship_location=game_stats['ships'][ship]['position']
 
 	distance= (coordinate[0] - ship_location[0]) + (coordinate[1] - ship_location[1])
+	distance_2=(ship_location[0]+board_width -coordinate[0]) + (coordinate[1]-ship_location[1])
+	
 
 	if distance<=game_stats ['ships'][ship]['range'] :
 
