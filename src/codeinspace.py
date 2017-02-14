@@ -58,8 +58,6 @@ def play_game(level_name, player_list):
 
 		pass
 
-	raise NotImplementedError
-
 def new_game(level_name, players_list):
 	"""
 	Create a new game from a '.cis' file.
@@ -210,7 +208,7 @@ def show_board(game_stats, color = True):
 	# Create the board frame.
 	on_screen_board_size = (game_stats['board_size'][0]*3 + 5, game_stats['board_size'][1] + 3)
 	put_box(c, 0, 0, on_screen_board_size[0], on_screen_board_size[1])
-	put_string(c, 2, 0, u'| Game Board |')
+	put_string(c, 2, 0, u'| Code in space : %s |' % (game_stats['level_name']))
 
 	# Put horizontal coordinate.
 	coordinate_string = ''
