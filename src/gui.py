@@ -13,17 +13,17 @@ def cls():
 
 def creat_canvas(width, height, enable_color = True):
     """
-    Create a new utf-8 canvas.
+    Create a new char canvas.
 
-    Parameterr
-    ---------
+    Parameters
+    ----------
     height : height of the game view (int).
     width : width of the game view (int).
     enable_color : enable color in the game view (bool)
 
     Return
     ------
-    canva : utf-8 canvas (dic).
+    canva : new char canva (dic).
 
     Version
     -------
@@ -33,27 +33,35 @@ def creat_canvas(width, height, enable_color = True):
                     v2. Nicolas Van Bossuyt (13/2/2017)
     """
 
+    # Initialize the canvas.
     canvas = {'size': (width, height), 'color': enable_color, 'grid': {}}
 
+    # Create canvas's tiles.
     for x in range(width):
         for y in range(height):
             canvas['grid'][(x,y)] = {'color':None, 'back_color':None, 'char':' '}
 
+    # Put debug informations.
     canvas_info = '| canvas size : %d, %d |' % (width, height)
     canvas = put_box(canvas, 0, 0, width, height, 'single')
     canvas = put_string(canvas, width - len(canvas_info) - 2, height - 1, canvas_info)
+
     return canvas
 
 def put(canvas, x, y, char, color = None, back_color = None):
     """
     Put the specified char in the canvas.
 
-    Parameter
-    ---------
+    Parameters
+    ----------
     canvas : game view to put the char in (dic).
     x, y : coordinate of were to put the char (int).
     char : char to put (str).
     color, back_color : color for the char (string).
+
+    Return
+    ------
+    canvas : canvas with the char put on it (dic).
 
     Version
     -------
@@ -79,7 +87,7 @@ def put(canvas, x, y, char, color = None, back_color = None):
 
 def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = None):
     """
-    Draw a rectangle in the string buffer.
+    Put and fill a rectangle in the canvas.
 
     Parameters
     ----------
@@ -87,7 +95,7 @@ def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = 
     width, height : size of the rectangle (int).
     color, back_color : color for the char (string).
 
-    return
+    Return
     ------
     canvas : canvas whith the rectangle (dic).
 
@@ -105,7 +113,7 @@ def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = 
 
 def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_color = None):
     """
-    Put a box in the game view.
+    Put a box in the canvas.
 
     Parameters
     ----------
@@ -114,7 +122,7 @@ def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_col
     mode : double ou single line <'double'|'single'> (str).
     color, back_color : color for the char (string).
 
-    return
+    Return
     ------
     canvas : canvas whith the box (dic).
 
@@ -180,7 +188,7 @@ def print_canvas(canvas):
 
     Parameter
     ---------
-    canvas : string buffer to draw on screen.
+    canvas : canvas to print on screen (dic).
 
     Version
     -------
@@ -204,9 +212,3 @@ def print_canvas(canvas):
             else:
                 line = line + char
         print line
-
-def try_gui_lib():
-    v = creat_canvas(20,20)
-    put_box(v, 0,0, 19, 3, 'double', 'yellow', 'on_blue')
-    put_string(v, 1,1,' Code In Space ! ',1,0, 'yellow', 'on_blue')
-    print_canvas(v)

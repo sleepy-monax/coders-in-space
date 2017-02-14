@@ -37,14 +37,35 @@ from ai import *
  \_____>____/\____ |\_____> |__|___|  / /____  >|   __(______/\_____>_____>
                                                 |__|
 """
-def new_game(path, list_players):
+def play_game(path, player_list):
+	"""
+	Main game function thats run the game loop.
+	"""
+    game_stats = new_game(path, player_list)
+
+    # Players create their ships.
+
+    # Game loop.
+    while game_stats['is_game_continue']:
+
+        # getting players input.
+
+        # Do ships moves.
+
+        # Do Attack
+
+        pass
+
+	raise NotImplementedError
+
+def new_game(path, players_list):
 	"""
 	Create a new game from a '.cis' file.
 
 	Parameters
 	----------
-	path : to the cis file (str).
-	list_players: list of players (list).
+	level_name : name of the level to play in (str).
+	players_list : list of players (list).
 
 	Return
 	-------
@@ -62,8 +83,8 @@ def new_game(path, list_players):
 	"""
 
 	# Create game_stats dictionary.
-	game_file = parse_game_file(path)
-	game_stats = {'board':{}, 'players':{},'model_ship':{}, 'ships': {},'board_size': game_file['size'], 'nb_rounds': 0, 'max_nb_rounds': 10*len(list_players)}
+	game_file = parse_game_file(level_name)
+	game_stats = {'board':{}, 'players':{},'model_ship':{}, 'ships': {},'board_size': game_file['size'],'level_name': level_name, 'nb_rounds': 0, 'max_nb_rounds': 10*len(list_players), 'is_game_continue':True}
 
     # Create ship specs sheet.
 	game_stats['model_ship']['fighter'] = {'icon': u'F', 'max_heal':3, 'max_speed':5, 'damages':1, 'range':5, 'price':10}
@@ -76,7 +97,7 @@ def new_game(path, list_players):
 			game_stats['board'][(line,column)] = []
 
 	# Create players.
-	for player in list_players:
+	for player in players_list:
 		if player == 'ai' or play_game == 'distant':
 			player_type = player
 		else:
@@ -84,7 +105,7 @@ def new_game(path, list_players):
 
 		game_stats['players'][player] = {'name': player, 'money':100, 'nb_ship': 0, 'type':player_type, 'color':''}
 
-	#place the bonus ships
+	#place lost ships
 	for ships in game_file['ships']:
 		game_stats['ships'][ships[2]]= { 'type':ships[3], 'heal_points':game_stats['model_ship'][ships[3]]['max_heal'],'direction':ships[4], 'speed':0, 'owner': 'none', 'postion': [ships[0],ships[1]] }
 		game_stats['board'][(ships[0],ships[1])].append(ships[2])
@@ -172,13 +193,6 @@ def parse_game_file(path):
 
 	return parsed_data
 
-def play_game():
-	"""
-	Main game function thats run the game loop.
-	"""
-
-	raise NotImplementedError
-
 def show_board(game_stats, color = True):
 	"""
 	Show the game to the user screen.
@@ -194,7 +208,7 @@ def show_board(game_stats, color = True):
 	# Create the board frame.
 	on_screen_board_size = (game_stats['board_size'][0]*3 + 5, game_stats['board_size'][1] + 3)
 	put_box(c, 0, 0, on_screen_board_size[0], on_screen_board_size[1])
-	put_string(c, 2, 0, u'| # Game Board |')
+	put_string(c, 2, 0, u'| Game Board |')
 
 	# Put horizontal coordinate.
 	coordinate_string = ''
@@ -246,7 +260,7 @@ def show_board(game_stats, color = True):
 	# Create player liste frame.
 	on_screen_player_board_size = (len(game_stats['players']) * 30 + 2, c['size'][1] - on_screen_board_size[1])
 	put_box(c, 0, on_screen_board_size[1], on_screen_player_board_size[0], on_screen_player_board_size[1])
-	put_string(c, 1, on_screen_board_size[1], u'| (^_^) Players |')
+	put_string(c, 1, on_screen_board_size[1], u'| Players |')
 
 	player_count = 0
 	for player in game_stats['players']:
@@ -263,3 +277,19 @@ def show_board(game_stats, color = True):
 
     # Show the game board in the terminal.
 	print_canvas(c)
+
+def get_player_input(player_name, game_stats):
+    """
+    Get and return input form the player.
+
+    Parameter:
+    ----------
+    Player_name : Name of the player (str).
+    game_stats : the stats of the game (dic).
+
+    Return:
+    -------
+    player_input : the input from the player (str).
+    """
+
+    raise NotImplementedError
