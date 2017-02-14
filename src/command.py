@@ -146,34 +146,34 @@ def command_attack(ship, coordinate, game_stats):
 
 	damages=game_stats ['ships'][ship]['damages']
 	ship_location=game_stats['ships'][ship]['position']
-	
-    if coordinate[0]+ship_location[0]<=board_width/2:
-        if coordinate[0]<ship_location[0]:
-            coordinate[0]+=board_width
-        else:
-            ship_location[0]+=board_width
-        
-    if coordinate[1]+ship_location[1]<=board_lenght/2:
-        if coordinate[1]<ship_location[1]:        
-            coordinate[1]+=board_lenght
-        else:
-            ship_location[1]+=board_lenght   
-	    distance= abs((coordinate[0] - ship_location[0])) + abs((coordinate[1] - ship_location[1]))
-	
+
+	if coordinate[0]+ship_location[0]<=board_width/2:
+		if coordinate[0]<ship_location[0]:
+			coordinate[0]+=board_width
+		else:
+			ship_location[0]+=board_width
+
+	if coordinate[1]+ship_location[1]<=board_lenght/2:
+		if coordinate[1]<ship_location[1]:
+			coordinate[1]+=board_lenght
+		else:
+			ship_location[1]+=board_lenght
+		distance= abs((coordinate[0] - ship_location[0])) + abs((coordinate[1] - ship_location[1]))
+
 
 	if distance<=game_stats ['ships'][ship]['range'] :
 
 		if not game_stats['board'][coordinate] == []:
-		    game_stats['nb_rounds']=0
+			game_stats['nb_rounds']=0
 
-		    for element in game_stats['board'][coordinate] :
+			for element in game_stats['board'][coordinate] :
 
-		        game_stats['ships'][element]['heal_point']-=damages
+				game_stats['ships'][element]['heal_point']-=damages
 
-		        if game_stats['ships'][element]['heal_point']<=0:
-			    game_stats['board'][coordinate].remove(element)
+				if game_stats['ships'][element]['heal_point']<=0:
+					game_stats['board'][coordinate].remove(element)
 	return new_game_stats
 
 def convert_coordinate(coordinate):
-    abscissa=game_stats[coordinate][0]
-    orderly=game_stats[coordinate][1]
+	abscissa=game_stats[coordinate][0]
+	orderly=game_stats[coordinate][1]

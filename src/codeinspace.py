@@ -6,59 +6,61 @@ from ai import *
 """
 .     .       .  .   . .   .   . .    +  .
   .     .  :     .    .. :. .___---------___.
-       .  .   .    .  :.:. _".^ .^ ^.  '.. :"-_. .
-    .  :       .  .  .:../:            . .^  :.:\.
-        .   . :: +. :.:/: .   .    .        . . .:\
+	   .  .   .    .  :.:. _".^ .^ ^.  '.. :"-_. .
+	.  :       .  .  .:../:            . .^  :.:\.
+		.   . :: +. :.:/: .   .    .        . . .:\
  .  :    .     . _ :::/:               .  ^ .  . .:\
   .. . .   . - : :.:./.                        .  .:\
   .      .     . :..|:                    .  .  ^. .:|
-    .       . : : ..||        .                . . !:|
+	.       . : : ..||        .                . . !:|
   .     . . . ::. ::\(                           . :)/
  .   .     : . : .:.|. ######              .#######::|
   :.. .  :-  : .:  ::|.#######           ..########:|
  .  .  .  ..  .  .. :\ ########          :######## :/
   .        .+ :: : -.:\ ########       . ########.:/
-    .  .+   . . . . :.:\. #######       #######..:/
-      :: . . . . ::.:..:.\           .   .   ..:/
+	.  .+   . . . . :.:\. #######       #######..:/
+	  :: . . . . ::.:..:.\           .   .   ..:/
    .   .   .  .. :  -::::.\.       | |     . .:/
-      .  :  .  .  .-:.":.::.\             ..:/
+	  .  :  .  .  .-:.":.::.\             ..:/
  .      -.   . . . .: .:::.:.\.           .:/
 .   .   .  :      : ....::_:..:\   ___.  :/
    .   .  .   .:. .. .  .: :.:.:\       :/
-     +   .   .   : . ::. :.:. .:.|\  .:/|
-     .         +   .  .  ...:: ..|  --.:|
+	 +   .   .   : . ::. :.:. .:.|\  .:/|
+	 .         +   .  .  ...:: ..|  --.:|
 .      . . .   .  .  . ... :..:.."(  ..)"
  .   .       .      :  .   .: ::/  .  .::\
 
-                 .___       .__
+				 .___       .__
   ____  ____   __| _/____   |__| ____     _________________    ____  ____
  / ___\/  _ \ / __ |/ __ \  |  |/    \   /  ___/\____ \__  \ _/ ___\/ __ \
 \  \__(  <_> ) /_/ \  ___/  |  |   |  \  \___ \ |  |_> > __ \\  \__\  ___/
  \_____>____/\____ |\_____> |__|___|  / /____  >|   __(______/\_____>_____>
-                                                |__|
+												|__|
 """
-def play_game(path, player_list):
+
+def play_game(level_name, player_list):
 	"""
 	Main game function thats run the game loop.
 	"""
-    game_stats = new_game(path, player_list)
 
-    # Players create their ships.
+	game_stats = new_game(level_name, player_list)
 
-    # Game loop.
-    while game_stats['is_game_continue']:
+	# Players create their ships.
 
-        # getting players input.
+	# Game loop.
+	while game_stats['is_game_continue']:
 
-        # Do ships moves.
+		# getting players input.
 
-        # Do Attack
+		# Do ships moves.
 
-        pass
+		# Do Attack
+
+		pass
 
 	raise NotImplementedError
 
-def new_game(path, players_list):
+def new_game(level_name, players_list):
 	"""
 	Create a new game from a '.cis' file.
 
@@ -84,9 +86,9 @@ def new_game(path, players_list):
 
 	# Create game_stats dictionary.
 	game_file = parse_game_file(level_name)
-	game_stats = {'board':{}, 'players':{},'model_ship':{}, 'ships': {},'board_size': game_file['size'],'level_name': level_name, 'nb_rounds': 0, 'max_nb_rounds': 10*len(list_players), 'is_game_continue':True}
+	game_stats = {'board':{}, 'players':{},'model_ship':{}, 'ships': {},'board_size': game_file['size'],'level_name': level_name, 'nb_rounds': 0, 'max_nb_rounds': 10*len(players_list), 'is_game_continue':True}
 
-    # Create ship specs sheet.
+	# Create ship specs sheet.
 	game_stats['model_ship']['fighter'] = {'icon': u'F', 'max_heal':3, 'max_speed':5, 'damages':1, 'range':5, 'price':10}
 	game_stats['model_ship']['destroyer'] = {'icon': u'D', 'max_heal':8, 'max_speed':2, 'damages':2, 'range':7, 'price':20}
 	game_stats['model_ship']['battlecruiser'] = {'icon': u'B', 'max_heal':20, 'max_speed':1, 'damages':4, 'range':10, 'price':30}
@@ -246,15 +248,15 @@ def show_board(game_stats, color = True):
 				ship_owner = game_stats['ships'][ship_name]['owner']
 
 				if ship_owner == 'none':
-                    # The ship is a abandoned one.
+					# The ship is a abandoned one.
 					put_string(c, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', 'green')
 				else:
-                    # The ship have a owner.
+					# The ship have a owner.
 					ship_owner_color = game_stats['player'][['ships'][ship_name]['owner']]['color']
 					put_string(c, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', ship_owner_color)
 
 			else:
-                # in other case show how many ship there are in the tile.
+				# in other case show how many ship there are in the tile.
 				put_string(c, on_screen_board_tile[0], on_screen_board_tile[1], '!' + str(len(game_stats['board'][(x,y)])),1,0,'white', 'green')
 
 	# Create player liste frame.
@@ -275,21 +277,21 @@ def show_board(game_stats, color = True):
 
 		player_count += 1
 
-    # Show the game board in the terminal.
+	# Show the game board in the terminal.
 	print_canvas(c)
 
 def get_player_input(player_name, game_stats):
-    """
-    Get and return input form the player.
+	"""
+	Get and return input form the player.
 
-    Parameter:
-    ----------
-    Player_name : Name of the player (str).
-    game_stats : the stats of the game (dic).
+	Parameter:
+	----------
+	Player_name : Name of the player (str).
+	game_stats : the stats of the game (dic).
 
-    Return:
-    -------
-    player_input : the input from the player (str).
-    """
+	Return:
+	-------
+	player_input : the input from the player (str).
+	"""
 
-    raise NotImplementedError
+	raise NotImplementedError
