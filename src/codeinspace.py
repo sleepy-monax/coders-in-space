@@ -59,6 +59,8 @@ def play_game(level_name, players_list):
 
 	# Players create their ships.
 
+
+
 	# Game loop.
 	while game_stats['is_game_continue']:
 

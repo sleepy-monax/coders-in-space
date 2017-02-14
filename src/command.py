@@ -40,6 +40,28 @@ def parse_command(commands, game_stats):
 
 	return game_stats
 
+def command_buy_ships(ships, player, game_stats):
+	"""
+	Allow a player to buy some spaceships.
+
+	Parameters
+	----------
+	ships : spaceships to buy (str).
+	player : name of the player (str).
+	game_stats : stat of the game (dic).
+
+	Return
+	------
+	game_stats : game stats after the operation (dic).
+	"""
+
+	for ship in ships.split(' '):
+		ship = ship.split[':']
+		ship_price = game_stats['model_ship'][ship[1]]['price']
+
+		if ship_price >= game_stats['players'][player]['money']:
+			# TODO : Remove money and ship placing logic
+
 def command_change_speed(ship, change, game_stats):
 	"""
 	Increase the speed of a ship.
@@ -140,7 +162,7 @@ def command_attack(ship, coordinate, game_stats):
 	Returns
 	-------
 	new_game_stats : the game after the command execution.
-	
+
 	Version
 	-------
 	specification v1. Nicolas Van Bossuyt (10/2/2017)
