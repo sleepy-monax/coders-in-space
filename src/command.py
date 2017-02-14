@@ -92,7 +92,7 @@ def command_rotate(ship, direction, game_stats):
 	Version
 	-------
 
- specification v1. Nicolas Van Bossuyt (10/2/2017)
+ 	specification v1. Nicolas Van Bossuyt (10/2/2017)
 	implementation v1. Nicolas Van Bossuyt (10/2/2017)
 	"""
 
@@ -129,17 +129,22 @@ def command_rotate(ship, direction, game_stats):
 
 def command_attack(ship, coordinate, game_stats):
 	"""
-	Rotate the ship.
+	determine if the attack works and do it.
 
 	Parameters
 	----------
-	ship : name of the ship to Increase the speed.
+	ship : name of the ship selected.
 	coordinate : coordinate of the tile to attack (tuple(int,int)).
 	game_stats : stats of the game (dic).
 
 	Returns
 	-------
 	new_game_stats : the game after the command execution.
+	
+	Version
+	-------
+	specification v1. Nicolas Van Bossuyt (10/2/2017)
+	implementation v1.Alisson Leist (14/2/2017)
 	"""
 	board_width=game_stats['board_size'][0]
 	board_lenght=game_stats['board_size'][1]
@@ -158,7 +163,7 @@ def command_attack(ship, coordinate, game_stats):
 			coordinate[1]+=board_lenght
 		else:
 			ship_location[1]+=board_lenght
-		distance= abs((coordinate[0] - ship_location[0])) + abs((coordinate[1] - ship_location[1]))
+	distance= abs((coordinate[0] - ship_location[0])) + abs((coordinate[1] - ship_location[1]))
 
 
 	if distance<=game_stats ['ships'][ship]['range'] :
@@ -173,7 +178,3 @@ def command_attack(ship, coordinate, game_stats):
 				if game_stats['ships'][element]['heal_point']<=0:
 					game_stats['board'][coordinate].remove(element)
 	return new_game_stats
-
-def convert_coordinate(coordinate):
-	abscissa=game_stats[coordinate][0]
-	orderly=game_stats[coordinate][1]
