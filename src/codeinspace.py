@@ -30,10 +30,10 @@ from ai import *
 .      . . .   .  .  . ... :..:.."(  ..)"
  .   .       .      :  .   .: ::/  .  .::\
 
-_________            .___                    .__           _________                          
-\_   ___ \  ____   __| _/___________  ______ |__| ____    /   _____/__________    ____  ____  
-/    \  \/ /  _ \ / __ |/ __ \_  __ \/  ___/ |  |/    \   \_____  \\____ \__  \ _/ ___\/ __ \ 
-\     \___(  <_> ) /_/ \  ___/|  | \/\___ \  |  |   |  \  /        \  |_> > __ \\  \__\  ___/ 
+_________            .___                    .__           _________
+\_   ___ \  ____   __| _/___________  ______ |__| ____    /   _____/__________    ____  ____
+/    \  \/ /  _ \ / __ |/ __ \_  __ \/  ___/ |  |/    \   \_____  \\____ \__  \ _/ ___\/ __ \
+\     \___(  <_> ) /_/ \  ___/|  | \/\___ \  |  |   |  \  /        \  |_> > __ \\  \__\  ___/
  \________/\____/\_____|\_____>__|  /______> |__|___|__/ /_________/   __(______/\_____>_____>
 ###################################################################|__|#######################
 """
@@ -41,13 +41,13 @@ _________            .___                    .__           _________
 def play_game(level_name, players_list):
 	"""
 	Main game function thats run the game loop.
-	
+
 	parameters
 	----------
-	
+
 	level_name: name of the level (str)
 	players_list: list of the players(tuple)
-	
+
 	Version
 	-------
 	specification : Bayron Mahy (v1. 14/02/2017)
@@ -152,7 +152,7 @@ def parse_game_file(path):
 		Return
 		------
 		vector : vector2D from direction (tuple(int, int)).
-		
+
 		Version
 		-------
 		specification : Nicolas Van Bossuyt (v1. 09/02/2017)
@@ -187,8 +187,8 @@ def parse_game_file(path):
 		return vector
 
 	# Split file lines and remove '\n' chars.
-	with file(path,'r') as f:
-		file_content = [i.strip() for i in f]
+	with file(path,'r') as cis_file:
+		file_content = [line.strip() for line in cis_file]
 
 	# Get the size of the gameboard.
 	size_str = file_content[0].split(' ')
@@ -196,9 +196,9 @@ def parse_game_file(path):
 
 	# Get lost space ship in the new game.
 	ships_list = []
-	for i in range(len(file_content) - 1):
+	for line_index in range(len(file_content) - 1):
 		try:
-			ship_str = file_content[i + 1].split(' ')
+			ship_str = file_content[line_index + 1].split(' ')
 			ship_name_and_type = ship_str[2].split(':')
 			ship = (int(ship_str[0]), int(ship_str[1]), ship_name_and_type[0], ship_name_and_type[1], direction_to_vector2D(ship_str[3]))
 			ships_list.append(ship)
@@ -217,12 +217,12 @@ def show_board(game_stats, color = True):
 	Parameter
 	---------
 	game_stats : game to show on screen (dic).
-	
+
 	Version
 	-------
 	specification : Nicolas Van Bossuyt (v1. 09/02/2017)
 	implementation : Nicolas Van Bossuyt (v1. 09/02/2017)
-	
+
 	"""
 
 	# Create a new canvas.
