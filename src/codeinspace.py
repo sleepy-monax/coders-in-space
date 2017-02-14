@@ -15,7 +15,7 @@ from ai import *
 	.       . : : ..||        .                . . !:|
   .     . . . ::. ::\(                           . :)/
  .   .     : . : .:.|. ######              .#######::|
-  :.. .  :-  : .:  ::|.#######           ..########:|
+ :.. .  :-  : .:  ::| .#######           ..########: |
  .  .  .  ..  .  .. :\ ########          :######## :/
   .        .+ :: : -.:\ ########       . ########.:/
 	.  .+   . . . . :.:\. #######       #######..:/
@@ -30,17 +30,29 @@ from ai import *
 .      . . .   .  .  . ... :..:.."(  ..)"
  .   .       .      :  .   .: ::/  .  .::\
 
-				 .___       .__
-  ____  ____   __| _/____   |__| ____     _________________    ____  ____
- / ___\/  _ \ / __ |/ __ \  |  |/    \   /  ___/\____ \__  \ _/ ___\/ __ \
-\  \__(  <_> ) /_/ \  ___/  |  |   |  \  \___ \ |  |_> > __ \\  \__\  ___/
- \_____>____/\____ |\_____> |__|___|  / /____  >|   __(______/\_____>_____>
-												|__|
+_________            .___                    .__           _________                          
+\_   ___ \  ____   __| _/___________  ______ |__| ____    /   _____/__________    ____  ____  
+/    \  \/ /  _ \ / __ |/ __ \_  __ \/  ___/ |  |/    \   \_____  \\____ \__  \ _/ ___\/ __ \ 
+\     \___(  <_> ) /_/ \  ___/|  | \/\___ \  |  |   |  \  /        \  |_> > __ \\  \__\  ___/ 
+ \________/\____/\_____|\_____>__|  /______> |__|___|__/ /_________/   __(______/\_____>_____>
+###################################################################|__|#######################
 """
 
-def play_game(level_name, player_list):
+def play_game(level_name, players_list):
 	"""
 	Main game function thats run the game loop.
+	
+	parameters
+	----------
+	
+	level_name: name of the level (str)
+	players_list: list of the players(tuple)
+	
+	Version
+	-------
+	specification : Bayron Mahy (v1. 14/02/2017)
+
+	implementation : Not done yet
 	"""
 
 	game_stats = new_game(level_name, player_list)
@@ -74,12 +86,12 @@ def new_game(level_name, players_list):
 	Version
 	-------
 	specification : Nicolas Van Bossuyt (v1. 09/02/2017)
-			Bayron Mahy (v2. 10/02/2017)
+					Bayron Mahy (v2. 10/02/2017)
 
 	implementation : Bayron Mahy (v1. 10/02/2017)
-			 Bayron Mahy (v2. 10/02/2017)
-			 Nicolas Van Bossuyt (v3. 10/02/2017)
-			 Bayron Mahy (v4. 10/02/2017)
+			 		Bayron Mahy (v2. 10/02/2017)
+			 		Nicolas Van Bossuyt (v3. 10/02/2017)
+			 		Bayron Mahy (v4. 10/02/2017)
 	"""
 
 	# Create game_stats dictionary.
@@ -105,7 +117,7 @@ def new_game(level_name, players_list):
 
 		game_stats['players'][player] = {'name': player, 'money':100, 'nb_ship': 0, 'type':player_type, 'color':''}
 
-	#place lost ships
+	# place lost ships
 	for ships in game_file['ships']:
 		game_stats['ships'][ships[2]]= { 'type':ships[3], 'heal_points':game_stats['model_ship'][ships[3]]['max_heal'],'direction':ships[4], 'speed':0, 'owner': 'none', 'postion': [ships[0],ships[1]] }
 		game_stats['board'][(ships[0],ships[1])].append(ships[2])
@@ -114,15 +126,15 @@ def new_game(level_name, players_list):
 
 def parse_game_file(path):
 	"""
-	Parse a cis file give us his content.
+	Parse a .cis file and returns its content.
 
 	Parameter
 	---------
-	path : path of the cis file (str).
+	path : path of the .cis file (str).
 
 	Return
 	------
-	parsed_data : data containe in the cis file (dic).
+	parsed_data : data contained in the .cis file (dic).
 
 	Version
 	-------
@@ -139,7 +151,12 @@ def parse_game_file(path):
 
 		Return
 		------
-		vector : vector2D from direction (tuple(float, float)).
+		vector : vector2D from direction (tuple(int, int)).
+		
+		Version
+		-------
+		specification : Nicolas Van Bossuyt (v1. 09/02/2017)
+		implementation : Nicolas Van Bossuyt (v1. 09/02/2017)
 		"""
 		vector = ()
 
@@ -200,6 +217,12 @@ def show_board(game_stats, color = True):
 	Parameter
 	---------
 	game_stats : game to show on screen (dic).
+	
+	Version
+	-------
+	specification : Nicolas Van Bossuyt (v1. 09/02/2017)
+	implementation : Nicolas Van Bossuyt (v1. 09/02/2017)
+	
 	"""
 
 	# Create a new canvas.
