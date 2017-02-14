@@ -92,7 +92,7 @@ def command_rotate(ship, direction, game_stats):
 	Version
 	-------
 
-specification v1. Nicolas Van Bossuyt (10/2/2017)
+ specification v1. Nicolas Van Bossuyt (10/2/2017)
 	implementation v1. Nicolas Van Bossuyt (10/2/2017)
 	"""
 
@@ -146,9 +146,19 @@ def command_attack(ship, coordinate, game_stats):
 
 	damages=game_stats ['ships'][ship]['damages']
 	ship_location=game_stats['ships'][ship]['position']
-
-	distance= (coordinate[0] - ship_location[0]) + (coordinate[1] - ship_location[1])
-	distance_2=(ship_location[0]+board_width -coordinate[0]) + (coordinate[1]-ship_location[1])
+	
+    if coordinate[0]+ship_location[0]<=board_width/2:
+        if coordinate[0]<ship_location[0]:
+            coordinate[0]+=board_width
+        else:
+            ship_location[0]+=board_width
+        
+    if coordinate[1]+ship_location[1]<=board_lenght/2:
+        if coordinate[1]<ship_location[1]:        
+            coordinate[1]+=board_lenght
+        else:
+            ship_location[1]+=board_lenght   
+	    distance= abs((coordinate[0] - ship_location[0])) + abs((coordinate[1] - ship_location[1]))
 	
 
 	if distance<=game_stats ['ships'][ship]['range'] :
