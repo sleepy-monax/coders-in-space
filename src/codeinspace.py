@@ -244,8 +244,9 @@ def parse_game_file(path):
 		return vector
 
 	# Split file lines and remove '\n' chars.
-	with file(path,'r') as cis_file:
-		file_content = [line.strip() for line in cis_file]
+	cis_file = open(path,'r')
+	file_content = [line.strip() for line in cis_file]
+	cis_file.close()
 
 	# Get the size of the gameboard.
 	size_str = file_content[0].split(' ')

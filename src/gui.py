@@ -201,14 +201,14 @@ def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None)
     specification v1. Nicolas Van Bossuyt (15/2/2017)
     implementation v1. Nicolas Van Bossuyt (15/2/2017)
     """
-    with file('art\\' + ascii_art_name + '.txt','r') as art_file:
-        file_content = [line.strip() for line in art_file]
+    art_file = open('art\\' + ascii_art_name + '.txt','r')
 
     index = 0
-    for line in file_content:
-        canvas = put_string(canvas, x, y + index,line , 1, 0, color, back_color)
+    for line in art_file:
+        canvas = put_string(canvas, x, y + index,line.replace('\n', ''), 1, 0, color, back_color)
         index +=1
 
+    art_file.close()
     return canvas
 
 def print_canvas(canvas):
