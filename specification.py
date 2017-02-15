@@ -91,7 +91,7 @@ def new_game(level_name, players_list):
 	Version
 	-------
 	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
-    """
+	"""
 
 def parse_game_file(path):
 	"""
@@ -161,139 +161,139 @@ def get_player_input(player_name, game_stats):
 	"""
 
 def creat_canvas(width, height, enable_color = True):
-    """
-    Create a new char canvas.
+	"""
+	Create a new char canvas.
 
-    Parameters
-    ----------
-    height : height of the game view (int).
-    width : width of the game view (int).
-    enable_color : enable color in the game view (bool)
+	Parameters
+	----------
+	height : height of the game view (int).
+	width : width of the game view (int).
+	enable_color : enable color in the game view (bool)
 
-    Return
-    ------
-    canva : new char canva (dic).
+	Return
+	------
+	canva : new char canva (dic).
 
-    Version
-    -------
+	Version
+	-------
 	Version
 	-------
 	specification : Nicolas Van Bossuyt (v1. 10/2/17)
-    """
+	"""
 
 def put(canvas, x, y, char, color = None, back_color = None):
-    """
-    Put the specified char in the canvas.
+	"""
+	Put the specified char in the canvas.
 
-    Parameters
-    ----------
-    canvas : game view to put the char in (dic).
-    x, y : coordinate of were to put the char (int).
-    char : char to put (str).
-    color, back_color : color for the char (string).
+	Parameters
+	----------
+	canvas : game view to put the char in (dic).
+	x, y : coordinate of were to put the char (int).
+	char : char to put (str).
+	color, back_color : color for the char (string).
 
-    Return
-    ------
-    canvas : canvas with the char put on it (dic).
+	Return
+	------
+	canvas : canvas with the char put on it (dic).
 
 	Version
 	-------
 	specification : Nicolas Van Bossuyt (v1. 10/2/17)
-    """
+	"""
 
 def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = None):
-    """
-    Put and fill a rectangle in the canvas.
+	"""
+	Put and fill a rectangle in the canvas.
 
-    Parameters
-    ----------
-    x, y : coordinate of the rectangle (int).
-    width, height : size of the rectangle (int).
-    color, back_color : color for the char (string).
+	Parameters
+	----------
+	x, y : coordinate of the rectangle (int).
+	width, height : size of the rectangle (int).
+	color, back_color : color for the char (string).
 
-    Return
-    ------
-    canvas : canvas whith the rectangle (dic).
+	Return
+	------
+	canvas : canvas whith the rectangle (dic).
 
 	Version
 	-------
 	specification : Nicolas Van Bossuyt (v1. 10/2/17)
-    """
+	"""
 
 def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_color = None):
-    """
-    Put a box in the canvas.
+	"""
+	Put a box in the canvas.
 
-    Parameters
-    ----------
-    x, y : coordinate of the rectangle (int).
-    width, height : size of the rectangle (int).
-    mode : double ou single line <'double'|'single'> (str).
-    color, back_color : color for the char (string).
+	Parameters
+	----------
+	x, y : coordinate of the rectangle (int).
+	width, height : size of the rectangle (int).
+	mode : double ou single line <'double'|'single'> (str).
+	color, back_color : color for the char (string).
 
-    Return
-    ------
-    canvas : canvas whith the box (dic).
+	Return
+	------
+	canvas : canvas whith the box (dic).
 
 	Version
 	-------
 	specification : Nicolas Van Bossuyt (v1. 10/2/17)
-    """
+	"""
 
 def put_string(canvas, x, y, string, direction_x = 1, direction_y = 0, color = None, back_color = None):
-    """
-    Put a specified string in the canvas.
+	"""
+	Put a specified string in the canvas.
 
-    Parameter
-    ---------
-    x, y : coordinate of the string (int).
-    direction_x, direction_y : direction to draw the string (int).
-    canvas : game view to put the string (dic).
+	Parameter
+	---------
+	x, y : coordinate of the string (int).
+	direction_x, direction_y : direction to draw the string (int).
+	canvas : game view to put the string (dic).
 
-    Return
-    ------
-    canvas : game view with the new string (dic).
+	Return
+	------
+	canvas : game view with the new string (dic).
 
-    Notes
-    -----
-    direction_x, direction_y : Muste be -1, 0 or 1.
+	Notes
+	-----
+	direction_x, direction_y : Muste be -1, 0 or 1.
 
 	Version
 	-------
 	specification : Nicolas Van Bossuyt (v1. 10/2/17)
-    """
+	"""
 
 def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None):
-    """
-    Put a ascii art in the in the canvas.
+	"""
+	Put a ascii art in the in the canvas.
 
-    Parameters
-    ----------
-    x, y : coordinate to pute the art (int).
-    ascii_art_name : name of the art file (string).
-    canvas : game view to put the art on it (dic).
+	Parameters
+	----------
+	x, y : coordinate to pute the art (int).
+	ascii_art_name : name of the art file (string).
+	canvas : game view to put the art on it (dic).
 
-    return
-    ------
-    canvas : game view with te ascii art (dic).
+	return
+	------
+	canvas : game view with te ascii art (dic).
 
 	Version
 	-------
 	specification : Nicolas Van Bossuyt (v1. 10/2/17)
-    """
+	"""
 
 def print_canvas(canvas):
-    """
-    Print the game view in the terminal.
+	"""
+	Print the game view in the terminal.
 
-    Parameter
-    ---------
-    canvas : canvas to print on screen (dic).
+	Parameter
+	---------
+	canvas : canvas to print on screen (dic).
 
 	Version
 	-------
 	specification : Nicolas Van Bossuyt (v1. 10/2/17)
-    """
+	"""
 
 def parse_command(commands, player_name, game_stats):
 	"""
@@ -333,24 +333,24 @@ def command_buy_ships(ships, player, game_stats):
 	"""
 
 def create_ship(player_name, ship_name, ship_type, game_stats):
-    """
-    Create and add an new ship.
+	"""
+	Create and add an new ship.
 
-    Parameters
-    ----------
-    player_name : name of the owner of the ship (str).
-    ship_name : Name of the ship (str).
-    ship_type : Model of the ship (str).
-    game_stats : stats of the game (str).
+	Parameters
+	----------
+	player_name : name of the owner of the ship (str).
+	ship_name : Name of the ship (str).
+	ship_type : Model of the ship (str).
+	game_stats : stats of the game (str).
 
-    Return
-    ------
-    game_stats : stats after adding the new space ship (dic).
+	Return
+	------
+	game_stats : stats after adding the new space ship (dic).
 
 	Version
 	-------
 	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
-    """
+	"""
 
 def command_change_speed(ship, change, game_stats):
 	"""
@@ -426,3 +426,6 @@ def command_attack(ship, ship_location, coordinate, game_stats):
 	-------
 	specification v1. Nicolas Van Bossuyt (10/2/2017)
 	"""
+
+# (...)Ouais, ça va être bien, ça va être très bien même… Bon, bien sûr, y faut imaginer.
+# - Jamel Debbouze, Astérix & Obélix : Mission Cléopâtre (2002), écrit par Alain Chabat, René Goscinny, Albert Uderzo
