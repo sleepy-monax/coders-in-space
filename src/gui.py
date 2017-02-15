@@ -27,10 +27,11 @@ def creat_canvas(width, height, enable_color = True):
 
     Version
     -------
-    specification: v1. Nicolas Van Bossuyt (10/2/2017)
-                   v2. Nicolas Van Bossuyt (13/2/2017)
-    implementation: v1. Nicolas Van Bossuyt (10/2/2017)
-                    v2. Nicolas Van Bossuyt (13/2/2017)
+	Version
+	-------
+	specification : Nicolas Van Bossuyt (v1. 10/2/17)
+    implementation: Nicolas Van Bossuyt (v1. 13/2/2017)
+
     """
 
     # Initialize the canvas.
@@ -63,10 +64,10 @@ def put(canvas, x, y, char, color = None, back_color = None):
     ------
     canvas : canvas with the char put on it (dic).
 
-    Version
-    -------
-    specification v1. Nicolas Van Bossuyt (10/2/2017)
-    implementation v1. Nicolas Van Bossuyt (10/2/2017)
+	Version
+	-------
+	specification : Nicolas Van Bossuyt (v1. 10/2/17)
+    implementation : Nicolas Van Bossuyt (v1. 10/2/2017)
     """
 
     # Check if the coordinate is in the bound of the game view.
@@ -99,10 +100,10 @@ def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = 
     ------
     canvas : canvas whith the rectangle (dic).
 
-    Version
-    -------
-    specification v1. Nicolas Van Bossuyt (10/2/2017)
-    implementation v1. Nicolas Van Bossuyt (10/2/2017)
+	Version
+	-------
+	specification : Nicolas Van Bossuyt (v1. 10/2/17)
+    implementation : Nicolas Van Bossuyt (v1. 10/2/2017)
     """
 
     for w in range(width):
@@ -126,10 +127,10 @@ def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_col
     ------
     canvas : canvas whith the box (dic).
 
-    Version
-    -------
-    specification v1. Nicolas Van Bossuyt (10/2/2017)
-    implementation v1. Nicolas Van Bossuyt (10/2/2017)
+	Version
+	-------
+	specification : Nicolas Van Bossuyt (v1. 10/2/17)
+    implementation : Nicolas Van Bossuyt (v1. 10/2/2017)
     """
     if mode == 'double':
         put_rectangle(canvas, x, y, width, height, u'═', color, back_color)
@@ -169,10 +170,10 @@ def put_string(canvas, x, y, string, direction_x = 1, direction_y = 0, color = N
     -----
     direction_x, direction_y : Muste be -1, 0 or 1.
 
-    Version
-    -------
-    specification v1. Nicolas Van Bossuyt (10/2/2017)
-    implementation v1. Nicolas Van Bossuyt (10/2/2017)
+	Version
+	-------
+	specification : Nicolas Van Bossuyt (v1. 10/2/17)
+    implementation : Nicolas Van Bossuyt (v1. 10/2/2017)
     """
 
     for char in string:
@@ -196,10 +197,10 @@ def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None)
     ------
     canvas : game view with te ascii art (dic).
 
-    Version
-    -------
-    specification v1. Nicolas Van Bossuyt (15/2/2017)
-    implementation v1. Nicolas Van Bossuyt (15/2/2017)
+	Version
+	-------
+	specification : Nicolas Van Bossuyt (v1. 10/2/17)
+    implementation : Nicolas Van Bossuyt (V1. 15/2/2017)
     """
     art_file = open('art\\' + ascii_art_name + '.txt','r')
 
@@ -219,10 +220,10 @@ def print_canvas(canvas):
     ---------
     canvas : canvas to print on screen (dic).
 
-    Version
-    -------
-    specification v1. Nicolas Van Bossuyt (10/2/2017)
-    implementation v1. Nicolas Van Bossuyt (10/2/2017)
+	Version
+	-------
+	specification : Nicolas Van Bossuyt (v1. 10/2/17)
+    implementation : Nicolas Van Bossuyt (v1. 10/2/2017)
     """
 
     canvas_width = canvas['size'][0]

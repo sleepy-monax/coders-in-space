@@ -51,8 +51,7 @@ def play_game(level_name, players_list):
 
 	Version
 	-------
-	specification : Bayron Mahy (v1. 14/02/2017)
-	implementation : Not done yet
+	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
 	"""
 
 	game_stats = new_game(level_name, players_list)
@@ -95,6 +94,18 @@ def play_game(level_name, players_list):
 def do_moves(game_stats):
 	"""
 	Apply move to ships.
+
+	Parameters
+	----------
+	game_stats : stats of the game (dic)
+
+	Return
+	------
+	game_stats : stats of the game after the moves (dic)
+
+	Version
+	-------
+	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
 	"""
 	# TODO : move logique.
 	pass
@@ -102,6 +113,10 @@ def do_moves(game_stats):
 def get_game_input(player_name, game_stats):
 	"""
 	get input from a specified player.
+
+	Parameters
+	----------
+	player_name : name of the player to get input (str).
 	"""
 	player_input = ''
 
@@ -136,13 +151,9 @@ def new_game(level_name, players_list):
 
 	Version
 	-------
-	specification : Nicolas Van Bossuyt (v1. 09/02/2017)
-					Bayron Mahy (v2. 10/02/2017)
-
-	implementation : Bayron Mahy (v1. 10/02/2017)
-					Bayron Mahy (v2. 10/02/2017)
-					Nicolas Van Bossuyt (v3. 10/02/2017)
-					Bayron Mahy (v4. 10/02/2017)
+	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
+	implementation : Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/2017)
+					 Bayron Mahy, Nicolas Van Bossuyt (v2. 13/02/2017)
 	"""
 
 	# Create game_stats dictionary.
@@ -195,9 +206,10 @@ def parse_game_file(path):
 
 	Version
 	-------
-	specification : Nicolas Van Bossuyt (v1. 09/02/2017)
+	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
 	implementation : Nicolas Van Bossuyt (v2. 15/02/2017)
 	"""
+
 	def direction_to_vector2D(direction):
 		"""
 		Convert a string direction to a vector2D.
@@ -212,8 +224,8 @@ def parse_game_file(path):
 
 		Version
 		-------
-		specification : Nicolas Van Bossuyt (v1. 09/02/2017)
-		implementation : Nicolas Van Bossuyt (v1. 09/02/2017)
+		specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
+		implementation : Nicolas Van Bossuyt (v1. 11/02/2017)
 		"""
 		vector = ()
 
@@ -278,8 +290,10 @@ def show_board(game_stats, color = True):
 
 	Version
 	-------
-	specification : Nicolas Van Bossuyt (v1. 09/02/2017)
-	implementation : Nicolas Van Bossuyt (v1. 09/02/2017)
+	Version
+	-------
+	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
+	implementation : Nicolas Van Bossuyt (v1. 15/02/2017)
 
 	"""
 
@@ -373,6 +387,10 @@ def get_player_input(player_name, game_stats):
 	Return:
 	-------
 	player_input : the input from the player (str).
+
+	Version
+	-------
+	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
 	"""
 
 	raise NotImplementedError

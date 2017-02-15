@@ -54,6 +54,10 @@ def command_buy_ships(ships, player, game_stats):
 	Return
 	------
 	game_stats : game stats after the operation (dic).
+
+	Version
+	-------
+	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
 	"""
 
 	for ship in ships.split(' '):
@@ -88,7 +92,7 @@ def command_change_speed(ship, change, game_stats):
 
 	Version
 	-------
-	specification : Nicolas Van Bossuyt (v1. 09/02/2017)
+	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
 	implementation : Bayron Mahy (v1. 10/02/2017)
 	"""
 	type = game_stats['ship'][ship]['type']
@@ -123,27 +127,27 @@ def command_rotate(ship, direction, game_stats):
 
 	Version
 	-------
-
- 	specification v1. Nicolas Van Bossuyt (10/2/2017)
-	implementation v1. Nicolas Van Bossuyt (10/2/2017)
+	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
+	implementation : Nicolas Van Bossuyt (v1. 10/2/2017)
 	"""
 
 	def rotate_vector_2D(vector, radian):
 		"""
 		Rotate a vector in a 2D space by a specified angle in radian.
 
-		Parameters        ----------
+		Parameters
+		----------
 		vector : 2D vector ton rotate (tuple(int,int)).
 		radian : angle appli to the 2D vector (float).
 
-		return
+		Return
 		------
 		vector : rotate vector 2d (tuple(int,int)).
 
 		Version
 		-------
-		specification v1. Nicolas Van Bossuyt (10/2/2017)
-		implementation v1. Nicolas Van Bossuyt (10/2/2017)
+		specification : Nicolas Van Bossuyt (v1. 10/2/17)
+		implementation : Nicolas Van Bossuyt (v1. 10/2/2017)
 		"""
 		new_vector = (.0,.0)
 
