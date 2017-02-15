@@ -56,7 +56,7 @@ def play_game(level_name, players_list):
 	implementation : Not done yet
 	"""
 
-	game_stats = new_game(level_name, player_list)
+	game_stats = new_game(level_name, players_list)
 
 	# Players create their ships.
 	for player in game_stats['players']:
@@ -99,7 +99,7 @@ def do_moves(game_stats):
 	"""
 	# TODO : move logique.
 	pass
-	
+
 def get_game_input(player_name, game_stats):
 	"""
 	get input from a specified player.
@@ -118,7 +118,7 @@ def get_game_input(player_name, game_stats):
 		# Get input from the remote player.
 		# TODO : remote player logic.
 		# player_input = get_remote_input(player, game_stats)
-	pass
+		pass
 
 	return player_input
 
