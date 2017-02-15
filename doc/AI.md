@@ -32,3 +32,6 @@ Evidament je ne suis pas un expert en machine learning donc si sa se prouve j'ai
 
 ### La video qui ma donner l'idée :)
 https://www.youtube.com/watch?v=pAqrSM3drxw
+
+### De la doc ;)###
+http://iamtrask.github.io/2015/07/12/basic-python-network/
