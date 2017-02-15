@@ -1,5 +1,5 @@
 # Game Stats
-> Bonjour jeune Padawan, dans cette documentation je vais te guider dans les méandres tordus et mal foutu la variable "game stats.
+> Bonjour jeune Padawan, dans cette documentation je vais te guider dans les méandres tordus et mal foutu la variable "game_stats".
 
 ## Le Tableaux de jeux.
 Le tableau de jeu est représenté par un dictionnaire de tuples contenant la liste des vaisseaux sur la case.
@@ -8,7 +8,7 @@ Le tableau de jeu est représenté par un dictionnaire de tuples contenant la li
 # pour acceder aux tableau.
 game_stats['board']
 
-# pour recupere les vaisseaux sur un case :
+# pour recupere les vaisseaux sur une case :
 x, y = 5, 10
 chips = game_stats['board'][(x, y)]
 ```
@@ -18,8 +18,7 @@ Les vaisseaux sont contenu dans un dictionaire qui prend en clé le nom du vaiss
 
 ```python
 # Rcupere un vaiseau precis :
-name = 'adr'
-ship = game_stats['ships'][name]
+ship = game_stats['ships']['star-destroyer']
 ```
 
 Les vaiseaux ont les parametres suivant :
@@ -34,12 +33,10 @@ game['ships'][name]['heal_point']
 ```
 
 - **owner** : proprietaire du vaiseaux (string)
-
-> Attention ! cette valeur est a none pour un vaiseaux abandonner.
-
 ```python
 game['ship'][name]['owner']
 ```
+> Attention ! cette valeur est a '*none*' pour un vaiseaux abandonner.
 
 - **direction** : direction vers laquelle il se dirige. c'est un tuple contenat deux int qui reprsent un vecteur 2D.
 ```python
@@ -51,7 +48,8 @@ game['ships'][name]['direction'] = (-1, 1)
 game['ships'][name]['speed']
 ```
 
-- **position** : postion sur le plateux de jeux. c'est un tuple content deux int.
+- **position** : postion sur le plateux de jeux (tuple(int,int)).
+
 ```python
 # Changer la postion (Atention il ne faut pas oublier de la changer sur le plateau de jeu !):
 game['ships'][name]['postion'] = (y, x)
@@ -70,7 +68,7 @@ game_stats['model_ship']['fighter']
 ```
 
 Un vaiseau a les paramètres suivants:
-- **icon** : represnetation sur le plateaux de jeux (string)
+- **icon** : represnetation sur le plateaux de jeux (string).
 
 > Attention ! cette valeur ne peut faire qu'un seul caractère.
 
@@ -106,24 +104,33 @@ player = game_stats['players']['john']
 ```
 
 Un joueur a les paramètres suivants:
-- **money** : argent du joueur (int)
+- **money** : argent du joueur (int).
 ```python
 game_stats['players'][name]['money']
 ```
-- **nb_ship** : nombre de vaiseaux sur le plateaux (int)
+- **nb_ship** : nombre de vaiseaux sur le plateaux (int).
 ```python
 game_stats['players'][name]['nb_ship']
 ```
-- **type** : type du joueur (string)```<human|ia|remote>```
+- **type** : type du joueur (string), la valeur peuxt être :```<human|ia|remote>```
 ```python
 game_stats['players'][name]['type']
 ```
-- **color** : couleur du joueur sur le plateaux de jeux (string)
+- **color** : couleur du joueur sur le plateaux de jeux (string).
 ```python
 game_stats['players'][name]['color']
 ```
-
+- **ships_starting_point** : point d'aparition des vaisseaux du joueur (tuple(int, int)).
+```python
+game_stats['players'][name]['ships_starting_point']
+```
+- **ships_starting_direction** : direction des vaisseaux au point d'aparition (tuple(int, int)).
+```python
+game_stats['players'][name]['ships_starting_direction']
+```
 ## Les autres clés.
-- **nb_round**
-- **max_nb_round**
-- **board_size**
+- **nb_round** : nombre de round depuis la derniere attack (int).
+- **max_nb_round** : Nombre maximal de round sans dega avant la fin de la partie (int).
+- **board_size** : Taile du plateau de jeux (tuple(int, int)).
+- **pending_attacks** : liste des attacks en cours list(tuple).
+- **is_game_continue** : defini si on dois continuer la boucle de jeux (bool).

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import string
+import time
 from command import *
 from gui import *
 from ai import *
@@ -55,22 +56,71 @@ def play_game(level_name, players_list):
 	implementation : Not done yet
 	"""
 
-	game_stats = new_game(level_name, player_list)
+	game_stats = new_game(level_name, players_list)
 
 	# Players create their ships.
+	for player in game_stats['players']:
+		command_buy_ships(get_game_input(player), player, game_stats)
 
-
+	# Show the game board to human player.
+	show_board(game_stats)
 
 	# Game loop.
 	while game_stats['is_game_continue']:
+		# Cleaning the pending_attack list.
+		game_stats['pending_attack'] = []
 
 		# getting players input.
+		for player in game_stats['players']:
+			parse_command(get_game_input(player, game_stats), player, game_stats)
+
+		# Show the game board to the human player.
+		show_board(game_stats)
+		time.sleep(1)
 
 		# Do ships moves.
+		do_moves(game_stats)
+
+		# Show the game board to the human player.
+		show_board(game_stats)
+		time.sleep(1)
 
 		# Do Attack
+		for pending_attack in game_stats['pending_attack']:
+			command_attack(pending_attack[0], pending_attack[1], pending_attack[2])
 
+		# Show the game board to the human player.
+		show_board(game_stats)
+		time.sleep(1)
+
+def do_moves(game_stats):
+	"""
+	Apply move to ships.
+	"""
+	# TODO : move logique.
+	pass
+
+def get_game_input(player_name, game_stats):
+	"""
+	get input from a specified player.
+	"""
+	player_input = ''
+
+	if game_stats['player'][player]['type'] == 'human':
+		# get input from the human player.
+		player_input = get_player_input(player, game_stats)
+
+	elif game_stats['player'][player]['type'] == 'ai':
+		# get input from the ai.
+		player_input = get_ai_input(player, game_stats)
+
+	elif game_stats['player'][player]['type'] == 'remote':
+		# Get input from the remote player.
+		# TODO : remote player logic.
+		# player_input = get_remote_input(player, game_stats)
 		pass
+
+	return player_input
 
 def new_game(level_name, players_list):
 	"""
@@ -91,14 +141,17 @@ def new_game(level_name, players_list):
 					Bayron Mahy (v2. 10/02/2017)
 
 	implementation : Bayron Mahy (v1. 10/02/2017)
-			 		Bayron Mahy (v2. 10/02/2017)
-			 		Nicolas Van Bossuyt (v3. 10/02/2017)
-			 		Bayron Mahy (v4. 10/02/2017)
+					Bayron Mahy (v2. 10/02/2017)
+					Nicolas Van Bossuyt (v3. 10/02/2017)
+					Bayron Mahy (v4. 10/02/2017)
 	"""
 
 	# Create game_stats dictionary.
 	game_file = parse_game_file(level_name)
-	game_stats = {'board':{}, 'players':{},'model_ship':{}, 'ships': {},'board_size': game_file['size'],'level_name': level_name, 'nb_rounds': 0, 'max_nb_rounds': 10*len(players_list), 'is_game_continue':True}
+	game_stats = {'board':{}, 'players':{},'model_ship':{}, 'ships': {},\
+				  'board_size': game_file['size'],'level_name': level_name,\
+				  'nb_rounds': 0, 'max_nb_rounds': 10*len(players_list),\
+				  'is_game_continue':True, 'pending_attacks': []}
 
 	# Create ship specs sheet.
 	game_stats['model_ship']['fighter'] = {'icon': u'F', 'max_heal':3, 'max_speed':5, 'damages':1, 'range':5, 'price':10}
@@ -117,7 +170,10 @@ def new_game(level_name, players_list):
 		else:
 			player_type = 'human'
 
-		game_stats['players'][player] = {'name': player, 'money':100, 'nb_ship': 0, 'type':player_type, 'color':''}
+		# TODO : ships_starting_point, ships_starting_direction.
+		game_stats['players'][player] = {'name': player, 'money':100, 'nb_ship': 0,\
+										 'type':player_type, 'color':'', 'ships_starting_point': (0, 0),\
+										 'ships_starting_direction': (1,0)}
 
 	# place lost ships
 	for ships in game_file['ships']:

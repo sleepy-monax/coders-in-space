@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import math
 
-def parse_command(commands, game_stats):
+def parse_command(commands, player_name, game_stats):
 	"""
 	Parse a command from a player and run it.
 
@@ -23,7 +23,7 @@ def parse_command(commands, game_stats):
 
 	for cmd in commands:
 		sub_cmd = cmd.split(':')
-		ship_name = sub_cmd[0]
+		ship_name = player_name + '_' + sub_cmd[0]
 		ship_action = sub_cmd[1]
 
 		if ship_action == 'slower' or ship_action == 'faster':
@@ -36,7 +36,7 @@ def parse_command(commands, game_stats):
 			# Attack command :
 			ship_action = ship_action.split('-')
 			coordinate = (int(ship_action[0]) - 1, int(ship_action[1]) - 1)
-			game_stats = command_attack(ship_name, coordinate, game_stats)
+			game_stats[pending_attacks].append((ship_name, game_stats['ships'][ship_name]['location'], coordinate))
 
 	return game_stats
 
@@ -60,7 +60,14 @@ def command_buy_ships(ships, player, game_stats):
 		ship_price = game_stats['model_ship'][ship[1]]['price']
 
 		if ship_price >= game_stats['players'][player]['money']:
-			# TODO : Remove money and ship placing logic
+			game_stats['players'][player]['money'] -= ship_price
+			create_ship(player_name, '%s_%s' % (player_name, ship[0]), ship[1], game_stats)
+
+def create_ship(player_name, ship_name, ship_type, game_stats):
+	game_stats['ships'][ship_name] = { 'type':ships[3], 'heal_points':game_stats['model_ship'][ship_type]['max_heal'],'direction':game_stats['player_name']['ships_starting_direction'], 'speed':0, 'owner': player_name, 'postion': game_stats['player_name']['ships_starting_point']}
+	game_stats['board'][game_stats['player_name']['ships_starting_point']].append(ship_name)
+
+	return game_stats
 
 def command_change_speed(ship, change, game_stats):
 	"""
@@ -149,13 +156,13 @@ def command_rotate(ship, direction, game_stats):
 
 	return game_stats
 
-def command_attack(ship, coordinate, game_stats):
+def command_attack(ship, ship_location, coordinate, game_stats):
 	"""
 	determine if the attack works and do it.
 
 	Parameters
 	----------
-	ship : name of the ship selected.
+	ship_location : coodinate of the first ship (tuple(int, int)).
 	coordinate : coordinate of the tile to attack (tuple(int,int)).
 	game_stats : stats of the game (dic).
 
@@ -172,7 +179,6 @@ def command_attack(ship, coordinate, game_stats):
 	board_lenght=game_stats['board_size'][1]
 
 	damages=game_stats ['ships'][ship]['damages']
-	ship_location=game_stats['ships'][ship]['position']
 
 	if coordinate[0]+ship_location[0]<=board_width/2:
 		if coordinate[0]<ship_location[0]:
