@@ -84,7 +84,7 @@ def command_change_speed(ship, change, game_stats):
 	type = game_stats['ship'][ship]['type']
 
 	# Make the ship move faster.
-	if change == 'faster' and gamestats['ship'][ship]['speed'] < gamestats['model_ship'][type]['max_speed']:
+	if change == 'faster' and gamestats['ship'][ship]['speed'] < game_stats['model_ship'][type]['max_speed']:
 		game_stats['ships'][ship]['speed']+=1
 
 	# make the ship move slower.
@@ -185,10 +185,8 @@ def command_attack(ship, coordinate, game_stats):
 			coordinate[1]+=board_lenght
 		else:
 			ship_location[1]+=board_lenght
-	distance= abs((coordinate[0] - ship_location[0])) + abs((coordinate[1] - ship_location[1]))
 
-
-	if distance<=game_stats ['ships'][ship]['range'] :
+	if abs((coordinate[0] - ship_location[0])) + abs((coordinate[1] - ship_location[1]))<=game_stats ['ships'][ship]['range'] :
 
 		if not game_stats['board'][coordinate] == []:
 			game_stats['nb_rounds']=0
