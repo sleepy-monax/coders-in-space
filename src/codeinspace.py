@@ -52,7 +52,6 @@ def play_game(level_name, players_list):
 	Version
 	-------
 	specification : Bayron Mahy (v1. 14/02/2017)
-
 	implementation : Not done yet
 	"""
 
@@ -114,7 +113,7 @@ def get_game_input(player_name, game_stats):
 		# get input from the ai.
 		player_input = get_ai_input(player, game_stats)
 
-	elif game_stats['player'][player]['type'] == 'remote':
+	elif game_stats['player'][player]['type'] == 'distant':
 		# Get input from the remote player.
 		# TODO : remote player logic.
 		# player_input = get_remote_input(player, game_stats)
@@ -148,9 +147,9 @@ def new_game(level_name, players_list):
 
 	# Create game_stats dictionary.
 	game_file = parse_game_file(level_name)
-	game_stats = {'board':{}, 'players':{},'model_ship':{}, 'ships': {},\
-				  'board_size': game_file['size'],'level_name': level_name,\
-				  'nb_rounds': 0, 'max_nb_rounds': 10*len(players_list),\
+	game_stats = {'board':{}, 'players':{},'model_ship':{}, 'ships': {},
+				  'board_size': game_file['size'],'level_name': level_name,
+				  'nb_rounds': 0, 'max_nb_rounds': 10*len(players_list),
 				  'is_game_continue':True, 'pending_attacks': []}
 
 	# Create ship specs sheet.
@@ -171,11 +170,11 @@ def new_game(level_name, players_list):
 			player_type = 'human'
 
 		# TODO : ships_starting_point, ships_starting_direction.
-		game_stats['players'][player] = {'name': player, 'money':100, 'nb_ship': 0,\
-										 'type':player_type, 'color':'', 'ships_starting_point': (0, 0),\
+		game_stats['players'][player] = {'name': player, 'money':100, 'nb_ship': 0,
+										 'type': player_type, 'color':'', 'ships_starting_point': (0, 0),
 										 'ships_starting_direction': (1,0)}
 
-	# place lost ships
+	# Place lost ships.
 	for ships in game_file['ships']:
 		game_stats['ships'][ships[2]]= { 'type':ships[3], 'heal_points':game_stats['model_ship'][ships[3]]['max_heal'],'direction':ships[4], 'speed':0, 'owner': 'none', 'postion': [ships[0],ships[1]] }
 		game_stats['board'][(ships[0],ships[1])].append(ships[2])
@@ -197,7 +196,7 @@ def parse_game_file(path):
 	Version
 	-------
 	specification : Nicolas Van Bossuyt (v1. 09/02/2017)
-	implementation : Nicolas Van Bossuyt (v1. 09/02/2017)
+	implementation : Nicolas Van Bossuyt (v2. 15/02/2017)
 	"""
 	def direction_to_vector2D(direction):
 		"""
@@ -353,6 +352,8 @@ def show_board(game_stats, color = True):
 		put_string(c, location[0] + 2, location[1] + 1, 'Type : ' + game_stats['players'][player]['type'])
 		put_string(c, location[0] + 2, location[1] + 2, 'Money : ' + str(game_stats['players'][player]['money']) + '$')
 		put_string(c, location[0] + 2, location[1] + 3, 'Spaceship count : ' + str(game_stats['players'][player]['nb_ship']))
+
+		put_ascii_art(c, 0, 0, 'alien')
 
 		player_count += 1
 

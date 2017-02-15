@@ -182,6 +182,35 @@ def put_string(canvas, x, y, string, direction_x = 1, direction_y = 0, color = N
 
     return canvas
 
+def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None):
+    """
+    Put a ascii art in the in the canvas.
+
+    Parameters
+    ----------
+    x, y : coordinate to pute the art (int).
+    ascii_art_name : name of the art file (string).
+    canvas : game view to put the art on it (dic).
+
+    return
+    ------
+    canvas : game view with te ascii art (dic).
+
+    Version
+    -------
+    specification v1. Nicolas Van Bossuyt (15/2/2017)
+    implementation v1. Nicolas Van Bossuyt (15/2/2017)
+    """
+    with file('art\\' + ascii_art_name + '.txt','r') as art_file:
+        file_content = [line.strip() for line in art_file]
+
+    index = 0
+    for line in file_content:
+        canvas = put_string(canvas, x, y + index,line , 1, 0, color, back_color)
+        index +=1
+
+    return canvas
+
 def print_canvas(canvas):
     """
     Print the game view in the terminal.

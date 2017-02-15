@@ -36,7 +36,7 @@ def parse_command(commands, player_name, game_stats):
 			# Attack command :
 			ship_action = ship_action.split('-')
 			coordinate = (int(ship_action[0]) - 1, int(ship_action[1]) - 1)
-			game_stats[pending_attacks].append((ship_name, game_stats['ships'][ship_name]['location'], coordinate))
+			game_stats['pending_attacks'].append((ship_name, game_stats['ships'][ship_name]['location'], coordinate))
 
 	return game_stats
 
@@ -59,7 +59,7 @@ def command_buy_ships(ships, player, game_stats):
 		ship = ship.split[':']
 		ship_price = game_stats['model_ship'][ship[1]]['price']
 
-		if ship_price >= game_stats['players'][player]['money']:
+		if ship_price <= game_stats['players'][player]['money']:
 			game_stats['players'][player]['money'] -= ship_price
 			create_ship(player_name, '%s_%s' % (player_name, ship[0]), ship[1], game_stats)
 
