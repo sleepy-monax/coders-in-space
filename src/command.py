@@ -72,7 +72,8 @@ def command_buy_ships(ships, player, game_stats):
 
 def create_ship(player_name, ship_name, ship_type, game_stats):
 	game_stats['ships'][ship_name] = { 'type':ships[3], 'heal_points':game_stats['model_ship'][ship_type]['max_heal'],'direction':game_stats['player_name']['ships_starting_direction'], 'speed':0, 'owner': player_name, 'postion': game_stats['player_name']['ships_starting_point']}
-	game_stats['board'][game_stats['player_name']['ships_starting_point']].append(ship_name)
+	game_stats['board'][game_stats[player_name]['ships_starting_point']].append(ship_name)
+	game_stats[player_name]['nb_ships'] += 1
 
 	return game_stats
 
@@ -101,11 +102,11 @@ def command_change_speed(ship, change, game_stats):
 	if change == 'faster' and gamestats['ship'][ship]['speed'] < game_stats['model_ship'][type]['max_speed']:
 		game_stats['ships'][ship]['speed']+=1
 
-	# make the ship move slower.
+	# Make the ship move slower.
 	elif change == 'slower' and gamestats['ship'][ship]['speed'] > 0:
 		game_stats['ships'][ship]['speed']-=1
 
-	# show a message when is a invalide change.
+	# Show a message when is a invalide change.
 	else:
 		print 'you cannot make that change on the speed of this ship'
 
@@ -163,51 +164,54 @@ def command_rotate(ship, direction, game_stats):
 
 	return game_stats
 
-def command_attack(ship, ship_location, coordinate, game_stats):
+def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
 	"""
 	determine if the attack works and do it.
 
 	Parameters
 	----------
-	ship_location : coodinate of the first ship (tuple(int, int)).
-	coordinate : coordinate of the tile to attack (tuple(int,int)).
+	ship_coordinate : coodinate of the first ship (tuple(int, int)).
+	target_coordinate : coordinate of the tile to attack (tuple(int,int)).
 	game_stats : stats of the game (dic).
 
 	Returns
 	-------
-	new_game_stats : the game after the command execution.
+	new_game_stats : the game after the command execution (dic).
 
 	Version
 	-------
-	specification v1. Nicolas Van Bossuyt (10/2/2017)
-	implementation v1.Alisson Leist (14/2/2017)
+	specification : Nicolas Van Bossuyt (v1. 10/2/2017)
+	implementation : Alisson Leist (v1. 14/2/2017)
 	"""
+
+	# Retriving information from game_stats.
 	board_width=game_stats['board_size'][0]
-	board_lenght=game_stats['board_size'][1]
+	board_height=game_stats['board_size'][1]
+	damages=game_stats['ships'][ship]['damages']
 
-	damages=game_stats ['ships'][ship]['damages']
-
-	if coordinate[0]+ship_location[0]<=board_width/2:
-		if coordinate[0]<ship_location[0]:
-			coordinate[0]+=board_width
+	# Getting distance between ship and taget.
+	if target_coordinate[0] + ship_coordinate[0] <=board_width/2:
+		if target_coordinate[0] < ship_coordinate[0]:
+			target_coordinate[0]+=board_width
 		else:
-			ship_location[0]+=board_width
+			target_coordinate[0]+=board_width
 
-	if coordinate[1]+ship_location[1]<=board_lenght/2:
-		if coordinate[1]<ship_location[1]:
-			coordinate[1]+=board_lenght
+	if target_coordinate[1] + ship_coordinate[1]<=board_height/2:
+		if target_coordinate[1] < ship_coordinate[1]:
+			target_coordinate[1]+=board_height
 		else:
-			ship_location[1]+=board_lenght
+			ship_coordinate[1]+=board_height
 
-	if abs((coordinate[0] - ship_location[0])) + abs((coordinate[1] - ship_location[1]))<=game_stats ['ships'][ship]['range'] :
-
-		if not game_stats['board'][coordinate] == []:
+	if abs((target_coordinate[0] - ship_coordinate[0])) + abs((target_coordinate[1] - ship_coordinate[1])) <= game_stats ['ships'][ship]['range'] :
+		if not game_stats['board'][target_coordinate] == []:
 			game_stats['nb_rounds']=0
+			# Give damages to all ship on targe coordinate.
+			for target_ship in game_stats['board'][target_coordinate]:
+				# Give damages to the taget ship.
+				game_stats['ships'][target_ship]['heal_point']-=damages
+				if game_stats['ships'][target_ship]['heal_point']<=0:
+					# Remove the space ship.
+					game_stats['board'][target_coordinate].remove(target_ship)
+					game_stats['players'][game_stats['ships'][target_ship]['owner']]['nb_ships'] -=1
 
-			for element in game_stats['board'][coordinate] :
-
-				game_stats['ships'][element]['heal_point']-=damages
-
-				if game_stats['ships'][element]['heal_point']<=0:
-					game_stats['board'][coordinate].remove(element)
-	return new_game_stats
+	return game_stats

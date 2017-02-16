@@ -181,7 +181,7 @@ def new_game(level_name, players_list):
 			player_type = 'human'
 
 		# TODO : ships_starting_point, ships_starting_direction.
-		game_stats['players'][player] = {'name': player, 'money':100, 'nb_ship': 0,
+		game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,
 										 'type': player_type, 'color':'', 'ships_starting_point': (0, 0),
 										 'ships_starting_direction': (1,0)}
 
