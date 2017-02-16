@@ -299,6 +299,7 @@ def show_board(game_stats, color = True):
 
 	# Create a new canvas.
 	c = creat_canvas(190, 50, color)
+	put_ascii_art(c, c['size'][0] - 65, game_stats['board_size'][1] - 25, 'alien')
 
 	# Create the board frame.
 	on_screen_board_size = (game_stats['board_size'][0]*3 + 5, game_stats['board_size'][1] + 3)
@@ -352,11 +353,12 @@ def show_board(game_stats, color = True):
 				# in other case show how many ship there are in the tile.
 				put_string(c, on_screen_board_tile[0], on_screen_board_tile[1], '!' + str(len(game_stats['board'][(x,y)])),1,0,'white', 'green')
 
-	# Create player liste frame.
+	# Put players liste frame.
 	on_screen_player_board_size = (len(game_stats['players']) * 30 + 2, c['size'][1] - on_screen_board_size[1])
 	put_box(c, 0, on_screen_board_size[1], on_screen_player_board_size[0], on_screen_player_board_size[1])
 	put_string(c, 1, on_screen_board_size[1], u'| Players |')
 
+    # Put players liste.
 	player_count = 0
 	for player in game_stats['players']:
 		location = ((player_count * 30) + 1, on_screen_board_size[1] + 1,)
@@ -366,11 +368,9 @@ def show_board(game_stats, color = True):
 		put_string(c, location[0] + 2, location[1] , '| ' + game_stats['players'][player]['name'] + ' |')
 		put_string(c, location[0] + 2, location[1] + 1, 'Type : ' + game_stats['players'][player]['type'])
 		put_string(c, location[0] + 2, location[1] + 2, 'Money : ' + str(game_stats['players'][player]['money']) + '$')
-		put_string(c, location[0] + 2, location[1] + 3, 'Spaceship count : ' + str(game_stats['players'][player]['nb_ship']))
+		put_string(c, location[0] + 2, location[1] + 3, 'Spaceship count : ' + str(game_stats['players'][player]['nb_ships']))
 
 		player_count += 1
-
-	put_ascii_art(c, 0, 0, 'alien')
 	# Show the game board in the terminal.
 	print_canvas(c)
 
