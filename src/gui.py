@@ -202,7 +202,7 @@ def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None)
 	specification : Nicolas Van Bossuyt (v1. 10/2/17)
     implementation : Nicolas Van Bossuyt (V1. 15/2/2017)
     """
-    art_file = open('art\\' + ascii_art_name + '.txt','r')
+    art_file = open('art/' + ascii_art_name + '.txt','r')
 
     index = 0
     for line in art_file:

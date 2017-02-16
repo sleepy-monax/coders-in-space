@@ -368,10 +368,9 @@ def show_board(game_stats, color = True):
 		put_string(c, location[0] + 2, location[1] + 2, 'Money : ' + str(game_stats['players'][player]['money']) + '$')
 		put_string(c, location[0] + 2, location[1] + 3, 'Spaceship count : ' + str(game_stats['players'][player]['nb_ship']))
 
-		put_ascii_art(c, 0, 0, 'alien')
-
 		player_count += 1
 
+	put_ascii_art(c, 0, 0, 'alien')
 	# Show the game board in the terminal.
 	print_canvas(c)
 
