@@ -36,13 +36,13 @@ _________            .___                    .__           _________
 
 def play_game(level_name, players_list):
 	"""
-	Main game function thats run the game loop.
+	Main game function which runs the game loop.
 
 	parameters
 	----------
 
 	level_name: name of the level (str)
-	players_list: list of the players(tuple)
+	players_list: list of the players(list)
 
 	Version
 	-------
@@ -73,6 +73,10 @@ def get_game_input(player_name, game_stats):
 	Parameters
 	----------
 	player_name : name of the player to get input (str).
+	
+	Version
+	-------
+	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
 	"""
 
 def new_game(level_name, players_list):
@@ -81,7 +85,7 @@ def new_game(level_name, players_list):
 
 	Parameters
 	----------
-	level_name : name of the level to play in (str).
+	level_name : name of the path to .cis file (str).
 	players_list : list of players (list).
 
 	Return
@@ -129,7 +133,7 @@ def direction_to_vector2D(direction):
 
 def show_board(game_stats, color = True):
 	"""
-	Show the game to the user screen.
+	Show the game on the user's screen.
 
 	Parameter
 	---------
@@ -137,14 +141,12 @@ def show_board(game_stats, color = True):
 
 	Version
 	-------
-	Version
-	-------
 	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
 	"""
 
 def get_player_input(player_name, game_stats):
 	"""
-	Get and return input form the player.
+	Get and return input from the player.
 
 	Parameters:
 	----------
@@ -284,7 +286,7 @@ def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None)
 
 def print_canvas(canvas):
 	"""
-	Print the game view in the terminal.
+	Print the canvas in the terminal.
 
 	Parameter
 	---------
@@ -315,7 +317,7 @@ def parse_command(commands, player_name, game_stats):
 
 def command_buy_ships(ships, player, game_stats):
 	"""
-	Allow a player to buy some spaceships.
+	Allow a player to buy some ships.
 
 	Parameters
 	----------
@@ -334,7 +336,7 @@ def command_buy_ships(ships, player, game_stats):
 
 def create_ship(player_name, ship_name, ship_type, game_stats):
 	"""
-	Create and add an new ship.
+	Create and add a new ship.
 
 	Parameters
 	----------
@@ -345,7 +347,7 @@ def create_ship(player_name, ship_name, ship_type, game_stats):
 
 	Return
 	------
-	game_stats : stats after adding the new space ship (dic).
+	game_stats : stats after adding the new ship (dic).
 
 	Version
 	-------
@@ -377,13 +379,13 @@ def command_rotate(ship, direction, game_stats):
 
 	Parameters
 	----------
-	ship : name of the ship to Increase the speed.
+	ship : name of the ship to rotate (str).
 	direction : the direction to rotate the ship <"left"|"right">(str)
 	game_stats : stats of the game (dic).
 
 	Returns
 	-------
-	new_game_stats : the game after the command execution.
+	new_game_stats : the game after the command execution (dic).
 
 	Version
 	-------
@@ -405,7 +407,7 @@ def rotate_vector_2D(vector, radian):
 
 	Version
 	-------
-	specification : Nicolas Van Bossuyt (v1. 10/2/17)
+	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
 	"""
 
 def command_attack(ship, ship_location, coordinate, game_stats):
@@ -420,11 +422,11 @@ def command_attack(ship, ship_location, coordinate, game_stats):
 
 	Returns
 	-------
-	new_game_stats : the game after the command execution.
+	new_game_stats : the game after the command execution (dic).
 
 	Version
 	-------
-	specification v1. Nicolas Van Bossuyt (10/2/2017)
+	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
 	"""
 
 # (...)Ouais, ça va être bien, ça va être très bien même… Bon, bien sûr, y faut imaginer.
