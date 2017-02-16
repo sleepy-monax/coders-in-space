@@ -7,7 +7,7 @@ def test_new_game():
 
 
     try:
-        codeinspace.new_game('board\\test0.cis', ('Vador','ai'))
+        codeinspace.new_game('board/test0.cis', ('Vador','ai'))
         assert True
     except Exception as e:
         print e
