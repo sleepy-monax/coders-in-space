@@ -29,7 +29,6 @@ def parse_command(commands, player_name, game_stats):
 		except:
 			continue
 
-
 		if ship_action == 'slower' or ship_action == 'faster':
 			# Speed command :
 			game_stats = command_change_speed(ship_name, ship_action, game_stats)
@@ -40,7 +39,7 @@ def parse_command(commands, player_name, game_stats):
 			# Attack command :
 			ship_action = ship_action.split('-')
 			coordinate = (int(ship_action[0]) - 1, int(ship_action[1]) - 1)
-			game_stats['pending_attacks'].append((ship_name, game_stats['ships'][ship_name]['location'], coordinate))
+			game_stats['pending_attacks'].append((ship_name, game_stats['ships'][ship_name]['position'], coordinate))
 
 	return game_stats
 
@@ -161,9 +160,9 @@ def command_rotate(ship, direction, game_stats):
 		return new_vector
 
 	if direction == 'left':
-		gamestats['ships'][ship]['direction'] = rotate_vector_2D(gamestats['ships'][ship]['direction'], -math.pi / 4)
+		game_stats['ships'][ship]['direction'] = rotate_vector_2D(game_stats['ships'][ship]['direction'], -math.pi / 4)
 	elif direction == 'right':
-		gamestats['ships'][ship]['direction'] = rotate_vector_2D(gamestats['ships'][ship]['direction'], math.pi / 4)
+		game_stats['ships'][ship]['direction'] = rotate_vector_2D(game_stats['ships'][ship]['direction'], math.pi / 4)
 
 	return game_stats
 

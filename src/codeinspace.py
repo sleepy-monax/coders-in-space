@@ -74,16 +74,8 @@ def play_game(level_name, players_list):
 		for player in game_stats['players']:
 			parse_command(get_game_input(player, False, game_stats), player, game_stats)
 
-		# Show the game board to the human player.
-		show_board(game_stats)
-		time.sleep(1)
-
 		# Do ships moves.
 		do_moves(game_stats)
-
-		# Show the game board to the human player.
-		show_board(game_stats)
-		time.sleep(1)
 
 		# Do Attack
 		for pending_attack in game_stats['pending_attack']:
@@ -216,16 +208,16 @@ def new_game(level_name, players_list):
 
 		if index_player==1:
 			game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'red',
-											  'ships_starting_point': (10, 10),'ships_starting_direction': (1,1)}
+											  'ships_starting_point': (9, 9),'ships_starting_direction': (1, 1)}
 		elif index_player==2:
 			game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'blue',
-											  'ships_starting_point': (game_stats['board_size'][0]-10,game_stats['board_size'][1]-10 ),'ships_starting_direction': (-1,-1)}
+											  'ships_starting_point': (game_stats['board_size'][0]-10, game_stats['board_size'][1]-10),'ships_starting_direction': (-1, -1)}
 		elif index_player==3:
 			game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'yellow',
-											  'ships_starting_point': (game_stats['board_size'][0]-10,10 ),'ships_starting_direction': (-1,1)}
+											  'ships_starting_point': (game_stats['board_size'][0]-10, 9),'ships_starting_direction': (-1, 1)}
 		elif index_player==4:
 			game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'magenta',
-											  'ships_starting_point': (10,game_stats['board_size'][1]-10 ),'ships_starting_direction': (1,-1)}
+											  'ships_starting_point': (9, game_stats['board_size'][1]-10),'ships_starting_direction': (1, -1)}
 
 		else:
 			print 'There is too many player the player %s is a loser he must be watch you playing' %s(player)
@@ -234,7 +226,7 @@ def new_game(level_name, players_list):
 
 	# Place lost ships.
 	for ships in game_file['ships']:
-		game_stats['ships'][ships[2]]= { 'type':ships[3], 'heal_points':game_stats['model_ship'][ships[3]]['max_heal'],'direction':ships[4], 'speed':0, 'owner': 'none', 'position': [ships[0],ships[1]] }
+		game_stats['ships'][ships[2]]= { 'type':ships[3], 'heal_points':game_stats['model_ship'][ships[3]]['max_heal'],'direction':ships[4], 'speed':0, 'owner': 'none', 'position': (ships[0],ships[1]) }
 		game_stats['board'][(ships[0],ships[1])].append(ships[2])
 
 	return game_stats
