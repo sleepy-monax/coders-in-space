@@ -108,6 +108,7 @@ def do_moves(game_stats):
 	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
 	"""
 	# TODO : move logique.
+	
 	pass
 
 def get_game_input(player_name, game_stats):
@@ -180,7 +181,7 @@ def new_game(level_name, players_list):
 		else:
 			player_type = 'human'
 
-		# TODO : ships_starting_point, ships_starting_direction.
+		
 		game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,
 										 'type': player_type, 'color':'', 'ships_starting_point': (0, 0),
 										 'ships_starting_direction': (1,0)}
