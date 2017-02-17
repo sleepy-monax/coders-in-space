@@ -107,9 +107,36 @@ def do_moves(game_stats):
 	-------
 	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
 	"""
-	# TODO : move logique.
-
-	pass
+	for element in game_stats['ships'] :
+	    
+	    position=game_stats['ships'][element]['position']
+	    
+	    position_x=position[0]
+            position_y=position[1]
+            
+	    move_x=game_stats['ships'][element]['speed']*game_stats['ships'][element]['direcion'][0]
+	    move_y=game_stats['ships'][element]['speed']*game_stats['ships'][element]['direcion'][1]
+	    
+	    if move_x+position_x>game_stats['board_size'][0]:
+	        position_x-=game_stats['board_size'][0]
+	        
+	    elif move_x+position_x<0:
+	        position_x+=game_stats['board_size'][0]
+	        
+	    if move_y+position_y>game_stats['board_size'][1]:
+	        position_y-=game_stats['board_size'][1]
+	        
+	    elif move_x+position_x<0:
+	        position_y+=game_stats['board_size'][1]
+	        
+	    new_position=(position_x+move_x,position_y+move_y)
+	    
+	    game_stats['board'][position].remove(element)
+	    game_stats['board'][new_position].append(element)
+	    game_stats['ships'][element]['position']=new_position
+	
+	return game_stats    
+	
 
 def get_game_input(player_name, game_stats):
 	"""
