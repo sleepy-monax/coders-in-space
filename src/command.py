@@ -71,7 +71,7 @@ def command_buy_ships(ships, player, game_stats):
 	return game_stats
 
 def create_ship(player_name, ship_name, ship_type, game_stats):
-	game_stats['ships'][ship_name] = {'type':ship_type, 'heal_points':game_stats['model_ship'][ship_type]['max_heal'], 'direction':game_stats['players'][player_name]['ships_starting_direction'], 'speed':0, 'owner': player_name, 'postion': game_stats['players'][player_name]['ships_starting_point']}
+	game_stats['ships'][ship_name] = {'type':ship_type, 'heal_points':game_stats['model_ship'][ship_type]['max_heal'], 'direction':game_stats['players'][player_name]['ships_starting_direction'], 'speed':0, 'owner': player_name, 'position': game_stats['players'][player_name]['ships_starting_point']}
 	game_stats['board'][game_stats['players'][player_name]['ships_starting_point']].append(ship_name)
 	game_stats['players'][player_name]['nb_ships'] += 1
 
@@ -96,10 +96,10 @@ def command_change_speed(ship, change, game_stats):
 	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
 	implementation : Bayron Mahy (v1. 10/02/2017)
 	"""
-	type = game_stats['ship'][ship]['type']
+	type = game_stats['ships'][ship]['type']
 
 	# Make the ship move faster.
-	if change == 'faster' and gamestats['ship'][ship]['speed'] < game_stats['model_ship'][type]['max_speed']:
+	if change == 'faster' and game_stats['ships'][ship]['speed'] < game_stats['model_ship'][type]['max_speed']:
 		game_stats['ships'][ship]['speed']+=1
 
 	# Make the ship move slower.

@@ -111,31 +111,33 @@ def do_moves(game_stats):
 	"""
 	for element in game_stats['ships'] :
 
-	    position=game_stats['ships'][element]['position']
+		position = game_stats['ships'][element]['position']
 
-	    position_x=position[0]
-            position_y=position[1]
+		position_x=position[0]
+		position_y=position[1]
 
-	    move_x=game_stats['ships'][element]['speed']*game_stats['ships'][element]['direcion'][0]
-	    move_y=game_stats['ships'][element]['speed']*game_stats['ships'][element]['direcion'][1]
+		move_x=game_stats['ships'][element]['speed']*game_stats['ships'][element]['direction'][0]
+		move_y=game_stats['ships'][element]['speed']*game_stats['ships'][element]['direction'][1]
 
-	    if move_x+position_x>game_stats['board_size'][0]:
-	        position_x-=game_stats['board_size'][0]
+		if move_x+position_x>game_stats['board_size'][0]:
+			position_x-=game_stats['board_size'][0]
 
-	    elif move_x+position_x<0:
-	        position_x+=game_stats['board_size'][0]
+		elif move_x+position_x<0:
+			position_x+=game_stats['board_size'][0]
 
-	    if move_y+position_y>game_stats['board_size'][1]:
-	        position_y-=game_stats['board_size'][1]
+		if move_y+position_y>game_stats['board_size'][1]:
+			position_y-=game_stats['board_size'][1]
 
-	    elif move_x+position_x<0:
-	        position_y+=game_stats['board_size'][1]
+		elif move_x+position_x<0:
+			position_y+=game_stats['board_size'][1]
 
-	    new_position=(position_x+move_x,position_y+move_y)
+		new_position = (position_x+move_x,position_y+move_y)
 
-	    game_stats['board'][position].remove(element)
-	    game_stats['board'][new_position].append(element)
-	    game_stats['ships'][element]['position']=new_position
+		print element
+
+		game_stats['board'][position].remove(element)
+		game_stats['board'][new_position].append(element)
+		game_stats['ships'][element]['position']=new_position
 
 	return game_stats
 
@@ -213,26 +215,26 @@ def new_game(level_name, players_list):
 
 
 		if index_player==1:
-		    game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'red',
-		                                      'ships_starting_point': (10, 10),'ships_starting_direction': (1,1)}
+			game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'red',
+											  'ships_starting_point': (10, 10),'ships_starting_direction': (1,1)}
 		elif index_player==2:
-		    game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'blue',
-		                                      'ships_starting_point': (game_stats['board_size'][0]-10,game_stats['board_size'][1]-10 ),'ships_starting_direction': (-1,-1)}
+			game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'blue',
+											  'ships_starting_point': (game_stats['board_size'][0]-10,game_stats['board_size'][1]-10 ),'ships_starting_direction': (-1,-1)}
 		elif index_player==3:
-		    game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'yellow',
-		                                      'ships_starting_point': (game_stats['board_size'][0]-10,10 ),'ships_starting_direction': (-1,1)}
+			game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'yellow',
+											  'ships_starting_point': (game_stats['board_size'][0]-10,10 ),'ships_starting_direction': (-1,1)}
 		elif index_player==4:
-		    game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'magenta',
-		                                      'ships_starting_point': (10,game_stats['board_size'][1]-10 ),'ships_starting_direction': (1,-1)}
+			game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'magenta',
+											  'ships_starting_point': (10,game_stats['board_size'][1]-10 ),'ships_starting_direction': (1,-1)}
 
 		else:
-		    print 'There is too many player the player %s is a loser he must be watch you playing' %s(player)
+			print 'There is too many player the player %s is a loser he must be watch you playing' %s(player)
 
 		index_player+=1
 
 	# Place lost ships.
 	for ships in game_file['ships']:
-		game_stats['ships'][ships[2]]= { 'type':ships[3], 'heal_points':game_stats['model_ship'][ships[3]]['max_heal'],'direction':ships[4], 'speed':0, 'owner': 'none', 'postion': [ships[0],ships[1]] }
+		game_stats['ships'][ships[2]]= { 'type':ships[3], 'heal_points':game_stats['model_ship'][ships[3]]['max_heal'],'direction':ships[4], 'speed':0, 'owner': 'none', 'position': [ships[0],ships[1]] }
 		game_stats['board'][(ships[0],ships[1])].append(ships[2])
 
 	return game_stats

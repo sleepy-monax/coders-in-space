@@ -42,7 +42,7 @@ def get_human_input(player_name, buy_ship, game_stats):
             return player_input
 
 def show_help_ship_creation(c, player_name, game_stats):
-    c = create_canvas(190, 10)
+    c = create_canvas(190, 25)
     put_box(c, 0, 0, c['size'][0], c['size'][1], 'double')
     put_string(c, 3, 0, '| HELP : ship creation |')
     line_index = 0
@@ -56,16 +56,16 @@ def show_help_ship_creation(c, player_name, game_stats):
         line_index+=1
     put_string(c, 1, 4 + line_index, '-'*188)
 
-    line_index += 2
+    line_index += 5
 
     # Show Players's ships.
     if game_stats['players'][player_name]['nb_ships'] > 0:
-        put_string(c, 3, 2, '> Your spaceships')
-        put_string(c, 1, 3, '-'*188)
+        put_string(c, 3, 2 + line_index, '> Your spaceships')
+        put_string(c, 1, 3 + line_index, '-'*188)
         for ship_name in game_stats['ships']:
             ship = game_stats['ships'][ship_name]
             if ship['owner'] == player_name:
-                put_string(c, 3, 4 + line_index, '[%s] %s // heal : %spv ~ speed : %skm/s ~ Facing : %s' % (ship['type'], ship_name, ship['heal'], ship['speed'], str(ship['direcion'])))
+                put_string(c, 3, 4 + line_index, '[%s] %s // heal : %spv ~ speed : %skm/s ~ Facing : %s' % (ship['type'], ship_name, ship['heal_points'], ship['speed'], str(ship['direction'])))
                 line_index+=1
         put_string(c, 1, 4 + line_index, '-'*188)
 
@@ -143,7 +143,7 @@ def show_board(game_stats, color = True):
 					put_string(c, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', 'green')
 				else:
 					# The ship have a owner.
-					ship_owner_color = game_stats['players'][['ships'][ship_name]['owner']]['color']
+					ship_owner_color = game_stats['players'][game_stats['ships'][ship_name]['owner']]['color']
 					put_string(c, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', ship_owner_color)
 
 			else:
