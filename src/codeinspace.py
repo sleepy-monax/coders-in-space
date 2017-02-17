@@ -213,16 +213,16 @@ def new_game(level_name, players_list):
 
 
 		if index_player==1:
-		    game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'',
+		    game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'red',
 		                                      'ships_starting_point': (10, 10),'ships_starting_direction': (1,1)}
 		elif index_player==2:
-		    game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'',
+		    game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'blue',
 		                                      'ships_starting_point': (game_stats['board_size'][0]-10,game_stats['board_size'][1]-10 ),'ships_starting_direction': (-1,-1)}
 		elif index_player==3:
-		    game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'',
+		    game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'yellow',
 		                                      'ships_starting_point': (game_stats['board_size'][0]-10,10 ),'ships_starting_direction': (-1,1)}
 		elif index_player==4:
-		    game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'',
+		    game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'magenta',
 		                                      'ships_starting_point': (10,game_stats['board_size'][1]-10 ),'ships_starting_direction': (1,-1)}
 
 		else:

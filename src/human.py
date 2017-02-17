@@ -22,13 +22,12 @@ def get_human_input(player_name, buy_ship, game_stats):
     print_canvas(c)
 
     while True:
-        player_input = raw_input(player_name + ':~$')
+        player_input = raw_input('| ' + player_name + ':~$')
         if '/' in player_input:
-            c = create_canvas(190, 50)
-            put_box(c, 0, 0, 190, 3)
+
             if player_input == '/help-ship-creation':
-                show_help_ship_creation(c)
-                print_canvas(c)
+                show_help_ship_creation(c, player_name, game_stats)
+
             elif player_input == '/help-game-command':
                 show_help_game_command(c)
                 print_canvas(c)
@@ -42,16 +41,41 @@ def get_human_input(player_name, buy_ship, game_stats):
         else:
             return player_input
 
-def show_help_ship_creation(c):
-    put_string(c, 3, 0, '| HELP : ship creation |' % player_name)
-    put_string(c, 3, 3, 'Ship type')
-    put_string(c, 1, 4, '-'*188)
+def show_help_ship_creation(c, player_name, game_stats):
+    c = create_canvas(190, 10)
+    put_box(c, 0, 0, c['size'][0], c['size'][1], 'double')
+    put_string(c, 3, 0, '| HELP : ship creation |')
+    line_index = 0
+
+    # Show ships models.
+    put_string(c, 3, 2, '> Spaceships Models')
+    put_string(c, 1, 3, '-'*188)
+    for ship_model_name in game_stats['model_ship']:
+        ship_model = game_stats['model_ship'][ship_model_name]
+        put_string(c, 3, 4 + line_index, '[%s] %s // heal : %spv ~ speed : %skm/s ~ damages : %spv ~ attack range : %skm ~ price : %sG$ ' % (ship_model['icon'], ship_model_name, ship_model['max_heal'], ship_model['max_speed'], ship_model['damages'], ship_model['range'], ship_model['price']))
+        line_index+=1
+    put_string(c, 1, 4 + line_index, '-'*188)
+
+    line_index += 2
+
+    # Show Players's ships.
+    if game_stats['players'][player_name]['nb_ships'] > 0:
+        put_string(c, 3, 2, '> Your spaceships')
+        put_string(c, 1, 3, '-'*188)
+        for ship_name in game_stats['ships']:
+            ship = game_stats['ships'][ship_name]
+            if ship['owner'] == player_name:
+                put_string(c, 3, 4 + line_index, '[%s] %s // heal : %spv ~ speed : %skm/s ~ Facing : %s' % (ship['type'], ship_name, ship['heal'], ship['speed'], str(ship['direcion'])))
+                line_index+=1
+        put_string(c, 1, 4 + line_index, '-'*188)
+
+    print_canvas(c)
 
 def show_help_game_command(c):
-    put_string(c, 3, 0, '| HELP : game command |' % player_name)
+    put_string(c, 3, 0, '| HELP : game command |')
 
 def show_ships_list(c, player_name, game_stats):
-    put_string(c, 3, 0, '| Your spaceships |' % player_name)
+    put_string(c, 3, 0, '| Your spaceships |')
 
 def show_board(game_stats, color = True):
 	"""
@@ -72,7 +96,7 @@ def show_board(game_stats, color = True):
 
 	# Create a new canvas.
 	c = create_canvas(190, 50, color)
-	put_ascii_art(c, c['size'][0] - 65, game_stats['board_size'][1] - 25, 'alien')
+	put_ascii_art(c, c['size'][0] - 55, c['size'][1] - 26, 'alien', 'green')
 
 	# Create the board frame.
 	on_screen_board_size = (game_stats['board_size'][0]*3 + 5, game_stats['board_size'][1] + 3)
@@ -119,7 +143,7 @@ def show_board(game_stats, color = True):
 					put_string(c, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', 'green')
 				else:
 					# The ship have a owner.
-					ship_owner_color = game_stats['player'][['ships'][ship_name]['owner']]['color']
+					ship_owner_color = game_stats['players'][['ships'][ship_name]['owner']]['color']
 					put_string(c, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', ship_owner_color)
 
 			else:

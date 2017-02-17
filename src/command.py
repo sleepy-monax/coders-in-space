@@ -61,19 +61,19 @@ def command_buy_ships(ships, player, game_stats):
 	"""
 
 	for ship in ships.split(' '):
-		ship = ship.split[':']
+		ship = ship.split(':')
 		ship_price = game_stats['model_ship'][ship[1]]['price']
 
 		if ship_price <= game_stats['players'][player]['money']:
 			game_stats['players'][player]['money'] -= ship_price
-			create_ship(player_name, '%s_%s' % (player_name, ship[0]), ship[1], game_stats)
+			create_ship(player, '%s_%s' % (player, ship[0]), ship[1], game_stats)
 
 	return game_stats
 
 def create_ship(player_name, ship_name, ship_type, game_stats):
-	game_stats['ships'][ship_name] = { 'type':ships[3], 'heal_points':game_stats['model_ship'][ship_type]['max_heal'],'direction':game_stats['player_name']['ships_starting_direction'], 'speed':0, 'owner': player_name, 'postion': game_stats['player_name']['ships_starting_point']}
-	game_stats['board'][game_stats[player_name]['ships_starting_point']].append(ship_name)
-	game_stats[player_name]['nb_ships'] += 1
+	game_stats['ships'][ship_name] = {'type':ship_type, 'heal_points':game_stats['model_ship'][ship_type]['max_heal'], 'direction':game_stats['players'][player_name]['ships_starting_direction'], 'speed':0, 'owner': player_name, 'postion': game_stats['players'][player_name]['ships_starting_point']}
+	game_stats['board'][game_stats['players'][player_name]['ships_starting_point']].append(ship_name)
+	game_stats['players'][player_name]['nb_ships'] += 1
 
 	return game_stats
 
