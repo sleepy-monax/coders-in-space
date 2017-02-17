@@ -1,6 +1,7 @@
 import pytest
 import codeinspace
 import os
+import human
 
 def test_parse_game_file():
     try:
@@ -9,7 +10,7 @@ def test_parse_game_file():
     except Exception as e:
         raise
         assert False
-        
+
 def test_new_game():
     try:
         codeinspace.new_game('board/test0.cis', ('Vador','ai'))
@@ -19,7 +20,7 @@ def test_new_game():
 
 def test_show_board():
     try:
-        codeinspace.show_board(codeinspace.new_game('board/test0.cis', ('Vador', 'ai')))
+        human.show_board(codeinspace.new_game('board/test0.cis', ('Vador', 'ai')))
         assert True
     except Exception as e:
         raise

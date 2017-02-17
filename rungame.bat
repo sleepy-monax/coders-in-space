@@ -1,1 +1,2 @@
-python src/codeinspace.py
+python run_game.py
+pause
