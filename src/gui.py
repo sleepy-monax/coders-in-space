@@ -229,15 +229,16 @@ def print_canvas(canvas):
     canvas_height = canvas['size'][1]
 
     for y in range(canvas_height):
-        line = ''
         for x in range(canvas_width):
+
             grid_item = canvas['grid'][(x,y)]
             char = grid_item['char']
             color = grid_item['color']
             back_color = grid_item['back_color']
 
             if (canvas['color']):
-                line = line + colored(char, color, back_color)
+                print colored(char, color, back_color),
             else:
-                line = line + char
-        print line
+                print char,
+
+        print '\n'
