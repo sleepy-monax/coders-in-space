@@ -20,3 +20,5 @@ def get_human_input(player_name, buy_ship, game_stats):
     put_box(c, 0, 0, 190, 3)
     put_string(c, 3, 0, '| It\'s %s\'s turn |' % player_name)
     print_canvas(c)
+
+    return raw_input(player_name + '>_')

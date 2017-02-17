@@ -4,6 +4,8 @@ import time
 from command import *
 from gui import *
 from ai import *
+from human import *
+
 """
 .     .       .  .   . .   .   . .    +  .
   .     .  :     .    .. :. .___---------___.
@@ -58,7 +60,7 @@ def play_game(level_name, players_list):
 
 	# Players create their ships.
 	for player in game_stats['players']:
-		command_buy_ships(get_game_input(player), player, game_stats)
+		game_stats = command_buy_ships(get_game_input(player, True, game_stats), player, game_stats)
 
 	# Show the game board to human player.
 	show_board(game_stats)
@@ -70,7 +72,7 @@ def play_game(level_name, players_list):
 
 		# getting players input.
 		for player in game_stats['players']:
-			parse_command(get_game_input(player, game_stats), player, game_stats)
+			parse_command(get_game_input(player, False, game_stats), player, game_stats)
 
 		# Show the game board to the human player.
 		show_board(game_stats)
@@ -108,37 +110,37 @@ def do_moves(game_stats):
 	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
 	"""
 	for element in game_stats['ships'] :
-	    
+
 	    position=game_stats['ships'][element]['position']
-	    
+
 	    position_x=position[0]
             position_y=position[1]
-            
+
 	    move_x=game_stats['ships'][element]['speed']*game_stats['ships'][element]['direcion'][0]
 	    move_y=game_stats['ships'][element]['speed']*game_stats['ships'][element]['direcion'][1]
-	    
+
 	    if move_x+position_x>game_stats['board_size'][0]:
 	        position_x-=game_stats['board_size'][0]
-	        
+
 	    elif move_x+position_x<0:
 	        position_x+=game_stats['board_size'][0]
-	        
+
 	    if move_y+position_y>game_stats['board_size'][1]:
 	        position_y-=game_stats['board_size'][1]
-	        
+
 	    elif move_x+position_x<0:
 	        position_y+=game_stats['board_size'][1]
-	        
+
 	    new_position=(position_x+move_x,position_y+move_y)
-	    
+
 	    game_stats['board'][position].remove(element)
 	    game_stats['board'][new_position].append(element)
 	    game_stats['ships'][element]['position']=new_position
-	
-	return game_stats    
-	
 
-def get_game_input(player_name, game_stats):
+	return game_stats
+
+
+def get_game_input(player_name, buy_ship, game_stats):
 	"""
 	get input from a specified player.
 
@@ -148,15 +150,15 @@ def get_game_input(player_name, game_stats):
 	"""
 	player_input = ''
 
-	if game_stats['player'][player]['type'] == 'human':
+	if game_stats['players'][player_name]['type'] == 'human':
 		# get input from the human player.
-		player_input = get_player_input(player, game_stats)
+		player_input = get_human_input(player_name, buy_ship, game_stats)
 
-	elif game_stats['player'][player]['type'] == 'ai':
+	elif game_stats['players'][player_name]['type'] == 'ai':
 		# get input from the ai.
 		player_input = get_ai_input(player, game_stats)
 
-	elif game_stats['player'][player]['type'] == 'distant':
+	elif game_stats['players'][player_name]['type'] == 'distant':
 		# Get input from the remote player.
 		# TODO : remote player logic.
 		# player_input = get_remote_input(player, game_stats)
@@ -209,7 +211,7 @@ def new_game(level_name, players_list):
 		else:
 			player_type = 'human'
 
-		
+
 		if index_player==1:
 		    game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'',
 		                                      'ships_starting_point': (10, 10),'ships_starting_direction': (1,1)}
@@ -416,23 +418,3 @@ def show_board(game_stats, color = True):
 		player_count += 1
 	# Show the game board in the terminal.
 	print_canvas(c)
-
-def get_player_input(player_name, game_stats):
-	"""
-	Get and return input form the player.
-
-	Parameter:
-	----------
-	Player_name : Name of the player (str).
-	game_stats : the stats of the game (dic).
-
-	Return:
-	-------
-	player_input : the input from the player (str).
-
-	Version
-	-------
-	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
-	"""
-
-	raise NotImplementedError
