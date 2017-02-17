@@ -175,6 +175,7 @@ def new_game(level_name, players_list):
 			game_stats['board'][(line,column)] = []
 
 	# Create players.
+	index_player=1
 	for player in players_list:
 		if player == 'ai' or play_game == 'distant':
 			player_type = player
@@ -182,9 +183,23 @@ def new_game(level_name, players_list):
 			player_type = 'human'
 
 		
-		game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,
-										 'type': player_type, 'color':'', 'ships_starting_point': (0, 0),
-										 'ships_starting_direction': (1,0)}
+		if index_player==1:
+		    game_stats['players'][player] = {'name': player, 'money':100, 'nb_ship': 0,'type': player_type,'color':'',
+		                                      'ships_starting_point': (10, 10),'ships_starting_direction': (1,1)}
+		elif index_player==2:
+		    game_stats['players'][player] = {'name': player, 'money':100, 'nb_ship': 0,'type': player_type,'color':'',
+		                                      'ships_starting_point': (game_stats['board_size'][0]-10,game_stats['board_size'][1]-10 ),'ships_starting_direction': (-1,-1)}
+		elif index_player==3:
+		    game_stats['players'][player] = {'name': player, 'money':100, 'nb_ship': 0,'type': player_type,'color':'',
+		                                      'ships_starting_point': (game_stats['board_size'][0]-10,10 ),'ships_starting_direction': (-1,1)}
+		elif index_player==4:
+		    game_stats['players'][player] = {'name': player, 'money':100, 'nb_ship': 0,'type': player_type,'color':'',
+		                                      'ships_starting_point': (10,game_stats['board_size'][1]-10 ),'ships_starting_direction': (1,-1)}
+		                                      
+		else:
+		    print 'There is too many player the player %s is a loser he must be watch you playing' %s(player)
+		
+		index_player+=1
 
 	# Place lost ships.
 	for ships in game_file['ships']:
