@@ -314,7 +314,7 @@ def show_board(game_stats, color = True):
 	"""
 
 	# Create a new canvas.
-	c = creat_canvas(190, 50, color)
+	c = create_canvas(190, 50, color)
 	put_ascii_art(c, c['size'][0] - 65, game_stats['board_size'][1] - 25, 'alien')
 
 	# Create the board frame.

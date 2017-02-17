@@ -11,7 +11,7 @@ def cls():
     else:
         os.system('clear')
 
-def creat_canvas(width, height, enable_color = True):
+def create_canvas(width, height, enable_color = True):
     """
     Create a new char canvas.
 
@@ -31,7 +31,6 @@ def creat_canvas(width, height, enable_color = True):
 	-------
 	specification : Nicolas Van Bossuyt (v1. 10/2/17)
     implementation: Nicolas Van Bossuyt (v1. 13/2/2017)
-
     """
 
     # Initialize the canvas.
