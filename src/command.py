@@ -21,11 +21,14 @@ def parse_command(commands, player_name, game_stats):
 	"""
 
 	commands = commands.split(' ')
-
 	for cmd in commands:
-		sub_cmd = cmd.split(':')
-		ship_name = player_name + '_' + sub_cmd[0]
-		ship_action = sub_cmd[1]
+		try:
+			sub_cmd = cmd.split(':')
+			ship_name = player_name + '_' + sub_cmd[0]
+			ship_action = sub_cmd[1]
+		except:
+			continue
+
 
 		if ship_action == 'slower' or ship_action == 'faster':
 			# Speed command :

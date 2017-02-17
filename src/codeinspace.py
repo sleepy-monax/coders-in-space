@@ -133,7 +133,7 @@ def do_moves(game_stats):
 
 		new_position = (position_x+move_x,position_y+move_y)
 
-		print element
+		# print element
 
 		game_stats['board'][position].remove(element)
 		game_stats['board'][new_position].append(element)
