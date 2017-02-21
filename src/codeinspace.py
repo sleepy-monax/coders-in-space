@@ -133,7 +133,34 @@ def do_moves(game_stats):
 
 	return game_stats
 
+def take_abandonned_ship(coord, game_stats, ships_to_test=[]):
+	""" determine who become the owner of the abandonned ship.
 
+	parameters
+	----------
+	coord: coordinate where the abandonned ship is. (tuple(int,int))
+	game_stats: state of the game before the call of this function (dico)
+	ships_to_test: list of ships to test on a place (list)
+
+	return
+	------
+	game_stats: state of the game after the call of this function (dico)
+	True if the abandonned ship is taken (bool)
+
+	version
+	-------
+	specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/2017)
+	implementation: Bayron Mahy (v.1 21/02/2017)
+	"""
+	if len (game_stats[coord])== 2:
+		game_stats[coord][0]['owner']=game_stats[coord][1]['owner']
+		return True, game_stats
+	elif game_stats[coord][-1]['owner'] =! game_stats[coord][-2]['owner']:
+		return False, game_stats
+	else:
+		ships_to_test= game_stats[coord]
+		return take_abandonned_ship(coord , game_stats, ships_to_test)
+        
 def get_game_input(player_name, buy_ship, game_stats):
 	"""
 	get input from a specified player.
