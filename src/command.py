@@ -16,8 +16,8 @@ def parse_command(commands, player_name, game_stats):
 
 	Version
 	-------
-	specification v1. Nicolas Van Bossuyt (10/2/2017)
-	implementation v1. Nicolas Van Bossuyt (10/2/2017)
+	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
+	implementation : Nicolas Van Bossuyt (V1. 10/2/2017)
 	"""
 
 	commands = commands.split(' ')
@@ -60,6 +60,7 @@ def command_buy_ships(ships, player, game_stats):
 	Version
 	-------
 	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
+	implementation : Nicolas Van Bossuyt (v1. 14/2/17)
 	"""
 
 	for ship in ships.split(' '):
@@ -152,11 +153,9 @@ def command_rotate(ship, direction, game_stats):
 		specification : Nicolas Van Bossuyt (v1. 10/2/17)
 		implementation : Nicolas Van Bossuyt (v1. 10/2/2017)
 		"""
-		new_vector = (.0,.0)
 
 		# Here is were the magic append.
-		new_vector[0] = vector[0] * math.cos(radian) - vector[1] * math.sin(radian)
-		new_vector[1] = vector[0] * math.sin(radian) + vector[1] * math.cos(radian)
+		new_vector = ( int(vector[0] * math.cos(radian) - vector[1] * math.sin(radian)), int(vector[0] * math.sin(radian) + vector[1] * math.cos(radian)))
 		return new_vector
 
 	if direction == 'left':

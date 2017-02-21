@@ -111,6 +111,7 @@ def do_moves(game_stats):
 		move_x=game_stats['ships'][element]['speed']*game_stats['ships'][element]['direction'][0]
 		move_y=game_stats['ships'][element]['speed']*game_stats['ships'][element]['direction'][1]
 
+
 		if move_x+position_x>game_stats['board_size'][0]:
 			position_x-=game_stats['board_size'][0]
 
@@ -125,8 +126,7 @@ def do_moves(game_stats):
 
 		new_position = (position_x+move_x,position_y+move_y)
 
-		# print element
-
+        # Move the ship.
 		game_stats['board'][position].remove(element)
 		game_stats['board'][new_position].append(element)
 		game_stats['ships'][element]['position']=new_position
