@@ -152,15 +152,15 @@ def take_abandonned_ship(coord, game_stats, ships_to_test=[]):
 	specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/2017)
 	implementation: Bayron Mahy (v.1 21/02/2017)
 	"""
-	if len (game_stats[coord])== 2:
-		game_stats[coord][0]['owner']=game_stats[coord][1]['owner']
+	if len (game_stats[coord]) == 2:
+		game_stats[coord][0]['owner'] = game_stats[coord][1]['owner']
 		return True, game_stats
-	elif game_stats[coord][-1]['owner'] =! game_stats[coord][-2]['owner']:
+	elif game_stats[coord][-1]['owner'] != game_stats[coord][-2]['owner']:
 		return False, game_stats
 	else:
-		ships_to_test= game_stats[coord]
+		ships_to_test = game_stats[coord]
 		return take_abandonned_ship(coord , game_stats, ships_to_test)
-        
+
 def get_game_input(player_name, buy_ship, game_stats):
 	"""
 	get input from a specified player.

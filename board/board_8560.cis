@@ -1,0 +1,7 @@
+34 31
+31 14 ship_0:destroyer down-right
+3 6 ship_1:fighter down-left
+22 24 ship_2:fighter up
+29 22 ship_3:destroyer left
+22 17 ship_4:fighter up-left
+29 20 ship_5:battlecruiser up-right

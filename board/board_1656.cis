@@ -1,0 +1,13 @@
+37 40
+21 29 ship_0:destroyer left
+4 7 ship_1:destroyer up
+4 14 ship_2:fighter right
+35 11 ship_3:destroyer left
+5 5 ship_4:destroyer up-right
+12 20 ship_5:destroyer down
+6 16 ship_6:battlecruiser down-left
+30 11 ship_7:fighter up-right
+15 37 ship_8:fighter down-left
+5 27 ship_9:destroyer right
+6 35 ship_10:destroyer right
+4 34 ship_11:battlecruiser up-left
