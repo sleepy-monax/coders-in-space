@@ -64,6 +64,9 @@ def command_buy_ships(ships, player, game_stats):
 	"""
 
 	for ship in ships.split(' '):
+		if ship == '':
+			continue
+
 		ship = ship.split(':')
 		ship_price = game_stats['model_ship'][ship[1]]['price']
 

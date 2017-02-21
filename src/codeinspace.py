@@ -126,7 +126,7 @@ def do_moves(game_stats):
 
 		new_position = (position_x+move_x,position_y+move_y)
 
-        # Move the ship.
+		# Move the ship.
 		game_stats['board'][position].remove(element)
 		game_stats['board'][new_position].append(element)
 		game_stats['ships'][element]['position']=new_position
@@ -184,6 +184,9 @@ def get_game_input(player_name, buy_ship, game_stats):
 		# TODO : remote player logic.
 		# player_input = get_remote_input(player, game_stats)
 		pass
+	elif game_stats['players'][player_name]['type'] == 'none':
+		# None player ignore it.
+		pass
 
 	return player_input
 
@@ -225,6 +228,9 @@ def new_game(level_name, players_list):
 			game_stats['board'][(line,column)] = []
 
 	# Create players.
+	game_stats['players']['none'] = {'name': 'none', 'money':0, 'nb_ships': 0,'type': 'none','color':None,\
+									 'ships_starting_point': (0, 0),'ships_starting_direction': (0, 0)}
+
 	index_player=1
 	for player in players_list:
 		if player == 'ai' or play_game == 'distant':
