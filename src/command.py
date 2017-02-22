@@ -118,6 +118,60 @@ def command_change_speed(ship, change, game_stats):
 
 	return game_stats
 
+def rotate_vector_2D(vector, theta):
+	"""
+	Rotate a vector in a 2D space by a specified angle in radian.
+
+	Parameters
+	----------
+	vector : 2D vector ton rotate (tuple(int,int)).
+	radian : angle appli to the 2D vector (float).
+
+	Return
+	------
+	vector : rotate vector 2d (tuple(int,int)).
+
+	Version
+	-------
+	specification :  Nicolas Van Bossuyt (v1. 10/02/17)
+	implementation : Nicolas Van Bossuyt (v1. 10/02/17)
+					 Nicolas Van Bossuyt (v2. 22/02/17)
+
+	Source
+	-------
+	Use code from https://gist.github.com/mcleonard/5351452 under MIT license.
+	"""
+
+	theta = math.radians(theta)
+	# Just applying the 2D rotation matrix
+	dc, ds = math.cos(theta), math.sin(theta)
+	x, y = vector[0], vector[1]
+	x, y = dc*x - ds*y, ds*x + dc*y
+	return (x, y)
+
+def to_unit_vector(vector):
+	"""
+	Convert a vector to a unit vector.
+
+	Parameter
+	---------
+	vector : vector to convert (tuple(float, float)).
+
+	Return
+	------
+	unit_vector : a unit vector between 1 and -1 (tuple(int, int)).
+	"""
+
+	def convert(value):
+		if value > 0.25:
+			return 1
+		elif value < -0.25:
+			return -1
+
+		return 0
+
+	return (convert(vector[0]), convert(vector[1]))
+
 def command_rotate(ship, direction, game_stats):
 	"""
 	Rotate the ship.
@@ -135,37 +189,16 @@ def command_rotate(ship, direction, game_stats):
 	Version
 	-------
 	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
-	implementation : Nicolas Van Bossuyt (v1. 10/2/2017)
+	implementation : Nicolas Van Bossuyt (v1. 10/2/17)
+					 Nicolas Van Bossuyt (v2. 22/2/17)
 	"""
-
-	def rotate_vector_2D(vector, radian):
-		"""
-		Rotate a vector in a 2D space by a specified angle in radian.
-
-		Parameters
-		----------
-		vector : 2D vector ton rotate (tuple(int,int)).
-		radian : angle appli to the 2D vector (float).
-
-		Return
-		------
-		vector : rotate vector 2d (tuple(int,int)).
-
-		Version
-		-------
-		specification : Nicolas Van Bossuyt (v1. 10/2/17)
-		implementation : Nicolas Van Bossuyt (v1. 10/2/2017)
-		"""
-
-		# Here is were the magic append.
-		new_vector = ( int(vector[0] * math.cos(radian) - vector[1] * math.sin(radian)), int(vector[0] * math.sin(radian) + vector[1] * math.cos(radian)))
-		return new_vector
-
+	v = (0, 0)
 	if direction == 'left':
-		game_stats['ships'][ship]['direction'] = rotate_vector_2D(game_stats['ships'][ship]['direction'], -math.pi / 4)
+		v = rotate_vector_2D(game_stats['ships'][ship]['direction'], -45)
 	elif direction == 'right':
-		game_stats['ships'][ship]['direction'] = rotate_vector_2D(game_stats['ships'][ship]['direction'], math.pi / 4)
+		v = rotate_vector_2D(game_stats['ships'][ship]['direction'], 45)
 
+	game_stats['ships'][ship]['direction'] = to_unit_vector(v)
 	return game_stats
 
 def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
