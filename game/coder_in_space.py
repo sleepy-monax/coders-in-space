@@ -5,30 +5,30 @@
 # A cool friend to get in touch wile coding.
 
 """
-                         ___---------___
-                       _".^ .^ ^.  '.. :"-_
-                     /:            . .^  :.:\
-                   /: .   .    .        . . .:\
-                  /:               .  ^ .  . .:\
-                 /.                        .  .:\
-                |:                    .  .  ^. .:|
-                ||        .                . . !:|
-                \(                           . :)/
-                |. ######              .#######::|
-                 |.#######           ..########:|
-                 \ ########          :######## :/
-                  \ ########       . ########.:/
-                   \. #######       #######..:/
-                     \           .   .   ..:/
-                      \.       | |     . .:/
-                        \             ..:/
-                         \.           .:/
-                           \   ___/  :/
-                            \       :/
-                             |\  .:/|
-                             |  --.:|
-                             "(  ..)"
-                            /  .  .::\
+						 ___---------___
+					   _".^ .^ ^.  '.. :"-_
+					 /:            . .^  :.:\
+				   /: .   .    .        . . .:\
+				  /:               .  ^ .  . .:\
+				 /.                        .  .:\
+				|:                    .  .  ^. .:|
+				||        .                . . !:|
+				\(                           . :)/
+				|. ######              .#######::|
+				 |.#######           ..########:|
+				 \ ########          :######## :/
+				  \ ########       . ########.:/
+				   \. #######       #######..:/
+					 \           .   .   ..:/
+					  \.       | |     . .:/
+						\             ..:/
+						 \.           .:/
+						   \   ___/  :/
+							\       :/
+							 |\  .:/|
+							 |  --.:|
+							 "(  ..)"
+							/  .  .::\
 """
 
 # Imports
@@ -38,6 +38,7 @@
 from math import *
 from random import *
 from termcolor import *
+from time import sleep #because everyone needs to rest.
 
 # Game
 # ==============================================================================
@@ -56,7 +57,7 @@ def play_game(level_name, players_list):
 	Version
 	-------
 	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-    implementation : Bayron Mahy, Nicolas Van Bossuyt (v1. 15/02/17)
+	implementation : Bayron Mahy, Nicolas Van Bossuyt (v1. 15/02/17)
 	"""
 
 	game_stats = new_game(level_name, players_list)
@@ -67,7 +68,7 @@ def play_game(level_name, players_list):
 
 	# Game loop.
 	while game_stats['is_game_continue']:
-        # Show the game board to the human player.
+		# Show the game board to the human player.
 		show_game_board(game_stats)
 
 		# Cleaning the pending_attack list.
@@ -75,7 +76,11 @@ def play_game(level_name, players_list):
 
 		# getting players input.
 		for player in game_stats['players']:
-			parse_command(get_game_input(player, False, game_stats), player, game_stats)
+			if game_stats['players'][player]['nb_ships'] > 0:
+				parse_command(get_game_input(player, False, game_stats), player, game_stats)
+			else:
+				if game_stats['players'][player]['type'] != 'none':
+					print colored(player, game_stats['players'][player]['color']), 'has lost all these ships, so he has nothing to do.'
 
 		# Do ships moves.
 		do_moves(game_stats)
@@ -83,6 +88,9 @@ def play_game(level_name, players_list):
 		# Do Attack
 		for pending_attack in game_stats['pending_attack']:
 			command_attack(pending_attack[0], pending_attack[1], pending_attack[2])
+
+		sleep(1)
+		
 def new_game(level_name, players_list):
 	"""
 	Create a new game from a '.cis' file.
@@ -127,13 +135,13 @@ def new_game(level_name, players_list):
 
 	index_player=1
 	for player in players_list:
-        # Set player type.
+		# Set player type.
 		if player == 'ai' or play_game == 'distant':
 			player_type = player
 		else:
 			player_type = 'human'
 
-        # Create new player.
+		# Create new player.
 		if index_player==1:
 			game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'red',
 											  'ships_starting_point': (9, 9),'ships_starting_direction': (1, 1)}
@@ -173,7 +181,7 @@ def get_game_input(player_name, buy_ship, game_stats):
 	Version
 	-------
 	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-    implemetation : Niolas Van Bossuyt (V1. 15/02/17)
+	implemetation : Niolas Van Bossuyt (V1. 15/02/17)
 	"""
 	player_input = ''
 
@@ -217,8 +225,11 @@ def get_human_input(player_name, buy_ship, game_stats):
 	Version
 	-------
 	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-    implemetation : Nicolas Van Bosuyt (v1 22/02/17)
+	implemetation : Nicolas Van Bosuyt (v1 22/02/17)
 	"""
+
+	# Add spacing.
+	print ''
 
 	# Show header.
 	c = create_canvas(190, 5)
@@ -231,7 +242,7 @@ def get_human_input(player_name, buy_ship, game_stats):
 
 		# Getting human player input.
 		print ''
-		player_input = raw_input('[ ' + player_name + '] :')
+		player_input = raw_input(colored('< ' + player_name + ' > :', game_stats['players'][player_name]['color']))
 		print ''
 
 		# Run human player command.
@@ -417,7 +428,7 @@ def get_ai_input(player_name, game_stats):
 # Handeling remote player command.
 
 def get_remote_input():
-    pass
+	pass
 
 # Gui framework
 # ==============================================================================
@@ -759,7 +770,7 @@ def create_ship(player_name, ship_name, ship_type, game_stats):
 	Version
 	-------
 	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
-    implementation : Nicolas Van Bossuyt (v1. 15/02/2017)
+	implementation : Nicolas Van Bossuyt (v1. 15/02/2017)
 	"""
 	game_stats['ships'][ship_name] = {'type':ship_type, 'heal_points':game_stats['model_ship'][ship_type]['max_heal'], 'direction':game_stats['players'][player_name]['ships_starting_direction'], 'speed':0, 'owner': player_name, 'position': game_stats['players'][player_name]['ships_starting_point']}
 	game_stats['board'][game_stats['players'][player_name]['ships_starting_point']].append(ship_name)
@@ -848,7 +859,7 @@ def do_moves(game_stats):
 	Version
 	-------
 	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-    implementation : Alisson Leist (v1. 20/02/17)
+	implementation : Alisson Leist (v1. 20/02/17)
 	"""
 	for element in game_stats['ships'] :
 
