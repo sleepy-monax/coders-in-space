@@ -1004,9 +1004,9 @@ def rotate_vector_2D(vector, theta):
 	Use code from https://gist.github.com/mcleonard/5351452 under MIT license.
 	"""
 
-	theta = math.radians(theta)
+	theta = radians(theta)
 	# Just applying the 2D rotation matrix
-	dc, ds = math.cos(theta), math.sin(theta)
+	dc, ds = cos(theta), sin(theta)
 	x, y = vector[0], vector[1]
 	x, y = dc*x - ds*y, ds*x + dc*y
 	return (x, y)
