@@ -90,7 +90,7 @@ def play_game(level_name, players_list):
 			command_attack(pending_attack[0], pending_attack[1], pending_attack[2])
 
 		sleep(1)
-		
+
 def new_game(level_name, players_list):
 	"""
 	Create a new game from a '.cis' file.
@@ -168,7 +168,7 @@ def new_game(level_name, players_list):
 
 # Input
 # ==============================================================================
-# Get input from earch player.
+# Get input from each player.
 
 def get_game_input(player_name, buy_ship, game_stats):
 	"""
@@ -922,7 +922,7 @@ def take_abandonned_ship(coord, game_stats, ships_to_test=[]):
 
 # Attack Command
 # ------------------------------------------------------------------------------
-# Allow ship to attack earch other.
+# Allow ship to attack each other.
 
 def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
 	"""

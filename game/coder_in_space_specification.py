@@ -38,23 +38,22 @@ def play_game(level_name, players_list):
 	"""
 	Main game function which runs the game loop.
 
-	parameters
+	Parameters
 	----------
-
 	level_name: name of the level (str)
 	players_list: list of the players(list)
 
 	Version
 	-------
-	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
+	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 
 def do_moves(game_stats):
 	"""
 	Apply move to ships.
 
-	Parameters
-	----------
+	Parameter
+	---------
 	game_stats : stats of the game (dic)
 
 	Return
@@ -63,15 +62,15 @@ def do_moves(game_stats):
 
 	Version
 	-------
-	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
+	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/O2/17)
 	"""
 
 def get_game_input(player_name, game_stats):
 	"""
-	get input from a specified player.
+	Get input from a specified player.
 
-	Parameters
-	----------
+	Parameter
+	---------
 	player_name : name of the player to get input (str).
 
 	Version
