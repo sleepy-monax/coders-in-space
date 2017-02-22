@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Cool artwork
-# ==============================================================================
-
 # Alien
+# ==============================================================================
+# A cool friend to get in touch wile coding.
+
 # .     .       .  .   . .   .   . .    +  .
 #   .     .  :     .    .. :. .___---------___.
 # 	   .  .   .    .  :.:. _".^ .^ ^.  '.. :"-_. .
@@ -32,6 +32,7 @@
 
 # Imports
 # ==============================================================================
+# Import some cool component for the game.
 
 from math import *
 from random import *
@@ -39,6 +40,7 @@ from termcolor import *
 
 # Game
 # ==============================================================================
+# Create a new game and play it.
 
 def play_game(level_name, players_list):
 	"""
@@ -80,7 +82,6 @@ def play_game(level_name, players_list):
 		# Do Attack
 		for pending_attack in game_stats['pending_attack']:
 			command_attack(pending_attack[0], pending_attack[1], pending_attack[2])
-
 def new_game(level_name, players_list):
 	"""
 	Create a new game from a '.cis' file.
@@ -158,6 +159,7 @@ def new_game(level_name, players_list):
 
 # Input
 # ==============================================================================
+# Get input from earch player.
 
 def get_game_input(player_name, buy_ship, game_stats):
 	"""
@@ -195,6 +197,7 @@ def get_game_input(player_name, buy_ship, game_stats):
 
 # Player
 # ------------------------------------------------------------------------------
+# Human player interaction with the game.
 
 def get_human_input(player_name, buy_ship, game_stats):
 	"""
@@ -387,6 +390,7 @@ def show_game_board(game_stats, color = True):
 
 # A.I.
 # ------------------------------------------------------------------------------
+# AI interaction
 
 def get_ai_input(player_name, game_stats):
 	"""
@@ -409,12 +413,18 @@ def get_ai_input(player_name, game_stats):
 
 # Remote player
 # ------------------------------------------------------------------------------
+# Handeling remote player command.
+
+def get_remote_input():
+    pass
 
 # Gui framework
 # ==============================================================================
+# framework for easy user interface creation.
 
 # Canvas creation and printing.
 # ------------------------------------------------------------------------------
+# Create and print a canvas in the user console.
 
 def create_canvas(width, height, enable_color = True):
 	"""
@@ -483,6 +493,7 @@ def print_canvas(canvas):
 
 # Canvas drawing.
 # ------------------------------------------------------------------------------
+# All tools and brush to draw on the canvas.
 
 def put(canvas, x, y, char, color = None, back_color = None):
 	"""
@@ -645,9 +656,11 @@ def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None)
 
 # Game commands
 # ==============================================================================
+# Game command parsing and execution.
 
 # Command Parsing
 # ------------------------------------------------------------------------------
+# From a string to a game command.
 
 def parse_command(commands, player_name, game_stats):
 	"""
@@ -693,6 +706,7 @@ def parse_command(commands, player_name, game_stats):
 
 # Ship creation
 # ------------------------------------------------------------------------------
+# Buy and create a spaceship.
 
 def command_buy_ships(ships, player, game_stats):
 	"""
@@ -754,6 +768,7 @@ def create_ship(player_name, ship_name, ship_type, game_stats):
 
 # Move Command
 # ------------------------------------------------------------------------------
+# Make shipe move, rotate, and go faste and furiouse.
 
 def command_change_speed(ship, change, game_stats):
 	"""
@@ -895,6 +910,7 @@ def take_abandonned_ship(coord, game_stats, ships_to_test=[]):
 
 # Attack Command
 # ------------------------------------------------------------------------------
+# Allow ship to attack earch other.
 
 def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
 	"""
@@ -950,6 +966,7 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
 
 # Utils
 # ==============================================================================
+# Somme use full function for a simple life. And also parse game file.
 
 def rotate_vector_2D(vector, theta):
 	"""
