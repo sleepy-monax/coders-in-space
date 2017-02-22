@@ -3,33 +3,32 @@
 # Cool artwork
 # ==============================================================================
 
-"""
-.     .       .  .   . .   .   . .    +  .
-  .     .  :     .    .. :. .___---------___.
-	   .  .   .    .  :.:. _".^ .^ ^.  '.. :"-_. .
-	.  :       .  .  .:../:            . .^  :.:\.
-		.   . :: +. :.:/: .   .    .        . . .:\
- .  :    .     . _ :::/:               .  ^ .  . .:\
-  .. . .   . - : :.:./.                        .  .:\
-  .      .     . :..|:                    .  .  ^. .:|
-	.       . : : ..||        .                . . !:|
-  .     . . . ::. ::\(                           . :)/
- .   .     : . : .:.|. ######              .#######::|
- :.. .  :-  : .:  ::| .#######           ..########: |
- .  .  .  ..  .  .. :\ ########          :######## :/
-  .        .+ :: : -.:\ ########       . ########.:/
-	.  .+   . . . . :.:\. #######       #######..:/
-	  :: . . . . ::.:..:.\           .   .   ..:/
-   .   .   .  .. :  -::::.\.       | |     . .:/
-	  .  :  .  .  .-:.":.::.\             ..:/
- .      -.   . . . .: .:::.:.\.           .:/
-.   .   .  :      : ....::_:..:\   ___.  :/
-   .   .  .   .:. .. .  .: :.:.:\       :/
-	 +   .   .   : . ::. :.:. .:.|\  .:/|
-	 .         +   .  .  ...:: ..|  --.:|
-.      . . .   .  .  . ... :..:.."(  ..)"
- .   .       .      :  .   .: ::/  .  .::\
-"""
+# Alien
+# .     .       .  .   . .   .   . .    +  .
+#   .     .  :     .    .. :. .___---------___.
+# 	   .  .   .    .  :.:. _".^ .^ ^.  '.. :"-_. .
+# 	.  :       .  .  .:../:            . .^  :.:\.
+# 		.   . :: +. :.:/: .   .    .        . . .:\
+#  .  :    .     . _ :::/:               .  ^ .  . .:\
+#   .. . .   . - : :.:./.                        .  .:\
+#   .      .     . :..|:                    .  .  ^. .:|
+# 	.       . : : ..||        .                . . !:|
+#   .     . . . ::. ::\(                           . :)/
+#  .   .     : . : .:.|. ######              .#######::|
+#  :.. .  :-  : .:  ::| .#######           ..########: |
+#  .  .  .  ..  .  .. :\ ########          :######## :/
+#   .        .+ :: : -.:\ ########       . ########.:/
+# 	.  .+   . . . . :.:\. #######       #######..:/
+# 	  :: . . . . ::.:..:.\           .   .   ..:/
+#    .   .   .  .. :  -::::.\.       | |     . .:/
+# 	  .  :  .  .  .-:.":.::.\             ..:/
+#  .      -.   . . . .: .:::.:.\.           .:/
+# .   .   .  :      : ....::_:..:\   ___.  :/
+#    .   .  .   .:. .. .  .: :.:.:\       :/
+# 	 +   .   .   : . ::. :.:. .:.|\  .:/|
+# 	 .         +   .  .  ...:: ..|  --.:|
+# .      . . .   .  .  . ... :..:.."(  ..)"
+#  .   .       .      :  .   .: ::/  .  .::\
 
 # Imports
 # ==============================================================================
@@ -85,7 +84,6 @@ def play_game(level_name, players_list):
 		# Show the game board to the human player.
 		show_board(game_stats)
 		time.sleep(1)
-
 def new_game(level_name, players_list):
 	"""
 	Create a new game from a '.cis' file.
@@ -250,7 +248,6 @@ def get_human_input(player_name, buy_ship, game_stats):
 				print 'Wrong input'
 		else:
 			return player_input
-
 def show_ship_list(c, player_name, game_stats):
 	c = create_canvas(190, 15 + len(game_stats['ships']))
 	put_box(c, 0, 0, c['size'][0], c['size'][1], 'double')
@@ -280,10 +277,8 @@ def show_ship_list(c, player_name, game_stats):
 			put_string(c, 1, 4 + line_index, '-'*188)
 
 	print_canvas(c)
-
 def show_help_game_command(c):
 	put_string(c, 3, 0, '| HELP : game command |')
-
 def show_game_board(game_stats, color = True):
 	"""
 	Show the game to the user screen.
@@ -423,6 +418,7 @@ def get_ai_input(player_name, game_stats):
 
 # Canvas creation and printing.
 # ------------------------------------------------------------------------------
+
 def create_canvas(width, height, enable_color = True):
 	"""
 	Create a new char canvas.
@@ -457,7 +453,6 @@ def create_canvas(width, height, enable_color = True):
 	canvas = put_string(canvas, width - len(canvas_info) - 2, height - 1, canvas_info)
 
 	return canvas
-
 def print_canvas(canvas):
 	"""
 	Print the game view in the terminal.
@@ -528,7 +523,6 @@ def put(canvas, x, y, char, color = None, back_color = None):
 			canvas['grid'][(x,y)]['back_color'] = None
 
 	return canvas
-
 def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = None):
 	"""
 	Put and fill a rectangle in the canvas.
@@ -554,7 +548,6 @@ def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = 
 			canvas = put(canvas, x + w, y + h, char, color, back_color)
 
 	return canvas
-
 def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_color = None):
 	"""
 	Put a box in the canvas.
@@ -594,7 +587,6 @@ def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_col
 	put_rectangle(canvas, x + 1 , y + 1, width - 2, height - 2, ' ')
 
 	return canvas
-
 def put_string(canvas, x, y, string, direction_x = 1, direction_y = 0, color = None, back_color = None):
 	"""
 	Put a specified string in the canvas.
@@ -625,7 +617,6 @@ def put_string(canvas, x, y, string, direction_x = 1, direction_y = 0, color = N
 		y += direction_y
 
 	return canvas
-
 def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None):
 	"""
 	Put a ascii art in the in the canvas.
@@ -738,7 +729,6 @@ def command_buy_ships(ships, player, game_stats):
 			create_ship(player, '%s_%s' % (player, ship[0]), ship[1], game_stats)
 
 	return game_stats
-
 def create_ship(player_name, ship_name, ship_type, game_stats):
 	"""
 	Create and add a new ship.
@@ -802,7 +792,6 @@ def command_change_speed(ship, change, game_stats):
 		print 'you cannot make that change on the speed of this ship'
 
 	return game_stats
-
 def command_rotate(ship, direction, game_stats):
 	"""
 	Rotate the ship.
@@ -831,7 +820,6 @@ def command_rotate(ship, direction, game_stats):
 
 	game_stats['ships'][ship]['direction'] = to_unit_vector(v)
 	return game_stats
-
 def do_moves(game_stats):
 	"""
 	Apply move to ships.
@@ -880,7 +868,6 @@ def do_moves(game_stats):
 		game_stats['ships'][element]['position']=new_position
 
 	return game_stats
-
 def take_abandonned_ship(coord, game_stats, ships_to_test=[]):
 	""" determine who become the owner of the abandonned ship.
 
@@ -997,7 +984,6 @@ def rotate_vector_2D(vector, theta):
 	x, y = vector[0], vector[1]
 	x, y = dc*x - ds*y, ds*x + dc*y
 	return (x, y)
-
 def to_unit_vector(vector):
 	"""
 	Convert a vector to a unit vector.
@@ -1020,7 +1006,6 @@ def to_unit_vector(vector):
 		return 0
 
 	return (convert(vector[0]), convert(vector[1]))
-
 def direction_to_vector2D(direction):
 	"""
 	Convert a string direction to a vector2D.
@@ -1065,7 +1050,6 @@ def direction_to_vector2D(direction):
 		vector = (-1,1)
 
 	return vector
-
 def parse_game_file(path):
 	"""
 	Parse a .cis file and returns its content.
