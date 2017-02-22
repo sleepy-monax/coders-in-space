@@ -5,7 +5,7 @@ import human
 
 def test_parse_game_file():
     try:
-        codeinspace.parse_game_file('board/test0.cis')
+        codeinspace.parse_game_file('board/board_1303.cis')
         assert True
     except Exception as e:
         raise
