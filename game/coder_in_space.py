@@ -62,11 +62,11 @@ def play_game(level_name, players_list):
 	for player in game_stats['players']:
 		game_stats = command_buy_ships(get_game_input(player, True, game_stats), player, game_stats)
 
-	# Show the game board to human player.
-	show_board(game_stats)
-
 	# Game loop.
 	while game_stats['is_game_continue']:
+        # Show the game board to the human player.
+		show_game_board(game_stats)
+
 		# Cleaning the pending_attack list.
 		game_stats['pending_attack'] = []
 
@@ -81,9 +81,6 @@ def play_game(level_name, players_list):
 		for pending_attack in game_stats['pending_attack']:
 			command_attack(pending_attack[0], pending_attack[1], pending_attack[2])
 
-		# Show the game board to the human player.
-		show_board(game_stats)
-		time.sleep(1)
 def new_game(level_name, players_list):
 	"""
 	Create a new game from a '.cis' file.
