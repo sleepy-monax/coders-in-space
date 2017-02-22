@@ -73,7 +73,7 @@ def get_game_input(player_name, game_stats):
 	Parameters
 	----------
 	player_name : name of the player to get input (str).
-	
+
 	Version
 	-------
 	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
@@ -176,8 +176,6 @@ def creat_canvas(width, height, enable_color = True):
 	------
 	canva : new char canva (dic).
 
-	Version
-	-------
 	Version
 	-------
 	specification : Nicolas Van Bossuyt (v1. 10/2/17)

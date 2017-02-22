@@ -1,6 +1,3 @@
-import sys
-sys.path.insert(0, 'src')
+from coder_in_space import *
 
-import codeinspace
-
-codeinspace.play_game('board/board_1303.cis', ('Bayron', 'Alisson' ,'Nicolas', 'John Smith'))
+play_game('board/board_1303.cis', ('Bayron', 'Alisson' ,'Nicolas', 'John Smith'))

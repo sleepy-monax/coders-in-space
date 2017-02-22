@@ -43,17 +43,18 @@ from termcolor import *
 
 def play_game(level_name, players_list):
 	"""
-	Main game function thats run the game loop.
+	Main game function which runs the game loop.
 
-	parameters
+	Parameters
 	----------
 
 	level_name: name of the level (str)
-	players_list: list of the players(tuple)
+	players_list: list of the players(list)
 
 	Version
 	-------
-	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+    implementation : Bayron Mahy, Nicolas Van Bossuyt (v1. 15/02/17)
 	"""
 
 	game_stats = new_game(level_name, players_list)
@@ -91,7 +92,7 @@ def new_game(level_name, players_list):
 
 	Parameters
 	----------
-	level_name : name of the level to play in (str).
+	level_name : name of the path to .cis file (str).
 	players_list : list of players (list).
 
 	Return
@@ -100,8 +101,9 @@ def new_game(level_name, players_list):
 
 	Version
 	-------
-	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
-	implementation : Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/2017)
+	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+
+	Implementation : Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/2017)
 					 Bayron Mahy, Nicolas Van Bossuyt (v2. 13/02/2017)
 	"""
 
@@ -128,12 +130,13 @@ def new_game(level_name, players_list):
 
 	index_player=1
 	for player in players_list:
+        # Set player type.
 		if player == 'ai' or play_game == 'distant':
 			player_type = player
 		else:
 			player_type = 'human'
 
-
+        # Create new player.
 		if index_player==1:
 			game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'red',
 											  'ships_starting_point': (9, 9),'ships_starting_direction': (1, 1)}
@@ -146,7 +149,6 @@ def new_game(level_name, players_list):
 		elif index_player==4:
 			game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'magenta',
 											  'ships_starting_point': (9, game_stats['board_size'][1]-10),'ships_starting_direction': (1, -1)}
-
 		else:
 			print 'There is too many player the player %s is a loser he must be watch you playing' %s(player)
 
@@ -169,6 +171,11 @@ def get_game_input(player_name, buy_ship, game_stats):
 	Parameters
 	----------
 	player_name : name of the player to get input (str).
+
+	Version
+	-------
+	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+    implemetation : Niolas Van Bossuyt (V1. 15/02/17)
 	"""
 	player_input = ''
 
@@ -207,6 +214,11 @@ def get_human_input(player_name, buy_ship, game_stats):
 	Returns
 	-------
 	player_input : input from the player (str).
+
+	Version
+	-------
+	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+    implemetation : Nicolas Van Bosuyt (v1 22/02/17)
 	"""
 
 	# Show header.
@@ -227,19 +239,19 @@ def get_human_input(player_name, buy_ship, game_stats):
 		if '/' in player_input:
 
 			if player_input == '/ship-list':
-				show_help_ship_creation(c, player_name, game_stats)
+				show_ship_list(c, player_name, game_stats)
 
 			elif player_input == '/help-game-command':
 				show_help_game_command(c)
 				print_canvas(c)
 			elif player_input == '/show-game-board':
-				show_board(game_stats)
+				show_game_board(game_stats)
 			else:
 				print 'Wrong input'
 		else:
 			return player_input
 
-def show_help_ship_creation(c, player_name, game_stats):
+def show_ship_list(c, player_name, game_stats):
 	c = create_canvas(190, 15 + len(game_stats['ships']))
 	put_box(c, 0, 0, c['size'][0], c['size'][1], 'double')
 	put_string(c, 3, 0, '[ HELP : ship creation ]')
@@ -272,7 +284,7 @@ def show_help_ship_creation(c, player_name, game_stats):
 def show_help_game_command(c):
 	put_string(c, 3, 0, '| HELP : game command |')
 
-def show_board(game_stats, color = True):
+def show_game_board(game_stats, color = True):
 	"""
 	Show the game to the user screen.
 
@@ -282,11 +294,8 @@ def show_board(game_stats, color = True):
 
 	Version
 	-------
-	Version
-	-------
-	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
+	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	implementation : Nicolas Van Bossuyt (v1. 15/02/2017)
-
 	"""
 	# Create a new canvas.
 	c = create_canvas(190, 50, color)
@@ -399,6 +408,10 @@ def get_ai_input(player_name, game_stats):
 	Return
 	------
 	ai_input : game input from the ai (str).
+
+	Version
+	-------
+	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 	raise NotImplemented
 
@@ -426,10 +439,8 @@ def create_canvas(width, height, enable_color = True):
 
 	Version
 	-------
-	Version
-	-------
-	specification : Nicolas Van Bossuyt (v1. 10/2/17)
-	implementation: Nicolas Van Bossuyt (v1. 13/2/2017)
+	specification  : Nicolas Van Bossuyt (v1. 10/02/17)
+	implementation : Nicolas Van Bossuyt (v1. 13/02/2017)
 	"""
 
 	# Initialize the canvas.
@@ -457,8 +468,8 @@ def print_canvas(canvas):
 
 	Version
 	-------
-	specification : Nicolas Van Bossuyt (v1. 10/2/17)
-	implementation : Nicolas Van Bossuyt (v1. 10/2/2017)
+	specification  : Nicolas Van Bossuyt (v1. 10/02/17)
+	implementation : Nicolas Van Bossuyt (v1. 10/02/2017)
 	"""
 
 	canvas_width = canvas['size'][0]
@@ -498,8 +509,8 @@ def put(canvas, x, y, char, color = None, back_color = None):
 
 	Version
 	-------
-	specification : Nicolas Van Bossuyt (v1. 10/2/17)
-	implementation : Nicolas Van Bossuyt (v1. 10/2/2017)
+	specification  : Nicolas Van Bossuyt (v1. 10/02/17)
+	implementation : Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 
 	# Check if the coordinate is in the bound of the game view.
@@ -534,8 +545,8 @@ def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = 
 
 	Version
 	-------
-	specification : Nicolas Van Bossuyt (v1. 10/2/17)
-	implementation : Nicolas Van Bossuyt (v1. 10/2/2017)
+	specification  : Nicolas Van Bossuyt (v1. 10/02/17)
+	implementation : Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 
 	for w in range(width):
@@ -561,8 +572,8 @@ def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_col
 
 	Version
 	-------
-	specification : Nicolas Van Bossuyt (v1. 10/2/17)
-	implementation : Nicolas Van Bossuyt (v1. 10/2/2017)
+	specification  : Nicolas Van Bossuyt (v1. 10/02/17)
+	implementation : Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 	if mode == 'double':
 		put_rectangle(canvas, x, y, width, height, u'═', color, back_color)
@@ -604,8 +615,8 @@ def put_string(canvas, x, y, string, direction_x = 1, direction_y = 0, color = N
 
 	Version
 	-------
-	specification : Nicolas Van Bossuyt (v1. 10/2/17)
-	implementation : Nicolas Van Bossuyt (v1. 10/2/2017)
+	specification  : Nicolas Van Bossuyt (v1. 10/02/17)
+	implementation : Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 
 	for char in string:
@@ -631,8 +642,8 @@ def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None)
 
 	Version
 	-------
-	specification : Nicolas Van Bossuyt (v1. 10/2/17)
-	implementation : Nicolas Van Bossuyt (V1. 15/2/2017)
+	specification  : Nicolas Van Bossuyt (v1. 10/02/17)
+	implementation : Nicolas Van Bossuyt (V1. 15/02/17)
 	"""
 	art_file = open('art/' + ascii_art_name + '.txt','r')
 
@@ -665,8 +676,8 @@ def parse_command(commands, player_name, game_stats):
 
 	Version
 	-------
-	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
-	implementation : Nicolas Van Bossuyt (V1. 10/2/2017)
+	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	implementation : Nicolas Van Bossuyt (V1. 10/02/17)
 	"""
 
 	commands = commands.split(' ')
@@ -711,8 +722,8 @@ def command_buy_ships(ships, player, game_stats):
 
 	Version
 	-------
-	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
-	implementation : Nicolas Van Bossuyt (v1. 14/2/17)
+	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	implementation : Nicolas Van Bossuyt (v1. 14/02/17)
 	"""
 
 	for ship in ships.split(' '):
@@ -729,6 +740,25 @@ def command_buy_ships(ships, player, game_stats):
 	return game_stats
 
 def create_ship(player_name, ship_name, ship_type, game_stats):
+	"""
+	Create and add a new ship.
+
+	Parameters
+	----------
+	player_name : name of the owner of the ship (str).
+	ship_name : Name of the ship (str).
+	ship_type : Model of the ship (str).
+	game_stats : stats of the game (str).
+
+	Return
+	------
+	game_stats : stats after adding the new ship (dic).
+
+	Version
+	-------
+	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
+    implementation : Nicolas Van Bossuyt (v1. 15/02/2017)
+	"""
 	game_stats['ships'][ship_name] = {'type':ship_type, 'heal_points':game_stats['model_ship'][ship_type]['max_heal'], 'direction':game_stats['players'][player_name]['ships_starting_direction'], 'speed':0, 'owner': player_name, 'position': game_stats['players'][player_name]['ships_starting_point']}
 	game_stats['board'][game_stats['players'][player_name]['ships_starting_point']].append(ship_name)
 	game_stats['players'][player_name]['nb_ships'] += 1
@@ -754,7 +784,7 @@ def command_change_speed(ship, change, game_stats):
 
 	Version
 	-------
-	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
+	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	implementation : Bayron Mahy (v1. 10/02/2017)
 	"""
 	type = game_stats['ships'][ship]['type']
@@ -789,9 +819,9 @@ def command_rotate(ship, direction, game_stats):
 
 	Version
 	-------
-	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
-	implementation : Nicolas Van Bossuyt (v1. 10/2/17)
-					 Nicolas Van Bossuyt (v2. 22/2/17)
+	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	implementation : Nicolas Van Bossuyt (v1. 10/02/17)
+					 Nicolas Van Bossuyt (v2. 22/02/17)
 	"""
 	v = (0, 0)
 	if direction == 'left':
@@ -816,7 +846,8 @@ def do_moves(game_stats):
 
 	Version
 	-------
-	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
+	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+    implementation : Alisson Leist (v1. 20/02/17)
 	"""
 	for element in game_stats['ships'] :
 
@@ -853,21 +884,21 @@ def do_moves(game_stats):
 def take_abandonned_ship(coord, game_stats, ships_to_test=[]):
 	""" determine who become the owner of the abandonned ship.
 
-	parameters
+	Parameters
 	----------
 	coord: coordinate where the abandonned ship is. (tuple(int,int))
 	game_stats: state of the game before the call of this function (dico)
 	ships_to_test: list of ships to test on a place (list)
 
-	return
-	------
+	Returns
+	-------
 	game_stats: state of the game after the call of this function (dico)
 	True if the abandonned ship is taken (bool)
 
-	version
+	Version
 	-------
-	specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/2017)
-	implementation: Bayron Mahy (v.1 21/02/2017)
+	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	implementation : Bayron Mahy (v.1 21/02/17)
 	"""
 	if len (game_stats[coord]) == 2:
 		game_stats[coord][0]['owner'] = game_stats[coord][1]['owner']
@@ -883,22 +914,22 @@ def take_abandonned_ship(coord, game_stats, ships_to_test=[]):
 
 def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
 	"""
-	determine if the attack works and do it.
+	Determine if the attack works and do it.
 
 	Parameters
 	----------
-	ship_coordinate : coodinate of the first ship (tuple(int, int)).
-	target_coordinate : coordinate of the tile to attack (tuple(int,int)).
+	ship_location : coodinate of the first ship (tuple(int, int)).
+	coordinate : coordinate of the tile to attack (tuple(int,int)).
 	game_stats : stats of the game (dic).
 
-	Returns
-	-------
+	Return
+	------
 	new_game_stats : the game after the command execution (dic).
 
 	Version
 	-------
-	specification : Nicolas Van Bossuyt (v1. 10/2/2017)
-	implementation : Alisson Leist (v1. 14/2/2017)
+	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
+	implementation : Alisson Leist (v1. 14/2/17)
 	"""
 
 	# Retriving information from game_stats.
@@ -956,7 +987,7 @@ def rotate_vector_2D(vector, theta):
 					 Nicolas Van Bossuyt (v2. 22/02/17)
 
 	Source
-	-------
+	------
 	Use code from https://gist.github.com/mcleonard/5351452 under MIT license.
 	"""
 
@@ -1004,8 +1035,8 @@ def direction_to_vector2D(direction):
 
 	Version
 	-------
-	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
-	implementation : Nicolas Van Bossuyt (v1. 11/02/2017)
+	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	implementation : Nicolas Van Bossuyt (v1. 11/02/17)
 	"""
 	vector = ()
 
@@ -1049,7 +1080,7 @@ def parse_game_file(path):
 
 	Version
 	-------
-	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
+	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	implementation : Nicolas Van Bossuyt (v2. 15/02/2017)
 	"""
 	# Split file lines and remove '\n' chars.
@@ -1076,3 +1107,6 @@ def parse_game_file(path):
 	parsed_data = {'size':size,'ships':ships_list}
 
 	return parsed_data
+
+# (...)Ouais, ça va être bien, ça va être très bien même… Bon, bien sûr, y faut imaginer.
+# - Jamel Debbouze, Astérix & Obélix : Mission Cléopâtre (2002), écrit par Alain Chabat, René Goscinny, Albert Uderzo
