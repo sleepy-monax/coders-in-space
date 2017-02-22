@@ -806,7 +806,7 @@ def command_change_speed(ship, change, game_stats):
 		game_stats['ships'][ship]['speed']+=1
 
 	# Make the ship move slower.
-	elif change == 'slower' and gamestats['ship'][ship]['speed'] > 0:
+	elif change == 'slower' and game_stats['ship'][ship]['speed'] > 0:
 		game_stats['ships'][ship]['speed']-=1
 
 	# Show a message when is a invalide change.
