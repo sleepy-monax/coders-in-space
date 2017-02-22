@@ -289,8 +289,6 @@ def show_ship_list(c, player_name, game_stats):
 			put_string(c, 1, 4 + line_index, '-'*188)
 
 	print_canvas(c)
-def show_help_game_command(c):
-	put_string(c, 3, 0, '| HELP : game command |')
 def show_game_board(game_stats, color = True):
 	"""
 	Show the game to the user screen.
@@ -910,15 +908,17 @@ def take_abandonned_ship(coord, game_stats, ships_to_test=[]):
 	-------
 	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	implementation : Bayron Mahy (v.1 21/02/17)
+					Bayron Mahy (v.2 22/02/17)
 	"""
 	if len (game_stats[coord]) == 2:
 		game_stats[coord][0]['owner'] = game_stats[coord][1]['owner']
+		game_stats[coord][0]= game_stats[coord][0]['owner']+'_'+game_stats[coord][0]
 		return True, game_stats
 	elif game_stats[coord][-1]['owner'] != game_stats[coord][-2]['owner']:
 		return False, game_stats
 	else:
 		ships_to_test = game_stats[coord]
-		return take_abandonned_ship(coord , game_stats, ships_to_test)
+		return take_abandonned_ship(coord , game_stats, ships_to_test[:-1])
 
 # Attack Command
 # ------------------------------------------------------------------------------
