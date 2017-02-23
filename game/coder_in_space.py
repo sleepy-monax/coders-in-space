@@ -110,6 +110,7 @@ def new_game(level_name, players_list):
 
 	Implementation : Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/2017)
 					 Bayron Mahy, Nicolas Van Bossuyt (v2. 13/02/2017)
+				     Nicolas Van Bossuyt (v3. 23/02/17)
 	"""
 
 	# Create game_stats dictionary.
@@ -130,14 +131,21 @@ def new_game(level_name, players_list):
 			game_stats['board'][(line,column)] = []
 
 	# Create players.
-	game_stats['players']['none'] = {'name': 'none', 'money':0, 'nb_ships': 0,'type': 'none','color':None,\
+	game_stats['players']['none'] = {'name': 'none', 'money':0, 'nb_ships': 1,'type': 'none','color':None,\
 									 'ships_starting_point': (0, 0),'ships_starting_direction': (0, 0)}
+
+	# Place lost ships.
+	for ships in game_file['ships']:
+		game_stats['ships'][ships[2]]= { 'type':ships[3], 'heal_points':game_stats['model_ship'][ships[3]]['max_heal'],'direction':ships[4], 'speed':0, 'owner': 'none', 'position': (ships[0],ships[1]) }
+		game_stats['board'][(ships[0],ships[1])].append(ships[2])
 
 	index_player=1
 	for player in players_list:
 		# Set player type.
-		if player == 'ai' or play_game == 'distant':
-			player_type = player
+		if '_bot' in player:
+			player_type = 'ai'
+		elif player == 'distant':
+			player_type = 'distant'
 		else:
 			player_type = 'human'
 
@@ -158,11 +166,6 @@ def new_game(level_name, players_list):
 			print 'There is too many player the player %s is a loser he must be watch you playing' %s(player)
 
 		index_player+=1
-
-	# Place lost ships.
-	for ships in game_file['ships']:
-		game_stats['ships'][ships[2]]= { 'type':ships[3], 'heal_points':game_stats['model_ship'][ships[3]]['max_heal'],'direction':ships[4], 'speed':0, 'owner': 'none', 'position': (ships[0],ships[1]) }
-		game_stats['board'][(ships[0],ships[1])].append(ships[2])
 
 	return game_stats
 
@@ -191,7 +194,7 @@ def get_game_input(player_name, buy_ship, game_stats):
 
 	elif game_stats['players'][player_name]['type'] == 'ai':
 		# get input from the ai.
-		player_input = get_ai_input(player, game_stats)
+		player_input = get_ai_input(player_name, buy_ship, game_stats)
 
 	elif game_stats['players'][player_name]['type'] == 'distant':
 		# Get input from the remote player.
@@ -242,7 +245,7 @@ def get_human_input(player_name, buy_ship, game_stats):
 
 		# Getting human player input.
 		print ''
-		player_input = raw_input(colored('< ' + player_name + ' > :', game_stats['players'][player_name]['color']))
+		player_input = raw_input(colored('< ' + player_name + ' > : ', game_stats['players'][player_name]['color']))
 		print ''
 
 		# Run human player command.
@@ -260,8 +263,9 @@ def get_human_input(player_name, buy_ship, game_stats):
 				print 'Wrong input'
 		else:
 			return player_input
+
 def show_ship_list(c, player_name, game_stats):
-	c = create_canvas(190, 15 + len(game_stats['ships']))
+	c = create_canvas(190, 14 + len(game_stats['ships']) + len(game_stats['players']) * 4)
 	put_box(c, 0, 0, c['size'][0], c['size'][1], 'double')
 	put_string(c, 3, 0, '[ HELP : ship creation ]')
 	line_index = 0
@@ -277,16 +281,27 @@ def show_ship_list(c, player_name, game_stats):
 
 	for player in game_stats['players']:
 		# Show Players's ships.
+
+		line_index += 4
+
+		if player == 'none':
+			put_string(c, 3, 2 + line_index, '> Abandonned spaceships')
+		else:
+			put_string(c, 3, 2 + line_index, '> %s\'s spaceships' % (player), color=game_stats['players'][player]['color'])
+
+		put_string(c, 1, 3 + line_index, '-'*188)
+
 		if game_stats['players'][player]['nb_ships'] > 0:
-			line_index += 4
-			put_string(c, 3, 2 + line_index, '> %s\'s Spaceships' % (player))
-			put_string(c, 1, 3 + line_index, '-'*188)
 			for ship_name in game_stats['ships']:
 				ship = game_stats['ships'][ship_name]
 				if ship['owner'] == player:
 					put_string(c, 3, 4 + line_index, '[%s] %s // heal : %spv ~ speed : %skm/s ~ Facing : %s' % (game_stats['model_ship'][ship['type']]['icon'], ship_name, ship['heal_points'], ship['speed'], str(ship['direction'])))
 					line_index+=1
-			put_string(c, 1, 4 + line_index, '-'*188)
+		else:
+			put_string(c, 3, 4 + line_index, 'Sorry no space ships :/')
+			line_index+=1
+
+		put_string(c, 1, 4 + line_index, '-'*188)
 
 	print_canvas(c)
 def show_game_board(game_stats, color = True):
@@ -407,7 +422,7 @@ def show_game_board(game_stats, color = True):
 # ------------------------------------------------------------------------------
 # AI interaction
 
-def get_ai_input(player_name, game_stats):
+def get_ai_input(player_name, buy_ship, game_stats):
 	"""
 	Get the game input from the ai.
 
@@ -424,7 +439,18 @@ def get_ai_input(player_name, game_stats):
 	-------
 	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
-	raise NotImplemented
+
+	if buy_ship:
+		return 'StarBoby:fighter me:destroyer tamere:battlecruiser'
+
+	action = ['faster', 'slower', 'left', 'right']
+
+	ai_input = ''
+
+	for ship in game_stats['ships']:
+		if (game_stats['ships'][ship]['owner'] == player_name):
+			ai_input += ship.replace(player_name + '_','') + ':' + action[randint(0, len(action) - 1 )] + ' '
+	return ai_input[:-1]
 
 # Remote player
 # ------------------------------------------------------------------------------
@@ -703,19 +729,24 @@ def parse_command(commands, player_name, game_stats):
 			ship_name = player_name + '_' + sub_cmd[0]
 			ship_action = sub_cmd[1]
 		except:
+			print 'Syntaxe error : ' + cmd + '. ":" is missing.'
 			continue
 
-		if ship_action == 'slower' or ship_action == 'faster':
-			# Speed command :
-			game_stats = command_change_speed(ship_name, ship_action, game_stats)
-		elif ship_action == 'left' or ship_action == 'right':
-			# Rotate command :
-			game_stats = command_rotate(ship_name, ship_action, game_stats)
-		else:
-			# Attack command :
-			ship_action = ship_action.split('-')
-			coordinate = (int(ship_action[0]) - 1, int(ship_action[1]) - 1)
-			game_stats['pending_attacks'].append((ship_name, game_stats['ships'][ship_name]['position'], coordinate))
+		try:
+			if ship_action == 'slower' or ship_action == 'faster':
+				# Speed command :
+				game_stats = command_change_speed(ship_name, ship_action, game_stats)
+			elif ship_action == 'left' or ship_action == 'right':
+				# Rotate command :
+				game_stats = command_rotate(ship_name, ship_action, game_stats)
+			else:
+				# Attack command :
+				coordinate_str = ship_action.split('-')
+				coordinate = (int(coordinate_str[0]) - 1, int(coordinate_str[1]) - 1)
+				game_stats['pending_attacks'].append((ship_name, game_stats['ships'][ship_name]['position'], coordinate))
+
+		except Exception as e:
+			print ship_action + ' is invalide action, please try : "faster, slower, left, right, or 42-24".'
 
 	return game_stats
 
@@ -823,12 +854,12 @@ def command_change_speed(ship, change, game_stats):
 		game_stats['ships'][ship]['speed']+=1
 
 	# Make the ship move slower.
-	elif change == 'slower' and game_stats['ship'][ship]['speed'] > 0:
+	elif change == 'slower' and game_stats['ships'][ship]['speed'] > 0:
 		game_stats['ships'][ship]['speed']-=1
 
 	# Show a message when is a invalide change.
 	else:
-		print 'you cannot make that change on the speed of this ship'
+		print 'you cannot make that change on the speed of "' + ship + '"'
 
 	return game_stats
 def command_rotate(ship, direction, game_stats):
