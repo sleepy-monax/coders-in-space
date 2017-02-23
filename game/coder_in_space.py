@@ -89,7 +89,8 @@ def play_game(level_name, players_list):
 		for pending_attack in game_stats['pending_attack']:
 			command_attack(pending_attack[0], pending_attack[1], pending_attack[2])
 
-		sleep(1)
+		# Waite
+		x = input()
 
 def new_game(level_name, players_list):
 	"""
@@ -364,8 +365,9 @@ def show_game_board(game_stats, color = True):
 			if len(game_stats['board'][(x,y)]) == 0:
 				# No space ship : put the cool background.
 				void_char = ['.', '*', '\'']
-				if randint(0, 10) == 5:
+				if randint(0, 20) == 0:
 					put_string(c, on_screen_board_tile[0], on_screen_board_tile[1], ' ' + void_char[randint(0, 2)])
+
 
 			elif len(game_stats['board'][(x,y)]) == 1:
 				# When there are one, show somme information about.
@@ -376,9 +378,9 @@ def show_game_board(game_stats, color = True):
 
 				#Print ship on gameboard.
 				ship_owner_color = game_stats['players'][game_stats['ships'][ship_name]['owner']]['color']
-				put_string(c, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', ship_owner_color)
 
 				ship_direction = game_stats['ships'][ship_name]['direction']
+				ship_speed = game_stats['ships'][ship_name]['speed']
 
 				# Pur direction line.
 				direction_char = '|'
@@ -391,7 +393,7 @@ def show_game_board(game_stats, color = True):
 					direction_char = u'─'
 
 				put_string(c, on_screen_board_tile[0] + 1 + ship_direction[0], on_screen_board_tile[1]  + ship_direction[1], direction_char, 1, 0, 'white', ship_owner_color)
-
+				put_string(c, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', ship_owner_color)
 			else:
 				# in other case show how many ship there are in the tile.
 				put_string(c, on_screen_board_tile[0], on_screen_board_tile[1], '!' + str(len(game_stats['board'][(x,y)])),1,0,'white', 'green')
@@ -450,6 +452,9 @@ def get_ai_input(player_name, buy_ship, game_stats):
 	for ship in game_stats['ships']:
 		if (game_stats['ships'][ship]['owner'] == player_name):
 			ai_input += ship.replace(player_name + '_','') + ':' + action[randint(0, len(action) - 1 )] + ' '
+
+	print ''
+	print '%s - "%s"' % (player_name, ai_input[:-1])
 	return ai_input[:-1]
 
 # Remote player
@@ -724,12 +729,15 @@ def parse_command(commands, player_name, game_stats):
 
 	commands = commands.split(' ')
 	for cmd in commands:
+		if cmd == '':
+			continue
+			
 		try:
 			sub_cmd = cmd.split(':')
 			ship_name = player_name + '_' + sub_cmd[0]
 			ship_action = sub_cmd[1]
 		except:
-			print 'Syntaxe error : ' + cmd + '. ":" is missing.'
+			print 'Syntaxe error : ' + cmd + ' ":" is missing.'
 			continue
 
 		try:
@@ -916,17 +924,17 @@ def do_moves(game_stats):
 		move_x = game_stats['ships'][element]['speed'] * game_stats['ships'][element]['direction'][0]
 		move_y = game_stats['ships'][element]['speed'] * game_stats['ships'][element]['direction'][1]
 
-		position_x= position[0] + move_x
-		position_y= position[1] + move_y
+		position_x = position[0] + move_x
+		position_y = position[1] + move_y
 
 		# Apply toric space.
-		if position_x > game_stats['board_size'][0]:
+		if position_x >= game_stats['board_size'][0]:
 			position_x -= game_stats['board_size'][0]
 
 		elif position_x < 0:
 			position_x += game_stats['board_size'][0]
 
-		if position_y > game_stats['board_size'][1]:
+		if position_y >= game_stats['board_size'][1]:
 			position_y -= game_stats['board_size'][1]
 
 		elif position_y < 0:
