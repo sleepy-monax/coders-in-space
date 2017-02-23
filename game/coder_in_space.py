@@ -977,7 +977,7 @@ def take_abandonned_ship(game_stats):
 				game_stats['ships'][element[0]]['owner']=game_stats['ships'][element[1]]['owner']
 				element.append(game_stats['ships'][element[1]]['owner']+'_'+element[0])
 				element.remove(element[0])
-				game_stats['ships'][element[-1]]['nb_ships']+=1
+				game_stats['players'][element[-1]]['nb_ships']+=1
 
 	return game_stats
 
