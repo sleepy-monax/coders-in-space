@@ -906,31 +906,34 @@ def do_moves(game_stats):
 	-------
 	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	implementation : Alisson Leist (v1. 20/02/17)
+					 Nicolas Van Bosuuyt (v2. 23/02/17)
 	"""
 	for element in game_stats['ships'] :
 
 		position = game_stats['ships'][element]['position']
 
-		position_x=position[0]
-		position_y=position[1]
+		# Compute new position of the ship.
+		move_x = game_stats['ships'][element]['speed'] * game_stats['ships'][element]['direction'][0]
+		move_y = game_stats['ships'][element]['speed'] * game_stats['ships'][element]['direction'][1]
 
-		move_x=game_stats['ships'][element]['speed']*game_stats['ships'][element]['direction'][0]
-		move_y=game_stats['ships'][element]['speed']*game_stats['ships'][element]['direction'][1]
+		position_x= position[0] + move_x
+		position_y= position[1] + move_y
 
+		# Apply toric space.
+		if position_x > game_stats['board_size'][0]:
+			position_x -= game_stats['board_size'][0]
 
-		if move_x+position_x>game_stats['board_size'][0]:
-			position_x-=game_stats['board_size'][0]
+		elif position_x < 0:
+			position_x += game_stats['board_size'][0]
 
-		elif move_x+position_x<0:
-			position_x+=game_stats['board_size'][0]
+		if position_y > game_stats['board_size'][1]:
+			position_y -= game_stats['board_size'][1]
 
-		if move_y+position_y>game_stats['board_size'][1]:
-			position_y-=game_stats['board_size'][1]
+		elif position_y < 0:
+			position_y += game_stats['board_size'][1]
 
-		elif move_x+position_x<0:
-			position_y+=game_stats['board_size'][1]
-
-		new_position = (position_x+move_x,position_y+move_y)
+		# Create new position.
+		new_position = (position_x, position_y)
 
 		# Move the ship.
 		game_stats['board'][position].remove(element)
@@ -938,6 +941,7 @@ def do_moves(game_stats):
 		game_stats['ships'][element]['position']=new_position
 
 	return game_stats
+
 def take_abandonned_ship(coord, game_stats, ships_to_test=[]):
 	""" determine who become the owner of the abandonned ship.
 
@@ -956,16 +960,18 @@ def take_abandonned_ship(coord, game_stats, ships_to_test=[]):
 	-------
 	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	implementation : Bayron Mahy (v.1 21/02/17)
-					Bayron Mahy (v.2 22/02/17)
+					 Bayron Mahy (v.2 22/02/17)
 	"""
-	if len (game_stats[coord]) == 2:
-		game_stats[coord][0]['owner'] = game_stats[coord][1]['owner']
-		game_stats[coord][0]= game_stats[coord][0]['owner']+'_'+game_stats[coord][0]
+	if len (game_stats['ships'][coord]) == 2:
+		game_stats['ships'][coord][0]['owner'] = game_stats[coord][1]['owner']
+		game_stats['ships'][coord][0]= game_stats['ships'][coord][0]['owner']+'_'+game_stats['ships'][coord][0]
 		return True, game_stats
-	elif game_stats[coord][-1]['owner'] != game_stats[coord][-2]['owner']:
+
+	elif game_stats['ships'][coord][-1]['owner'] != game_stats['ships'][coord][-2]['owner']:
 		return False, game_stats
+
 	else:
-		ships_to_test = game_stats[coord]
+		ships_to_test = game_stats['ships'][coord]
 		return take_abandonned_ship(coord , game_stats, ships_to_test[:-1])
 
 # Attack Command
