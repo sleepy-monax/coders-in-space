@@ -943,7 +943,7 @@ def do_moves(game_stats):
 		game_stats['board'][new_position].append(element)
 		game_stats['ships'][element]['position']=new_position
 		if len(game_stats['board'][new_position]) >1 and game_stats['ships'][game_stats['board'][new_position][0]]['owner']=='none':
-			take_abandonned_ship(new_position, game_stats)
+			take_abandonned_ship(game_stats)
 
 	return game_stats
 
