@@ -947,6 +947,8 @@ def do_moves(game_stats):
 		game_stats['board'][position].remove(element)
 		game_stats['board'][new_position].append(element)
 		game_stats['ships'][element]['position']=new_position
+		if len(game_stats['board'][new_position]) >1 and game_stats['ships'][game_stats['board'][new_position][0]]['owner']=='none':
+			take_abandonned_ship(new_position, game_stats)
 
 	return game_stats
 
@@ -957,7 +959,7 @@ def take_abandonned_ship(coord, game_stats, ships_to_test=[]):
 	----------
 	coord: coordinate where the abandonned ship is. (tuple(int,int))
 	game_stats: state of the game before the call of this function (dico)
-	ships_to_test: list of ships to test on a place (list)
+	ships_to_test: list of ships to test on a place (list, optionnal)
 
 	Returns
 	-------
