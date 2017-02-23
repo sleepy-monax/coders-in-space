@@ -89,9 +89,6 @@ def play_game(level_name, players_list):
 		for pending_attack in game_stats['pending_attack']:
 			command_attack(pending_attack[0], pending_attack[1], pending_attack[2])
 
-		# Waite
-		x = input()
-
 def new_game(level_name, players_list):
 	"""
 	Create a new game from a '.cis' file.
@@ -453,8 +450,6 @@ def get_ai_input(player_name, buy_ship, game_stats):
 		if (game_stats['ships'][ship]['owner'] == player_name):
 			ai_input += ship.replace(player_name + '_','') + ':' + action[randint(0, len(action) - 1 )] + ' '
 
-	print ''
-	print '%s - "%s"' % (player_name, ai_input[:-1])
 	return ai_input[:-1]
 
 # Remote player
@@ -731,7 +726,7 @@ def parse_command(commands, player_name, game_stats):
 	for cmd in commands:
 		if cmd == '':
 			continue
-			
+
 		try:
 			sub_cmd = cmd.split(':')
 			ship_name = player_name + '_' + sub_cmd[0]
@@ -958,11 +953,11 @@ def take_abandonned_ship(game_stats):
 	Parameters
 	----------
 	game_stats: state of the game before the call of this function (dico)
-	
+
 	Returns
 	-------
 	game_stats: state of the game after the call of this function (dico)
-	
+
 	Version
 	-------
 	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
@@ -978,14 +973,14 @@ def take_abandonned_ship(game_stats):
 					nb_good_ships+=1
 		elif (nb_good_ships == len(element)-1) or (game_stats['ships'][element[0]]['owner']=='none' and len(element)==2):
 			game_stats['ships'][element[0]]['owner']=game_stats['ships'][element[1]]['owner']
-			element.append(=game_stats['ships'][element[1]]['owner']+'_'+element[0])
+			element.append(game_stats['ships'][element[1]]['owner']+'_'+element[0])
 			element.remove(ships)
 			game_stats['ships'][element[-1]]['nb_ships']+=1
-			
+
 	return game_stats
-				
-				
-				
+
+
+
 
 # Attack Command
 # ------------------------------------------------------------------------------
