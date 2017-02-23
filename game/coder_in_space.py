@@ -952,37 +952,32 @@ def do_moves(game_stats):
 
 	return game_stats
 
-def take_abandonned_ship(coord, game_stats, ships_to_test=[]):
+def take_abandonned_ship(game_stats):
 	""" determine who become the owner of the abandonned ship.
 
 	Parameters
 	----------
-	coord: coordinate where the abandonned ship is. (tuple(int,int))
 	game_stats: state of the game before the call of this function (dico)
-	ships_to_test: list of ships to test on a place (list, optionnal)
-
+	
 	Returns
 	-------
 	game_stats: state of the game after the call of this function (dico)
-	True if the abandonned ship is taken (bool)
-
+	
 	Version
 	-------
 	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	implementation : Bayron Mahy (v.1 21/02/17)
 					 Bayron Mahy (v.2 22/02/17)
 	"""
-	if len (game_stats['ships'][coord]) == 2:
-		game_stats['ships'][coord][0]['owner'] = game_stats[coord][1]['owner']
-		game_stats['ships'][coord][0]= game_stats['ships'][coord][0]['owner']+'_'+game_stats['ships'][coord][0]
-		return True, game_stats
-
-	elif game_stats['ships'][coord][-1]['owner'] != game_stats['ships'][coord][-2]['owner']:
-		return False, game_stats
-
-	else:
-		ships_to_test = game_stats['ships'][coord]
-		return take_abandonned_ship(coord , game_stats, ships_to_test[:-1])
+	for location in game_stats['board']:
+		element= game_stats['board'][location]
+		if game_stats['ships'][element[0]]['owner']=='none' and len(element)==2:
+			game_stats['ships'][element[0]]['owner']=game_stats['ships'][element[1]]['owner']
+			element.append(=game_stats['ships'][element[1]]['owner']+'_'+element[0])
+			element.remove(ships)
+				
+				
+				
 
 # Attack Command
 # ------------------------------------------------------------------------------
