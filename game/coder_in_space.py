@@ -300,7 +300,11 @@ def show_game_board(game_stats, color = True):
 	Version
 	-------
 	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	implementation : Nicolas Van Bossuyt (v1. 15/02/2017)
+	implementation : Nicolas Van Bossuyt (v1. 10/02/2017)
+					 Nicolas Van Bossuyt (v2. 12/02/2017)
+					 Nicolas Van Bossuyt (v3. 13/02/2017)
+					 Nicolas Van Bossuyt (v4. 19/02/2017)
+					 Nicolas Van Bossuyt (v5. 23/02/2017)
 	"""
 	# Create a new canvas.
 	c = create_canvas(190, 50, color)
@@ -343,7 +347,7 @@ def show_game_board(game_stats, color = True):
 
 			# Check how many ship there are in the board tile.
 			if len(game_stats['board'][(x,y)]) == 0:
-				# When there are only one, show juste nothing.
+				# No space ship : put the cool background.
 				void_char = ['.', '*', '\'']
 				if randint(0, 10) == 5:
 					put_string(c, on_screen_board_tile[0], on_screen_board_tile[1], ' ' + void_char[randint(0, 2)])
@@ -361,6 +365,7 @@ def show_game_board(game_stats, color = True):
 
 				ship_direction = game_stats['ships'][ship_name]['direction']
 
+				# Pur direction line.
 				direction_char = '|'
 
 				if ship_direction == (1, 1) or ship_direction == (-1, -1):
@@ -368,7 +373,7 @@ def show_game_board(game_stats, color = True):
 				elif ship_direction == (1, -1) or ship_direction == (-1, 1):
 					direction_char = '/'
 				elif ship_direction == (1, 0) or ship_direction == (-1, 0):
-					direction_char = '-'
+					direction_char = u'─'
 
 				put_string(c, on_screen_board_tile[0] + 1 + ship_direction[0], on_screen_board_tile[1]  + ship_direction[1], direction_char, 1, 0, 'white', ship_owner_color)
 
@@ -736,6 +741,7 @@ def command_buy_ships(ships, player, game_stats):
 	-------
 	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	implementation : Nicolas Van Bossuyt (v1. 14/02/17)
+					 Nicolas Van Bossuyt (v2. 23/02/17)
 	"""
 
 	for ship in ships.split(' '):
@@ -743,6 +749,15 @@ def command_buy_ships(ships, player, game_stats):
 			continue
 
 		ship = ship.split(':')
+
+	    # Allow human player to dont have to write the full ship type name.
+		if ship[1][0] == 'f':
+			ship[1] = 'fighter'
+		elif ship[1][0] == 'd':
+			ship[1] = 'destroyer'
+		elif ship[1][0] == 'b':
+			ship[1] = 'battlecruiser'
+
 		ship_price = game_stats['model_ship'][ship[1]]['price']
 
 		if ship_price <= game_stats['players'][player]['money']:
@@ -770,6 +785,8 @@ def create_ship(player_name, ship_name, ship_type, game_stats):
 	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
 	implementation : Nicolas Van Bossuyt (v1. 15/02/2017)
 	"""
+
+	# Creatting the new space ship and add to the game_stats.
 	game_stats['ships'][ship_name] = {'type':ship_type, 'heal_points':game_stats['model_ship'][ship_type]['max_heal'], 'direction':game_stats['players'][player_name]['ships_starting_direction'], 'speed':0, 'owner': player_name, 'position': game_stats['players'][player_name]['ships_starting_point']}
 	game_stats['board'][game_stats['players'][player_name]['ships_starting_point']].append(ship_name)
 	game_stats['players'][player_name]['nb_ships'] += 1
@@ -1117,6 +1134,22 @@ def parse_game_file(path):
 	parsed_data = {'size':size,'ships':ships_list}
 
 	return parsed_data
+
+def create_game_board(file_name, board_size, lost_ships_count):
+    ship_type = ['fighter', 'destroyer', 'battlecruiser']
+    ship_direction = ['up', 'up-left', 'up-right', 'left', 'right', 'down', 'down-left', 'down-right']
+
+    f = open(file_name, 'w')
+
+    print >>f, "%d %d" % (board_size[0], board_size[1])
+
+    for i in range(lost_ships_count):
+        # print line in the file.
+        print >>f, '%d %d %s:%s %s' % (random.randint(0, board_size[0] - 1),\
+        random.randint(0, board_size[1] - 1), 'ship_' + str(i),  ship_type[random.randint(0, len(ship_type) - 1)],\
+        ship_direction[random.randint(0, len(ship_direction) - 1)])
+
+    f.close()
 
 # (...)Ouais, ça va être bien, ça va être très bien même… Bon, bien sûr, y faut imaginer.
 # - Jamel Debbouze, Astérix & Obélix : Mission Cléopâtre (2002), écrit par Alain Chabat, René Goscinny, Albert Uderzo
