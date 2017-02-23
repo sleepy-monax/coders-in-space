@@ -970,14 +970,16 @@ def take_abandonned_ship(game_stats):
 			nb_good_ships = len(element)
 			if len(element) > 2:
 				owner_to_test, nb_good_ships= game_stats['ships'][element[1]]['owner'],1
-				for x in range(2,len(element)):
+				for x in range(3,len(element)+1):
 					if game_stats['ships'][element[x]]['owner'] == owner_to_test:
 						nb_good_ships+=1
-			elif (game_stats['ships'][element[0]]['owner']=='none' and len(element)==2) or (nb_good_ships == len(element)-1):
+			if (game_stats['ships'][element[0]]['owner']=='none' and len(element)==2) or (nb_good_ships == len(element)-1):
 				game_stats['ships'][element[0]]['owner']=game_stats['ships'][element[1]]['owner']
 				element.append(game_stats['ships'][element[1]]['owner']+'_'+element[0])
 				element.remove(element[0])
 				game_stats['players'][game_stats['ships'][element[-1]]['owner']]['nb_ships']+=1
+				game_stats['ships'][game_stats['ships'][element[0]]['owner']+'_'element[0]] = game_stats['ships'][element[0]]
+				game_stats['ships'].remove(element[0])
 
 	return game_stats
 
