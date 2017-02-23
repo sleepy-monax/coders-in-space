@@ -967,6 +967,7 @@ def take_abandonned_ship(game_stats):
 	for location in game_stats['board']:
 		element= game_stats['board'][location]
 		if element != []:
+			nb_good_ships = len(element)
 			if len(element) > 2:
 				owner_to_test, nb_good_ships= game_stats['ships'][element[1]]['owner'],1
 				for x in range(2,len(element)):
