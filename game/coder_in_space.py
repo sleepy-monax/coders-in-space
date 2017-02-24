@@ -73,8 +73,6 @@ def is_game_continue(game_stats):
 		if game_stats['players'][player]['nb_ships'] > 0:
 			not_loser.append(player)
 
-	print not_loser
-
 	# Check if the game continue.
 	if not (len(not_loser)==1 or game_stats['nb_rounds'] >= game_stats['max_nb_rounds']):
 		return True
