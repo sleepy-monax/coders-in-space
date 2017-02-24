@@ -66,8 +66,14 @@ def is_game_continue(game_stats):
 
 	# Checking playert thats have more than on ships
 	for player in game_stats['players']:
+
+		if player == 'none':
+			continue
+
 		if game_stats['players'][player]['nb_ships'] > 0:
 			not_loser.append(player)
+
+	print not_loser
 
 	# Check if the game continue.
 	if not (len(not_loser)==1 or game_stats['nb_rounds'] >= game_stats['max_nb_rounds']):
@@ -88,7 +94,7 @@ def is_game_continue(game_stats):
 			max_value_owners = []
 			max_value_owners.append(player)
 
-		elif winners[player] = max_value:
+		elif winners[player] == max_value:
 			max_value_owners.append(player)
 
 	game_stats['winners'] = max_value_owners
@@ -109,7 +115,7 @@ def calculate_value(player, game_stats):
 	total_value = 0
 
 	for ship in game_stats['ships']:
-		if game_stats['ships'][ship]['owner'] == player_win:
+		if game_stats['ships'][ship]['owner'] == player:
 			total_value += game_stats['model_ship'][ship]['price']
 
 	return total_value
