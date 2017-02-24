@@ -39,6 +39,7 @@ from math import *
 from random import *
 from termcolor import *
 from time import sleep #because everyone needs to rest.
+from os import system
 
 # Game
 # ==============================================================================
@@ -49,25 +50,25 @@ def win(game_stats):
     parameters
     ----------
     game_stats : game before comand execution (dic)
-    
+
     return
     ------
     True if the game is not over (no one has won yet), False if someone has won
     winner : list of winners
-    
+
     version
     -------
     specifications : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1) 24/2/2017
     implementation : Alisson Leist (v1) 24/2/2017 """
-    
+
     winner=[]
     for player in game_stats['players']:
-        if game_stats['players'][element]['nb_ships']=!0
-        winner+=element
-        
+        if game_stats['players'][element]['nb_ships'] != 0:
+        	winner+=element
+
     if len(winner)==1:
         return False, winner
-    
+
     elif game_stats['nb_rounds']>=game_stats['max_nb_rounds']:
 
         for player_win in winner:
@@ -76,15 +77,16 @@ def win(game_stats):
 
                 if game_stats['ships'][ship]['owner']==player_win:
                     game_stats['players'][player_win]['money']+=game_stats['model_ship'][ship]['price']
-                    
+
         for player_winner in winner:
             if player_winner!=winner[-1]:
                 if game_stats['players'][player_winner]['money']<game_stats['players'][player_winner+1]['money']:
                     winner.remove(player_winner)
-                    
+
         return False, winner
     else:
         return True
+
 def play_game(level_name, players_list):
 	"""
 	Main game function which runs the game loop.
@@ -157,7 +159,7 @@ def new_game(level_name, players_list):
 	game_stats = {'board':{}, 'players':{},'model_ship':{}, 'ships': {},
 				  'board_size': game_file['size'],'level_name': level_name,
 				  'nb_rounds': 0, 'max_nb_rounds': 10*len(players_list),
-				  'is_game_continue':True, 'pending_attacks': []}
+				  'is_game_continue':True, 'pending_attacks': [], 'game_logs': []}
 
 	# Create ship specs sheet.
 	game_stats['model_ship']['fighter'] = {'icon': u'F', 'max_heal':3, 'max_speed':5, 'damages':1, 'range':5, 'price':10}
@@ -270,9 +272,6 @@ def get_human_input(player_name, buy_ship, game_stats):
 	implemetation : Nicolas Van Bosuyt (v1 22/02/17)
 	"""
 
-	# Add spacing.
-	print ''
-
 	# Show header.
 	c = create_canvas(190, 5)
 	put_box(c, 0, 0, 190, 5, 'single')
@@ -286,6 +285,8 @@ def get_human_input(player_name, buy_ship, game_stats):
 		print ''
 		player_input = raw_input(colored('< ' + player_name + ' > : ', game_stats['players'][player_name]['color']))
 		print ''
+
+		cls()
 
 		# Run human player command.
 		if '/' in player_input:
@@ -304,19 +305,19 @@ def get_human_input(player_name, buy_ship, game_stats):
 			return player_input
 
 def show_ship_list(c, player_name, game_stats):
-	c = create_canvas(190, 14 + len(game_stats['ships']) + len(game_stats['players']) * 4)
+	c = create_canvas(106, 10 + len(game_stats['ships']) + len(game_stats['players']) * 4)
 	put_box(c, 0, 0, c['size'][0], c['size'][1], 'double')
-	put_string(c, 3, 0, '[ HELP : ship creation ]')
+	put_string(c, 3, 0, '[ Spaceships ]')
 	line_index = 0
 
 	# Show ships models.
-	put_string(c, 3, 2, '> Spaceships Models')
-	put_string(c, 1, 3, '-'*188)
+	put_string(c, 3, 2, '// Spaceships Models //')
+	put_string(c, 1, 3, '-'*104)
 	for ship_model_name in game_stats['model_ship']:
 		ship_model = game_stats['model_ship'][ship_model_name]
 		put_string(c, 3, 4 + line_index, '[%s] %s // heal : %spv ~ speed : %skm/s ~ damages : %spv ~ attack range : %skm ~ price : %sG$ ' % (ship_model['icon'], ship_model_name, ship_model['max_heal'], ship_model['max_speed'], ship_model['damages'], ship_model['range'], ship_model['price']))
 		line_index+=1
-	put_string(c, 1, 4 + line_index, '-'*188)
+	put_string(c, 1, 4 + line_index, '-'*104)
 
 	for player in game_stats['players']:
 		# Show Players's ships.
@@ -324,11 +325,11 @@ def show_ship_list(c, player_name, game_stats):
 		line_index += 4
 
 		if player == 'none':
-			put_string(c, 3, 2 + line_index, '> Abandonned spaceships')
+			put_string(c, 3, 2 + line_index, '// Abandonned spaceships //')
 		else:
-			put_string(c, 3, 2 + line_index, '> %s\'s spaceships' % (player), color=game_stats['players'][player]['color'])
+			put_string(c, 3, 2 + line_index, '// %s\'s spaceships //' % (player), color=game_stats['players'][player]['color'])
 
-		put_string(c, 1, 3 + line_index, '-'*188)
+		put_string(c, 1, 3 + line_index, '-'*104)
 
 		if game_stats['players'][player]['nb_ships'] > 0:
 			for ship_name in game_stats['ships']:
@@ -340,7 +341,7 @@ def show_ship_list(c, player_name, game_stats):
 			put_string(c, 3, 4 + line_index, 'Sorry no space ships :/')
 			line_index+=1
 
-		put_string(c, 1, 4 + line_index, '-'*188)
+		put_string(c, 1, 4 + line_index, '-'*104)
 
 	print_canvas(c)
 def show_game_board(game_stats, color = True):
@@ -455,6 +456,18 @@ def show_game_board(game_stats, color = True):
 			put_string(c, location[0] + 2, location[1] + 3, 'Spaceship count : ' + str(game_stats['players'][player]['nb_ships']))
 
 			player_count += 1
+
+	# Put Game Logs frame.
+	logs_size = (c['size'][0] - on_screen_player_board_size[0], 7)
+	logs_location = (on_screen_player_board_size[0], on_screen_board_size[1])
+	put_box(c, logs_location[0], logs_location[1], logs_size[0], logs_size[1])
+	put_string(c, logs_location[0] + 1, logs_location[1],u'[ Game Logs ]')
+
+	line_index = 1
+	for line in game_stats['game_logs'][-5:]:
+		put_string(c, logs_location[0] + 1, logs_location[1] + line_index, line)
+		line_index +=1
+
 	# Show the game board in the terminal.
 	print_canvas(c)
 
@@ -904,7 +917,7 @@ def command_change_speed(ship, change, game_stats):
 
 	# Show a message when is a invalide change.
 	else:
-		print 'you cannot make that change on the speed of "' + ship + '"'
+		game_stats['game_logs'].append('you cannot make that change on the speed of "' + ship + '"')
 
 	return game_stats
 def command_rotate(ship, direction, game_stats):
@@ -1247,6 +1260,10 @@ def create_game_board(file_name, board_size, lost_ships_count):
         ship_direction[random.randint(0, len(ship_direction) - 1)])
 
     f.close()
+
+
+def cls():
+    system('cls' if os.name=='nt' else 'clear')
 
 # (...)Ouais, ça va être bien, ça va être très bien même… Bon, bien sûr, y faut imaginer.
 # - Jamel Debbouze, Astérix & Obélix : Mission Cléopâtre (2002), écrit par Alain Chabat, René Goscinny, Albert Uderzo
