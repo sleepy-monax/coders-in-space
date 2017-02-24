@@ -965,21 +965,27 @@ def take_abandonned_ship(game_stats):
 					 Bayron Mahy (v.2 22/02/17)
 	"""
 	for location in game_stats['board']:
-		element= game_stats['board'][location]
-		if element != []:
-			nb_good_ships = len(element)
-			if len(element) > 2:
-				owner_to_test, nb_good_ships= game_stats['ships'][element[1]]['owner'],1
-				for x in range(3,len(element)+1):
-					if game_stats['ships'][element[x]]['owner'] == owner_to_test:
+		ships_on_location= game_stats['board'][location]
+		if ships_on_location != []:
+			nb_good_ships = 1
+			if len(ships_on_location) > 2:
+				owner_to_test= game_stats['ships'][ships_on_location[1]]['owner']
+				for ships in ships_on_location:
+					if game_stats['ships'][ships]['owner'] == owner_to_test:
 						nb_good_ships+=1
-			if (game_stats['ships'][element[0]]['owner']=='none' and len(element)==2) or (nb_good_ships == len(element)-1):
-				game_stats['ships'][element[0]]['owner']=game_stats['ships'][element[1]]['owner']
-				element.append(game_stats['ships'][element[1]]['owner']+'_'+element[0])
-				element.remove(element[0])
-				game_stats['ships'][game_stats['ships'][element[0]]['owner']+'_'+element[0]] = game_stats['ships'][element[0]]
-				game_stats['ships'].pop(element[0], None)
-				game_stats['players'][game_stats['ships'][element[0]]['owner']]['nb_ships']+=1
+			if game_stats['ships'][ships_on_location[0]]['owner']=='none' and  (nb_good_ships == len(ships_on_location)-1):
+
+				#change owner none by the owner of the other ships 
+				game_stats['ships'][ships_on_location[0]]['owner']=game_stats['ships'][ships_on_location[1]]['owner']
+				#c/p of the dictionnary
+ 				game_stats['ships'][game_stats['ships'][ships_on_location[0]]['owner']+'_'+ships_on_location[0]] = game_stats['ships'][ships_on_location[0]]
+
+				#change the name of the ex- abandonned ship on the location
+				game_stats['board'][location].append(game_stats['ships'][ships_on_location[1]]['owner']+'_'+ships_on_location[0])
+				del game_stats['ships'][ships_on_location[0]]
+				#remove the previous name of the ships from location 
+				game_stats['board'][location].remove(ships_on_location[0])
+				game_stats['players'][game_stats['ships'][ships_on_location[0]]['owner']]['nb_ships']+=1
 
 	return game_stats
 
