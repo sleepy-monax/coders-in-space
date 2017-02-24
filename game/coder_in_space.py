@@ -45,47 +45,74 @@ from os import system
 # ==============================================================================
 # Create a new game and play it.
 
-def win(game_stats):
-    """check if a player has won the game.
-    parameters
-    ----------
-    game_stats : game before comand execution (dic)
+def is_game_continue(game_stats):
+	"""
+	Check if a player has won the game.
 
-    return
-    ------
-    True if the game is not over (no one has won yet), False if someone has won
-    winner : list of winners
+	Parameters
+	----------
+	game_stats : game before comand execution (dic)
 
-    version
-    -------
-    specifications : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1) 24/2/2017
-    implementation : Alisson Leist (v1) 24/2/2017 """
+	Return
+	------
+	True if the game is not over (no one has won yet), False if someone has won.
 
-    winner=[]
-    for player in game_stats['players']:
-        if game_stats['players'][element]['nb_ships'] != 0:
-        	winner+=element
+	Version
+	-------
+	specifications : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1) 24/2/2017
+	implementation : Alisson Leist (v1) 24/2/2017 """
 
-    if len(winner)==1:
-        return False, winner
+	not_loser = []
 
-    elif game_stats['nb_rounds']>=game_stats['max_nb_rounds']:
+	# Checking playert thats have more than on ships
+	for player in game_stats['players']:
+		if game_stats['players'][player]['nb_ships'] > 0:
+			not_loser.append(player)
 
-        for player_win in winner:
+	# Check if the game continue.
+	if not (len(not_loser)==1 or game_stats['nb_rounds'] >= game_stats['max_nb_rounds']):
+		return True
 
-            for ship in game_stats['ships']:
 
-                if game_stats['ships'][ship]['owner']==player_win:
-                    game_stats['players'][player_win]['money']+=game_stats['model_ship'][ship]['price']
+	winners = {}
+	for player in not_loser:
+		winners[player] = calculate_value(player, game_stats)
 
-        for player_winner in winner:
-            if player_winner!=winner[-1]:
-                if game_stats['players'][player_winner]['money']<game_stats['players'][player_winner+1]['money']:
-                    winner.remove(player_winner)
+	max_value = 0
+	max_value_owners = []
 
-        return False, winner
-    else:
-        return True
+	for player in winners:
+		if winners[player] > max_value:
+
+			max_value = winners[player]
+			max_value_owners = []
+			max_value_owners.append(player)
+
+		elif winners[player] = max_value:
+			max_value_owners.append(player)
+
+	game_stats['winners'] = max_value_owners
+
+	return False
+
+def calculate_value(player, game_stats):
+	"""
+	calculate the total ship value of a player.
+
+	Parameters
+	----------
+	player : name of the player to count value (str)
+	game_stats : game before comand execution (dic)
+
+
+	"""
+	total_value = 0
+
+	for ship in game_stats['ships']:
+		if game_stats['ships'][ship]['owner'] == player_win:
+			total_value += game_stats['model_ship'][ship]['price']
+
+	return total_value
 
 def play_game(level_name, players_list):
 	"""
@@ -110,7 +137,7 @@ def play_game(level_name, players_list):
 		game_stats = command_buy_ships(get_game_input(player, True, game_stats), player, game_stats)
 
 	# Game loop.
-	while game_stats['is_game_continue']:
+	while is_game_continue(game_stats):
 		# Show the game board to the human player.
 		show_game_board(game_stats)
 
@@ -123,7 +150,7 @@ def play_game(level_name, players_list):
 				parse_command(get_game_input(player, False, game_stats), player, game_stats)
 			else:
 				if game_stats['players'][player]['type'] != 'none':
-					print colored(player, game_stats['players'][player]['color']), 'has lost all these ships, so he has nothing to do.'
+					game_stats['game_logs'].append(player + ' has lost all these ships, so he has nothing to do.')
 
 		# Do ships moves.
 		do_moves(game_stats)
@@ -151,7 +178,7 @@ def new_game(level_name, players_list):
 
 	Implementation : Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/2017)
 					 Bayron Mahy, Nicolas Van Bossuyt (v2. 13/02/2017)
-				     Nicolas Van Bossuyt (v3. 23/02/17)
+					 Nicolas Van Bossuyt (v3. 23/02/17)
 	"""
 
 	# Create game_stats dictionary.
@@ -159,7 +186,7 @@ def new_game(level_name, players_list):
 	game_stats = {'board':{}, 'players':{},'model_ship':{}, 'ships': {},
 				  'board_size': game_file['size'],'level_name': level_name,
 				  'nb_rounds': 0, 'max_nb_rounds': 10*len(players_list),
-				  'is_game_continue':True, 'pending_attacks': [], 'game_logs': []}
+				  'pending_attacks': [], 'game_logs': [], 'winners' : []}
 
 	# Create ship specs sheet.
 	game_stats['model_ship']['fighter'] = {'icon': u'F', 'max_heal':3, 'max_speed':5, 'damages':1, 'range':5, 'price':10}
@@ -204,7 +231,7 @@ def new_game(level_name, players_list):
 			game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'magenta',
 											  'ships_starting_point': (9, game_stats['board_size'][1]-10),'ships_starting_direction': (1, -1)}
 		else:
-			print 'There is too many player the player %s is a loser he must be watch you playing' %s(player)
+			game_stats['game_logs'].append('There is too many player the player %s is a loser he must be watch you playing' % (player))
 
 		index_player+=1
 
@@ -272,6 +299,7 @@ def get_human_input(player_name, buy_ship, game_stats):
 	implemetation : Nicolas Van Bosuyt (v1 22/02/17)
 	"""
 
+	cls()
 	# Show header.
 	c = create_canvas(190, 5)
 	put_box(c, 0, 0, 190, 5, 'single')
@@ -363,19 +391,21 @@ def show_game_board(game_stats, color = True):
 	"""
 	# Create a new canvas.
 	c = create_canvas(190, 50, color)
-	copyright_text = '[ CoderInSpace (c) 2017 - 3342 Groupe24-Corp ]'
-	put_string(c, c['size'][0] - len(copyright_text) - 2, c['size'][1] - 1, copyright_text)
 
 	# Put a cool artwork on the background.
 	if randint(0, 1) == 1:
-		put_ascii_art(c, c['size'][0] - 55, c['size'][1] - 26, 'alien', 'green')
+		put_ascii_art(c, c['size'][0] - 71, c['size'][1] - 40, 'alien', 'green')
 	else:
 		put_ascii_art(c, c['size'][0] - 76, c['size'][1] - 27, 'planet')
 
 	# Create the board frame.
-	on_screen_board_size = (game_stats['board_size'][0]*3 + 5, game_stats['board_size'][1] + 3)
-	put_box(c, 0, 0, on_screen_board_size[0], on_screen_board_size[1])
+	game_board_size = (game_stats['board_size'][0]*3 + 5, game_stats['board_size'][1] + 3)
+	put_box(c, 0, 0, game_board_size[0], game_board_size[1])
 	put_string(c, 2, 0, u'[ Coder in space : %s ]' % (game_stats['level_name']))
+
+	# Put copyright text.
+	copyright_text = '[ CoderInSpace (c) 2017 - 3342 Groupe24-Corp ]'
+	put_string(c, game_board_size[0] - len(copyright_text) - 2, game_board_size[1] - 1, copyright_text)
 
 	# Put horizontal coordinate.
 	coordinate_string = ''
@@ -415,7 +445,7 @@ def show_game_board(game_stats, color = True):
 				ship_icon = game_stats['model_ship'][ship_type]['icon']
 				ship_owner = game_stats['ships'][ship_name]['owner']
 
-				#Print ship on gameboard.
+				# Print ship on gameboard.
 				ship_owner_color = game_stats['players'][game_stats['ships'][ship_name]['owner']]['color']
 
 				ship_direction = game_stats['ships'][ship_name]['direction']
@@ -438,15 +468,15 @@ def show_game_board(game_stats, color = True):
 				put_string(c, on_screen_board_tile[0], on_screen_board_tile[1], '!' + str(len(game_stats['board'][(x,y)])),1,0,'white', 'green')
 
 	# Put players liste frame.
-	on_screen_player_board_size = ((len(game_stats['players']) - 1) * 30 + 2, 7)
-	put_box(c, 0, on_screen_board_size[1], on_screen_player_board_size[0], on_screen_player_board_size[1])
-	put_string(c, 1, on_screen_board_size[1], u'[ Players ]')
+	players_bord_size = ((len(game_stats['players']) - 1) * 30 + 2, 7)
+	put_box(c, 0, game_board_size[1], players_bord_size[0], players_bord_size[1])
+	put_string(c, 1, game_board_size[1], u'[ Players ]')
 
 	# Put players liste.
 	player_count = 0
 	for player in game_stats['players']:
 		if game_stats['players'][player]['type'] != 'none':
-			location = ((player_count * 30) + 1, on_screen_board_size[1] + 1,)
+			location = ((player_count * 30) + 1, game_board_size[1] + 1,)
 			put_box(c, location[0], location[1], 30, 5, 'single')
 
 			# Put player informations.
@@ -458,8 +488,8 @@ def show_game_board(game_stats, color = True):
 			player_count += 1
 
 	# Put Game Logs frame.
-	logs_size = (c['size'][0] - on_screen_player_board_size[0], 7)
-	logs_location = (on_screen_player_board_size[0], on_screen_board_size[1])
+	logs_size = (c['size'][0] - players_bord_size[0], 7)
+	logs_location = (players_bord_size[0], game_board_size[1])
 	put_box(c, logs_location[0], logs_location[1], logs_size[0], logs_size[1])
 	put_string(c, logs_location[0] + 1, logs_location[1],u'[ Game Logs ]')
 
@@ -473,7 +503,7 @@ def show_game_board(game_stats, color = True):
 
 # A.I.
 # ------------------------------------------------------------------------------
-# AI interaction
+# AI interactions
 
 def get_ai_input(player_name, buy_ship, game_stats):
 	"""
@@ -839,7 +869,7 @@ def command_buy_ships(ships, player, game_stats):
 
 		ship = ship.split(':')
 
-	    # Allow human player to dont have to write the full ship type name.
+		# Allow human player to dont have to write the full ship type name.
 		if ship[1][0] == 'f':
 			ship[1] = 'fighter'
 		elif ship[1][0] == 'd':
@@ -1033,7 +1063,7 @@ def take_abandonned_ship(game_stats):
 				#change owner none by the owner of the other ships
 				game_stats['ships'][ships_on_location[0]]['owner']=game_stats['ships'][ships_on_location[1]]['owner']
 				#c/p of the dictionnary
- 				game_stats['ships'][game_stats['ships'][ships_on_location[0]]['owner']+'_'+ships_on_location[0]] = game_stats['ships'][ships_on_location[0]]
+				game_stats['ships'][game_stats['ships'][ships_on_location[0]]['owner']+'_'+ships_on_location[0]] = game_stats['ships'][ships_on_location[0]]
 
 				#change the name of the ex- abandonned ship on the location
 				game_stats['board'][location].append(game_stats['ships'][ships_on_location[1]]['owner']+'_'+ships_on_location[0])
@@ -1246,24 +1276,24 @@ def parse_game_file(path):
 	return parsed_data
 
 def create_game_board(file_name, board_size, lost_ships_count):
-    ship_type = ['fighter', 'destroyer', 'battlecruiser']
-    ship_direction = ['up', 'up-left', 'up-right', 'left', 'right', 'down', 'down-left', 'down-right']
+	ship_type = ['fighter', 'destroyer', 'battlecruiser']
+	ship_direction = ['up', 'up-left', 'up-right', 'left', 'right', 'down', 'down-left', 'down-right']
 
-    f = open(file_name, 'w')
+	f = open(file_name, 'w')
 
-    print >>f, "%d %d" % (board_size[0], board_size[1])
+	print >>f, "%d %d" % (board_size[0], board_size[1])
 
-    for i in range(lost_ships_count):
-        # print line in the file.
-        print >>f, '%d %d %s:%s %s' % (random.randint(0, board_size[0] - 1),\
-        random.randint(0, board_size[1] - 1), 'ship_' + str(i),  ship_type[random.randint(0, len(ship_type) - 1)],\
-        ship_direction[random.randint(0, len(ship_direction) - 1)])
+	for i in range(lost_ships_count):
+		# print line in the file.
+		print >>f, '%d %d %s:%s %s' % (random.randint(0, board_size[0] - 1),\
+		random.randint(0, board_size[1] - 1), 'ship_' + str(i),  ship_type[random.randint(0, len(ship_type) - 1)],\
+		ship_direction[random.randint(0, len(ship_direction) - 1)])
 
-    f.close()
+	f.close()
 
 
 def cls():
-    system('cls' if os.name=='nt' else 'clear')
+	system('cls' if os.name=='nt' else 'clear')
 
 # (...)Ouais, ça va être bien, ça va être très bien même… Bon, bien sûr, y faut imaginer.
 # - Jamel Debbouze, Astérix & Obélix : Mission Cléopâtre (2002), écrit par Alain Chabat, René Goscinny, Albert Uderzo
