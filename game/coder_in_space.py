@@ -517,9 +517,9 @@ def print_canvas(canvas):
 
 	canvas_width = canvas['size'][0]
 	canvas_height = canvas['size'][1]
-
+	line = '\033[0;0H'
 	for y in range(canvas_height):
-		line = ''
+
 		for x in range(canvas_width):
 			grid_item = canvas['grid'][(x,y)]
 			char = grid_item['char']
@@ -530,7 +530,8 @@ def print_canvas(canvas):
 				line = line + colored(char, color, back_color)
 			else:
 				line = line + char
-		print line
+		line += '\n'
+	print line
 
 # Canvas drawing.
 # ------------------------------------------------------------------------------
@@ -975,7 +976,7 @@ def take_abandonned_ship(game_stats):
 						nb_good_ships+=1
 			if game_stats['ships'][ships_on_location[0]]['owner']=='none' and  (nb_good_ships == len(ships_on_location)-1):
 
-				#change owner none by the owner of the other ships 
+				#change owner none by the owner of the other ships
 				game_stats['ships'][ships_on_location[0]]['owner']=game_stats['ships'][ships_on_location[1]]['owner']
 				#c/p of the dictionnary
  				game_stats['ships'][game_stats['ships'][ships_on_location[0]]['owner']+'_'+ships_on_location[0]] = game_stats['ships'][ships_on_location[0]]
@@ -983,7 +984,7 @@ def take_abandonned_ship(game_stats):
 				#change the name of the ex- abandonned ship on the location
 				game_stats['board'][location].append(game_stats['ships'][ships_on_location[1]]['owner']+'_'+ships_on_location[0])
 				del game_stats['ships'][ships_on_location[0]]
-				#remove the previous name of the ships from location 
+				#remove the previous name of the ships from location
 				game_stats['board'][location].remove(ships_on_location[0])
 				game_stats['players'][game_stats['ships'][ships_on_location[0]]['owner']]['nb_ships']+=1
 
