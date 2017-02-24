@@ -44,6 +44,47 @@ from time import sleep #because everyone needs to rest.
 # ==============================================================================
 # Create a new game and play it.
 
+def win(game_stats):
+    """check if a player has won the game.
+    parameters
+    ----------
+    game_stats : game before comand execution (dic)
+    
+    return
+    ------
+    True if the game is not over (no one has won yet), False if someone has won
+    winner : list of winners
+    
+    version
+    -------
+    specifications : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1) 24/2/2017
+    implementation : Alisson Leist (v1) 24/2/2017 """
+    
+    winner=[]
+    for player in game_stats['players']:
+        if game_stats['players'][element]['nb_ships']=!0
+        winner+=element
+        
+    if len(winner)==1:
+        return False, winner
+    
+    elif game_stats['nb_rounds']>=game_stats['max_nb_rounds']:
+
+        for player_win in winner:
+
+            for ship in game_stats['ships']:
+
+                if game_stats['ships'][ship]['owner']==player_win:
+                    game_stats['players'][player_win]['money']+=game_stats['model_ship'][ship]['price']
+                    
+        for player_winner in winner:
+            if player_winner!=winner[-1]:
+                if game_stats['players'][player_winner]['money']<game_stats['players'][player_winner+1]['money']:
+                    winner.remove(player_winner)
+                    
+        return False, winner
+    else:
+        return True
 def play_game(level_name, players_list):
 	"""
 	Main game function which runs the game loop.
