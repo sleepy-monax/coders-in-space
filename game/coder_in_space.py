@@ -116,7 +116,7 @@ def calculate_value(player, game_stats):
 
 	for ship in game_stats['ships']:
 		if game_stats['ships'][ship]['owner'] == player:
-			total_value += game_stats['model_ship'][ship]['price']
+			total_value += game_stats['model_ship'][game_stats['ships'][ship]['type']]['price']
 
 	return total_value
 
