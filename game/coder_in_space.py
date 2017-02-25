@@ -1111,13 +1111,13 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
 	damages=game_stats['ships'][ship]['damages']
 
 	# Getting distance between ship and taget.
-	if target_coordinate[0] + ship_coordinate[0] <=board_width/2:
+	if abs(target_coordinate[0] - ship_coordinate[0]) > board_width/2:
 		if target_coordinate[0] < ship_coordinate[0]:
 			target_coordinate[0]+=board_width
 		else:
 			target_coordinate[0]+=board_width
 
-	if target_coordinate[1] + ship_coordinate[1]<=board_height/2:
+	if abs(target_coordinate[1] - ship_coordinate[1]) > board_height/2:
 		if target_coordinate[1] < ship_coordinate[1]:
 			target_coordinate[1]+=board_height
 		else:
