@@ -545,8 +545,8 @@ def get_ai_input(player_name, buy_ship, game_stats):
 # Handeling remote player command.
 
 def get_remote_input():
+	# Not implemented yet.
 	pass
-
 # Gui framework
 # ==============================================================================
 # framework for easy user interface creation.
@@ -589,6 +589,7 @@ def create_canvas(width, height, enable_color = True):
 	canvas = put_string(canvas, width - len(canvas_info) - 2, height - 1, canvas_info)
 
 	return canvas
+
 def print_canvas(canvas):
 	"""
 	Print the game view in the terminal.
@@ -661,6 +662,7 @@ def put(canvas, x, y, char, color = None, back_color = None):
 			canvas['grid'][(x,y)]['back_color'] = None
 
 	return canvas
+
 def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = None):
 	"""
 	Put and fill a rectangle in the canvas.
@@ -717,6 +719,7 @@ def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_col
 	elif mode == 'single':
 		put_rectangle(canvas, x, y, width, height, u'─', color, back_color)
 		put_rectangle(canvas, x, y + 1, width, height - 2,u'│', color, back_color)
+
 		put(canvas, x, y, u'┌', color, back_color)
 		put(canvas, x, y + height - 1, u'└', color, back_color)
 		put(canvas, x + width - 1, y, u'┐', color, back_color)
@@ -755,7 +758,7 @@ def put_string(canvas, x, y, string, direction_x = 1, direction_y = 0, color = N
 		y += direction_y
 
 	return canvas
-def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None):
+def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None, transparency_char = None):
 	"""
 	Put a ascii art in the in the canvas.
 
@@ -764,6 +767,7 @@ def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None)
 	x, y : coordinate to pute the art (int).
 	ascii_art_name : name of the art file (string).
 	canvas : game view to put the art on it (dic).
+	transparency_char : ignored char.
 
 	return
 	------
@@ -773,15 +777,23 @@ def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None)
 	-------
 	specification  : Nicolas Van Bossuyt (v1. 10/02/17)
 	implementation : Nicolas Van Bossuyt (V1. 15/02/17)
+				     Nicolas Van Bossuyt (v2. 26/02/17)
 	"""
 	art_file = open('art/' + ascii_art_name + '.txt','r')
 
 	index = 0
+
 	for line in art_file:
-		canvas = put_string(canvas, x, y + index,line.replace('\n', ''), 1, 0, color, back_color)
-		index +=1
+		char_index = 0
+		for char in line.replace('\n', ''):
+			if char != transparency_char:
+				put(canvas, x + char_index, y + line_index, char, color, back_color)
+
+			char_index += 1
+		index += 1
 
 	art_file.close()
+
 	return canvas
 
 # Game commands
