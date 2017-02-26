@@ -376,6 +376,7 @@ def show_ship_list(c, player_name, game_stats):
 		put_string(c, 1, 4 + line_index, '-'*104)
 
 	print_canvas(c)
+
 def show_game_board(game_stats, color = True):
 	"""
 	Show the game to the user screen.
@@ -397,11 +398,13 @@ def show_game_board(game_stats, color = True):
 	c = create_canvas(190, 50, color)
 
 	# Put a cool artwork on the background.
-	if randint(0, 1) == 1:
+	art_index = randint(0, 2)
+	if art_index == 0:
 		put_ascii_art(c, c['size'][0] - 71, c['size'][1] - 40, 'alien', 'green')
-	else:
+	elif art_index == 1:
 		put_ascii_art(c, c['size'][0] - 76, c['size'][1] - 27, 'planet')
-
+	elif art_index == 2:
+		put_ascii_art(c, c['size'][0] - 70, c['size'][1] - 45, 'general_ackbar')
 	# Create the board frame.
 	game_board_size = (game_stats['board_size'][0]*3 + 5, game_stats['board_size'][1] + 3)
 	put_box(c, 0, 0, game_board_size[0], game_board_size[1])
@@ -429,6 +432,9 @@ def show_game_board(game_stats, color = True):
 			value_string = ' ' + value_string
 		put_string(c,1,i + 1,value_string + ' ', 1,0, 'blue', 'white')
 
+	# Set the seed of the random generator.
+
+	seed(1)
 	# Put game board.
 	for x in range(game_stats['board_size'][0]):
 		for y in range(game_stats['board_size'][1]):
@@ -471,6 +477,9 @@ def show_game_board(game_stats, color = True):
 				# in other case show how many ship there are in the tile.
 				put_string(c, on_screen_board_tile[0], on_screen_board_tile[1], '!' + str(len(game_stats['board'][(x,y)])),1,0,'white', 'green')
 
+	# Reset the random seed.
+	seed()
+
 	# Put players liste frame.
 	players_bord_size = ((len(game_stats['players']) - 1) * 30 + 2, 7)
 	put_box(c, 0, game_board_size[1], players_bord_size[0], players_bord_size[1])
@@ -504,6 +513,7 @@ def show_game_board(game_stats, color = True):
 
 	# Show the game board in the terminal.
 	print_canvas(c)
+
 
 # A.I.
 # ------------------------------------------------------------------------------
@@ -589,13 +599,14 @@ def create_canvas(width, height, enable_color = True):
 	canvas = put_string(canvas, width - len(canvas_info) - 2, height - 1, canvas_info)
 
 	return canvas
-def print_canvas(canvas):
+def print_canvas(canvas, x = 0, y = 0):
 	"""
 	Print the game view in the terminal.
 
 	Parameter
 	---------
 	canvas : canvas to print on screen (dic).
+	x, y : coodinate in the terminal (int).
 
 	Version
 	-------
@@ -605,10 +616,10 @@ def print_canvas(canvas):
 
 	canvas_width = canvas['size'][0]
 	canvas_height = canvas['size'][1]
-	line = '\033[0;0H'
+	line = '\033[%d;%dH' % (x, y)
 	for y in range(canvas_height):
-
 		for x in range(canvas_width):
+
 			grid_item = canvas['grid'][(x,y)]
 			char = grid_item['char']
 			color = grid_item['color']
@@ -618,7 +629,9 @@ def print_canvas(canvas):
 				line = line + colored(char, color, back_color)
 			else:
 				line = line + char
+
 		line += '\n'
+
 	print line
 
 # Canvas drawing.
@@ -647,20 +660,19 @@ def put(canvas, x, y, char, color = None, back_color = None):
 	"""
 
 	# Check if the coordinate is in the bound of the game view.
-	if x < canvas['size'][0] and x>=0 and\
-	y < canvas['size'][1] and y >= 0:
+	if x < canvas['size'][0] and x >= 0 and\
+	   y < canvas['size'][1] and y >= 0:
 
 		# Put the char a the coordinate.
 		canvas['grid'][(x,y)]['char'] = char
 		canvas['grid'][(x,y)]['color'] = color
 
 		# Add the 'on_' at the start of the back_color string.
-		if not back_color == None:
-			canvas['grid'][(x,y)]['back_color'] = 'on_' + back_color
-		else:
-			canvas['grid'][(x,y)]['back_color'] = None
+		if not back_color == None : canvas['grid'][(x,y)]['back_color'] = 'on_' + back_color
+		else : canvas['grid'][(x,y)]['back_color'] = None
 
 	return canvas
+
 def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = None):
 	"""
 	Put and fill a rectangle in the canvas.
@@ -682,8 +694,7 @@ def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = 
 	"""
 
 	for w in range(width):
-		for h in range(height):
-			canvas = put(canvas, x + w, y + h, char, color, back_color)
+		for h in range(height): canvas = put(canvas, x + w, y + h, char, color, back_color)
 
 	return canvas
 def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_color = None):
@@ -868,8 +879,8 @@ def command_buy_ships(ships, player, game_stats):
 	"""
 
 	for ship in ships.split(' '):
-		if ship == '':
-			continue
+
+		if ship == '': continue
 
 		ship = ship.split(':')
 
@@ -1066,12 +1077,14 @@ def take_abandonned_ship(game_stats):
 
 				#change owner none by the owner of the other ships
 				game_stats['ships'][ships_on_location[0]]['owner']=game_stats['ships'][ships_on_location[1]]['owner']
+
 				#c/p of the dictionnary
 				game_stats['ships'][game_stats['ships'][ships_on_location[0]]['owner']+'_'+ships_on_location[0]] = game_stats['ships'][ships_on_location[0]]
 
 				#change the name of the ex- abandonned ship on the location
 				game_stats['board'][location].append(game_stats['ships'][ships_on_location[1]]['owner']+'_'+ships_on_location[0])
 				del game_stats['ships'][ships_on_location[0]]
+
 				#remove the previous name of the ships from location
 				game_stats['board'][location].remove(ships_on_location[0])
 				game_stats['players'][game_stats['ships'][ships_on_location[0]]['owner']]['nb_ships']+=1
@@ -1113,15 +1126,15 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
 	# Getting distance between ship and taget.
 	if abs(target_coordinate[0] - ship_coordinate[0]) > board_width/2:
 		if target_coordinate[0] < ship_coordinate[0]:
-			target_coordinate[0]+=board_width
+			target_coordinate[0] += board_width
 		else:
-			target_coordinate[0]+=board_width
+			target_coordinate[0] += board_width
 
 	if abs(target_coordinate[1] - ship_coordinate[1]) > board_height/2:
 		if target_coordinate[1] < ship_coordinate[1]:
-			target_coordinate[1]+=board_height
+			target_coordinate[1] += board_height
 		else:
-			ship_coordinate[1]+=board_height
+			ship_coordinate[1] += board_height
 
 	if abs((target_coordinate[0] - ship_coordinate[0])) + abs((target_coordinate[1] - ship_coordinate[1])) <= game_stats ['ships'][ship]['range'] :
 		if not game_stats['board'][target_coordinate] == []:
@@ -1130,6 +1143,7 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
 			for target_ship in game_stats['board'][target_coordinate]:
 				# Give damages to the taget ship.
 				game_stats['ships'][target_ship]['heal_point']-=damages
+
 				if game_stats['ships'][target_ship]['heal_point']<=0:
 					# Remove the space ship.
 					game_stats['board'][target_coordinate].remove(target_ship)
@@ -1170,7 +1184,9 @@ def rotate_vector_2D(vector, theta):
 	dc, ds = cos(theta), sin(theta)
 	x, y = vector[0], vector[1]
 	x, y = dc*x - ds*y, ds*x + dc*y
+
 	return (x, y)
+
 def to_unit_vector(vector):
 	"""
 	Convert a vector to a unit vector.
@@ -1185,10 +1201,8 @@ def to_unit_vector(vector):
 	"""
 
 	def convert(value):
-		if value > 0.25:
-			return 1
-		elif value < -0.25:
-			return -1
+		if value > 0.25: return 1
+		elif value < -0.25: return -1
 
 		return 0
 
@@ -1237,6 +1251,7 @@ def direction_to_vector2D(direction):
 		vector = (-1,1)
 
 	return vector
+
 def parse_game_file(path):
 	"""
 	Parse a .cis file and returns its content.
@@ -1280,6 +1295,16 @@ def parse_game_file(path):
 	return parsed_data
 
 def create_game_board(file_name, board_size, lost_ships_count):
+	"""
+	Create a new cis file.
+
+	Parameters
+	----------
+	file_name : name of the cis file (str).
+	board_size : size of the game board (tuple(int, int)).
+	lost_ships_count : number of lost ship on the game board (int).
+
+	"""
 	ship_type = ['fighter', 'destroyer', 'battlecruiser']
 	ship_direction = ['up', 'up-left', 'up-right', 'left', 'right', 'down', 'down-left', 'down-right']
 
@@ -1288,7 +1313,6 @@ def create_game_board(file_name, board_size, lost_ships_count):
 	print >>f, "%d %d" % (board_size[0], board_size[1])
 
 	for i in range(lost_ships_count):
-		# print line in the file.
 		print >>f, '%d %d %s:%s %s' % (random.randint(0, board_size[0] - 1),\
 		random.randint(0, board_size[1] - 1), 'ship_' + str(i),  ship_type[random.randint(0, len(ship_type) - 1)],\
 		ship_direction[random.randint(0, len(ship_direction) - 1)])
@@ -1297,6 +1321,7 @@ def create_game_board(file_name, board_size, lost_ships_count):
 
 
 def cls():
+	"""Clear the screen."""
 	system('cls' if os.name=='nt' else 'clear')
 
 # (...)Ouais, ça va être bien, ça va être très bien même… Bon, bien sûr, y faut imaginer.
