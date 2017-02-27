@@ -212,6 +212,7 @@ def new_game(level_name, players_list):
 		game_stats['board'][(ships[0],ships[1])].append(ships[2])
 
 	index_player=1
+
 	for player in players_list:
 		# Set player type.
 		if '_bot' in player:
@@ -272,9 +273,6 @@ def get_game_input(player_name, buy_ship, game_stats):
 		# Get input from the remote player.
 		# TODO : remote player logic.
 		# player_input = get_remote_input(player, game_stats)
-		pass
-	elif game_stats['players'][player_name]['type'] == 'none':
-		# None player ignore it.
 		pass
 
 	return player_input
@@ -599,12 +597,8 @@ def create_canvas(width, height, enable_color = True):
 	canvas = put_string(canvas, width - len(canvas_info) - 2, height - 1, canvas_info)
 
 	return canvas
-<<<<<<< HEAD
-def print_canvas(canvas, x = 0, y = 0):
-=======
 
-def print_canvas(canvas):
->>>>>>> origin/dev_ai_naive
+def print_canvas(canvas, x = 0, y = 0):
 	"""
 	Print the game view in the terminal.
 
@@ -702,6 +696,7 @@ def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = 
 		for h in range(height): canvas = put(canvas, x + w, y + h, char, color, back_color)
 
 	return canvas
+
 def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_color = None):
 	"""
 	Put a box in the canvas.
@@ -742,6 +737,7 @@ def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_col
 	put_rectangle(canvas, x + 1 , y + 1, width - 2, height - 2, ' ')
 
 	return canvas
+
 def put_string(canvas, x, y, string, direction_x = 1, direction_y = 0, color = None, back_color = None):
 	"""
 	Put a specified string in the canvas.
@@ -772,6 +768,7 @@ def put_string(canvas, x, y, string, direction_x = 1, direction_y = 0, color = N
 		y += direction_y
 
 	return canvas
+
 def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None, transparency_char = None):
 	"""
 	Put a ascii art in the in the canvas.
@@ -914,6 +911,7 @@ def command_buy_ships(ships, player, game_stats):
 			create_ship(player, '%s_%s' % (player, ship[0]), ship[1], game_stats)
 
 	return game_stats
+
 def create_ship(player_name, ship_name, ship_type, game_stats):
 	"""
 	Create and add a new ship.
@@ -980,6 +978,7 @@ def command_change_speed(ship, change, game_stats):
 		game_stats['game_logs'].append('you cannot make that change on the speed of "' + ship + '"')
 
 	return game_stats
+
 def command_rotate(ship, direction, game_stats):
 	"""
 	Rotate the ship.
@@ -1008,6 +1007,7 @@ def command_rotate(ship, direction, game_stats):
 
 	game_stats['ships'][ship]['direction'] = to_unit_vector(v)
 	return game_stats
+
 def do_moves(game_stats):
 	"""
 	Apply move to ships.
@@ -1105,9 +1105,6 @@ def take_abandonned_ship(game_stats):
 				game_stats['players'][game_stats['ships'][ships_on_location[0]]['owner']]['nb_ships']+=1
 
 	return game_stats
-
-
-
 
 # Attack Command
 # ------------------------------------------------------------------------------
@@ -1222,6 +1219,7 @@ def to_unit_vector(vector):
 		return 0
 
 	return (convert(vector[0]), convert(vector[1]))
+
 def direction_to_vector2D(direction):
 	"""
 	Convert a string direction to a vector2D.
@@ -1333,7 +1331,6 @@ def create_game_board(file_name, board_size, lost_ships_count):
 		ship_direction[random.randint(0, len(ship_direction) - 1)])
 
 	f.close()
-
 
 def cls():
 	"""Clear the screen."""
