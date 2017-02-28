@@ -264,16 +264,16 @@ def splash_game():
 				put_string(stars,x, y, void_char[randint(0, 2)])
 
 	put_canvas(c, stars, 1, 1)
-
 	print_canvas(c)
+	sleep(1)
 
 	put_ascii_art(c, 42, 20, 'groupe24')
-
 	print_canvas(c)
+	sleep(1)
 
+	# Print coders in space logo.
 	put_canvas(c, stars, 1, 1)
-	put_ascii_art(c, 32, 20, 'coder_in_space', 'yellow')
-
+	put_ascii_art(c, 26, 20, 'coders_in_space', 'yellow')
 	print_canvas(c)
 
 # Input
@@ -449,11 +449,7 @@ def show_game_board(game_stats, color = True):
 	# Create the board frame.
 	game_board_size = (game_stats['board_size'][0]*3 + 5, game_stats['board_size'][1] + 3)
 	put_box(c, 0, 0, game_board_size[0], game_board_size[1])
-	put_string(c, 2, 0, u'[ Coder in space : %s ] %s / %s Rounds' % (game_stats['level_name'], game_stats['nb_rounds'], game_stats['max_nb_rounds']))
-
-	# Put copyright text.
-	copyright_text = '[ CoderInSpace (c) 2017 - 3342 Groupe24-Corp ]'
-	put_string(c, game_board_size[0] - len(copyright_text) - 2, game_board_size[1] - 1, copyright_text)
+	put_string(c, 2, 0, u'[ Coders In Space : %s ] %s / %s Rounds' % (game_stats['level_name'], game_stats['nb_rounds'], game_stats['max_nb_rounds']))
 
 	# Put horizontal coordinate.
 	coordinate_string = ''
