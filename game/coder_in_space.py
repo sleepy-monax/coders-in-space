@@ -134,6 +134,8 @@ def play_game(level_name, players_list):
 	implementation : Bayron Mahy, Nicolas Van Bossuyt (v1. 15/02/17)
 	"""
 
+	splash_game()
+	raw_input() # wait the player pressing enter.
 	game_stats = new_game(level_name, players_list)
 
 	# Players create their ships.
@@ -142,6 +144,9 @@ def play_game(level_name, players_list):
 
 	# Game loop.
 	while is_game_continue(game_stats):
+
+		game_stats['nb_rounds'] += 1
+
 		# Show the game board to the human player.
 		show_game_board(game_stats)
 
@@ -162,6 +167,8 @@ def play_game(level_name, players_list):
 		# Do Attack
 		for pending_attack in game_stats['pending_attack']:
 			command_attack(pending_attack[0], pending_attack[1], pending_attack[2])
+
+
 
 def new_game(level_name, players_list):
 	"""
@@ -189,7 +196,7 @@ def new_game(level_name, players_list):
 	game_file = parse_game_file(level_name)
 	game_stats = {'board':{}, 'players':{},'model_ship':{}, 'ships': {},
 				  'board_size': game_file['size'],'level_name': level_name,
-				  'nb_rounds': 0, 'max_nb_rounds': 10*len(players_list),
+				  'nb_rounds': 0, 'max_nb_rounds': 10, #*len(players_list), enfaite c'est dix tours dans tout les cas.
 				  'pending_attacks': [], 'game_logs': [], 'winners' : []}
 
 	# Create ship specs sheet.
@@ -241,6 +248,33 @@ def new_game(level_name, players_list):
 		index_player+=1
 
 	return game_stats
+
+def splash_game():
+	"""
+	Show the splash screen.
+	"""
+
+	void_char = ['.', '*', '\'']
+	c = create_canvas(190, 50)
+	stars = create_canvas(188, 48)
+
+	for x in range(188):
+		for y in range(48):
+			if randint(0, 20) == 0:
+				put_string(stars,x, y, void_char[randint(0, 2)])
+
+	put_canvas(c, stars, 1, 1)
+
+	print_canvas(c)
+
+	put_ascii_art(c, 42, 20, 'groupe24')
+
+	print_canvas(c)
+
+	put_canvas(c, stars, 1, 1)
+	put_ascii_art(c, 32, 20, 'coder_in_space', 'yellow')
+
+	print_canvas(c)
 
 # Input
 # ==============================================================================
@@ -301,40 +335,31 @@ def get_human_input(player_name, buy_ship, game_stats):
 	implemetation : Nicolas Van Bosuyt (v1 22/02/17)
 	"""
 
-	cls()
-	# Show header.
-	c = create_canvas(190, 5)
-	put_box(c, 0, 0, 190, 5, 'single')
-	put_string(c, 3, 0, '[ It\'s %s\'s turn ]' % player_name)
-	put_string(c, 3, 2, 'Yours command : /ship-list, /game-command, /show-game-board')
-	print_canvas(c)
-
 	while True:
 
+		show_game_board(game_stats)
 		# Getting human player input.
-		print ''
-		player_input = raw_input(colored('< ' + player_name + ' > : ', game_stats['players'][player_name]['color']))
-		print ''
-
-		cls()
+		player_input = raw_input('\033[%d;%dH %s :' % (50, 3, player_name))
 
 		# Run human player command.
 		if '/' in player_input:
 
 			if player_input == '/ship-list':
-				show_ship_list(c, player_name, game_stats)
-
-			elif player_input == '/help-game-command':
-				show_help_game_command(c)
-				print_canvas(c)
-			elif player_input == '/show-game-board':
-				show_game_board(game_stats)
+				show_ship_list(player_name, game_stats)
 			else:
 				print 'Wrong input'
 		else:
 			return player_input
 
-def show_ship_list(c, player_name, game_stats):
+def show_ship_list(player_name, game_stats):
+	"""
+	Show spaceships information to the player.
+
+	Parameters
+	----------
+	player_name: name of the player to show the information (str).
+	game_stats: stats of the game (dic).
+	"""
 	c = create_canvas(106, 10 + len(game_stats['ships']) + len(game_stats['players']) * 4)
 	put_box(c, 0, 0, c['size'][0], c['size'][1], 'double')
 	put_string(c, 3, 0, '[ Spaceships ]')
@@ -373,7 +398,24 @@ def show_ship_list(c, player_name, game_stats):
 
 		put_string(c, 1, 4 + line_index, '-'*104)
 
-	print_canvas(c)
+	is_scroll_continue = True
+	scroll = 0
+
+	while is_scroll_continue:
+		window = create_canvas(190, 50)
+		put_box(window, 0, 0, 190, 50)
+
+		put_canvas(window, c, 1, 1 + scroll)
+		print_canvas(window)
+
+		is_scroll_continue = ( c['size'][1] - 50 ) > abs(scroll)
+
+		if is_scroll_continue:
+			raw_input('\033[%d;%dHPress enter to scroll...' % (50, 1))
+		else:
+			raw_input('\033[%d;%dHPress enter to exit...' % (50, 3))
+		scroll-=10
+
 
 def show_game_board(game_stats, color = True):
 	"""
@@ -403,10 +445,11 @@ def show_game_board(game_stats, color = True):
 		put_ascii_art(c, c['size'][0] - 76, c['size'][1] - 27, 'planet')
 	elif art_index == 2:
 		put_ascii_art(c, c['size'][0] - 70, c['size'][1] - 45, 'general_ackbar')
+
 	# Create the board frame.
 	game_board_size = (game_stats['board_size'][0]*3 + 5, game_stats['board_size'][1] + 3)
 	put_box(c, 0, 0, game_board_size[0], game_board_size[1])
-	put_string(c, 2, 0, u'[ Coder in space : %s ]' % (game_stats['level_name']))
+	put_string(c, 2, 0, u'[ Coder in space : %s ] %s / %s Rounds' % (game_stats['level_name'], game_stats['nb_rounds'], game_stats['max_nb_rounds']))
 
 	# Put copyright text.
 	copyright_text = '[ CoderInSpace (c) 2017 - 3342 Groupe24-Corp ]'
@@ -591,11 +634,6 @@ def create_canvas(width, height, enable_color = True):
 		for y in range(height):
 			canvas['grid'][(x,y)] = {'color':None, 'back_color':None, 'char':' '}
 
-	# Put debug informations.
-	canvas_info = '| canvas size : %d, %d |' % (width, height)
-	canvas = put_box(canvas, 0, 0, width, height, 'single')
-	canvas = put_string(canvas, width - len(canvas_info) - 2, height - 1, canvas_info)
-
 	return canvas
 
 def print_canvas(canvas, x = 0, y = 0):
@@ -718,17 +756,22 @@ def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_col
 	implementation : Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 	if mode == 'double':
+		# Put borders.
 		put_rectangle(canvas, x, y, width, height, u'═', color, back_color)
 		put_rectangle(canvas, x, y + 1, width, height - 2,u'║', color, back_color)
+
+		# Put corners.
 		put(canvas, x, y, u'╔', color, back_color)
 		put(canvas, x, y + height - 1, u'╚', color, back_color)
 		put(canvas, x + width - 1, y, u'╗', color, back_color)
 		put(canvas, x + width - 1, y + height - 1, u'╝', color, back_color)
 
 	elif mode == 'single':
+		# Put border.
 		put_rectangle(canvas, x, y, width, height, u'─', color, back_color)
 		put_rectangle(canvas, x, y + 1, width, height - 2,u'│', color, back_color)
 
+		# Put cornes.
 		put(canvas, x, y, u'┌', color, back_color)
 		put(canvas, x, y + height - 1, u'└', color, back_color)
 		put(canvas, x + width - 1, y, u'┐', color, back_color)
@@ -742,11 +785,11 @@ def put_string(canvas, x, y, string, direction_x = 1, direction_y = 0, color = N
 	"""
 	Put a specified string in the canvas.
 
-	Parameter
-	---------
+	Parameters
+	----------
+	canvas : canavas to put the string (dic).
 	x, y : coordinate of the string (int).
 	direction_x, direction_y : direction to draw the string (int).
-	canvas : game view to put the string (dic).
 
 	Return
 	------
@@ -777,7 +820,7 @@ def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None,
 	----------
 	x, y : coordinate to pute the art (int).
 	ascii_art_name : name of the art file (string).
-	canvas : game view to put the art on it (dic).
+	canvas : canvas to put the art on it (dic).
 	transparency_char : ignored char.
 
 	return
@@ -792,7 +835,7 @@ def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None,
 	"""
 	art_file = open('art/' + ascii_art_name + '.txt','r')
 
-	index = 0
+	line_index = 0
 
 	for line in art_file:
 		char_index = 0
@@ -801,9 +844,31 @@ def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None,
 				put(canvas, x + char_index, y + line_index, char, color, back_color)
 
 			char_index += 1
-		index += 1
+		line_index += 1
 
 	art_file.close()
+
+	return canvas
+
+def put_canvas(canvas, canvas_bis, x, y):
+	"""
+	Put a canvas in a canvas.
+
+	Parameters
+	----------
+	canavas : canvas to put the canvas in (dic).
+	canvas_bis : the canvas to put in the main canvas (dic).
+	x, y : coordinate of the canavas (int).
+
+	Return
+	------
+	canvas : the canvas with the other canvas on it (dic).
+	"""
+
+	for cx in range(canvas_bis['size'][0]):
+		for cy in range(canvas_bis['size'][1]):
+			char = canvas_bis['grid'][(cx, cy)]
+			canvas = put(canvas, cx + x, cy + y, char['char'], char['color'], char['back_color'])
 
 	return canvas
 
