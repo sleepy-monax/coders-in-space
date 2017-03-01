@@ -45,80 +45,7 @@ from os import system
 # ==============================================================================
 # Create a new game and play it.
 
-def is_game_continue(game_stats):
-	"""
-	Check if a player has won the game.
-
-	Parameters
-	----------
-	game_stats : game before comand execution (dic)
-
-	Return
-	------
-	True if the game is not over (no one has won yet), False if someone has won.
-
-	Version
-	-------
-	specifications : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1) 24/2/2017
-	implementation : Alisson Leist (v1) 24/2/2017 """
-
-	not_loser = []
-
-	# Checking playert thats have more than on ships
-	for player in game_stats['players']:
-
-		if player == 'none':
-			continue
-
-		if game_stats['players'][player]['nb_ships'] > 0:
-			not_loser.append(player)
-
-	# Check if the game continue.
-	if not (len(not_loser)==1 or game_stats['nb_rounds'] >= game_stats['max_nb_rounds']):
-		return True
-
-
-	winners = {}
-	for player in not_loser:
-		winners[player] = calculate_value(player, game_stats)
-
-	max_value = 0
-	max_value_owners = []
-
-	for player in winners:
-		if winners[player] > max_value:
-
-			max_value = winners[player]
-			max_value_owners = []
-			max_value_owners.append(player)
-
-		elif winners[player] == max_value:
-			max_value_owners.append(player)
-
-	game_stats['winners'] = max_value_owners
-
-	return False
-
-def calculate_value(player, game_stats):
-	"""
-	calculate the total ship value of a player.
-
-	Parameters
-	----------
-	player : name of the player to count value (str)
-	game_stats : game before comand execution (dic)
-
-
-	"""
-	total_value = 0
-
-	for ship in game_stats['ships']:
-		if game_stats['ships'][ship]['owner'] == player:
-			total_value += game_stats['model_ship'][game_stats['ships'][ship]['type']]['price']
-
-	return total_value
-
-def play_game(level_name, players_list):
+def play_game(level_name, players_list, no_splash = False):
 	"""
 	Main game function which runs the game loop.
 
@@ -134,7 +61,7 @@ def play_game(level_name, players_list):
 	implementation : Bayron Mahy, Nicolas Van Bossuyt (v1. 15/02/17)
 	"""
 
-	splash_game()
+	if not no_splash: splash_game()
 	raw_input() # wait the player pressing enter.
 	game_stats = new_game(level_name, players_list)
 
@@ -168,7 +95,7 @@ def play_game(level_name, players_list):
 		for pending_attack in game_stats['pending_attack']:
 			command_attack(pending_attack[0], pending_attack[1], pending_attack[2])
 
-
+	game_end(game_stats)
 
 def new_game(level_name, players_list):
 	"""
@@ -256,25 +183,123 @@ def splash_game():
 
 	void_char = ['.', '*', '\'']
 	c = create_canvas(190, 50)
-	stars = create_canvas(188, 48)
 
+	# Create stars background.
+	stars = create_canvas(188, 48)
 	for x in range(188):
 		for y in range(48):
 			if randint(0, 20) == 0:
-				put_string(stars,x, y, void_char[randint(0, 2)])
+				stars = put_string(stars,x, y, void_char[randint(0, 2)])
 
-	put_canvas(c, stars, 1, 1)
+	# Print stars.
+	c = put_canvas(c, stars, 1, 1)
 	print_canvas(c)
 	sleep(1)
 
-	put_ascii_art(c, 42, 20, 'groupe24')
+	# Print Groupe 24 logo.
+	c = put_ascii_art(c, 42, 20, 'groupe24')
 	print_canvas(c)
 	sleep(1)
 
 	# Print coders in space logo.
-	put_canvas(c, stars, 1, 1)
-	put_ascii_art(c, 26, 20, 'coders_in_space', 'yellow')
+	c = put_canvas(c, stars, 1, 1)
+	c = put_ascii_art(c, 26, 20, 'coders_in_space', 'yellow')
 	print_canvas(c)
+
+def game_end(game_stats):
+	"""
+	Show the end game screen.
+
+	Parameter
+	---------
+	game_stats : stats of the game (dic).
+	"""
+
+	c = create_canvas(190, 50)
+
+	c = put_box(c, 0, 0, 190, 50)
+	put_big_text(c, load_big_font('font.txt'), "Winner :", 0, 0)
+
+	line_index = 1
+	for winner in game_stats['winners']:
+		put_big_text(c, load_big_font('font.txt'), winner + ' ' + str(calculate_value(winner, game_stats)) + "G$", 0, line_index * 11)
+		line_index += 1
+
+	print_canvas(c)
+
+def is_game_continue(game_stats):
+	"""
+	Check if a player has won the game.
+
+	Parameters
+	----------
+	game_stats : game before comand execution (dic)
+
+	Return
+	------
+	True if the game is not over (no one has won yet), False if someone has won.
+
+	Version
+	-------
+	specifications : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1) 24/2/2017
+	implementation : Alisson Leist (v1) 24/2/2017 """
+
+	not_loser = []
+
+	# Checking playert thats have more than on ships
+	for player in game_stats['players']:
+
+		if player == 'none':
+			continue
+
+		if game_stats['players'][player]['nb_ships'] > 0:
+			not_loser.append(player)
+
+	# Check if the game continue.
+	if not (len(not_loser)==1 or game_stats['nb_rounds'] >= game_stats['max_nb_rounds']):
+		return True
+
+
+	winners = {}
+	for player in not_loser:
+		winners[player] = calculate_value(player, game_stats)
+
+	max_value = 0
+	max_value_owners = []
+
+	for player in winners:
+		if winners[player] > max_value:
+
+			max_value = winners[player]
+			max_value_owners = []
+			max_value_owners.append(player)
+
+		elif winners[player] == max_value:
+			max_value_owners.append(player)
+
+	game_stats['winners'] = max_value_owners
+
+	return False
+
+def calculate_value(player, game_stats):
+	"""
+	calculate the total ship value of a player.
+
+	Parameters
+	----------
+	player : name of the player to count value (str)
+	game_stats : game before comand execution (dic)
+
+
+	"""
+	total_value = 0
+
+	for ship in game_stats['ships']:
+		if game_stats['ships'][ship]['owner'] == player:
+			total_value += game_stats['model_ship'][game_stats['ships'][ship]['type']]['price']
+
+	return total_value
+
 
 # Input
 # ==============================================================================
@@ -868,6 +893,38 @@ def put_canvas(canvas, canvas_bis, x, y):
 
 	return canvas
 
+def put_big_text(c, font, string, x, y, color = None, back_color = None):
+	"""
+	Put a string in the canvas with a ascii font.
+
+	Parameters
+	----------
+	c : canvas (dic).
+	font : font to use (dic).
+	string : string to put in the canvas (str).
+
+	Return
+	------
+	canvas : the canvas with the string on it (dic).
+	"""
+
+	char_x = 0
+	print string
+	for char in string:
+		char_ascii = font[char]
+		char_width = char_ascii['width']
+		char_text = char_ascii['text']
+
+		line_index = 0
+		for line in char_text.split('\n'):
+			c = put_string(c, x + char_x, y + line_index, line)
+			put
+			line_index += 1
+
+		char_x += char_width
+
+	return c
+
 # Game commands
 # ==============================================================================
 # Game command parsing and execution.
@@ -1396,6 +1453,45 @@ def create_game_board(file_name, board_size, lost_ships_count):
 def cls():
 	"""Clear the screen."""
 	system('cls' if os.name=='nt' else 'clear')
+
+def load_big_font(font_name):
+	"""
+	Load ascii font from a txt file.
+
+	Parameter
+	---------
+	font_name : name of the font (str).
+
+	Return
+	------
+	font : font face from the file (dic).
+	"""
+
+	chars = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_'abcdefghijklmnopqrstuvwxyz{|}~ÄÖÜäöüβ"
+	font = {}
+	char_index = 0
+
+	f = open('art/%s' % (font_name), 'r')
+
+	current_char = ''
+	current_char_width = 0
+	for line in f:
+		current_char_width = len(line.replace('@', ''))
+		current_char += line.replace('@', '')
+
+		if line.endswith('@@\n'):
+			font[chars[char_index]] = {}
+			font[chars[char_index]]['text'] = current_char
+			font[chars[char_index]]['width'] = current_char_width
+
+			current_char = ''
+			current_char_width = 0
+
+			char_index += 1
+
+	f.close()
+
+	return font
 
 # (...)Ouais, ça va être bien, ça va être très bien même… Bon, bien sûr, y faut imaginer.
 # - Jamel Debbouze, Astérix & Obélix : Mission Cléopâtre (2002), écrit par Alain Chabat, René Goscinny, Albert Uderzo
