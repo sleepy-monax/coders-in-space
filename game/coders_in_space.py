@@ -37,7 +37,6 @@
 from math import *
 from os import system
 from random import *
-from termcolor import *
 from time import sleep #because everyone needs to rest.
 
 # Game
@@ -95,7 +94,6 @@ def play_game(level_name, players_list, no_splash = False):
 			command_attack(pending_attack[0], pending_attack[1], pending_attack[2])
 
 	game_end(game_stats)
-
 def new_game(level_name, players_list):
 	"""
 	Create a new game from a '.cis' file.
@@ -198,7 +196,6 @@ def splash_game():
 	c = put_stars_field(c, 1, 1, 188, 48, 1)
 	c = put_ascii_art(c, 26, 20, 'coders_in_space', 'yellow')
 	print_canvas(c)
-
 def game_end(game_stats):
 	"""
 	Show the end game screen.
@@ -219,7 +216,7 @@ def game_end(game_stats):
 	for winner in game_stats['winners']:
 		text_lenght = mesure_ascii_string(font_standard, winner)
 		text_location = (95 - int(text_lenght / 2), line_index*26 + 16)
-		put_big_text(c, font_standard, winner, text_location[0], text_location[1], 'yellow')
+		put_ascii_text(c, font_standard, winner, text_location[0], text_location[1], 'yellow')
 		put_string(c, text_location[0], text_location[1] + 6, '_' * text_lenght)
 		put_string(c, text_location[0], text_location[1] + 7, "has win the game !")
 
@@ -280,7 +277,6 @@ def is_game_continue(game_stats):
 	game_stats['winners'] = max_value_owners
 
 	return False
-
 def calculate_value(player, game_stats):
 	"""
 	calculate the total ship value of a player.
@@ -374,7 +370,6 @@ def get_human_input(player_name, buy_ship, game_stats):
 				print 'Wrong input'
 		else:
 			return player_input
-
 def show_ship_list(player_name, game_stats):
 	"""
 	Show spaceships information to the player.
@@ -439,7 +434,6 @@ def show_ship_list(player_name, game_stats):
 		else:
 			raw_input('\033[%d;%dHPress enter to exit...' % (50, 3))
 		scroll-=10
-
 def show_game_board(game_stats, color = True):
 	"""
 	Show the game to the user screen.
@@ -461,7 +455,7 @@ def show_game_board(game_stats, color = True):
 	# Create a the main canvas.
 	c = create_canvas(190, 50, color)
 
-	# Put a cool artwork on the background.
+	# Put a cool artwork on the background (deprecated).
 	art_index = randint(0, 2)
 	if art_index == 0:
 		put_ascii_art(c, c['size'][0] - 71, c['size'][1] - 40, 'alien', 'green')
@@ -646,7 +640,6 @@ def create_canvas(width, height, enable_color = True):
 			canvas['grid'][(x,y)] = {'color':None, 'back_color':None, 'char':' '}
 
 	return canvas
-
 def print_canvas(canvas, x = 0, y = 0):
 	"""
 	Print the game view in the terminal.
@@ -678,7 +671,7 @@ def print_canvas(canvas, x = 0, y = 0):
 				if back_color is None:
 					line = line + colored(char, color, None)
 				else:
-					line = line + colored(char, color, 'on_' + back_color)
+					line = line + colored(char, color, back_color)
 			else:
 				line = line + char
 
@@ -725,7 +718,6 @@ def put(canvas, x, y, char, color = None, back_color = None):
 		else : canvas['grid'][(x,y)]['back_color'] = None
 
 	return canvas
-
 def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = None):
 	"""
 	Put and fill a rectangle in the canvas.
@@ -750,7 +742,6 @@ def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = 
 		for h in range(height): canvas = put(canvas, x + w, y + h, char, color, back_color)
 
 	return canvas
-
 def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_color = None):
 	"""
 	Put a box in the canvas.
@@ -796,7 +787,6 @@ def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_col
 	put_rectangle(canvas, x + 1 , y + 1, width - 2, height - 2, ' ')
 
 	return canvas
-
 def put_string(canvas, x, y, string, direction_x = 1, direction_y = 0, color = None, back_color = None):
 	"""
 	Put a specified string in the canvas.
@@ -827,7 +817,6 @@ def put_string(canvas, x, y, string, direction_x = 1, direction_y = 0, color = N
 		y += direction_y
 
 	return canvas
-
 def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None, transparency_char = None):
 	"""
 	Put a ascii art in the in the canvas.
@@ -865,7 +854,30 @@ def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None,
 	art_file.close()
 
 	return canvas
+def put_stars_field(c, x, y, w, h, r_seed = None):
+	"""
+	Put a stars field in the canvas.
 
+	Parameters
+	----------
+	c : canvas to pute stars on it (dic)
+	x, y, w, h : location and size of the stars field (int)
+	r_seed : random seed (int).
+
+	Return
+	------
+	canvas : the canvas with the stars field on it (dic).
+	"""
+	void_char = ['.', '*', '\'']
+	seed(r_seed)
+
+	for sx in range(w):
+		for sy in range(h):
+			if randint(0, 20) == 0:
+				c = put_string(c, x + sx, y +sy, void_char[randint(0, 2)])
+
+	seed()
+	return c
 def put_canvas(canvas, canvas_bis, x, y):
 	"""
 	Put a canvas in a canvas.
@@ -888,7 +900,48 @@ def put_canvas(canvas, canvas_bis, x, y):
 
 	return canvas
 
-def put_big_text(c, font, string, x, y, color = None, back_color = None):
+def load_ascii_font(font_name):
+	"""
+	Load ascii font from a txt file.
+
+	Parameter
+	---------
+	font_name : name of the font (str).
+
+	Return
+	------
+	font : font face from the file (dic).
+
+	Notes
+	-----
+	Load font in figlet format (http://www.figlet.org).
+	"""
+	# Full  list of ascii chars.
+	chars = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_'abcdefghijklmnopqrstuvwxyz{|}~ÄÖÜäöüβ"
+	font = {}
+	char_index = 0
+	current_char = ''
+	current_char_width = 0
+
+	f = open('art/%s' % (font_name), 'r')
+
+	for line in f:
+		current_char_width = len(line.replace('@', ''))
+		current_char += line.replace('@', '')
+
+		if line.endswith('@@\n'):
+			font[chars[char_index]] = {}
+			font[chars[char_index]]['text'] = current_char
+			font[chars[char_index]]['width'] = current_char_width
+
+			current_char = ''
+			current_char_width = 0
+			char_index += 1
+
+	f.close()
+
+	return font
+def put_ascii_text(c, font, string, x, y, color = None, back_color = None):
 	"""
 	Put a string in the canvas with a ascii font.
 
@@ -918,32 +971,66 @@ def put_big_text(c, font, string, x, y, color = None, back_color = None):
 		char_x += char_width
 
 	return c
-
-def put_stars_field(c, x, y, w, h, r_seed = None):
-	"""
-	Put a stars field in the canvas.
+def mesure_ascii_string(font, string):
+	""""
+	Return the lenght of a ascii text.
 
 	Parameters
 	----------
-	c : canvas to pute stars on it (dic)
-	x, y, w, h : location and size of the stars field (int)
-	r_seed : random seed (int).
+	font : font to mesure the string (dic).
+	string : text to mesure (str)
 
 	Return
 	------
-	canvas : the canvas with the stars field on it (dic).
+	lenght : lenght of the string (int).
+
 	"""
-	void_char = ['.', '*', '\'']
-	seed(r_seed)
+	lenght = 0
 
-	for sx in range(w):
-		for sy in range(h):
-			if randint(0, 20) == 0:
-				c = put_string(c, x + sx, y +sy, void_char[randint(0, 2)])
+	for char in string:
+		char_ascii = font[char]
+		char_width = char_ascii['width']
+		lenght += char_width
 
-	seed()
-	return c
+	return lenght
 
+def colored(text, fore_color, back_color):
+	"""
+	Color a string using ansi escape sequances.
+
+	Parameters
+	----------
+	text : string to color (str).
+	fore_color : name of the foreground color (str).
+	back_color : name of the background color (str).
+
+	Return
+	------
+	colored_text : colored string (str).
+
+	Notes
+	-----
+	Colors : grey, red, green, yellow, blue, magenta, cyan, white.
+	"""
+	color = {
+			 'grey' : 0,
+			 'red' : 1,
+			 'green': 2,
+			 'yellow' : 3,
+			 'blue' : 4,
+			 'magenta' : 5,
+			 'cyan' : 6,
+			 'white' : 7
+			}
+
+	reset = '\033[0m'
+	fmt_str = '\033[%dm%s'
+
+	if fore_color is not None: text = fmt_str % (color[fore_color] + 30, text)
+	if back_color is not None: text = fmt_str % (color[back_color] + 40, text)
+	text += reset
+
+	return text
 
 # Game commands
 # ==============================================================================
@@ -1049,7 +1136,6 @@ def command_buy_ships(ships, player, game_stats):
 			create_ship(player, '%s_%s' % (player, ship[0]), ship[1], game_stats)
 
 	return game_stats
-
 def create_ship(player_name, ship_name, ship_type, game_stats):
 	"""
 	Create and add a new ship.
@@ -1145,6 +1231,57 @@ def command_rotate(ship, direction, game_stats):
 
 	game_stats['ships'][ship]['direction'] = to_unit_vector(v)
 	return game_stats
+def rotate_vector_2D(vector, theta):
+	"""
+	Rotate a vector in a 2D space by a specified angle in radian.
+
+	Parameters
+	----------
+	vector : 2D vector ton rotate (tuple(int,int)).
+	radian : angle appli to the 2D vector (float).
+
+	Return
+	------
+	vector : rotate vector 2d (tuple(int,int)).
+
+	Version
+	-------
+	specification :  Nicolas Van Bossuyt (v1. 10/02/17)
+	implementation : Nicolas Van Bossuyt (v1. 10/02/17)
+					 Nicolas Van Bossuyt (v2. 22/02/17)
+
+	Source
+	------
+	Use code from https://gist.github.com/mcleonard/5351452 under MIT license.
+	"""
+
+	theta = radians(theta)
+	# Just applying the 2D rotation matrix
+	dc, ds = cos(theta), sin(theta)
+	x, y = vector[0], vector[1]
+	x, y = dc*x - ds*y, ds*x + dc*y
+
+	return (x, y)
+def to_unit_vector(vector):
+	"""
+	Convert a vector to a unit vector.
+
+	Parameter
+	---------
+	vector : vector to convert (tuple(float, float)).
+
+	Return
+	------
+	unit_vector : a unit vector between 1 and -1 (tuple(int, int)).
+	"""
+
+	def convert(value):
+		if value > 0.25: return 1
+		elif value < -0.25: return -1
+
+		return 0
+
+	return (convert(vector[0]), convert(vector[1]))
 
 def do_moves(game_stats):
 	"""
@@ -1199,7 +1336,6 @@ def do_moves(game_stats):
 			take_abandonned_ship(game_stats)
 
 	return game_stats
-
 def take_abandonned_ship(game_stats):
 	""" determine who become the owner of the abandonned ship.
 
@@ -1305,59 +1441,6 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
 # ==============================================================================
 # Somme use full function for a simple life. And also parse game file.
 
-def rotate_vector_2D(vector, theta):
-	"""
-	Rotate a vector in a 2D space by a specified angle in radian.
-
-	Parameters
-	----------
-	vector : 2D vector ton rotate (tuple(int,int)).
-	radian : angle appli to the 2D vector (float).
-
-	Return
-	------
-	vector : rotate vector 2d (tuple(int,int)).
-
-	Version
-	-------
-	specification :  Nicolas Van Bossuyt (v1. 10/02/17)
-	implementation : Nicolas Van Bossuyt (v1. 10/02/17)
-					 Nicolas Van Bossuyt (v2. 22/02/17)
-
-	Source
-	------
-	Use code from https://gist.github.com/mcleonard/5351452 under MIT license.
-	"""
-
-	theta = radians(theta)
-	# Just applying the 2D rotation matrix
-	dc, ds = cos(theta), sin(theta)
-	x, y = vector[0], vector[1]
-	x, y = dc*x - ds*y, ds*x + dc*y
-
-	return (x, y)
-
-def to_unit_vector(vector):
-	"""
-	Convert a vector to a unit vector.
-
-	Parameter
-	---------
-	vector : vector to convert (tuple(float, float)).
-
-	Return
-	------
-	unit_vector : a unit vector between 1 and -1 (tuple(int, int)).
-	"""
-
-	def convert(value):
-		if value > 0.25: return 1
-		elif value < -0.25: return -1
-
-		return 0
-
-	return (convert(vector[0]), convert(vector[1]))
-
 def direction_to_vector2D(direction):
 	"""
 	Convert a string direction to a vector2D.
@@ -1402,7 +1485,6 @@ def direction_to_vector2D(direction):
 		vector = (-1,1)
 
 	return vector
-
 def parse_game_file(path):
 	"""
 	Parse a .cis file and returns its content.
@@ -1444,7 +1526,6 @@ def parse_game_file(path):
 	parsed_data = {'size':size,'ships':ships_list}
 
 	return parsed_data
-
 def create_game_board(file_name, board_size, lost_ships_count):
 	"""
 	Create a new cis file.
@@ -1472,71 +1553,6 @@ def create_game_board(file_name, board_size, lost_ships_count):
 def cls():
 	"""Clear the screen."""
 	system('cls' if os.name=='nt' else 'clear')
-
-def mesure_ascii_string(font, string):
-	""""
-	Return the lenght of a ascii text.
-
-	Parameters
-	----------
-	font : font to mesure the string (dic).
-	string : text to mesure (str)
-
-	Return
-	------
-	lenght : lenght of the string (int).
-
-	"""
-	lenght = 0
-
-	for char in string:
-		char_ascii = font[char]
-		char_width = char_ascii['width']
-		lenght += char_width
-
-	return lenght
-
-def load_ascii_font(font_name):
-	"""
-	Load ascii font from a txt file.
-
-	Parameter
-	---------
-	font_name : name of the font (str).
-
-	Return
-	------
-	font : font face from the file (dic).
-
-	Notes
-	-----
-	Load font in figlet format (http://www.figlet.org).
-	"""
-	# Full  list of ascii chars.
-	chars = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_'abcdefghijklmnopqrstuvwxyz{|}~ÄÖÜäöüβ"
-	font = {}
-	char_index = 0
-	current_char = ''
-	current_char_width = 0
-
-	f = open('art/%s' % (font_name), 'r')
-
-	for line in f:
-		current_char_width = len(line.replace('@', ''))
-		current_char += line.replace('@', '')
-
-		if line.endswith('@@\n'):
-			font[chars[char_index]] = {}
-			font[chars[char_index]]['text'] = current_char
-			font[chars[char_index]]['width'] = current_char_width
-
-			current_char = ''
-			current_char_width = 0
-			char_index += 1
-
-	f.close()
-
-	return font
 
 # (...)Ouais, ça va être bien, ça va être très bien même… Bon, bien sûr, y faut imaginer.
 # - Jamel Debbouze, Astérix & Obélix : Mission Cléopâtre (2002), écrit par Alain Chabat, René Goscinny, Albert Uderzo
