@@ -1002,7 +1002,7 @@ def mesure_ascii_string(font, string):
 
 def colored(text, fore_color, back_color):
 	"""
-	Color a string using ansi escape sequances.
+	Color a string.
 
 	Parameters
 	----------
@@ -1017,6 +1017,8 @@ def colored(text, fore_color, back_color):
 	Notes
 	-----
 	Colors : grey, red, green, yellow, blue, magenta, cyan, white.
+
+	ansi escape sequences : http://ascii-table.com/ansi-escape-sequences.php
 	"""
 	color = {
 			 'grey' : 0,
