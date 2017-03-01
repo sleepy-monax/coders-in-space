@@ -3,7 +3,6 @@
 # Alien
 # ==============================================================================
 # A cool friend to get in touch wile coding.
-
 """
 						 ___---------___
 					   _".^ .^ ^.  '.. :"-_
@@ -36,10 +35,10 @@
 # Import some cool component for the game.
 
 from math import *
+from os import system
 from random import *
 from termcolor import *
 from time import sleep #because everyone needs to rest.
-from os import system
 
 # Game
 # ==============================================================================
@@ -181,18 +180,11 @@ def splash_game():
 	Show the splash screen.
 	"""
 
-	void_char = ['.', '*', '\'']
 	c = create_canvas(190, 50)
-
-	# Create stars background.
-	stars = create_canvas(188, 48)
-	for x in range(188):
-		for y in range(48):
-			if randint(0, 20) == 0:
-				stars = put_string(stars,x, y, void_char[randint(0, 2)])
+	c = put_box(c, 0, 0, 190, 50)
+	c = put_stars_field(c, 1, 1, 188, 48, 1)
 
 	# Print stars.
-	c = put_canvas(c, stars, 1, 1)
 	print_canvas(c)
 	sleep(1)
 
@@ -202,7 +194,8 @@ def splash_game():
 	sleep(1)
 
 	# Print coders in space logo.
-	c = put_canvas(c, stars, 1, 1)
+	c = put_box(c, 0, 0, 190, 50)
+	c = put_stars_field(c, 1, 1, 188, 48, 1)
 	c = put_ascii_art(c, 26, 20, 'coders_in_space', 'yellow')
 	print_canvas(c)
 
@@ -215,14 +208,21 @@ def game_end(game_stats):
 	game_stats : stats of the game (dic).
 	"""
 
+	font_small = load_ascii_font('font_small.txt')
+	font_standard = load_ascii_font('font_standard.txt')
+
 	c = create_canvas(190, 50)
-
 	c = put_box(c, 0, 0, 190, 50)
-	put_big_text(c, load_big_font('font.txt'), "Winner :", 0, 0)
+	c = put_stars_field(c, 1, 1, 188, 48)
 
-	line_index = 1
+	line_index = 0
 	for winner in game_stats['winners']:
-		put_big_text(c, load_big_font('font.txt'), winner + ' ' + str(calculate_value(winner, game_stats)) + "G$", 0, line_index * 11)
+		text_lenght = mesure_ascii_string(font_standard, winner)
+		text_location = (95 - int(text_lenght / 2), line_index*26 + 16)
+		put_big_text(c, font_standard, winner, text_location[0], text_location[1], 'yellow')
+		put_string(c, text_location[0], text_location[1] + 6, '_' * text_lenght)
+		put_string(c, text_location[0], text_location[1] + 7, "has win the game !")
+
 		line_index += 1
 
 	print_canvas(c)
@@ -299,7 +299,6 @@ def calculate_value(player, game_stats):
 			total_value += game_stats['model_ship'][game_stats['ships'][ship]['type']]['price']
 
 	return total_value
-
 
 # Input
 # ==============================================================================
@@ -441,7 +440,6 @@ def show_ship_list(player_name, game_stats):
 			raw_input('\033[%d;%dHPress enter to exit...' % (50, 3))
 		scroll-=10
 
-
 def show_game_board(game_stats, color = True):
 	"""
 	Show the game to the user screen.
@@ -458,8 +456,9 @@ def show_game_board(game_stats, color = True):
 					 Nicolas Van Bossuyt (v3. 13/02/2017)
 					 Nicolas Van Bossuyt (v4. 19/02/2017)
 					 Nicolas Van Bossuyt (v5. 23/02/2017)
+					 Nicolas Van Bossuyt (v6. 01/03/2017)
 	"""
-	# Create a new canvas.
+	# Create a the main canvas.
 	c = create_canvas(190, 50, color)
 
 	# Put a cool artwork on the background.
@@ -469,12 +468,14 @@ def show_game_board(game_stats, color = True):
 	elif art_index == 1:
 		put_ascii_art(c, c['size'][0] - 76, c['size'][1] - 27, 'planet')
 	elif art_index == 2:
-		put_ascii_art(c, c['size'][0] - 70, c['size'][1] - 45, 'general_ackbar')
+		put_ascii_art(c, 0, c['size'][1] - 45, 'general_ackbar')
 
 	# Create the board frame.
 	game_board_size = (game_stats['board_size'][0]*3 + 5, game_stats['board_size'][1] + 3)
-	put_box(c, 0, 0, game_board_size[0], game_board_size[1])
-	put_string(c, 2, 0, u'[ Coders In Space : %s ] %s / %s Rounds' % (game_stats['level_name'], game_stats['nb_rounds'], game_stats['max_nb_rounds']))
+	c_board = create_canvas(game_board_size[0], game_board_size[1])
+	c_board = put_box(c_board, 0, 0, game_board_size[0], game_board_size[1])
+	c_board = put_string(c_board, 2, 0, u'[ Coders In Space : %s ] %s / %s Rounds' % (game_stats['level_name'], game_stats['nb_rounds'], game_stats['max_nb_rounds']))
+	c_board = put_stars_field(c_board, 1, 1, game_board_size[0] - 2, game_board_size[1] - 2, 1)
 
 	# Put horizontal coordinate.
 	coordinate_string = ''
@@ -485,32 +486,21 @@ def show_game_board(game_stats, color = True):
 		value_string += ' '
 		coordinate_string += value_string
 
-	put_string(c, 4, 1, coordinate_string, 1, 0, 'blue', 'white')
+	c_board = put_string(c_board, 4, 1, coordinate_string, 1, 0, 'blue', 'white')
 
 	# Put vertical coordinate.
 	for i in range(1, game_stats['board_size'][1] +1):
 		value_string = str(i)
 		if len(value_string) == 1:
 			value_string = ' ' + value_string
-		put_string(c,1,i + 1,value_string + ' ', 1,0, 'blue', 'white')
+		c_board = put_string(c_board, 1, i + 1, value_string + ' ', 1, 0, 'blue', 'white')
 
-	# Set the seed of the random generator.
-
-	seed(1)
 	# Put game board.
 	for x in range(game_stats['board_size'][0]):
 		for y in range(game_stats['board_size'][1]):
 			on_screen_board_tile = (x*3 + 4, y + 2)
 
-			# Check how many ship there are in the board tile.
-			if len(game_stats['board'][(x,y)]) == 0:
-				# No space ship : put the cool background.
-				void_char = ['.', '*', '\'']
-				if randint(0, 20) == 0:
-					put_string(c, on_screen_board_tile[0], on_screen_board_tile[1], ' ' + void_char[randint(0, 2)])
-
-
-			elif len(game_stats['board'][(x,y)]) == 1:
+			if len(game_stats['board'][(x,y)]) == 1:
 				# When there are one, show somme information about.
 				ship_name = game_stats['board'][(x,y)][0]
 				ship_type = game_stats['ships'][ship_name]['type']
@@ -533,25 +523,25 @@ def show_game_board(game_stats, color = True):
 				elif ship_direction == (1, 0) or ship_direction == (-1, 0):
 					direction_char = u'─'
 
-				put_string(c, on_screen_board_tile[0] + 1 + ship_direction[0], on_screen_board_tile[1]  + ship_direction[1], direction_char, 1, 0, 'white', ship_owner_color)
-				put_string(c, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', ship_owner_color)
-			else:
+				c_board = put_string(c_board, on_screen_board_tile[0] + 1 + ship_direction[0], on_screen_board_tile[1]  + ship_direction[1], direction_char, 1, 0, 'white', ship_owner_color)
+				c_board = put_string(c_board, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', ship_owner_color)
+			elif len(game_stats['board'][(x,y)]) > 0:
 				# in other case show how many ship there are in the tile.
-				put_string(c, on_screen_board_tile[0], on_screen_board_tile[1], '!' + str(len(game_stats['board'][(x,y)])),1,0,'white', 'green')
+				c_board = put_string(c_board, on_screen_board_tile[0], on_screen_board_tile[1], '!' + str(len(game_stats['board'][(x,y)])),1,0,'white', 'green')
 
-	# Reset the random seed.
-	seed()
+	c = put_canvas(c, c_board, 95 - c_board['size'][0] / 2, 21 -c_board['size'][1] / 2)
 
 	# Put players liste frame.
 	players_bord_size = ((len(game_stats['players']) - 1) * 30 + 2, 7)
-	put_box(c, 0, game_board_size[1], players_bord_size[0], players_bord_size[1])
-	put_string(c, 1, game_board_size[1], u'[ Players ]')
+	players_bord_location = (0, 43)
+	put_box(c, 0, players_bord_location[1], players_bord_size[0], players_bord_size[1])
+	put_string(c, 1, players_bord_location[1], u'[ Players ]')
 
 	# Put players liste.
 	player_count = 0
 	for player in game_stats['players']:
 		if game_stats['players'][player]['type'] != 'none':
-			location = ((player_count * 30) + 1, game_board_size[1] + 1,)
+			location = ((player_count * 30) + 1, players_bord_location[1] + 1,)
 			put_box(c, location[0], location[1], 30, 5, 'single')
 
 			# Put player informations.
@@ -564,7 +554,7 @@ def show_game_board(game_stats, color = True):
 
 	# Put Game Logs frame.
 	logs_size = (c['size'][0] - players_bord_size[0], 7)
-	logs_location = (players_bord_size[0], game_board_size[1])
+	logs_location = (players_bord_size[0], 43)
 	put_box(c, logs_location[0], logs_location[1], logs_size[0], logs_size[1])
 	put_string(c, logs_location[0] + 1, logs_location[1],u'[ Game Logs ]')
 
@@ -575,7 +565,6 @@ def show_game_board(game_stats, color = True):
 
 	# Show the game board in the terminal.
 	print_canvas(c)
-
 
 # A.I.
 # ------------------------------------------------------------------------------
@@ -619,6 +608,7 @@ def get_ai_input(player_name, buy_ship, game_stats):
 def get_remote_input():
 	# Not implemented yet.
 	pass
+
 # Gui framework
 # ==============================================================================
 # framework for easy user interface creation.
@@ -675,6 +665,7 @@ def print_canvas(canvas, x = 0, y = 0):
 	canvas_width = canvas['size'][0]
 	canvas_height = canvas['size'][1]
 	line = '\033[%d;%dH' % (x, y)
+
 	for y in range(canvas_height):
 		for x in range(canvas_width):
 
@@ -684,13 +675,17 @@ def print_canvas(canvas, x = 0, y = 0):
 			back_color = grid_item['back_color']
 
 			if (canvas['color']):
-				line = line + colored(char, color, back_color)
+				if back_color is None:
+					line = line + colored(char, color, None)
+				else:
+					line = line + colored(char, color, 'on_' + back_color)
 			else:
 				line = line + char
 
 		line += '\n'
 
-	print line
+	# Print, remove the laste \n et reset the print cursor..
+	print line[:-1] + '\033[0;0H'
 
 # Canvas drawing.
 # ------------------------------------------------------------------------------
@@ -726,7 +721,7 @@ def put(canvas, x, y, char, color = None, back_color = None):
 		canvas['grid'][(x,y)]['color'] = color
 
 		# Add the 'on_' at the start of the back_color string.
-		if not back_color == None : canvas['grid'][(x,y)]['back_color'] = 'on_' + back_color
+		if not back_color == None : canvas['grid'][(x,y)]['back_color'] = back_color
 		else : canvas['grid'][(x,y)]['back_color'] = None
 
 	return canvas
@@ -909,7 +904,7 @@ def put_big_text(c, font, string, x, y, color = None, back_color = None):
 	"""
 
 	char_x = 0
-	print string
+
 	for char in string:
 		char_ascii = font[char]
 		char_width = char_ascii['width']
@@ -917,13 +912,38 @@ def put_big_text(c, font, string, x, y, color = None, back_color = None):
 
 		line_index = 0
 		for line in char_text.split('\n'):
-			c = put_string(c, x + char_x, y + line_index, line)
-			put
+			c = put_string(c, x + char_x, y + line_index, line, 1, 0, color, back_color)
 			line_index += 1
 
 		char_x += char_width
 
 	return c
+
+def put_stars_field(c, x, y, w, h, r_seed = None):
+	"""
+	Put a stars field in the canvas.
+
+	Parameters
+	----------
+	c : canvas to pute stars on it (dic)
+	x, y, w, h : location and size of the stars field (int)
+	r_seed : random seed (int).
+
+	Return
+	------
+	canvas : the canvas with the stars field on it (dic).
+	"""
+	void_char = ['.', '*', '\'']
+	seed(r_seed)
+
+	for sx in range(w):
+		for sy in range(h):
+			if randint(0, 20) == 0:
+				c = put_string(c, x + sx, y +sy, void_char[randint(0, 2)])
+
+	seed()
+	return c
+
 
 # Game commands
 # ==============================================================================
@@ -1442,7 +1462,6 @@ def create_game_board(file_name, board_size, lost_ships_count):
 	f = open(file_name, 'w')
 
 	print >>f, "%d %d" % (board_size[0], board_size[1])
-
 	for i in range(lost_ships_count):
 		print >>f, '%d %d %s:%s %s' % (random.randint(0, board_size[0] - 1),\
 		random.randint(0, board_size[1] - 1), 'ship_' + str(i),  ship_type[random.randint(0, len(ship_type) - 1)],\
@@ -1454,7 +1473,30 @@ def cls():
 	"""Clear the screen."""
 	system('cls' if os.name=='nt' else 'clear')
 
-def load_big_font(font_name):
+def mesure_ascii_string(font, string):
+	""""
+	Return the lenght of a ascii text.
+
+	Parameters
+	----------
+	font : font to mesure the string (dic).
+	string : text to mesure (str)
+
+	Return
+	------
+	lenght : lenght of the string (int).
+
+	"""
+	lenght = 0
+
+	for char in string:
+		char_ascii = font[char]
+		char_width = char_ascii['width']
+		lenght += char_width
+
+	return lenght
+
+def load_ascii_font(font_name):
 	"""
 	Load ascii font from a txt file.
 
@@ -1465,16 +1507,20 @@ def load_big_font(font_name):
 	Return
 	------
 	font : font face from the file (dic).
-	"""
 
+	Notes
+	-----
+	Load font in figlet format (http://www.figlet.org).
+	"""
+	# Full  list of ascii chars.
 	chars = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_'abcdefghijklmnopqrstuvwxyz{|}~ÄÖÜäöüβ"
 	font = {}
 	char_index = 0
+	current_char = ''
+	current_char_width = 0
 
 	f = open('art/%s' % (font_name), 'r')
 
-	current_char = ''
-	current_char_width = 0
 	for line in f:
 		current_char_width = len(line.replace('@', ''))
 		current_char += line.replace('@', '')
@@ -1486,7 +1532,6 @@ def load_big_font(font_name):
 
 			current_char = ''
 			current_char_width = 0
-
 			char_index += 1
 
 	f.close()

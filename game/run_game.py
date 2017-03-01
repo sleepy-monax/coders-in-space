@@ -1,3 +1,3 @@
 from coders_in_space import *
 
-play_game('board/board_1303.cis', ('John_bot', 'Smith'), True)
+play_game('board/board_mini.cis', ('John_bot', 'Smith_bot'), False)
