@@ -35,7 +35,6 @@
 # Import some cool component for the game.
 
 from math import *
-from os import system
 from random import *
 from time import sleep #because everyone needs to rest.
 
@@ -93,7 +92,7 @@ def play_game(level_name, players_list, no_splash = False):
 		for pending_attack in game_stats['pending_attack']:
 			command_attack(pending_attack[0], pending_attack[1], pending_attack[2])
 
-	game_end(game_stats)
+	end_game(game_stats)
 def new_game(level_name, players_list):
 	"""
 	Create a new game from a '.cis' file.
@@ -120,7 +119,7 @@ def new_game(level_name, players_list):
 	game_file = parse_game_file(level_name)
 	game_stats = {'board':{}, 'players':{},'model_ship':{}, 'ships': {},
 				  'board_size': game_file['size'],'level_name': level_name,
-				  'nb_rounds': 0, 'max_nb_rounds': 10, #*len(players_list), enfaite c'est dix tours dans tout les cas.
+				  'nb_rounds': 0, 'max_nb_rounds': 10,
 				  'pending_attacks': [], 'game_logs': [], 'winners' : []}
 
 	# Create ship specs sheet.
@@ -181,12 +180,14 @@ def splash_game():
 	c = create_canvas(190, 50)
 	c = put_box(c, 0, 0, 190, 50)
 	c = put_stars_field(c, 1, 1, 188, 48, 1)
-
+	c = put_ascii_art(c, 78, 13, 'alien', 'green')
 	# Print stars.
 	print_canvas(c)
 	sleep(1)
 
 	# Print Groupe 24 logo.
+	c = put_box(c, 0, 0, 190, 50)
+	c = put_stars_field(c, 1, 1, 188, 48, 1)
 	c = put_ascii_art(c, 42, 20, 'groupe24')
 	print_canvas(c)
 	sleep(1)
@@ -196,7 +197,7 @@ def splash_game():
 	c = put_stars_field(c, 1, 1, 188, 48, 1)
 	c = put_ascii_art(c, 26, 20, 'coders_in_space', 'yellow')
 	print_canvas(c)
-def game_end(game_stats):
+def end_game(game_stats):
 	"""
 	Show the end game screen.
 
@@ -215,10 +216,12 @@ def game_end(game_stats):
 	line_index = 0
 	for winner in game_stats['winners']:
 		text_lenght = mesure_ascii_string(font_standard, winner)
-		text_location = (95 - int(text_lenght / 2), line_index*26 + 16)
-		put_ascii_text(c, font_standard, winner, text_location[0], text_location[1], 'yellow')
+		text_location = (95 - int(text_lenght / 2), line_index*11 + 2)
+		put_ascii_text(c, font_standard, winner, text_location[0], text_location[1], game_stats['players'][winner]['color'])
 		put_string(c, text_location[0], text_location[1] + 6, '_' * text_lenght)
-		put_string(c, text_location[0], text_location[1] + 7, "has win the game !")
+		put_string(c, text_location[0], text_location[1] + 7, "won the game !")
+		put_string(c, text_location[0], text_location[1] + 8, "%d spaceships" % (game_stats['players'][winner]['nb_ships']))
+		put_string(c, text_location[0], text_location[1] + 9, "%d G$" % (calculate_value(winner, game_stats)))
 
 		line_index += 1
 
@@ -456,14 +459,17 @@ def show_game_board(game_stats, color = True):
 	c = create_canvas(190, 50, color)
 
 	# Put a cool artwork on the background (deprecated).
+	"""
 	art_index = randint(0, 2)
 	if art_index == 0:
 		put_ascii_art(c, c['size'][0] - 71, c['size'][1] - 40, 'alien', 'green')
 	elif art_index == 1:
-		put_ascii_art(c, c['size'][0] - 76, c['size'][1] - 27, 'planet')
+
 	elif art_index == 2:
 		put_ascii_art(c, 0, c['size'][1] - 45, 'general_ackbar')
+	"""
 
+	put_ascii_art(c, 1, c['size'][1] - 27, 'planet')
 	# Create the board frame.
 	game_board_size = (game_stats['board_size'][0]*3 + 5, game_stats['board_size'][1] + 3)
 	c_board = create_canvas(game_board_size[0], game_board_size[1])
@@ -1549,10 +1555,6 @@ def create_game_board(file_name, board_size, lost_ships_count):
 		ship_direction[random.randint(0, len(ship_direction) - 1)])
 
 	f.close()
-
-def cls():
-	"""Clear the screen."""
-	system('cls' if os.name=='nt' else 'clear')
 
 # (...)Ouais, ça va être bien, ça va être très bien même… Bon, bien sûr, y faut imaginer.
 # - Jamel Debbouze, Astérix & Obélix : Mission Cléopâtre (2002), écrit par Alain Chabat, René Goscinny, Albert Uderzo
