@@ -55,8 +55,8 @@ def play_game(level_name, players_list, no_splash = False, screen_size = (190, 5
 
     Note
     ----
-    Recomended screen size : (190, 50) or (190, 57).
-    
+    Recomended screen size : (190, 50).
+
 	Version
 	-------
 	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
@@ -65,13 +65,13 @@ def play_game(level_name, players_list, no_splash = False, screen_size = (190, 5
 
 	game_stats = new_game(level_name, players_list)
 	game_stats['screen_size'] = screen_size
-	
-	if not no_splash: 
+
+	if not no_splash:
 		splash_game(game_stats)
 		raw_input() # wait the player pressing enter.
 
 	show_game_board(game_stats)
-			
+
 	# Players create their ships.
 	for player in game_stats['players']:
 		game_stats = command_buy_ships(get_game_input(player, True, game_stats), player, game_stats)
@@ -164,7 +164,7 @@ def new_game(level_name, players_list):
 
 		# Create new player.
 		if index_player==1:
-			game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'red',
+			game_stats['players'][player] = {'name': player,'money':100,'nb_ships': 0,'type': player_type,'color':'red',
 											  'ships_starting_point': (9, 9),'ships_starting_direction': (1, 1)}
 		elif index_player==2:
 			game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'blue',
@@ -185,7 +185,7 @@ def new_game(level_name, players_list):
 def splash_game(game_stats):
 	"""
 	Show the splash screen.
-	
+
 	Parameter
 	---------
 	game_sats : stats of the game (dic).
@@ -195,10 +195,10 @@ def splash_game(game_stats):
 		c = put_box(c, 0, 0, screen_size[0], screen_size[1])
 		c = put_stars_field(c, 1, 1, screen_size[0] - 2, screen_size[1] - 2, 1)
 		return c
-    
+
 	screen_size = game_stats['screen_size']
 	c = create_canvas(screen_size[0], screen_size[1])
-    
+
 	# print the alien.
 	c = clear_screen(c)
 	c = put_ascii_art(c, screen_size[0] / 2 - 17, screen_size[1] / 2 - 12, 'alien', 'green')
@@ -215,7 +215,7 @@ def splash_game(game_stats):
 	c = clear_screen(c)
 	c = put_ascii_art(c, screen_size[0] / 2 - 69, screen_size[1] / 2 - 5, 'coders_in_space', 'yellow')
 	print_canvas(c)
-	
+
 def end_game(game_stats):
 	"""
 	Show the end game screen.
@@ -225,7 +225,7 @@ def end_game(game_stats):
 	game_stats : stats of the game (dic).
 	"""
 	screen_size = game_stats['screen_size']
-	
+
 	# Load ascii fonts.
 	font_small = load_ascii_font('font_small.txt')
 	font_standard = load_ascii_font('font_standard.txt')
@@ -249,7 +249,7 @@ def end_game(game_stats):
 		if player in game_stats['winners']:
 			# The player win the game.
 			text_lenght = mesure_ascii_string(font_standard, player)
-			
+
 			text_font = font_standard
 			text_color = game_stats['players'][player]['color']
 		else:
@@ -258,7 +258,7 @@ def end_game(game_stats):
 			text_location = (95 - int(text_lenght / 2), line_index*11 + 2)
 			text_font = font_small
 			text_color = 'white'
-			
+
 		text_location = (screen_size[0] / 2 - int(text_lenght / 2), line_index*11 + 2)
 
 		# Put player informations.
@@ -426,7 +426,7 @@ def show_ship_list(player_name, game_stats):
 	game_stats: stats of the game (dic).
 	"""
 	screen_size = game_stats['screen_size']
-	
+
 	c = create_canvas(106, 10 + len(game_stats['ships']) + len(game_stats['players']) * 4)
 	put_box(c, 0, 0, c['size'][0], c['size'][1], 'double')
 	put_string(c, 3, 0, '[ Spaceships ]')
@@ -501,7 +501,7 @@ def show_game_board(game_stats, color = True):
 					 Nicolas Van Bossuyt (v6. 01/03/2017)
 	"""
 	screen_size = game_stats['screen_size']
-	
+
 	# Create a the main canvas.
 	c_screen = create_canvas(screen_size[0], screen_size[1], color)
 
@@ -1455,7 +1455,7 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
 			game_stats['nb_rounds'] = 0
 			# Give damages to all ship on targe coordinate.
 			for target_ship in game_stats['board'][target_coordinate]:
-				
+
 				# Give damages to the taget ship.
 				game_stats['ships'][target_ship]['heal_point'] -= damages
 
@@ -1465,11 +1465,11 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
 					game_stats['board'][target_coordinate].remove(target_ship)
 
 	return game_stats
-	
+
 def get_distance(coord1, coord2, size):
 	"""
 	Get distance between two point in a tore space.
-	
+
 	Parameters
 	----------
 	coord1 : coordinate of the first point (tupe(int, int)).
@@ -1478,7 +1478,7 @@ def get_distance(coord1, coord2, size):
 
 	Return
 	------
-	Distance : distance of the two point (int).	
+	Distance : distance of the two point (int).
 	"""
 	coord1 = list(coord1)
 	coord2 = list(coord2)
@@ -1494,7 +1494,7 @@ def get_distance(coord1, coord2, size):
 			coord1[1] += size[1]
 		else:
 			coord2[1] += size[1]
-	
+
 	return abs((coord1[0] - coord2[0])) + abs((coord1[1] - coord2[1]))
 
 # Utils
