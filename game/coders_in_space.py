@@ -65,10 +65,13 @@ def play_game(level_name, players_list, no_splash = False, screen_size = (190, 5
 
 	game_stats = new_game(level_name, players_list)
 	game_stats['screen_size'] = screen_size
+	
 	if not no_splash: 
 		splash_game(game_stats)
 		raw_input() # wait the player pressing enter.
-		
+
+	show_game_board(game_stats)
+			
 	# Players create their ships.
 	for player in game_stats['players']:
 		game_stats = command_buy_ships(get_game_input(player, True, game_stats), player, game_stats)
@@ -402,7 +405,7 @@ def get_human_input(player_name, buy_ship, game_stats):
 
 	while True:
 		# Getting human player input.
-		player_input = raw_input('\033[%d;%dH %s :' % (50, 3, player_name))
+		player_input = raw_input('\033[%d;%dH %s :' % (game_stats['screen_size'][0], 3, player_name))
 
 		# Run human player command.
 		if '/' in player_input:
