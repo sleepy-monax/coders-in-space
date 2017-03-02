@@ -405,7 +405,7 @@ def get_human_input(player_name, buy_ship, game_stats):
 
 	while True:
 		# Getting human player input.
-		player_input = raw_input('\033[%d;%dH %s :' % (game_stats['screen_size'][0], 3, player_name))
+		player_input = raw_input('\033[%d;%dH %s :' % (game_stats['screen_size'][1], 3, player_name))
 
 		# Run human player command.
 		if '/' in player_input:
