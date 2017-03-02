@@ -90,7 +90,7 @@ def play_game(level_name, players_list, no_splash = False, screen_size = (190, 5
 		# getting players input.
 		for player in game_stats['players']:
 			if game_stats['players'][player]['nb_ships'] > 0:
-				parse_command(get_game_input(player, False, game_stats), player, game_stats)
+				game_stats = parse_command(get_game_input(player, False, game_stats), player, game_stats)
 			else:
 				if game_stats['players'][player]['type'] != 'none':
 					game_stats['game_logs'].append(player + ' has lost all these ships, so he has nothing to do.')
@@ -99,8 +99,8 @@ def play_game(level_name, players_list, no_splash = False, screen_size = (190, 5
 		do_moves(game_stats)
 
 		# Do Attack
-		for pending_attack in game_stats['pending_attack']:
-			command_attack(pending_attack[0], pending_attack[1], pending_attack[2])
+		for pending_attack in game_stats['pending_attacks']:
+			game_stats = command_attack(pending_attack[0], pending_attack[1], pending_attack[2], game_stats)
 
 	end_game(game_stats)
 def new_game(level_name, players_list):
@@ -1447,22 +1447,24 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
 	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
 	implementation : Alisson Leist (v1. 14/2/17)
 	"""
-	damages = game_stats['ships'][ship]['damages']
+ 	ship_type = game_stats['model_ship'][game_stats['ships'][ship]['type']]
+	damages = ship_type['damages']
 	distance = get_distance(ship_coordinate, target_coordinate, game_stats['board_size'])
 
-	if distance <= game_stats ['ships'][ship]['range']:
+	if distance <= ship_type['range']:
 		if len(game_stats['board'][target_coordinate]) != 0:
 			game_stats['nb_rounds'] = 0
 			# Give damages to all ship on targe coordinate.
 			for target_ship in game_stats['board'][target_coordinate]:
 
 				# Give damages to the taget ship.
-				game_stats['ships'][target_ship]['heal_point'] -= damages
+				game_stats['ships'][target_ship]['heal_points'] -= damages
 
-				if game_stats['ships'][target_ship]['heal_point'] <= 0:
+				if game_stats['ships'][target_ship]['heal_points'] <= 0:
 					# Remove the space ship.
-					game_stats['players'][game_stats['ships'][target_ship]['owner']]['nb_ships'] -=1
+					del game_stats['ships'][target_ship]
 					game_stats['board'][target_coordinate].remove(target_ship)
+					game_stats['players'][game_stats['ships'][target_ship]['owner']]['nb_ships'] -=1
 
 	return game_stats
 
