@@ -205,26 +205,48 @@ def end_game(game_stats):
 	---------
 	game_stats : stats of the game (dic).
 	"""
-
+	# Load ascii fonts.
 	font_small = load_ascii_font('font_small.txt')
 	font_standard = load_ascii_font('font_standard.txt')
 
+	# Create the ascii canvas.
 	c = create_canvas(190, 50)
 	c = put_box(c, 0, 0, 190, 50)
 	c = put_stars_field(c, 1, 1, 188, 48)
 
 	line_index = 0
-	for winner in game_stats['winners']:
-		text_lenght = mesure_ascii_string(font_standard, winner)
-		text_location = (95 - int(text_lenght / 2), line_index*11 + 2)
-		put_ascii_text(c, font_standard, winner, text_location[0], text_location[1], game_stats['players'][winner]['color'])
-		put_string(c, text_location[0], text_location[1] + 6, '_' * text_lenght)
-		put_string(c, text_location[0], text_location[1] + 7, "won the game !")
-		put_string(c, text_location[0], text_location[1] + 8, "%d spaceships" % (game_stats['players'][winner]['nb_ships']))
-		put_string(c, text_location[0], text_location[1] + 9, "%d G$" % (calculate_value(winner, game_stats)))
+
+	# Text property.
+	text_lenght = 0
+	text_location = (0, 0)
+	text_font = font_small
+	text_color = 'white'
+
+	# Put players stats.
+	for player in game_stats['players']:
+		if player == 'none' : continue
+		if player in game_stats['winners']:
+			# The player win the game.
+			text_lenght = mesure_ascii_string(font_standard, player)
+			text_location = (95 - int(text_lenght / 2), line_index*11 + 2)
+			text_font = font_standard
+			text_color = game_stats['players'][player]['color']
+		else:
+			# The player lost the game.
+			text_lenght = mesure_ascii_string(font_small, player)
+			text_location = (95 - int(text_lenght / 2), line_index*11 + 2)
+			text_font = font_small
+			text_color = 'white'
+
+		# Put player informations.
+		c = put_ascii_text(c, text_font, player, text_location[0], text_location[1], text_color)
+		c = put_string(c, text_location[0], text_location[1] + 6, '_' * text_lenght)
+		c = put_string(c, text_location[0], text_location[1] + 8, "%d spaceships" % (game_stats['players'][player]['nb_ships']))
+		c = put_string(c, text_location[0], text_location[1] + 9, "%d G$" % (calculate_value(player, game_stats)))
 
 		line_index += 1
 
+	# Print the canvas in the terminal.
 	print_canvas(c)
 
 def is_game_continue(game_stats):
@@ -359,8 +381,6 @@ def get_human_input(player_name, buy_ship, game_stats):
 	"""
 
 	while True:
-
-		show_game_board(game_stats)
 		# Getting human player input.
 		player_input = raw_input('\033[%d;%dH %s :' % (50, 3, player_name))
 
@@ -456,21 +476,14 @@ def show_game_board(game_stats, color = True):
 					 Nicolas Van Bossuyt (v6. 01/03/2017)
 	"""
 	# Create a the main canvas.
-	c = create_canvas(190, 50, color)
+	c_screen = create_canvas(190, 50, color)
 
-	# Put a cool artwork on the background (deprecated).
-	"""
-	art_index = randint(0, 2)
-	if art_index == 0:
-		put_ascii_art(c, c['size'][0] - 71, c['size'][1] - 40, 'alien', 'green')
-	elif art_index == 1:
+	# Put a cool artwork on the background.
+	c_screen = put_ascii_art(c_screen, 1, 20, 'planet')
+	c_screen = put_box(c_screen, 0, 0, 190, 50, 'single')
 
-	elif art_index == 2:
-		put_ascii_art(c, 0, c['size'][1] - 45, 'general_ackbar')
-	"""
-
-	put_ascii_art(c, 1, c['size'][1] - 27, 'planet')
 	# Create the board frame.
+	# --------------------------------------------------------------------------
 	game_board_size = (game_stats['board_size'][0]*3 + 5, game_stats['board_size'][1] + 3)
 	c_board = create_canvas(game_board_size[0], game_board_size[1])
 	c_board = put_box(c_board, 0, 0, game_board_size[0], game_board_size[1])
@@ -525,46 +538,51 @@ def show_game_board(game_stats, color = True):
 
 				c_board = put_string(c_board, on_screen_board_tile[0] + 1 + ship_direction[0], on_screen_board_tile[1]  + ship_direction[1], direction_char, 1, 0, 'white', ship_owner_color)
 				c_board = put_string(c_board, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', ship_owner_color)
+
 			elif len(game_stats['board'][(x,y)]) > 0:
 				# in other case show how many ship there are in the tile.
 				c_board = put_string(c_board, on_screen_board_tile[0], on_screen_board_tile[1], '!' + str(len(game_stats['board'][(x,y)])),1,0,'white', 'green')
 
-	c = put_canvas(c, c_board, 95 - c_board['size'][0] / 2, 21 -c_board['size'][1] / 2)
+	c_screen = put_canvas(c_screen, c_board, 95 - c_board['size'][0] / 2, 21 -c_board['size'][1] / 2)
 
 	# Put players liste frame.
+	# --------------------------------------------------------------------------
 	players_bord_size = ((len(game_stats['players']) - 1) * 30 + 2, 7)
 	players_bord_location = (0, 43)
-	put_box(c, 0, players_bord_location[1], players_bord_size[0], players_bord_size[1])
-	put_string(c, 1, players_bord_location[1], u'[ Players ]')
+
+	c_screen = put_box(c_screen, 0, players_bord_location[1], players_bord_size[0], players_bord_size[1])
+	c_screen = put_string(c_screen, 1, players_bord_location[1], u'[ Players ]')
 
 	# Put players liste.
 	player_count = 0
 	for player in game_stats['players']:
 		if game_stats['players'][player]['type'] != 'none':
 			location = ((player_count * 30) + 1, players_bord_location[1] + 1,)
-			put_box(c, location[0], location[1], 30, 5, 'single')
+			c_screen = put_box(c_screen, location[0], location[1], 30, 5, 'single')
 
 			# Put player informations.
-			put_string(c, location[0] + 2, location[1] , '[ ' + game_stats['players'][player]['name'] + ' ]', color=game_stats['players'][player]['color'])
-			put_string(c, location[0] + 2, location[1] + 1, 'Type : ' + game_stats['players'][player]['type'])
-			put_string(c, location[0] + 2, location[1] + 2, 'Money : ' + str(game_stats['players'][player]['money']) + '$')
-			put_string(c, location[0] + 2, location[1] + 3, 'Spaceship count : ' + str(game_stats['players'][player]['nb_ships']))
+			c_screen = put_string(c_screen, location[0] + 2, location[1] , '[ ' + game_stats['players'][player]['name'] + ' ]', color=game_stats['players'][player]['color'])
+			c_screen = put_string(c_screen, location[0] + 2, location[1] + 1, 'Type : ' + game_stats['players'][player]['type'])
+			c_screen = put_string(c_screen, location[0] + 2, location[1] + 2, 'Money : ' + str(game_stats['players'][player]['money']) + '$')
+			c_screen = put_string(c_screen, location[0] + 2, location[1] + 3, 'Spaceship count : ' + str(game_stats['players'][player]['nb_ships']))
 
 			player_count += 1
 
 	# Put Game Logs frame.
-	logs_size = (c['size'][0] - players_bord_size[0], 7)
+	# --------------------------------------------------------------------------
+	logs_size = (190 - players_bord_size[0], 7)
 	logs_location = (players_bord_size[0], 43)
-	put_box(c, logs_location[0], logs_location[1], logs_size[0], logs_size[1])
-	put_string(c, logs_location[0] + 1, logs_location[1],u'[ Game Logs ]')
+
+	c_screen = put_box(c_screen, logs_location[0], logs_location[1], logs_size[0], logs_size[1])
+	c_screen = put_string(c_screen, logs_location[0] + 1, logs_location[1],u'[ Game Logs ]')
 
 	line_index = 1
 	for line in game_stats['game_logs'][-5:]:
-		put_string(c, logs_location[0] + 1, logs_location[1] + line_index, line)
+		c_screen = put_string(c_screen, logs_location[0] + 1, logs_location[1] + line_index, line)
 		line_index +=1
 
 	# Show the game board in the terminal.
-	print_canvas(c)
+	print_canvas(c_screen)
 
 # A.I.
 # ------------------------------------------------------------------------------
@@ -768,29 +786,28 @@ def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_col
 	specification  : Nicolas Van Bossuyt (v1. 10/02/17)
 	implementation : Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
+
+	rec_char = ()
+
 	if mode == 'double':
-		# Put borders.
-		put_rectangle(canvas, x, y, width, height, u'═', color, back_color)
-		put_rectangle(canvas, x, y + 1, width, height - 2,u'║', color, back_color)
-
-		# Put corners.
-		put(canvas, x, y, u'╔', color, back_color)
-		put(canvas, x, y + height - 1, u'╚', color, back_color)
-		put(canvas, x + width - 1, y, u'╗', color, back_color)
-		put(canvas, x + width - 1, y + height - 1, u'╝', color, back_color)
-
+		rect_char = (u'═', u'║', u'╔', u'╚', u'╗', u'╝')
 	elif mode == 'single':
-		# Put border.
-		put_rectangle(canvas, x, y, width, height, u'─', color, back_color)
-		put_rectangle(canvas, x, y + 1, width, height - 2,u'│', color, back_color)
+		rect_char = (u'─', u'│', u'┌', u'└', u'┐', u'┘')
+	elif mode == 'space':
+		rect_char = (u'─', u'│', u'/', u'\\', u'\\', u'/')
 
-		# Put cornes.
-		put(canvas, x, y, u'┌', color, back_color)
-		put(canvas, x, y + height - 1, u'└', color, back_color)
-		put(canvas, x + width - 1, y, u'┐', color, back_color)
-		put(canvas, x + width - 1, y + height - 1, u'┘', color, back_color)
+	# Put borders.
+	put_rectangle(canvas, x, y, width, 1, rect_char[0], color, back_color)
+	put_rectangle(canvas, x, y + height - 1, width, 1, rect_char[0], color, back_color)
 
-	put_rectangle(canvas, x + 1 , y + 1, width - 2, height - 2, ' ')
+	put_rectangle(canvas, x, y, 1, height, rect_char[1], color, back_color)
+	put_rectangle(canvas, x + width - 1, y, 1, height, rect_char[1], color, back_color)
+
+	# Put corners.
+	put(canvas, x, y, rect_char[2], color, back_color)
+	put(canvas, x, y + height - 1, rect_char[3], color, back_color)
+	put(canvas, x + width - 1, y, rect_char[4], color, back_color)
+	put(canvas, x + width - 1, y + height - 1, rect_char[5], color, back_color)
 
 	return canvas
 def put_string(canvas, x, y, string, direction_x = 1, direction_y = 0, color = None, back_color = None):
@@ -922,7 +939,6 @@ def load_ascii_font(font_name):
 	-----
 	Load font in figlet format (http://www.figlet.org).
 	"""
-	# Full  list of ascii chars.
 	chars = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_'abcdefghijklmnopqrstuvwxyz{|}~ÄÖÜäöüβ"
 	font = {}
 	char_index = 0
@@ -1020,22 +1036,14 @@ def colored(text, fore_color, back_color):
 
 	ansi escape sequences : http://ascii-table.com/ansi-escape-sequences.php
 	"""
-	color = {
-			 'grey' : 0,
-			 'red' : 1,
-			 'green': 2,
-			 'yellow' : 3,
-			 'blue' : 4,
-			 'magenta' : 5,
-			 'cyan' : 6,
-			 'white' : 7
-			}
+	color = { 'grey' : 0, 'red' : 1, 'green': 2, 'yellow' : 3, 'blue' : 4,
+			  'magenta' : 5, 'cyan' : 6, 'white' : 7 }
 
 	reset = '\033[0m'
-	fmt_str = '\033[%dm%s'
+	format_string = '\033[%dm%s'
 
-	if fore_color is not None: text = fmt_str % (color[fore_color] + 30, text)
-	if back_color is not None: text = fmt_str % (color[back_color] + 40, text)
+	if fore_color is not None: text = format_string % (color[fore_color] + 30, text)
+	if back_color is not None: text = format_string % (color[back_color] + 40, text)
 	text += reset
 
 	return text
