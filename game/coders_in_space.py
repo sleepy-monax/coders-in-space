@@ -565,7 +565,6 @@ def show_game_board(game_stats, color = True):
 
 				c_board = put_string(c_board, on_screen_board_tile[0] + 1 + ship_direction[0], on_screen_board_tile[1]  + ship_direction[1], direction_char, 1, 0, 'white', ship_owner_color)
 				c_board = put_string(c_board, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', ship_owner_color)
-
 			elif len(game_stats['board'][(x,y)]) > 0:
 				# in other case show how many ship there are in the tile.
 				c_board = put_string(c_board, on_screen_board_tile[0], on_screen_board_tile[1], '!' + str(len(game_stats['board'][(x,y)])),1,0,'white', 'green')
@@ -1130,7 +1129,7 @@ def parse_command(commands, player_name, game_stats):
 				coordinate = (int(coordinate_str[0]) - 1, int(coordinate_str[1]) - 1)
 				game_stats['pending_attacks'].append((ship_name, game_stats['ships'][ship_name]['position'], coordinate))
 
-		except Exception as e:
+		except Exception:
 			print ship_action + ' is invalide action, please try : "faster, slower, left, right, or 42-24".'
 
 	return game_stats
@@ -1376,7 +1375,7 @@ def do_moves(game_stats):
 		# Move the ship.
 		game_stats['board'][position].remove(element)
 		game_stats['board'][new_position].append(element)
-		game_stats['ships'][element]['position']=new_position
+		game_stats['ships'][element]['position'] = new_position
 		if len(game_stats['board'][new_position]) >1 and game_stats['ships'][game_stats['board'][new_position][0]]['owner']=='none':
 			take_abandonned_ship(game_stats)
 
@@ -1448,39 +1447,55 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
 	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
 	implementation : Alisson Leist (v1. 14/2/17)
 	"""
+	damages = game_stats['ships'][ship]['damages']
+	distance = get_distance(ship_coordinate, target_coordinate, game_stats['board_size'])
 
-	# Retriving information from game_stats.
-	board_width=game_stats['board_size'][0]
-	board_height=game_stats['board_size'][1]
-	damages=game_stats['ships'][ship]['damages']
-
-	# Getting distance between ship and taget.
-	if abs(target_coordinate[0] - ship_coordinate[0]) > board_width/2:
-		if target_coordinate[0] < ship_coordinate[0]:
-			target_coordinate[0] += board_width
-		else:
-			target_coordinate[0] += board_width
-
-	if abs(target_coordinate[1] - ship_coordinate[1]) > board_height/2:
-		if target_coordinate[1] < ship_coordinate[1]:
-			target_coordinate[1] += board_height
-		else:
-			ship_coordinate[1] += board_height
-
-	if abs((target_coordinate[0] - ship_coordinate[0])) + abs((target_coordinate[1] - ship_coordinate[1])) <= game_stats ['ships'][ship]['range'] :
-		if not game_stats['board'][target_coordinate] == []:
-			game_stats['nb_rounds']=0
+	if distance <= game_stats ['ships'][ship]['range']:
+		if len(game_stats['board'][target_coordinate]) != 0:
+			game_stats['nb_rounds'] = 0
 			# Give damages to all ship on targe coordinate.
 			for target_ship in game_stats['board'][target_coordinate]:
+				
 				# Give damages to the taget ship.
-				game_stats['ships'][target_ship]['heal_point']-=damages
+				game_stats['ships'][target_ship]['heal_point'] -= damages
 
-				if game_stats['ships'][target_ship]['heal_point']<=0:
+				if game_stats['ships'][target_ship]['heal_point'] <= 0:
 					# Remove the space ship.
-					game_stats['board'][target_coordinate].remove(target_ship)
 					game_stats['players'][game_stats['ships'][target_ship]['owner']]['nb_ships'] -=1
+					game_stats['board'][target_coordinate].remove(target_ship)
 
 	return game_stats
+	
+def get_distance(coord1, coord2, size):
+	"""
+	Get distance between two point in a tore space.
+	
+	Parameters
+	----------
+	coord1 : coordinate of the first point (tupe(int, int)).
+	coord2 : coordinate of the second point (tupe(int, int)).
+	size : size of the tore (tupe(int, int))
+
+	Return
+	------
+	Distance : distance of the two point (int).	
+	"""
+	coord1 = list(coord1)
+	coord2 = list(coord2)
+	size = list(size)
+	if abs(coord1[0] - coord2[0]) > size[0]/2:
+		if coord1[0] < coord2[0]:
+			coord1[0] += size[0]
+		else:
+			coord1[0] += size[0]
+
+	if abs(coord1[1] - coord2[1]) > size[1]/2:
+		if coord1[1] < coord2[1]:
+			coord1[1] += size[1]
+		else:
+			coord2[1] += size[1]
+	
+	return abs((coord1[0] - coord2[0])) + abs((coord1[1] - coord2[1]))
 
 # Utils
 # ==============================================================================
