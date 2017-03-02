@@ -42,26 +42,33 @@ from time import sleep #because everyone needs to rest.
 # ==============================================================================
 # Create a new game and play it.
 
-def play_game(level_name, players_list, no_splash = False):
+def play_game(level_name, players_list, no_splash = False, screen_size = (190, 50)):
 	"""
 	Main game function which runs the game loop.
 
 	Parameters
 	----------
 
-	level_name: name of the level (str)
-	players_list: list of the players(list)
+	level_name: name of the level (str).
+	players_list: list of the players(list).
+	screen_size : size of the terminal window(tuple(int, int)).
 
+    Note
+    ----
+    Recomended screen size : (190, 50) or (190, 57).
+    
 	Version
 	-------
 	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	implementation : Bayron Mahy, Nicolas Van Bossuyt (v1. 15/02/17)
 	"""
 
-	if not no_splash: splash_game()
-	raw_input() # wait the player pressing enter.
 	game_stats = new_game(level_name, players_list)
-
+	game_stats['screen_size'] = screen_size
+	if not no_splash: 
+		splash_game(game_stats)
+		raw_input() # wait the player pressing enter.
+		
 	# Players create their ships.
 	for player in game_stats['players']:
 		game_stats = command_buy_ships(get_game_input(player, True, game_stats), player, game_stats)
@@ -119,7 +126,7 @@ def new_game(level_name, players_list):
 	game_file = parse_game_file(level_name)
 	game_stats = {'board':{}, 'players':{},'model_ship':{}, 'ships': {},
 				  'board_size': game_file['size'],'level_name': level_name,
-				  'nb_rounds': 0, 'max_nb_rounds': 10,
+				  'nb_rounds': 0, 'max_nb_rounds': 300,
 				  'pending_attacks': [], 'game_logs': [], 'winners' : []}
 
 	# Create ship specs sheet.
@@ -172,31 +179,40 @@ def new_game(level_name, players_list):
 
 	return game_stats
 
-def splash_game():
+def splash_game(game_stats):
 	"""
 	Show the splash screen.
+	
+	Parameter
+	---------
+	game_sats : stats of the game (dic).
 	"""
 
-	c = create_canvas(190, 50)
-	c = put_box(c, 0, 0, 190, 50)
-	c = put_stars_field(c, 1, 1, 188, 48, 1)
-	c = put_ascii_art(c, 78, 13, 'alien', 'green')
-	# Print stars.
+	def clear_screen(c):
+		c = put_box(c, 0, 0, screen_size[0], screen_size[1])
+		c = put_stars_field(c, 1, 1, screen_size[0] - 2, screen_size[1] - 2, 1)
+		return c
+    
+	screen_size = game_stats['screen_size']
+	c = create_canvas(screen_size[0], screen_size[1])
+    
+	# print the alien.
+	c = clear_screen(c)
+	c = put_ascii_art(c, screen_size[0] / 2 - 17, screen_size[1] / 2 - 12, 'alien', 'green')
 	print_canvas(c)
 	sleep(1)
 
 	# Print Groupe 24 logo.
-	c = put_box(c, 0, 0, 190, 50)
-	c = put_stars_field(c, 1, 1, 188, 48, 1)
-	c = put_ascii_art(c, 42, 20, 'groupe24')
+	c = clear_screen(c)
+	c = put_ascii_art(c, screen_size[0] / 2 - 53, screen_size[1] / 2 - 5, 'groupe24')
 	print_canvas(c)
 	sleep(1)
 
 	# Print coders in space logo.
-	c = put_box(c, 0, 0, 190, 50)
-	c = put_stars_field(c, 1, 1, 188, 48, 1)
-	c = put_ascii_art(c, 26, 20, 'coders_in_space', 'yellow')
+	c = clear_screen(c)
+	c = put_ascii_art(c, screen_size[0] / 2 - 69, screen_size[1] / 2 - 5, 'coders_in_space', 'yellow')
 	print_canvas(c)
+	
 def end_game(game_stats):
 	"""
 	Show the end game screen.
@@ -205,14 +221,16 @@ def end_game(game_stats):
 	---------
 	game_stats : stats of the game (dic).
 	"""
+	screen_size = game_stats['screen_size']
+	
 	# Load ascii fonts.
 	font_small = load_ascii_font('font_small.txt')
 	font_standard = load_ascii_font('font_standard.txt')
 
 	# Create the ascii canvas.
-	c = create_canvas(190, 50)
-	c = put_box(c, 0, 0, 190, 50)
-	c = put_stars_field(c, 1, 1, 188, 48)
+	c = create_canvas(screen_size[0], screen_size[1])
+	c = put_box(c, 0, 0, screen_size[0], screen_size[1])
+	c = put_stars_field(c, 1, 1, screen_size[0] - 2, screen_size[1] - 2)
 
 	line_index = 0
 
@@ -228,7 +246,7 @@ def end_game(game_stats):
 		if player in game_stats['winners']:
 			# The player win the game.
 			text_lenght = mesure_ascii_string(font_standard, player)
-			text_location = (95 - int(text_lenght / 2), line_index*11 + 2)
+			
 			text_font = font_standard
 			text_color = game_stats['players'][player]['color']
 		else:
@@ -237,6 +255,8 @@ def end_game(game_stats):
 			text_location = (95 - int(text_lenght / 2), line_index*11 + 2)
 			text_font = font_small
 			text_color = 'white'
+			
+		text_location = (screen_size[0] / 2 - int(text_lenght / 2), line_index*11 + 2)
 
 		# Put player informations.
 		c = put_ascii_text(c, text_font, player, text_location[0], text_location[1], text_color)
@@ -402,6 +422,8 @@ def show_ship_list(player_name, game_stats):
 	player_name: name of the player to show the information (str).
 	game_stats: stats of the game (dic).
 	"""
+	screen_size = game_stats['screen_size']
+	
 	c = create_canvas(106, 10 + len(game_stats['ships']) + len(game_stats['players']) * 4)
 	put_box(c, 0, 0, c['size'][0], c['size'][1], 'double')
 	put_string(c, 3, 0, '[ Spaceships ]')
@@ -444,18 +466,18 @@ def show_ship_list(player_name, game_stats):
 	scroll = 0
 
 	while is_scroll_continue:
-		window = create_canvas(190, 50)
-		put_box(window, 0, 0, 190, 50)
+		window = create_canvas(screen_size[0], screen_size[1])
+		put_box(window, 0, 0, screen_size[0], screen_size[1])
 
 		put_canvas(window, c, 1, 1 + scroll)
 		print_canvas(window)
 
-		is_scroll_continue = ( c['size'][1] - 50 ) > abs(scroll)
+		is_scroll_continue = ( c['size'][1] - screen_size[1] ) > abs(scroll)
 
 		if is_scroll_continue:
-			raw_input('\033[%d;%dHPress enter to scroll...' % (50, 1))
+			raw_input('\033[%d;%dHPress enter to scroll...' % (screen_size[1], 1))
 		else:
-			raw_input('\033[%d;%dHPress enter to exit...' % (50, 3))
+			raw_input('\033[%d;%dHPress enter to exit...' % (screen_size[1], 3))
 		scroll-=10
 def show_game_board(game_stats, color = True):
 	"""
@@ -475,12 +497,14 @@ def show_game_board(game_stats, color = True):
 					 Nicolas Van Bossuyt (v5. 23/02/2017)
 					 Nicolas Van Bossuyt (v6. 01/03/2017)
 	"""
+	screen_size = game_stats['screen_size']
+	
 	# Create a the main canvas.
-	c_screen = create_canvas(190, 50, color)
+	c_screen = create_canvas(screen_size[0], screen_size[1], color)
 
 	# Put a cool artwork on the background.
-	c_screen = put_ascii_art(c_screen, 1, 20, 'planet')
-	c_screen = put_box(c_screen, 0, 0, 190, 50, 'single')
+	c_screen = put_ascii_art(c_screen, 1, screen_size[1] - 30, 'planet')
+	c_screen = put_box(c_screen, 0, 0, screen_size[0], screen_size[1], 'single')
 
 	# Create the board frame.
 	# --------------------------------------------------------------------------
@@ -543,12 +567,12 @@ def show_game_board(game_stats, color = True):
 				# in other case show how many ship there are in the tile.
 				c_board = put_string(c_board, on_screen_board_tile[0], on_screen_board_tile[1], '!' + str(len(game_stats['board'][(x,y)])),1,0,'white', 'green')
 
-	c_screen = put_canvas(c_screen, c_board, 95 - c_board['size'][0] / 2, 21 -c_board['size'][1] / 2)
+	c_screen = put_canvas(c_screen, c_board, screen_size[0] / 2 - c_board['size'][0] / 2, int((screen_size[1] - 7) / 2) - c_board['size'][1] / 2)
 
 	# Put players liste frame.
 	# --------------------------------------------------------------------------
 	players_bord_size = ((len(game_stats['players']) - 1) * 30 + 2, 7)
-	players_bord_location = (0, 43)
+	players_bord_location = (0, screen_size[1] - 7)
 
 	c_screen = put_box(c_screen, 0, players_bord_location[1], players_bord_size[0], players_bord_size[1])
 	c_screen = put_string(c_screen, 1, players_bord_location[1], u'[ Players ]')
@@ -570,8 +594,8 @@ def show_game_board(game_stats, color = True):
 
 	# Put Game Logs frame.
 	# --------------------------------------------------------------------------
-	logs_size = (190 - players_bord_size[0], 7)
-	logs_location = (players_bord_size[0], 43)
+	logs_size = (screen_size[0] - players_bord_size[0], 7)
+	logs_location = (players_bord_size[0], screen_size[1] - 7)
 
 	c_screen = put_box(c_screen, logs_location[0], logs_location[1], logs_size[0], logs_size[1])
 	c_screen = put_string(c_screen, logs_location[0] + 1, logs_location[1],u'[ Game Logs ]')
@@ -898,6 +922,8 @@ def put_stars_field(c, x, y, w, h, r_seed = None):
 		for sy in range(h):
 			if randint(0, 20) == 0:
 				c = put_string(c, x + sx, y +sy, void_char[randint(0, 2)])
+			else:
+			    c = put_string(c, x + sx, y +sy, ' ')
 
 	seed()
 	return c
