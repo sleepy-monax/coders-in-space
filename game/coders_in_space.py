@@ -36,13 +36,14 @@
 
 from math import *
 from random import *
+from remote_play import *
 from time import sleep #because everyone needs to rest.
 
 # Game
 # ==============================================================================
 # Create a new game and play it.
 
-def play_game(level_name, players_list, no_splash = False, screen_size = (190, 50)):
+def play_game(level_name, players_list, no_splash = False, screen_size = (190, 50), distant_id = None, distant_ip = None, verbose_connection = False):
 	"""
 	Main game function which runs the game loop.
 
@@ -51,8 +52,11 @@ def play_game(level_name, players_list, no_splash = False, screen_size = (190, 5
 
 	level_name: name of the level (str).
 	players_list: list of the players(list).
-	screen_size : size of the terminal window(tuple(int, int)).
-
+	screen_size : size of the terminal window (tuple(int, int)).
+	distant_id : ID of the distant player (int).
+	distant_ip : IP of the remote player (str).
+	verbose_connection : anabled connection output in the terminal (bool).
+	
     Note
     ----
     Recomended screen size : (190, 50).
@@ -62,8 +66,14 @@ def play_game(level_name, players_list, no_splash = False, screen_size = (190, 5
 	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	implementation : Bayron Mahy, Nicolas Van Bossuyt (v1. 15/02/17)
 	"""
-
-	game_stats = new_game(level_name, players_list)
+	# Create the new game.
+	is_distant_game = distant_id != None and distant_ip != None
+	
+	if is_distant_game:
+		game_stats = new_game(level_name, players_list, connect_to_player(distant_id, distant_ip, verbose_connection))
+	else:
+		game_stats = new_game(level_name, players_list)
+		
 	game_stats['screen_size'] = screen_size
 
 	if not no_splash:
@@ -101,9 +111,15 @@ def play_game(level_name, players_list, no_splash = False, screen_size = (190, 5
 		# Do Attack
 		for pending_attack in game_stats['pending_attacks']:
 			game_stats = command_attack(pending_attack[0], pending_attack[1], pending_attack[2], game_stats)
-
+	
+	# Disconect the remote player.
+	if is_distant_game:
+		disconnect_from_player(game_stats['players']['remote']['connection'])
+		
+	# Show the end game screen.
 	end_game(game_stats)
-def new_game(level_name, players_list):
+	
+def new_game(level_name, players_list, connection = None):
 	"""
 	Create a new game from a '.cis' file.
 
@@ -127,10 +143,18 @@ def new_game(level_name, players_list):
 
 	# Create game_stats dictionary.
 	game_file = parse_game_file(level_name)
-	game_stats = {'board':{}, 'players':{},'model_ship':{}, 'ships': {},
-				  'board_size': game_file['size'],'level_name': level_name,
-				  'nb_rounds': 0, 'max_nb_rounds': 300,
-				  'pending_attacks': [], 'game_logs': [], 'winners' : []}
+	game_stats = {'board':{},
+				  'players':{},
+				  'model_ship':{},
+				  'ships': {},
+				  'board_size': game_file['size'],
+				  'level_name': level_name,
+				  'nb_rounds': 0,
+				  'max_nb_rounds': 300,
+				  'pending_attacks': [],
+				  'game_logs': [],
+				  'winners' : [],
+				  'is_remote_game' : connection != None}
 
 	# Create ship specs sheet.
 	game_stats['model_ship']['fighter'] = {'icon': u'F', 'max_heal':3, 'max_speed':5, 'damages':1, 'range':5, 'price':10}
@@ -177,8 +201,11 @@ def new_game(level_name, players_list):
 											  'ships_starting_point': (9, game_stats['board_size'][1]-10),'ships_starting_direction': (1, -1)}
 		else:
 			game_stats['game_logs'].append('There is too many player the player %s is a loser he must be watch you playing' % (player))
-
+        
 		index_player+=1
+	
+	if connection != None:
+		game_stats['players']['distant']['connection'] = connection
 
 	return game_stats
 
@@ -370,11 +397,13 @@ def get_game_input(player_name, buy_ship, game_stats):
 	elif game_stats['players'][player_name]['type'] == 'ai':
 		# get input from the ai.
 		player_input = get_ai_input(player_name, buy_ship, game_stats)
+		
+		# Send the order to the remote player.
+		if game_stats['is_remote_game']:
+			notify_remote_orders(game_stats['players']['distant']['connection'], player_input)
 
 	elif game_stats['players'][player_name]['type'] == 'distant':
-		# Get input from the remote player.
-		# TODO : remote player logic.
-		# player_input = get_remote_input(player, game_stats)
+		player_input = get_remote_input(game_stats)
 		pass
 
 	return player_input
@@ -649,11 +678,21 @@ def get_ai_input(player_name, buy_ship, game_stats):
 # ------------------------------------------------------------------------------
 # Handeling remote player command.
 
-def get_remote_input():
+def get_remote_input(game_stats):
 	"""
-	Waiet and see :/
+	Get input from the remote player.
+	
+	Parameter
+	---------
+	game_stats : stat of the current game (dic).
+	
+	Return
+	------
+	remote_input : input of the remote player (str).
 	"""
-	pass
+	
+	connection = game_stats['players']['distant']['connection']
+	return get_remote_order(connection)
 
 # Gui framework
 # ==============================================================================
@@ -1132,7 +1171,7 @@ def parse_command(commands, player_name, game_stats):
 				game_stats['pending_attacks'].append((ship_name, game_stats['ships'][ship_name]['position'], coordinate))
 
 		except Exception:
-			print ship_action + ' is invalide action, please try : "faster, slower, left, right, or 42-24".'
+			pass
 
 	return game_stats
 
