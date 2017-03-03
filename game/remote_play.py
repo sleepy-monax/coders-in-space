@@ -193,7 +193,7 @@ def get_remote_orders(connection):
     IOError: if remote player cannot be reached
             
     """
-   
+    print 'wait for input...'
     # get sockets
     socket_in = connection[0]
     socket_out = connection[1]
@@ -207,5 +207,7 @@ def get_remote_orders(connection):
     # deal with null orders
     if orders == 'null':
         orders = ''
-        
+    
     return orders
+    
+    

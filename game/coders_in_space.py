@@ -83,7 +83,7 @@ def play_game(level_name, players_list, no_splash = False, screen_size = (190, 5
 	show_game_board(game_stats)
 
 	# Players create their ships.
-	for player in game_stats['players']:
+	for player in players_list:
 		game_stats = command_buy_ships(get_game_input(player, True, game_stats), player, game_stats)
 
 	# Game loop.
@@ -98,7 +98,7 @@ def play_game(level_name, players_list, no_splash = False, screen_size = (190, 5
 		game_stats['pending_attack'] = []
 
 		# getting players input.
-		for player in game_stats['players']:
+		for player in players_list:
 			if game_stats['players'][player]['nb_ships'] > 0:
 				game_stats = parse_command(get_game_input(player, False, game_stats), player, game_stats)
 			else:
@@ -114,7 +114,7 @@ def play_game(level_name, players_list, no_splash = False, screen_size = (190, 5
 	
 	# Disconect the remote player.
 	if is_distant_game:
-		disconnect_from_player(game_stats['players']['remote']['connection'])
+		disconnect_from_player(game_stats['players']['distant']['connection'])
 		
 	# Show the end game screen.
 	end_game(game_stats)
@@ -692,7 +692,7 @@ def get_remote_input(game_stats):
 	"""
 	
 	connection = game_stats['players']['distant']['connection']
-	return get_remote_order(connection)
+	return get_remote_orders(connection)
 
 # Gui framework
 # ==============================================================================
