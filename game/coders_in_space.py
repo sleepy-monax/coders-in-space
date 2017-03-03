@@ -117,6 +117,7 @@ def play_game(level_name, players_list, no_splash = False, screen_size = (190, 5
 
 	# Show the end game screen.
 	end_game(game_stats)
+
 def new_game(level_name, players_list, connection = None):
 	"""
 	Create a new game from a '.cis' file.
@@ -206,6 +207,7 @@ def new_game(level_name, players_list, connection = None):
 		game_stats['players']['distant']['connection'] = connection
 
 	return game_stats
+
 def splash_game(game_stats):
 	"""
 	Show the splash screen.
@@ -239,6 +241,7 @@ def splash_game(game_stats):
 	c = clear_screen(c)
 	c = put_ascii_art(c, screen_size[0] / 2 - 69, screen_size[1] / 2 - 5, 'coders_in_space', 'yellow')
 	print_canvas(c)
+
 def end_game(game_stats):
 	"""
 	Show the end game screen.
@@ -271,13 +274,13 @@ def end_game(game_stats):
 		if player == 'none' : continue
 		if player in game_stats['winners']:
 			# The player win the game.
-			text_lenght = mesure_ascii_text(font_standard, player)
+			text_lenght = mesure_ascii_string(font_standard, player)
 
 			text_font = font_standard
 			text_color = game_stats['players'][player]['color']
 		else:
 			# The player lost the game.
-			text_lenght = mesure_ascii_text(font_small, player)
+			text_lenght = mesure_ascii_string(font_small, player)
 			text_location = (95 - int(text_lenght / 2), line_index*11 + 2)
 			text_font = font_small
 			text_color = 'white'
@@ -286,14 +289,15 @@ def end_game(game_stats):
 
 		# Put player informations.
 		c = put_ascii_text(c, text_font, player, text_location[0], text_location[1], text_color)
-		c = put_text(c, text_location[0], text_location[1] + 6, '_' * text_lenght)
-		c = put_text(c, text_location[0], text_location[1] + 8, "%d spaceships" % (game_stats['players'][player]['nb_ships']))
-		c = put_text(c, text_location[0], text_location[1] + 9, "%d G$" % (calculate_value(player, game_stats)))
+		c = put_string(c, text_location[0], text_location[1] + 6, '_' * text_lenght)
+		c = put_string(c, text_location[0], text_location[1] + 8, "%d spaceships" % (game_stats['players'][player]['nb_ships']))
+		c = put_string(c, text_location[0], text_location[1] + 9, "%d G$" % (calculate_value(player, game_stats)))
 
 		line_index += 1
 
 	# Print the canvas in the terminal.
 	print_canvas(c)
+
 def is_game_continue(game_stats):
 	"""
 	Check if a player has won the game.
@@ -453,17 +457,17 @@ def show_ship_list(player_name, game_stats):
 
 	c = create_canvas(106, 10 + len(game_stats['ships']) + len(game_stats['players']) * 4)
 	put_box(c, 0, 0, c['size'][0], c['size'][1], 'double')
-	put_text(c, 3, 0, '[ Spaceships ]')
+	put_string(c, 3, 0, '[ Spaceships ]')
 	line_index = 0
 
 	# Show ships models.
-	put_text(c, 3, 2, '// Spaceships Models //')
-	put_text(c, 1, 3, '-'*104)
+	put_string(c, 3, 2, '// Spaceships Models //')
+	put_string(c, 1, 3, '-'*104)
 	for ship_model_name in game_stats['model_ship']:
 		ship_model = game_stats['model_ship'][ship_model_name]
-		put_text(c, 3, 4 + line_index, '[%s] %s // heal : %spv ~ speed : %skm/s ~ damages : %spv ~ attack range : %skm ~ price : %sG$ ' % (ship_model['icon'], ship_model_name, ship_model['max_heal'], ship_model['max_speed'], ship_model['damages'], ship_model['range'], ship_model['price']))
+		put_string(c, 3, 4 + line_index, '[%s] %s // heal : %spv ~ speed : %skm/s ~ damages : %spv ~ attack range : %skm ~ price : %sG$ ' % (ship_model['icon'], ship_model_name, ship_model['max_heal'], ship_model['max_speed'], ship_model['damages'], ship_model['range'], ship_model['price']))
 		line_index+=1
-	put_text(c, 1, 4 + line_index, '-'*104)
+	put_string(c, 1, 4 + line_index, '-'*104)
 
 	for player in game_stats['players']:
 		# Show Players's ships.
@@ -471,23 +475,23 @@ def show_ship_list(player_name, game_stats):
 		line_index += 4
 
 		if player == 'none':
-			put_text(c, 3, 2 + line_index, '// Abandonned spaceships //')
+			put_string(c, 3, 2 + line_index, '// Abandonned spaceships //')
 		else:
-			put_text(c, 3, 2 + line_index, '// %s\'s spaceships //' % (player), color=game_stats['players'][player]['color'])
+			put_string(c, 3, 2 + line_index, '// %s\'s spaceships //' % (player), color=game_stats['players'][player]['color'])
 
-		put_text(c, 1, 3 + line_index, '-'*104)
+		put_string(c, 1, 3 + line_index, '-'*104)
 
 		if game_stats['players'][player]['nb_ships'] > 0:
 			for ship_name in game_stats['ships']:
 				ship = game_stats['ships'][ship_name]
 				if ship['owner'] == player:
-					put_text(c, 3, 4 + line_index, '[%s] %s // heal : %spv ~ speed : %skm/s ~ Facing : %s' % (game_stats['model_ship'][ship['type']]['icon'], ship_name, ship['heal_points'], ship['speed'], str(ship['direction'])))
+					put_string(c, 3, 4 + line_index, '[%s] %s // heal : %spv ~ speed : %skm/s ~ Facing : %s' % (game_stats['model_ship'][ship['type']]['icon'], ship_name, ship['heal_points'], ship['speed'], str(ship['direction'])))
 					line_index+=1
 		else:
-			put_text(c, 3, 4 + line_index, 'Sorry no space ships :/')
+			put_string(c, 3, 4 + line_index, 'Sorry no space ships :/')
 			line_index+=1
 
-		put_text(c, 1, 4 + line_index, '-'*104)
+		put_string(c, 1, 4 + line_index, '-'*104)
 
 	is_scroll_continue = True
 	scroll = 0
@@ -538,26 +542,26 @@ def show_game_board(game_stats, color = True):
 	game_board_size = (game_stats['board_size'][0]*3 + 5, game_stats['board_size'][1] + 3)
 	c_board = create_canvas(game_board_size[0], game_board_size[1])
 	c_board = put_box(c_board, 0, 0, game_board_size[0], game_board_size[1])
-	c_board = put_text(c_board, 2, 0, u'[ Coders In Space : %s ] %s / %s Rounds' % (game_stats['level_name'], game_stats['nb_rounds'], game_stats['max_nb_rounds']))
+	c_board = put_string(c_board, 2, 0, u'[ Coders In Space : %s ] %s / %s Rounds' % (game_stats['level_name'], game_stats['nb_rounds'], game_stats['max_nb_rounds']))
 	c_board = put_stars_field(c_board, 1, 1, game_board_size[0] - 2, game_board_size[1] - 2, 1)
 
 	# Put horizontal coordinate.
-	coordinate_text = ''
+	coordinate_string = ''
 	for i in range(1, game_stats['board_size'][0] + 1):
-		value_text = str(i)
-		if len(value_text) == 1:
-			value_text = ' ' + value_text
-		value_text += ' '
-		coordinate_text += value_text
+		value_string = str(i)
+		if len(value_string) == 1:
+			value_string = ' ' + value_string
+		value_string += ' '
+		coordinate_string += value_string
 
-	c_board = put_text(c_board, 4, 1, coordinate_text, 1, 0, 'blue', 'white')
+	c_board = put_string(c_board, 4, 1, coordinate_string, 1, 0, 'blue', 'white')
 
 	# Put vertical coordinate.
 	for i in range(1, game_stats['board_size'][1] +1):
-		value_text = str(i)
-		if len(value_text) == 1:
-			value_text = ' ' + value_text
-		c_board = put_text(c_board, 1, i + 1, value_text + ' ', 1, 0, 'blue', 'white')
+		value_string = str(i)
+		if len(value_string) == 1:
+			value_string = ' ' + value_string
+		c_board = put_string(c_board, 1, i + 1, value_string + ' ', 1, 0, 'blue', 'white')
 
 	# Put game board.
 	for x in range(game_stats['board_size'][0]):
@@ -587,11 +591,11 @@ def show_game_board(game_stats, color = True):
 				elif ship_direction == (1, 0) or ship_direction == (-1, 0):
 					direction_char = u'─'
 
-				c_board = put_text(c_board, on_screen_board_tile[0] + 1 + ship_direction[0], on_screen_board_tile[1]  + ship_direction[1], direction_char, 1, 0, 'white', ship_owner_color)
-				c_board = put_text(c_board, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', ship_owner_color)
+				c_board = put_string(c_board, on_screen_board_tile[0] + 1 + ship_direction[0], on_screen_board_tile[1]  + ship_direction[1], direction_char, 1, 0, 'white', ship_owner_color)
+				c_board = put_string(c_board, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', ship_owner_color)
 			elif len(game_stats['board'][(x,y)]) > 0:
 				# in other case show how many ship there are in the tile.
-				c_board = put_text(c_board, on_screen_board_tile[0], on_screen_board_tile[1], '!' + str(len(game_stats['board'][(x,y)])),1,0,'white', 'green')
+				c_board = put_string(c_board, on_screen_board_tile[0], on_screen_board_tile[1], '!' + str(len(game_stats['board'][(x,y)])),1,0,'white', 'green')
 
 	c_screen = put_canvas(c_screen, c_board, screen_size[0] / 2 - c_board['size'][0] / 2, int((screen_size[1] - 7) / 2) - c_board['size'][1] / 2)
 
@@ -601,7 +605,7 @@ def show_game_board(game_stats, color = True):
 	players_bord_location = (0, screen_size[1] - 7)
 
 	c_screen = put_box(c_screen, 0, players_bord_location[1], players_bord_size[0], players_bord_size[1])
-	c_screen = put_text(c_screen, 1, players_bord_location[1], u'[ Players ]')
+	c_screen = put_string(c_screen, 1, players_bord_location[1], u'[ Players ]')
 
 	# Put players liste.
 	player_count = 0
@@ -611,10 +615,10 @@ def show_game_board(game_stats, color = True):
 			c_screen = put_box(c_screen, location[0], location[1], 30, 5, 'single')
 
 			# Put player informations.
-			c_screen = put_text(c_screen, location[0] + 2, location[1] , '[ ' + game_stats['players'][player]['name'] + ' ]', color=game_stats['players'][player]['color'])
-			c_screen = put_text(c_screen, location[0] + 2, location[1] + 1, 'Type : ' + game_stats['players'][player]['type'])
-			c_screen = put_text(c_screen, location[0] + 2, location[1] + 2, 'Money : ' + str(game_stats['players'][player]['money']) + '$')
-			c_screen = put_text(c_screen, location[0] + 2, location[1] + 3, 'Spaceship count : ' + str(game_stats['players'][player]['nb_ships']))
+			c_screen = put_string(c_screen, location[0] + 2, location[1] , '[ ' + game_stats['players'][player]['name'] + ' ]', color=game_stats['players'][player]['color'])
+			c_screen = put_string(c_screen, location[0] + 2, location[1] + 1, 'Type : ' + game_stats['players'][player]['type'])
+			c_screen = put_string(c_screen, location[0] + 2, location[1] + 2, 'Money : ' + str(game_stats['players'][player]['money']) + '$')
+			c_screen = put_string(c_screen, location[0] + 2, location[1] + 3, 'Spaceship count : ' + str(game_stats['players'][player]['nb_ships']))
 
 			player_count += 1
 
@@ -624,11 +628,11 @@ def show_game_board(game_stats, color = True):
 	logs_location = (players_bord_size[0], screen_size[1] - 7)
 
 	c_screen = put_box(c_screen, logs_location[0], logs_location[1], logs_size[0], logs_size[1])
-	c_screen = put_text(c_screen, logs_location[0] + 1, logs_location[1],u'[ Game Logs ]')
+	c_screen = put_string(c_screen, logs_location[0] + 1, logs_location[1],u'[ Game Logs ]')
 
 	line_index = 1
 	for line in game_stats['game_logs'][-5:]:
-		c_screen = put_text(c_screen, logs_location[0] + 1, logs_location[1] + line_index, line)
+		c_screen = put_string(c_screen, logs_location[0] + 1, logs_location[1] + line_index, line)
 		line_index +=1
 
 	# Show the game board in the terminal.
@@ -779,7 +783,7 @@ def put(canvas, x, y, char, color = None, back_color = None):
 	canvas : game view to put the char in (dic).
 	x, y : coordinate of were to put the char (int).
 	char : char to put (str).
-	color, back_color : color for the char (text).
+	color, back_color : color for the char (string).
 
 	Return
 	------
@@ -799,78 +803,35 @@ def put(canvas, x, y, char, color = None, back_color = None):
 		canvas['grid'][(x,y)]['char'] = char
 		canvas['grid'][(x,y)]['color'] = color
 
-		# Add the 'on_' at the start of the back_color text.
+		# Add the 'on_' at the start of the back_color string.
 		if not back_color == None : canvas['grid'][(x,y)]['back_color'] = back_color
 		else : canvas['grid'][(x,y)]['back_color'] = None
 
 	return canvas
-def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None, transparency_char = None):
+def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = None):
 	"""
-	Put a ascii art in the in the canvas.
+	Put and fill a rectangle in the canvas.
 
 	Parameters
 	----------
-	x, y : coordinate to pute the art (int).
-	ascii_art_name : name of the art file (text).
-	canvas : canvas to put the art on it (dic).
-	transparency_char : ignored char.
+	x, y : coordinate of the rectangle (int).
+	width, height : size of the rectangle (int).
+	color, back_color : color for the char (string).
 
-	return
+	Return
 	------
-	canvas : game view with te ascii art (dic).
+	canvas : canvas whith the rectangle (dic).
 
 	Version
 	-------
 	specification  : Nicolas Van Bossuyt (v1. 10/02/17)
-	implementation : Nicolas Van Bossuyt (V1. 15/02/17)
-				     Nicolas Van Bossuyt (v2. 26/02/17)
+	implementation : Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
-	art_file = open('art/' + ascii_art_name + '.txt','r')
 
-	line_index = 0
-
-	for line in art_file:
-		char_index = 0
-		for char in line.replace('\n', ''):
-			if char != transparency_char:
-				put(canvas, x + char_index, y + line_index, char, color, back_color)
-
-			char_index += 1
-		line_index += 1
-
-	art_file.close()
+	for w in range(width):
+		for h in range(height): canvas = put(canvas, x + w, y + h, char, color, back_color)
 
 	return canvas
-def put_ascii_text(c, font, text, x, y, color = None, back_color = None):
-	"""
-	Put a text in the canvas with a ascii font.
-
-	Parameters
-	----------
-	c : canvas (dic).
-	font : font to use (dic).
-	text : text to put in the canvas (str).
-
-	Return
-	------
-	canvas : the canvas with the text on it (dic).
-	"""
-
-	char_x = 0
-
-	for char in text:
-		char_ascii = font[char]
-		char_width = char_ascii['width']
-		char_text = char_ascii['text']
-
-		line_index = 0
-		for line in char_text.split('\n'):
-			c = put_text(c, x + char_x, y + line_index, line, 1, 0, color, back_color)
-			line_index += 1
-
-		char_x += char_width
-
-		return c
 def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_color = None):
 	"""
 	Put a box in the canvas.
@@ -880,7 +841,7 @@ def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_col
 	x, y : coordinate of the rectangle (int).
 	width, height : size of the rectangle (int).
 	mode : double ou single line <'double'|'single'> (str).
-	color, back_color : color for the char (text).
+	color, back_color : color for the char (string).
 
 	Return
 	------
@@ -915,64 +876,19 @@ def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_col
 	put(canvas, x + width - 1, y + height - 1, rect_char[5], color, back_color)
 
 	return canvas
-def put_canvas(canvas, canvas_bis, x, y):
+def put_string(canvas, x, y, string, direction_x = 1, direction_y = 0, color = None, back_color = None):
 	"""
-	Put a canvas in a canvas.
+	Put a specified string in the canvas.
 
 	Parameters
 	----------
-	canavas : canvas to put the canvas in (dic).
-	canvas_bis : the canvas to put in the main canvas (dic).
-	x, y : coordinate of the canavas (int).
+	canvas : canavas to put the string (dic).
+	x, y : coordinate of the string (int).
+	direction_x, direction_y : direction to draw the string (int).
 
 	Return
 	------
-	canvas : the canvas with the other canvas on it (dic).
-	"""
-
-	for cx in range(canvas_bis['size'][0]):
-		for cy in range(canvas_bis['size'][1]):
-			char = canvas_bis['grid'][(cx, cy)]
-			canvas = put(canvas, cx + x, cy + y, char['char'], char['color'], char['back_color'])
-
-	return canvas
-def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = None):
-	"""
-	Put and fill a rectangle in the canvas.
-
-	Parameters
-	----------
-	x, y : coordinate of the rectangle (int).
-	width, height : size of the rectangle (int).
-	color, back_color : color for the char (text).
-
-	Return
-	------
-	canvas : canvas whith the rectangle (dic).
-
-	Version
-	-------
-	specification  : Nicolas Van Bossuyt (v1. 10/02/17)
-	implementation : Nicolas Van Bossuyt (v1. 10/02/17)
-	"""
-
-	for w in range(width):
-		for h in range(height): canvas = put(canvas, x + w, y + h, char, color, back_color)
-
-		return canvas
-def put_text(canvas, x, y, text, direction_x = 1, direction_y = 0, color = None, back_color = None):
-	"""
-	Put a specified text in the canvas.
-
-	Parameters
-	----------
-	canvas : canavas to put the text (dic).
-	x, y : coordinate of the text (int).
-	direction_x, direction_y : direction to draw the text (int).
-
-	Return
-	------
-	canvas : game view with the new text (dic).
+	canvas : game view with the new string (dic).
 
 	Notes
 	-----
@@ -984,10 +900,47 @@ def put_text(canvas, x, y, text, direction_x = 1, direction_y = 0, color = None,
 	implementation : Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 
-	for char in text:
+	for char in string:
 		canvas = put(canvas, x, y, char, color, back_color)
 		x += direction_x
 		y += direction_y
+
+	return canvas
+def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None, transparency_char = None):
+	"""
+	Put a ascii art in the in the canvas.
+
+	Parameters
+	----------
+	x, y : coordinate to pute the art (int).
+	ascii_art_name : name of the art file (string).
+	canvas : canvas to put the art on it (dic).
+	transparency_char : ignored char.
+
+	return
+	------
+	canvas : game view with te ascii art (dic).
+
+	Version
+	-------
+	specification  : Nicolas Van Bossuyt (v1. 10/02/17)
+	implementation : Nicolas Van Bossuyt (V1. 15/02/17)
+				     Nicolas Van Bossuyt (v2. 26/02/17)
+	"""
+	art_file = open('art/' + ascii_art_name + '.txt','r')
+
+	line_index = 0
+
+	for line in art_file:
+		char_index = 0
+		for char in line.replace('\n', ''):
+			if char != transparency_char:
+				put(canvas, x + char_index, y + line_index, char, color, back_color)
+
+			char_index += 1
+		line_index += 1
+
+	art_file.close()
 
 	return canvas
 def put_stars_field(c, x, y, w, h, r_seed = None):
@@ -1010,12 +963,33 @@ def put_stars_field(c, x, y, w, h, r_seed = None):
 	for sx in range(w):
 		for sy in range(h):
 			if randint(0, 20) == 0:
-				c = put_text(c, x + sx, y +sy, void_char[randint(0, 2)])
+				c = put_string(c, x + sx, y +sy, void_char[randint(0, 2)])
 			else:
-			    c = put_text(c, x + sx, y +sy, ' ')
+			    c = put_string(c, x + sx, y +sy, ' ')
 
 	seed()
 	return c
+def put_canvas(canvas, canvas_bis, x, y):
+	"""
+	Put a canvas in a canvas.
+
+	Parameters
+	----------
+	canavas : canvas to put the canvas in (dic).
+	canvas_bis : the canvas to put in the main canvas (dic).
+	x, y : coordinate of the canavas (int).
+
+	Return
+	------
+	canvas : the canvas with the other canvas on it (dic).
+	"""
+
+	for cx in range(canvas_bis['size'][0]):
+		for cy in range(canvas_bis['size'][1]):
+			char = canvas_bis['grid'][(cx, cy)]
+			canvas = put(canvas, cx + x, cy + y, char['char'], char['color'], char['back_color'])
+
+	return canvas
 
 def load_ascii_font(font_name):
 	"""
@@ -1057,23 +1031,53 @@ def load_ascii_font(font_name):
 	f.close()
 
 	return font
-def mesure_ascii_text(font, text):
+def put_ascii_text(c, font, string, x, y, color = None, back_color = None):
+	"""
+	Put a string in the canvas with a ascii font.
+
+	Parameters
+	----------
+	c : canvas (dic).
+	font : font to use (dic).
+	string : string to put in the canvas (str).
+
+	Return
+	------
+	canvas : the canvas with the string on it (dic).
+	"""
+
+	char_x = 0
+
+	for char in string:
+		char_ascii = font[char]
+		char_width = char_ascii['width']
+		char_text = char_ascii['text']
+
+		line_index = 0
+		for line in char_text.split('\n'):
+			c = put_string(c, x + char_x, y + line_index, line, 1, 0, color, back_color)
+			line_index += 1
+
+		char_x += char_width
+
+	return c
+def mesure_ascii_string(font, string):
 	""""
 	Return the lenght of a ascii text.
 
 	Parameters
 	----------
-	font : font to mesure the text (dic).
-	text : text to mesure (str)
+	font : font to mesure the string (dic).
+	string : text to mesure (str)
 
 	Return
 	------
-	lenght : lenght of the text (int).
+	lenght : lenght of the string (int).
 
 	"""
 	lenght = 0
 
-	for char in text:
+	for char in string:
 		char_ascii = font[char]
 		char_width = char_ascii['width']
 		lenght += char_width
@@ -1082,17 +1086,17 @@ def mesure_ascii_text(font, text):
 
 def colored(text, fore_color, back_color):
 	"""
-	Color a text.
+	Color a string.
 
 	Parameters
 	----------
-	text : text to color (str).
+	text : string to color (str).
 	fore_color : name of the foreground color (str).
 	back_color : name of the background color (str).
 
 	Return
 	------
-	colored_text : colored text (str).
+	colored_text : colored string (str).
 
 	Notes
 	-----
@@ -1104,10 +1108,10 @@ def colored(text, fore_color, back_color):
 			  'magenta' : 5, 'cyan' : 6, 'white' : 7 }
 
 	reset = '\033[0m'
-	format_text = '\033[%dm%s'
+	format_string = '\033[%dm%s'
 
-	if fore_color is not None: text = format_text % (color[fore_color] + 30, text)
-	if back_color is not None: text = format_text % (color[back_color] + 40, text)
+	if fore_color is not None: text = format_string % (color[fore_color] + 30, text)
+	if back_color is not None: text = format_string % (color[back_color] + 40, text)
 	text += reset
 
 	return text
@@ -1118,7 +1122,7 @@ def colored(text, fore_color, back_color):
 
 # Command Parsing
 # ------------------------------------------------------------------------------
-# From a text to a game command.
+# From a string to a game command.
 
 def parse_command(commands, player_name, game_stats):
 	"""
@@ -1282,6 +1286,7 @@ def command_change_speed(ship, change, game_stats):
 		game_stats['game_logs'].append('you cannot make that change on the speed of "' + ship + '"')
 
 	return game_stats
+
 def command_rotate(ship, direction, game_stats):
 	"""
 	Rotate the ship.
@@ -1361,6 +1366,7 @@ def to_unit_vector(vector):
 		return 0
 
 	return (convert(vector[0]), convert(vector[1]))
+
 def do_moves(game_stats):
 	"""
 	Apply move to ships.
@@ -1509,6 +1515,7 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
 					del game_stats['ships'][target_ship]
 
 	return game_stats
+
 def get_distance(coord1, coord2, size):
 	"""
 	Get distance between two point in a tore space.
@@ -1546,7 +1553,7 @@ def get_distance(coord1, coord2, size):
 
 def direction_to_vector2D(direction):
 	"""
-	Convert a text direction to a vector2D.
+	Convert a string direction to a vector2D.
 
 	Parameter
 	---------
