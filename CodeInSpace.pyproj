@@ -41,6 +41,9 @@
     <Compile Include="game\coders_in_space.py" />
     <Compile Include="game\coders_in_space_specification.py" />
     <Compile Include="game\coders_in_space_test.py" />
+    <Compile Include="game\create_specs.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="game\remote_play.py" />
     <Compile Include="game\run_game.py" />
     <Compile Include="game\run_p1.py" />

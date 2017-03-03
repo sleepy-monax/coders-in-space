@@ -46,25 +46,26 @@ from time import sleep #because everyone needs to rest.
 
 def play_game(level_name, players_list, no_splash = False, screen_size = (190, 50), distant_id = None, distant_ip = None, verbose_connection = False):
 	"""
-	Main game function which runs the game loop.
+	Main function that executes the game loop.
 
 	Parameters
 	----------
 	level_name: name of the level (str).
-	players_list: list of the players(list).
-	screen_size : size of the terminal window (tuple(int, int)).
-	distant_id : ID of the distant player (int).
-	distant_ip : IP of the remote player (str).
-	verbose_connection : anabled connection output in the terminal (bool).
+	players_list: list of players (list).
+    (optional) no_splash : ship the splash screen (bool)
+	(optional) screen_size : size of the terminal window (tuple(int, int)).
+	(optional) distant_id : ID of the distant player (int).
+	(optional) distant_ip : IP of the distant player (str).
+	(optional) verbose_connection : anabled connection output in terminal (bool).
 
     Note
     ----
-    Recomended screen size : (190, 50).
+    Recomanded screen_size : (190, 50).
 
 	Version
 	-------
 	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	implementation : Bayron Mahy, Nicolas Van Bossuyt (v1. 15/02/17)
+	Implementation : Bayron Mahy, Nicolas Van Bossuyt (v1. 15/02/17)
 	"""
 	# Create the new game.
 	is_distant_game = distant_id != None and distant_ip != None
@@ -77,7 +78,7 @@ def play_game(level_name, players_list, no_splash = False, screen_size = (190, 5
 	game_stats['screen_size'] = screen_size
 
 	if not no_splash:
-		splash_game(game_stats)
+		show_splash_game(game_stats)
 		raw_input() # wait the player pressing enter.
 
 	show_game_board(game_stats)
@@ -117,7 +118,7 @@ def play_game(level_name, players_list, no_splash = False, screen_size = (190, 5
 		disconnect_from_player(game_stats['players']['distant']['connection'])
 
 	# Show the end game screen.
-	end_game(game_stats)
+	show_end_game(game_stats)
 
 def new_game(level_name, players_list, connection = None):
 	"""
@@ -127,6 +128,7 @@ def new_game(level_name, players_list, connection = None):
 	----------
 	level_name : name of the path to .cis file (str).
 	players_list : list of players (list).
+    (optional) connection : distant player connection (tuple).
 
 	Return
 	-------
@@ -134,8 +136,7 @@ def new_game(level_name, players_list, connection = None):
 
 	Version
 	-------
-	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	Implementation : Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/2017)
 					 Bayron Mahy, Nicolas Van Bossuyt (v2. 13/02/2017)
 					 Nicolas Van Bossuyt (v3. 23/02/17)
@@ -209,47 +210,55 @@ def new_game(level_name, players_list, connection = None):
 
 	return game_stats
 
-def splash_game(game_stats):
+def show_splash_game(game_stats):
 	"""
 	Show the splash screen.
 
 	Parameter
 	---------
-	game_sats : stats of the game (dic).
+	game_stats : stats of the game (dic).
+
+	Version
+	-------
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 
-	def clear_screen(c):
-		c = put_box(c, 0, 0, screen_size[0], screen_size[1])
-		c = put_stars_field(c, 1, 1, screen_size[0] - 2, screen_size[1] - 2, 1)
-		return c
+	def clear_canvas(canvas):
+		canvas = put_box(canvas, 0, 0, screen_size[0], screen_size[1])
+		canvas = put_stars_field(canvas, 1, 1, screen_size[0] - 2, screen_size[1] - 2, 1)
+		return canvas
 
 	screen_size = game_stats['screen_size']
 	c = create_canvas(screen_size[0], screen_size[1])
 
 	# print the alien.
-	c = clear_screen(c)
+	c = clear_canvas(c)
 	c = put_ascii_art(c, screen_size[0] / 2 - 17, screen_size[1] / 2 - 12, 'alien', 'green')
 	print_canvas(c)
 	sleep(1)
 
 	# Print Groupe 24 logo.
-	c = clear_screen(c)
+	c = clear_canvas(c)
 	c = put_ascii_art(c, screen_size[0] / 2 - 53, screen_size[1] / 2 - 5, 'groupe24')
 	print_canvas(c)
 	sleep(1)
 
 	# Print coders in space logo.
-	c = clear_screen(c)
+	c = clear_canvas(c)
 	c = put_ascii_art(c, screen_size[0] / 2 - 69, screen_size[1] / 2 - 5, 'coders_in_space', 'yellow')
 	print_canvas(c)
 
-def end_game(game_stats):
+def show_end_game(game_stats):
 	"""
 	Show the end game screen.
 
 	Parameter
 	---------
 	game_stats : stats of the game (dic).
+
+	Version
+	-------
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 	screen_size = game_stats['screen_size']
 
@@ -303,18 +312,19 @@ def is_game_continue(game_stats):
 	"""
 	Check if a player has won the game.
 
-	Parameters
-	----------
-	game_stats : game before comand execution (dic)
+	Parameter
+	---------
+	game_stats : stats of the game (dic).
 
 	Return
 	------
-	True if the game is not over (no one has won yet), False if someone has won.
+	False if the game is over.
 
 	Version
 	-------
-	specifications : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1) 24/2/2017
-	implementation : Alisson Leist (v1) 24/2/2017 """
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 24/02/17)
+	Implementation : Alisson Leist (v1. 24/02/17)
+    """
 
 	not_loser = []
 
@@ -353,7 +363,7 @@ def is_game_continue(game_stats):
 
 	return False
 
-def calculate_value(player, game_stats):
+def calculate_value(player_name, game_stats):
 	"""
 	calculate the total ship value of a player.
 
@@ -367,7 +377,7 @@ def calculate_value(player, game_stats):
 	total_value = 0
 
 	for ship in game_stats['ships']:
-		if game_stats['ships'][ship]['owner'] == player:
+		if game_stats['ships'][ship]['owner'] == player_name:
 			total_value += game_stats['model_ship'][game_stats['ships'][ship]['type']]['price']
 
 	return total_value
@@ -376,35 +386,37 @@ def calculate_value(player, game_stats):
 # ==============================================================================
 # Get input from each player.
 
-def get_game_input(player_name, buy_ship, game_stats):
+def get_game_input(player_name, buy_ships, game_stats):
 	"""
 	get input from a specified player.
 
 	Parameters
 	----------
 	player_name : name of the player to get input (str).
+    buy_ships : True, if players buy their boats (bool).
+    game_stats : stats of the game (dic).
 
 	Version
 	-------
-	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	implemetation : Niolas Van Bossuyt (V1. 15/02/17)
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Niolas Van Bossuyt (V1. 15/02/17)
 	"""
 	player_input = ''
 
 	if game_stats['players'][player_name]['type'] == 'human':
 		# get input from the human player.
-		player_input = get_human_input(player_name, buy_ship, game_stats)
+		player_input = get_human_input(player_name, buy_ships, game_stats)
 
 	elif game_stats['players'][player_name]['type'] == 'ai':
 		# get input from the ai.
-		player_input = get_ai_input(player_name, buy_ship, game_stats)
+		player_input = get_ai_input(player_name, buy_ships, game_stats)
 
 		# Send the order to the remote player.
 		if game_stats['is_remote_game']:
 			notify_remote_orders(game_stats['players']['distant']['connection'], player_input)
 
 	elif game_stats['players'][player_name]['type'] == 'distant':
-		player_input = get_remote_input(game_stats)
+		player_input = get_distant_input(game_stats)
 		pass
 
 	return player_input
@@ -420,17 +432,17 @@ def get_human_input(player_name, buy_ship, game_stats):
 	Parameters
 	----------
 	player_name : Name of the player to get input from (str).
-	buy_ship : the player need to buy a ship (str).
+	buy_ships : True, if players buy their boats (bool).
 	game_stats : stats of the game (dic).
 
 	Returns
 	-------
-	player_input : input from the player (str).
+	player_input : input from Human (str).
 
 	Version
 	-------
-	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	implemetation : Nicolas Van Bosuyt (v1 22/02/17)
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Nicolas Van Bosuyt (v1. 22/02/17)
 	"""
 
 	while True:
@@ -455,6 +467,10 @@ def show_ship_list(player_name, game_stats):
 	----------
 	player_name: name of the player to show the information (str).
 	game_stats: stats of the game (dic).
+
+	Version
+	-------
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 	screen_size = game_stats['screen_size']
 
@@ -516,18 +532,18 @@ def show_ship_list(player_name, game_stats):
 			raw_input('\033[%d;%dHPress enter to exit...' % (screen_size[1], 3))
 		scroll-=10
 
-def show_game_board(game_stats, color = True):
+def show_game_board(game_stats):
 	"""
 	Show the game to the user screen.
 
 	Parameter
 	---------
-	game_stats : game to show on screen (dic).
+	game_stats : stats of the game (dic).
 
 	Version
 	-------
-	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	implementation : Nicolas Van Bossuyt (v1. 10/02/2017)
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Nicolas Van Bossuyt (v1. 10/02/2017)
 					 Nicolas Van Bossuyt (v2. 12/02/2017)
 					 Nicolas Van Bossuyt (v3. 13/02/2017)
 					 Nicolas Van Bossuyt (v4. 19/02/2017)
@@ -537,7 +553,7 @@ def show_game_board(game_stats, color = True):
 	screen_size = game_stats['screen_size']
 
 	# Create a the main canvas.
-	c_screen = create_canvas(screen_size[0], screen_size[1], color)
+	c_screen = create_canvas(screen_size[0], screen_size[1])
 
 	# Put a cool artwork on the background.
 	c_screen = put_ascii_art(c_screen, 1, screen_size[1] - 30, 'planet')
@@ -648,25 +664,27 @@ def show_game_board(game_stats, color = True):
 # ------------------------------------------------------------------------------
 # AI interactions
 
-def get_ai_input(player_name, buy_ship, game_stats):
+def get_ai_input(player_name, buy_ships, game_stats):
 	"""
 	Get the game input from the ai.
 
 	Parameter
 	---------
 	player_name : name of the player (str).
-	game_stats : game stat of the current game (dic).
+    buy_ships : True, if players buy their boats (bool).
+	game_stats : stats of the game (dic).
 
 	Return
 	------
-	ai_input : game input from the ai (str).
+	ai_input : game input from AI (str).
 
 	Version
 	-------
-	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+    Implementation : Nicolas Van Bossuyt (v1 27/02/17)
 	"""
 
-	if buy_ship:
+	if buy_ships:
 		return 'StarBoby:fighter me:destroyer tamere:battlecruiser'
 
 	action = ['faster', 'slower', 'left', 'right']
@@ -683,17 +701,22 @@ def get_ai_input(player_name, buy_ship, game_stats):
 # ------------------------------------------------------------------------------
 # Handeling remote player command.
 
-def get_remote_input(game_stats):
+def get_distant_input(game_stats):
 	"""
-	Get input from the remote player.
+	Get input from the distant player.
 
 	Parameter
 	---------
-	game_stats : stat of the current game (dic).
+	game_stats : stats of the game (dic).
 
 	Return
 	------
-	remote_input : input of the remote player (str).
+	remote_input : input from distant player (str).
+
+	Version
+	-------
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+                     Nicolas Van Bossuyt (v2. 03/03/17)
 	"""
 
 	connection = game_stats['players']['distant']['connection']
@@ -719,12 +742,12 @@ def create_canvas(width, height, enable_color = True):
 
 	Return
 	------
-	canva : new char canva (dic).
+	canvas : 2D ascii canvas (dic).
 
 	Version
 	-------
-	specification  : Nicolas Van Bossuyt (v1. 10/02/17)
-	implementation : Nicolas Van Bossuyt (v1. 13/02/2017)
+	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 
 	# Initialize the canvas.
@@ -739,17 +762,17 @@ def create_canvas(width, height, enable_color = True):
 
 def print_canvas(canvas, x = 0, y = 0):
 	"""
-	Print the game view in the terminal.
+	Print canvas in the terminal.
 
 	Parameter
 	---------
 	canvas : canvas to print on screen (dic).
-	x, y : coodinate in the terminal (int).
+	(optional) x, y : coodinate in the terminal (int).
 
 	Version
 	-------
-	specification  : Nicolas Van Bossuyt (v1. 10/02/17)
-	implementation : Nicolas Van Bossuyt (v1. 10/02/2017)
+	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 
 	canvas_width = canvas['size'][0]
@@ -783,14 +806,14 @@ def print_canvas(canvas, x = 0, y = 0):
 
 def put(canvas, x, y, char, color = None, back_color = None):
 	"""
-	Put the specified char in the canvas.
+	Put a character in the canvas.
 
 	Parameters
 	----------
-	canvas : game view to put the char in (dic).
+	canvas : canvas to draw in (dic).
 	x, y : coordinate of were to put the char (int).
 	char : char to put (str).
-	color, back_color : color for the char (string).
+	(optiona) color, back_color : color for the char (string).
 
 	Return
 	------
@@ -798,8 +821,8 @@ def put(canvas, x, y, char, color = None, back_color = None):
 
 	Version
 	-------
-	specification  : Nicolas Van Bossuyt (v1. 10/02/17)
-	implementation : Nicolas Van Bossuyt (v1. 10/02/17)
+	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 
 	# Check if the coordinate is in the bound of the game view.
@@ -818,10 +841,11 @@ def put(canvas, x, y, char, color = None, back_color = None):
 
 def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = None):
 	"""
-	Put and fill a rectangle in the canvas.
+	Put a filled rectangle in the canvas.
 
 	Parameters
 	----------
+    canvas : canvas to draw in (dic).
 	x, y : coordinate of the rectangle (int).
 	width, height : size of the rectangle (int).
 	color, back_color : color for the char (string).
@@ -832,8 +856,8 @@ def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = 
 
 	Version
 	-------
-	specification  : Nicolas Van Bossuyt (v1. 10/02/17)
-	implementation : Nicolas Van Bossuyt (v1. 10/02/17)
+	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 
 	for w in range(width):
@@ -847,6 +871,7 @@ def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_col
 
 	Parameters
 	----------
+    canvas : canvas to draw in (dic).
 	x, y : coordinate of the rectangle (int).
 	width, height : size of the rectangle (int).
 	mode : double ou single line <'double'|'single'> (str).
@@ -858,8 +883,8 @@ def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_col
 
 	Version
 	-------
-	specification  : Nicolas Van Bossuyt (v1. 10/02/17)
-	implementation : Nicolas Van Bossuyt (v1. 10/02/17)
+	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 
 	rec_char = ()
@@ -888,11 +913,11 @@ def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_col
 
 def put_text(canvas, x, y, text, direction_x = 1, direction_y = 0, color = None, back_color = None):
 	"""
-	Put a specified string in the canvas.
+	Put a text in the canvas.
 
 	Parameters
 	----------
-	canvas : canavas to put the string (dic).
+	canvas : canvas to draw in (dic).
 	x, y : coordinate of the string (int).
 	direction_x, direction_y : direction to draw the string (int).
 
@@ -906,8 +931,8 @@ def put_text(canvas, x, y, text, direction_x = 1, direction_y = 0, color = None,
 
 	Version
 	-------
-	specification  : Nicolas Van Bossuyt (v1. 10/02/17)
-	implementation : Nicolas Van Bossuyt (v1. 10/02/17)
+	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 
 	for char in text:
@@ -919,23 +944,24 @@ def put_text(canvas, x, y, text, direction_x = 1, direction_y = 0, color = None,
 
 def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None, transparency_char = None):
 	"""
-	Put a ascii art in the in the canvas.
+	Put a ascii art in the canvas.
 
 	Parameters
 	----------
+    canvas : canvas to draw in (dic).
 	x, y : coordinate to pute the art (int).
 	ascii_art_name : name of the art file (string).
 	canvas : canvas to put the art on it (dic).
 	transparency_char : ignored char.
 
-	return
+	Return
 	------
 	canvas : game view with te ascii art (dic).
 
 	Version
 	-------
-	specification  : Nicolas Van Bossuyt (v1. 10/02/17)
-	implementation : Nicolas Van Bossuyt (V1. 15/02/17)
+	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Nicolas Van Bossuyt (V1. 15/02/17)
 				     Nicolas Van Bossuyt (v2. 26/02/17)
 	"""
 	art_file = open('art/' + ascii_art_name + '.txt','r')
@@ -955,46 +981,54 @@ def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None,
 
 	return canvas
 
-def put_stars_field(c, x, y, w, h, r_seed = None):
+def put_stars_field(canvas, x, y, width, height, r_seed = None):
 	"""
 	Put a stars field in the canvas.
 
 	Parameters
 	----------
-	c : canvas to pute stars on it (dic)
+	canvas : canvas to draw in (dic).
 	x, y, w, h : location and size of the stars field (int)
 	r_seed : random seed (int).
 
 	Return
 	------
 	canvas : the canvas with the stars field on it (dic).
+
+	Version
+	-------
+	Specification  : Nicolas Van Bossuyt (v1. 27/02/17)
 	"""
 	void_char = ['.', '*', '\'']
 	seed(r_seed)
 
-	for sx in range(w):
-		for sy in range(h):
+	for star_x in range(width):
+		for star_y in range(height):
 			if randint(0, 20) == 0:
-				c = put_text(c, x + sx, y +sy, void_char[randint(0, 2)])
+				canvas = put_text(canvas, x + star_x, y +star_y, void_char[randint(0, 2)])
 			else:
-			    c = put_text(c, x + sx, y +sy, ' ')
+			    canvas = put_text(canvas, x + star_x, y +star_y, ' ')
 
 	seed()
-	return c
+	return canvas
 
 def put_canvas(canvas, canvas_bis, x, y):
 	"""
-	Put a canvas in a canvas.
+	Put a canvas in the canvas.
 
 	Parameters
 	----------
-	canavas : canvas to put the canvas in (dic).
-	canvas_bis : the canvas to put in the main canvas (dic).
-	x, y : coordinate of the canavas (int).
+	canvas : canvas to draw in (dic).
+	canvas_bis : canvas to put in the main canvas (dic).
+	x, y : coordinate of the canvas (int).
 
 	Return
 	------
 	canvas : the canvas with the other canvas on it (dic).
+
+	Version
+	-------
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 27/02/17)
 	"""
 
 	for cx in range(canvas_bis['size'][0]):
@@ -1015,6 +1049,10 @@ def load_ascii_font(font_name):
 	Return
 	------
 	font : font face from the file (dic).
+
+	Version
+	-------
+	Specification  : Nicolas Van Bossuyt (v1. 27/02/17)
 
 	Notes
 	-----
@@ -1045,40 +1083,44 @@ def load_ascii_font(font_name):
 
 	return font
 
-def put_ascii_text(c, font, string, x, y, color = None, back_color = None):
+def put_ascii_text(canvas, font, text, x, y, color = None, back_color = None):
 	"""
-	Put a string in the canvas with a ascii font.
+	Put a ascii art text in the canvas.
 
 	Parameters
 	----------
-	c : canvas (dic).
+	canvas : canvas to draw in (dic).
 	font : font to use (dic).
 	string : string to put in the canvas (str).
 
 	Return
 	------
 	canvas : the canvas with the string on it (dic).
+
+	Version
+	-------
+	Specification  : Nicolas Van Bossuyt (v1. 27/02/17)
 	"""
 
 	char_x = 0
 
-	for char in string:
+	for char in text:
 		char_ascii = font[char]
 		char_width = char_ascii['width']
 		char_text = char_ascii['text']
 
 		line_index = 0
 		for line in char_text.split('\n'):
-			c = put_text(c, x + char_x, y + line_index, line, 1, 0, color, back_color)
+			canvas = put_text(canvas, x + char_x, y + line_index, line, 1, 0, color, back_color)
 			line_index += 1
 
 		char_x += char_width
 
-	return c
+	return canvas
 
-def mesure_ascii_text(font, string):
+def mesure_ascii_text(font, text):
 	""""
-	Return the lenght of a ascii text.
+	Return the lenght of a ascii art text.
 
 	Parameters
 	----------
@@ -1089,19 +1131,22 @@ def mesure_ascii_text(font, string):
 	------
 	lenght : lenght of the string (int).
 
+	Version
+	-------
+	Specification  : Nicolas Van Bossuyt (v1. 27/02/17)
 	"""
 	lenght = 0
 
-	for char in string:
+	for char in text:
 		char_ascii = font[char]
 		char_width = char_ascii['width']
 		lenght += char_width
 
 	return lenght
 
-def set_color(text, fore_color, back_color):
+def set_color(text, foreground_color, background_color):
 	"""
-	Color a string.
+	Changes the color of a text.
 
 	Parameters
 	----------
@@ -1117,16 +1162,19 @@ def set_color(text, fore_color, back_color):
 	-----
 	Colors : grey, red, green, yellow, blue, magenta, cyan, white.
 
-	ansi escape sequences : http://ascii-table.com/ansi-escape-sequences.php
+	ANSI color escape sequences : http://ascii-table.com/ansi-escape-sequences.php
+
+    Version
+	-------
+	Specification  : Nicolas Van Bossuyt (v1. 27/02/17)
 	"""
-	color = { 'grey' : 0, 'red' : 1, 'green': 2, 'yellow' : 3, 'blue' : 4,
-			  'magenta' : 5, 'cyan' : 6, 'white' : 7 }
+	color = { 'grey' : 0, 'red' : 1, 'green': 2, 'yellow' : 3, 'blue' : 4, 'magenta' : 5, 'cyan' : 6, 'white' : 7 }
 
 	reset = '\033[0m'
 	format_string = '\033[%dm%s'
 
-	if fore_color is not None: text = format_string % (color[fore_color] + 30, text)
-	if back_color is not None: text = format_string % (color[back_color] + 40, text)
+	if foreground_color is not None: text = format_string % (color[foreground_color] + 30, text)
+	if background_color is not None: text = format_string % (color[background_color] + 40, text)
 	text += reset
 
 	return text
@@ -1141,21 +1189,21 @@ def set_color(text, fore_color, back_color):
 
 def parse_command(commands, player_name, game_stats):
 	"""
-	Parse a command from a player and run it.
+	Parse a player's command and execute it
 
 	Parameters
 	----------
-	command : command from the player (str).
+	command : command from a player (str).
 	game_stats : stat of the game (dic).
 
 	Return
 	------
-	game_stats : game stat after the command execution (dic).
+	game_stats : new stats of the game (dic).
 
 	Version
 	-------
-	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	implementation : Nicolas Van Bossuyt (V1. 10/02/17)
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Nicolas Van Bossuyt (V1. 10/02/17)
 	"""
 
 	commands = commands.split(' ')
@@ -1205,12 +1253,12 @@ def command_buy_ships(ships, player, game_stats):
 
 	Return
 	------
-	game_stats : game stats after the operation (dic).
+	game_stats : new stats of the game (dic).
 
 	Version
 	-------
-	specification : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	implementation : Nicolas Van Bossuyt (v1. 14/02/17)
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Nicolas Van Bossuyt (v1. 14/02/17)
 					 Nicolas Van Bossuyt (v2. 23/02/17)
 	"""
 
@@ -1249,12 +1297,12 @@ def create_ship(player_name, ship_name, ship_type, game_stats):
 
 	Return
 	------
-	game_stats : stats after adding the new ship (dic).
+	game_stats : new stats of the game (dic).
 
 	Version
 	-------
-	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
-	implementation : Nicolas Van Bossuyt (v1. 15/02/2017)
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
+	Implementation : Nicolas Van Bossuyt (v1. 15/02/2017)
 	"""
 
 	# Creatting the new space ship and add to the game_stats.
@@ -1280,12 +1328,12 @@ def command_change_speed(ship, change, game_stats):
 
 	Returns
 	-------
-	game_stats : the game after the command execution (dic)
+	game_stats : new stats of the game (dic).
 
 	Version
 	-------
-	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	implementation : Bayron Mahy (v1. 10/02/2017)
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Bayron Mahy (v1. 10/02/2017)
 	"""
 	type = game_stats['ships'][ship]['type']
 
@@ -1309,18 +1357,18 @@ def command_rotate(ship, direction, game_stats):
 
 	Parameters
 	----------
-	ship : name of the ship to Increase the speed.
+	ship : name of the ship to Increase the speed (str).
 	direction : the direction to rotate the ship <"left"|"right">(str)
 	game_stats : stats of the game (dic).
 
 	Returns
 	-------
-	new_game_stats : the game after the command execution.
+	game_stats : new stats of the game (dic).
 
 	Version
 	-------
-	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	implementation : Nicolas Van Bossuyt (v1. 10/02/17)
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Nicolas Van Bossuyt (v1. 10/02/17)
 					 Nicolas Van Bossuyt (v2. 22/02/17)
 	"""
 	v = (0, 0)
@@ -1347,17 +1395,12 @@ def rotate_vector_2D(vector, theta):
 
 	Version
 	-------
-	specification :  Nicolas Van Bossuyt (v1. 10/02/17)
-	implementation : Nicolas Van Bossuyt (v1. 10/02/17)
+	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Nicolas Van Bossuyt (v1. 10/02/17)
 					 Nicolas Van Bossuyt (v2. 22/02/17)
-
-	Source
-	------
-	Use code from https://gist.github.com/mcleonard/5351452 under MIT license.
 	"""
 
 	theta = radians(theta)
-	# Just applying the 2D rotation matrix
 	dc, ds = cos(theta), sin(theta)
 	x, y = vector[0], vector[1]
 	x, y = dc*x - ds*y, ds*x + dc*y
@@ -1375,6 +1418,10 @@ def to_unit_vector(vector):
 	Return
 	------
 	unit_vector : a unit vector between 1 and -1 (tuple(int, int)).
+
+	Version
+	-------
+	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 
 	def convert(value):
@@ -1391,16 +1438,16 @@ def do_moves(game_stats):
 
 	Parameters
 	----------
-	game_stats : stats of the game (dic)
+	game_stats : stats of the game (dic).
 
 	Return
 	------
-	game_stats : stats of the game after the moves (dic)
+	game_stats : new stats of the game (dic).
 
 	Version
 	-------
-	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	implementation : Alisson Leist (v1. 20/02/17)
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Alisson Leist (v1. 20/02/17)
 					 Nicolas Van Bosuuyt (v2. 23/02/17)
 	"""
 	for element in game_stats['ships'] :
@@ -1440,21 +1487,22 @@ def do_moves(game_stats):
 	return game_stats
 
 def take_abandonned_ship(game_stats):
-	""" determine who become the owner of the abandonned ship.
+	"""
+    Determine who become the owner of the abandonned ship.
 
 	Parameters
 	----------
-	game_stats: state of the game before the call of this function (dico)
+	game_stats : stats of the game (dic).
 
 	Returns
 	-------
-	game_stats: state of the game after the call of this function (dico)
+	game_stats : new stats of the game (dic).
 
 	Version
 	-------
-	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	implementation : Bayron Mahy (v.1 21/02/17)
-					 Bayron Mahy (v.2 22/02/17)
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Bayron Mahy (v1. 21/02/17)
+					 Bayron Mahy (v2. 22/02/17)
 	"""
 	for location in game_stats['board']:
 
@@ -1507,12 +1555,12 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
 
 	Return
 	------
-	new_game_stats : the game after the command execution (dic).
+	game_stats : new stats of the game (dic).
 
 	Version
 	-------
-	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
-	implementation : Alisson Leist (v1. 14/2/17)
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
+	Implementation : Alisson Leist (v1. 14/2/17)
 	"""
  	ship_type = game_stats['model_ship'][game_stats['ships'][ship]['type']]
 	damages = ship_type['damages']
@@ -1548,6 +1596,10 @@ def get_distance(coord1, coord2, size):
 	Return
 	------
 	Distance : distance of the two point (int).
+
+	Version
+	-------
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 	coord1 = list(coord1)
 	coord2 = list(coord2)
@@ -1584,8 +1636,8 @@ def direction_to_vector2D(direction):
 
 	Version
 	-------
-	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	implementation : Nicolas Van Bossuyt (v1. 11/02/17)
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Nicolas Van Bossuyt (v1. 11/02/17)
 	"""
 	vector = ()
 
@@ -1629,8 +1681,8 @@ def parse_game_file(path):
 
 	Version
 	-------
-	specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	implementation : Nicolas Van Bossuyt (v2. 15/02/2017)
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Nicolas Van Bossuyt (v2. 15/02/2017)
 	"""
 	# Split file lines and remove '\n' chars.
 	cis_file = open(path,'r')
@@ -1659,7 +1711,7 @@ def parse_game_file(path):
 
 def create_game_board(file_name, board_size, lost_ships_count):
 	"""
-	Create a new cis file.
+	Create a new "coders in space"'s board file.
 
 	Parameters
 	----------
@@ -1667,6 +1719,9 @@ def create_game_board(file_name, board_size, lost_ships_count):
 	board_size : size of the game board (tuple(int, int)).
 	lost_ships_count : number of lost ship on the game board (int).
 
+	Version
+	-------
+	Specification  : Nicolas Van Bossuyt (v1. 25/02/17)
 	"""
 	ship_type = ['fighter', 'destroyer', 'battlecruiser']
 	ship_direction = ['up', 'up-left', 'up-right', 'left', 'right', 'down', 'down-left', 'down-right']
