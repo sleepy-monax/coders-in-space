@@ -150,7 +150,7 @@ def new_game(level_name, players_list, connection = None):
 				  'board_size': game_file['size'],
 				  'level_name': level_name,
 				  'nb_rounds': 0,
-				  'max_nb_rounds': 300,
+				  'max_nb_rounds': 10,
 				  'pending_attacks': [],
 				  'game_logs': [],
 				  'winners' : [],
