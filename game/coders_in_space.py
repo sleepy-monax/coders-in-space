@@ -650,7 +650,9 @@ def get_ai_input(player_name, buy_ship, game_stats):
 # Handeling remote player command.
 
 def get_remote_input():
-	# Not implemented yet.
+	"""
+	Waiet and see :/
+	"""
 	pass
 
 # Gui framework
@@ -1398,18 +1400,26 @@ def take_abandonned_ship(game_stats):
 					 Bayron Mahy (v.2 22/02/17)
 	"""
 	for location in game_stats['board']:
+		
 		ships_on_location= game_stats['board'][location]
+		
 		if ships_on_location != []:
+			
 			nb_good_ships = 1
+			
 			if len(ships_on_location) > 2:
+				
 				owner_to_test= game_stats['ships'][ships_on_location[1]]['owner']
+		
 				for ships in ships_on_location:
+					
 					if game_stats['ships'][ships]['owner'] == owner_to_test:
 						nb_good_ships+=1
-			if game_stats['ships'][ships_on_location[0]]['owner']=='none' and  (nb_good_ships == len(ships_on_location)-1):
+						
+			if game_stats['ships'][ships_on_location[0]]['owner'] == 'none' and ( nb_good_ships == len(ships_on_location) -1 ):
 
 				#change owner none by the owner of the other ships
-				game_stats['ships'][ships_on_location[0]]['owner']=game_stats['ships'][ships_on_location[1]]['owner']
+				game_stats['ships'][ships_on_location[0]]['owner'] = game_stats['ships'][ships_on_location[1]]['owner']
 
 				#c/p of the dictionnary
 				game_stats['ships'][game_stats['ships'][ships_on_location[0]]['owner']+'_'+ships_on_location[0]] = game_stats['ships'][ships_on_location[0]]
@@ -1462,9 +1472,9 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
 
 				if game_stats['ships'][target_ship]['heal_points'] <= 0:
 					# Remove the space ship.
-					del game_stats['ships'][target_ship]
 					game_stats['board'][target_coordinate].remove(target_ship)
 					game_stats['players'][game_stats['ships'][target_ship]['owner']]['nb_ships'] -=1
+					del game_stats['ships'][target_ship]
 
 	return game_stats
 
