@@ -49,14 +49,13 @@ def play_game(level_name, players_list, no_splash = False, screen_size = (190, 5
 
 	Parameters
 	----------
-
 	level_name: name of the level (str).
 	players_list: list of the players(list).
 	screen_size : size of the terminal window (tuple(int, int)).
 	distant_id : ID of the distant player (int).
 	distant_ip : IP of the remote player (str).
 	verbose_connection : anabled connection output in the terminal (bool).
-	
+
     Note
     ----
     Recomended screen size : (190, 50).
@@ -68,12 +67,12 @@ def play_game(level_name, players_list, no_splash = False, screen_size = (190, 5
 	"""
 	# Create the new game.
 	is_distant_game = distant_id != None and distant_ip != None
-	
+
 	if is_distant_game:
 		game_stats = new_game(level_name, players_list, connect_to_player(distant_id, distant_ip, verbose_connection))
 	else:
 		game_stats = new_game(level_name, players_list)
-		
+
 	game_stats['screen_size'] = screen_size
 
 	if not no_splash:
@@ -111,14 +110,14 @@ def play_game(level_name, players_list, no_splash = False, screen_size = (190, 5
 		# Do Attack
 		for pending_attack in game_stats['pending_attacks']:
 			game_stats = command_attack(pending_attack[0], pending_attack[1], pending_attack[2], game_stats)
-	
+
 	# Disconect the remote player.
 	if is_distant_game:
 		disconnect_from_player(game_stats['players']['distant']['connection'])
-		
+
 	# Show the end game screen.
 	end_game(game_stats)
-	
+
 def new_game(level_name, players_list, connection = None):
 	"""
 	Create a new game from a '.cis' file.
@@ -201,9 +200,9 @@ def new_game(level_name, players_list, connection = None):
 											  'ships_starting_point': (9, game_stats['board_size'][1]-10),'ships_starting_direction': (1, -1)}
 		else:
 			game_stats['game_logs'].append('There is too many player the player %s is a loser he must be watch you playing' % (player))
-        
+
 		index_player+=1
-	
+
 	if connection != None:
 		game_stats['players']['distant']['connection'] = connection
 
@@ -397,7 +396,7 @@ def get_game_input(player_name, buy_ship, game_stats):
 	elif game_stats['players'][player_name]['type'] == 'ai':
 		# get input from the ai.
 		player_input = get_ai_input(player_name, buy_ship, game_stats)
-		
+
 		# Send the order to the remote player.
 		if game_stats['is_remote_game']:
 			notify_remote_orders(game_stats['players']['distant']['connection'], player_input)
@@ -681,16 +680,16 @@ def get_ai_input(player_name, buy_ship, game_stats):
 def get_remote_input(game_stats):
 	"""
 	Get input from the remote player.
-	
+
 	Parameter
 	---------
 	game_stats : stat of the current game (dic).
-	
+
 	Return
 	------
 	remote_input : input of the remote player (str).
 	"""
-	
+
 	connection = game_stats['players']['distant']['connection']
 	return get_remote_orders(connection)
 
@@ -1439,22 +1438,22 @@ def take_abandonned_ship(game_stats):
 					 Bayron Mahy (v.2 22/02/17)
 	"""
 	for location in game_stats['board']:
-		
+
 		ships_on_location= game_stats['board'][location]
-		
+
 		if ships_on_location != []:
-			
+
 			nb_good_ships = 1
-			
+
 			if len(ships_on_location) > 2:
-				
+
 				owner_to_test= game_stats['ships'][ships_on_location[1]]['owner']
-		
+
 				for ships in ships_on_location:
-					
+
 					if game_stats['ships'][ships]['owner'] == owner_to_test:
 						nb_good_ships+=1
-						
+
 			if game_stats['ships'][ships_on_location[0]]['owner'] == 'none' and ( nb_good_ships == len(ships_on_location) -1 ):
 
 				#change owner none by the owner of the other ships
