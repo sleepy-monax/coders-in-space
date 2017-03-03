@@ -712,4 +712,38 @@ get_remote_orders()</panel_attributes>
 </panel_attributes>
     <additional_attributes/>
   </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1140</x>
+      <y>830</y>
+      <w>110</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+&lt;&lt; Call &gt;&gt;</panel_attributes>
+    <additional_attributes>90.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1090</x>
+      <y>840</y>
+      <w>60</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>foo()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1230</x>
+      <y>840</y>
+      <w>60</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>bar()</panel_attributes>
+    <additional_attributes/>
+  </element>
 </diagram>
