@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{841903b1-0b96-496f-97f1-7343f646afd1}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile />
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</InterpreterId>
+    <InterpreterVersion>2.7</InterpreterVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="doc\AI.md" />
+    <Content Include="doc\diagrame d%27appel.jpg" />
+    <Content Include="doc\diagrame d%27appel.uxf" />
+    <Content Include="doc\game_stats.md" />
+    <Content Include="doc\Mises a jour des consignes du projet.html" />
+    <Content Include="doc\play game run path.jpg" />
+    <Content Include="doc\play game run path.uxf" />
+    <Content Include="game\art\alien.txt" />
+    <Content Include="game\art\coders_in_space.txt" />
+    <Content Include="game\art\font_small.txt" />
+    <Content Include="game\art\font_standard.txt" />
+    <Content Include="game\art\font_start_wars.txt" />
+    <Content Include="game\art\general_ackbar.txt" />
+    <Content Include="game\art\groupe24.txt" />
+    <Content Include="game\art\planet.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="game\coders_in_space.py" />
+    <Compile Include="game\coders_in_space_specification.py" />
+    <Compile Include="game\coders_in_space_test.py" />
+    <Compile Include="game\remote_play.py" />
+    <Compile Include="game\run_game.py" />
+    <Compile Include="game\run_p1.py" />
+    <Compile Include="game\run_p2.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="doc" />
+    <Folder Include="game" />
+    <Folder Include="game\art" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="{2af0f10d-7135-4994-9156-5d01c9c11b7e}\2.7" />
+  </ItemGroup>
+  <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
+</Project>
