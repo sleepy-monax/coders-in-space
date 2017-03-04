@@ -1058,6 +1058,32 @@ def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_col
 
 	return canvas
 
+def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = None):
+	"""
+	Put a filled rectangle in the canvas.
+
+	Parameters
+	----------
+    canvas : canvas to draw in (dic).
+	x, y : coordinate of the rectangle (int).
+	width, height : size of the rectangle (int).
+	color, back_color : color for the char (string).
+
+	Return
+	------
+	canvas : canvas whith the rectangle (dic).
+
+	Version
+	-------
+	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Nicolas Van Bossuyt (v1. 10/02/17)
+	"""
+
+	for w in range(width):
+		for h in range(height): canvas = put(canvas, x + w, y + h, char, color, back_color)
+
+	return canvas
+
 def put_stars_field(canvas, x, y, width, height, r_seed = None):
 	"""
 	Put a stars field in the canvas.
