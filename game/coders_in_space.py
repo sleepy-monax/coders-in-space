@@ -118,7 +118,8 @@ def play_game(level_name, players_list, no_splash = False, screen_size = (190, 5
 		disconnect_from_player(game_stats['players']['distant']['connection'])
 
 	# Show the end game screen.
-	show_end_game(game_stats)
+	if not no_splash:
+		show_end_game(game_stats)
 
 def new_game(level_name, players_list, connection = None):
 	"""
