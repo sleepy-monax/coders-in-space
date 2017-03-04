@@ -365,20 +365,22 @@ def is_game_continue(game_stats):
 
 def calculate_value(player_name, game_stats):
 	"""
-	calculate the total ship value of a player.
+	Calculate the total ship value of a player.
 
 	Parameters
 	----------
-	player : name of the player to count value (str)
+	player_name : name of the player to count value (str)
 	game_stats : game before comand execution (dic)
 
-
+	Version
+	-------
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 24/02/17)
 	"""
 	total_value = 0
 
 	for ship in game_stats['ships']:
 		if game_stats['ships'][ship]['owner'] == player_name:
-			total_value += game_stats['model_ship'][game_stats['ships'][ship]['type']]['price']
+			total_value += game_stats['model_ship'][ game_stats['ships'][ship]['type'] ]['price']
 
 	return total_value
 
@@ -388,7 +390,7 @@ def calculate_value(player_name, game_stats):
 
 def get_game_input(player_name, buy_ships, game_stats):
 	"""
-	get input from a specified player.
+	Get input from a specified player.
 
 	Parameters
 	----------
@@ -461,7 +463,7 @@ def get_human_input(player_name, buy_ship, game_stats):
 
 def show_ship_list(player_name, game_stats):
 	"""
-	Show spaceships information to the player.
+	Show spaceships information on the teminal.
 
 	Parameters
 	----------
@@ -534,7 +536,7 @@ def show_ship_list(player_name, game_stats):
 
 def show_game_board(game_stats):
 	"""
-	Show the game to the user screen.
+	Show game board on the teminal.
 
 	Parameter
 	---------
@@ -666,7 +668,7 @@ def show_game_board(game_stats):
 
 def get_ai_input(player_name, buy_ships, game_stats):
 	"""
-	Get the game input from the ai.
+	Get input from a AI player.
 
 	Parameter
 	---------
@@ -703,7 +705,7 @@ def get_ai_input(player_name, buy_ships, game_stats):
 
 def get_distant_input(game_stats):
 	"""
-	Get input from the distant player.
+	Get input from a distant player.
 
 	Parameter
 	---------
@@ -839,29 +841,174 @@ def put(canvas, x, y, char, color = None, back_color = None):
 
 	return canvas
 
-def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = None):
+def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None, transparency_char = None):
 	"""
-	Put a filled rectangle in the canvas.
+	Put a ascii art in the canvas.
 
 	Parameters
 	----------
     canvas : canvas to draw in (dic).
-	x, y : coordinate of the rectangle (int).
-	width, height : size of the rectangle (int).
-	color, back_color : color for the char (string).
+	x, y : coordinate to pute the art (int).
+	ascii_art_name : name of the art file (string).
+	canvas : canvas to put the art on it (dic).
+	transparency_char : ignored char.
 
 	Return
 	------
-	canvas : canvas whith the rectangle (dic).
+	canvas : game view with te ascii art (dic).
 
 	Version
 	-------
 	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Nicolas Van Bossuyt (V1. 15/02/17)
+				     Nicolas Van Bossuyt (v2. 26/02/17)
+	"""
+	art_file = open('art/' + ascii_art_name + '.txt','r')
+
+	line_index = 0
+
+	for line in art_file:
+		char_index = 0
+		for char in line.replace('\n', ''):
+			if char != transparency_char:
+				put(canvas, x + char_index, y + line_index, char, color, back_color)
+
+			char_index += 1
+		line_index += 1
+
+	art_file.close()
+
+	return canvas
+
+def put_ascii_text(canvas, font, text, x, y, color = None, back_color = None):
+	"""
+	Put a ascii art text in the canvas.
+
+	Parameters
+	----------
+	canvas : canvas to draw in (dic).
+	font : font to use (dic).
+	string : string to put in the canvas (str).
+
+	Return
+	------
+	canvas : the canvas with the string on it (dic).
+
+	Version
+	-------
+	Specification  : Nicolas Van Bossuyt (v1. 27/02/17)
 	"""
 
-	for w in range(width):
-		for h in range(height): canvas = put(canvas, x + w, y + h, char, color, back_color)
+	char_x = 0
+
+	for char in text:
+		char_ascii = font[char]
+		char_width = char_ascii['width']
+		char_text = char_ascii['text']
+
+		line_index = 0
+		for line in char_text.split('\n'):
+			canvas = put_text(canvas, x + char_x, y + line_index, line, 1, 0, color, back_color)
+			line_index += 1
+
+		char_x += char_width
+
+		return canvas
+
+def load_ascii_font(font_name):
+	"""
+	Load ascii font from a txt file.
+
+	Parameter
+	---------
+	font_name : name of the font (str).
+
+	Return
+	------
+	font : font face from the file (dic).
+
+	Version
+	-------
+	Specification  : Nicolas Van Bossuyt (v1. 27/02/17)
+
+	Notes
+	-----
+	Load font in figlet format (http://www.figlet.org).
+	"""
+	chars = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_'abcdefghijklmnopqrstuvwxyz{|}~ÄÖÜäöüβ"
+	font = {}
+	char_index = 0
+	current_char = ''
+	current_char_width = 0
+
+	f = open('art/%s' % (font_name), 'r')
+
+	for line in f:
+		current_char_width = len(line.replace('@', ''))
+		current_char += line.replace('@', '')
+
+		if line.endswith('@@\n'):
+			font[chars[char_index]] = {}
+			font[chars[char_index]]['text'] = current_char
+			font[chars[char_index]]['width'] = current_char_width
+
+			current_char = ''
+			current_char_width = 0
+			char_index += 1
+
+	f.close()
+
+	return font
+
+def mesure_ascii_text(font, text):
+	""""
+	Return the lenght of a ascii art text.
+
+	Parameters
+	----------
+	font : font to mesure the string (dic).
+	string : text to mesure (str)
+
+	Return
+	------
+	lenght : lenght of the string (int).
+
+	Version
+	-------
+	Specification  : Nicolas Van Bossuyt (v1. 27/02/17)
+	"""
+	lenght = 0
+
+	for char in text:
+		char_ascii = font[char]
+		char_width = char_ascii['width']
+		lenght += char_width
+
+	return lenght
+
+def put_canvas(canvas, canvas_bis, x, y):
+	"""
+	Put a canvas in the canvas.
+
+	Parameters
+	----------
+	canvas : canvas to draw in (dic).
+	canvas_bis : canvas to put in the main canvas (dic).
+	x, y : coordinate of the canvas (int).
+
+	Return
+	------
+	canvas : the canvas with the other canvas on it (dic).
+
+	Version
+	-------
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 27/02/17)
+	"""
+
+	for cx in range(canvas_bis['size'][0]):
+		for cy in range(canvas_bis['size'][1]):
+			char = canvas_bis['grid'][(cx, cy)]
+			canvas = put(canvas, cx + x, cy + y, char['char'], char['color'], char['back_color'])
 
 	return canvas
 
@@ -911,76 +1058,6 @@ def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_col
 
 	return canvas
 
-def put_text(canvas, x, y, text, direction_x = 1, direction_y = 0, color = None, back_color = None):
-	"""
-	Put a text in the canvas.
-
-	Parameters
-	----------
-	canvas : canvas to draw in (dic).
-	x, y : coordinate of the string (int).
-	direction_x, direction_y : direction to draw the string (int).
-
-	Return
-	------
-	canvas : game view with the new string (dic).
-
-	Notes
-	-----
-	direction_x, direction_y : Muste be -1, 0 or 1.
-
-	Version
-	-------
-	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Nicolas Van Bossuyt (v1. 10/02/17)
-	"""
-
-	for char in text:
-		canvas = put(canvas, x, y, char, color, back_color)
-		x += direction_x
-		y += direction_y
-
-	return canvas
-
-def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None, transparency_char = None):
-	"""
-	Put a ascii art in the canvas.
-
-	Parameters
-	----------
-    canvas : canvas to draw in (dic).
-	x, y : coordinate to pute the art (int).
-	ascii_art_name : name of the art file (string).
-	canvas : canvas to put the art on it (dic).
-	transparency_char : ignored char.
-
-	Return
-	------
-	canvas : game view with te ascii art (dic).
-
-	Version
-	-------
-	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Nicolas Van Bossuyt (V1. 15/02/17)
-				     Nicolas Van Bossuyt (v2. 26/02/17)
-	"""
-	art_file = open('art/' + ascii_art_name + '.txt','r')
-
-	line_index = 0
-
-	for line in art_file:
-		char_index = 0
-		for char in line.replace('\n', ''):
-			if char != transparency_char:
-				put(canvas, x + char_index, y + line_index, char, color, back_color)
-
-			char_index += 1
-		line_index += 1
-
-	art_file.close()
-
-	return canvas
-
 def put_stars_field(canvas, x, y, width, height, r_seed = None):
 	"""
 	Put a stars field in the canvas.
@@ -1012,137 +1089,36 @@ def put_stars_field(canvas, x, y, width, height, r_seed = None):
 	seed()
 	return canvas
 
-def put_canvas(canvas, canvas_bis, x, y):
+def put_text(canvas, x, y, text, direction_x = 1, direction_y = 0, color = None, back_color = None):
 	"""
-	Put a canvas in the canvas.
+	Put a text in the canvas.
 
 	Parameters
 	----------
 	canvas : canvas to draw in (dic).
-	canvas_bis : canvas to put in the main canvas (dic).
-	x, y : coordinate of the canvas (int).
+	x, y : coordinate of the string (int).
+	direction_x, direction_y : direction to draw the string (int).
 
 	Return
 	------
-	canvas : the canvas with the other canvas on it (dic).
-
-	Version
-	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 27/02/17)
-	"""
-
-	for cx in range(canvas_bis['size'][0]):
-		for cy in range(canvas_bis['size'][1]):
-			char = canvas_bis['grid'][(cx, cy)]
-			canvas = put(canvas, cx + x, cy + y, char['char'], char['color'], char['back_color'])
-
-	return canvas
-
-def load_ascii_font(font_name):
-	"""
-	Load ascii font from a txt file.
-
-	Parameter
-	---------
-	font_name : name of the font (str).
-
-	Return
-	------
-	font : font face from the file (dic).
-
-	Version
-	-------
-	Specification  : Nicolas Van Bossuyt (v1. 27/02/17)
+	canvas : game view with the new string (dic).
 
 	Notes
 	-----
-	Load font in figlet format (http://www.figlet.org).
-	"""
-	chars = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_'abcdefghijklmnopqrstuvwxyz{|}~ÄÖÜäöüβ"
-	font = {}
-	char_index = 0
-	current_char = ''
-	current_char_width = 0
-
-	f = open('art/%s' % (font_name), 'r')
-
-	for line in f:
-		current_char_width = len(line.replace('@', ''))
-		current_char += line.replace('@', '')
-
-		if line.endswith('@@\n'):
-			font[chars[char_index]] = {}
-			font[chars[char_index]]['text'] = current_char
-			font[chars[char_index]]['width'] = current_char_width
-
-			current_char = ''
-			current_char_width = 0
-			char_index += 1
-
-	f.close()
-
-	return font
-
-def put_ascii_text(canvas, font, text, x, y, color = None, back_color = None):
-	"""
-	Put a ascii art text in the canvas.
-
-	Parameters
-	----------
-	canvas : canvas to draw in (dic).
-	font : font to use (dic).
-	string : string to put in the canvas (str).
-
-	Return
-	------
-	canvas : the canvas with the string on it (dic).
+	direction_x, direction_y : Muste be -1, 0 or 1.
 
 	Version
 	-------
-	Specification  : Nicolas Van Bossuyt (v1. 27/02/17)
+	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 
-	char_x = 0
-
 	for char in text:
-		char_ascii = font[char]
-		char_width = char_ascii['width']
-		char_text = char_ascii['text']
-
-		line_index = 0
-		for line in char_text.split('\n'):
-			canvas = put_text(canvas, x + char_x, y + line_index, line, 1, 0, color, back_color)
-			line_index += 1
-
-		char_x += char_width
+		canvas = put(canvas, x, y, char, color, back_color)
+		x += direction_x
+		y += direction_y
 
 	return canvas
-
-def mesure_ascii_text(font, text):
-	""""
-	Return the lenght of a ascii art text.
-
-	Parameters
-	----------
-	font : font to mesure the string (dic).
-	string : text to mesure (str)
-
-	Return
-	------
-	lenght : lenght of the string (int).
-
-	Version
-	-------
-	Specification  : Nicolas Van Bossuyt (v1. 27/02/17)
-	"""
-	lenght = 0
-
-	for char in text:
-		char_ascii = font[char]
-		char_width = char_ascii['width']
-		lenght += char_width
-
-	return lenght
 
 def set_color(text, foreground_color, background_color):
 	"""
@@ -1622,6 +1598,48 @@ def get_distance(coord1, coord2, size):
 # ==============================================================================
 # Somme use full function for a simple life. And also parse game file.
 
+def parse_game_file(path):
+	"""
+	Parse a .cis file and returns its content.
+
+	Parameter
+	---------
+	path : path of the .cis file (str).
+
+	Return
+	------
+	parsed_data : data contained in the .cis file (dic).
+
+	Version
+	-------
+	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Nicolas Van Bossuyt (v2. 15/02/2017)
+	"""
+	# Split file lines and remove '\n' chars.
+	cis_file = open(path,'r')
+	file_content = [line.strip() for line in cis_file]
+	cis_file.close()
+
+	# Get the size of the gameboard.
+	size_str = file_content[0].split(' ')
+	size = (int(size_str[0]),int(size_str[1]))
+
+	# Get lost space ship in the new game.
+	ships_list = []
+	for line_index in range(len(file_content) - 1):
+		try:
+			ship_str = file_content[line_index + 1].split(' ')
+			ship_name_and_type = ship_str[2].split(':')
+			ship = (int(ship_str[0]), int(ship_str[1]), ship_name_and_type[0], ship_name_and_type[1], direction_to_vector2D(ship_str[3]))
+			ships_list.append(ship)
+		except:
+			pass
+
+	# Create parsed data dictionary and return it.
+	parsed_data = {'size':size,'ships':ships_list}
+
+	return parsed_data
+
 def direction_to_vector2D(direction):
 	"""
 	Convert a string direction to a vector2D.
@@ -1666,48 +1684,6 @@ def direction_to_vector2D(direction):
 		vector = (-1,1)
 
 	return vector
-
-def parse_game_file(path):
-	"""
-	Parse a .cis file and returns its content.
-
-	Parameter
-	---------
-	path : path of the .cis file (str).
-
-	Return
-	------
-	parsed_data : data contained in the .cis file (dic).
-
-	Version
-	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Nicolas Van Bossuyt (v2. 15/02/2017)
-	"""
-	# Split file lines and remove '\n' chars.
-	cis_file = open(path,'r')
-	file_content = [line.strip() for line in cis_file]
-	cis_file.close()
-
-	# Get the size of the gameboard.
-	size_str = file_content[0].split(' ')
-	size = (int(size_str[0]),int(size_str[1]))
-
-	# Get lost space ship in the new game.
-	ships_list = []
-	for line_index in range(len(file_content) - 1):
-		try:
-			ship_str = file_content[line_index + 1].split(' ')
-			ship_name_and_type = ship_str[2].split(':')
-			ship = (int(ship_str[0]), int(ship_str[1]), ship_name_and_type[0], ship_name_and_type[1], direction_to_vector2D(ship_str[3]))
-			ships_list.append(ship)
-		except:
-			pass
-
-	# Create parsed data dictionary and return it.
-	parsed_data = {'size':size,'ships':ships_list}
-
-	return parsed_data
 
 def create_game_board(file_name, board_size, lost_ships_count):
 	"""
