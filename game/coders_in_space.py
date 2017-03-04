@@ -900,7 +900,6 @@ def put_ascii_text(canvas, font, text, x, y, color = None, back_color = None):
 	"""
 
 	char_x = 0
-
 	for char in text:
 		char_ascii = font[char]
 		char_width = char_ascii['width']
@@ -913,7 +912,7 @@ def put_ascii_text(canvas, font, text, x, y, color = None, back_color = None):
 
 		char_x += char_width
 
-		return canvas
+	return canvas
 
 def load_ascii_font(font_name):
 	"""
