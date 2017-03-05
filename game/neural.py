@@ -75,7 +75,8 @@ def run_network(network, input_data):
 
                     value += connected_node_value * connection_value
 
-                value = sigmoid(value)
+                print value
+                value = sigmoid(value) - .5 
                 network[layer]['nodes'][node]['value'] = value
                 output[node] = value
 

@@ -1,9 +1,10 @@
-from ai_neural import *
-print 'creating neural network...'
-network = create_network((3, 3, 3))
-print 'calculating...'
-result = run_network(network, (1.,2.,3.))
-print 'done'
+from neural import *
+while True:
 
-print result
-raw_input()
+    network = create_network((3, 3, 3))
+    result = run_network(network, (100,100,100))
+
+    print result
+
+    if raw_input() == 's':
+        break
