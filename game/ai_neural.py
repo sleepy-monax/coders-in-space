@@ -1,4 +1,10 @@
 from random import *
+from math import exp
+
+def sigmoid (x): return 1/(1 + exp(-x))
+
+# Derivative of sigmoid.
+def sigmoid_(x): return x * (1 - x)
 
 def create_network(layers_description):
     """
@@ -53,16 +59,25 @@ def run_network(network, input_data):
     output = {}
     for layer in network:
         output = {}
+
         for node in network[layer]['nodes']:
             if layer == 0:
+                # Root layer take data from the data set.
                 network[layer]['nodes'][node]['value'] = input_data[node]
+
             else:
+                # Upper layer take data from lower layer.
+                value = 0
+
                 for connection in network[layer]['nodes'][node]['connections']:
                     connected_node_value = network[layer - 1]['nodes'][connection]['value']
                     connection_value = network[layer]['nodes'][node]['connections'][connection]
-                    value = connected_node_value * connection_value
-                    network[layer]['nodes'][node]['value'] = value
-                    output[node] = value
+
+                    value += connected_node_value * connection_value
+
+                value = sigmoid(value)
+                network[layer]['nodes'][node]['value'] = value
+                output[node] = value
 
     return output
 

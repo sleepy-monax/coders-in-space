@@ -1,4 +1,5 @@
 ## De la theorie
+[(wikipedia) neurone formel](https://fr.wikipedia.org/wiki/Neurone_formel)
 [10 misconceptions about Neural Networks](http://www.turingfinance.com/misconceptions-about-neural-networks/)
 
 ## Des exemples
