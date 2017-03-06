@@ -24,7 +24,7 @@
 							 "(  ..)"
 							/  .  .::\
 """
-def play_game(level_name, players_list, no_splash = False, screen_size = (190, 50), distant_id = None, distant_ip = None, verbose_connection = False):
+def play_game(level_name, players_list, no_splash = False, no_gui = False, screen_size = (190, 50), distant_id = None, distant_ip = None, verbose_connection = False, max_rounds_count = 10):
 	"""
 	Main function that executes the game loop.
 
@@ -32,11 +32,17 @@ def play_game(level_name, players_list, no_splash = False, screen_size = (190, 5
 	----------
 	level_name: name of the level (str).
 	players_list: list of players (list).
-    (optional) no_splash : ship the splash screen (bool)
+    (optional) no_splash : ship the splash screen (bool).
+	(optional) no_gui : disable game user interface (bool).
 	(optional) screen_size : size of the terminal window (tuple(int, int)).
 	(optional) distant_id : ID of the distant player (int).
 	(optional) distant_ip : IP of the distant player (str).
 	(optional) verbose_connection : anabled connection output in terminal (bool).
+	(optional) max_rounds_count : number of rounds (int).
+
+	Return
+	------
+	winner_name : name of the winner (str).
 
     Note
     ----

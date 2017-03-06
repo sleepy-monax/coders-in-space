@@ -34,7 +34,6 @@
 # Imports
 # ==============================================================================
 # Import some cool component for the game.
-
 from math import *
 from random import *
 from remote_play import *
@@ -44,7 +43,7 @@ from time import sleep #because everyone needs to rest.
 # ==============================================================================
 # Create a new game and play it.
 
-def play_game(level_name, players_list, no_splash = False, screen_size = (190, 50), distant_id = None, distant_ip = None, verbose_connection = False):
+def play_game(level_name, players_list, no_splash = False, no_gui = False, screen_size = (190, 50), distant_id = None, distant_ip = None, verbose_connection = False, max_rounds_count = 10):
 	"""
 	Main function that executes the game loop.
 
@@ -52,11 +51,17 @@ def play_game(level_name, players_list, no_splash = False, screen_size = (190, 5
 	----------
 	level_name: name of the level (str).
 	players_list: list of players (list).
-    (optional) no_splash : ship the splash screen (bool)
+    (optional) no_splash : ship the splash screen (bool).
+	(optional) no_gui : disable game user interface (bool).
 	(optional) screen_size : size of the terminal window (tuple(int, int)).
 	(optional) distant_id : ID of the distant player (int).
 	(optional) distant_ip : IP of the distant player (str).
 	(optional) verbose_connection : anabled connection output in terminal (bool).
+	(optional) max_rounds_count : number of rounds (int).
+
+	Return
+	------
+	winner_name : name of the winner (str).
 
     Note
     ----
@@ -76,12 +81,13 @@ def play_game(level_name, players_list, no_splash = False, screen_size = (190, 5
 		game_stats = new_game(level_name, players_list)
 
 	game_stats['screen_size'] = screen_size
+	game_stats['max_nb_rounds'] = max_rounds_count
 
 	if not no_splash:
 		show_splash_game(game_stats)
 		raw_input() # wait the player pressing enter.
-
-	show_game_board(game_stats)
+	if not no_gui:
+		show_game_board(game_stats)
 
 	# Players create their ships.
 	for player in players_list:
@@ -93,7 +99,8 @@ def play_game(level_name, players_list, no_splash = False, screen_size = (190, 5
 		game_stats['nb_rounds'] += 1
 
 		# Show the game board to the human player.
-		show_game_board(game_stats)
+		if not no_gui:
+			show_game_board(game_stats)
 
 		# Cleaning the pending_attack list.
 		game_stats['pending_attack'] = []
@@ -120,6 +127,8 @@ def play_game(level_name, players_list, no_splash = False, screen_size = (190, 5
 	# Show the end game screen.
 	if not no_splash:
 		show_end_game(game_stats)
+
+	return game_stats['winners']
 
 def new_game(level_name, players_list, connection = None):
 	"""
@@ -181,6 +190,7 @@ def new_game(level_name, players_list, connection = None):
 
 	for player in players_list:
 		# Set player type.
+		ai_net = None
 		if '_bot' in player:
 			player_type = 'ai'
 		elif player == 'distant':
@@ -189,18 +199,29 @@ def new_game(level_name, players_list, connection = None):
 			player_type = 'human'
 
 		# Create new player.
-		if index_player==1:
-			game_stats['players'][player] = {'name': player,'money':100,'nb_ships': 0,'type': player_type,'color':'red',
-											  'ships_starting_point': (9, 9),'ships_starting_direction': (1, 1)}
-		elif index_player==2:
-			game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'blue',
-											  'ships_starting_point': (game_stats['board_size'][0]-10, game_stats['board_size'][1]-10),'ships_starting_direction': (-1, -1)}
-		elif index_player==3:
-			game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'yellow',
-											  'ships_starting_point': (game_stats['board_size'][0]-10, 9),'ships_starting_direction': (-1, 1)}
-		elif index_player==4:
-			game_stats['players'][player] = {'name': player, 'money':100, 'nb_ships': 0,'type': player_type,'color':'magenta',
-											  'ships_starting_point': (9, game_stats['board_size'][1]-10),'ships_starting_direction': (1, -1)}
+		if index_player <= 4:
+			game_stats['players'][player] = {'name': player,'money':100,'nb_ships': 0,'type': player_type}
+
+			if index_player==1:
+				game_stats['players'][player]['ships_starting_point'] = (9, 9)
+				game_stats['players'][player]['ships_starting_direction'] = (1, 1)
+				game_stats['players'][player]['color'] ='red'
+
+			elif index_player==2:
+				game_stats['players'][player]['ships_starting_point'] = (game_stats['board_size'][0]-10, game_stats['board_size'][1]-10)
+				game_stats['players'][player]['ships_starting_direction'] = (-1, -1)
+				game_stats['players'][player]['color'] = 'blue'
+
+			elif index_player==3:
+				game_stats['players'][player]['ships_starting_point'] = (game_stats['board_size'][0]-10, 9)
+				game_stats['players'][player]['ships_starting_direction'] = (-1, 1)
+				game_stats['players'][player]['color'] = 'yellow'
+
+			elif index_player==4:
+				game_stats['players'][player]['ships_starting_point'] = (9, game_stats['board_size'][1]-10)
+				game_stats['players'][player]['ships_starting_direction'] = (1, -1)
+				game_stats['players'][player]['color'] = 'magenta'
+
 		else:
 			game_stats['game_logs'].append('There is too many player the player %s is a loser he must be watch you playing' % (player))
 
