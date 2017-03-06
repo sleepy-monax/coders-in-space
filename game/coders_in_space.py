@@ -442,7 +442,6 @@ def get_game_input(player_name, buy_ships, game_stats):
 
 	elif game_stats['players'][player_name]['type'] == 'distant':
 		player_input = get_distant_input(game_stats)
-		pass
 
 	return player_input
 
@@ -707,7 +706,7 @@ def get_ai_input(player_name, buy_ships, game_stats):
 	-------
 	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
     Implementation : Nicolas Van Bossuyt (v1 27/02/17)
-	
+
 
 	if buy_ships:
 		return 'StarBoby:fighter me:destroyer tamere:battlecruiser'

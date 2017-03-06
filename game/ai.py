@@ -59,9 +59,7 @@ def get_ai_input(player_name, buy_ships, game_stats):
 		return (ship_type_data  + ship_owner_data + ship_direction_data + ship_position_data)
 
 	def to_input(ship_name, data_input, game_stats):
-		print input_data
 		input_id = data_input[:5]
-		print input_id
 		input_id = input_id.index(max(input_id))
 		input_str = ''
 		if input_id == 0:
@@ -79,11 +77,11 @@ def get_ai_input(player_name, buy_ships, game_stats):
 								   game_stats['ships'][ship_name]['position'][1] + int(attack_range * attack_offset[1]))
 
 
-		input_str = '%s:%s' % (ship_name, input_str)
+		return '%s:%s' % (ship_name.replace(player_name + '_',''), input_str)
 
 
 	# Load network.
-	network_path = 'neural/%s.mind'
+	network_path = 'neural/%s.mind' % (player_name)
 	network = {}
 
 	if os.path.isfile(network_path):
@@ -109,10 +107,17 @@ def get_ai_input(player_name, buy_ships, game_stats):
 			for other_ship in game_stats['ships']:
 				if game_stats['ships'][other_ship]['owner'] != player_name:
 					input_data = chip_data + get_ship_data(game_stats, player_ship, player_name) + get_ship_data(game_stats, other_ship, player_name) + memory
-					output_data = run_network(current_network, input_data)
+					output_data = convert_dictionnary(run_network(current_network, input_data))
 					memory = output_data[-len(memory):]
 
 			order_data = output_data[:7]
 			orders += to_input(player_ship, order_data, game_stats) + ' '
 
-	return orders
+	return orders[:-1]
+
+def convert_dictionnary(dico):
+	dic_list = []
+	for key in dico:
+		dic_list.append(dico[key])
+
+	return dic_list

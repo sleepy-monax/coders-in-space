@@ -34,6 +34,7 @@ def ai_learn(max_gen, random_strength):
             if gen == 0:
                 ai_players[ai_id] = {'nb_win' : 0}
                 save_network(create_network((53, 300, 7 + 16)), ai_path)
+
             else:
                 if ai_id in ai_players.keys():
                     # Creat a mutated baby AI... So cute (^ω^).
@@ -46,8 +47,9 @@ def ai_learn(max_gen, random_strength):
         # We make a tournament between AI and keep the winner.
         for ai_id in ai_players:
             for ennemy_ai_id in ai_players:
+                print '%d vs %d' % (ai_id, ennemy_ai_id)
                 if not ai_id == ennemy_ai_id:
-                    winners = play_game('board/test_board.cis', (str(ai_id) + '_bot', str(ennemy_ai_id) + '_bot'),no_splash = True, no_gui = True)
+                    winners = play_game('board/test_board.cis', (str(ai_id) + '_bot', str(ennemy_ai_id) + '_bot'),no_splash = True, no_gui = False)
                     for winner in winners:
                         winner_id = int(winner.split('_')[0])
                         ai_players[winner_id]['nb_win'] += 1
@@ -66,6 +68,6 @@ def ai_learn(max_gen, random_strength):
             else:
                 if max_kill != 0 and random.randint(0, 2) >= 2:
                     # You kill it :).
-                    del players_list[ai_id]
+                    del ai_players[ai_id]
                     os.remove('neural/' + str(ai_id) + '_bot.mind')
                     dumb_ai.append(ai_id)
