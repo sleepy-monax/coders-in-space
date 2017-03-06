@@ -38,6 +38,7 @@ from math import *
 from random import *
 from remote_play import *
 from time import sleep #because everyone needs to rest.
+from ai import *
 
 # Game
 # ==============================================================================
@@ -687,9 +688,9 @@ def show_game_board(game_stats):
 # A.I.
 # ------------------------------------------------------------------------------
 # AI interactions
-
+"""
 def get_ai_input(player_name, buy_ships, game_stats):
-	"""
+
 	Get input from a AI player.
 
 	Parameter
@@ -706,7 +707,7 @@ def get_ai_input(player_name, buy_ships, game_stats):
 	-------
 	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
     Implementation : Nicolas Van Bossuyt (v1 27/02/17)
-	"""
+	
 
 	if buy_ships:
 		return 'StarBoby:fighter me:destroyer tamere:battlecruiser'
@@ -720,6 +721,8 @@ def get_ai_input(player_name, buy_ships, game_stats):
 			ai_input += ship.replace(player_name + '_','') + ':' + action[randint(0, len(action) - 1 )] + ' '
 
 	return ai_input[:-1]
+
+"""
 
 # Remote player
 # ------------------------------------------------------------------------------

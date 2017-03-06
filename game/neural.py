@@ -1,5 +1,6 @@
 from random import *
 from math import exp
+import pickle
 
 def sigmoid (x): return 1/(1 + exp(-x))
 
@@ -75,8 +76,7 @@ def run_network(network, input_data):
 
                     value += connected_node_value * connection_value
 
-                print value
-                value = sigmoid(value) - .5 
+                value = sigmoid(value) - .5
                 network[layer]['nodes'][node]['value'] = value
                 output[node] = value
 
@@ -95,7 +95,15 @@ def randomize_network(network, max_value = .01):
     ------
     network : randomize network (dic).
     """
-    pass
+    multi = [0., 1., -1.]
+
+    for layer in network:
+        for node in network[layer]['nodes']:
+            for connection in network[layer]['nodes'][node]['connections']:
+                network[layer]['nodes'][node]['connections'][connection] = \
+                network[layer]['nodes'][node]['connections'][connection] + max_value * multi[randint(0, len(multi) - 1)]
+
+    return network
 
 def save_network(network, file_name):
     """
@@ -106,7 +114,9 @@ def save_network(network, file_name):
     network : network to save in the file (dic).
     file_name : name of the output file (str).
     """
-    pass
+    f = open(file_name, 'w')
+    pickle.dump(network, f)
+    f.close()
 
 def load_network(file_name):
     """
@@ -120,4 +130,8 @@ def load_network(file_name):
     ------
     network : network in the file(dic).
     """
-    pass
+
+    f = open(file_name, 'r')
+    network = pickle.load(f)
+    f.close()
+    return network
