@@ -29,38 +29,38 @@ def get_ai_input(player_name, buy_ships, game_stats):
 		# Get the type.
 		ship = game_stats['ships'][ship]
 		ship_type = ship['type']
-		ship_type_data = ()
+		ship_type_data = []
 
 		if ship_type == 'destroyer':
-			ship_type_data = (1.,-1., -1.)
+			ship_type_data = [1.,-1., -1.]
 		elif ship_type == 'fighter':
-			ship_type_data = (-1.,1.,-1.)
+			ship_type_data = [-1.,1.,-1.]
 		else:
-			ship_type_data = (-1.,-1.,1.)
+			ship_type_data = [-1.,-1.,1.]
 
 		# Get the heal.
 		ship_heal_data = ship['heal_points'] / game_stats['model_ship'][ship_type]['max_heal']
 
 		# Get the owner.
 		ship_owner = ship['owner']
-		ship_owner_data = ()
+		ship_owner_data = []
 
 		if ship_owner == 'none':
-			ship_owner_data = (1.,-1., -1.)
+			ship_owner_data = [1.,-1., -1.]
 		elif ship_owner == player:
-			ship_owner_data = (-1.,1., -1.)
+			ship_owner_data = [-1.,1., -1.]
 		else:
-			ship_owner_data = (-1.,-1., 1.)
+			ship_owner_data = [-1.,-1., 1.]
 
-		ship_direction_data = ship['direction']
+		ship_direction_data = list(ship['direction'])
 
-		ship_position_data = (ship['position'][0] / game_stats['board_size'][0], ship['position'][1] / game_stats['board_size'][1], ship_heal_data)
+		ship_position_data = [ship['position'][0] / game_stats['board_size'][0], ship['position'][1] / game_stats['board_size'][1], ship_heal_data]
 
 		return (ship_type_data  + ship_owner_data + ship_direction_data + ship_position_data)
 
 	def to_input(ship_name, data_input, game_stats):
 		print input_data
-		input_id = tuple(list(data_input)[:5])
+		input_id = data_input[:5]
 		print input_id
 		input_id = input_id.index(max(input_id))
 		input_str = ''
@@ -74,7 +74,7 @@ def get_ai_input(player_name, buy_ships, game_stats):
 			input_str = 'slower'
 		elif input_id == 4:
 			attack_range = game_stats['model_ship'][game_stats['ships'][ship_name]['type']]['range']
-			attack_offset = tuple(list(input_data)[-2:])
+			attack_offset = input_data[-2:]
 			input_str = '%d-%d' % (game_stats['ships'][ship_name]['position'][0] + int(attack_range * attack_offset[0]),\
 								   game_stats['ships'][ship_name]['position'][1] + int(attack_range * attack_offset[1]))
 
@@ -91,9 +91,9 @@ def get_ai_input(player_name, buy_ships, game_stats):
 
 	# Get model_ship data.
 	# Name               / heal / Speed / Damages / range / price
-	fighter_data       = (3     , 5     , 1       ,5      , 10)
-	destroyer_data     = (8     , 2     , 2       ,7      , 20)
-	battlecruiser_data = (20    , 1     , 4       ,10     , 30)
+	fighter_data       = [3     , 5     , 1       ,5      , 10]
+	destroyer_data     = [8     , 2     , 2       ,7      , 20]
+	battlecruiser_data = [20    , 1     , 4       ,10     , 30]
 
 	chip_data = fighter_data + destroyer_data + battlecruiser_data
 
@@ -103,19 +103,16 @@ def get_ai_input(player_name, buy_ships, game_stats):
 	for player_ship in game_stats['ships']:
 		if game_stats['ships'][player_ship]['owner'] == player_name:
 
-			memory = (0, 0) * 8
-			output_data = ()
+			memory = [0, 0] * 8
+			output_data = []
 
 			for other_ship in game_stats['ships']:
 				if game_stats['ships'][other_ship]['owner'] != player_name:
 					input_data = chip_data + get_ship_data(game_stats, player_ship, player_name) + get_ship_data(game_stats, other_ship, player_name) + memory
 					output_data = run_network(current_network, input_data)
-					memory = tuple(list(output_data)[-len(memory):])
+					memory = output_data[-len(memory):]
 
-
-			print output_data
-			order_data = tuple(list(output_data)[:7])
-			print order_data
-			orders += (to_input(player_ship, order_data, game_stats) + ' ')
+			order_data = output_data[:7]
+			orders += to_input(player_ship, order_data, game_stats) + ' '
 
 	return orders

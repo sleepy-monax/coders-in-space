@@ -35,7 +35,7 @@ def create_network(layers_description):
             if layer_depht != 0:
                 layer['nodes'][node]['connections'] = {}
                 for sub_node_index in range(len(network[layer_depht - 1]['nodes'])):
-                    layer['nodes'][node]['connections'][sub_node_index] = ( randint(-100, 100) * .01 )
+                    layer['nodes'][node]['connections'][sub_node_index] = randint(-100, 100) * .01
 
         # Add the layer to the network.
         network[layer_depht] = layer
