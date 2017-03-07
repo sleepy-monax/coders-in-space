@@ -2,6 +2,10 @@
 from random import *
 from pickle import *
 
+# A.I.
+# ------------------------------------------------------------------------------
+# AI interactions
+
 def get_ai_input(player_name, buy_ships, game_stats):
     """
 	Get input from a AI player.
@@ -52,6 +56,10 @@ def output_to_game_input(neural_ouput, ship_name, game_stats):
     ------
     game_input : input for the game (str).
     """
+
+# Neural network
+# ==============================================================================
+# Wow so... so... neural !
 
 def create_neural_network(neural_structure):
     """
@@ -130,7 +138,7 @@ def randomize_neural_network(neural_network, rnd_strength):
                 neural_network[layer]['nodes'][node]['links'][link] = \
                 neural_network[layer]['nodes'][node]['links'][link] + max_value * multi[randint(0, len(multi) - 1)]
 
-    return neural_network
+                return neural_network
 
 def save_neural_network(neural_network, file_path):
     """
@@ -154,6 +162,14 @@ def load_neural_network(file_path):
     ------
     neural_network : loaded neural network (dic).
     """
+
+def sigmoid (x): return 1 / (1 + exp(-x))
+
+def sigmoid_(x): return x * (1 - x)
+
+# Neural network training
+# ------------------------------------------------------------------------------
+#
 
 def train_neural_network(neural_network, max_iteration, learn_strength):
     """
@@ -183,7 +199,3 @@ def get_fitness(game_stats, player_name):
     ------
     fitness : fitness of the player (float).
     """
-
-def sigmoid (x): return 1 / (1 + exp(-x))
-
-def sigmoid_(x): return x * (1 - x)
