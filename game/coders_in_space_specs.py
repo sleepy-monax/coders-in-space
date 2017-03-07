@@ -24,7 +24,7 @@
 							 "(  ..)"
 							/  .  .::\
 """
-def play_game(level_name, players_list, no_splash = False, no_gui = False, screen_size = (190, 50), distant_id = None, distant_ip = None, verbose_connection = False, max_rounds_count = 10):
+def play_game(level_name, players_list, no_splash = False, no_gui = False, screen_size = (190, 50), distant_id = None, distant_ip = None, verbose_connection = False, max_rounds_count = 10, network = None):
 	"""
 	Main function that executes the game loop.
 
@@ -83,6 +83,21 @@ def show_splash_game(game_stats):
 	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 	def clear_canvas(canvas):
+		"""
+		clear the canvas.
+		
+		Parameter
+		---------
+		canvas: canva to clear (dic).
+		
+		return
+		------
+		canvas: canva after cleaning (dic).
+		
+		Version
+		-------
+		Specification : Bayron Mahy (v1. 11/02/17)
+		"""
 def show_end_game(game_stats):
 	"""
 	Show the end game screen.
@@ -97,7 +112,7 @@ def show_end_game(game_stats):
 	"""
 def is_game_continue(game_stats):
 	"""
-	Check if a player has won the game.
+	Check if the game continue.
 
 	Parameter
 	---------
@@ -158,7 +173,7 @@ def get_human_input(player_name, buy_ship, game_stats):
 	"""
 def show_ship_list(player_name, game_stats):
 	"""
-	Show spaceships information on the teminal.
+	Show spaceships information on the terminal.
 
 	Parameters
 	----------
@@ -185,8 +200,8 @@ def get_ai_input(player_name, buy_ships, game_stats):
 	"""
 	Get input from a AI player.
 
-	Parameter
-	---------
+	Parameters
+	----------
 	player_name : name of the player (str).
     buy_ships : True, if players buy their boats (bool).
 	game_stats : stats of the game (dic).
@@ -238,8 +253,8 @@ def print_canvas(canvas, x = 0, y = 0):
 	"""
 	Print canvas in the terminal.
 
-	Parameter
-	---------
+	Parameters
+	----------
 	canvas : canvas to print on screen (dic).
 	(optional) x, y : coodinate in the terminal (int).
 
@@ -441,7 +456,7 @@ def put_text(canvas, x, y, text, direction_x = 1, direction_y = 0, color = None,
 	"""
 def set_color(text, foreground_color, background_color):
 	"""
-	Changes the color of a text.
+	Change the color of a text.
 
 	Parameters
 	----------
@@ -587,6 +602,21 @@ def to_unit_vector(vector):
 	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 	def convert(value):
+		"""
+		round the value from float to int with specifical criterium.
+		
+		parameter
+		---------
+		value: value to convert
+		
+		return
+		------
+		1, -1, 0: Value after round.
+		
+		Version
+		-------
+		Specification: Bayron Mahy (v1. 11/02/2017)
+		"""
 def do_moves(game_stats):
 	"""
 	Apply move to ships.
