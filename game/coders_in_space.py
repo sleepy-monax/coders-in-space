@@ -85,16 +85,16 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
 	game_stats['max_nb_rounds'] = max_rounds_count
 	game_stats['network'] = network
 
+	# Show the splash screen.
 	if not no_splash:
 		show_splash_game(game_stats)
 		raw_input() # wait the player pressing enter.
-	if not no_gui:
-		show_game_board(game_stats)
 
 	# Players create their ships.
 	for player in players_list:
 		game_stats = command_buy_ships(get_game_input(player, True, game_stats), player, game_stats)
 
+	is_ship_buy = True
 	# Game loop.
 	while is_game_continue(game_stats):
 
@@ -109,11 +109,15 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
 
 		# getting players input.
 		for player in players_list:
-			if game_stats['players'][player]['nb_ships'] > 0:
-				game_stats = parse_command(get_game_input(player, False, game_stats), player, game_stats)
+			if is_ship_buy == True:
+				is_ship_buy = False
+				game_stats = command_buy_ships(get_game_input(player, True, game_stats), player, game_stats)
 			else:
-				if game_stats['players'][player]['type'] != 'none':
-					game_stats['game_logs'].append(player + ' has lost all these ships, so he has nothing to do.')
+				if game_stats['players'][player]['nb_ships'] > 0:
+					game_stats = parse_command(get_game_input(player, False, game_stats), player, game_stats)
+				else:
+					if game_stats['players'][player]['type'] != 'none':
+						game_stats['game_logs'].append(player + ' has lost all these ships, so he has nothing to do.')
 
 		# Do ships moves.
 		do_moves(game_stats)
@@ -162,7 +166,7 @@ def new_game(level_name, players_list, connection = None):
 				  'ships': {},
 				  'board_size': game_file['size'],
 				  'level_name': level_name,
-				  'nb_rounds': 0,
+				  'nb_rounds': -1,
 				  'max_nb_rounds': 10,
 				  'pending_attacks': [],
 				  'game_logs': [],
@@ -252,15 +256,15 @@ def show_splash_game(game_stats):
 	def clear_canvas(canvas):
 		"""
 		clear the canvas.
-		
+
 		Parameter
 		---------
 		canvas: canva to clear (dic).
-		
+
 		return
 		------
 		canvas: canva after cleaning (dic).
-		
+
 		Version
 		-------
 		Specification : Bayron Mahy (v1. 11/02/17)
@@ -742,7 +746,7 @@ def get_ai_input(player_name, buy_ships, game_stats):
 			ai_input += ship.replace(player_name + '_','') + ':' + action[randint(0, len(action) - 1 )] + ' '
 
 	return ai_input[:-1]
-	
+
 
 # Remote player
 # ------------------------------------------------------------------------------
@@ -1479,23 +1483,23 @@ def to_unit_vector(vector):
 	def convert(value):
 		"""
 		round the value from float to int with specifical criterium.
-		
+
 		parameter
 		---------
 		value: value to convert
-		
+
 		return
 		------
 		1, -1, 0: Value after round.
-		
+
 		Version
 		-------
 		Specification: Bayron Mahy (v1. 11/02/2017)
 		Implementation : Nicolas Van Bossuyt (v1. 22/02/17)
 		"""
-		if value > 0.25: 
+		if value > 0.25:
 			return 1
-		elif value < -0.25: 
+		elif value < -0.25:
 			return -1
 
 		return 0
