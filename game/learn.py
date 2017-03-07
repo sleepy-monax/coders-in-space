@@ -23,7 +23,6 @@ def ai_learn(max_gen, random_strength):
     best_ai = -1
     best_ai_score = 0
 
-
     for gen in range(max_gen):
         print '-' * 10
         print 'Gen :' + str(gen)
