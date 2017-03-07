@@ -20,8 +20,38 @@ def get_ai_input(player_name, buy_ships, game_stats):
 	-------
 	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
     """
-    
-    
+
+    if buy_ships:
+    	return 'f:fighter d:destroyer b:battlecruiser'
+
+def ship_to_neural_input(game_stats, player_name, ship_name):
+    """
+    Convert a ship to a neural network input.
+
+    Parameters
+    ----------
+    game_stats : stats of the game (dic).
+    player_name : name of the player (str).
+    ship_name : name of the ship to convert data (str).
+
+    Return
+    ------
+    ship_data : ship data in neural input format (list(float))
+    """
+
+def output_to_game_input(neural_ouput, ship_name, game_stats):
+    """
+    Convert a neural output into a game_input.
+
+    Parameters
+    ----------
+    neural_ouput : output from the neural_ouput (list(float)).
+    game_stats : stats of the game (dic).
+
+    Return
+    ------
+    game_input : input for the game (str).
+    """
 
 def create_neural_network(neural_structure):
     """
@@ -37,7 +67,7 @@ def create_neural_network(neural_structure):
     """
     neural_network = {}
     layer = 0
-    
+
     for layer_nodes_count in neural_structure:
     	neural_network[layer] = {}
     	for node in range(layer_nodes_count):
@@ -47,7 +77,7 @@ def create_neural_network(neural_structure):
     				neural_network[layer][node]['links'][link] = randint(0, 100) * 0.01
 
     	layer += 1
-    	
+
     return neural_network
 
 def compute_neural_network(neural_network, neural_input):
@@ -77,8 +107,8 @@ def compute_neural_network(neural_network, neural_input):
 	layer = len(neural_network) - 1
 	for node in neural_network[layer]:
 		output.append(neural_network[layer][node]['value'])
-		
-	return output  
+
+	return output
 
 def randomize_neural_network(neural_network, rnd_strength):
     """
@@ -105,7 +135,7 @@ def randomize_neural_network(neural_network, rnd_strength):
 def save_neural_network(neural_network, file_path):
     """
     Save a neural network in a file.
-    
+
     Parameters
     ----------
     neural_network : neural network to save in the file (dic).
@@ -115,26 +145,26 @@ def save_neural_network(neural_network, file_path):
 def load_neural_network(file_path):
     """
     Load neural network from a file.
-    
+
     Parameter
     ---------
     file_path : path of the file to load the neural network from (str).
-    
+
     Return
     ------
     neural_network : loaded neural network (dic).
     """
 
-def traine_neural_network(neural_network, max_iteration, learn_strength):
+def train_neural_network(neural_network, max_iteration, learn_strength):
     """
-    Traine the neural network.
-    
+    Train the neural network.
+
     Parameters
     ----------
     neural_network : neural network to traine (dic).
     max_iteration  : max iteration of the trainning algorithme (dic).
     learn_strenght : strenght of the learning algorithme (dic).
-    
+
     Return
     ------
     neural_network : trained neural network (dic).
@@ -143,16 +173,17 @@ def traine_neural_network(neural_network, max_iteration, learn_strength):
 def get_fitness(game_stats, player_name):
     """
     Get the fitness of the ai.
-    
+
     Parameters
     ----------
     game_stats : stats of the game (dic).
     player_name : name of the player (str).
-    
+
     Return
     ------
     fitness : fitness of the player (float).
     """
 
-def sigmoid (x): return 1/(1 + exp(-x))
+def sigmoid (x): return 1 / (1 + exp(-x))
+
 def sigmoid_(x): return x * (1 - x)
