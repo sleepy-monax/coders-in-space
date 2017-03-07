@@ -80,6 +80,13 @@ def get_fitness(game_stats, player_name):
     """
 
 def convert_dict_to_list(dictionnary):
+    """
+    Convert a dictionnary to a list.
+    """
 
+def convert_list_to_dict(list):
+    """
+    Convert a list in to a dictionnary.
+    """
 def sigmoid (x): return 1/(1 + exp(-x))
 def sigmoid_(x): return x * (1 - x)
