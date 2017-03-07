@@ -246,9 +246,26 @@ def show_splash_game(game_stats):
 	Version
 	-------
 	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Nicolas Van Bossuyt (v1. 27/02/17)
 	"""
 
 	def clear_canvas(canvas):
+		"""
+		clear the canvas.
+		
+		Parameter
+		---------
+		canvas: canva to clear (dic).
+		
+		return
+		------
+		canvas: canva after cleaning (dic).
+		
+		Version
+		-------
+		Specification : Bayron Mahy (v1. 11/02/17)
+		Implementation : Nicolas Van Bossuyt (v1. 27/02/17)
+		"""
 		canvas = put_box(canvas, 0, 0, screen_size[0], screen_size[1])
 		canvas = put_stars_field(canvas, 1, 1, screen_size[0] - 2, screen_size[1] - 2, 1)
 		return canvas
@@ -284,6 +301,7 @@ def show_end_game(game_stats):
 	Version
 	-------
 	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	implementation : Nicolas Van Bossuyt (v1. 27/02/17)
 	"""
 	screen_size = game_stats['screen_size']
 
@@ -335,7 +353,7 @@ def show_end_game(game_stats):
 
 def is_game_continue(game_stats):
 	"""
-	Check if a player has won the game.
+	Check if the game continue.
 
 	Parameter
 	---------
@@ -400,6 +418,7 @@ def calculate_value(player_name, game_stats):
 	Version
 	-------
 	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 24/02/17)
+	Implementation : Alisson Leist (v1. 24/02/17)
 	"""
 	total_value = 0
 
@@ -487,7 +506,7 @@ def get_human_input(player_name, buy_ship, game_stats):
 
 def show_ship_list(player_name, game_stats):
 	"""
-	Show spaceships information on the teminal.
+	Show spaceships information on the terminal.
 
 	Parameters
 	----------
@@ -497,6 +516,7 @@ def show_ship_list(player_name, game_stats):
 	Version
 	-------
 	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Nicolas Van Bossuyt (v1. 22/02/17)
 	"""
 	screen_size = game_stats['screen_size']
 
@@ -689,13 +709,13 @@ def show_game_board(game_stats):
 # A.I.
 # ------------------------------------------------------------------------------
 # AI interactions
-"""
-def get_ai_input(player_name, buy_ships, game_stats):
 
+def get_ai_input(player_name, buy_ships, game_stats):
+	"""
 	Get input from a AI player.
 
-	Parameter
-	---------
+	Parameters
+	----------
 	player_name : name of the player (str).
     buy_ships : True, if players buy their boats (bool).
 	game_stats : stats of the game (dic).
@@ -708,7 +728,7 @@ def get_ai_input(player_name, buy_ships, game_stats):
 	-------
 	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
     Implementation : Nicolas Van Bossuyt (v1 27/02/17)
-
+	"""
 
 	if buy_ships:
 		return 'StarBoby:fighter me:destroyer tamere:battlecruiser'
@@ -722,8 +742,7 @@ def get_ai_input(player_name, buy_ships, game_stats):
 			ai_input += ship.replace(player_name + '_','') + ':' + action[randint(0, len(action) - 1 )] + ' '
 
 	return ai_input[:-1]
-
-"""
+	
 
 # Remote player
 # ------------------------------------------------------------------------------
@@ -745,6 +764,7 @@ def get_distant_input(game_stats):
 	-------
 	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
                      Nicolas Van Bossuyt (v2. 03/03/17)
+	Implementation : Nicolas Van Bossuyt (v1. 03/03/17)
 	"""
 
 	connection = game_stats['players']['distant']['connection']
@@ -792,8 +812,8 @@ def print_canvas(canvas, x = 0, y = 0):
 	"""
 	Print canvas in the terminal.
 
-	Parameter
-	---------
+	Parameters
+	----------
 	canvas : canvas to print on screen (dic).
 	(optional) x, y : coodinate in the terminal (int).
 
@@ -1001,6 +1021,7 @@ def mesure_ascii_text(font, text):
 	Version
 	-------
 	Specification  : Nicolas Van Bossuyt (v1. 27/02/17)
+	Implementation : Nicolas Van Bossuyt (v1. 22/02/17)
 	"""
 	lenght = 0
 
@@ -1028,6 +1049,7 @@ def put_canvas(canvas, canvas_bis, x, y):
 	Version
 	-------
 	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 27/02/17)
+	Implementation : Nicolas Van Bossuyt (v1. 22/02/17)
 	"""
 
 	for cx in range(canvas_bis['size'][0]):
@@ -1126,6 +1148,7 @@ def put_stars_field(canvas, x, y, width, height, r_seed = None):
 	Version
 	-------
 	Specification  : Nicolas Van Bossuyt (v1. 27/02/17)
+	Implementation : Nicolas Van Bossuyt (v1. 22/02/17)
 	"""
 	void_char = ['.', '*', '\'']
 	seed(r_seed)
@@ -1173,7 +1196,7 @@ def put_text(canvas, x, y, text, direction_x = 1, direction_y = 0, color = None,
 
 def set_color(text, foreground_color, background_color):
 	"""
-	Changes the color of a text.
+	Change the color of a text.
 
 	Parameters
 	----------
@@ -1194,6 +1217,7 @@ def set_color(text, foreground_color, background_color):
     Version
 	-------
 	Specification  : Nicolas Van Bossuyt (v1. 27/02/17)
+	Implementation : Nicolas Van Bossuyt (v1. 27/02/17)
 	"""
 	color = { 'grey' : 0, 'red' : 1, 'green': 2, 'yellow' : 3, 'blue' : 4, 'magenta' : 5, 'cyan' : 6, 'white' : 7 }
 
@@ -1449,11 +1473,30 @@ def to_unit_vector(vector):
 	Version
 	-------
 	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Nicolas Van Bossuyt (v1. 22/02/17)
 	"""
 
 	def convert(value):
-		if value > 0.25: return 1
-		elif value < -0.25: return -1
+		"""
+		round the value from float to int with specifical criterium.
+		
+		parameter
+		---------
+		value: value to convert
+		
+		return
+		------
+		1, -1, 0: Value after round.
+		
+		Version
+		-------
+		Specification: Bayron Mahy (v1. 11/02/2017)
+		Implementation : Nicolas Van Bossuyt (v1. 22/02/17)
+		"""
+		if value > 0.25: 
+			return 1
+		elif value < -0.25: 
+			return -1
 
 		return 0
 
@@ -1588,6 +1631,7 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
 	-------
 	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
 	Implementation : Alisson Leist (v1. 14/2/17)
+					 Bayron Mahy, Alisson Leist (v2. 20/02/17)
 	"""
  	ship_type = game_stats['model_ship'][game_stats['ships'][ship]['type']]
 	damages = ship_type['damages']
@@ -1627,6 +1671,8 @@ def get_distance(coord1, coord2, size):
 	Version
 	-------
 	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation : Nicolas Van Bossuyt (v1. 14/2/17)
+					 Nicolas Van Bossuyt, Alisson Leist (v2. 20/02/17)
 	"""
 	coord1 = list(coord1)
 	coord2 = list(coord2)
@@ -1749,6 +1795,7 @@ def create_game_board(file_name, board_size, lost_ships_count):
 	Version
 	-------
 	Specification  : Nicolas Van Bossuyt (v1. 25/02/17)
+	Implementation : Nicolas Van Bossuyt (v1.25/02/17)
 	"""
 	ship_type = ['fighter', 'destroyer', 'battlecruiser']
 	ship_direction = ['up', 'up-left', 'up-right', 'left', 'right', 'down', 'down-left', 'down-right']

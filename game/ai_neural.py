@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+from random import *
+from pickle import *
+
 def get_ai_input(player_name, buy_ships, game_stats):
     """
 	Get input from a AI player.
@@ -17,6 +20,8 @@ def get_ai_input(player_name, buy_ships, game_stats):
 	-------
 	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
     """
+    
+    
 
 def create_neural_network(neural_structure):
     """
@@ -30,6 +35,20 @@ def create_neural_network(neural_structure):
     ------
     neural_network : neural network create from the neural structure description (dic).
     """
+    neural_network = {}
+    layer = 0
+    
+    for layer_nodes_count in neural_structure:
+    	neural_network[layer] = {}
+    	for node in range(layer_nodes_count):
+    		neural_network[layer][node] = {'value' : 0, 'links' : {}}
+    		if not layer == 0:
+    			for link in range(len(neural_network[layer - 1 ])):
+    				neural_network[layer][node]['links'][link] = randint(0, 100) * 0.01
+
+    	layer += 1
+    	
+    return neural_network
 
 def compute_neural_network(neural_network, neural_input):
     """
@@ -45,6 +64,22 @@ def compute_neural_network(neural_network, neural_input):
     neural_ouput : output from the neural_network (list(float))
     """
 
+	# Compute the neural network.
+	for layer in neural_network:
+		for node in neural_network[layer]:
+			if layer = 0:
+				neural_network[layer][node]['value'] = neural_input[node]
+			else:
+				neural_network[layer][node]['value'] = 0
+				for link in neural_network[layer][node]['links']:
+					neural_network[layer][node]['value'] =+ neural_network[layer - 1][link]['value'] * neural_network[layer][node]['links'][link]
+	output = []
+	layer = len(neural_network) - 1
+	for node in neural_network[layer]:
+		output.append(neural_network[layer][node]['value'])
+		
+	return output  
+
 def randomize_neural_network(neural_network, rnd_strength):
     """
     Randomize connection of a neural_network.
@@ -58,35 +93,66 @@ def randomize_neural_network(neural_network, rnd_strength):
     ------
     neural_network : randomized neural_network (dic).
     """
+    multi = [0., 1., -1.]
+    for layer in neural_network:
+        for node in neural_network[layer]['nodes']:
+            for link in neural_network[layer]['nodes'][node]['links']:
+                neural_network[layer]['nodes'][node]['links'][link] = \
+                neural_network[layer]['nodes'][node]['links'][link] + max_value * multi[randint(0, len(multi) - 1)]
+
+    return neural_network
 
 def save_neural_network(neural_network, file_path):
     """
     Save a neural network in a file.
+    
+    Parameters
+    ----------
+    neural_network : neural network to save in the file (dic).
+    file_path : path to save the neural network (str).
     """
 
 def load_neural_network(file_path):
     """
     Load neural network from a file.
+    
+    Parameter
+    ---------
+    file_path : path of the file to load the neural network from (str).
+    
+    Return
+    ------
+    neural_network : loaded neural network (dic).
     """
 
 def traine_neural_network(neural_network, max_iteration, learn_strength):
     """
     Traine the neural network.
+    
+    Parameters
+    ----------
+    neural_network : neural network to traine (dic).
+    max_iteration  : max iteration of the trainning algorithme (dic).
+    learn_strenght : strenght of the learning algorithme (dic).
+    
+    Return
+    ------
+    neural_network : trained neural network (dic).
     """
 
 def get_fitness(game_stats, player_name):
     """
     Get the fitness of the ai.
+    
+    Parameters
+    ----------
+    game_stats : stats of the game (dic).
+    player_name : name of the player (str).
+    
+    Return
+    ------
+    fitness : fitness of the player (float).
     """
 
-def convert_dict_to_list(dictionnary):
-    """
-    Convert a dictionnary to a list.
-    """
-
-def convert_list_to_dict(list):
-    """
-    Convert a list in to a dictionnary.
-    """
 def sigmoid (x): return 1/(1 + exp(-x))
 def sigmoid_(x): return x * (1 - x)
