@@ -64,12 +64,16 @@ def get_ai_input(player_name, buy_ships, game_stats):
 		input_str = ''
 		if input_id == 0:
 			input_str = 'left'
+
 		elif input_id == 1:
 			input_str = 'right'
+
 		elif input_id == 2:
 			input_str = 'faster'
+
 		elif input_id == 3:
 			input_str = 'slower'
+
 		elif input_id == 4:
 			attack_range = game_stats['model_ship'][game_stats['ships'][ship_name]['type']]['range']
 			attack_offset = input_data[-2:]
@@ -81,11 +85,7 @@ def get_ai_input(player_name, buy_ships, game_stats):
 
 
 	# Load network.
-	network_path = 'neural/%s.mind' % (player_name)
-	network = {}
-
-	if os.path.isfile(network_path):
-		network = load_network(network_path)
+	network = game_stats['network'][player_name]
 
 	# Get model_ship data.
 	# Name               / heal / Speed / Damages / range / price

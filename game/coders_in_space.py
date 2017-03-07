@@ -44,7 +44,7 @@ from ai import *
 # ==============================================================================
 # Create a new game and play it.
 
-def play_game(level_name, players_list, no_splash = False, no_gui = False, screen_size = (190, 50), distant_id = None, distant_ip = None, verbose_connection = False, max_rounds_count = 10):
+def play_game(level_name, players_list, no_splash = False, no_gui = False, screen_size = (190, 50), distant_id = None, distant_ip = None, verbose_connection = False, max_rounds_count = 10, network = None):
 	"""
 	Main function that executes the game loop.
 
@@ -83,6 +83,7 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
 
 	game_stats['screen_size'] = screen_size
 	game_stats['max_nb_rounds'] = max_rounds_count
+	game_stats['network'] = network
 
 	if not no_splash:
 		show_splash_game(game_stats)
@@ -166,7 +167,8 @@ def new_game(level_name, players_list, connection = None):
 				  'pending_attacks': [],
 				  'game_logs': [],
 				  'winners' : [],
-				  'is_remote_game' : connection != None}
+				  'is_remote_game' : connection != None,
+				  'network': {}}
 
 	# Create ship specs sheet.
 	game_stats['model_ship']['fighter'] = {'icon': u'F', 'max_heal':3, 'max_speed':5, 'damages':1, 'range':5, 'price':10}
