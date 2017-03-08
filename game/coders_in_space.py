@@ -6,17 +6,17 @@
 
 """
 						 ___---------___
-					   _".^ .^ ^.  '.. :"-_
-					 /:            . .^  :.:\
+					   _".^ .^ ^.  '..:"-_
+					 /:            . .^:.  :\
 				   /: .   .    .        . . .:\
 				  /:               .  ^ .  . .:\
 				 /.                        .  .:\
 				|:                    .  .  ^. .:|
 				||        .                . . !:|
-				\(                           . :)/
+				\(                           .:)/
 				|. ######              .#######::|
 				 |.#######           ..########:|
-				 \ ########          :######## :/
+				 \ ########           :########:/
 				  \ ########       . ########.:/
 				   \. #######       #######..:/
 					 \           .   .   ..:/
@@ -34,10 +34,10 @@
 # Imports
 # ==============================================================================
 # Import some cool component for the game.
-from math import *
-from random import *
-from remote_play import *
 from time import sleep #because everyone needs to rest.
+from math import *
+from random import randint
+from remote_play import *
 
 # Game
 # ==============================================================================
@@ -51,26 +51,26 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
 	----------
 	level_name: name of the level (str).
 	players_list: list of players (list).
-	(optional) no_splash : ship the splash screen (bool).
-	(optional) no_gui : disable game user interface (bool).
-	(optional) screen_size : size of the terminal window (tuple(int, int)).
-	(optional) distant_id : ID of the distant player (int).
-	(optional) distant_ip : IP of the distant player (str).
-	(optional) verbose_connection : anabled connection output in terminal (bool).
-	(optional) max_rounds_count : number of rounds (int).
+	(optional) no_splash: ship the splash screen (bool).
+	(optional) no_gui: disable game user interface (bool).
+	(optional) screen_size: size of the terminal window (tuple(int, int)).
+	(optional) distant_id: ID of the distant player (int).
+	(optional) distant_ip: IP of the distant player (str).
+	(optional) verbose_connection: anabled connection output in terminal (bool).
+	(optional) max_rounds_count: number of rounds (int).
 
 	Return
 	------
-	winner_name : name of the winner (str).
+	winner_name: name of the winner (str).
 
 	Note
 	----
-	Recomanded screen_size : (190, 50).
+	Recomanded screen_size: (190, 50).
 
 	Version
 	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Bayron Mahy, Nicolas Van Bossuyt (v1. 15/02/17)
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Bayron Mahy, Nicolas Van Bossuyt (v1. 15/02/17)
 	"""
 	# Create the new game.
 	is_distant_game = distant_id != None and distant_ip != None
@@ -89,41 +89,43 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
 		show_splash_game(game_stats)
 		raw_input() # wait the player pressing enter.
 
-	# Players create their ships.
-	for player in players_list:
-		game_stats = command_buy_ships(get_game_input(player, True, game_stats), player, game_stats)
-
 	is_ship_buy = True
+	game_running = True
 	# Game loop.
-	while is_game_continue(game_stats):
+	while game_running:
 
 		game_stats['nb_rounds'] += 1
-
-		# Show the game board to the human player.
-		if not no_gui:
-			show_game_board(game_stats)
-
 		# Cleaning the pending_attack list.
 		game_stats['pending_attack'] = []
 
 		# getting players input.
 		for player in players_list:
+			# Show the game board to the human player.
+			if not no_gui:
+				show_game_board(game_stats)
+
+			# Get current player input.
 			if is_ship_buy == True:
-				is_ship_buy = False
 				game_stats = command_buy_ships(get_game_input(player, True, game_stats), player, game_stats)
+
 			else:
 				if game_stats['players'][player]['nb_ships'] > 0:
 					game_stats = parse_command(get_game_input(player, False, game_stats), player, game_stats)
+
 				else:
 					if game_stats['players'][player]['type'] != 'none':
 						game_stats['game_logs'].append(player + ' has lost all these ships, so he has nothing to do.')
 
+		is_ship_buy = False
+
 		# Do ships moves.
-		do_moves(game_stats)
+		game_stats = do_moves(game_stats)
 
 		# Do Attack
 		for pending_attack in game_stats['pending_attacks']:
 			game_stats = command_attack(pending_attack[0], pending_attack[1], pending_attack[2], game_stats)
+
+		game_running = is_game_continue(game_stats)
 
 	# Disconect the remote player.
 	if is_distant_game:
@@ -141,18 +143,18 @@ def new_game(level_name, players_list, connection = None):
 
 	Parameters
 	----------
-	level_name : name of the path to .cis file (str).
-	players_list : list of players (list).
-	(optional) connection : distant player connection (tuple).
+	level_name: name of the path to .cis file (str).
+	players_list: list of players (list).
+	(optional) connection: distant player connection (tuple).
 
 	Return
 	-------
-	game_stats : new game stats (dic).
+	game_stats: new game stats (dic).
 
 	Version
 	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/2017)
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/2017)
 					 Bayron Mahy, Nicolas Van Bossuyt (v2. 13/02/2017)
 					 Nicolas Van Bossuyt (v3. 23/02/17)
 	"""
@@ -169,9 +171,10 @@ def new_game(level_name, players_list, connection = None):
 				  'max_nb_rounds': 10,
 				  'pending_attacks': [],
 				  'game_logs': [],
-				  'winners' : [],
-				  'is_remote_game' : connection != None,
-				  'network': {}}
+				  'winners': [],
+				  'is_remote_game': connection != None,
+				  'network': {}
+				  }
 
 	# Create ship specs sheet.
 	game_stats['model_ship']['fighter'] = {'icon': u'F', 'max_heal':3, 'max_speed':5, 'damages':1, 'range':5, 'price':10}
@@ -244,12 +247,12 @@ def show_splash_game(game_stats):
 
 	Parameter
 	---------
-	game_stats : stats of the game (dic).
+	game_stats: stats of the game (dic).
 
 	Version
 	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Nicolas Van Bossuyt (v1. 27/02/17)
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Nicolas Van Bossuyt (v1. 27/02/17)
 	"""
 
 	def clear_canvas(canvas):
@@ -266,8 +269,8 @@ def show_splash_game(game_stats):
 
 		Version
 		-------
-		Specification : Bayron Mahy (v1. 11/02/17)
-		Implementation : Nicolas Van Bossuyt (v1. 27/02/17)
+		Specification: Bayron Mahy (v1. 11/02/17)
+		Implementation: Nicolas Van Bossuyt (v1. 27/02/17)
 		"""
 		canvas = put_box(canvas, 0, 0, screen_size[0], screen_size[1])
 		canvas = put_stars_field(canvas, 1, 1, screen_size[0] - 2, screen_size[1] - 2, 1)
@@ -299,12 +302,12 @@ def show_end_game(game_stats):
 
 	Parameter
 	---------
-	game_stats : stats of the game (dic).
+	game_stats: stats of the game (dic).
 
 	Version
 	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	implementation : Nicolas Van Bossuyt (v1. 27/02/17)
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	implementation: Nicolas Van Bossuyt (v1. 27/02/17)
 	"""
 	screen_size = game_stats['screen_size']
 
@@ -327,7 +330,7 @@ def show_end_game(game_stats):
 
 	# Put players stats.
 	for player in game_stats['players']:
-		if player == 'none' : continue
+		if player == 'none': continue
 		if player in game_stats['winners']:
 			# The player win the game.
 			text_lenght = mesure_ascii_text(font_standard, player)
@@ -361,7 +364,7 @@ def is_game_continue(game_stats):
 
 	Parameter
 	---------
-	game_stats : stats of the game (dic).
+	game_stats: stats of the game (dic).
 
 	Return
 	------
@@ -369,23 +372,20 @@ def is_game_continue(game_stats):
 
 	Version
 	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 24/02/17)
-	Implementation : Alisson Leist (v1. 24/02/17)
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 24/02/17)
+	Implementation: Alisson Leist (v1. 24/02/17)
 	"""
 
 	not_loser = []
 
 	# Checking playert thats have more than on ships
 	for player in game_stats['players']:
-
-		if player == 'none':
-			continue
-
-		if game_stats['players'][player]['nb_ships'] > 0:
+		if player != 'none' and game_stats['players'][player]['nb_ships'] > 0:
 			not_loser.append(player)
 
 	# Check if the game continue.
-	if not (len(not_loser)==1 or game_stats['nb_rounds'] >= game_stats['max_nb_rounds']):
+	if len(not_loser) > 1 and game_stats['nb_rounds'] <= game_stats['max_nb_rounds']:
+
 		return True
 
 
@@ -416,13 +416,13 @@ def calculate_value(player_name, game_stats):
 
 	Parameters
 	----------
-	player_name : name of the player to count value (str)
-	game_stats : game before comand execution (dic)
+	player_name: name of the player to count value (str)
+	game_stats: game before comand execution (dic)
 
 	Version
 	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 24/02/17)
-	Implementation : Alisson Leist (v1. 24/02/17)
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 24/02/17)
+	Implementation: Alisson Leist (v1. 24/02/17)
 	"""
 	total_value = 0
 
@@ -442,14 +442,14 @@ def get_game_input(player_name, buy_ships, game_stats):
 
 	Parameters
 	----------
-	player_name : name of the player to get input (str).
-	buy_ships : True, if players buy their boats (bool).
-	game_stats : stats of the game (dic).
+	player_name: name of the player to get input (str).
+	buy_ships: True, if players buy their boats (bool).
+	game_stats: stats of the game (dic).
 
 	Version
 	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Niolas Van Bossuyt (V1. 15/02/17)
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Niolas Van Bossuyt (V1. 15/02/17)
 	"""
 	player_input = ''
 
@@ -480,23 +480,23 @@ def get_human_input(player_name, buy_ship, game_stats):
 
 	Parameters
 	----------
-	player_name : Name of the player to get input from (str).
-	buy_ships : True, if players buy their boats (bool).
-	game_stats : stats of the game (dic).
+	player_name: Name of the player to get input from (str).
+	buy_ships: True, if players buy their boats (bool).
+	game_stats: stats of the game (dic).
 
 	Returns
 	-------
-	player_input : input from Human (str).
+	player_input: input from Human (str).
 
 	Version
 	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Nicolas Van Bosuyt (v1. 22/02/17)
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Nicolas Van Bosuyt (v1. 22/02/17)
 	"""
 
 	while True:
 		# Getting human player input.
-		player_input = raw_input('\033[%d;%dH %s :' % (game_stats['screen_size'][1], 3, player_name))
+		player_input = raw_input('\033[%d;%dH %s:' % (game_stats['screen_size'][1], 3, player_name))
 
 		# Run human player command.
 		if '/' in player_input:
@@ -519,8 +519,8 @@ def show_ship_list(player_name, game_stats):
 
 	Version
 	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Nicolas Van Bossuyt (v1. 22/02/17)
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Nicolas Van Bossuyt (v1. 22/02/17)
 	"""
 	screen_size = game_stats['screen_size']
 
@@ -535,7 +535,7 @@ def show_ship_list(player_name, game_stats):
 
 	for ship_model_name in game_stats['model_ship']:
 		ship_model = game_stats['model_ship'][ship_model_name]
-		c_ship_list = put_text(c_ship_list, 3, 4 + line_index, '[%s] %s // heal : %spv ~ speed : %skm/s ~ damages : %spv ~ attack range : %skm ~ price : %sG$ ' % (ship_model['icon'], ship_model_name, ship_model['max_heal'], ship_model['max_speed'], ship_model['damages'], ship_model['range'], ship_model['price']))
+		c_ship_list = put_text(c_ship_list, 3, 4 + line_index, '[%s] %s // heal: %spv ~ speed: %skm/s ~ damages: %spv ~ attack range: %skm ~ price: %sG$ ' % (ship_model['icon'], ship_model_name, ship_model['max_heal'], ship_model['max_speed'], ship_model['damages'], ship_model['range'], ship_model['price']))
 		line_index+=1
 
 	c_ship_list = put_text(c_ship_list, 1, 4 + line_index, '-'*104)
@@ -556,10 +556,10 @@ def show_ship_list(player_name, game_stats):
 			for ship_name in game_stats['ships']:
 				ship = game_stats['ships'][ship_name]
 				if ship['owner'] == player:
-					c_ship_list = put_text(c_ship_list, 3, 4 + line_index, '[%s] %s // heal : %spv ~ speed : %skm/s ~ Facing : %s' % (game_stats['model_ship'][ship['type']]['icon'], ship_name, ship['heal_points'], ship['speed'], str(ship['direction'])))
+					c_ship_list = put_text(c_ship_list, 3, 4 + line_index, '[%s] %s // heal: %spv ~ speed: %skm/s ~ Facing: %s' % (game_stats['model_ship'][ship['type']]['icon'], ship_name, ship['heal_points'], ship['speed'], str(ship['direction'])))
 					line_index+=1
 		else:
-			c_ship_list = put_text(c_ship_list, 3, 4 + line_index, 'Sorry no space ships :/')
+			c_ship_list = put_text(c_ship_list, 3, 4 + line_index, 'Sorry no space ships:/')
 			line_index+=1
 
 		c_ship_list = put_text(c_ship_list, 1, 4 + line_index, '-'*104)
@@ -588,12 +588,12 @@ def show_game_board(game_stats):
 
 	Parameter
 	---------
-	game_stats : stats of the game (dic).
+	game_stats: stats of the game (dic).
 
 	Version
 	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Nicolas Van Bossuyt (v1. 10/02/2017)
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Nicolas Van Bossuyt (v1. 10/02/2017)
 					 Nicolas Van Bossuyt (v2. 12/02/2017)
 					 Nicolas Van Bossuyt (v3. 13/02/2017)
 					 Nicolas Van Bossuyt (v4. 19/02/2017)
@@ -614,7 +614,7 @@ def show_game_board(game_stats):
 	game_board_size = (game_stats['board_size'][0]*3 + 5, game_stats['board_size'][1] + 3)
 	c_board = create_canvas(game_board_size[0], game_board_size[1])
 	c_board = put_box(c_board, 0, 0, game_board_size[0], game_board_size[1])
-	c_board = put_text(c_board, 2, 0, u'[ Coders In Space : %s ] %s / %s Rounds' % (game_stats['level_name'], game_stats['nb_rounds'], game_stats['max_nb_rounds']))
+	c_board = put_text(c_board, 2, 0, u'[ Coders In Space: %s ] %s / %s Rounds' % (game_stats['level_name'], game_stats['nb_rounds'], game_stats['max_nb_rounds']))
 	c_board = put_stars_field(c_board, 1, 1, game_board_size[0] - 2, game_board_size[1] - 2, 1)
 
 	# Put horizontal coordinate.
@@ -688,9 +688,9 @@ def show_game_board(game_stats):
 
 			# Put player informations.
 			c_screen = put_text(c_screen, location[0] + 2, location[1] , '[ ' + game_stats['players'][player]['name'] + ' ]', color=game_stats['players'][player]['color'])
-			c_screen = put_text(c_screen, location[0] + 2, location[1] + 1, 'Type : ' + game_stats['players'][player]['type'])
-			c_screen = put_text(c_screen, location[0] + 2, location[1] + 2, 'Money : ' + str(game_stats['players'][player]['money']) + '$')
-			c_screen = put_text(c_screen, location[0] + 2, location[1] + 3, 'Spaceship count : ' + str(game_stats['players'][player]['nb_ships']))
+			c_screen = put_text(c_screen, location[0] + 2, location[1] + 1, 'Type: ' + game_stats['players'][player]['type'])
+			c_screen = put_text(c_screen, location[0] + 2, location[1] + 2, 'Money: ' + str(game_stats['players'][player]['money']) + '$')
+			c_screen = put_text(c_screen, location[0] + 2, location[1] + 3, 'Spaceship count: ' + str(game_stats['players'][player]['nb_ships']))
 
 			player_count += 1
 
@@ -720,18 +720,18 @@ def get_ai_input(player_name, buy_ships, game_stats):
 
 	Parameters
 	----------
-	player_name : name of the player (str).
-	buy_ships : True, if players buy their boats (bool).
-	game_stats : stats of the game (dic).
+	player_name: name of the player (str).
+	buy_ships: True, if players buy their boats (bool).
+	game_stats: stats of the game (dic).
 
 	Return
 	------
-	ai_input : game input from AI (str).
+	ai_input: game input from AI (str).
 
 	Version
 	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Nicolas Van Bossuyt (v1 27/02/17)
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Nicolas Van Bossuyt (v1 27/02/17)
 	"""
 
 	if buy_ships:
@@ -758,17 +758,17 @@ def get_distant_input(game_stats):
 
 	Parameter
 	---------
-	game_stats : stats of the game (dic).
+	game_stats: stats of the game (dic).
 
 	Return
 	------
-	remote_input : input from distant player (str).
+	remote_input: input from distant player (str).
 
 	Version
 	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 					 Nicolas Van Bossuyt (v2. 03/03/17)
-	Implementation : Nicolas Van Bossuyt (v1. 03/03/17)
+	Implementation: Nicolas Van Bossuyt (v1. 03/03/17)
 	"""
 
 	connection = game_stats['players']['distant']['connection']
@@ -788,18 +788,18 @@ def create_canvas(width, height, enable_color = True):
 
 	Parameters
 	----------
-	height : height of the game view (int).
-	width : width of the game view (int).
-	enable_color : enable color in the game view (bool)
+	height: height of the game view (int).
+	width: width of the game view (int).
+	enable_color: enable color in the game view (bool)
 
 	Return
 	------
-	canvas : 2D ascii canvas (dic).
+	canvas: 2D ascii canvas (dic).
 
 	Version
 	-------
-	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Nicolas Van Bossuyt (v1. 10/02/17)
+	Specification: Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 
 	# Initialize the canvas.
@@ -818,13 +818,13 @@ def print_canvas(canvas, x = 0, y = 0):
 
 	Parameters
 	----------
-	canvas : canvas to print on screen (dic).
-	(optional) x, y : coodinate in the terminal (int).
+	canvas: canvas to print on screen (dic).
+	(optional) x, y: coodinate in the terminal (int).
 
 	Version
 	-------
-	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Nicolas Van Bossuyt (v1. 10/02/17)
+	Specification: Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 
 	canvas_width = canvas['size'][0]
@@ -862,19 +862,19 @@ def put(canvas, x, y, char, color = None, back_color = None):
 
 	Parameters
 	----------
-	canvas : canvas to draw in (dic).
-	x, y : coordinate of were to put the char (int).
-	char : char to put (str).
-	(optiona) color, back_color : color for the char (string).
+	canvas: canvas to draw in (dic).
+	x, y: coordinate of were to put the char (int).
+	char: char to put (str).
+	(optiona) color, back_color: color for the char (string).
 
 	Return
 	------
-	canvas : canvas with the char put on it (dic).
+	canvas: canvas with the char put on it (dic).
 
 	Version
 	-------
-	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Nicolas Van Bossuyt (v1. 10/02/17)
+	Specification: Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 
 	# Check if the coordinate is in the bound of the game view.
@@ -886,8 +886,8 @@ def put(canvas, x, y, char, color = None, back_color = None):
 		canvas['grid'][(x,y)]['color'] = color
 
 		# Add the 'on_' at the start of the back_color string.
-		if not back_color == None : canvas['grid'][(x,y)]['back_color'] = back_color
-		else : canvas['grid'][(x,y)]['back_color'] = None
+		if not back_color == None: canvas['grid'][(x,y)]['back_color'] = back_color
+		else: canvas['grid'][(x,y)]['back_color'] = None
 
 	return canvas
 
@@ -897,20 +897,20 @@ def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None,
 
 	Parameters
 	----------
-	canvas : canvas to draw in (dic).
-	x, y : coordinate to pute the art (int).
-	ascii_art_name : name of the art file (string).
-	canvas : canvas to put the art on it (dic).
-	transparency_char : ignored char.
+	canvas: canvas to draw in (dic).
+	x, y: coordinate to pute the art (int).
+	ascii_art_name: name of the art file (string).
+	canvas: canvas to put the art on it (dic).
+	transparency_char: ignored char.
 
 	Return
 	------
-	canvas : game view with te ascii art (dic).
+	canvas: game view with te ascii art (dic).
 
 	Version
 	-------
-	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Nicolas Van Bossuyt (V1. 15/02/17)
+	Specification: Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Nicolas Van Bossuyt (V1. 15/02/17)
 					 Nicolas Van Bossuyt (v2. 26/02/17)
 	"""
 	art_file = open('art/' + ascii_art_name + '.txt','r')
@@ -936,17 +936,17 @@ def put_ascii_text(canvas, font, text, x, y, color = None, back_color = None):
 
 	Parameters
 	----------
-	canvas : canvas to draw in (dic).
-	font : font to use (dic).
-	string : string to put in the canvas (str).
+	canvas: canvas to draw in (dic).
+	font: font to use (dic).
+	string: string to put in the canvas (str).
 
 	Return
 	------
-	canvas : the canvas with the string on it (dic).
+	canvas: the canvas with the string on it (dic).
 
 	Version
 	-------
-	Specification  : Nicolas Van Bossuyt (v1. 27/02/17)
+	Specification: Nicolas Van Bossuyt (v1. 27/02/17)
 	"""
 
 	char_x = 0
@@ -970,15 +970,15 @@ def load_ascii_font(font_name):
 
 	Parameter
 	---------
-	font_name : name of the font (str).
+	font_name: name of the font (str).
 
 	Return
 	------
-	font : font face from the file (dic).
+	font: font face from the file (dic).
 
 	Version
 	-------
-	Specification  : Nicolas Van Bossuyt (v1. 27/02/17)
+	Specification: Nicolas Van Bossuyt (v1. 27/02/17)
 
 	Notes
 	-----
@@ -1015,17 +1015,17 @@ def mesure_ascii_text(font, text):
 
 	Parameters
 	----------
-	font : font to mesure the string (dic).
-	string : text to mesure (str)
+	font: font to mesure the string (dic).
+	string: text to mesure (str)
 
 	Return
 	------
-	lenght : lenght of the string (int).
+	lenght: lenght of the string (int).
 
 	Version
 	-------
-	Specification  : Nicolas Van Bossuyt (v1. 27/02/17)
-	Implementation : Nicolas Van Bossuyt (v1. 22/02/17)
+	Specification: Nicolas Van Bossuyt (v1. 27/02/17)
+	Implementation: Nicolas Van Bossuyt (v1. 22/02/17)
 	"""
 	lenght = 0
 
@@ -1042,18 +1042,18 @@ def put_canvas(canvas, canvas_bis, x, y):
 
 	Parameters
 	----------
-	canvas : canvas to draw in (dic).
-	canvas_bis : canvas to put in the main canvas (dic).
-	x, y : coordinate of the canvas (int).
+	canvas: canvas to draw in (dic).
+	canvas_bis: canvas to put in the main canvas (dic).
+	x, y: coordinate of the canvas (int).
 
 	Return
 	------
-	canvas : the canvas with the other canvas on it (dic).
+	canvas: the canvas with the other canvas on it (dic).
 
 	Version
 	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 27/02/17)
-	Implementation : Nicolas Van Bossuyt (v1. 22/02/17)
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 27/02/17)
+	Implementation: Nicolas Van Bossuyt (v1. 22/02/17)
 	"""
 
 	for cx in range(canvas_bis['size'][0]):
@@ -1069,20 +1069,20 @@ def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_col
 
 	Parameters
 	----------
-	canvas : canvas to draw in (dic).
-	x, y : coordinate of the rectangle (int).
-	width, height : size of the rectangle (int).
-	mode : double ou single line <'double'|'single'> (str).
-	color, back_color : color for the char (string).
+	canvas: canvas to draw in (dic).
+	x, y: coordinate of the rectangle (int).
+	width, height: size of the rectangle (int).
+	mode: double ou single line <'double'|'single'> (str).
+	color, back_color: color for the char (string).
 
 	Return
 	------
-	canvas : canvas whith the box (dic).
+	canvas: canvas whith the box (dic).
 
 	Version
 	-------
-	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Nicolas Van Bossuyt (v1. 10/02/17)
+	Specification: Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 
 	rec_char = ()
@@ -1115,19 +1115,19 @@ def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = 
 
 	Parameters
 	----------
-	canvas : canvas to draw in (dic).
-	x, y : coordinate of the rectangle (int).
-	width, height : size of the rectangle (int).
-	color, back_color : color for the char (string).
+	canvas: canvas to draw in (dic).
+	x, y: coordinate of the rectangle (int).
+	width, height: size of the rectangle (int).
+	color, back_color: color for the char (string).
 
 	Return
 	------
-	canvas : canvas whith the rectangle (dic).
+	canvas: canvas whith the rectangle (dic).
 
 	Version
 	-------
-	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Nicolas Van Bossuyt (v1. 10/02/17)
+	Specification: Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 
 	for w in range(width):
@@ -1141,18 +1141,18 @@ def put_stars_field(canvas, x, y, width, height, r_seed = None):
 
 	Parameters
 	----------
-	canvas : canvas to draw in (dic).
-	x, y, w, h : location and size of the stars field (int)
-	r_seed : random seed (int).
+	canvas: canvas to draw in (dic).
+	x, y, w, h: location and size of the stars field (int)
+	r_seed: random seed (int).
 
 	Return
 	------
-	canvas : the canvas with the stars field on it (dic).
+	canvas: the canvas with the stars field on it (dic).
 
 	Version
 	-------
-	Specification  : Nicolas Van Bossuyt (v1. 27/02/17)
-	Implementation : Nicolas Van Bossuyt (v1. 22/02/17)
+	Specification: Nicolas Van Bossuyt (v1. 27/02/17)
+	Implementation: Nicolas Van Bossuyt (v1. 22/02/17)
 	"""
 	void_char = ['.', '*', '\'']
 	seed(r_seed)
@@ -1173,22 +1173,22 @@ def put_text(canvas, x, y, text, direction_x = 1, direction_y = 0, color = None,
 
 	Parameters
 	----------
-	canvas : canvas to draw in (dic).
-	x, y : coordinate of the string (int).
-	direction_x, direction_y : direction to draw the string (int).
+	canvas: canvas to draw in (dic).
+	x, y: coordinate of the string (int).
+	direction_x, direction_y: direction to draw the string (int).
 
 	Return
 	------
-	canvas : game view with the new string (dic).
+	canvas: game view with the new string (dic).
 
 	Notes
 	-----
-	direction_x, direction_y : Muste be -1, 0 or 1.
+	direction_x, direction_y: Muste be -1, 0 or 1.
 
 	Version
 	-------
-	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Nicolas Van Bossuyt (v1. 10/02/17)
+	Specification: Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Nicolas Van Bossuyt (v1. 10/02/17)
 	"""
 
 	for char in text:
@@ -1204,26 +1204,26 @@ def set_color(text, foreground_color, background_color):
 
 	Parameters
 	----------
-	text : string to color (str).
-	fore_color : name of the foreground color (str).
-	back_color : name of the background color (str).
+	text: string to color (str).
+	fore_color: name of the foreground color (str).
+	back_color: name of the background color (str).
 
 	Return
 	------
-	colored_text : colored string (str).
+	colored_text: colored string (str).
 
 	Notes
 	-----
-	Colors : grey, red, green, yellow, blue, magenta, cyan, white.
+	Colors: grey, red, green, yellow, blue, magenta, cyan, white.
 
-	ANSI color escape sequences : http://ascii-table.com/ansi-escape-sequences.php
+	ANSI color escape sequences: http://ascii-table.com/ansi-escape-sequences.php
 
 	Version
 	-------
-	Specification  : Nicolas Van Bossuyt (v1. 27/02/17)
-	Implementation : Nicolas Van Bossuyt (v1. 27/02/17)
+	Specification: Nicolas Van Bossuyt (v1. 27/02/17)
+	Implementation: Nicolas Van Bossuyt (v1. 27/02/17)
 	"""
-	color = { 'grey' : 0, 'red' : 1, 'green': 2, 'yellow' : 3, 'blue' : 4, 'magenta' : 5, 'cyan' : 6, 'white' : 7 }
+	color = { 'grey': 0, 'red': 1, 'green': 2, 'yellow': 3, 'blue': 4, 'magenta': 5, 'cyan': 6, 'white': 7 }
 
 	reset = '\033[0m'
 	format_string = '\033[%dm%s'
@@ -1248,17 +1248,17 @@ def parse_command(commands, player_name, game_stats):
 
 	Parameters
 	----------
-	command : command from a player (str).
-	game_stats : stat of the game (dic).
+	command: command from a player (str).
+	game_stats: stat of the game (dic).
 
 	Return
 	------
-	game_stats : new stats of the game (dic).
+	game_stats: new stats of the game (dic).
 
 	Version
 	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Nicolas Van Bossuyt (V1. 10/02/17)
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Nicolas Van Bossuyt (V1. 10/02/17)
 	"""
 
 	commands = commands.split(' ')
@@ -1271,18 +1271,18 @@ def parse_command(commands, player_name, game_stats):
 			ship_name = player_name + '_' + sub_cmd[0]
 			ship_action = sub_cmd[1]
 		except:
-			print 'Syntaxe error : ' + cmd + ' ":" is missing.'
+			print 'Syntaxe error: ' + cmd + ' ":" is missing.'
 			continue
 
 		try:
 			if ship_action == 'slower' or ship_action == 'faster':
-				# Speed command :
+				# Speed command:
 				game_stats = command_change_speed(ship_name, ship_action, game_stats)
 			elif ship_action == 'left' or ship_action == 'right':
-				# Rotate command :
+				# Rotate command:
 				game_stats = command_rotate(ship_name, ship_action, game_stats)
 			else:
-				# Attack command :
+				# Attack command:
 				coordinate_str = ship_action.split('-')
 				coordinate = (int(coordinate_str[0]) - 1, int(coordinate_str[1]) - 1)
 				game_stats['pending_attacks'].append((ship_name, game_stats['ships'][ship_name]['position'], coordinate))
@@ -1302,18 +1302,18 @@ def command_buy_ships(ships, player, game_stats):
 
 	Parameters
 	----------
-	ships : spaceships to buy (str).
-	player : name of the player (str).
-	game_stats : stat of the game (dic).
+	ships: spaceships to buy (str).
+	player: name of the player (str).
+	game_stats: stat of the game (dic).
 
 	Return
 	------
-	game_stats : new stats of the game (dic).
+	game_stats: new stats of the game (dic).
 
 	Version
 	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Nicolas Van Bossuyt (v1. 14/02/17)
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Nicolas Van Bossuyt (v1. 14/02/17)
 					 Nicolas Van Bossuyt (v2. 23/02/17)
 	"""
 
@@ -1345,19 +1345,19 @@ def create_ship(player_name, ship_name, ship_type, game_stats):
 
 	Parameters
 	----------
-	player_name : name of the owner of the ship (str).
-	ship_name : Name of the ship (str).
-	ship_type : Model of the ship (str).
-	game_stats : stats of the game (str).
+	player_name: name of the owner of the ship (str).
+	ship_name: Name of the ship (str).
+	ship_type: Model of the ship (str).
+	game_stats: stats of the game (str).
 
 	Return
 	------
-	game_stats : new stats of the game (dic).
+	game_stats: new stats of the game (dic).
 
 	Version
 	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
-	Implementation : Nicolas Van Bossuyt (v1. 15/02/2017)
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
+	Implementation: Nicolas Van Bossuyt (v1. 15/02/2017)
 	"""
 
 	# Creatting the new space ship and add to the game_stats.
@@ -1377,18 +1377,18 @@ def command_change_speed(ship, change, game_stats):
 
 	Parameters
 	----------
-	ship : name of the ship to Increase the speed (str).
-	change : the way to change the speed <"slower"|"faster"> (str).
-	game_stats : stats of the game (dic).
+	ship: name of the ship to Increase the speed (str).
+	change: the way to change the speed <"slower"|"faster"> (str).
+	game_stats: stats of the game (dic).
 
 	Returns
 	-------
-	game_stats : new stats of the game (dic).
+	game_stats: new stats of the game (dic).
 
 	Version
 	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Bayron Mahy (v1. 10/02/2017)
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Bayron Mahy (v1. 10/02/2017)
 	"""
 	type = game_stats['ships'][ship]['type']
 
@@ -1412,18 +1412,18 @@ def command_rotate(ship, direction, game_stats):
 
 	Parameters
 	----------
-	ship : name of the ship to Increase the speed (str).
-	direction : the direction to rotate the ship <"left"|"right">(str)
-	game_stats : stats of the game (dic).
+	ship: name of the ship to Increase the speed (str).
+	direction: the direction to rotate the ship <"left"|"right">(str)
+	game_stats: stats of the game (dic).
 
 	Returns
 	-------
-	game_stats : new stats of the game (dic).
+	game_stats: new stats of the game (dic).
 
 	Version
 	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Nicolas Van Bossuyt (v1. 10/02/17)
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Nicolas Van Bossuyt (v1. 10/02/17)
 					 Nicolas Van Bossuyt (v2. 22/02/17)
 	"""
 	v = (0, 0)
@@ -1441,17 +1441,17 @@ def rotate_vector_2D(vector, theta):
 
 	Parameters
 	----------
-	vector : 2D vector ton rotate (tuple(int,int)).
-	radian : angle appli to the 2D vector (float).
+	vector: 2D vector ton rotate (tuple(int,int)).
+	radian: angle appli to the 2D vector (float).
 
 	Return
 	------
-	vector : rotate vector 2d (tuple(int,int)).
+	vector: rotate vector 2d (tuple(int,int)).
 
 	Version
 	-------
-	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Nicolas Van Bossuyt (v1. 10/02/17)
+	Specification: Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Nicolas Van Bossuyt (v1. 10/02/17)
 					 Nicolas Van Bossuyt (v2. 22/02/17)
 	"""
 
@@ -1468,16 +1468,16 @@ def to_unit_vector(vector):
 
 	Parameter
 	---------
-	vector : vector to convert (tuple(float, float)).
+	vector: vector to convert (tuple(float, float)).
 
 	Return
 	------
-	unit_vector : a unit vector between 1 and -1 (tuple(int, int)).
+	unit_vector: a unit vector between 1 and -1 (tuple(int, int)).
 
 	Version
 	-------
-	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Nicolas Van Bossuyt (v1. 22/02/17)
+	Specification: Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Nicolas Van Bossuyt (v1. 22/02/17)
 	"""
 
 	def convert(value):
@@ -1495,7 +1495,7 @@ def to_unit_vector(vector):
 		Version
 		-------
 		Specification: Bayron Mahy (v1. 11/02/2017)
-		Implementation : Nicolas Van Bossuyt (v1. 22/02/17)
+		Implementation: Nicolas Van Bossuyt (v1. 22/02/17)
 		"""
 		if value > 0.25:
 			return 1
@@ -1512,19 +1512,19 @@ def do_moves(game_stats):
 
 	Parameters
 	----------
-	game_stats : stats of the game (dic).
+	game_stats: stats of the game (dic).
 
 	Return
 	------
-	game_stats : new stats of the game (dic).
+	game_stats: new stats of the game (dic).
 
 	Version
 	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Alisson Leist (v1. 20/02/17)
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Alisson Leist (v1. 20/02/17)
 					 Nicolas Van Bosuuyt (v2. 23/02/17)
 	"""
-	for element in game_stats['ships'] :
+	for element in game_stats['ships']:
 
 		position = game_stats['ships'][element]['position']
 
@@ -1566,16 +1566,16 @@ def take_abandonned_ship(game_stats):
 
 	Parameters
 	----------
-	game_stats : stats of the game (dic).
+	game_stats: stats of the game (dic).
 
 	Returns
 	-------
-	game_stats : new stats of the game (dic).
+	game_stats: new stats of the game (dic).
 
 	Version
 	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Bayron Mahy (v1. 21/02/17)
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Bayron Mahy (v1. 21/02/17)
 					 Bayron Mahy (v2. 22/02/17)
 	"""
 	for location in game_stats['board']:
@@ -1623,18 +1623,18 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
 
 	Parameters
 	----------
-	ship_location : coodinate of the first ship (tuple(int, int)).
-	coordinate : coordinate of the tile to attack (tuple(int,int)).
-	game_stats : stats of the game (dic).
+	ship_location: coodinate of the first ship (tuple(int, int)).
+	coordinate: coordinate of the tile to attack (tuple(int,int)).
+	game_stats: stats of the game (dic).
 
 	Return
 	------
-	game_stats : new stats of the game (dic).
+	game_stats: new stats of the game (dic).
 
 	Version
 	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
-	Implementation : Alisson Leist (v1. 14/2/17)
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
+	Implementation: Alisson Leist (v1. 14/2/17)
 					 Bayron Mahy, Alisson Leist (v2. 20/02/17)
 	"""
 	ship_type = game_stats['model_ship'][game_stats['ships'][ship]['type']]
@@ -1664,18 +1664,18 @@ def get_distance(coord1, coord2, size):
 
 	Parameters
 	----------
-	coord1 : coordinate of the first point (tupe(int, int)).
-	coord2 : coordinate of the second point (tupe(int, int)).
-	size : size of the tore (tupe(int, int))
+	coord1: coordinate of the first point (tupe(int, int)).
+	coord2: coordinate of the second point (tupe(int, int)).
+	size: size of the tore (tupe(int, int))
 
 	Return
 	------
-	Distance : distance of the two point (int).
+	Distance: distance of the two point (int).
 
 	Version
 	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Nicolas Van Bossuyt (v1. 14/2/17)
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Nicolas Van Bossuyt (v1. 14/2/17)
 					 Nicolas Van Bossuyt, Alisson Leist (v2. 20/02/17)
 	"""
 	coord1 = list(coord1)
@@ -1705,16 +1705,16 @@ def parse_game_file(path):
 
 	Parameter
 	---------
-	path : path of the .cis file (str).
+	path: path of the .cis file (str).
 
 	Return
 	------
-	parsed_data : data contained in the .cis file (dic).
+	parsed_data: data contained in the .cis file (dic).
 
 	Version
 	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Nicolas Van Bossuyt (v2. 15/02/2017)
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Nicolas Van Bossuyt (v2. 15/02/2017)
 	"""
 	# Split file lines and remove '\n' chars.
 	cis_file = open(path,'r')
@@ -1747,16 +1747,16 @@ def direction_to_vector2D(direction):
 
 	Parameter
 	---------
-	direction : direction to convert <up|down|left|right|up-left|up-right|down-left|down-right>(str).
+	direction: direction to convert <up|down|left|right|up-left|up-right|down-left|down-right>(str).
 
 	Return
 	------
-	vector : vector2D from direction (tuple(int, int)).
+	vector: vector2D from direction (tuple(int, int)).
 
 	Version
 	-------
-	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation : Nicolas Van Bossuyt (v1. 11/02/17)
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Nicolas Van Bossuyt (v1. 11/02/17)
 	"""
 	vector = ()
 
@@ -1792,14 +1792,14 @@ def create_game_board(file_name, board_size, lost_ships_count):
 
 	Parameters
 	----------
-	file_name : name of the cis file (str).
-	board_size : size of the game board (tuple(int, int)).
-	lost_ships_count : number of lost ship on the game board (int).
+	file_name: name of the cis file (str).
+	board_size: size of the game board (tuple(int, int)).
+	lost_ships_count: number of lost ship on the game board (int).
 
 	Version
 	-------
-	Specification  : Nicolas Van Bossuyt (v1. 25/02/17)
-	Implementation : Nicolas Van Bossuyt (v1.25/02/17)
+	Specification: Nicolas Van Bossuyt (v1. 25/02/17)
+	Implementation: Nicolas Van Bossuyt (v1.25/02/17)
 	"""
 	ship_type = ['fighter', 'destroyer', 'battlecruiser']
 	ship_direction = ['up', 'up-left', 'up-right', 'left', 'right', 'down', 'down-left', 'down-right']

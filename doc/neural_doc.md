@@ -1,5 +1,6 @@
 ## De la theorie
 [(wikipedia) neurone formel](https://fr.wikipedia.org/wiki/Neurone_formel)
+
 [(wikipedia) génétique alogorithmique](https://en.wikipedia.org/wiki/Genetic_algorithm)
 
 [10 misconceptions about Neural Networks](http://www.turingfinance.com/misconceptions-about-neural-networks/)
