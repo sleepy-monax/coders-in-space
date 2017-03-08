@@ -36,7 +36,7 @@
 # Import some cool component for the game.
 from time import sleep #because everyone needs to rest.
 from math import *
-from random import randint
+from random import randint, seed
 from remote_play import notify_remote_orders, get_remote_orders, connect_to_player, disconnect_from_player
 
 # Game
