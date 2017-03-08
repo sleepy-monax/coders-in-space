@@ -38,7 +38,6 @@ from math import *
 from random import *
 from remote_play import *
 from time import sleep #because everyone needs to rest.
-from ai import *
 
 # Game
 # ==============================================================================
@@ -52,7 +51,7 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
 	----------
 	level_name: name of the level (str).
 	players_list: list of players (list).
-    (optional) no_splash : ship the splash screen (bool).
+	(optional) no_splash : ship the splash screen (bool).
 	(optional) no_gui : disable game user interface (bool).
 	(optional) screen_size : size of the terminal window (tuple(int, int)).
 	(optional) distant_id : ID of the distant player (int).
@@ -64,9 +63,9 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
 	------
 	winner_name : name of the winner (str).
 
-    Note
-    ----
-    Recomanded screen_size : (190, 50).
+	Note
+	----
+	Recomanded screen_size : (190, 50).
 
 	Version
 	-------
@@ -144,7 +143,7 @@ def new_game(level_name, players_list, connection = None):
 	----------
 	level_name : name of the path to .cis file (str).
 	players_list : list of players (list).
-    (optional) connection : distant player connection (tuple).
+	(optional) connection : distant player connection (tuple).
 
 	Return
 	-------
@@ -335,6 +334,7 @@ def show_end_game(game_stats):
 
 			text_font = font_standard
 			text_color = game_stats['players'][player]['color']
+
 		else:
 			# The player lost the game.
 			text_lenght = mesure_ascii_text(font_small, player)
@@ -371,7 +371,7 @@ def is_game_continue(game_stats):
 	-------
 	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 24/02/17)
 	Implementation : Alisson Leist (v1. 24/02/17)
-    """
+	"""
 
 	not_loser = []
 
@@ -443,8 +443,8 @@ def get_game_input(player_name, buy_ships, game_stats):
 	Parameters
 	----------
 	player_name : name of the player to get input (str).
-    buy_ships : True, if players buy their boats (bool).
-    game_stats : stats of the game (dic).
+	buy_ships : True, if players buy their boats (bool).
+	game_stats : stats of the game (dic).
 
 	Version
 	-------
@@ -721,7 +721,7 @@ def get_ai_input(player_name, buy_ships, game_stats):
 	Parameters
 	----------
 	player_name : name of the player (str).
-    buy_ships : True, if players buy their boats (bool).
+	buy_ships : True, if players buy their boats (bool).
 	game_stats : stats of the game (dic).
 
 	Return
@@ -731,7 +731,7 @@ def get_ai_input(player_name, buy_ships, game_stats):
 	Version
 	-------
 	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-    Implementation : Nicolas Van Bossuyt (v1 27/02/17)
+	Implementation : Nicolas Van Bossuyt (v1 27/02/17)
 	"""
 
 	if buy_ships:
@@ -767,7 +767,7 @@ def get_distant_input(game_stats):
 	Version
 	-------
 	Specification  : Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-                     Nicolas Van Bossuyt (v2. 03/03/17)
+					 Nicolas Van Bossuyt (v2. 03/03/17)
 	Implementation : Nicolas Van Bossuyt (v1. 03/03/17)
 	"""
 
@@ -897,7 +897,7 @@ def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None,
 
 	Parameters
 	----------
-    canvas : canvas to draw in (dic).
+	canvas : canvas to draw in (dic).
 	x, y : coordinate to pute the art (int).
 	ascii_art_name : name of the art file (string).
 	canvas : canvas to put the art on it (dic).
@@ -911,7 +911,7 @@ def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None,
 	-------
 	Specification  : Nicolas Van Bossuyt (v1. 10/02/17)
 	Implementation : Nicolas Van Bossuyt (V1. 15/02/17)
-				     Nicolas Van Bossuyt (v2. 26/02/17)
+					 Nicolas Van Bossuyt (v2. 26/02/17)
 	"""
 	art_file = open('art/' + ascii_art_name + '.txt','r')
 
@@ -1069,7 +1069,7 @@ def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_col
 
 	Parameters
 	----------
-    canvas : canvas to draw in (dic).
+	canvas : canvas to draw in (dic).
 	x, y : coordinate of the rectangle (int).
 	width, height : size of the rectangle (int).
 	mode : double ou single line <'double'|'single'> (str).
@@ -1115,7 +1115,7 @@ def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = 
 
 	Parameters
 	----------
-    canvas : canvas to draw in (dic).
+	canvas : canvas to draw in (dic).
 	x, y : coordinate of the rectangle (int).
 	width, height : size of the rectangle (int).
 	color, back_color : color for the char (string).
@@ -1162,7 +1162,7 @@ def put_stars_field(canvas, x, y, width, height, r_seed = None):
 			if randint(0, 20) == 0:
 				canvas = put_text(canvas, x + star_x, y +star_y, void_char[randint(0, 2)])
 			else:
-			    canvas = put_text(canvas, x + star_x, y +star_y, ' ')
+				canvas = put_text(canvas, x + star_x, y +star_y, ' ')
 
 	seed()
 	return canvas
@@ -1218,7 +1218,7 @@ def set_color(text, foreground_color, background_color):
 
 	ANSI color escape sequences : http://ascii-table.com/ansi-escape-sequences.php
 
-    Version
+	Version
 	-------
 	Specification  : Nicolas Van Bossuyt (v1. 27/02/17)
 	Implementation : Nicolas Van Bossuyt (v1. 27/02/17)
@@ -1562,7 +1562,7 @@ def do_moves(game_stats):
 
 def take_abandonned_ship(game_stats):
 	"""
-    Determine who become the owner of the abandonned ship.
+	Determine who become the owner of the abandonned ship.
 
 	Parameters
 	----------
@@ -1637,7 +1637,7 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
 	Implementation : Alisson Leist (v1. 14/2/17)
 					 Bayron Mahy, Alisson Leist (v2. 20/02/17)
 	"""
- 	ship_type = game_stats['model_ship'][game_stats['ships'][ship]['type']]
+	ship_type = game_stats['model_ship'][game_stats['ships'][ship]['type']]
 	damages = ship_type['damages']
 	distance = get_distance(ship_coordinate, target_coordinate, game_stats['board_size'])
 
