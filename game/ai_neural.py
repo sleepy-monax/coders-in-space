@@ -29,6 +29,8 @@ def get_ai_input(player_name, buy_ships, game_stats):
 	if buy_ships:
 		return 'f:fighter d:destroyer b:battlecruiser'
 
+    # Todo AI logic.
+
 def ship_to_neural_input(game_stats, player_name, ship_name):
 	"""
 	Convert a ship to a neural network input.
