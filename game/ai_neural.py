@@ -146,7 +146,7 @@ def compute_neural_network(neural_network, neural_input):
 				neural_network[layer][node]['value'] = 0
 				for link in neural_network[layer][node]['links']:
 					neural_network[layer][node]['value'] += neural_network[layer - 1][link]['value'] * neural_network[layer][node]['links'][link]
-				neural_network[layer][node]['value'] = sigmoid(neural_network[layer][node]['value']) - 0.5
+				neural_network[layer][node]['value'] = sigmoid(neural_network[layer][node]['value']) * 2 - 1
 	output = []
 	layer = len(neural_network) - 1
 	for node in neural_network[layer]:
