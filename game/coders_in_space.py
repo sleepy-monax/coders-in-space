@@ -105,16 +105,13 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
 				show_game_board(game_stats)
 
 			# Get current player input.
-			if is_ship_buy == True:
+			if is_ship_buy:
 				game_stats = command_buy_ships(get_game_input(player, True, game_stats), player, game_stats)
-
 			else:
 				if game_stats['players'][player]['nb_ships'] > 0:
 					game_stats = parse_command(get_game_input(player, False, game_stats), player, game_stats)
-
-				else:
-					if game_stats['players'][player]['type'] != 'none':
-						game_stats['game_logs'].append(player + ' has lost all these ships, so he has nothing to do.')
+				elif game_stats['players'][player]['type'] != 'none':
+					game_stats['game_logs'].append(player + ' has lost all these ships, so he has nothing to do.')
 
 		is_ship_buy = False
 
@@ -309,6 +306,7 @@ def show_end_game(game_stats):
 	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	implementation: Nicolas Van Bossuyt (v1. 27/02/17)
 	"""
+
 	screen_size = game_stats['screen_size']
 
 	# Load ascii fonts.
@@ -330,20 +328,20 @@ def show_end_game(game_stats):
 
 	# Put players stats.
 	for player in game_stats['players']:
-		if player == 'none': continue
-		if player in game_stats['winners']:
-			# The player win the game.
-			text_lenght = mesure_ascii_text(font_standard, player)
+		if player != 'none':
+			if player in game_stats['winners']:
+				# The player win the game.
+				text_lenght = mesure_ascii_text(font_standard, player)
 
-			text_font = font_standard
-			text_color = game_stats['players'][player]['color']
+				text_font = font_standard
+				text_color = game_stats['players'][player]['color']
 
-		else:
-			# The player lost the game.
-			text_lenght = mesure_ascii_text(font_small, player)
-			text_location = (95 - int(text_lenght / 2), line_index*11 + 2)
-			text_font = font_small
-			text_color = 'white'
+			else:
+				# The player lost the game.
+				text_lenght = mesure_ascii_text(font_small, player)
+				text_location = (95 - int(text_lenght / 2), line_index*11 + 2)
+				text_font = font_small
+				text_color = 'white'
 
 		text_location = (screen_size[0] / 2 - int(text_lenght / 2), line_index*11 + 2)
 
@@ -594,11 +592,11 @@ def show_game_board(game_stats):
 	-------
 	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	Implementation: Nicolas Van Bossuyt (v1. 10/02/2017)
-					 Nicolas Van Bossuyt (v2. 12/02/2017)
-					 Nicolas Van Bossuyt (v3. 13/02/2017)
-					 Nicolas Van Bossuyt (v4. 19/02/2017)
-					 Nicolas Van Bossuyt (v5. 23/02/2017)
-					 Nicolas Van Bossuyt (v6. 01/03/2017)
+					Nicolas Van Bossuyt (v2. 12/02/2017)
+				    Nicolas Van Bossuyt (v3. 13/02/2017)
+					Nicolas Van Bossuyt (v4. 19/02/2017)
+					Nicolas Van Bossuyt (v5. 23/02/2017)
+					Nicolas Van Bossuyt (v6. 01/03/2017)
 	"""
 	screen_size = game_stats['screen_size']
 
@@ -731,7 +729,7 @@ def get_ai_input(player_name, buy_ships, game_stats):
 	Version
 	-------
 	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation: Nicolas Van Bossuyt (v1 27/02/17)
+	Implementation: Nicolas Van Bossuyt (v1. 27/02/17)
 	"""
 
 	if buy_ships:
@@ -1270,11 +1268,7 @@ def parse_command(commands, player_name, game_stats):
 			sub_cmd = cmd.split(':')
 			ship_name = player_name + '_' + sub_cmd[0]
 			ship_action = sub_cmd[1]
-		except:
-			print 'Syntaxe error: ' + cmd + ' ":" is missing.'
-			continue
 
-		try:
 			if ship_action == 'slower' or ship_action == 'faster':
 				# Speed command:
 				game_stats = command_change_speed(ship_name, ship_action, game_stats)
@@ -1288,7 +1282,8 @@ def parse_command(commands, player_name, game_stats):
 				game_stats['pending_attacks'].append((ship_name, game_stats['ships'][ship_name]['position'], coordinate))
 
 		except Exception:
-			pass
+			game_stats['game_logs'].append('Something wrong append with this command :')
+			game_stats['game_logs'].append(str(command))
 
 	return game_stats
 
@@ -1314,7 +1309,7 @@ def command_buy_ships(ships, player, game_stats):
 	-------
 	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	Implementation: Nicolas Van Bossuyt (v1. 14/02/17)
-					 Nicolas Van Bossuyt (v2. 23/02/17)
+					Nicolas Van Bossuyt (v2. 23/02/17)
 	"""
 
 	for ship in ships.split(' '):
@@ -1424,7 +1419,7 @@ def command_rotate(ship, direction, game_stats):
 	-------
 	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	Implementation: Nicolas Van Bossuyt (v1. 10/02/17)
-					 Nicolas Van Bossuyt (v2. 22/02/17)
+					Nicolas Van Bossuyt (v2. 22/02/17)
 	"""
 	v = (0, 0)
 	if direction == 'left':
@@ -1452,7 +1447,7 @@ def rotate_vector_2D(vector, theta):
 	-------
 	Specification: Nicolas Van Bossuyt (v1. 10/02/17)
 	Implementation: Nicolas Van Bossuyt (v1. 10/02/17)
-					 Nicolas Van Bossuyt (v2. 22/02/17)
+					Nicolas Van Bossuyt (v2. 22/02/17)
 	"""
 
 	theta = radians(theta)
@@ -1522,7 +1517,7 @@ def do_moves(game_stats):
 	-------
 	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	Implementation: Alisson Leist (v1. 20/02/17)
-					 Nicolas Van Bosuuyt (v2. 23/02/17)
+					Nicolas Van Bosuuyt (v2. 23/02/17)
 	"""
 	for element in game_stats['ships']:
 
@@ -1576,7 +1571,7 @@ def take_abandonned_ship(game_stats):
 	-------
 	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
 	Implementation: Bayron Mahy (v1. 21/02/17)
-					 Bayron Mahy (v2. 22/02/17)
+					Bayron Mahy (v2. 22/02/17)
 	"""
 	for location in game_stats['board']:
 
@@ -1635,7 +1630,7 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
 	-------
 	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
 	Implementation: Alisson Leist (v1. 14/2/17)
-					 Bayron Mahy, Alisson Leist (v2. 20/02/17)
+					Bayron Mahy, Alisson Leist (v2. 20/02/17)
 	"""
 	ship_type = game_stats['model_ship'][game_stats['ships'][ship]['type']]
 	damages = ship_type['damages']
@@ -1675,12 +1670,25 @@ def get_distance(coord1, coord2, size):
 	Version
 	-------
 	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation: Nicolas Van Bossuyt (v1. 14/2/17)
-					 Nicolas Van Bossuyt, Alisson Leist (v2. 20/02/17)
+	Implementation: Nicolas Van Bossuyt, Alisson Leist (v1. 14/2/17)
 	"""
+
+	def distance(a, b, size):
+		if abs(a - b) > size / 2:
+			if a < b :
+				a += size
+			else:
+				a += size
+
+		return abs(a - b)
+
+	# Convert tuple to list.
 	coord1 = list(coord1)
 	coord2 = list(coord2)
 	size = list(size)
+
+	return distance(coord1[0], coord2[0], size[0]) + distance(coord1[1], coord2[1], size[1])
+
 	if abs(coord1[0] - coord2[0]) > size[0]/2:
 		if coord1[0] < coord2[0]:
 			coord1[0] += size[0]
@@ -1725,7 +1733,7 @@ def parse_game_file(path):
 	size_str = file_content[0].split(' ')
 	size = (int(size_str[0]),int(size_str[1]))
 
-	# Get lost space ship in the new game.
+	# Get lost space ship in the file..
 	ships_list = []
 	for line_index in range(len(file_content) - 1):
 		try:
@@ -1807,6 +1815,7 @@ def create_game_board(file_name, board_size, lost_ships_count):
 	f = open(file_name, 'w')
 
 	print >>f, "%d %d" % (board_size[0], board_size[1])
+
 	for i in range(lost_ships_count):
 		print >>f, '%d %d %s:%s %s' % (random.randint(0, board_size[0] - 1),\
 		random.randint(0, board_size[1] - 1), 'ship_' + str(i),  ship_type[random.randint(0, len(ship_type) - 1)],\
