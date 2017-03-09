@@ -74,7 +74,8 @@ def ship_to_neural_input(game_stats, player_name, ship_name):
 
 	return [].append(ship_type_data).append(ship_owner_data).append(ship_direction_data).append(ship_position_data)
 
-def output_to_game_input(neural_ouput, ship_name, game_stats):
+
+def neural_output_to_game_input(neural_ouput, ship_name, game_stats):
 	"""
 	Convert a neural output into a game_input.
 
@@ -91,6 +92,22 @@ def output_to_game_input(neural_ouput, ship_name, game_stats):
 # AI helper
 # ------------------------------------------------------------------------------
 # Because everyone isn't perfect.
+
+def help_attack(game_stats, ship_name, original_attack):
+    """
+    Fix the ai attack command.
+
+    Parameters
+    ----------
+    game_stats: stats of the game (dic).
+    ship_name: curent ship name (str).
+    orginal_attack : attack command to fix (str).
+
+    Return
+    ------
+    fix_attack_command: fixed attack command (str).
+    """
+
 
 # Neural network
 # ==============================================================================
@@ -235,8 +252,6 @@ def force_learn_neural_network(neural_network, neural_input, expected_neural_out
 	------
 	neural_network: trained neural network (dic).
     """
-
-
 
 def get_fitness(game_stats, player_name):
 	"""
