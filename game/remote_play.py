@@ -161,7 +161,6 @@ def notify_remote_orders(connection, orders):
     """
 
     # get sockets
-    socket_in = connection[0]
     socket_out = connection[1]
 
     # deal with null orders (empty string)
@@ -196,7 +195,6 @@ def get_remote_orders(connection):
 
     # get sockets
     socket_in = connection[0]
-    socket_out = connection[1]
 
     # receive orders
     try:

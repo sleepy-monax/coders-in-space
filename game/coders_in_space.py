@@ -13,7 +13,7 @@
                  /.                        .  .:\
                 |:                    .  .  ^. .:|
                 ||        .                . . !:|
-                \(                           .:)/
+                \(                            .:)/
                 |. ######              .#######::|
                  |.#######           ..########:|
                  \ ########           :########:/
@@ -93,15 +93,16 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
     # Game loop.
     while game_running:
 
-        game_stats['nb_rounds'] += 1
+        # Show the game board to the human player.
+        if not no_gui:
+            show_game_board(game_stats)
+
+
         # Cleaning the pending_attack list.
         game_stats['pending_attack'] = []
 
         # getting players input.
         for player in players_list:
-            # Show the game board to the human player.
-            if not no_gui:
-                show_game_board(game_stats)
 
             # Get current player input.
             if is_ship_buy:
@@ -122,6 +123,7 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
         for pending_attack in game_stats['pending_attacks']:
             game_stats = command_attack(pending_attack[0], pending_attack[1], pending_attack[2], game_stats)
 
+        game_stats['nb_rounds'] += 1
         game_running = is_game_continue(game_stats)
 
     # Disconect the remote player.
@@ -340,15 +342,15 @@ def show_end_game(game_stats):
                 text_font = font_small
                 text_color = 'white'
 
-        text_location = (screen_size[0] / 2 - int(text_lenght / 2), line_index*11 + 2)
+            text_location = (screen_size[0] / 2 - int(text_lenght / 2), line_index*11 + 2)
 
-        # Put player informations.
-        c = put_ascii_text(c, text_font, player, text_location[0], text_location[1], text_color)
-        c = put_text(c, text_location[0], text_location[1] + 6, '_' * text_lenght)
-        c = put_text(c, text_location[0], text_location[1] + 8, "%d spaceships" % (game_stats['players'][player]['nb_ships']))
-        c = put_text(c, text_location[0], text_location[1] + 9, "%d G$" % (calculate_value(player, game_stats)))
+            # Put player informations.
+            c = put_ascii_text(c, text_font, player, text_location[0], text_location[1], text_color)
+            c = put_text(c, text_location[0], text_location[1] + 6, '_' * text_lenght)
+            c = put_text(c, text_location[0], text_location[1] + 8, "%d spaceships" % (game_stats['players'][player]['nb_ships']))
+            c = put_text(c, text_location[0], text_location[1] + 9, "%d G$" % (calculate_value(player, game_stats)))
 
-        line_index += 1
+            line_index += 1
 
     # Print the canvas in the terminal.
     print_canvas(c)
@@ -490,6 +492,8 @@ def get_human_input(player_name, buy_ship, game_stats):
     """
 
     while True:
+        # Show the game board to the human player.
+        show_game_board(game_stats)
         # Getting human player input.
         player_input = raw_input('\033[%d;%dH %s:' % (game_stats['screen_size'][1], 3, player_name))
 
@@ -564,7 +568,7 @@ def show_ship_list(player_name, game_stats):
 
     while is_scroll_continue:
         c_window = create_canvas(screen_size[0], screen_size[1])
-        c_ship_list = put_box(c_window, 0, 0, screen_size[0], screen_size[1])
+        c_window = put_box(c_window, 0, 0, screen_size[0], screen_size[1])
 
         c_window = put_canvas(c_window, c_ship_list, 1, 1 + scroll)
         print_canvas(c_window)
@@ -906,7 +910,7 @@ def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None,
     -------
     Specification: Nicolas Van Bossuyt (v1. 10/02/17)
     Implementation: Nicolas Van Bossuyt (V1. 15/02/17)
-                     Nicolas Van Bossuyt (v2. 26/02/17)
+                    Nicolas Van Bossuyt (v2. 26/02/17)
     """
     art_file = open('art/' + ascii_art_name + '.txt','r')
 
@@ -1586,9 +1590,9 @@ def take_abandonned_ship(game_stats):
                 game_stats['ships'][new_ship_name] = abandoned_ship
 
                 game_stats['game_logs'].append('%s as take %s !' % (owner, new_ship_name))
- 
+
     return game_stats
- 
+
 # Attack Command
 # ------------------------------------------------------------------------------
 # Allow ship to attack each other.
