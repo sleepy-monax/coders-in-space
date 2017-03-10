@@ -39,6 +39,7 @@ from math import *
 from random import randint, seed
 from remote_play import notify_remote_orders, get_remote_orders, connect_to_player, disconnect_from_player
 from graphics import *
+from LAICIS_ia import *
 
 # Game
 # ==============================================================================
@@ -186,9 +187,6 @@ def new_game(level_name, players_list, connection = None):
     for line in range(game_file['size'][0]):
         for column in range(game_stats['board_size'][1]):
             game_stats['board'][(line,column)] = []
-
-    # Create players.
-    game_stats['players']['none'] = {'name': 'none', 'nb_ships': 1,'color':None}
 
     # Place lost ships.
     for ships in game_file['ships']:
@@ -451,21 +449,26 @@ def get_game_input(player_name, buy_ships, game_stats):
     Implementation: Niolas Van Bossuyt (V1. 15/02/17)
     """
     player_input = ''
+    player_type = game_stats['players'][player_name]['type']
 
-    if game_stats['players'][player_name]['type'] == 'human':
+    if player_type == 'human':
         # get input from the human player.
         player_input = get_human_input(player_name, buy_ships, game_stats)
 
-    elif game_stats['players'][player_name]['type'] == 'ai':
+    elif player_type == 'ai':
         # get input from the ai.
-        player_input = get_ai_input(player_name, buy_ships, game_stats)
+        if buy_ships:
+            player_input = get_ai_spaceships(player_name, game_stats)
+        else:
+            player_input = get_ai_input(player_name, game_stats)
 
-        # Send the order to the remote player.
-        if game_stats['is_remote_game']:
-            notify_remote_orders(game_stats['players']['distant']['connection'], player_input)
-
-    elif game_stats['players'][player_name]['type'] == 'distant':
+    elif player_type == 'distant':
+        # Get input from the distant player.
         player_input = get_distant_input(game_stats)
+
+    # Send the order to the remote player.
+    if game_stats['is_remote_game'] and (player_type == 'human' or player_type == 'ai'):
+        notify_remote_orders(game_stats['players']['distant']['connection'], player_input)
 
     return player_input
 
@@ -647,9 +650,11 @@ def show_game_board(game_stats):
                 ship_type = game_stats['ships'][ship_name]['type']
                 ship_icon = game_stats['model_ship'][ship_type]['icon']
                 ship_owner = game_stats['ships'][ship_name]['owner']
+                ship_owner_color = None
 
                 # Print ship on gameboard.
-                ship_owner_color = game_stats['players'][game_stats['ships'][ship_name]['owner']]['color']
+                if game_stats['ships'][ship_name]['owner'] != 'none':
+                    ship_owner_color = game_stats['players'][game_stats['ships'][ship_name]['owner']]['color']
 
                 ship_direction = game_stats['ships'][ship_name]['direction']
                 ship_speed = game_stats['ships'][ship_name]['speed']
@@ -674,7 +679,7 @@ def show_game_board(game_stats):
 
     # Put players liste frame.
     # --------------------------------------------------------------------------
-    players_bord_size = ((len(game_stats['players']) - 1) * 30 + 2, 7)
+    players_bord_size = (len(game_stats['players']) * 30 + 2, 7)
     players_bord_location = (0, screen_size[1] - 7)
 
     c_screen = put_box(c_screen, 0, players_bord_location[1], players_bord_size[0], players_bord_size[1])
@@ -715,7 +720,7 @@ def show_game_board(game_stats):
 # ------------------------------------------------------------------------------
 # AI interactions
 
-def get_ai_input(player_name, buy_ships, game_stats):
+def get_ai_input(player_name, game_stats):
     """
     Get input from a AI player.
 
@@ -735,9 +740,6 @@ def get_ai_input(player_name, buy_ships, game_stats):
     Implementation: Nicolas Van Bossuyt (v1. 27/02/17)
     """
 
-    if buy_ships:
-        return 'StarBoby:fighter me:destroyer tamere:battlecruiser'
-
     action = ['faster', 'slower', 'left', 'right']
 
     ai_input = ''
@@ -747,6 +749,29 @@ def get_ai_input(player_name, buy_ships, game_stats):
             ai_input += ship.replace(player_name + '_','') + ':' + action[randint(0, len(action) - 1 )] + ' '
 
     return ai_input[:-1]
+
+def get_ai_spaceships(player_name, game_stats):
+    """
+    Get ships buy inputs from the ai.
+
+    Parameters
+    ----------
+    player_name: name of the player (str).
+    buy_ships: True, if players buy their boats (bool).
+    game_stats: stats of the game (dic).
+
+    Return
+    ------
+    ai_input: game input from AI (str).
+
+    Version
+    -------
+    Specification: Nicolas Van Bossuyt (v1. 10/03/17)
+    Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
+    """
+
+
+    return 'arow:fighter stardestroyer:destroyer race_cruiser:battlecruiser'
 
 
 # Remote player
