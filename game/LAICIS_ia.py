@@ -203,6 +203,9 @@ def save_neural_network(neural_network, file_path):
 	neural_network: neural network to save in the file (dic).
 	file_path: path to save the neural network (str).
 	"""
+    file= open(file_path,'w')
+    pickle.dump(neural_network, file_path)
+    file.close()
 
 def load_neural_network(file_path):
 	"""
@@ -216,6 +219,10 @@ def load_neural_network(file_path):
 	------
 	neural_network: loaded neural network (dic).
 	"""
+    file= open(file_path,'r')
+    neural_network=pickle.load(file_path)
+    file.close()
+    return neural_network
 
 def sigmoid (x): return 1 / (1 + exp(-x))
 
