@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # Gui framework
 # ==============================================================================
 # framework for easy user interface creation.
