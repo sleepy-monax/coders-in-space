@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from random import seed, randint
 
 # Gui framework
 # ==============================================================================

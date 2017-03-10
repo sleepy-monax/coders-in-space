@@ -188,8 +188,7 @@ def new_game(level_name, players_list, connection = None):
             game_stats['board'][(line,column)] = []
 
     # Create players.
-    game_stats['players']['none'] = {'name': 'none', 'money':0, 'nb_ships': 1,'type': 'none','color':None,\
-                                     'ships_starting_point': (0, 0),'ships_starting_direction': (0, 0)}
+    game_stats['players']['none'] = {'name': 'none', 'nb_ships': 1,'color':None}
 
     # Place lost ships.
     for ships in game_file['ships']:
@@ -684,7 +683,7 @@ def show_game_board(game_stats):
     # Put players liste.
     player_count = 0
     for player in game_stats['players']:
-        if game_stats['players'][player]['type'] != 'none':
+        if player != 'none':
             location = ((player_count * 30) + 1, players_bord_location[1] + 1,)
             c_screen = put_box(c_screen, location[0], location[1], 30, 5, 'single')
 
@@ -1133,6 +1132,7 @@ def take_abandonned_ship(game_stats):
                 # Place the new ship on the game board.
                 game_stats['board'][abandoned_ship['position']].append(new_ship_name)
                 game_stats['ships'][new_ship_name] = abandoned_ship
+                game_stats['players'][owner]['nb_ships'] += 1
 
                 game_stats['game_logs'].append('%s as take %s !' % (owner, new_ship_name))
 
