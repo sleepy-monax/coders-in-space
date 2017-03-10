@@ -128,6 +128,12 @@ game_stats['players'][name]['ships_starting_point']
 ```python
 game_stats['players'][name]['ships_starting_direction']
 ```
+
+- **fitness** : valeur servant a determiner l'ia la plus smart (int).
+```python
+game_stats['players'][name]['fitness']
+``` 
+
 ## Les autres clés.
 - **nb_round** : nombre de round depuis la derniere attack (int).
 - **max_nb_round** : Nombre maximal de round sans dega avant la fin de la partie (int).
