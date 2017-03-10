@@ -264,16 +264,3 @@ def force_learn_neural_network(neural_network, neural_input, expected_neural_out
 	neural_network: trained neural network (dic).
     """
 
-def get_fitness(game_stats, player_name):
-	"""
-	Get the fitness of the ai.
-
-	Parameters
-	----------
-	game_stats: stats of the game (dic).
-	player_name: name of the player (str).
-
-	Return
-	------
-	fitness: fitness of the player (float).
-	"""

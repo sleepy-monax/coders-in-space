@@ -207,7 +207,7 @@ def new_game(level_name, players_list, connection = None):
 
         # Create new player.
         if index_player <= 4:
-            game_stats['players'][player] = {'name': player,'money':100,'nb_ships': 0,'type': player_type}
+            game_stats['players'][player] = {'name': player,'money':100,'nb_ships': 0,'type': player_type, 'fitness': 0}
 
             if index_player==1:
                 game_stats['players'][player]['ships_starting_point'] = (9, 9)
