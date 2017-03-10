@@ -117,6 +117,8 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
 
         # Do ships moves.
         game_stats = do_moves(game_stats)
+        
+        # Take all abandonned ships.
         game_stats = take_abandonned_ship(game_stats)
 
         # Do Attack
@@ -1491,7 +1493,7 @@ def to_unit_vector(vector):
         Version
         -------
         Specification: Bayron Mahy (v1. 11/02/2017)
-        Implementation: Nicolas Van Bossuyt (v1. 22/02/17)
+    	Implementation: Nicolas Van Bossuyt (v1. 22/02/17)
         """
         if value > 0.25:
             return 1
@@ -1533,6 +1535,8 @@ def do_moves(game_stats):
         game_stats['board'][position].remove(element)
         game_stats['board'][new_position].append(element)
         game_stats['ships'][element]['position'] = new_position
+        
+        
 
     return game_stats
 

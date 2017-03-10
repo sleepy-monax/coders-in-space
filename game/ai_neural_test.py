@@ -1,4 +1,4 @@
-from ai_neural import create_neural_network, compute_neural_network, randomize_neural_network
+from LAICIS_ai import create_neural_network, compute_neural_network, randomize_neural_network
 from random import randint
 import math
 
@@ -29,8 +29,7 @@ for i in range(50000):
             print 'yep'
             n_score += 1
 
-    
-
+   
     if n_score > best_n_score:
         best_n = n_mutated.copy()
         if n_score == 4:
