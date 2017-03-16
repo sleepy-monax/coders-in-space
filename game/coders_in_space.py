@@ -39,6 +39,7 @@ from math import *
 from random import randint, seed
 from remote_play import notify_remote_orders, get_remote_orders, connect_to_player, disconnect_from_player
 from graphics import *
+from LAICIS_ia import *
 
 # Game
 # ==============================================================================
@@ -195,8 +196,10 @@ def new_game(level_name, players_list, connection = None):
     index_player=1
 
     for player in players_list:
-        if '_bot' in player:
+        if 'bot' in player:
             player_type = 'ai'
+        elif 'dumb' in player:
+            player_type = 'ai_dumb'
         elif player == 'distant':
             player_type = 'distant'
         else:
@@ -461,12 +464,19 @@ def get_game_input(player_name, buy_ships, game_stats):
         else:
             player_input = get_ai_input(player_name, game_stats)
 
+    elif player_type == 'dumb_ai':
+        # Get input from the dumb ai.
+        if buy_ships:
+            player_input = get_dumb_ai_spaceships(player_name, game_stats)
+        else:
+            player_input = get_dumb_ai_input(player_name, game_stats)
+
     elif player_type == 'distant':
         # Get input from the distant player.
         player_input = get_distant_input(game_stats)
 
     # Send the order to the remote player.
-    if game_stats['is_remote_game'] and (player_type == 'human' or player_type == 'ai'):
+    if game_stats['is_remote_game'] and (player_type == 'human' or player_type == 'ai' or player_type == 'ai_dumb'):
         notify_remote_orders(game_stats['players']['distant']['connection'], player_input)
 
     return player_input
@@ -771,7 +781,6 @@ def get_ai_spaceships(player_name, game_stats):
 
 
     return 'arow:fighter stardestroyer:destroyer race_cruiser:battlecruiser'
-
 
 # Remote player
 # ------------------------------------------------------------------------------
@@ -1214,58 +1223,7 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
 
     return game_stats
 
-def get_distance(coord1, coord2, size):
-    """
-    Get distance between two point in a tore space.
 
-    Parameters
-    ----------
-    coord1: coordinate of the first point (tupe(int, int)).
-    coord2: coordinate of the second point (tupe(int, int)).
-    size: size of the tore (tupe(int, int))
-
-    Return
-    ------
-    Distance: distance of the two point (int).
-
-    Version
-    -------
-    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-    Implementation: Nicolas Van Bossuyt, Alisson Leist (v1. 14/2/17)
-                    Nicolas Van Bossuyt (v2. 09/03/17)
-    """
-
-    def distance(a, b, size):
-        size -= 1
-        if abs(a - b) > size / 2:
-            a += size
-        return abs(a - b)
-
-    return distance(coord1[0], coord2[0], size[0]) + distance(coord1[1], coord2[1], size[1])
-
-def convert_coordinates(coord, size):
-    """
-    Apply tore space to coordinates.
-
-    Parameters
-    ----------
-    coord: coordinates to convert (tuple(int, int))
-    size: Size of the tore.
-
-    Return
-    ------
-    converted_coord: coord with the tore applied.
-    """
-    def convert(a, size):
-        # Apply toric space.
-        if a >= size:
-            a -= size
-        elif a < 0:
-            a += size
-
-        return a
-
-    return (convert(coord[0], size[0]), convert(coord[1], size[1]))
 
 # Utils
 # ==============================================================================
