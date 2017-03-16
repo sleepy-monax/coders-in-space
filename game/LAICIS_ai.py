@@ -3,7 +3,7 @@ from random import *
 from pickle import *
 from math import exp
 
-# L.A.C.I.S.
+# L.A.I.C.I.S.
 # ==============================================================================
 # [L]earning [A]rtificial [I]nteligence for [C]oders [I]n [S]pace.
 
@@ -27,7 +27,6 @@ def get_ai_input(game_stats, player_name):
 	"""
 
     return ''
-
 def get_ai_spaceships(player_name, game_stats):
     """
     Get ships buy inputs from the ai.
@@ -48,7 +47,67 @@ def get_ai_spaceships(player_name, game_stats):
     Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
     """
     return 'arow:fighter stardestroyer:destroyer race_cruiser:battlecruiser'
+def ship_to_neural_input(game_stats, player_name, ship_name):
+	"""
+	Convert a ship to a neural network input.
 
+	Parameters
+	----------
+	game_stats: stats of the game (dic).
+	player_name: name of the player (str).
+	ship_name: name of the ship to convert data (str).
+
+	Return
+	------
+	ship_data: ship data in neural input format (list(float))
+	"""
+	ship = game_stats['ships'][ship_name]
+	ship_type = ship['type']
+	ship_type_data = []
+
+	if ship_type == 'destroyer':
+		ship_type_data = [1.,-1., -1.]
+	elif ship_type == 'fighter':
+		ship_type_data = [-1.,1.,-1.]
+	else:
+		ship_type_data = [-1.,-1.,1.]
+
+	# Get the heal.
+	ship_heal_data = ship['heal_points'] / game_stats['model_ship'][ship_type]['max_heal']
+
+	# Get the owner.
+	ship_owner = ship['owner']
+	ship_owner_data = []
+
+	if ship_owner == 'none':
+		ship_owner_data = [1.,-1., -1.]
+	elif ship_owner == player_name:
+		ship_owner_data = [-1.,1., -1.]
+	else:
+		ship_owner_data = [-1.,-1., 1.]
+
+	ship_direction_data = list(ship['direction'])
+
+	ship_position_data = [ship['position'][0] / game_stats['board_size'][0], ship['position'][1] / game_stats['board_size'][1], ship_heal_data]
+
+	return [].append(ship_type_data).append(ship_owner_data).append(ship_direction_data).append(ship_position_data)
+def neural_output_to_game_input(neural_ouput, ship_name, game_stats):
+	"""
+	Convert a neural output into a game_input.
+
+	Parameters
+	----------
+	neural_ouput: output from the neural_ouput (list(float)).
+	game_stats: stats of the game (dic).
+
+	Return
+	------
+	game_input: input for the game (str).
+	"""
+
+# D.A.I.C.I.S
+# ------------------------------------------------------------------------------
+# [D]umb [A]rtificial [I]nteligence for [C]oders [I]n [S]pace.
 def get_dumb_ai_input(game_stats, player_name):
 	"""
 	Get input from a AI player.
@@ -191,7 +250,6 @@ def create_neural_network(neural_structure):
 		layer += 1
 
 	return neural_network
-
 def compute_neural_network(neural_network, neural_input):
 	"""
 	Compute output from a neural network with specified inputes.
@@ -222,7 +280,6 @@ def compute_neural_network(neural_network, neural_input):
 		output.append(neural_network[layer][node]['value'])
 
 	return output
-
 def randomize_neural_network(neural_network, rnd_strength):
 	"""
 	Randomize connection of a neural_network.
@@ -256,7 +313,6 @@ def save_neural_network(neural_network, file_path):
 	file = open(file_path,'w')
 	pickle.dump(neural_network, file_path)
 	file.close()
-
 def load_neural_network(file_path):
 	"""
 	Load neural network from a file.
@@ -276,7 +332,6 @@ def load_neural_network(file_path):
 
 def sigmoid (x):
 	return 1 / (1 + exp(-x))
-
 def sigmoid_(x):
 	return x * (1 - x)
 
