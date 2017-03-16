@@ -39,7 +39,6 @@ from math import *
 from random import randint, seed
 from remote_play import notify_remote_orders, get_remote_orders, connect_to_player, disconnect_from_player
 from graphics import *
-from LAICIS_ia import *
 
 # Game
 # ==============================================================================
