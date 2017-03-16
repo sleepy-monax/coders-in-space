@@ -318,8 +318,6 @@ def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_col
         rect_char = (u'═', u'║', u'╔', u'╚', u'╗', u'╝')
     elif mode == 'single':
         rect_char = (u'─', u'│', u'┌', u'└', u'┐', u'┘')
-    elif mode == 'space':
-        rect_char = (u'─', u'│', u'/', u'\\', u'\\', u'/')
 
     # Put borders.
     put_rectangle(canvas, x, y, width, 1, rect_char[0], color, back_color)

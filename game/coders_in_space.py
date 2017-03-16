@@ -84,7 +84,7 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
 
     game_stats['screen_size'] = screen_size
     game_stats['max_nb_rounds'] = max_rounds_count
-    game_stats['neural_network'] = load_neural_network('brain.LAICIS')
+    # game_stats['neural_network'] = load_neural_network('brain.LAICIS')
 
     # Show the splash screen.
     if not no_splash:
@@ -471,12 +471,12 @@ def get_game_input(player_name, buy_ships, game_stats):
         else:
             player_input = get_ai_input(player_name, game_stats)
 
-    elif player_type == 'dumb_ai':
+    elif player_type == 'ai_dumb':
         # Get input from the dumb ai.
         if buy_ships:
-            player_input = get_dumb_ai_spaceships(player_name, game_stats)
+            player_input = get_dumb_ai_spaceships(game_stats, player_name)
         else:
-            player_input = get_dumb_ai_input(player_name, game_stats)
+            player_input = get_dumb_ai_input(game_stats, player_name)
 
     elif player_type == 'distant':
         # Get input from the distant player.
@@ -634,7 +634,7 @@ def show_game_board(game_stats):
     game_board_size = (game_stats['board_size'][0]*3 + 5, game_stats['board_size'][1] + 3)
     c_board = create_canvas(game_board_size[0], game_board_size[1])
     c_board = put_box(c_board, 0, 0, game_board_size[0], game_board_size[1])
-    c_board = put_text(c_board, 2, 0, u'[ Coders In Space: %s ] %s / %s Rounds' % (game_stats['level_name'], game_stats['nb_rounds'], game_stats['max_nb_rounds']))
+    c_board = put_text(c_board, 2, 0, u'[ Game Board ]')
     c_board = put_stars_field(c_board, 1, 1, game_board_size[0] - 2, game_board_size[1] - 2, 1)
 
     # Put horizontal coordinate.
@@ -646,14 +646,14 @@ def show_game_board(game_stats):
         value_string += ' '
         coordinate_string += value_string
 
-    c_board = put_text(c_board, 4, 1, coordinate_string, 1, 0, 'blue', 'white')
+    c_board = put_text(c_board, 4, 1, coordinate_string, 1, 0, 'grey', 'white')
 
     # Put vertical coordinate.
     for i in range(1, game_stats['board_size'][1] +1):
         value_string = str(i)
         if len(value_string) == 1:
             value_string = ' ' + value_string
-        c_board = put_text(c_board, 1, i + 1, value_string + ' ', 1, 0, 'blue', 'white')
+        c_board = put_text(c_board, 1, i + 1, value_string + ' ', 1, 0, 'grey', 'white')
 
     # Put game board.
     for x in range(game_stats['board_size'][0]):
@@ -689,9 +689,55 @@ def show_game_board(game_stats):
                 c_board = put_text(c_board, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', ship_owner_color)
             elif len(game_stats['board'][(x,y)]) > 0:
                 # in other case show how many ship there are in the tile.
-                c_board = put_text(c_board, on_screen_board_tile[0], on_screen_board_tile[1], '!' + str(len(game_stats['board'][(x,y)])),1,0,'white', 'green')
+                c_board = put_text(c_board, on_screen_board_tile[0], on_screen_board_tile[1], '!' + str(len(game_stats['board'][(x,y)])),1,0,'white', 'grey')
 
-    c_screen = put_canvas(c_screen, c_board, screen_size[0] / 2 - c_board['size'][0] / 2, int((screen_size[1] - 7) / 2) - c_board['size'][1] / 2)
+    game_board_location = (screen_size[0] / 2 - c_board['size'][0] / 2, (screen_size[1] - 7) / 2 - c_board['size'][1] / 2)
+    c_screen = put_canvas(c_screen, c_board, game_board_location[0], game_board_location[1])
+
+    # Ships liste
+    #---------------------------------------------------------------------------
+
+    nb_ships = len(game_stats['ships'])
+    c_ships = create_canvas(30, nb_ships + 3)
+
+    ship_index = 0
+    for ship in game_stats['ships']:
+        ship_data = game_stats['ships'][ship]
+        ship_name = ship
+        ship_color = None
+        if ship_data['owner'] != 'none':
+            ship_color = game_stats['players'][ship_data['owner']]['color']
+            ship_name = ship_name.replace(ship_data['owner'] + '_', '')
+
+        c_ships = put_text(c_ships, 1, ship_index + 2, str(ship_data['position']), color = ship_color)
+        c_ships = put_text(c_ships, 10, ship_index + 2, ship_name, color = ship_color)
+
+        ship_index += 1
+
+    c_ships = put_text(c_ships, 1, 1, ' X,  Y  | Name' + ' ' * 20, color = 'grey', back_color = 'white')
+    c_ships = put_box(c_ships, 0, 0, 30, nb_ships + 2)
+    c_ships = put_text(c_ships, 1, 0, '[ Ships ]')
+
+    c_screen = put_canvas(c_screen, c_ships,  game_board_location[0] + game_board_size[0] + 1, game_board_location[1])
+
+    # Game info
+    # --------------------------------------------------------------------------
+    c_info = create_canvas(30, 5)
+
+
+    c_info = put_text(c_info, 1, 1, 'Board:')
+    c_info = put_text(c_info, 8, 1, game_stats['level_name'])
+
+    c_info = put_text(c_info, 1, 2, 'Round:')
+    c_info = put_text(c_info, 8, 2, '%s /%s' % (game_stats['nb_rounds'], game_stats['max_nb_rounds']))
+
+    c_info = put_text(c_info, 1, 3, 'Ships:')
+    c_info = put_text(c_info, 8, 3, str(len(game_stats['ships'])))
+
+    c_info = put_box(c_info, 0, 0, 30, 5)
+
+    c_info = put_text(c_info, 1, 0, '[ Coders In Space ]')
+    c_screen = put_canvas(c_screen, c_info, game_board_location[0] - 31,  game_board_location[1])
 
     # Put players liste frame.
     # --------------------------------------------------------------------------

@@ -136,10 +136,11 @@ def get_dumb_ai_input(game_stats, player_name):
     ai_input = ''
 
     for ship in game_stats['ships']:
-        if (game_stats['ships'][ship]['owner'] == player_name):
+        if game_stats['ships'][ship]['owner'] == player_name:
             ai_input += ship.replace(player_name + '_','') + ':' + action[randint(0, len(action) - 1 )] + ' '
 
     return ai_input[:-1]
+
 def get_dumb_ai_spaceships(player_name, game_stats):
     """
     Get ships buy inputs from the ai.
@@ -160,7 +161,7 @@ def get_dumb_ai_spaceships(player_name, game_stats):
     Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
     """
 
-    return 'arow:fighter stardestroyer:destroyer race_cruiser:battlecruiser'
+    return 'arrow:fighter stardestroyer:destroyer race_cruiser:battlecruiser'
 
 # AI - command corection.
 # ------------------------------------------------------------------------------
@@ -365,7 +366,7 @@ def load_neural_network(file_path):
     file.close()
     return neural_network
 
-def sigmoid (x):
+def sigmoid(x):
     return 1 / (1 + exp(-x))
 def sigmoid_(x):
     return x * (1 - x)
