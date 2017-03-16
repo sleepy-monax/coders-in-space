@@ -87,6 +87,7 @@ def ship_to_neural_input(game_stats, player_name, ship_name):
     else:
         ship_owner_data = [-1.,-1., 1.]
 
+    # Direction
     ship_direction_data = list(ship['direction'])
 
     ship_position_data = [ship['position'][0] / game_stats['board_size'][0], ship['position'][1] / game_stats['board_size'][1], ship_heal_data]
@@ -172,8 +173,35 @@ def speed(game_stats, ship, change):
 def attack(game_stats, ship):
     pass
 
-def get_nearby_ship(game_stats, ship_owner):
-    pass
+def get_nearby_ship(game_stats, target_ship, search_range):
+    """
+    Make a list of arround ship in range.
+
+    Parameters
+    ----------
+    game_stats: state of the game (dic).
+    target_ship: name of the ship (str).
+    search_range : randge for the search (int).
+
+    Return
+    ------
+    ships_around: list of ship around the ship (list(str)).
+    """
+    ship_coords = game_stats['ships'][target_ship]
+    x, y = 0,0
+    dx = 0
+    dy = -1
+    nearby_ships = []
+    for i in range((search_range*2)**2):
+        if (-search_range < x <= search_range) and (-search_range < y <= search_range) and abs(x)+abs(y)<= search_range:
+            nearby_ships.extend(game_stats['board'][(ship_coords[0]+x,ship_coords[1]+y)])
+
+        if x == y or (x < 0 and x == -y) or (x > 0 and x == 1 -y):
+            dx, dy = -dy, dx
+
+        x, y = x+dx, y+dy
+    return nearby_ships
+
 def get_distance(coord1, coord2, size):
     """
     Get distance between two point in a tore space.
@@ -226,7 +254,6 @@ def convert_coordinates(coord, size):
         return a
 
     return (convert(coord[0], size[0]), convert(coord[1], size[1]))
-    pass
 
 # Neural network
 # ------------------------------------------------------------------------------
