@@ -1160,7 +1160,7 @@ def take_abandonned_ship(game_stats):
                 game_stats['players'][owner]['nb_ships'] += 1
 
                 game_stats['game_logs'].append('%s as take %s !' % (owner, new_ship_name))
-				game_stat['players'][owner]['fitness']+=65
+                game_stats['players'][owner]['fitness']+=65
 
 
     return game_stats
@@ -1204,10 +1204,10 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
 
                 if game_stats['ships'][target_ship]['heal_points'] <= 0:
 					#tell to ai if that's a good action.
-					if game_stats['ships'][target_ship]['owner'] !=game_stats['ships'][ship]['owner']:
-						game_stat['players'][game_stats['ships'][ship]['owner']]['fitness']+=100
-					else:
-						game_stat['players'][game_stats['ships'][ship]['owner']]['fitness']-=100
+                    if game_stats['ships'][target_ship]['owner'] !=game_stats['ships'][ship]['owner']:
+                        game_stat['players'][game_stats['ships'][ship]['owner']]['fitness']+=100
+                    else:
+                        game_stat['players'][game_stats['ships'][ship]['owner']]['fitness']-=100
                     # Remove the space ship.
                     game_stats['board'][target_coordinate].remove(target_ship)
                     game_stats['players'][game_stats['ships'][target_ship]['owner']]['nb_ships'] -=1
