@@ -39,7 +39,7 @@ from math import *
 from random import randint, seed
 from remote_play import notify_remote_orders, get_remote_orders, connect_to_player, disconnect_from_player
 from graphics import *
-from LAICIS_ia import *
+from LAICIS_ai import *
 
 # Game
 # ==============================================================================
@@ -84,6 +84,7 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
 
     game_stats['screen_size'] = screen_size
     game_stats['max_nb_rounds'] = max_rounds_count
+    game_stats['neural_network'] = load_neural_network('brain.LAICIS')
 
     # Show the splash screen.
     if not no_splash:
@@ -138,7 +139,13 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
     if not no_splash:
         show_end_game(game_stats)
 
-    return game_stats['winners']
+    max_fitness = 0
+    for player in game_stats['players']:
+        player_data = game_stats['players'][player]
+        if player_data['type'] == 'ai' and player_data['fitness'] > max_fitness:
+            max_fitness = player_data['fitness']
+
+    return game_stats['winners'], max_fitness
 
 def new_game(level_name, players_list, connection = None):
     """
@@ -1222,9 +1229,6 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
                     del game_stats['ships'][target_ship]
 
     return game_stats
-
-
-
 # Utils
 # ==============================================================================
 # Somme use full function for a simple life. And also parse game file.
