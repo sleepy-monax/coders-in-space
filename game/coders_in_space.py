@@ -40,6 +40,7 @@ from math import *
 from random import randint, seed
 from remote_play import notify_remote_orders, get_remote_orders, connect_to_player, disconnect_from_player
 from graphics import *
+from pickle import *
 
 # Game
 # ==============================================================================
@@ -298,6 +299,7 @@ def show_splash_game(game_stats):
     c = clear_canvas(c)
     c = put_ascii_art(c, screen_size[0] / 2 - 69, screen_size[1] / 2 - 5, 'coders_in_space', 'yellow')
     print_canvas(c)
+
 def show_end_game(game_stats):
     """
     Show the end game screen.
@@ -622,6 +624,8 @@ def show_game_board(game_stats):
 
     # Put a cool artwork on the background.
     c_screen = put_ascii_art(c_screen, 1, screen_size[1] - 30, 'planet')
+    if (screen_size > 190):
+        c_screen = put_ascii_art(c_screen, 191, screen_size[1] - 30, 'planet')
     c_screen = put_box(c_screen, 0, 0, screen_size[0], screen_size[1], 'single')
 
     # Create the board frame.
@@ -803,11 +807,6 @@ def get_distant_input(game_stats):
 # ==============================================================================
 # AI interactions
 
-# -*- coding: utf-8 -*-
-from random import *
-from pickle import *
-from math import exp
-
 # L.A.I.C.I.S.
 # ------------------------------------------------------------------------------
 # [L]earning [A]rtificial [I]nteligence for [C]oders [I]n [S]pace.
@@ -854,6 +853,7 @@ def get_ai_input(game_stats, player_name):
             output += neural_output_to_game_input() + ' '
 
     return output
+
 def get_ai_spaceships(player_name, game_stats):
     """
     Get ships buy inputs from the ai.
@@ -994,11 +994,14 @@ def get_dumb_ai_spaceships(player_name, game_stats):
 # Because nothing is perfect.
 
 def turn(game_stats, ship, direction):
-    pass
+    """
+    """
 def speed(game_stats, ship, change):
-    pass
+    """
+    """
 def attack(game_stats, ship):
-    pass
+    """
+    """
 
 def get_nearby_ship(game_stats, target_ship, search_range):
     """
