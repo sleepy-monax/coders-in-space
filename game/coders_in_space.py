@@ -41,6 +41,7 @@ from random import randint, seed
 from remote_play import notify_remote_orders, get_remote_orders, connect_to_player, disconnect_from_player
 from graphics import *
 from pickle import *
+from os import *
 
 # Game
 # ==============================================================================
@@ -847,12 +848,12 @@ def get_ai_input(game_stats, player_name):
             for nearby_ship in nearby_ships:
                 neural_input.extend(ship_to_neural_input(game_stats, player_name, nearby_ship))
 
-            neural_output = compute_neural_network(neural_network.copy(), neural_input)
+            neural_output = compute_neural_network(neural_network.copy(), neural_input[10:])
             memory = neural_input[:10]
 
             output += neural_output_to_game_input() + ' '
 
-    return output
+    return output.replace('  ',' ')
 
 def get_ai_spaceships(player_name, game_stats):
     """
@@ -873,6 +874,7 @@ def get_ai_spaceships(player_name, game_stats):
     Specification: Nicolas Van Bossuyt (v1. 10/03/17)
     Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
     """
+
     return 'arow:fighter stardestroyer:destroyer race_cruiser:battlecruiser'
 
 def ship_to_neural_input(game_stats, player_name, ship_name):
@@ -920,6 +922,7 @@ def ship_to_neural_input(game_stats, player_name, ship_name):
     ship_position_data = [ship['position'][0] / game_stats['board_size'][0], ship['position'][1] / game_stats['board_size'][1], ship_heal_data]
 
     return [].append(ship_type_data).append(ship_owner_data).append(ship_direction_data).append(ship_position_data)
+
 def neural_output_to_game_input(neural_ouput, ship_name, game_stats):
     """
     Convert a neural output into a game_input.
@@ -934,11 +937,24 @@ def neural_output_to_game_input(neural_ouput, ship_name, game_stats):
     game_input: input for the game (str).
     """
 
-    pass
+    command_index = neural_ouput.index(max(neural_ouput))
+
+    if command_index == 0:
+        return attack(game_stats, ship_name)
+    elif command_index == 1:
+        return turn(game_stats, ship_name, 'left')
+    elif command_index == 2:
+        return turn(game_stats, ship_name, 'right')
+    elif command_index == 3:
+        return speed(game_stats, ship_name, 'faster')
+    elif command_index == 5:
+        return speed(game_stats, ship_name, 'slower')
+
 
 # D.A.I.C.I.S
 # ------------------------------------------------------------------------------
 # [D]umb [A]rtificial [I]nteligence for [C]oders [I]n [S]pace.
+
 def get_dumb_ai_input(game_stats, player_name):
     """
     Get input from a AI player.
@@ -996,12 +1012,18 @@ def get_dumb_ai_spaceships(player_name, game_stats):
 def turn(game_stats, ship, direction):
     """
     """
+    return '%s:%s' % ship, direction
+
 def speed(game_stats, ship, change):
     """
     """
+    return '%s:%s' % ship, change
+
 def attack(game_stats, ship):
     """
     """
+
+    return '%s:%s' % ship, '0-0'
 
 def get_nearby_ship(game_stats, target_ship, search_range):
     """
@@ -1060,7 +1082,7 @@ def get_distance(coord1, coord2, size):
         return abs(a - b)
 
     return distance(coord1[0], coord2[0], size[0]) + distance(coord1[1], coord2[1], size[1])
-    pass
+
 def convert_coordinates(coord, size):
     """
     Apply tore space to coordinates.
@@ -1220,23 +1242,14 @@ def train_neural_network(neural_network, max_iteration, learn_strength):
     neural_network: trained neural network (dic).
     """
 
-    pass
-def force_learn_neural_network(neural_network, neural_input, expected_neural_output, strenght):
-    """
-    Force the neural network to learn something.
+    main_neural_network = {}
 
-    Parameters
-    ----------
-    neural_network: neural network to train (dic).
-    neural_input: data to input in the neural network (list(float)).
-    expected_neural_output: expected_neural_output from the neural network (list(float)).
+    # Create neural networks
+    if path.isfile('brain.LAICIS'):
+        main_neural_network = load_neural_network('brain.LAICIS')
+    else:
+        main_neural_network = create_neural_network((44, 100, 14))
 
-    Return
-    ------
-    neural_network: trained neural network (dic).
-    """
-
-    pass
 
 # Game commands
 # ==============================================================================
@@ -1658,6 +1671,7 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
                     del game_stats['ships'][target_ship]
 
     return game_stats
+
 # Utils
 # ==============================================================================
 # Somme use full function for a simple life. And also parse game file.
