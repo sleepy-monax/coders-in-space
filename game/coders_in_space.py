@@ -813,13 +813,12 @@ def get_distant_input(game_stats):
 
 def get_ai_input(game_stats, player_name):
     """
-    Get input from a AI player.
+    Get input from an AI player.
 
     Parameter
     ---------
     player_name: name of the player (str).
-    buy_ships: True, if players buy their boats (bool).
-    game_stats: stats of the game (dic).
+    game_stats: state of the game (dic).
 
     Return
     ------
@@ -828,6 +827,7 @@ def get_ai_input(game_stats, player_name):
     Version
     -------
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Nicolas Van Bossuyt (v1. 16/03/17)
     """
 
     neural_network = game_stats['neural_network']
@@ -856,13 +856,12 @@ def get_ai_input(game_stats, player_name):
 
 def get_ai_spaceships(player_name, game_stats):
     """
-    Get ships buy inputs from the ai.
-
+    Determine what ships to buy and turn it into a regulated command.
+	
     Parameters
     ----------
     player_name: name of the player (str).
-    buy_ships: True, if players buy their boats (bool).
-    game_stats: stats of the game (dic).
+    game_stats: state of the game (dic).
 
     Return
     ------
@@ -871,6 +870,7 @@ def get_ai_spaceships(player_name, game_stats):
     Version
     -------
     Specification: Nicolas Van Bossuyt (v1. 10/03/17)
+	               Bayron Mahy (v2. 17/03/17)
     Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
     """
     return 'arow:fighter stardestroyer:destroyer race_cruiser:battlecruiser'
@@ -881,13 +881,13 @@ def ship_to_neural_input(game_stats, player_name, ship_name):
 
     Parameters
     ----------
-    game_stats: stats of the game (dic).
+    game_stats: state of the game (dic).
     player_name: name of the player (str).
-    ship_name: name of the ship to convert data (str).
+    ship_name: name of the ship to convert into data (str).
 
     Return
     ------
-    ship_data: ship data in neural input format (list(float))
+    ship_data: List of float values required by neural network (list(float))
     """
     ship = game_stats['ships'][ship_name]
     ship_type = ship['type']
@@ -926,8 +926,8 @@ def neural_output_to_game_input(neural_ouput, ship_name, game_stats):
 
     Parameters
     ----------
-    neural_ouput: output from the neural_ouput (list(float)).
-    game_stats: stats of the game (dic).
+    neural_ouput: output from the neural network (list(float)).
+    game_stats: state of the game (dic).
 
     Return
     ------
@@ -941,13 +941,13 @@ def neural_output_to_game_input(neural_ouput, ship_name, game_stats):
 # [D]umb [A]rtificial [I]nteligence for [C]oders [I]n [S]pace.
 def get_dumb_ai_input(game_stats, player_name):
     """
-    Get input from a AI player.
+    Get input from an AI player.
 
     Parameter
     ---------
     player_name: name of the player (str).
-    buy_ships: True, if players buy their boats (bool).
-    game_stats: stats of the game (dic).
+
+    game_stats: state of the game (dic).
 
     Return
     ------
@@ -956,6 +956,7 @@ def get_dumb_ai_input(game_stats, player_name):
     Version
     -------
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Nicolas Van Bossuyt (v1. 16/03/17)
     """
 
     action = ['faster', 'slower', 'left', 'right']
@@ -969,13 +970,13 @@ def get_dumb_ai_input(game_stats, player_name):
     return ai_input[:-1]
 def get_dumb_ai_spaceships(player_name, game_stats):
     """
-    Get ships buy inputs from the ai.
-
+    Take random ships to make the army of the dumb AI
+	
     Parameters
     ----------
     player_name: name of the player (str).
-    buy_ships: True, if players buy their boats (bool).
-    game_stats: stats of the game (dic).
+
+    game_stats: state of the game (dic).
 
     Return
     ------
@@ -984,8 +985,17 @@ def get_dumb_ai_spaceships(player_name, game_stats):
     Version
     -------
     Specification: Nicolas Van Bossuyt (v1. 10/03/17)
-    Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
+    Implementation: Bayron Mahy (v1. 17/03/17)
     """
+	ship_name_list= []
+	ship_type_list = ['fighter','battlecruiser','destroyer']
+	money = 100
+	army = ''
+	while money<0:
+	    ship_type=ship_type_list[randint(0,3)]
+		ship_name=ship_name_list[randint(0,len(ship_name_list)]
+	    army.append(ship_name+':'+ship_type)
+		money-=game_stats['model_ship'][ship_type]['price']
 
     return 'arrow:fighter stardestroyer:destroyer race_cruiser:battlecruiser'
 
@@ -1005,7 +1015,7 @@ def attack(game_stats, ship):
 
 def get_nearby_ship(game_stats, target_ship, search_range):
     """
-    Make a list of arround ship in range.
+    Make a list of around ship in range.
 
     Parameters
     ----------
@@ -1016,6 +1026,11 @@ def get_nearby_ship(game_stats, target_ship, search_range):
     Return
     ------
     ships_around: list of ship around the ship (list(str)).
+	
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+    Implementation: Bayron Mahy (v1. 16/03/17)
     """
     ship_coords = game_stats['ships'][target_ship]
     x, y = 0,0
