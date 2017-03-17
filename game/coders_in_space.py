@@ -41,7 +41,7 @@ from random import randint, seed
 from remote_play import notify_remote_orders, get_remote_orders, connect_to_player, disconnect_from_player
 from graphics import *
 from pickle import *
-from os import *
+from os import path
 
 # Game
 # ==============================================================================
@@ -691,7 +691,8 @@ def show_game_board(game_stats):
                 # in other case show how many ship there are in the tile.
                 c_board = put_text(c_board, on_screen_board_tile[0], on_screen_board_tile[1], '!' + str(len(game_stats['board'][(x,y)])),1,0,'white', 'grey')
 
-    game_board_location = (screen_size[0] / 2 - c_board['size'][0] / 2, (screen_size[1] - 7) / 2 - c_board['size'][1] / 2)
+
+    game_board_location = (screen_size[0] / 2 - (c_board['size'][0] - 31) / 2, (screen_size[1] - 7) / 2 - c_board['size'][1] / 2)
     c_screen = put_canvas(c_screen, c_board, game_board_location[0], game_board_location[1])
 
     # Ships liste
@@ -715,10 +716,10 @@ def show_game_board(game_stats):
         ship_index += 1
 
     c_ships = put_text(c_ships, 1, 1, ' X,  Y  | Name' + ' ' * 20, color = 'grey', back_color = 'white')
-    c_ships = put_box(c_ships, 0, 0, 30, nb_ships + 2)
+    c_ships = put_box(c_ships, 0, 0, 30, nb_ships + 3)
     c_ships = put_text(c_ships, 1, 0, '[ Ships ]')
 
-    c_screen = put_canvas(c_screen, c_ships,  game_board_location[0] + game_board_size[0] + 1, game_board_location[1])
+    c_screen = put_canvas(c_screen, c_ships,  game_board_location[0] - 31,  game_board_location[1] + 5)
 
     # Game info
     # --------------------------------------------------------------------------
@@ -828,7 +829,7 @@ def get_ai_input(game_stats, player_name):
     Version
     -------
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation: Nicolas Van Bossuyt (v1. 16/03/17)
+    Implementation: Nicolas Van Bossuyt (v1. 16/03/17)
     """
 
     neural_network = game_stats['neural_network']
@@ -871,7 +872,7 @@ def get_ai_spaceships(player_name, game_stats):
     Version
     -------
     Specification: Nicolas Van Bossuyt (v1. 10/03/17)
-	               Bayron Mahy (v2. 17/03/17)
+                   Bayron Mahy (v2. 17/03/17)
     Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
     """
 
@@ -972,7 +973,7 @@ def get_dumb_ai_input(game_stats, player_name):
     Version
     -------
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation: Nicolas Van Bossuyt (v1. 16/03/17)
+    Implementation: Nicolas Van Bossuyt (v1. 16/03/17)
     """
 
     action = ['faster', 'slower', 'left', 'right']
@@ -984,6 +985,7 @@ def get_dumb_ai_input(game_stats, player_name):
             ai_input += ship.replace(player_name + '_','') + ':' + action[randint(0, len(action) - 1 )] + ' '
 
     return ai_input[:-1]
+
 def get_dumb_ai_spaceships(player_name, game_stats):
     """
     Take random ships to make the army of the dumb AI
@@ -1003,15 +1005,15 @@ def get_dumb_ai_spaceships(player_name, game_stats):
     Specification: Nicolas Van Bossuyt (v1. 10/03/17)
     Implementation: Bayron Mahy (v1. 17/03/17)
     """
-	ship_name_list = ['Apple Pen', 'Akbar', 'amiral', 'bob', 'fob', 'I\'m Bob Lenon', 'Frenay Acceleray', '', 'pew pew pew', 'Algobot', 'blblblblblblbl', 'ERROR : Stack overflow', 'mu', 'Seiyar', '25']
-	ship_type_list = ['fighter','battlecruiser','destroyer']
-	money = 100
-	army = ''
-	while money<0:
-	    ship_type=ship_type_list[randint(0,3)]
-		ship_name=ship_name_list[randint(0,len(ship_name_list)]
-	    army.append(ship_name+':'+ship_type)
-		money-=game_stats['model_ship'][ship_type]['price']
+    ship_name_list = ['Apple Pen', 'Akbar', 'amiral', 'bob', 'fob', 'I\'m Bob Lenon', 'Frenay Acceleray', '', 'pew pew pew', 'Algobot', 'blblblblblblbl', 'ERROR : Stack overflow', 'mu', 'Seiyar', '25']
+    ship_type_list = ['fighter','battlecruiser','destroyer']
+    money = 100
+    army = ''
+    while money<0:
+        ship_type=ship_type_list[randint(0,3)]
+        ship_name=ship_name_list[randint(0,len(ship_name_list))]
+        army.append(ship_name+':'+ship_type)
+        money-=game_stats['model_ship'][ship_type]['price']
 
     return 'arrow:fighter stardestroyer:destroyer race_cruiser:battlecruiser'
 
