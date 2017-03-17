@@ -1496,7 +1496,7 @@ def to_unit_vector(vector):
         Version
         -------
         Specification: Bayron Mahy (v1. 11/02/2017)
-    	Implementation: Nicolas Van Bossuyt (v1. 22/02/17)
+        Implementation: Nicolas Van Bossuyt (v1. 22/02/17)
         """
         if value > 0.25:
             return 1
@@ -1639,14 +1639,15 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_stats):
 
                 # Give damages to the taget ship.
                 game_stats['ships'][target_ship]['heal_points'] -= damages
-				if game_stats['ships'][target_ship]['owner'] !=game_stats['ships'][ship]['owner']:
-					game_stat['players'][game_stats['ships'][ship]['owner']]['fitness']+=70
+
+                if game_stats['ships'][target_ship]['owner'] !=game_stats['ships'][ship]['owner']:
+                    game_stat['players'][game_stats['ships'][ship]['owner']]['fitness']+=70
                 else:
                     game_stat['players'][game_stats['ships'][ship]['owner']]['fitness']-=30
-					
+
 
                 if game_stats['ships'][target_ship]['heal_points'] <= 0:
-					#tell to ai if that's a good action.
+                    #tell to ai if that's a good action.
                     if game_stats['ships'][target_ship]['owner'] !=game_stats['ships'][ship]['owner']:
                         game_stat['players'][game_stats['ships'][ship]['owner']]['fitness']+=100
                     else:
