@@ -858,7 +858,7 @@ def get_ai_input(game_stats, player_name):
 def get_ai_spaceships(player_name, game_stats):
     """
     Determine what ships to buy and turn it into a regulated command.
-	
+
     Parameters
     ----------
     player_name: name of the player (str).
@@ -987,7 +987,7 @@ def get_dumb_ai_input(game_stats, player_name):
 def get_dumb_ai_spaceships(player_name, game_stats):
     """
     Take random ships to make the army of the dumb AI
-	
+
     Parameters
     ----------
     player_name: name of the player (str).
@@ -1003,7 +1003,7 @@ def get_dumb_ai_spaceships(player_name, game_stats):
     Specification: Nicolas Van Bossuyt (v1. 10/03/17)
     Implementation: Bayron Mahy (v1. 17/03/17)
     """
-	ship_name_list= []
+	ship_name_list = ['Apple Pen', 'Akbar', 'amiral', 'bob', 'fob', 'I\'m Bob Lenon', 'Frenay Acceleray', '', 'pew pew pew', 'Algobot', 'blblblblblblbl', 'ERROR : Stack overflow', 'mu', 'Seiyar', '25']
 	ship_type_list = ['fighter','battlecruiser','destroyer']
 	money = 100
 	army = ''
@@ -1048,7 +1048,7 @@ def get_nearby_ship(game_stats, target_ship, search_range):
     Return
     ------
     ships_around: list of ship around the ship (list(str)).
-	
+
     Version
     -------
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
