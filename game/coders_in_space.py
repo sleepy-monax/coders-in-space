@@ -699,15 +699,15 @@ def show_game_board(game_data, hightlight_ship = None):
 
                 # Put the space sip in the gameboard.
                 if ship_name == hightlight_ship:
-                    c_board = put_text(c_board, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'yellow', ship_owner_color)
+                    c_board = put_text(c_board, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon, 1, 0, ship_owner_color, 'yellow')
                 else:
-                    c_board = put_text(c_board, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon,1,0,'white', ship_owner_color)
+                    c_board = put_text(c_board, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon, 1, 0, ship_owner_color)
 
-                c_board = put_text(c_board, on_screen_board_tile[0] + 1 + ship_direction[0], on_screen_board_tile[1]  + ship_direction[1], direction_char, 1, 0, 'white')
+                c_board = put_text(c_board, on_screen_board_tile[0] + 1 + ship_direction[0], on_screen_board_tile[1]  + ship_direction[1], direction_char, 1, 0, ship_owner_color)
 
             elif len(game_data['board'][(x,y)]) > 0:
                 # in other case show how many ship there are in the tile.
-                c_board = put_text(c_board, on_screen_board_tile[0], on_screen_board_tile[1], '!' + str(len(game_data['board'][(x,y)])),1,0,'white', 'grey')
+                c_board = put_text(c_board, on_screen_board_tile[0], on_screen_board_tile[1], '[%d]' % (len(game_data['board'][(x,y)])), 1, 0, 'green')
 
 
     game_board_location = (screen_size[0] / 2 - (c_board['size'][0] - 31) / 2, (screen_size[1] - 7) / 2 - c_board['size'][1] / 2)
@@ -1169,7 +1169,7 @@ def convert_coordinates(coord, size):
     -------
     Specification: Nicolas Van Bossuyt (v1. 09/03/17)
     Implementation: Nicolas Van Bossuyt (v1. 09/03/17)
-                    
+
     """
     def convert(a, size):
         # Apply toric space.
@@ -1197,7 +1197,7 @@ def create_neural_network(neural_structure):
     Return
     ------
     neural_network: neural network create from the neural structure description (dic).
-	
+
     Version
     -------
     Specification: Nicolas Van Bossuyt (v1. 09/03/17)
@@ -1229,7 +1229,7 @@ def compute_neural_network(neural_network, neural_input):
     Return
     ------
     neural_ouput: output from the neural_network (list(float))
-	
+
     Version
     -------
     Specification: Nicolas Van Bossuyt (v1. 09/03/17)
@@ -1265,7 +1265,7 @@ def randomize_neural_network(neural_network, rnd_strength):
     Return
     ------
     neural_network: randomized neural_network (dic).
-	
+
     Version
     -------
     Specification: Nicolas Van Bossuyt (v1. 09/03/17)
@@ -1287,7 +1287,7 @@ def save_neural_network(neural_network, file_path):
     ----------
     neural_network: neural network to save in the file (dic).
     file_path: path to save the neural network (str).
-	
+
     Version
     -------
     Specification: Bayron Mahy (v1. 09/03/17)
@@ -1340,7 +1340,7 @@ def train_neural_network(neural_network, max_iteration, learn_strength):
     Return
     ------
     neural_network: trained neural network (dic).
-	
+
     Version
     -------
     Specification: Nicolas Van Bossuyt (v1. 10/03/17)
@@ -1435,9 +1435,6 @@ def command_buy_ships(ships, player, game_data):
     Implementation: Nicolas Van Bossuyt (v1. 14/02/17)
                     Nicolas Van Bossuyt (v2. 23/02/17)
     """
-
-    print ships
-
     for ship in ships.split(' '):
 
 
@@ -1890,8 +1887,7 @@ def create_game_board(file_name, board_size, lost_ships_count):
     print >>f, "%d %d" % (board_size[0], board_size[1])
 
     for i in range(lost_ships_count):
-        print >>f, '%d %d %s:%s %s' % (random.randint(0, board_size[0] - 1),\
-        random.randint(0, board_size[1] - 1), 'ship_' + str(i),  ship_type[random.randint(0, len(ship_type) - 1)],\
+        print >>f, '%d %d %s:%s %s' % (random.randint(0, board_size[0] - 1), random.randint(0, board_size[1] - 1), 'ship_' + str(i),  ship_type[random.randint(0, len(ship_type) - 1)],\
         ship_direction[random.randint(0, len(ship_direction) - 1)])
 
     f.close()
