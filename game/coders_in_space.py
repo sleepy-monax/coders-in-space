@@ -86,7 +86,6 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
 
     game_data['screen_size'] = screen_size
     game_data['max_nb_rounds'] = max_rounds_count
-    # game_data['neural_network'] = load_neural_network('brain.LAICIS')
 
     # Show the splash screen.
     if not no_splash:
@@ -147,7 +146,7 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
         if player_data['type'] == 'ai' and player_data['fitness'] > max_fitness:
             max_fitness = player_data['fitness']
 
-    return game_data['winners'], max_fitness
+    return game_data['players']
 def new_game(level_name, players_list, connection = None):
     """
     Create a new game from a '.cis' file.
@@ -205,19 +204,22 @@ def new_game(level_name, players_list, connection = None):
     index_player=1
 
     for player in players_list:
-        if 'bot' in player or player == 'LAICIS':
-            player_type = 'ai'
-        elif 'dumb' in player:
-            player_type = 'ai_dumb'
-        elif player == 'distant':
-            player_type = 'distant'
-        else:
-            player_type = 'human'
-
         # Create new player.
         if index_player <= 4:
-            game_data['players'][player] = {'name': player,'money':100,'nb_ships': 0,'type': player_type, 'fitness': 0}
+            game_data['players'][player] = {'name': player,'money':100,'nb_ships': 0, 'fitness': 0}
 
+            # Set player type.
+            if 'bot' in player or player == 'LAICIS':
+                game_data['players'][player]['type'] = 'ai'
+                game_data['players'][player]['network'] = load_neural_network('%s.LAICIS' % (player))
+            elif 'dumb' in player:
+                game_data['players'][player]['type'] = 'ai_dumb'
+            elif player == 'distant':
+                game_data['players'][player]['type'] = 'distant'
+            else:
+                game_data['players'][player]['type'] = 'human'
+
+            # Set player starting pos.
             if index_player==1:
                 game_data['players'][player]['ships_starting_point'] = (9, 9)
                 game_data['players'][player]['ships_starting_direction'] = (1, 1)
@@ -278,8 +280,10 @@ def show_splash_game(game_data):
         Specification: Bayron Mahy (v1. 11/02/17)
         Implementation: Nicolas Van Bossuyt (v1. 27/02/17)
         """
+
         canvas = put_box(canvas, 0, 0, screen_size[0], screen_size[1])
         canvas = put_stars_field(canvas, 1, 1, screen_size[0] - 2, screen_size[1] - 2, 1)
+
         return canvas
 
     screen_size = game_data['screen_size']
@@ -466,9 +470,9 @@ def get_game_input(player_name, buy_ships, game_data):
     elif player_type == 'ai':
         # get input from the ai.
         if buy_ships:
-            player_input = get_ai_spaceships(player_name, game_data)
+            player_input = get_ai_spaceships(game_data, player_name)
         else:
-            player_input = get_ai_input(player_name, game_data)
+            player_input = get_ai_input(game_data, player_name)
 
     elif player_type == 'ai_dumb':
         # Get input from the dumb ai.
@@ -777,7 +781,7 @@ def show_game_board(game_data, hightlight_ship = None):
             # Put player informations.
             c_screen = put_text(c_screen, location[0] + 2, location[1] , '[ ' + game_data['players'][player]['name'] + ' ]', color=game_data['players'][player]['color'])
             c_screen = put_text(c_screen, location[0] + 2, location[1] + 1, 'Type: ' + game_data['players'][player]['type'])
-            c_screen = put_text(c_screen, location[0] + 2, location[1] + 2, 'Money: ' + str(game_data['players'][player]['money']) + '$')
+            c_screen = put_text(c_screen, location[0] + 2, location[1] + 2, 'Fitness: ' + str(game_data['players'][player]['fitness']))
             c_screen = put_text(c_screen, location[0] + 2, location[1] + 3, 'Spaceship count: ' + str(game_data['players'][player]['nb_ships']))
 
             player_count += 1
@@ -851,8 +855,8 @@ def get_ai_input(game_data, player_name):
     Implementation: Nicolas Van Bossuyt (v1. 16/03/17)
     """
 
-    neural_network = game_data['neural_network']
-    memory = [0]*10
+    neural_network = game_data['players'][player_name]['network']
+    memory = [1]*10
     output = ''
 
     for ship in game_data['ships']:
@@ -860,20 +864,22 @@ def get_ai_input(game_data, player_name):
         ship_neural_input = ship_to_neural_input(game_data, player_name, ship)
 
         # get Ship action.
-        if ship_data['onwer'] == player_name:
+        if ship_data['owner'] == player_name:
             nearby_ships = get_nearby_ship(game_data, ship, 10)[:3]
 
-            neural_input = [].extend(memory).extend(ship_neural_input)
+            neural_input = []
+            neural_input.extend(memory)
+            neural_input.extend(ship_neural_input)
 
             for nearby_ship in nearby_ships:
                 neural_input.extend(ship_to_neural_input(game_data, player_name, nearby_ship))
 
-            neural_output = compute_neural_network(neural_network.copy(), neural_input[10:])
+            neural_output = compute_neural_network(neural_network.copy(), neural_input)[10:]
             memory = neural_input[:10]
 
-            output += neural_output_to_game_input() + ' '
+            output += neural_output_to_game_input(neural_output, ship, game_data) + ' '
 
-    return output.replace('  ',' ')
+    return output[:-1]
 
 def get_ai_spaceships(player_name, game_data):
     """
@@ -941,7 +947,13 @@ def ship_to_neural_input(game_data, player_name, ship_name):
 
     ship_position_data = [ship['position'][0] / game_data['board_size'][0], ship['position'][1] / game_data['board_size'][1], ship_heal_data]
 
-    return [].append(ship_type_data).append(ship_owner_data).append(ship_direction_data).append(ship_position_data)
+    final_output = [1]
+    final_output.extend(ship_type_data)
+    final_output.extend(ship_owner_data)
+    final_output.extend(ship_direction_data)
+    final_output.extend(ship_position_data)
+
+    return final_output
 
 def neural_output_to_game_input(neural_ouput, ship_name, game_data):
     """
@@ -958,18 +970,18 @@ def neural_output_to_game_input(neural_ouput, ship_name, game_data):
     """
 
     command_index = neural_ouput.index(max(neural_ouput))
+    player_name = ship_name.split('_')[0]
 
     if command_index == 0:
         return attack(game_data, ship_name)
     elif command_index == 1:
-        return turn(game_data, ship_name, 'left')
+        return turn(game_data, ship_name.replace(player_name + '_',''), 'left')
     elif command_index == 2:
-        return turn(game_data, ship_name, 'right')
+        return turn(game_data, ship_name.replace(player_name + '_',''), 'right')
     elif command_index == 3:
-        return speed(game_data, ship_name, 'faster')
+        return speed(game_data, ship_name.replace(player_name + '_',''), 'faster')
     elif command_index == 5:
-        return speed(game_data, ship_name, 'slower')
-
+        return speed(game_data, ship_name.replace(player_name + '_',''), 'slower')
 
 # D.A.I.C.I.S
 # ------------------------------------------------------------------------------
@@ -1049,7 +1061,7 @@ def turn(game_data, ship, direction):
     Turn command of LAICIS.
 
     """
-    return '%s:%s' % ship, direction
+    return '%s:%s' % (ship, direction)
 
 def speed(game_data, ship, change):
     """
@@ -1057,7 +1069,7 @@ def speed(game_data, ship, change):
     Speed command of LAICIS.
 
     """
-    return '%s:%s' % ship, change
+    return '%s:%s' % (ship, change)
 
 def attack(game_data, ship):
     """
@@ -1080,12 +1092,13 @@ def attack(game_data, ship):
 
     # Find the nearby_ships and attack it !
     nearby_ships = get_nearby_ship(game_data, ship, 10)
+    player_name = ship.split('_')[0]
     if len(nearby_ships) > 0:
         nearby_ships_postion = game_data['ships'][nearby_ships[0]]['position']
-        return '%s:%d-%d' % ship, nearby_ships_postion[0], nearby_ships_postion[1]
+        return '%s:%d-%d' % (ship.replace(player_name + '_',''), nearby_ships_postion[0], nearby_ships_postion[1])
 
     # If no nearby ships attack random spot on map.
-    return '%s:%d-%d' % ship, randint(game_data['board_size'][0], game_data['board_size'][1])
+    return '%s:%d-%d' % (ship.replace(player_name + '_',''), randint(game_data['board_size'][0], game_data['board_size'][1]))
 
 def get_nearby_ship(game_data, target_ship, search_range):
     """
@@ -1106,7 +1119,8 @@ def get_nearby_ship(game_data, target_ship, search_range):
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
     Implementation: Bayron Mahy, Nicolas Van Bossuyt (v1. 16/03/17)
     """
-    ship_coords = game_data['ships'][target_ship]
+    ship_coords = ()
+    ship_coords = game_data['ships'][target_ship]['position']
     x, y = 0,0
     dx = 0
     dy = -1
@@ -1114,7 +1128,11 @@ def get_nearby_ship(game_data, target_ship, search_range):
 
     for i in range((search_range*2)**2):
         if (-search_range < x <= search_range) and (-search_range < y <= search_range) and abs(x)+abs(y)<= search_range:
-            nearby_ships.extend(game_data['board'][(ship_coords[0]+x,ship_coords[1]+y)])
+
+            coords = convert_coordinates((ship_coords[0]+x,ship_coords[1]+y), game_data['board_size'])
+
+            if len(game_data['board'][coords]) > 0:
+                nearby_ships.extend(game_data['board'][coords])
 
         if x == y or (x < 0 and x == -y) or (x > 0 and x == 1 -y):
             dx, dy = -dy, dx
@@ -1293,9 +1311,10 @@ def save_neural_network(neural_network, file_path):
     Specification: Bayron Mahy (v1. 09/03/17)
     Implementation: Bayron Mahy (v1. 10/03/17)
     """
-    file = open(file_path,'w')
-    pickle.dump(neural_network, file_path)
-    file.close()
+    f = open(file_path,'w')
+    dump( neural_network, f)
+    f.close()
+
 def load_neural_network(file_path):
     """
     Load neural network from a file.
@@ -1313,9 +1332,9 @@ def load_neural_network(file_path):
     Specification: Bayron Mahy (v1. 09/03/17)
     Implementation: Bayron Mahy (v1. 10/03/17)
     """
-    file = open(file_path,'r')
-    neural_network=pickle.load(file_path)
-    file.close()
+    f = open(file_path,'r')
+    neural_network=load(f)
+    f.close()
     return neural_network
 
 def sigmoid(x):
@@ -1327,13 +1346,12 @@ def sigmoid_(x):
 # ------------------------------------------------------------------------------
 #
 
-def train_neural_network(neural_network, max_iteration, learn_strength):
+def train_neural_network(max_iteration, learn_strength):
     """
     Train the neural network.
 
     Parameters
     ----------
-    neural_network: neural network to train (dic).
     max_iteration: max iteration of the trainning algorithm (dic).
     learn_strenght: algorithm's strenght (dic).
 
@@ -1347,14 +1365,46 @@ def train_neural_network(neural_network, max_iteration, learn_strength):
     Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
     """
 
-    main_neural_network = {}
+    neurals_networks = {}
+    best_neural_network = {}
+    best_fitness = 0
+    neural_network_index = 0
 
     # Create neural networks
-    if path.isfile('brain.LAICIS'):
-        main_neural_network = load_neural_network('brain.LAICIS')
+    if path.isfile('best.LAICIS'):
+        best_neural_network = load_neural_network('best.LAICIS')
     else:
-        main_neural_network = create_neural_network((44, 100, 14))
+        best_neural_network = create_neural_network((45, 100, 14))
 
+    for iteration in range(max_iteration):
+        print iteration, best_fitness
+        # Create randomized neurals networks.
+        neurals_networks = {}
+        for i in range(10):
+            neural_network_index += 1
+            neurals_networks['bot_%d' % (neural_network_index)] = {'network': randomize_neural_network(best_neural_network.copy(), learn_strength), 'total_fitness': 0}
+
+        # Battle randomized neurals networks.
+        for neural_network_a in neurals_networks:
+            for neural_network_b in neurals_networks:
+
+                print '%s vs %s' % (neural_network_a, neural_network_b)
+                save_neural_network(neurals_networks[neural_network_a]['network'], '%s.LAICIS' % (neural_network_a))
+                save_neural_network(neurals_networks[neural_network_b]['network'], '%s.LAICIS' % (neural_network_b))
+
+                battle_result = play_game('board/test_board.cis', (neural_network_a, neural_network_b), screen_size = (190, 50), no_gui = True, no_splash = True, max_rounds_count = 10)
+
+                neurals_networks[neural_network_a]['total_fitness'] += battle_result[neural_network_a]['fitness']
+                neurals_networks[neural_network_b]['total_fitness'] += battle_result[neural_network_b]['fitness']
+
+        # Take the best neural network.
+        for nn in neurals_networks:
+            if neurals_networks[nn]['total_fitness'] >= best_fitness:
+                best_fitness = neurals_networks[nn]['total_fitness']
+                best_neural_network = neurals_networks[nn]['network']
+
+
+    save_neural_network(best_neural_network, 'best.LAICIS')
 
 # Game commands
 # ==============================================================================
