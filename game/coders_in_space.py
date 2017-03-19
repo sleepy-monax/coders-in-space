@@ -1134,12 +1134,13 @@ def get_distance(coord1, coord2, size):
 
     Return
     ------
-    Distance: distance of the two point (int).
+    Distance: distance between the two points (int).
 
     Version
     -------
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-    Implementation: Nicolas Van Bossuyt, Alisson Leist (v1. 14/2/17)
+	               Bayron Mahy (v2. 19/03/17)
+    Implementation: Nicolas Van Bossuyt, Alisson Leist (v1. 14/02/17)
                     Nicolas Van Bossuyt (v2. 09/03/17)
     """
 
@@ -1163,6 +1164,12 @@ def convert_coordinates(coord, size):
     Return
     ------
     converted_coord: coord with the tore applied.
+
+    Version
+    -------
+    Specification: Nicolas Van Bossuyt (v1. 09/03/17)
+    Implementation: Nicolas Van Bossuyt (v1. 09/03/17)
+                    
     """
     def convert(a, size):
         # Apply toric space.
@@ -1190,6 +1197,11 @@ def create_neural_network(neural_structure):
     Return
     ------
     neural_network: neural network create from the neural structure description (dic).
+	
+    Version
+    -------
+    Specification: Nicolas Van Bossuyt (v1. 09/03/17)
+    Implementation: Nicolas Van Bossuyt (v1. 09/03/17)
     """
     neural_network = {}
     layer = 0
@@ -1207,7 +1219,7 @@ def create_neural_network(neural_structure):
     return neural_network
 def compute_neural_network(neural_network, neural_input):
     """
-    Compute output from a neural network with specified inputes.
+    Compute output from a neural network with specified inputs.
 
     Parameters
     ----------
@@ -1217,6 +1229,11 @@ def compute_neural_network(neural_network, neural_input):
     Return
     ------
     neural_ouput: output from the neural_network (list(float))
+	
+    Version
+    -------
+    Specification: Nicolas Van Bossuyt (v1. 09/03/17)
+    Implementation: Nicolas Van Bossuyt (v1. 09/03/17)
     """
 
     # Compute the neural network.
@@ -1238,16 +1255,21 @@ def compute_neural_network(neural_network, neural_input):
     return output
 def randomize_neural_network(neural_network, rnd_strength):
     """
-    Randomize connection of a neural_network.
+    Randomize connections of a neural_network.
 
     Parameters
     ----------
-    neural_network: network to randomize connection (dic).
+    neural_network: network to randomize connections (dic).
     rnd_strength: strength of the random change (float).
 
     Return
     ------
     neural_network: randomized neural_network (dic).
+	
+    Version
+    -------
+    Specification: Nicolas Van Bossuyt (v1. 09/03/17)
+    Implementation: Nicolas Van Bossuyt (v1. 09/03/17)
     """
     multi = [0., 1., -1.]
     for layer in neural_network:
@@ -1265,6 +1287,11 @@ def save_neural_network(neural_network, file_path):
     ----------
     neural_network: neural network to save in the file (dic).
     file_path: path to save the neural network (str).
+	
+    Version
+    -------
+    Specification: Bayron Mahy (v1. 09/03/17)
+    Implementation: Bayron Mahy (v1. 10/03/17)
     """
     file = open(file_path,'w')
     pickle.dump(neural_network, file_path)
@@ -1275,11 +1302,16 @@ def load_neural_network(file_path):
 
     Parameter
     ---------
-    file_path: path of the file to load the neural network from (str).
+    file_path: Path of the file where is the neural network to load (str).
 
     Return
     ------
     neural_network: loaded neural network (dic).
+
+    Version
+    -------
+    Specification: Bayron Mahy (v1. 09/03/17)
+    Implementation: Bayron Mahy (v1. 10/03/17)
     """
     file = open(file_path,'r')
     neural_network=pickle.load(file_path)
@@ -1302,12 +1334,17 @@ def train_neural_network(neural_network, max_iteration, learn_strength):
     Parameters
     ----------
     neural_network: neural network to train (dic).
-    max_iteration: max iteration of the trainning algorithme (dic).
-    learn_strenght: strenght of the learning algorithme (dic).
+    max_iteration: max iteration of the trainning algorithm (dic).
+    learn_strenght: algorithm's strenght (dic).
 
     Return
     ------
     neural_network: trained neural network (dic).
+	
+    Version
+    -------
+    Specification: Nicolas Van Bossuyt (v1. 10/03/17)
+    Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
     """
 
     main_neural_network = {}
@@ -1325,7 +1362,7 @@ def train_neural_network(neural_network, max_iteration, learn_strength):
 
 # Command Parsing
 # ------------------------------------------------------------------------------
-# From a string to a game command.
+# Take a string and turn it into game command.
 
 def parse_command(commands, player_name, game_data):
     """
@@ -1334,7 +1371,7 @@ def parse_command(commands, player_name, game_data):
     Parameters
     ----------
     command: command from a player (str).
-    game_data: stat of the game (dic).
+    game_data: game's data (dic).
 
     Return
     ------
@@ -1565,7 +1602,7 @@ def to_unit_vector(vector):
 
     def convert(value):
         """
-        round the value from float to int with specifical criterium.
+        turn the float value into int with specifical criterium.
 
         parameter
         ---------
