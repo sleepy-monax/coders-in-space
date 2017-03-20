@@ -1083,11 +1083,10 @@ def speed(game_data, ship, change):
 	Implementation: Bayron Mahy (v1. 20/03/17)
 	
     """
-	
-	if (change == 'faster' and game_data['ships'][ship]['speed']< game_data['model_ships'][game_data['ships'][ship]['type']]['max_speed']) or (change == 'slower' and game_data['ships'][ship]['speed']>0):
-		return '%s:%s' % (ship, change)
-	else:
-		return ''
+    if (change == 'faster' and game_data['ships'][ship]['speed']< game_data['model_ships'][game_data['ships'][ship]['type']]['max_speed']) or (change == 'slower' and game_data['ships'][ship]['speed']>0):
+        return '%s:%s' % (ship, change)
+    else:
+        return ''
 
 def attack(game_data, ship):
     """
