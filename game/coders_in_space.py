@@ -988,66 +988,66 @@ def neural_output_to_game_input(neural_ouput, ship_name, game_data):
         return speed(game_data, ship_name.replace(player_name + '_',''), 'slower')
 
 def turn(game_data, ship, direction):
-            """
+    """
 
-            Turn command of LAICIS.
+    Turn command of LAICIS.
 
-            """
-            return '%s:%s' % (ship, direction)
+    """
+    return '%s:%s' % (ship, direction)
 
 def speed(game_data, ship, change):
-                """
-                Check if LAICIS make can increase/decrease the speed of its ship
+    """
+    Check if LAICIS make can increase/decrease the speed of its ship
 
-                parameters
-                ----------
-                game_data: game's data (dic).
-                ship: targeted ship (str).
-                change: change applied by LAICIS to the ship (str).
+    parameters
+    ----------
+    game_data: game's data (dic).
+    ship: targeted ship (str).
+    change: change applied by LAICIS to the ship (str).
 
-                return
-                ------
-                '%s:%s' % (ship, change): regular input for the game loop (str).
+    return
+    ------
+    '%s:%s' % (ship, change): regular input for the game loop (str).
 
-                Version
-                -------
-                Specification: Bayron Mahy (v1. 20/03/17)
-                Implementation: Bayron Mahy (v1. 20/03/17)
+    Version
+    -------
+    Specification: Bayron Mahy (v1. 20/03/17)
+    Implementation: Bayron Mahy (v1. 20/03/17)
 
-                """
-                if (change == 'faster' and game_data['ships'][ship]['speed']< game_data['model_ships'][game_data['ships'][ship]['type']]['max_speed']) or (change == 'slower' and game_data['ships'][ship]['speed']>0):
-                    return '%s:%s' % (ship, change)
-                else:
-                    return ''
+    """
+    if (change == 'faster' and game_data['ships'][ship]['speed']< game_data['model_ships'][game_data['ships'][ship]['type']]['max_speed']) or (change == 'slower' and game_data['ships'][ship]['speed']>0):
+        return '%s:%s' % (ship, change)
+    else:
+        return ''
 
 def attack(game_data, ship):
-                        """
-                        Attack command of LAICIS.
+    """
+    Attack command of LAICIS.
 
-                        Parameters
-                        ----------
-                        game_data: data of the game (dic).
-                        ship: name of the current ship (str).
+    Parameters
+    ----------
+    game_data: data of the game (dic).
+    ship: name of the current ship (str).
 
-                        Return
-                        ------
-                        attack input (str)
+    Return
+    ------
+    attack input (str)
 
-                        Version
-                        -------
-                        Specification: Nicolas Van Bossuyt (v1. 19/03/17).
-                        Implementation: Nicolas Van Bossuyt (v1. 19/03/17).
-                        """
+    Version
+    -------
+    Specification: Nicolas Van Bossuyt (v1. 19/03/17).
+    Implementation: Nicolas Van Bossuyt (v1. 19/03/17).
+    """
 
-                        # Find the nearby_ships and attack it !
-                        nearby_ships = get_nearby_ship(game_data, ship, 10)
-                        player_name = ship.split('_')[0]
-                        if len(nearby_ships) > 0:
-                            nearby_ships_postion = game_data['ships'][nearby_ships[0]]['position']
-                            return '%s:%d-%d' % (ship.replace(player_name + '_',''), nearby_ships_postion[0], nearby_ships_postion[1])
+    # Find the nearby_ships and attack it !
+    nearby_ships = get_nearby_ship(game_data, ship, 10)
+    player_name = ship.split('_')[0]
+    if len(nearby_ships) > 0:
+        nearby_ships_postion = game_data['ships'][nearby_ships[0]]['position']
+        return '%s:%d-%d' % (ship.replace(player_name + '_',''), nearby_ships_postion[0], nearby_ships_postion[1])
 
-                            # If no nearby ships attack random spot on map.
-                            return '%s:%d-%d' % (ship.replace(player_name + '_',''), randint(game_data['board_size'][0], game_data['board_size'][1]))
+        # If no nearby ships attack random spot on map.
+        return '%s:%d-%d' % (ship.replace(player_name + '_',''), randint(game_data['board_size'][0], game_data['board_size'][1]))
 
 # D.A.I.C.I.S
 # ------------------------------------------------------------------------------
@@ -1381,7 +1381,7 @@ def sigmoid(x):
 
 # Neural network training
 # ------------------------------------------------------------------------------
-# 
+#
 
 def train_neural_network(max_iteration, learn_strength):
     """
