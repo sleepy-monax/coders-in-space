@@ -119,15 +119,10 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
 
         is_ship_buy = False
 
-        # Do ships moves.
+        # Do game loop.
         game_data = do_moves(game_data)
-
-        # Take all abandonned ships.
         game_data = take_abandonned_ship(game_data)
-
-        # Do Attack
-        for pending_attack in game_data['pending_attacks']:
-            game_data = command_attack(pending_attack[0], pending_attack[1], pending_attack[2], game_data)
+        game_data = do_attack(game_data)
 
         game_data['nb_rounds'] += 1
         game_running = is_game_continue(game_data)
@@ -493,6 +488,7 @@ def get_game_input(player_name, buy_ships, game_data):
     if game_data['is_remote_game'] and (player_type == 'human' or player_type == 'ai' or player_type == 'ai_dumb'):
         notify_remote_orders(game_data['players']['distant']['connection'], player_input)
 
+    print player_input
     return player_input
 
 # Player
@@ -861,7 +857,7 @@ def get_ai_input(game_data, player_name):
 
     neural_network = game_data['players'][player_name]['network']
     memory = [1]*10
-    output = ''
+    outputs = []
 
     for ship in game_data['ships']:
         ship_data = game_data['ships'][ship]
@@ -881,9 +877,14 @@ def get_ai_input(game_data, player_name):
             neural_output = compute_neural_network(neural_network.copy(), neural_input)[10:]
             memory = neural_input[:10]
 
-            output += neural_output_to_game_input(neural_output, ship, game_data) + ' '
+            outputs.append(neural_output_to_game_input(neural_output, ship, game_data))
 
-    return output[:-1]
+    final_output = ''
+    for output in outputs:
+        if output != '':
+            final_output += '%s ' % output.replace(player_name + '_','')
+
+    return final_output[:-1]
 
 def get_ai_spaceships(player_name, game_data):
     """
@@ -974,26 +975,17 @@ def neural_output_to_game_input(neural_ouput, ship_name, game_data):
     """
 
     command_index = neural_ouput.index(max(neural_ouput))
-    player_name = ship_name.split('_')[0]
 
     if command_index == 0:
         return attack(game_data, ship_name)
     elif command_index == 1:
-        return turn(game_data, ship_name.replace(player_name + '_',''), 'left')
+        return '%s:left' % (ship_name)
     elif command_index == 2:
-        return turn(game_data, ship_name.replace(player_name + '_',''), 'right')
+        return '%s:right' % (ship_name)
     elif command_index == 3:
-        return speed(game_data, ship_name.replace(player_name + '_',''), 'faster')
+        return speed(game_data, ship_name, 'faster')
     elif command_index == 5:
-        return speed(game_data, ship_name.replace(player_name + '_',''), 'slower')
-
-def turn(game_data, ship, direction):
-    """
-
-    Turn command of LAICIS.
-
-    """
-    return '%s:%s' % (ship, direction)
+        return speed(game_data, ship_name, 'slower')
 
 def speed(game_data, ship, change):
     """
@@ -1015,7 +1007,7 @@ def speed(game_data, ship, change):
     Implementation: Bayron Mahy (v1. 20/03/17)
 
     """
-    if (change == 'faster' and game_data['ships'][ship]['speed']< game_data['model_ships'][game_data['ships'][ship]['type']]['max_speed']) or (change == 'slower' and game_data['ships'][ship]['speed']>0):
+    if (change == 'faster' and game_data['ships'][ship]['speed']< game_data['model_ship'][game_data['ships'][ship]['type']]['max_speed']) or (change == 'slower' and game_data['ships'][ship]['speed']>0):
         return '%s:%s' % (ship, change)
     else:
         return ''
@@ -1044,10 +1036,10 @@ def attack(game_data, ship):
     player_name = ship.split('_')[0]
     if len(nearby_ships) > 0:
         nearby_ships_postion = game_data['ships'][nearby_ships[0]]['position']
-        return '%s:%d-%d' % (ship.replace(player_name + '_',''), nearby_ships_postion[0], nearby_ships_postion[1])
+        return '%s:%d-%d' % (ship.replace(player_name + '_',''), nearby_ships_postion[0] + 1, nearby_ships_postion[1] + 1)
 
-        # If no nearby ships attack random spot on map.
-        return '%s:%d-%d' % (ship.replace(player_name + '_',''), randint(game_data['board_size'][0], game_data['board_size'][1]))
+    # If no nearby ships attack random spot on map.
+    return '%s:%d-%d' % (ship.replace(player_name + '_',''), randint(game_data['board_size'][0] + 1, game_data['board_size'][1] + 1))
 
 # D.A.I.C.I.S
 # ------------------------------------------------------------------------------
@@ -1415,11 +1407,12 @@ def train_neural_network(max_iteration, learn_strength):
 
     for iteration in range(max_iteration):
         print iteration, best_fitness
+
         # Create randomized neurals networks.
         neurals_networks = {}
         for i in range(10):
             neural_network_index += 1
-            neurals_networks[bot_name] = {'network': randomize_neural_network(best_neural_network.copy(), learn_strength), 'total_fitness': 0}
+            neurals_networks[neural_network_index] = {'network': randomize_neural_network(best_neural_network.copy(), learn_strength), 'total_fitness': 0}
             save_neural_network(neurals_networks[neural_network_index]['network'], 'neurals_networks/bot%d.LAICIS' % (neural_network_index))
 
         # Battle randomized neurals networks.
@@ -1427,10 +1420,10 @@ def train_neural_network(max_iteration, learn_strength):
             for neural_network_b in neurals_networks:
                 if int(neural_network_a) > int(neural_network_b):
                     print '%s vs %s' % (neural_network_a, neural_network_b)
-                    battle_result = play_game('board/test_board.cis', (neural_network_a, neural_network_b), screen_size = (190, 50), no_gui = False, no_splash = True, max_rounds_count = 10)
+                    battle_result = play_game('board/test_board.cis', ('bot%d' % neural_network_a,'bot%d' % neural_network_b), screen_size = (190, 50), no_gui = False, no_splash = True, max_rounds_count = 10)
 
-                    neurals_networks[neural_network_a]['total_fitness'] += battle_result[neural_network_a]['fitness']
-                    neurals_networks[neural_network_b]['total_fitness'] += battle_result[neural_network_b]['fitness']
+                    neurals_networks[neural_network_a]['total_fitness'] += battle_result['bot%d' % neural_network_a]['fitness']
+                    neurals_networks[neural_network_b]['total_fitness'] += battle_result['bot%d' % neural_network_b]['fitness']
 
         # Take the best neural network.
         for nn in neurals_networks:
@@ -1467,32 +1460,32 @@ def parse_command(commands, player_name, game_data):
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
     Implementation: Nicolas Van Bossuyt (V1. 10/02/17)
     """
-
     commands = commands.split(' ')
-    for cmd in commands:
-        if cmd == '':
-            continue
 
-        try:
-            sub_cmd = cmd.split(':')
-            ship_name = player_name + '_' + sub_cmd[0]
-            ship_action = sub_cmd[1]
+    for ship_command in commands:
+        sub_command = ship_command.split(':')
 
-            if ship_action == 'slower' or ship_action == 'faster':
-                # Speed command:
-                game_data = command_change_speed(ship_name, ship_action, game_data)
-            elif ship_action == 'left' or ship_action == 'right':
-                # Rotate command:
-                game_data = command_rotate(ship_name, ship_action, game_data)
-            else:
-                # Attack command:
-                coordinate_str = ship_action.split('-')
-                coordinate = (int(coordinate_str[0]) - 1, int(coordinate_str[1]) - 1)
-                game_data['pending_attacks'].append((ship_name, game_data['ships'][ship_name]['position'], coordinate))
+        if len(sub_command) == 2:
+            ship_name =  '%s_%s' % (player_name, sub_command[0])
+            ship_command = sub_command[1]
 
-        except Exception:
-            game_data['game_logs'].append('Something wrong append with this command :')
-            game_data['game_logs'].append(cmd)
+            # Check if the space ships existe in the game.
+            if ship_name in game_data['ships']:
+
+                # Rotate command.
+                if ship_command == 'left' or ship_command == 'right':
+                    game_data = command_rotate(ship_name, ship_command, game_data)
+
+                # Speed command
+                elif ship_command == 'faster' or ship_command == 'slower':
+                    game_data = command_change_speed(ship_name, ship_command, game_data)
+
+                # In other case speed command.
+                else:
+                    attack_coordinates = ship_command.split('-')
+                    if len(attack_coordinates) == 2:
+                        attack_coordinates = (int(attack_coordinates[0]) - 1, int(attack_coordinates[1]) - 1)
+                        game_data['pending_attacks'].append((ship_name, game_data['ships'][ship_name]['position'], attack_coordinates))
 
     return game_data
 
@@ -1830,8 +1823,8 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_data):
                     Bayron Mahy, Alisson Leist (v2. 20/02/17)
                     Alisson Leist (v3. 17/03/17)
     """
-
     ship_type = game_data['model_ship'][game_data['ships'][ship]['type']]
+
     damages = ship_type['damages']
     distance = get_distance(ship_coordinate, target_coordinate, game_data['board_size'])
 
@@ -1860,8 +1853,34 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_data):
 
                     # Remove the space ship.
                     game_data['board'][target_coordinate].remove(target_ship)
-                    game_data['players'][game_data['ships'][target_ship]['owner']]['nb_ships'] -=1
+                    if game_data['ships'][target_ship]['owner'] != 'none':
+                        game_data['players'][game_data['ships'][target_ship]['owner']]['nb_ships'] -=1
                     del game_data['ships'][target_ship]
+
+    return game_data
+
+def do_attack(game_data):
+    """
+    Apply attacks to ships.
+
+    Parameters
+    ----------
+    game_data: data of the game (dic).
+
+    Return
+    ------
+    game_data: new data of the game (dic).
+
+    Version
+    -------
+    Specification: Nicolas Van Bossuyt (v1. 20/03/17)
+    Implementation: Nicolas Van Bossuyt (v1. 20/03/17)
+    """
+
+    # Do Attack
+    for pending_attack in game_data['pending_attacks']:
+        if pending_attack[0] in game_data['ships']:
+            game_data = command_attack(pending_attack[0], pending_attack[1], pending_attack[2], game_data)
 
     return game_data
 
