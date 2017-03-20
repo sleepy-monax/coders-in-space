@@ -1066,22 +1066,22 @@ def turn(game_data, ship, direction):
 def speed(game_data, ship, change):
     """
     Check if LAICIS make can increase/decrease the speed of its ship
-	
-	parameters
-	----------
-	game_data: game's data (dic).
-	ship: targeted ship (str).
-	change: change applied by LAICIS to the ship (str).
-	
-	return
-	------
-	'%s:%s' % (ship, change): regular input for the game loop (str).
-	
-	Version
-	-------
-	Specification: Bayron Mahy (v1. 20/03/17)
-	Implementation: Bayron Mahy (v1. 20/03/17)
-	
+    
+    parameters
+    ----------
+    game_data: game's data (dic).
+    ship: targeted ship (str).
+    change: change applied by LAICIS to the ship (str).
+    
+    return
+    ------
+    '%s:%s' % (ship, change): regular input for the game loop (str).
+    
+    Version
+    -------
+    Specification: Bayron Mahy (v1. 20/03/17)
+    Implementation: Bayron Mahy (v1. 20/03/17)
+    
     """
     if (change == 'faster' and game_data['ships'][ship]['speed']< game_data['model_ships'][game_data['ships'][ship]['type']]['max_speed']) or (change == 'slower' and game_data['ships'][ship]['speed']>0):
         return '%s:%s' % (ship, change)
@@ -1174,7 +1174,7 @@ def get_distance(coord1, coord2, size):
     Version
     -------
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	               Bayron Mahy (v2. 19/03/17)
+                   Bayron Mahy (v2. 19/03/17)
     Implementation: Nicolas Van Bossuyt, Alisson Leist (v1. 14/02/17)
                     Nicolas Van Bossuyt (v2. 09/03/17)
     """
@@ -1360,17 +1360,17 @@ def sigmoid(x):
     parameter
     ---------
     x: value taken to do the function
-	
-	return
-	------
-	1 / (1 + exp(-x)):function sigmoid
-	
+    
+    return
+    ------
+    1 / (1 + exp(-x)):function sigmoid
+    
     Version
     -------
     Specification: Bayron Mahy (v1. 09/03/17)
     Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
-	
-	"""
+    
+    """
     return 1 / (1 + exp(-x))
 
 # Neural network training
@@ -1413,19 +1413,18 @@ def train_neural_network(max_iteration, learn_strength):
         neurals_networks = {}
         for i in range(10):
             neural_network_index += 1
-            bot_name = 'bot%d' % (neural_network_index)
             neurals_networks[bot_name] = {'network': randomize_neural_network(best_neural_network.copy(), learn_strength), 'total_fitness': 0}
-            save_neural_network(neurals_networks[bot_name]['network'], 'neurals_networks/%s.LAICIS' % (bot_name))
+            save_neural_network(neurals_networks[neural_network_index]['network'], 'neurals_networks/bot%d.LAICIS' % (neural_network_index))
 
         # Battle randomized neurals networks.
         for neural_network_a in neurals_networks:
             for neural_network_b in neurals_networks:
+                if int(neural_network_a) > int(neural_network_b):
+                    print '%s vs %s' % (neural_network_a, neural_network_b)
+                    battle_result = play_game('board/test_board.cis', (neural_network_a, neural_network_b), screen_size = (190, 50), no_gui = False, no_splash = True, max_rounds_count = 10)
 
-                print '%s vs %s' % (neural_network_a, neural_network_b)
-                battle_result = play_game('board/test_board.cis', (neural_network_a, neural_network_b), screen_size = (190, 50), no_gui = False, no_splash = True, max_rounds_count = 10)
-
-                neurals_networks[neural_network_a]['total_fitness'] += battle_result[neural_network_a]['fitness']
-                neurals_networks[neural_network_b]['total_fitness'] += battle_result[neural_network_b]['fitness']
+                    neurals_networks[neural_network_a]['total_fitness'] += battle_result[neural_network_a]['fitness']
+                    neurals_networks[neural_network_b]['total_fitness'] += battle_result[neural_network_b]['fitness']
 
         # Take the best neural network.
         for nn in neurals_networks:
