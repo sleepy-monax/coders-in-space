@@ -488,7 +488,6 @@ def get_game_input(player_name, buy_ships, game_data):
     if game_data['is_remote_game'] and (player_type == 'human' or player_type == 'ai' or player_type == 'ai_dumb'):
         notify_remote_orders(game_data['players']['distant']['connection'], player_input)
 
-    print player_input
     return player_input
 
 # Player
@@ -1375,7 +1374,7 @@ def sigmoid(x):
 # ------------------------------------------------------------------------------
 #
 
-def train_neural_network(max_iteration, learn_strength):
+def train_neural_network(max_iteration, learn_strength, batch_size = 10):
     """
     Train the neural network.
 
@@ -1396,7 +1395,7 @@ def train_neural_network(max_iteration, learn_strength):
 
     neurals_networks = {}
     best_neural_network = {}
-    best_fitness = 0
+    best_fitness = -100000
     neural_network_index = 0
 
     # Create neural networks
@@ -1410,7 +1409,7 @@ def train_neural_network(max_iteration, learn_strength):
 
         # Create randomized neurals networks.
         neurals_networks = {}
-        for i in range(10):
+        for i in range(batch_size):
             neural_network_index += 1
             neurals_networks[neural_network_index] = {'network': randomize_neural_network(best_neural_network.copy(), learn_strength), 'total_fitness': 0}
             save_neural_network(neurals_networks[neural_network_index]['network'], 'neurals_networks/bot%d.LAICIS' % (neural_network_index))
@@ -1426,11 +1425,11 @@ def train_neural_network(max_iteration, learn_strength):
                     neurals_networks[neural_network_b]['total_fitness'] += battle_result['bot%d' % neural_network_b]['fitness']
 
         # Take the best neural network.
+        best_fitness = -100000
         for nn in neurals_networks:
             if neurals_networks[nn]['total_fitness'] >= best_fitness:
                 best_fitness = neurals_networks[nn]['total_fitness']
                 best_neural_network = neurals_networks[nn]['network']
-
 
     save_neural_network(best_neural_network, 'best.LAICIS')
 
@@ -1831,31 +1830,33 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_data):
     if distance <= ship_type['range']:
         if len(game_data['board'][target_coordinate]) != 0:
             game_data['nb_rounds'] = 0
+
             # Give damages to all ship on targe coordinate.
             for target_ship in game_data['board'][target_coordinate]:
+                if ship in game_data['ships']:
+                    # Give damages to the taget ship.
+                    game_data['ships'][target_ship]['heal_points'] -= damages
 
-                # Give damages to the taget ship.
-                game_data['ships'][target_ship]['heal_points'] -= damages
-
-                if game_data['ships'][target_ship]['owner'] !=game_data['ships'][ship]['owner']:
-                    game_data['players'][game_data['ships'][ship]['owner']]['fitness']+=70
-                else:
-                    game_data['players'][game_data['ships'][ship]['owner']]['fitness']-=30
-
-
-                if game_data['ships'][target_ship]['heal_points'] <= 0:
-
-                    #tell to ai if that's a good action.
                     if game_data['ships'][target_ship]['owner'] != game_data['ships'][ship]['owner']:
-                        game_data['players'][game_data['ships'][ship]['owner']]['fitness']+=100
+                        game_data['players'][game_data['ships'][ship]['owner']]['fitness']+=70
                     else:
-                        game_data['players'][game_data['ships'][ship]['owner']]['fitness']-=100
+                        game_data['players'][game_data['ships'][ship]['owner']]['fitness']-=30
 
-                    # Remove the space ship.
-                    game_data['board'][target_coordinate].remove(target_ship)
-                    if game_data['ships'][target_ship]['owner'] != 'none':
-                        game_data['players'][game_data['ships'][target_ship]['owner']]['nb_ships'] -=1
-                    del game_data['ships'][target_ship]
+
+                    if game_data['ships'][target_ship]['heal_points'] <= 0:
+
+                        #tell to ai if that's a good action.
+                        if game_data['ships'][target_ship]['owner'] != game_data['ships'][ship]['owner']:
+                            game_data['players'][game_data['ships'][ship]['owner']]['fitness']+=100
+                        else:
+                            game_data['players'][game_data['ships'][ship]['owner']]['fitness']-=100
+
+                        # Remove the space ship.
+                        game_data['board'][target_coordinate].remove(target_ship)
+                        if game_data['ships'][target_ship]['owner'] != 'none':
+                            game_data['players'][game_data['ships'][target_ship]['owner']]['nb_ships'] -=1
+
+                        del game_data['ships'][target_ship]
 
     return game_data
 
