@@ -691,7 +691,7 @@ def show_game_board(game_data, hightlight_ship = None):
                 ship_direction = game_data['ships'][ship_name]['direction']
                 ship_speed = game_data['ships'][ship_name]['speed']
 
-                # Pur direction line.
+                # Put direction line.
                 direction_char = '|'
 
                 if ship_direction == (1, 1) or ship_direction == (-1, -1):
@@ -1413,7 +1413,7 @@ def train_neural_network(max_iteration, learn_strength):
         neurals_networks = {}
         for i in range(10):
             neural_network_index += 1
-            bot_name = 'bot_%d' % (neural_network_index)
+            bot_name = 'bot%d' % (neural_network_index)
             neurals_networks[bot_name] = {'network': randomize_neural_network(best_neural_network.copy(), learn_strength), 'total_fitness': 0}
             save_neural_network(neurals_networks[bot_name]['network'], 'neurals_networks/%s.LAICIS' % (bot_name))
 
@@ -1422,7 +1422,7 @@ def train_neural_network(max_iteration, learn_strength):
             for neural_network_b in neurals_networks:
 
                 print '%s vs %s' % (neural_network_a, neural_network_b)
-                battle_result = play_game('board/test_board.cis', (neural_network_a, neural_network_b), screen_size = (190, 50), no_gui = True, no_splash = True, max_rounds_count = 10)
+                battle_result = play_game('board/test_board.cis', (neural_network_a, neural_network_b), screen_size = (190, 50), no_gui = False, no_splash = True, max_rounds_count = 10)
 
                 neurals_networks[neural_network_a]['total_fitness'] += battle_result[neural_network_a]['fitness']
                 neurals_networks[neural_network_b]['total_fitness'] += battle_result[neural_network_b]['fitness']
@@ -1487,7 +1487,7 @@ def parse_command(commands, player_name, game_data):
 
         except Exception:
             game_data['game_logs'].append('Something wrong append with this command :')
-            game_data['game_logs'].append(str(commands))
+            game_data['game_logs'].append(cmd)
 
     return game_data
 
@@ -1587,6 +1587,7 @@ def command_change_speed(ship, change, game_data):
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
     Implementation: Bayron Mahy (v1. 10/02/17)
     """
+
     type = game_data['ships'][ship]['type']
 
     # Make the ship move faster.
@@ -1824,6 +1825,7 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_data):
                     Bayron Mahy, Alisson Leist (v2. 20/02/17)
                     Alisson Leist (v3. 17/03/17)
     """
+
     ship_type = game_data['model_ship'][game_data['ships'][ship]['type']]
     damages = ship_type['damages']
     distance = get_distance(ship_coordinate, target_coordinate, game_data['board_size'])
@@ -1844,11 +1846,13 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_data):
 
 
                 if game_data['ships'][target_ship]['heal_points'] <= 0:
+
                     #tell to ai if that's a good action.
-                    if game_data['ships'][target_ship]['owner'] !=game_data['ships'][ship]['owner']:
+                    if game_data['ships'][target_ship]['owner'] != game_data['ships'][ship]['owner']:
                         game_data['players'][game_data['ships'][ship]['owner']]['fitness']+=100
                     else:
                         game_data['players'][game_data['ships'][ship]['owner']]['fitness']-=100
+
                     # Remove the space ship.
                     game_data['board'][target_coordinate].remove(target_ship)
                     game_data['players'][game_data['ships'][target_ship]['owner']]['nb_ships'] -=1
