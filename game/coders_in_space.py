@@ -1791,6 +1791,7 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_data):
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
     Implementation: Alisson Leist (v1. 14/2/17)
                     Bayron Mahy, Alisson Leist (v2. 20/02/17)
+                    Alisson Leist (v3. 17/03/17)
     """
     ship_type = game_data['model_ship'][game_data['ships'][ship]['type']]
     damages = ship_type['damages']
