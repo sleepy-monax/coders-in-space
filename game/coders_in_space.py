@@ -983,6 +983,68 @@ def neural_output_to_game_input(neural_ouput, ship_name, game_data):
     elif command_index == 5:
         return speed(game_data, ship_name.replace(player_name + '_',''), 'slower')
 
+def turn(game_data, ship, direction):
+            """
+
+            Turn command of LAICIS.
+
+            """
+            return '%s:%s' % (ship, direction)
+
+def speed(game_data, ship, change):
+                """
+                Check if LAICIS make can increase/decrease the speed of its ship
+
+                parameters
+                ----------
+                game_data: game's data (dic).
+                ship: targeted ship (str).
+                change: change applied by LAICIS to the ship (str).
+
+                return
+                ------
+                '%s:%s' % (ship, change): regular input for the game loop (str).
+
+                Version
+                -------
+                Specification: Bayron Mahy (v1. 20/03/17)
+                Implementation: Bayron Mahy (v1. 20/03/17)
+
+                """
+                if (change == 'faster' and game_data['ships'][ship]['speed']< game_data['model_ships'][game_data['ships'][ship]['type']]['max_speed']) or (change == 'slower' and game_data['ships'][ship]['speed']>0):
+                    return '%s:%s' % (ship, change)
+                else:
+                    return ''
+
+def attack(game_data, ship):
+                        """
+                        Attack command of LAICIS.
+
+                        Parameters
+                        ----------
+                        game_data: data of the game (dic).
+                        ship: name of the current ship (str).
+
+                        Return
+                        ------
+                        attack input (str)
+
+                        Version
+                        -------
+                        Specification: Nicolas Van Bossuyt (v1. 19/03/17).
+                        Implementation: Nicolas Van Bossuyt (v1. 19/03/17).
+                        """
+
+                        # Find the nearby_ships and attack it !
+                        nearby_ships = get_nearby_ship(game_data, ship, 10)
+                        player_name = ship.split('_')[0]
+                        if len(nearby_ships) > 0:
+                            nearby_ships_postion = game_data['ships'][nearby_ships[0]]['position']
+                            return '%s:%d-%d' % (ship.replace(player_name + '_',''), nearby_ships_postion[0], nearby_ships_postion[1])
+
+                            # If no nearby ships attack random spot on map.
+                            return '%s:%d-%d' % (ship.replace(player_name + '_',''), randint(game_data['board_size'][0], game_data['board_size'][1]))
+
 # D.A.I.C.I.S
 # ------------------------------------------------------------------------------
 # [D]umb [A]rtificial [I]nteligence for [C]oders [I]n [S]pace.
@@ -1054,68 +1116,6 @@ def get_dumb_ai_spaceships(player_name, game_data):
 # AI - command corection.
 # ------------------------------------------------------------------------------
 # Because nothing is perfect.
-
-def turn(game_data, ship, direction):
-    """
-
-    Turn command of LAICIS.
-
-    """
-    return '%s:%s' % (ship, direction)
-
-def speed(game_data, ship, change):
-    """
-    Check if LAICIS make can increase/decrease the speed of its ship
-    
-    parameters
-    ----------
-    game_data: game's data (dic).
-    ship: targeted ship (str).
-    change: change applied by LAICIS to the ship (str).
-    
-    return
-    ------
-    '%s:%s' % (ship, change): regular input for the game loop (str).
-    
-    Version
-    -------
-    Specification: Bayron Mahy (v1. 20/03/17)
-    Implementation: Bayron Mahy (v1. 20/03/17)
-    
-    """
-    if (change == 'faster' and game_data['ships'][ship]['speed']< game_data['model_ships'][game_data['ships'][ship]['type']]['max_speed']) or (change == 'slower' and game_data['ships'][ship]['speed']>0):
-        return '%s:%s' % (ship, change)
-    else:
-        return ''
-
-def attack(game_data, ship):
-    """
-    Attack command of LAICIS.
-
-    Parameters
-    ----------
-    game_data: data of the game (dic).
-    ship: name of the current ship (str).
-
-    Return
-    ------
-    attack input (str)
-
-    Version
-    -------
-    Specification: Nicolas Van Bossuyt (v1. 19/03/17).
-    Implementation: Nicolas Van Bossuyt (v1. 19/03/17).
-    """
-
-    # Find the nearby_ships and attack it !
-    nearby_ships = get_nearby_ship(game_data, ship, 10)
-    player_name = ship.split('_')[0]
-    if len(nearby_ships) > 0:
-        nearby_ships_postion = game_data['ships'][nearby_ships[0]]['position']
-        return '%s:%d-%d' % (ship.replace(player_name + '_',''), nearby_ships_postion[0], nearby_ships_postion[1])
-
-    # If no nearby ships attack random spot on map.
-    return '%s:%d-%d' % (ship.replace(player_name + '_',''), randint(game_data['board_size'][0], game_data['board_size'][1]))
 
 def get_nearby_ship(game_data, target_ship, search_range):
     """
@@ -1360,16 +1360,16 @@ def sigmoid(x):
     parameter
     ---------
     x: value taken to do the function
-    
+
     return
     ------
     1 / (1 + exp(-x)):function sigmoid
-    
+
     Version
     -------
     Specification: Bayron Mahy (v1. 09/03/17)
     Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
-    
+
     """
     return 1 / (1 + exp(-x))
 
