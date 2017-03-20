@@ -61,16 +61,16 @@ def print_canvas(canvas, x = 0, y = 0):
     for y in range(canvas_height):
         for x in range(canvas_width):
 
+            # Get coordinate.
             grid_item = canvas['grid'][(x,y)]
+
+            # Get coordinate information.
             char = grid_item['char']
             color = grid_item['color']
             back_color = grid_item['back_color']
 
             if (canvas['color']):
-                if back_color is None:
-                    line = line + set_color(char, color, None)
-                else:
-                    line = line + set_color(char, color, back_color)
+                line = line + set_color(char, color, back_color)
             else:
                 line = line + char
 
@@ -104,17 +104,14 @@ def put(canvas, x, y, char, color = None, back_color = None):
     Implementation: Nicolas Van Bossuyt (v1. 10/02/17)
     """
 
-    # Check if the coordinate is in the bound of the game view.
+    # Check if the coordinate is in the bound of the canvas.
     if x < canvas['size'][0] and x >= 0 and\
        y < canvas['size'][1] and y >= 0:
 
         # Put the char a the coordinate.
         canvas['grid'][(x,y)]['char'] = char
         canvas['grid'][(x,y)]['color'] = color
-
-        # Add the 'on_' at the start of the back_color string.
-        if not back_color == None: canvas['grid'][(x,y)]['back_color'] = back_color
-        else: canvas['grid'][(x,y)]['back_color'] = None
+        canvas['grid'][(x,y)]['back_color'] = back_color
 
     return canvas
 
@@ -128,7 +125,8 @@ def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None,
     x, y: coordinate to pute the art (int).
     ascii_art_name: name of the art file (string).
     canvas: canvas to put the art on it (dic).
-    transparency_char: ignored char.
+    (optiona) color, back_color: color for the ASCII art (string).
+    transparency_char: ignored char (str).
 
     Return
     ------
@@ -175,8 +173,8 @@ def put_ascii_text(canvas, font, text, x, y, color = None, back_color = None):
     -------
     Specification: Nicolas Van Bossuyt (v1. 27/02/17)
     """
-
     char_x = 0
+
     for char in text:
         char_ascii = font[char]
         char_width = char_ascii['width']
@@ -211,7 +209,8 @@ def load_ascii_font(font_name):
     -----
     Load font in figlet format (http://www.figlet.org).
     """
-    chars = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_'abcdefghijklmnopqrstuvwxyz{|}~ÄÖÜäöüβ"
+
+    chars = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_'abcdefghijklmnopqrstuvwxyz{|}~ÄÖÜäöüβ"
     font = {}
     char_index = 0
     current_char = ''
@@ -368,7 +367,7 @@ def put_stars_field(canvas, x, y, width, height, r_seed = None):
     ----------
     canvas: canvas to draw in (dic).
     x, y, w, h: location and size of the stars field (int)
-    r_seed: random seed (int).
+    (optional) r_seed: random seed (int).
 
     Return
     ------
@@ -449,7 +448,6 @@ def set_color(text, foreground_color, background_color):
     Implementation: Nicolas Van Bossuyt (v1. 27/02/17)
     """
     color = { 'grey': 0, 'red': 1, 'green': 2, 'yellow': 3, 'blue': 4, 'magenta': 5, 'cyan': 6, 'white': 7 }
-
     reset = '\033[0m'
     format_string = '\033[%dm%s'
 

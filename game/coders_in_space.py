@@ -211,7 +211,7 @@ def new_game(level_name, players_list, connection = None):
             # Set player type.
             if 'bot' in player or player == 'LAICIS':
                 game_data['players'][player]['type'] = 'ai'
-                game_data['players'][player]['network'] = load_neural_network('%s.LAICIS' % (player))
+                game_data['players'][player]['network'] = load_neural_network('neurals_networks/%s.LAICIS' % (player))
             elif 'dumb' in player:
                 game_data['players'][player]['type'] = 'ai_dumb'
             elif player == 'distant':
@@ -1382,16 +1382,15 @@ def train_neural_network(max_iteration, learn_strength):
         neurals_networks = {}
         for i in range(10):
             neural_network_index += 1
-            neurals_networks['bot_%d' % (neural_network_index)] = {'network': randomize_neural_network(best_neural_network.copy(), learn_strength), 'total_fitness': 0}
+            bot_name = 'bot_%d' % (neural_network_index)
+            neurals_networks[bot_name] = {'network': randomize_neural_network(best_neural_network.copy(), learn_strength), 'total_fitness': 0}
+            save_neural_network(neurals_networks[bot_name]['network'], 'neurals_networks/%s.LAICIS' % (bot_name))
 
         # Battle randomized neurals networks.
         for neural_network_a in neurals_networks:
             for neural_network_b in neurals_networks:
 
                 print '%s vs %s' % (neural_network_a, neural_network_b)
-                save_neural_network(neurals_networks[neural_network_a]['network'], '%s.LAICIS' % (neural_network_a))
-                save_neural_network(neurals_networks[neural_network_b]['network'], '%s.LAICIS' % (neural_network_b))
-
                 battle_result = play_game('board/test_board.cis', (neural_network_a, neural_network_b), screen_size = (190, 50), no_gui = True, no_splash = True, max_rounds_count = 10)
 
                 neurals_networks[neural_network_a]['total_fitness'] += battle_result[neural_network_a]['fitness']
