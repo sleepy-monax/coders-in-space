@@ -147,6 +147,7 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
             max_fitness = player_data['fitness']
 
     return game_data['players']
+
 def new_game(level_name, players_list, connection = None):
     """
     Create a new game from a '.cis' file.
@@ -249,6 +250,7 @@ def new_game(level_name, players_list, connection = None):
         game_data['players']['distant']['connection'] = connection
 
     return game_data
+
 def show_splash_game(game_data):
     """
     Show the splash screen.
@@ -368,6 +370,7 @@ def show_end_game(game_data):
 
     # Print the canvas in the terminal.
     print_canvas(c)
+
 def is_game_continue(game_data):
     """
     Check if the game continue.
@@ -419,6 +422,7 @@ def is_game_continue(game_data):
     game_data['winners'] = max_value_owners
 
     return False
+
 def calculate_value(player_name, game_data):
     """
     Calculate the total ship value of a player.
@@ -1252,6 +1256,7 @@ def create_neural_network(neural_structure):
         layer += 1
 
     return neural_network
+
 def compute_neural_network(neural_network, neural_input):
     """
     Compute output from a neural network with specified inputs.
@@ -1288,6 +1293,7 @@ def compute_neural_network(neural_network, neural_input):
         output.append(neural_network[layer][node]['value'])
 
     return output
+
 def randomize_neural_network(neural_network, rnd_strength):
     """
     Randomize connections of a neural_network.
@@ -1375,7 +1381,7 @@ def sigmoid(x):
 
 # Neural network training
 # ------------------------------------------------------------------------------
-#
+# 
 
 def train_neural_network(max_iteration, learn_strength):
     """
@@ -1904,6 +1910,7 @@ def parse_game_file(path):
     parsed_data = {'size':size,'ships':ships_list}
 
     return parsed_data
+
 def direction_to_vector2D(direction):
     """
     Convert a string direction to a vector2D.
@@ -1948,6 +1955,7 @@ def direction_to_vector2D(direction):
         vector = (-1,1)
 
     return vector
+
 def create_game_board(file_name, board_size, lost_ships_count):
     """
     Create a new "coders in space"'s board file.
