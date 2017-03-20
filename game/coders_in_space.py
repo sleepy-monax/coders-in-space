@@ -1065,11 +1065,29 @@ def turn(game_data, ship, direction):
 
 def speed(game_data, ship, change):
     """
-
-    Speed command of LAICIS.
-
+    Check if LAICIS make can increase/decrease the speed of its ship
+	
+	parameters
+	----------
+	game_data: game's data (dic).
+	ship: targeted ship (str).
+	change: change applied by LAICIS to the ship (str).
+	
+	return
+	------
+	'%s:%s' % (ship, change): regular input for the game loop (str).
+	
+	Version
+	-------
+	Specification: Bayron Mahy (v1. 20/03/17)
+	Implementation: Bayron Mahy (v1. 20/03/17)
+	
     """
-    return '%s:%s' % (ship, change)
+	
+	if (change == 'faster' and game_data['ships'][ship]['speed']< game_data['model_ships'][game_data['ships'][ship]['type']]['max_speed']) or (change == 'slower' and game_data['ships'][ship]['speed']>0):
+		return '%s:%s' % (ship, change)
+	else:
+		return ''
 
 def attack(game_data, ship):
     """
@@ -1338,9 +1356,23 @@ def load_neural_network(file_path):
     return neural_network
 
 def sigmoid(x):
+    """Make the sigmoid function.
+
+    parameter
+    ---------
+    x: value taken to do the function
+	
+	return
+	------
+	1 / (1 + exp(-x)):function sigmoid
+	
+    Version
+    -------
+    Specification: Bayron Mahy (v1. 09/03/17)
+    Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
+	
+	"""
     return 1 / (1 + exp(-x))
-def sigmoid_(x):
-    return x * (1 - x)
 
 # Neural network training
 # ------------------------------------------------------------------------------
