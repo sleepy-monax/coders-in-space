@@ -42,6 +42,7 @@ from remote_play import notify_remote_orders, get_remote_orders, connect_to_play
 from graphics import *
 from pickle import *
 from os import path
+import sys
 
 # Game
 # ==============================================================================
@@ -864,15 +865,17 @@ def get_ai_input(game_data, player_name):
 
         # get Ship action.
         if ship_data['owner'] == player_name:
-            nearby_ships = get_nearby_ship(game_data, ship, 10)[:3]
 
             neural_input = []
             neural_input.extend(memory)
             neural_input.extend(ship_neural_input)
 
+            # Get nearby ships.
+            nearby_ships = get_nearby_ship(game_data, ship, 10)[:3]
             for nearby_ship in nearby_ships:
                 neural_input.extend(ship_to_neural_input(game_data, player_name, nearby_ship))
 
+            # Get Neural output.
             neural_output = compute_neural_network(neural_network.copy(), neural_input)[10:]
             memory = neural_input[:10]
 
@@ -1374,7 +1377,7 @@ def sigmoid(x):
 # ------------------------------------------------------------------------------
 #
 
-def train_neural_network(max_iteration, learn_strength, batch_size = 10):
+def train_neural_network(max_iteration = 50, learn_strength = 0.1, batch_size = 10):
     """
     Train the neural network.
 
@@ -1395,43 +1398,67 @@ def train_neural_network(max_iteration, learn_strength, batch_size = 10):
 
     neurals_networks = {}
     best_neural_network = {}
-    best_fitness = -100000
-    neural_network_index = 0
 
-    # Create neural networks
-    if path.isfile('best.LAICIS'):
-        best_neural_network = load_neural_network('best.LAICIS')
+
+
+    # Load best neural network if existe
+    if path.isfile('bestbot.LAICIS'):
+        best_neural_network = load_neural_network('bestbot.LAICIS')
     else:
-        best_neural_network = create_neural_network((45, 100, 14))
+        best_neural_network = None
 
+    # Do training.
     for iteration in range(max_iteration):
-        print iteration, best_fitness
 
-        # Create randomized neurals networks.
-        neurals_networks = {}
+        # Create new random neural network.
         for i in range(batch_size):
-            neural_network_index += 1
-            neurals_networks[neural_network_index] = {'network': randomize_neural_network(best_neural_network.copy(), learn_strength), 'total_fitness': 0}
-            save_neural_network(neurals_networks[neural_network_index]['network'], 'neurals_networks/bot%d.LAICIS' % (neural_network_index))
+            if not i in neurals_networks.keys():
+                # Create a new neurals_networks.
+                neurals_networks[i] = {'fitness': 0}
+                if best_neural_network == None:
+                    save_neural_network(create_neural_network((45, 10, 14)), 'neurals_networks/bot%d.LAICIS' % (i))
+                else:
+                    save_neural_network(randomize_neural_network(best_neural_network.copy(), learn_strength), 'neurals_networks/bot%d.LAICIS' % (i))
 
-        # Battle randomized neurals networks.
-        for neural_network_a in neurals_networks:
-            for neural_network_b in neurals_networks:
-                if int(neural_network_a) > int(neural_network_b):
-                    print '%s vs %s' % (neural_network_a, neural_network_b)
-                    battle_result = play_game('board/test_board.cis', ('bot%d' % neural_network_a,'bot%d' % neural_network_b), screen_size = (190, 50), no_gui = False, no_splash = True, max_rounds_count = 10)
+        # Battle neural networks.
+        for network_a in range(batch_size):
+            for network_b in range(batch_size):
+                if network_a > network_b:
 
-                    neurals_networks[neural_network_a]['total_fitness'] += battle_result['bot%d' % neural_network_a]['fitness']
-                    neurals_networks[neural_network_b]['total_fitness'] += battle_result['bot%d' % neural_network_b]['fitness']
+                    battle_result = play_game('board/test_board.cis', ('bot%d' % network_a,'bot%d' % network_b), screen_size = (190, 50), no_gui = True, no_splash = True, max_rounds_count = 10)
 
-        # Take the best neural network.
-        best_fitness = -100000
-        for nn in neurals_networks:
-            if neurals_networks[nn]['total_fitness'] >= best_fitness:
-                best_fitness = neurals_networks[nn]['total_fitness']
-                best_neural_network = neurals_networks[nn]['network']
+                    neurals_networks[network_a]['fitness'] += battle_result['bot%d' % network_a]['fitness']
+                    neurals_networks[network_b]['fitness'] += battle_result['bot%d' % network_b]['fitness']
 
-    save_neural_network(best_neural_network, 'best.LAICIS')
+                    print 'b:%d f:%d // b:%d f:%d' % (network_a, battle_result['bot%d' % network_a]['fitness'], network_b, battle_result['bot%d' % network_b]['fitness'])
+
+        # Find best and worst_fitness.
+        worst_fitness = sys.maxint
+        best_fitness  = -sys.maxint
+
+        for network in range(batch_size):
+            fitness = neurals_networks[network]['fitness']
+
+            if fitness > best_fitness:
+                best_fitness = fitness
+                best_neural_network = network
+
+            if fitness < worst_fitness:
+                worst_fitness = fitness
+
+
+        best_neural_network = load_neural_network('neurals_networks/bot%d.LAICIS' % (best_neural_network))
+        median_fitness = (best_fitness + worst_fitness) / 2
+
+        # Remove dumbest neural network.
+        for network in range(batch_size):
+            fitness = neurals_networks[network]['fitness']
+
+            if fitness <= median_fitness:
+                del neurals_networks[network]
+
+        print iteration, median_fitness
+
 
 # Game commands
 # ==============================================================================
