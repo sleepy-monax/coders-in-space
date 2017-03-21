@@ -1128,8 +1128,8 @@ def get_dumb_ai_spaceships(player_name, game_data):
     while money > 0:
         ship_type = ship_type_list[randint(0, len(ship_type_list) - 1)]
         ship_name = ship_name_list[randint(0, len(ship_name_list) - 1)]
-        
-        if not '%s_%s' % (player_name, ship_name) in game_data['ships']
+
+        if not ship_name in army:
             army += '%s:%s ' % (ship_name, ship_type)
             money -= game_data['model_ship'][ship_type]['price']
 
@@ -1445,18 +1445,16 @@ def train_neural_network(max_iteration = 50, learn_strength = 0.1, batch_size = 
                     save_neural_network(randomize_neural_network(best_neural_network.copy(), learn_strength), 'neurals_networks/bot%d.LAICIS' % (i))
 
         # Battle neural networks.
-        index = 0
         for network_a in range(batch_size):
             for network_b in range(batch_size):
                 if network_a > network_b:
 
-                    battle_result = play_game('board/test_board.cis', ('bot%d' % network_a,'bot%d' % network_b), screen_size = (190, 50), no_gui = True, no_splash = True, max_rounds_count = 10)
+                    battle_result = play_game('board/test_board.cis', ('bot%d' % network_a, 'bot%d' % network_b), screen_size = (190, 50), no_gui = True, no_splash = True, max_rounds_count = 10)
 
                     neurals_networks[network_a]['fitness'].append(battle_result['bot%d' % network_a]['fitness'])
                     neurals_networks[network_b]['fitness'].append(battle_result['bot%d' % network_b]['fitness'])
                     # print 'b:%d f:%d // b:%d f:%d' % (network_a, battle_result['bot%d' % network_a]['fitness'], network_b, battle_result['bot%d' % network_b]['fitness'])
 
-                    index += 1
         # Find best and worst_fitness.
         worst_fitness = sys.maxint
 
