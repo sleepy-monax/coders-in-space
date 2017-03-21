@@ -1455,13 +1455,13 @@ def train_neural_network(max_iteration = 50, learn_strength = 0.1, batch_size = 
             for network_b in range(batch_size):
                 if network_a > network_b:
 
-                    battle_result = play_game('board/test_board.cis', ('bot%d' % network_a,'bot%d' % network_b, 'dumby', 'dumb_in_space'), screen_size = (190, 50), no_gui = False, no_splash = True, max_rounds_count = 10)
+                    battle_result = play_game('board/test_board.cis', ('bot%d' % network_a,'bot%d' % network_b), screen_size = (190, 50), no_gui = True, no_splash = True, max_rounds_count = 10)
 
                     neurals_networks[network_a]['fitness'] += battle_result['bot%d' % network_a]['fitness']
                     neurals_networks[network_b]['fitness'] += battle_result['bot%d' % network_b]['fitness']
 
                     print 'b:%d f:%d // b:%d f:%d' % (network_a, battle_result['bot%d' % network_a]['fitness'], network_b, battle_result['bot%d' % network_b]['fitness'])
-                    index += 1 
+                    index += 1
         # Find best and worst_fitness.
         worst_fitness = sys.maxint
         best_fitness  = -sys.maxint
@@ -1479,11 +1479,11 @@ def train_neural_network(max_iteration = 50, learn_strength = 0.1, batch_size = 
 
 		# Show a exemple match.
         # play_game('board/test_board.cis', ('bot%d' % best_neural_network,'dumb'), screen_size = (190, 50), no_gui = False, no_splash = True, max_rounds_count = 10)
-        
+
 		# Set the best neural network.
         best_neural_network = load_neural_network('neurals_networks/bot%d.LAICIS' % (best_neural_network))
         median_fitness = (best_fitness + worst_fitness) / 2
-		
+
         # Remove dumbest neural network.
         for network in range(batch_size):
             fitness = neurals_networks[network]['fitness']
@@ -1494,7 +1494,6 @@ def train_neural_network(max_iteration = 50, learn_strength = 0.1, batch_size = 
                 neurals_networks[network]['fitness'] = 0
 
         print 'I: %d B: %d M: %d W:%d' % (iteration, best_fitness, median_fitness, worst_fitness)
-
 
 # Game commands
 # ==============================================================================
