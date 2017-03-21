@@ -1033,15 +1033,41 @@ def attack(game_data, ship):
     Implementation: Nicolas Van Bossuyt (v1. 19/03/17).
     """
 
-    # Find the nearby_ships and attack it !
-    nearby_ships = get_nearby_ship(game_data, ship, 10)
-    player_name = ship.split('_')[0]
-    if len(nearby_ships) > 0:
-        nearby_ships_postion = game_data['ships'][nearby_ships[0]]['position']
-        return '%s:%d-%d' % (ship.replace(player_name + '_',''), nearby_ships_postion[0] + 1, nearby_ships_postion[1] + 1)
+    ship_pos = game_data['ships'][ship]['position']
+    ship_range = game_data['model_ship'][ game_data['ships'][ship]['type'] ]['range']
+    ship_owner = game_data['ships'][ship]['owner']
 
-    # If no nearby ships attack random spot on map.
-    return '%s:%d-%d' % (ship.replace(player_name + '_',''), randint(game_data['board_size'][0] + 1, game_data['board_size'][1] + 1))
+    nearby_ships = get_nearby_ship(game_data, ship, ship_range)
+    if len(nearby_ships) > 0:
+        for nearby_ship in nearby_ships:
+            if game_data['ships'][nearby_ship]['owner'] != ship_owner and game_data['ships'][nearby_ship]['owner'] == 'none':
+                nearby_pos = predicte_next_pos(game_data, nearby_ship)
+                if ship >= get_distance(ship_pos, nearby_pos, game_data['board_size']):
+                    return '%s:%d-%d' % (ship, nearby_pos[0] + 1, nearby_pos[1] + 1)
+
+    return ''
+
+
+
+def predicte_next_pos(game_data, ship_name):
+    """
+    Predicte the next position of a space ship.
+
+    Parameters
+    ----------
+    game_data: data of the game (dic).
+    ship_name: name of the spaceship to predicte the next position (str).
+
+    Return
+    ------
+    predicte_postion : predicte_postion of the spaceship (tuple(int, int)).
+    """
+
+    speed = game_data['ships'][ship_name]['speed']
+    position = game_data['ships'][ship_name]['position']
+    direction = game_data['ships'][ship_name]['direction']
+
+    return convert_coordinates( (position[0] + direction[0] * speed, position[1] + direction[1] * speed), game_data['board_size'])
 
 # D.A.I.C.I.S
 # ------------------------------------------------------------------------------
@@ -1416,7 +1442,7 @@ def train_neural_network(max_iteration = 50, learn_strength = 0.1, batch_size = 
                 # Create a new neurals_networks.
                 neurals_networks[i] = {'fitness': 0}
                 if best_neural_network == None:
-                    save_neural_network(create_neural_network((45, 10, 14)), 'neurals_networks/bot%d.LAICIS' % (i))
+                    save_neural_network(create_neural_network((45, 100, 14)), 'neurals_networks/bot%d.LAICIS' % (i))
                 else:
                     save_neural_network(randomize_neural_network(best_neural_network.copy(), learn_strength), 'neurals_networks/bot%d.LAICIS' % (i))
 
@@ -1456,6 +1482,8 @@ def train_neural_network(max_iteration = 50, learn_strength = 0.1, batch_size = 
 
             if fitness <= median_fitness:
                 del neurals_networks[network]
+            else:
+                neurals_networks[network]['fitness'] = 0
 
         print iteration, median_fitness
 
@@ -1747,20 +1775,14 @@ def do_moves(game_data):
                     Nicolas Van Bosuuyt (v2. 23/02/17)
                     Nicolas Van Bossuyt (v3. 09/03/17)
     """
-    for element in game_data['ships']:
-        # Get ship position.
-        position = game_data['ships'][element]['position']
-
-        # Compute new position of the ship.
-        move = (game_data['ships'][element]['speed'] * game_data['ships'][element]['direction'][0], game_data['ships'][element]['speed'] * game_data['ships'][element]['direction'][1])
-        new_position = convert_coordinates((position[0] + move[0], position[1] + move[1]), game_data['board_size'])
+    for ship in game_data['ships']:
+        position = game_data['ships'][ship]['position']
+        new_position = predicte_next_pos(game_data, ship)
 
         # Move the ship.
-        game_data['board'][position].remove(element)
-        game_data['board'][new_position].append(element)
-        game_data['ships'][element]['position'] = new_position
-
-
+        game_data['board'][position].remove(ship)
+        game_data['board'][new_position].append(ship)
+        game_data['ships'][ship]['position'] = new_position
 
     return game_data
 
