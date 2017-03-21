@@ -114,7 +114,10 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
                 game_data = command_buy_ships(get_game_input(player, True, game_data), player, game_data)
             else:
                 if game_data['players'][player]['nb_ships'] > 0:
-                    game_data = parse_command(get_game_input(player, False, game_data), player, game_data)
+                    p_input = get_game_input(player, False, game_data)
+                    if no_gui:
+                        print player, ':', p_input
+                    game_data = parse_command(p_input, player, game_data)
                 elif game_data['players'][player]['type'] != 'none':
                     game_data['game_logs'].append(player + ' has lost all these ships, so he has nothing to do.')
 
@@ -1040,7 +1043,7 @@ def attack(game_data, ship):
     nearby_ships = get_nearby_ship(game_data, ship, ship_range)
     if len(nearby_ships) > 0:
         for nearby_ship in nearby_ships:
-            if game_data['ships'][nearby_ship]['owner'] != ship_owner and game_data['ships'][nearby_ship]['owner'] == 'none':
+            if game_data['ships'][nearby_ship]['owner'] != ship_owner and game_data['ships'][nearby_ship]['owner'] != 'none':
                 nearby_pos = predicte_next_pos(game_data, nearby_ship)
                 if ship >= get_distance(ship_pos, nearby_pos, game_data['board_size']):
                     return '%s:%d-%d' % (ship, nearby_pos[0] + 1, nearby_pos[1] + 1)
@@ -1447,17 +1450,18 @@ def train_neural_network(max_iteration = 50, learn_strength = 0.1, batch_size = 
                     save_neural_network(randomize_neural_network(best_neural_network.copy(), learn_strength), 'neurals_networks/bot%d.LAICIS' % (i))
 
         # Battle neural networks.
+        index = 0
         for network_a in range(batch_size):
             for network_b in range(batch_size):
                 if network_a > network_b:
 
-                    battle_result = play_game('board/test_board.cis', ('bot%d' % network_a,'bot%d' % network_b), screen_size = (190, 50), no_gui = True, no_splash = True, max_rounds_count = 10)
+                    battle_result = play_game('board/test_board.cis', ('bot%d' % network_a,'bot%d' % network_b, 'dumby', 'dumb_in_space'), screen_size = (190, 50), no_gui = False, no_splash = True, max_rounds_count = 10)
 
                     neurals_networks[network_a]['fitness'] += battle_result['bot%d' % network_a]['fitness']
                     neurals_networks[network_b]['fitness'] += battle_result['bot%d' % network_b]['fitness']
 
                     print 'b:%d f:%d // b:%d f:%d' % (network_a, battle_result['bot%d' % network_a]['fitness'], network_b, battle_result['bot%d' % network_b]['fitness'])
-
+                    index += 1 
         # Find best and worst_fitness.
         worst_fitness = sys.maxint
         best_fitness  = -sys.maxint
@@ -1473,19 +1477,23 @@ def train_neural_network(max_iteration = 50, learn_strength = 0.1, batch_size = 
                 worst_fitness = fitness
 
 
+		# Show a exemple match.
+        # play_game('board/test_board.cis', ('bot%d' % best_neural_network,'dumb'), screen_size = (190, 50), no_gui = False, no_splash = True, max_rounds_count = 10)
+        
+		# Set the best neural network.
         best_neural_network = load_neural_network('neurals_networks/bot%d.LAICIS' % (best_neural_network))
         median_fitness = (best_fitness + worst_fitness) / 2
-
+		
         # Remove dumbest neural network.
         for network in range(batch_size):
             fitness = neurals_networks[network]['fitness']
 
-            if fitness <= median_fitness:
+            if fitness < median_fitness:
                 del neurals_networks[network]
             else:
                 neurals_networks[network]['fitness'] = 0
 
-        print iteration, median_fitness
+        print 'I: %d B: %d M: %d W:%d' % (iteration, best_fitness, median_fitness, worst_fitness)
 
 
 # Game commands
