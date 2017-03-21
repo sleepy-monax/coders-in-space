@@ -115,8 +115,6 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
             else:
                 if game_data['players'][player]['nb_ships'] > 0:
                     p_input = get_game_input(player, False, game_data)
-                    if no_gui:
-                        print player, ':', p_input
                     game_data = parse_command(p_input, player, game_data)
                 elif game_data['players'][player]['type'] != 'none':
                     game_data['game_logs'].append(player + ' has lost all these ships, so he has nothing to do.')
@@ -859,7 +857,6 @@ def get_ai_input(game_data, player_name):
     """
 
     neural_network = game_data['players'][player_name]['network']
-    memory = [1]*10
     outputs = []
 
     for ship in game_data['ships']:
@@ -870,7 +867,6 @@ def get_ai_input(game_data, player_name):
         if ship_data['owner'] == player_name:
 
             neural_input = []
-            neural_input.extend(memory)
             neural_input.extend(ship_neural_input)
 
             # Get nearby ships.
@@ -879,8 +875,7 @@ def get_ai_input(game_data, player_name):
                 neural_input.extend(ship_to_neural_input(game_data, player_name, nearby_ship))
 
             # Get Neural output.
-            neural_output = compute_neural_network(neural_network.copy(), neural_input)[10:]
-            memory = neural_input[:10]
+            neural_output = compute_neural_network(neural_network.copy(), neural_input)
 
             outputs.append(neural_output_to_game_input(neural_output, ship, game_data))
 
@@ -1050,8 +1045,6 @@ def attack(game_data, ship):
 
     return ''
 
-
-
 def predicte_next_pos(game_data, ship_name):
     """
     Predicte the next position of a space ship.
@@ -1135,8 +1128,10 @@ def get_dumb_ai_spaceships(player_name, game_data):
     while money > 0:
         ship_type = ship_type_list[randint(0, len(ship_type_list) - 1)]
         ship_name = ship_name_list[randint(0, len(ship_name_list) - 1)]
-        army += '%s:%s ' % (ship_name, ship_type)
-        money -= game_data['model_ship'][ship_type]['price']
+        
+        if not '%s_%s' % (player_name, ship_name) in game_data['ships']
+            army += '%s:%s ' % (ship_name, ship_type)
+            money -= game_data['model_ship'][ship_type]['price']
 
     return army[:-1]
 
@@ -1317,7 +1312,7 @@ def compute_neural_network(neural_network, neural_input):
 
     return output
 
-def randomize_neural_network(neural_network, rnd_strength):
+def randomize_neural_network(neural_network, rnd_strength, rnd_chance = 10):
     """
     Randomize connections of a neural_network.
 
@@ -1339,7 +1334,8 @@ def randomize_neural_network(neural_network, rnd_strength):
     for layer in neural_network:
         for node in neural_network[layer]:
             for link in neural_network[layer][node]['links']:
-                neural_network[layer][node]['links'][link] += rnd_strength * multi[randint(0, len(multi) - 1)]
+                if randint(0, 100) <= rnd_chance:
+                    neural_network[layer][node]['links'][link] += rnd_strength * multi[randint(0, len(multi) - 1)]
 
     return neural_network
 
@@ -1427,8 +1423,7 @@ def train_neural_network(max_iteration = 50, learn_strength = 0.1, batch_size = 
 
     neurals_networks = {}
     best_neural_network = {}
-
-
+    best_fitness = -sys.maxint
 
     # Load best neural network if existe
     if path.isfile('bestbot.LAICIS'):
@@ -1443,9 +1438,9 @@ def train_neural_network(max_iteration = 50, learn_strength = 0.1, batch_size = 
         for i in range(batch_size):
             if not i in neurals_networks.keys():
                 # Create a new neurals_networks.
-                neurals_networks[i] = {'fitness': 0}
+                neurals_networks[i] = {'fitness': []}
                 if best_neural_network == None:
-                    save_neural_network(create_neural_network((45, 100, 14)), 'neurals_networks/bot%d.LAICIS' % (i))
+                    save_neural_network(create_neural_network((35, 50, 4)), 'neurals_networks/bot%d.LAICIS' % (i))
                 else:
                     save_neural_network(randomize_neural_network(best_neural_network.copy(), learn_strength), 'neurals_networks/bot%d.LAICIS' % (i))
 
@@ -1457,32 +1452,43 @@ def train_neural_network(max_iteration = 50, learn_strength = 0.1, batch_size = 
 
                     battle_result = play_game('board/test_board.cis', ('bot%d' % network_a,'bot%d' % network_b), screen_size = (190, 50), no_gui = True, no_splash = True, max_rounds_count = 10)
 
-                    neurals_networks[network_a]['fitness'] += battle_result['bot%d' % network_a]['fitness']
-                    neurals_networks[network_b]['fitness'] += battle_result['bot%d' % network_b]['fitness']
+                    neurals_networks[network_a]['fitness'].append(battle_result['bot%d' % network_a]['fitness'])
+                    neurals_networks[network_b]['fitness'].append(battle_result['bot%d' % network_b]['fitness'])
+                    # print 'b:%d f:%d // b:%d f:%d' % (network_a, battle_result['bot%d' % network_a]['fitness'], network_b, battle_result['bot%d' % network_b]['fitness'])
 
-                    print 'b:%d f:%d // b:%d f:%d' % (network_a, battle_result['bot%d' % network_a]['fitness'], network_b, battle_result['bot%d' % network_b]['fitness'])
                     index += 1
         # Find best and worst_fitness.
         worst_fitness = sys.maxint
-        best_fitness  = -sys.maxint
+
+        good_fitness  = -sys.maxint
+        good_neural_network = {}
 
         for network in range(batch_size):
-            fitness = neurals_networks[network]['fitness']
 
-            if fitness > best_fitness:
-                best_fitness = fitness
-                best_neural_network = network
+            fitness = 0
+            n_fitness = 0
+            for v_fitness in neurals_networks[network]['fitness']:
+                fitness += v_fitness
+                n_fitness += 1.
+
+            fitness = fitness / n_fitness
+            neurals_networks[network]['fitness'] = fitness
+            if fitness > good_fitness:
+                good_fitness = fitness
+                good_neural_network = network
 
             if fitness < worst_fitness:
                 worst_fitness = fitness
 
+        # Set the best neural network.
+        if good_fitness > best_fitness:
+            best_neural_network = load_neural_network('neurals_networks/bot%d.LAICIS' % (good_neural_network))
+            best_fitness = good_fitness
 
 		# Show a exemple match.
         # play_game('board/test_board.cis', ('bot%d' % best_neural_network,'dumb'), screen_size = (190, 50), no_gui = False, no_splash = True, max_rounds_count = 10)
 
-		# Set the best neural network.
-        best_neural_network = load_neural_network('neurals_networks/bot%d.LAICIS' % (best_neural_network))
-        median_fitness = (best_fitness + worst_fitness) / 2
+        median_fitness = (good_fitness + worst_fitness) / 2
 
         # Remove dumbest neural network.
         for network in range(batch_size):
@@ -1491,9 +1497,12 @@ def train_neural_network(max_iteration = 50, learn_strength = 0.1, batch_size = 
             if fitness < median_fitness:
                 del neurals_networks[network]
             else:
-                neurals_networks[network]['fitness'] = 0
+                neurals_networks[network]['fitness'] = []
 
-        print 'I: %d B: %d M: %d W:%d' % (iteration, best_fitness, median_fitness, worst_fitness)
+        print '\nI: %f B: %f M: %f W:%f\n' % (iteration, good_fitness, median_fitness, worst_fitness)
+
+
+    save_neural_network(best_neural_network.copy(), 'neurals_networks/bestbot.LAICIS' % (i))
 
 # Game commands
 # ==============================================================================
