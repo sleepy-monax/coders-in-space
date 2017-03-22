@@ -78,7 +78,7 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
     Implementation: Bayron Mahy, Nicolas Van Bossuyt (v1. 15/02/17)
     """
     # Create the new game.
-    is_distant_game = distant_id != None and distant_ip != None
+    is_distant_game = (distant_id != None and distant_ip != None
 
     if is_distant_game:
         game_data = new_game(level_name, players_list, connect_to_player(distant_id, distant_ip, verbose_connection))
@@ -381,7 +381,7 @@ def is_game_continue(game_data):
 
     Return
     ------
-    False if the game is over.
+    False if the game is over. (Bool))
 
     Version
     -------
@@ -721,7 +721,7 @@ def show_game_board(game_data, hightlight_ship = None):
     game_board_location = (screen_size[0] / 2 - (c_board['size'][0] - 31) / 2, (screen_size[1] - 7) / 2 - c_board['size'][1] / 2)
     c_screen = put_canvas(c_screen, c_board, game_board_location[0], game_board_location[1])
 
-    # Ships liste
+    # Ships list
     #---------------------------------------------------------------------------
 
     nb_ships = len(game_data['ships'])
@@ -775,7 +775,7 @@ def show_game_board(game_data, hightlight_ship = None):
     c_screen = put_box(c_screen, 0, players_bord_location[1], players_bord_size[0], players_bord_size[1])
     c_screen = put_text(c_screen, 1, players_bord_location[1], u'[ Players ]')
 
-    # Put players liste.
+    # Put players list.
     player_count = 0
     for player in game_data['players']:
         if player != 'none':
@@ -924,6 +924,12 @@ def ship_to_neural_input(game_data, player_name, ship_name):
     Return
     ------
     ship_data: List of float values required by neural network (list(float))
+    
+    Version
+    -------
+    Specification: Nicolas Van Bossuyt (v1. 10/03/17)
+                   Bayron Mahy (v2. 22/03/17)
+    Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
     """
     ship = game_data['ships'][ship_name]
     ship_type = ship['type']
@@ -975,6 +981,12 @@ def neural_output_to_game_input(neural_ouput, ship_name, game_data):
     Return
     ------
     game_input: input for the game (str).
+    
+    Version
+    -------
+    Specification: Nicolas Van Bossuyt (v1. 10/03/17)
+                   Bayron Mahy (v2. 22/03/17)
+    Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
     """
 
     command_index = neural_ouput.index(max(neural_ouput))
@@ -992,7 +1004,7 @@ def neural_output_to_game_input(neural_ouput, ship_name, game_data):
 
 def speed(game_data, ship, change):
     """
-    Check if LAICIS make can increase/decrease the speed of its ship
+    Check if LAICIS can increase/decrease the speed of its ship
 
     parameters
     ----------
@@ -1032,22 +1044,29 @@ def attack(game_data, ship):
     -------
     Specification: Nicolas Van Bossuyt (v1. 19/03/17).
     Implementation: Nicolas Van Bossuyt (v1. 19/03/17).
-	                Bayron Mahy (v2. 22/03/17).
+                    Bayron Mahy (v2. 22/03/17).
     """
 
     ship_pos = game_data['ships'][ship]['position']
     ship_range = game_data['model_ship'][ game_data['ships'][ship]['type'] ]['range']
     ship_owner = game_data['ships'][ship]['owner']
-
     nearby_ships = get_nearby_ship(game_data, ship, ship_range)
-    if len(nearby_ships) > 0:
-        for nearby_ship in nearby_ships:
-            if game_data['ships'][nearby_ship]['owner'] != ship_owner and game_data['ships'][nearby_ship]['owner'] != 'none':
-                nearby_pos = predict_next_pos(game_data, nearby_ship)
-                if ship_range <= get_distance(ship_pos, nearby_pos, game_data['board_size']):
-                    return '%s:%d-%d' % (ship, nearby_pos[0] + 1, nearby_pos[1] + 1)
 
-    return ''
+    if len(nearby_ships) > 0:
+        ships_targeted = []
+        for perhaps_target in nearby_ships:
+            if game_data['ships'][perhaps_target]['owner'] != ship_owner and game_data['ships'][perhaps_target]['owner'] != 'none':
+                ships_targeted.append(perhaps_target)
+        if len(ships_targeted)>0:
+            targets_life = []
+            for target in ships_targeted:
+                targets_life.append(game_data['ships'][target]['heal_points'])
+            final_target = ships_targeted[min(targets_life).index]
+            return '%s:%d-%d' %(ship,game_data['ships'][final_target]['position'][0],game_data['ships'][final_target]['position'][1])
+        else:
+            return ''
+    else:
+        return ''
 
 def predict_next_pos(game_data, ship_name):
     """
@@ -1060,14 +1079,21 @@ def predict_next_pos(game_data, ship_name):
 
     Return
     ------
-    predicte_postion : predicte_postion of the spaceship (tuple(int, int)).
+    predicted_postion : predicte_postion of the spaceship (tuple(int, int)).
+    
+    Version
+    -------
+    Specification: Nicolas Van Bossuyt (v1. 19/03/17).
+    Implementation: Nicolas Van Bossuyt (v1. 19/03/17).
+                    Bayron Mahy (v2. 22/03/17).
     """
 
     speed = game_data['ships'][ship_name]['speed']
     position = game_data['ships'][ship_name]['position']
     direction = game_data['ships'][ship_name]['direction']
+    predicted_postion = convert_coordinates( (position[0] + direction[0] * speed, position[1] + direction[1] * speed), game_data['board_size'])
 
-    return convert_coordinates( (position[0] + direction[0] * speed, position[1] + direction[1] * speed), game_data['board_size'])
+    return predicted_postion
 
 # D.A.I.C.I.S
 # ------------------------------------------------------------------------------
@@ -1233,6 +1259,22 @@ def convert_coordinates(coord, size):
 
     """
     def convert(a, size):
+        """subbtract or add board size to coordinate depending on their position.
+        
+        Parameters
+        ----------
+        a: coordinate to convert (int).
+        size: board size to add/sub (int).
+        
+        Return
+        ------
+        a: coordinate after convertion (int).
+        
+        Version
+        -------
+        Specification: Bayron Mahy (v1. 22/02/17)
+        Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
+        """
         # Apply toric space.
         if a >= size:
             a -= size
@@ -1404,7 +1446,11 @@ def sigmoid(x):
 
 # Neural network training
 # ------------------------------------------------------------------------------
+<<<<<<< HEAD
+# Because everyone needs a train to come to university...
+=======
 # Train a neural network to play the gamme.
+>>>>>>> a1447459fadf95164303bc9ccb84e0a42132e645
 
 def train_neural_network(max_iteration = 50, learn_strength = 0.1, batch_size = 10):
     """
@@ -1500,7 +1546,7 @@ def train_neural_network(max_iteration = 50, learn_strength = 0.1, batch_size = 
         best_neural_network = load_neural_network('neurals_networks/bot%d.LAICIS' % (good_neural_network))
         best_fitness = good_fitness
 
-		# Show a exemple match.
+        # Show a exemple match.
         # play_game('board/test_board.cis', ('bot%d' % best_neural_network,'dumb'), screen_size = (190, 50), no_gui = False, no_splash = True, max_rounds_count = 10)
 
         median_fitness = (good_fitness + worst_fitness) / 2
