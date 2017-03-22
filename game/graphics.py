@@ -56,7 +56,9 @@ def print_canvas(canvas, x = 0, y = 0):
 
     canvas_width = canvas['size'][0]
     canvas_height = canvas['size'][1]
-    line = '\033[%d;%dH' % (x, y)
+
+    # Hide and set cursor coordinates.
+    line = '\033[?25l\033[%d;%dH' % (x, y)
 
     for y in range(canvas_height):
         for x in range(canvas_width):
@@ -77,7 +79,7 @@ def print_canvas(canvas, x = 0, y = 0):
         line += '\n'
 
     # Print, remove the laste \n et reset the print cursor..
-    print line[:-1] + '\033[0;0H'
+    print line[:-1] + '\033[?25h'
 
 # Canvas drawing.
 # ------------------------------------------------------------------------------

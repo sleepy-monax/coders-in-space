@@ -66,7 +66,7 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
 
     Return
     ------
-    winner_name: name of the winner (str).
+    game_data: game data at the end of the game (str).
 
     Note
     ----
@@ -143,7 +143,7 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
         if player_data['type'] == 'ai' and player_data['fitness'] > max_fitness:
             max_fitness = player_data['fitness']
 
-    return game_data['players']
+    return game_data
 
 def new_game(level_name, players_list, connection = None):
     """
@@ -166,6 +166,10 @@ def new_game(level_name, players_list, connection = None):
                     Bayron Mahy, Nicolas Van Bossuyt (v2. 13/02/17)
                     Nicolas Van Bossuyt (v3. 23/02/17)
     """
+    # Create random a random game board.
+    if level_name == 'random':
+        create_game_board('board/random.cis', (40, 40), randint(0, 32))
+        level_name = 'board/random.cis'
 
     # Create game_data dictionary.
     game_file = parse_game_file(level_name)
@@ -180,8 +184,7 @@ def new_game(level_name, players_list, connection = None):
                   'pending_attacks': [],
                   'game_logs': [],
                   'winners': [],
-                  'is_remote_game': connection != None,
-                  }
+                  'is_remote_game': connection != None,}
 
     # Create ship specs sheet.
     game_data['model_ship']['fighter'] = {'icon': u'F', 'max_heal':3, 'max_speed':5, 'damages':1, 'range':5, 'price':10}
@@ -1048,6 +1051,15 @@ def attack(game_data, ship):
     ship_range = game_data['model_ship'][ game_data['ships'][ship]['type'] ]['range']
     ship_owner = game_data['ships'][ship]['owner']
     nearby_ships = get_nearby_ship(game_data, ship, ship_range)
+<<<<<<< HEAD
+=======
+    if len(nearby_ships) > 0:
+        for nearby_ship in nearby_ships:
+            if game_data['ships'][nearby_ship]['owner'] != ship_owner and game_data['ships'][nearby_ship]['owner'] != 'none':
+                nearby_pos = predict_next_pos(game_data, nearby_ship)
+                if ship_range <= get_distance(ship_pos, nearby_pos, game_data['board_size']):
+                    return '%s:%d-%d' % (ship, nearby_pos[0] + 1, nearby_pos[1] + 1)
+>>>>>>> a1447459fadf95164303bc9ccb84e0a42132e645
 
     if len(nearby_ships) > 0:
 		ships_targeted = []
@@ -1443,7 +1455,11 @@ def sigmoid(x):
 
 # Neural network training
 # ------------------------------------------------------------------------------
+<<<<<<< HEAD
 # Because everyone needs a train to come to university...
+=======
+# Train a neural network to play the gamme.
+>>>>>>> a1447459fadf95164303bc9ccb84e0a42132e645
 
 def train_neural_network(max_iteration = 50, learn_strength = 0.1, batch_size = 10):
     """
@@ -1480,6 +1496,7 @@ def train_neural_network(max_iteration = 50, learn_strength = 0.1, batch_size = 
         # Create new random neural network.
         for i in range(batch_size):
             if not i in neurals_networks.keys():
+
                 # Create a new neurals_networks.
                 neurals_networks[i] = {'fitness': []}
                 if best_neural_network == None:
@@ -1492,15 +1509,28 @@ def train_neural_network(max_iteration = 50, learn_strength = 0.1, batch_size = 
             for network_b in range(batch_size):
                 if network_a > network_b:
 
-                    battle_result = play_game('board/test_board.cis', ('bot%d' % network_a, 'bot%d' % network_b), screen_size = (190, 50), no_gui = True, no_splash = True, max_rounds_count = 10)
+                    game_data = play_game('random', ('bot%d' % network_a, 'bot%d' % network_b), screen_size = (190, 50), no_gui = False, no_splash = True, max_rounds_count = 10)
 
-                    neurals_networks[network_a]['fitness'].append(battle_result['bot%d' % network_a]['fitness'])
-                    neurals_networks[network_b]['fitness'].append(battle_result['bot%d' % network_b]['fitness'])
-                    # print 'b:%d f:%d // b:%d f:%d' % (network_a, battle_result['bot%d' % network_a]['fitness'], network_b, battle_result['bot%d' % network_b]['fitness'])
+                    if len(game_data['winners']) == 1:
+                        winner_id = int(game_data['winners'][0].replace('bot', ''))
+                        if winner_id == network_a:
+                            neurals_networks[network_a]['fitness'].append(1)
+                            neurals_networks[network_b]['fitness'].append(-1)
+                        if winner_id == network_b:
+                            neurals_networks[network_a]['fitness'].append(-1)
+                            neurals_networks[network_b]['fitness'].append(1)
+
+                    elif len(game_data['winners']) == 2:
+                        neurals_networks[network_a]['fitness'].append(0)
+                        neurals_networks[network_b]['fitness'].append(0)
+
+                    # neurals_networks[network_a]['fitness'].append(game_data['players']['bot%d' % network_a]['fitness'])
+                    # neurals_networks[network_b]['fitness'].append(game_data['players']['bot%d' % network_b]['fitness'])
+
+                    print 'b:%d f:%d // b:%d f:%d' % (network_a, game_data['players']['bot%d' % network_a]['fitness'], network_b, game_data['players']['bot%d' % network_b]['fitness'])
 
         # Find best and worst_fitness.
         worst_fitness = sys.maxint
-
         good_fitness  = -sys.maxint
         good_neural_network = {}
 
@@ -1522,9 +1552,8 @@ def train_neural_network(max_iteration = 50, learn_strength = 0.1, batch_size = 
                 worst_fitness = fitness
 
         # Set the best neural network.
-        if good_fitness > best_fitness:
-            best_neural_network = load_neural_network('neurals_networks/bot%d.LAICIS' % (good_neural_network))
-            best_fitness = good_fitness
+        best_neural_network = load_neural_network('neurals_networks/bot%d.LAICIS' % (good_neural_network))
+        best_fitness = good_fitness
 
         # Show a exemple match.
         # play_game('board/test_board.cis', ('bot%d' % best_neural_network,'dumb'), screen_size = (190, 50), no_gui = False, no_splash = True, max_rounds_count = 10)
@@ -1957,6 +1986,8 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_data):
                         else:
                             game_data['players'][game_data['ships'][ship]['owner']]['fitness']-=100
 
+                        game_data['game_logs'].append('%s kill %s' % (ship, target_ship))
+
                         # Remove the space ship.
                         game_data['board'][target_coordinate].remove(target_ship)
                         if game_data['ships'][target_ship]['owner'] != 'none':
@@ -2105,7 +2136,7 @@ def create_game_board(file_name, board_size, lost_ships_count):
     print >>f, "%d %d" % (board_size[0], board_size[1])
 
     for i in range(lost_ships_count):
-        print >>f, '%d %d %s:%s %s' % (random.randint(0, board_size[0] - 1), random.randint(0, board_size[1] - 1), 'ship_' + str(i),  ship_type[random.randint(0, len(ship_type) - 1)],\
-        ship_direction[random.randint(0, len(ship_direction) - 1)])
+        print >>f, '%d %d %s:%s %s' % (randint(0, board_size[0] - 1), randint(0, board_size[1] - 1), 'ship_' + str(i),  ship_type[randint(0, len(ship_type) - 1)],\
+        ship_direction[randint(0, len(ship_direction) - 1)])
 
     f.close()
