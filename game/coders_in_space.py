@@ -1043,7 +1043,7 @@ def attack(game_data, ship):
     if len(nearby_ships) > 0:
         for nearby_ship in nearby_ships:
             if game_data['ships'][nearby_ship]['owner'] != ship_owner and game_data['ships'][nearby_ship]['owner'] != 'none':
-                nearby_pos = predicte_next_pos(game_data, nearby_ship)
+                nearby_pos = predict_next_pos(game_data, nearby_ship)
                 if ship_range <= get_distance(ship_pos, nearby_pos, game_data['board_size']):
                     return '%s:%d-%d' % (ship, nearby_pos[0] + 1, nearby_pos[1] + 1)
 
@@ -1454,7 +1454,7 @@ def train_neural_network(max_iteration = 50, learn_strength = 0.1, batch_size = 
             for network_b in range(batch_size):
                 if network_a > network_b:
 
-                    game_data = play_game('board/test_board.cis', ('bot%d' % network_a, 'bot%d' % network_b), screen_size = (190, 50), no_gui = True, no_splash = True, max_rounds_count = 10)
+                    game_data = play_game('random', ('bot%d' % network_a, 'bot%d' % network_b), screen_size = (190, 50), no_gui = False, no_splash = True, max_rounds_count = 10)
 
                     if len(game_data['winners']) == 1:
                         winner_id = int(game_data['winners'][0].replace('bot', ''))
@@ -1931,6 +1931,8 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_data):
                         else:
                             game_data['players'][game_data['ships'][ship]['owner']]['fitness']-=100
 
+                        game_data['game_logs'].append('%s kill %s' % (ship, target_ship))
+
                         # Remove the space ship.
                         game_data['board'][target_coordinate].remove(target_ship)
                         if game_data['ships'][target_ship]['owner'] != 'none':
@@ -2079,7 +2081,7 @@ def create_game_board(file_name, board_size, lost_ships_count):
     print >>f, "%d %d" % (board_size[0], board_size[1])
 
     for i in range(lost_ships_count):
-        print >>f, '%d %d %s:%s %s' % (random.randint(0, board_size[0] - 1), random.randint(0, board_size[1] - 1), 'ship_' + str(i),  ship_type[random.randint(0, len(ship_type) - 1)],\
-        ship_direction[random.randint(0, len(ship_direction) - 1)])
+        print >>f, '%d %d %s:%s %s' % (randint(0, board_size[0] - 1), randint(0, board_size[1] - 1), 'ship_' + str(i),  ship_type[randint(0, len(ship_type) - 1)],\
+        ship_direction[randint(0, len(ship_direction) - 1)])
 
     f.close()
