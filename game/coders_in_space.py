@@ -2042,13 +2042,12 @@ def parse_game_file(path):
     # Get lost space ship in the file..
     ships_list = []
     for line_index in range(len(file_content) - 1):
-        try:
-            ship_str = file_content[line_index + 1].split(' ')
+        ship_str = file_content[line_index + 1].split(' ')
+        if len(ship_str) == 4:
             ship_name_and_type = ship_str[2].split(':')
             ship = (int(ship_str[0]), int(ship_str[1]), ship_name_and_type[0], ship_name_and_type[1], direction_to_vector2D(ship_str[3]))
             ships_list.append(ship)
-        except:
-            pass
+
 
     # Create parsed data dictionary and return it.
     parsed_data = {'size':size,'ships':ships_list}
