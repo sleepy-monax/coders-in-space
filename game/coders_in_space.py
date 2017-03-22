@@ -1032,6 +1032,7 @@ def attack(game_data, ship):
     -------
     Specification: Nicolas Van Bossuyt (v1. 19/03/17).
     Implementation: Nicolas Van Bossuyt (v1. 19/03/17).
+	                Bayron Mahy (v2. 22/03/17).
     """
 
     ship_pos = game_data['ships'][ship]['position']
@@ -1048,9 +1049,9 @@ def attack(game_data, ship):
 
     return ''
 
-def predicte_next_pos(game_data, ship_name):
+def predict_next_pos(game_data, ship_name):
     """
-    Predicte the next position of a space ship.
+    Predict the next position of a space ship.
 
     Parameters
     ----------
@@ -1807,7 +1808,7 @@ def do_moves(game_data):
     """
     for ship in game_data['ships']:
         position = game_data['ships'][ship]['position']
-        new_position = predicte_next_pos(game_data, ship)
+        new_position = predict_next_pos(game_data, ship)
 
         # Move the ship.
         game_data['board'][position].remove(ship)
