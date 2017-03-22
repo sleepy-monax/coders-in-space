@@ -924,7 +924,7 @@ def ship_to_neural_input(game_data, player_name, ship_name):
     Return
     ------
     ship_data: List of float values required by neural network (list(float))
-    
+
     Version
     -------
     Specification: Nicolas Van Bossuyt (v1. 10/03/17)
@@ -981,7 +981,7 @@ def neural_output_to_game_input(neural_ouput, ship_name, game_data):
     Return
     ------
     game_input: input for the game (str).
-    
+
     Version
     -------
     Specification: Nicolas Van Bossuyt (v1. 10/03/17)
@@ -1080,7 +1080,7 @@ def predict_next_pos(game_data, ship_name):
     Return
     ------
     predicted_postion : predicte_postion of the spaceship (tuple(int, int)).
-    
+
     Version
     -------
     Specification: Nicolas Van Bossuyt (v1. 19/03/17).
@@ -1260,16 +1260,16 @@ def convert_coordinates(coord, size):
     """
     def convert(a, size):
         """subbtract or add board size to coordinate depending on their position.
-        
+
         Parameters
         ----------
         a: coordinate to convert (int).
         size: board size to add/sub (int).
-        
+
         Return
         ------
         a: coordinate after convertion (int).
-        
+
         Version
         -------
         Specification: Bayron Mahy (v1. 22/02/17)
@@ -1446,11 +1446,7 @@ def sigmoid(x):
 
 # Neural network training
 # ------------------------------------------------------------------------------
-<<<<<<< HEAD
 # Because everyone needs a train to come to university...
-=======
-# Train a neural network to play the gamme.
->>>>>>> a1447459fadf95164303bc9ccb84e0a42132e645
 
 def train_neural_network(max_iteration = 50, learn_strength = 0.1, batch_size = 10):
     """
