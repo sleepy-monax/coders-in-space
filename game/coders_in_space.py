@@ -1029,6 +1029,7 @@ def attack(game_data, ship):
     -------
     Specification: Nicolas Van Bossuyt (v1. 19/03/17).
     Implementation: Nicolas Van Bossuyt (v1. 19/03/17).
+	                Bayron Mahy (v2. 22/03/17).
     """
 
     ship_pos = game_data['ships'][ship]['position']
@@ -1038,16 +1039,16 @@ def attack(game_data, ship):
     nearby_ships = get_nearby_ship(game_data, ship, ship_range)
     if len(nearby_ships) > 0:
         for nearby_ship in nearby_ships:
-            if game_data['ships'][nearby_ship]['owner'] != ship_owner and game_data['ships'][nearby_ship]['owner'] != 'none':
-                nearby_pos = predicte_next_pos(game_data, nearby_ship)
+            if game_data['ships'][nearby_ship]['owner'] == ship_owner:
+                nearby_pos = predict_next_pos(game_data, nearby_ship)
                 if ship >= get_distance(ship_pos, nearby_pos, game_data['board_size']):
                     return '%s:%d-%d' % (ship, nearby_pos[0] + 1, nearby_pos[1] + 1)
 
     return ''
 
-def predicte_next_pos(game_data, ship_name):
+def predict_next_pos(game_data, ship_name):
     """
-    Predicte the next position of a space ship.
+    Predict the next position of a space ship.
 
     Parameters
     ----------
@@ -1791,7 +1792,7 @@ def do_moves(game_data):
     """
     for ship in game_data['ships']:
         position = game_data['ships'][ship]['position']
-        new_position = predicte_next_pos(game_data, ship)
+        new_position = predict_next_pos(game_data, ship)
 
         # Move the ship.
         game_data['board'][position].remove(ship)
