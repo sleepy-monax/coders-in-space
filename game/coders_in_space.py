@@ -924,7 +924,7 @@ def ship_to_neural_input(game_data, player_name, ship_name):
     Return
     ------
     ship_data: List of float values required by neural network (list(float))
-	
+    
     Version
     -------
     Specification: Nicolas Van Bossuyt (v1. 10/03/17)
@@ -981,7 +981,7 @@ def neural_output_to_game_input(neural_ouput, ship_name, game_data):
     Return
     ------
     game_input: input for the game (str).
-	
+    
     Version
     -------
     Specification: Nicolas Van Bossuyt (v1. 10/03/17)
@@ -1051,31 +1051,22 @@ def attack(game_data, ship):
     ship_range = game_data['model_ship'][ game_data['ships'][ship]['type'] ]['range']
     ship_owner = game_data['ships'][ship]['owner']
     nearby_ships = get_nearby_ship(game_data, ship, ship_range)
-<<<<<<< HEAD
-=======
-    if len(nearby_ships) > 0:
-        for nearby_ship in nearby_ships:
-            if game_data['ships'][nearby_ship]['owner'] != ship_owner and game_data['ships'][nearby_ship]['owner'] != 'none':
-                nearby_pos = predict_next_pos(game_data, nearby_ship)
-                if ship_range <= get_distance(ship_pos, nearby_pos, game_data['board_size']):
-                    return '%s:%d-%d' % (ship, nearby_pos[0] + 1, nearby_pos[1] + 1)
->>>>>>> a1447459fadf95164303bc9ccb84e0a42132e645
 
     if len(nearby_ships) > 0:
-		ships_targeted = []
-		for perhaps_target in nearby_ships:
-			if game_data['ships'][perhaps_target]['owner'] != ship_owner and game_data['ships'][perhaps_target]['owner'] != 'none':
-				ships_targeted.append(perhaps_target)
-		if len(ships_targeted)>0:
-			targets_life = []
-			for target in ships_targeted:
-				targets_life.append(game_data['ships'][target]['heal_points'])
-			final_target = ships_targeted[min(targets_life).index]
-			return '%s:%d-%d' %(ship,game_data['ships'][final_target]['position'][0],game_data['ships'][final_target]['position'][1])
-		else:
-			return ''
-	else:
-		return ''
+        ships_targeted = []
+        for perhaps_target in nearby_ships:
+            if game_data['ships'][perhaps_target]['owner'] != ship_owner and game_data['ships'][perhaps_target]['owner'] != 'none':
+                ships_targeted.append(perhaps_target)
+        if len(ships_targeted)>0:
+            targets_life = []
+            for target in ships_targeted:
+                targets_life.append(game_data['ships'][target]['heal_points'])
+            final_target = ships_targeted[min(targets_life).index]
+            return '%s:%d-%d' %(ship,game_data['ships'][final_target]['position'][0],game_data['ships'][final_target]['position'][1])
+        else:
+            return ''
+    else:
+        return ''
 
 def predict_next_pos(game_data, ship_name):
     """
@@ -1268,22 +1259,22 @@ def convert_coordinates(coord, size):
 
     """
     def convert(a, size):
-		"""subbtract or add board size to coordinate depending on their position.
-		
-		Parameters
-		----------
-		a: coordinate to convert (int).
-		size: board size to add/sub (int).
-		
-		Return
-		------
-		a: coordinate after convertion (int).
-		
-	    Version
-		-------
-		Specification: Bayron Mahy (v1. 22/02/17)
-		Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
-		"""
+        """subbtract or add board size to coordinate depending on their position.
+        
+        Parameters
+        ----------
+        a: coordinate to convert (int).
+        size: board size to add/sub (int).
+        
+        Return
+        ------
+        a: coordinate after convertion (int).
+        
+        Version
+        -------
+        Specification: Bayron Mahy (v1. 22/02/17)
+        Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
+        """
         # Apply toric space.
         if a >= size:
             a -= size
