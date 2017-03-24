@@ -1,0 +1,33 @@
+fonction
+--
+s'approcher d'un vaisseau.
+s'eloigner d'un vaisseau.
+rester a distance.
+--
+def change_distance(game_data, ship, reference_ship, max_range):
+    """
+    Change a distance between two ship.
+    
+    Parameters
+    ----------
+    game_data (dic).
+    ship : ship to, move (str).
+    reference_ship : reference ship (str).
+    max_range : max distance wished between the two ship (int).
+    
+    Return
+    ------
+    command : regular command (str).
+    """
+
+
+def get_nearby_type(game_stats, ship, search_type, max_range):
+    """
+    Target ships with a specifical type.
+    
+    Parameters
+    ----------
+    game_data (dic)
+    ship : center of the search (str).
+    search_type
+    """
