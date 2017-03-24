@@ -78,7 +78,7 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
     Implementation: Bayron Mahy, Nicolas Van Bossuyt (v1. 15/02/17)
     """
     # Create the new game.
-    is_distant_game = (distant_id != None and distant_ip != None
+    is_distant_game = (distant_id != None and distant_ip != None)
 
     if is_distant_game:
         game_data = new_game(level_name, players_list, connect_to_player(distant_id, distant_ip, verbose_connection))
