@@ -159,7 +159,7 @@ def new_game(level_name, players_list, connection=None):
     """
     # Create random a random game board.
     if level_name == 'random':
-        create_game_board('board/random.cis', (40, 40), randint(0, 32))
+        create_game_board('board/random.cis', (40, 40), randint(0, 100000))
         level_name = 'board/random.cis'
 
     # Create game_data dictionary.
@@ -740,27 +740,44 @@ def show_game_board(game_data, hightlight_ship=None):
     # ---------------------------------------------------------------------------
 
     nb_ships = len(game_data['ships'])
-    c_ships = create_canvas(30, nb_ships + 3)
+    max_nb_ships = game_board_size[1] - 8
+    c_ships = {}
+    is_to_big = False
+
+    print game_board_size[1];
+
+    if (nb_ships) + 8 > game_board_size[1]:
+        c_ships = create_canvas(30, game_board_size[1] - 5)
+        is_to_big = True
+    else:
+        c_ships = create_canvas(30, nb_ships + 3)
 
     ship_index = 0
     for ship in game_data['ships']:
-        ship_data = game_data['ships'][ship]
-        ship_name = ship
-        ship_color = None
+        if ship_index <= max_nb_ships:
+            ship_data = game_data['ships'][ship]
+            ship_name = ship
+            ship_color = None
 
-        if ship_data['owner'] != 'none':
-            ship_color = game_data['players'][ship_data['owner']]['color']
-            ship_name = ship_name.replace(ship_data['owner'] + '_', '')
+            if ship_data['owner'] != 'none':
+                ship_color = game_data['players'][ship_data['owner']]['color']
+                ship_name = ship_name.replace(ship_data['owner'] + '_', '')
 
-        c_ships = put_text(c_ships, 1, ship_index + 2,
-                           str("(%d, %d)" % (ship_data['position'][0] + 1, ship_data['position'][1] + 1)),
-                           color=ship_color)
-        c_ships = put_text(c_ships, 10, ship_index + 2, ship_name, color=ship_color)
+            c_ships = put_text(c_ships, 1, ship_index + 2,
+                               str("(%d, %d)" % (ship_data['position'][0] + 1, ship_data['position'][1] + 1)),
+                               color=ship_color)
+            c_ships = put_text(c_ships, 10, ship_index + 2, ship_name, color=ship_color)
 
         ship_index += 1
 
     c_ships = put_text(c_ships, 1, 1, ' X,  Y  | Name' + ' ' * 20, color='grey', back_color='white')
-    c_ships = put_box(c_ships, 0, 0, 30, nb_ships + 3)
+
+    if is_to_big:
+        c_ships = put_box(c_ships, 0, 0, 30, game_board_size[1] - 5)
+        c_ships = put_text(c_ships, 1, c_ships['size'][1] - 1, '...')
+    else:
+        c_ships = put_box(c_ships, 0, 0, 30, nb_ships + 3)
+
     c_ships = put_text(c_ships, 1, 0, '[ Ships ]')
 
     c_screen = put_canvas(c_screen, c_ships, game_board_location[0] - 31, game_board_location[1] + 5)
