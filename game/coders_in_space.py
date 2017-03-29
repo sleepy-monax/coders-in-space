@@ -102,7 +102,6 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
         if not no_gui:
             show_game_board(game_data)
 
-
         # Cleaning the pending_attack list.
         game_data['pending_attack'] = []
 
@@ -139,6 +138,7 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
 
     return game_data
 
+
 def new_game(level_name, players_list, connection=None):
     """
     Create a new game from a '.cis' file.
@@ -168,17 +168,17 @@ def new_game(level_name, players_list, connection=None):
     # Create game_data dictionary.
     game_file = parse_game_file(level_name)
     game_data = {'board':{},
-                  'players':{},
-                  'model_ship':{},
-                  'ships': {},
-                  'board_size': game_file['size'],
-                  'level_name': level_name,
-                  'nb_rounds': -1,
-                  'max_nb_rounds': 10,
-                  'pending_attacks': [],
-                  'game_logs': [],
-                  'winners': [],
-                  'is_remote_game': connection != None,}
+                 'players':{},
+                 'model_ship':{},
+                 'ships': {},
+                 'board_size': game_file['size'],
+                 'level_name': level_name,
+                 'nb_rounds': -1,
+                 'max_nb_rounds': 10,
+                 'pending_attacks': [],
+                 'game_logs': [],
+                 'winners': [],
+                 'is_remote_game': connection is not None}
 
     # Create ship specs sheet.
     game_data['model_ship']['fighter'] = {'icon': u'F', 'max_heal':3, 'max_speed':5, 'damages':1, 'range':5, 'price':10}
@@ -239,7 +239,7 @@ def new_game(level_name, players_list, connection=None):
 
         index_player += 1
 
-    if connection != None:
+    if connection is not None:
         game_data['players']['distant']['connection'] = connection
 
     return game_data
@@ -423,7 +423,7 @@ def calculate_value(player_name, game_data):
     Parameters
     ----------
     player_name: name of the player to count value (str)
-    game_data: game before comand execution (dic)
+    game_data: game before command execution (dic)
 
     Version
     -------
@@ -441,6 +441,7 @@ def calculate_value(player_name, game_data):
 # Input
 # ==============================================================================
 # Get input from each player.
+
 def get_game_input(player_name, buy_ships, game_data):
     """
     Get input from a specified player.
