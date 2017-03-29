@@ -40,10 +40,10 @@ from time import sleep  # because everyone needs to rest.
 from graphics import *
 from remote_play import notify_remote_orders, get_remote_orders, connect_to_player, disconnect_from_player
 
-
 # Game
 # ==============================================================================
 # Create a new game and play it.
+
 def play_game(level_name, players_list, no_splash=False, no_gui=False, screen_size=(190, 50), distant_id=None,
               distant_ip=None, verbose_connection=False, max_rounds_count=10):
     """
@@ -540,7 +540,7 @@ def get_human_input(player_name, buy_ship, game_data):
 
 def show_ship_list(player_name, game_data):
     """
-    Show spaceships information on the terminal.
+    (use for debug) Show spaceships information on the terminal.
 
     Parameters
     ----------
