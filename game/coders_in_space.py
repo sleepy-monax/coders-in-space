@@ -31,6 +31,7 @@
                             /  .  .::\
 """
 
+
 # Imports
 # ==============================================================================
 # Import some cool component for the game.
@@ -47,7 +48,6 @@ import sys
 # Game
 # ==============================================================================
 # Create a new game and play it.
-
 def play_game(level_name, players_list, no_splash = False, no_gui = False, screen_size = (190, 50), distant_id = None, distant_ip = None, verbose_connection = False, max_rounds_count = 10):
     """
     Main function that executes the game loop.
@@ -139,7 +139,7 @@ def play_game(level_name, players_list, no_splash = False, no_gui = False, scree
 
     return game_data
 
-def new_game(level_name, players_list, connection = None):
+def new_game(level_name, players_list, connection=None):
     """
     Create a new game from a '.cis' file.
 
@@ -206,7 +206,6 @@ def new_game(level_name, players_list, connection = None):
             # Set player type.
             if 'bot' in player or player == 'LAICIS':
                 game_data['players'][player]['type'] = 'ai'
-                game_data['players'][player]['network'] = load_neural_network('neurals_networks/%s.LAICIS' % (player))
             elif 'dumb' in player:
                 game_data['players'][player]['type'] = 'ai_dumb'
             elif player == 'distant':
@@ -442,7 +441,6 @@ def calculate_value(player_name, game_data):
 # Input
 # ==============================================================================
 # Get input from each player.
-
 def get_game_input(player_name, buy_ships, game_data):
     """
     Get input from a specified player.
@@ -492,7 +490,6 @@ def get_game_input(player_name, buy_ships, game_data):
 # Player
 # ------------------------------------------------------------------------------
 # Human player interaction with the game.
-
 def get_human_input(player_name, buy_ship, game_data):
     """
     Get input from a human player.
@@ -803,7 +800,6 @@ def show_game_board(game_data, hightlight_ship = None):
 # Remote player
 # ------------------------------------------------------------------------------
 # Handeling remote player command.
-
 def get_distant_input(game_data):
     """
     Get input from a distant player.
@@ -833,7 +829,6 @@ def get_distant_input(game_data):
 # L.A.I.C.I.S.
 # ------------------------------------------------------------------------------
 # [L]earning [A]rtificial [I]nteligence for [C]oders [I]n [S]pace.
-
 def get_ai_input(game_data, player_name):
     """
     Get input from an AI player.
@@ -853,7 +848,22 @@ def get_ai_input(game_data, player_name):
     Implementation: Nicolas Van Bossuyt (v1. 16/03/17)
     """
 
-    pass
+    action = ['faster', 'slower', 'left', 'right', 'attack']
+
+    ai_input = ''
+
+    for ship in game_data['ships']:
+        if game_data['ships'][ship]['owner'] == player_name:
+            ship_action = action[randint(0, len(action) - 1 )]
+            
+            if ship_action == 'slower' or ship_action == 'faster':
+                ship_action = speed(game_data, ship, ship_action)
+            elif ship_action == 'attack':
+                ship_action = attack(game_data, ship)
+
+            ai_input += '%s:%s ' % (ship, ship_action)
+
+    return ai_input[:-1].replace(player_name + '_','')
 
 def get_ai_spaceships(player_name, game_data):
     """
@@ -895,12 +905,18 @@ def speed(game_data, ship, change):
     -------
     Specification: Bayron Mahy (v1. 20/03/17)
     Implementation: Bayron Mahy (v1. 20/03/17)
-
+                    Nicolas Van Bossuyt (v2. 29/03/17)
     """
-    if (change == 'faster' and game_data['ships'][ship]['speed']< game_data['model_ship'][game_data['ships'][ship]['type']]['max_speed']) or (change == 'slower' and game_data['ships'][ship]['speed']>0):
-        return '%s:%s' % (ship, change)
+    ship_type = game_data['ships'][ship]['type']
+    ship_speed = game_data['ships'][ship]['speed']
+    ship_max_speed = game_data['model_ship'][ship_type]['max_speed']
+
+    if (change  == 'faster' and ship_speed + 1 > ship_max_speed):
+        return 'slower'
+    elif (change == 'slower' and ship_speed - 1 < 0):
+        return 'faster'
     else:
-        return ''
+        return change
 
 def attack(game_data, ship):
     """
@@ -929,19 +945,23 @@ def attack(game_data, ship):
 
     if len(nearby_ships) > 0:
         ships_targeted = []
+
         for perhaps_target in nearby_ships:
             if game_data['ships'][perhaps_target]['owner'] != ship_owner and game_data['ships'][perhaps_target]['owner'] != 'none':
                 ships_targeted.append(perhaps_target)
+
         if len(ships_targeted)>0:
+
             targets_life = []
+
             for target in ships_targeted:
                 targets_life.append(game_data['ships'][target]['heal_points'])
-            final_target = ships_targeted[min(targets_life).index]
-            return '%s:%d-%d' %(ship,game_data['ships'][final_target]['position'][0],game_data['ships'][final_target]['position'][1])
-        else:
-            return ''
-    else:
-        return ''
+
+            final_target = ships_targeted[targets_life.index(min(targets_life))]
+            target_coords = convert_coordinates((game_data['ships'][final_target]['position'][0], game_data['ships'][final_target]['position'][1]), game_data['board_size'])
+            return '%d-%d' % (target_coords[0] + 1, target_coords[1] + 1)
+
+    return ''
 
 def predict_next_pos(game_data, ship_name):
     """
@@ -973,7 +993,6 @@ def predict_next_pos(game_data, ship_name):
 # D.A.I.C.I.S
 # ------------------------------------------------------------------------------
 # [D]umb [A]rtificial [I]nteligence for [C]oders [I]n [S]pace.
-
 def get_dumb_ai_input(player_name, game_data,):
     """
     Get input from an AI player.
@@ -1043,7 +1062,6 @@ def get_dumb_ai_spaceships(player_name, game_data):
 # AI - command corection.
 # ------------------------------------------------------------------------------
 # Because nothing is perfect.
-
 def get_nearby_ship(game_data, target_ship, search_range):
     """
     Make a list of around ship in range.
@@ -1121,7 +1139,7 @@ def convert_coordinates(coord, size):
     Parameters
     ----------
     coord: coordinates to convert (tuple(int, int))
-    size: Size of the tore.
+    size: Size of the tore tupe(int, int).
 
     Return
     ------
@@ -1167,7 +1185,6 @@ def convert_coordinates(coord, size):
 # Command Parsing
 # ------------------------------------------------------------------------------
 # Take a string and turn it into game command.
-
 def parse_command(commands, player_name, game_data):
     """
     Parse a player's command and execute it
@@ -1209,7 +1226,7 @@ def parse_command(commands, player_name, game_data):
                 # In other case speed command.
                 else:
                     attack_coords = ship_command.split('-')
-                    if len(attack_coordinates) == 2:
+                    if len(attack_coords) == 2:
                         attack_coords = (int(attack_coords[0]) - 1, int(attack_coords[1]) - 1)
                         game_data['pending_attacks'].append((ship_name, game_data['ships'][ship_name]['position'], attack_coords))
 
@@ -1218,7 +1235,6 @@ def parse_command(commands, player_name, game_data):
 # Ship creation
 # ------------------------------------------------------------------------------
 # Buy and create a spaceship.
-
 def command_buy_ships(ships, player, game_data):
     """
     Allow a player to buy some spaceships.
@@ -1291,7 +1307,6 @@ def create_ship(player_name, ship_name, ship_type, game_data):
 # Move Command
 # ------------------------------------------------------------------------------
 # Make shipe move, rotate, and go faste and furiouse.
-
 def command_change_speed(ship, change, game_data):
     """
     Increase the speed of a ship.
@@ -1519,7 +1534,6 @@ def take_abandonned_ship(game_data):
 # Attack Command
 # ------------------------------------------------------------------------------
 # Allow ship to attack each other.
-
 def command_attack(ship, ship_coordinate, target_coordinate, game_data):
     """
     Determine if the attack works and do it.
@@ -1596,7 +1610,6 @@ def do_attack(game_data):
 # Utils
 # ==============================================================================
 # Somme use full function for a simple life. And also parse game file.
-
 def parse_game_file(path):
     """
     Parse a .cis file and returns its content.
