@@ -159,7 +159,7 @@ def new_game(level_name, players_list, connection=None):
     """
     # Create random a random game board.
     if level_name == 'random':
-        create_game_board('board/random.cis', (40, 40), randint(0, 100000))
+        create_game_board('board/random.cis', (40, 40), randint(0, 1000000))
         level_name = 'board/random.cis'
 
     # Create game_data dictionary.
