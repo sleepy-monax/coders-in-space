@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
+
+
 from random import seed, randint
+
 
 # Gui framework
 # ==============================================================================
@@ -8,6 +11,7 @@ from random import seed, randint
 # Canvas creation and printing.
 # ------------------------------------------------------------------------------
 # Create and print a canvas in the user console.
+
 
 def create_canvas(width, height, enable_color = True):
     """
@@ -38,6 +42,7 @@ def create_canvas(width, height, enable_color = True):
             canvas['grid'][(x,y)] = {'color':None, 'back_color':None, 'char':' '}
 
     return canvas
+
 
 def print_canvas(canvas, x = 0, y = 0):
     """
@@ -81,9 +86,11 @@ def print_canvas(canvas, x = 0, y = 0):
     # Print, remove the laste \n et reset the print cursor..
     print line[:-1] + '\033[?25h'
 
+
 # Canvas drawing.
 # ------------------------------------------------------------------------------
 # All tools and brush to draw on the canvas.
+
 
 def put(canvas, x, y, char, color = None, back_color = None):
     """
@@ -116,6 +123,7 @@ def put(canvas, x, y, char, color = None, back_color = None):
         canvas['grid'][(x,y)]['back_color'] = back_color
 
     return canvas
+
 
 def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None, transparency_char = None):
     """
@@ -157,6 +165,7 @@ def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None,
 
     return canvas
 
+
 def put_ascii_text(canvas, font, text, x, y, color = None, back_color = None):
     """
     Put a ascii art text in the canvas.
@@ -190,6 +199,7 @@ def put_ascii_text(canvas, font, text, x, y, color = None, back_color = None):
         char_x += char_width
 
     return canvas
+
 
 def load_ascii_font(font_name):
     """
@@ -237,6 +247,7 @@ def load_ascii_font(font_name):
 
     return font
 
+
 def mesure_ascii_text(font, text):
     """"
     Return the lenght of a ascii art text.
@@ -264,6 +275,7 @@ def mesure_ascii_text(font, text):
 
     return lenght
 
+
 def put_canvas(canvas, canvas_bis, x, y):
     """
     Put a canvas in the canvas.
@@ -290,6 +302,7 @@ def put_canvas(canvas, canvas_bis, x, y):
             canvas = put(canvas, cx + x, cy + y, char['char'], char['color'], char['back_color'])
 
     return canvas
+
 
 def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_color = None):
     """
@@ -335,6 +348,7 @@ def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_col
 
     return canvas
 
+
 def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = None):
     """
     Put a filled rectangle in the canvas.
@@ -360,6 +374,7 @@ def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = 
         for h in range(height): canvas = put(canvas, x + w, y + h, char, color, back_color)
 
     return canvas
+
 
 def put_stars_field(canvas, x, y, width, height, r_seed = None):
     """
@@ -393,6 +408,7 @@ def put_stars_field(canvas, x, y, width, height, r_seed = None):
     seed()
     return canvas
 
+
 def put_text(canvas, x, y, text, direction_x = 1, direction_y = 0, color = None, back_color = None):
     """
     Put a text in the canvas.
@@ -423,6 +439,7 @@ def put_text(canvas, x, y, text, direction_x = 1, direction_y = 0, color = None,
         y += direction_y
 
     return canvas
+
 
 def set_color(text, foreground_color, background_color):
     """

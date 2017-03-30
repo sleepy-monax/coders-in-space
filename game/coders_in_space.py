@@ -159,7 +159,7 @@ def new_game(level_name, players_list, connection=None):
     """
     # Create random a random game board.
     if level_name == 'random':
-        create_game_board('board/random.cis', (40, 40), randint(0, 1000000))
+        create_game_board('board/random.cis', (40, 40), 10)
         level_name = 'board/random.cis'
 
     # Create game_data dictionary.
@@ -620,7 +620,7 @@ def show_ship_list(player_name, game_data):
         scroll -= 10
 
 
-def show_game_board(game_data, hightlight_ship=None):
+def _show_game_board(game_data, hightlight_ship=None):
     """
     Show game board on the teminal.
 
@@ -744,8 +744,6 @@ def show_game_board(game_data, hightlight_ship=None):
     c_ships = {}
     is_to_big = False
 
-    print game_board_size[1];
-
     if (nb_ships) + 8 > game_board_size[1]:
         c_ships = create_canvas(30, game_board_size[1] - 5)
         is_to_big = True
@@ -774,7 +772,7 @@ def show_game_board(game_data, hightlight_ship=None):
 
     if is_to_big:
         c_ships = put_box(c_ships, 0, 0, 30, game_board_size[1] - 5)
-        c_ships = put_text(c_ships, 1, c_ships['size'][1] - 1, '...')
+        c_ships = put_text(c_ships, 1, c_ships['size'][1] - 1, '- ' * 14)
     else:
         c_ships = put_box(c_ships, 0, 0, 30, nb_ships + 3)
 
@@ -843,6 +841,110 @@ def show_game_board(game_data, hightlight_ship=None):
 
     # Show the game board in the terminal.
     print_canvas(c_screen)
+
+def show_game_board(game_data):
+    """
+    Show game board on the teminal.
+
+    Parameter
+    ---------
+    game_data: data of the game (dic).
+
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+                   Nicolas Van Bossuyt (v2. 19/03/17)
+
+    Implementation: Nicolas Van Bossuyt (v4. 10/02/17)
+    """
+    rows, columns = get_terminal_size()
+    screen_size = (int(rows), int(columns - 1))
+    c = create_canvas(screen_size[0], screen_size[1])
+    c_game_board = render_game_board(game_data)
+    game_board_size = c_game_board['size']
+    c_ship_list = render_ship_list(game_data, 30, game_board_size[1])
+    c = put_box(c, 0, 0, screen_size[0], screen_size[1])
+    c = put_canvas(c, c_game_board, 0, 0)
+
+    print_canvas(c)
+
+def render_game_board(game_data):
+    """
+    Render the game board.
+
+    Parameter
+    ---------
+    game_data: data of the game (dic).
+
+    Return
+    ------
+    game_board_canvas: rendered game board (dic)
+    """
+    board_size = game_data['board_size']
+    c = create_canvas(board_size[0] * 3 + 3, board_size[1] + 1)
+    offset = 0
+
+    # Put coordinates.
+    for i in range(max(board_size)):
+        val_str = str(i + 1)
+        val_str =   ' ' * (3 - len(val_str)) + val_str
+
+        # Horizontal
+        c = put_text(c, 3 + offset * 3, 0, val_str, 1, 0, 'grey', 'white')
+
+        # Vertical
+        c = put_text(c,0, 1 + offset, val_str, 1, 0, 'grey', 'white')
+        offset += 1
+
+    # Put Space ships.
+    for coords in game_data['board']:
+        ships_at_coords = game_data['board'][coords]
+        on_canvas_coords = (3 + coords[0] * 3, coords[1] + 1)
+
+        if len(ships_at_coords) == 1:
+            ship_name = ships_at_coords[0]
+            ship = game_data['ships'][ship_name]
+            ship_owner = ship['owner']
+            ship_icon = ship_name.replace('%s_' % ship_owner, '').upper()[0]
+            ship_color = 'white'
+            ship_direction = ship['direction']
+
+            if ship_owner != 'none':
+                ship_color = game_data['players'][ship_owner]['color']
+
+            # Put direction line.
+            direction_char = '|'
+
+            if ship_direction == (1, 1) or ship_direction == (-1, -1):
+                direction_char = '\\'
+            elif ship_direction == (1, -1) or ship_direction == (-1, 1):
+                direction_char = '/'
+            elif ship_direction == (1, 0) or ship_direction == (-1, 0):
+                direction_char = u'─'
+
+            put_text(c, on_canvas_coords[0] + 1, on_canvas_coords[1], ship_icon, 1, 0, ship_color, None)
+            put_text(c, on_canvas_coords[0] + 1 + ship_direction[0], on_canvas_coords[1] + ship_direction[1], direction_char, 1, 0, ship_color, None)
+
+        elif len(ships_at_coords) > 1:
+            put_text(c, on_canvas_coords[0], on_canvas_coords[1], '[%d]' % len(ships_at_coords),  1, 0, 'green', None)
+
+    return c
+
+def render_ship_list(game_data, width, height):
+    """
+    Render the ship_list.
+
+    Parameter
+    ---------
+    game_data: data of the game (dic).
+
+    Return
+    ------
+    ship_list_canvas: rendered ship list (dic).
+    """
+    c = create_canvas(width, height)
+
+    return c
 
 
 # Remote player
@@ -1805,5 +1907,27 @@ def create_game_board(file_name, board_size, lost_ships_count):
 
     f.close()
 
+def get_terminal_size():
+    import os
+    env = os.environ
+    def ioctl_GWINSZ(fd):
+        try:
+            import fcntl, termios, struct, os
+            cr = struct.unpack('hh', fcntl.ioctl(fd, termios.TIOCGWINSZ,
+        '1234'))
+        except:
+            return
+        return cr
+    cr = ioctl_GWINSZ(0) or ioctl_GWINSZ(1) or ioctl_GWINSZ(2)
+    if not cr:
+        try:
+            fd = os.open(os.ctermid(), os.O_RDONLY)
+            cr = ioctl_GWINSZ(fd)
+            os.close(fd)
+        except:
+            pass
+    if not cr:
+        cr = (env.get('LINES', 25), env.get('COLUMNS', 80))
+    return int(cr[1]), int(cr[0])
 if __name__ == '__main__':
-    play_game('random', ('dumbInSpace', 'dumby', 'dumbo', 'botbot'), screen_size=(190, 50), no_gui=False, no_splash=False, max_rounds_count=100)
+    play_game('random', ('dumbInSpace', 'dumby', 'dumbo', 'botbot'), no_gui=False, no_splash=True, max_rounds_count=100)
