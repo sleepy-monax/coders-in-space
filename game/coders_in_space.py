@@ -1804,3 +1804,6 @@ def create_game_board(file_name, board_size, lost_ships_count):
                                         ship_direction[randint(0, len(ship_direction) - 1)])
 
     f.close()
+
+if __name__ == '__main__':
+    play_game('random', ('dumbInSpace', 'dumby', 'dumbo', 'botbot'), screen_size=(190, 50), no_gui=False, no_splash=False, max_rounds_count=100)
