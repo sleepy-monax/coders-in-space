@@ -649,7 +649,8 @@ def _show_game_board(game_data, hightlight_ship=None):
                     Nicolas Van Bossuyt (v2.1. 19/03/17)
                     - Improve ship list.
     """
-    screen_size = game_data['screen_size']
+    rows, columns = get_terminal_size()
+    screen_size = (int(rows), int(columns))
 
     # Create a the main canvas.
     c_screen = create_canvas(screen_size[0], screen_size[1])
@@ -857,14 +858,24 @@ def show_game_board(game_data):
 
     Implementation: Nicolas Van Bossuyt (v4. 10/02/17)
     """
+    # Setup main cnavas.
     rows, columns = get_terminal_size()
-    screen_size = (int(rows), int(columns - 1))
-    c = create_canvas(screen_size[0], screen_size[1])
+    screen_size = (int(rows), int(columns))
+    c = create_canvas(*screen_size)
+
+    # Render child canvas.
     c_game_board = render_game_board(game_data)
     game_board_size = c_game_board['size']
     c_ship_list = render_ship_list(game_data, 30, game_board_size[1])
-    c = put_box(c, 0, 0, screen_size[0], screen_size[1])
-    c = put_canvas(c, c_game_board, 0, 0)
+
+    c = put_ascii_art(c, 1, screen_size[1] - 25, 'planet')
+    if (screen_size > 190):
+        c_screen = put_ascii_art(c, 185, screen_size[1] - 25, 'planet')
+    c = put_box(c, 0, 0, *screen_size)
+
+    # Put child canvas in the main canvas.
+    game_board_coords = (screen_size[0] / 2 - (c_game_board['size'][0] + 2) / 2, screen_size[1] / 2 - (c_game_board['size'][1] + 2) / 2)
+    c = put_window(c, c_game_board, 'GAME BOARD', game_board_coords[0], game_board_coords[1], c_game_board['size'][0] + 2, c_game_board['size'][1] + 2)
 
     print_canvas(c)
 
@@ -882,12 +893,13 @@ def render_game_board(game_data):
     """
     board_size = game_data['board_size']
     c = create_canvas(board_size[0] * 3 + 3, board_size[1] + 1)
+    c = put_stars_field(c, 0, 0, *c['size'])
     offset = 0
 
     # Put coordinates.
     for i in range(max(board_size)):
         val_str = str(i + 1)
-        val_str =   ' ' * (3 - len(val_str)) + val_str
+        val_str = ' ' * (3 - len(val_str)) + val_str
 
         # Horizontal
         c = put_text(c, 3 + offset * 3, 0, val_str, 1, 0, 'grey', 'white')
@@ -1907,27 +1919,5 @@ def create_game_board(file_name, board_size, lost_ships_count):
 
     f.close()
 
-def get_terminal_size():
-    import os
-    env = os.environ
-    def ioctl_GWINSZ(fd):
-        try:
-            import fcntl, termios, struct, os
-            cr = struct.unpack('hh', fcntl.ioctl(fd, termios.TIOCGWINSZ,
-        '1234'))
-        except:
-            return
-        return cr
-    cr = ioctl_GWINSZ(0) or ioctl_GWINSZ(1) or ioctl_GWINSZ(2)
-    if not cr:
-        try:
-            fd = os.open(os.ctermid(), os.O_RDONLY)
-            cr = ioctl_GWINSZ(fd)
-            os.close(fd)
-        except:
-            pass
-    if not cr:
-        cr = (env.get('LINES', 25), env.get('COLUMNS', 80))
-    return int(cr[1]), int(cr[0])
 if __name__ == '__main__':
     play_game('random', ('dumbInSpace', 'dumby', 'dumbo', 'botbot'), no_gui=False, no_splash=True, max_rounds_count=100)

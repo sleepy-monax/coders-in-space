@@ -84,7 +84,7 @@ def print_canvas(canvas, x = 0, y = 0):
         line += '\n'
 
     # Print, remove the laste \n et reset the print cursor..
-    print line[:-1] + '\033[?25h'
+    print line[:-1] + '\033[?25h\033[0;0H'
 
 
 # Canvas drawing.
@@ -304,6 +304,33 @@ def put_canvas(canvas, canvas_bis, x, y):
     return canvas
 
 
+def put_window(canvas, window_content, title, x, y, width, height, style="double"):
+    """
+    Put a window with a windows content in the main canvas.
+     
+    Parameters
+    ----------
+    canvas: canvas to draw in (dic).
+    window_content: content of the window (dic).
+    title: title of the window (str).
+    x, y: coordinate of the window (int).
+    width, height: size of the window (int).
+    (optional) style: Style of the window (str).
+    
+    Return
+    ------
+    canvas: the canvas with the window on it (dic).
+    """
+    c = create_canvas(width, height, True)
+    c = put_canvas(c, window_content, 1, 1)
+    c = put_box(c, 0, 0, width, height, style)
+    c = put_text(c, 1, 0, "| %s |" % title)
+
+    canvas = put_canvas(canvas, c, x, y)
+
+    return canvas
+
+
 def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_color = None):
     """
     Put a box in the canvas.
@@ -376,7 +403,7 @@ def put_rectangle(canvas, x, y, width, height, char, color = None, back_color = 
     return canvas
 
 
-def put_stars_field(canvas, x, y, width, height, r_seed = None):
+def put_stars_field(canvas, x, y, width, height, r_seed = 0):
     """
     Put a stars field in the canvas.
 
@@ -475,3 +502,37 @@ def set_color(text, foreground_color, background_color):
     text += reset
 
     return text
+
+def get_terminal_size():
+    """
+    return the size of the terminal
+     
+    Return
+    ------
+    height, width: size of the terminal (int)
+    
+    Notes
+    -----
+    Code taken from python3 stdlib and translated to python2.
+    """
+    import os
+    env = os.environ
+    def ioctl_GWINSZ(fd):
+        try:
+            import fcntl, termios, struct, os
+            cr = struct.unpack('hh', fcntl.ioctl(fd, termios.TIOCGWINSZ,
+        '1234'))
+        except:
+            return
+        return cr
+    cr = ioctl_GWINSZ(0) or ioctl_GWINSZ(1) or ioctl_GWINSZ(2)
+    if not cr:
+        try:
+            fd = os.open(os.ctermid(), os.O_RDONLY)
+            cr = ioctl_GWINSZ(fd)
+            os.close(fd)
+        except:
+            pass
+    if not cr:
+        cr = (env.get('LINES', 25), env.get('COLUMNS', 80))
+    return int(cr[1]), int(cr[0])
