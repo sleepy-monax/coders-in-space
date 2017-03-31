@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b80d9049-3548-467b-8128-460f149c8953" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game/board/random.cis" afterPath="$PROJECT_DIR$/game/board/random.cis" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game/coders_in_space.py" afterPath="$PROJECT_DIR$/game/coders_in_space.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -319,7 +317,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490944531497</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Update GUI">
+      <created>1490949469724</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1490949469724</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView">
@@ -361,7 +366,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Code cleanup" />
     <MESSAGE value="Add specs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add specs" />
+    <MESSAGE value="Update GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update GUI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
