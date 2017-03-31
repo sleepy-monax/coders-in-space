@@ -853,10 +853,10 @@ def show_game_board(game_data):
 
     Version
     -------
-    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-                   Nicolas Van Bossuyt (v2. 19/03/17)
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17).
+                   Nicolas Van Bossuyt (v2. 19/03/17).
 
-    Implementation: Nicolas Van Bossuyt (v4. 10/02/17)
+    Implementation: Nicolas Van Bossuyt (v4. 10/02/17).
     """
     # Setup main cnavas.
     rows, columns = get_terminal_size()
@@ -876,6 +876,7 @@ def show_game_board(game_data):
     # Put child canvas in the main canvas.
     game_board_coords = (screen_size[0] / 2 - (c_game_board['size'][0] + 2) / 2, screen_size[1] / 2 - (c_game_board['size'][1] + 2) / 2)
     c = put_window(c, c_game_board, 'GAME BOARD', game_board_coords[0], game_board_coords[1], c_game_board['size'][0] + 2, c_game_board['size'][1] + 2)
+    c = put_window(c, c_ship_list, 'SHIP LIST', 0, game_board_coords[1], c_ship_list['size'][0] + 2, c_ship_list['size'][1] + 2)
 
     print_canvas(c)
 
@@ -955,13 +956,35 @@ def render_ship_list(game_data, width, height):
     ship_list_canvas: rendered ship list (dic).
     """
     c = create_canvas(width, height)
+    ship_count = len(game_data['ships'])
+    ship_index = 0
+
+    put_text(c, 0, 0, ' T | Coords | Name' + ' '*25, 1, 0, 'grey', 'white')
+    for player in game_data['players']:
+        y = ship_index + 1
+        put_text(c, 1, y, '%s (t:%s s:%d)' % (player, game_data['players'][player]['type'], game_data['players'][player]['nb_ships']))
+        put_text(c, 0, y + 1, '-' * width)
+        ship_index += 2
+        for ship in game_data['ships']:
+            if game_data['ships'][ship]['owner'] == player:
+                y = ship_index + 1
+                # Ship type.
+                put_text(c, 1, y, game_data['ships'][ship]['type'].upper()[0])
+
+                # Ship coordinates
+                put_text(c, 4, y, str(game_data['ships'][ship]['position']))
+
+                # Ship name.
+                put_text(c, 14, y, ship[len(player + '_'):], 1, 0, game_data['players'][game_data['ships'][ship]['owner']]['color'])
+
+                ship_index += 1
 
     return c
-
 
 # Remote player
 # ------------------------------------------------------------------------------
 # Handeling remote player command.
+
 def get_distant_input(game_data):
     """
     Get input from a distant player.
@@ -984,7 +1007,6 @@ def get_distant_input(game_data):
     connection = game_data['players']['distant']['connection']
     return get_remote_orders(connection)
 
-
 # A.I.
 # ==============================================================================
 # AI interactions
@@ -992,6 +1014,7 @@ def get_distant_input(game_data):
 # L.A.I.C.I.S.
 # ------------------------------------------------------------------------------
 # [L]earning [A]rtificial [I]nteligence for [C]oders [I]n [S]pace.
+
 def get_ai_input(game_data, player_name):
     """
     Get input from an AI player.
@@ -1047,6 +1070,7 @@ def fighter(game_data, ship, owner):
     -------
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17)
     """
+
     pass
 
 def destroyer(game_data, ship, owner):
@@ -1068,6 +1092,7 @@ def destroyer(game_data, ship, owner):
     -------
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17)
     """
+
     pass
 
 def battlecruiser(game_data, ship, owner):
@@ -1089,6 +1114,7 @@ def battlecruiser(game_data, ship, owner):
     -------
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
     """
+
     pass
 
 def move_to(game_data, ship, coordinates):
@@ -1110,6 +1136,7 @@ def move_to(game_data, ship, coordinates):
     -------
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
     """
+
     pass
 
 
@@ -1156,6 +1183,7 @@ def speed(game_data, ship, change):
     Implementation: Bayron Mahy (v1. 20/03/17)
                     Nicolas Van Bossuyt (v2. 29/03/17)
     """
+
     ship_type = game_data['ships'][ship]['type']
     ship_speed = game_data['ships'][ship]['speed']
     ship_max_speed = game_data['model_ship'][ship_type]['max_speed']
@@ -1317,10 +1345,10 @@ def get_dumb_ai_spaceships(player_name, game_data):
 
     return army[:-1]
 
-
 # AI - command corection.
 # ------------------------------------------------------------------------------
 # Because nothing is perfect.
+
 def get_nearby_ship(game_data, target_ship, search_range):
     """
     Make a list of around ship in range.
@@ -1441,7 +1469,6 @@ def convert_coordinates(coord, size):
 
     return (convert(coord[0], size[0]), convert(coord[1], size[1]))
 
-
 # Game commands
 # ==============================================================================
 # Game command parsing and execution.
@@ -1449,6 +1476,7 @@ def convert_coordinates(coord, size):
 # Command Parsing
 # ------------------------------------------------------------------------------
 # Take a string and turn it into game command.
+
 def parse_command(commands, player_name, game_data):
     """
     Parse a player's command and execute it
@@ -1497,10 +1525,10 @@ def parse_command(commands, player_name, game_data):
 
     return game_data
 
-
 # Ship creation
 # ------------------------------------------------------------------------------
 # Buy and create a spaceship.
+
 def command_buy_ships(ships, player, game_data):
     """
     Allow a player to buy some spaceships.
@@ -1573,10 +1601,10 @@ def create_ship(player_name, ship_name, ship_type, game_data):
 
     return game_data
 
-
 # Move Command
 # ------------------------------------------------------------------------------
 # Make shipe move, rotate, and go faste and furiouse.
+
 def command_change_speed(ship, change, game_data):
     """
     Increase the speed of a ship.
@@ -1809,6 +1837,7 @@ def take_abandonned_ship(game_data):
 # Attack Command
 # ------------------------------------------------------------------------------
 # Allow ship to attack each other.
+
 def command_attack(ship, ship_coordinate, target_coordinate, game_data):
     """
     Determine if the attack works and do it.
@@ -1882,10 +1911,10 @@ def do_attack(game_data):
 
     return game_data
 
-
 # Utils
 # ==============================================================================
 # Somme use full function for a simple life. And also parse game file.
+
 def parse_game_file(path):
     """
     Parse a .cis file and returns its content.
