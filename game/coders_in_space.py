@@ -1029,6 +1029,90 @@ def get_ai_input(game_data, player_name):
     return ai_input[:-1].replace(player_name + '_', '')
 
 
+def fighter(game_data, ship, owner):
+    """
+    Get input for a fighter.
+    
+    Parameters
+    ----------
+    game_data: data of the game (dic).
+    ship: name of the ship to get input from (str).
+    owner: name of the owner of the ship (str).
+    
+    Return
+    ------
+    input: input for this ship <faster, slower, left, right, XX-YY>(str).
+    
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17)
+    """
+    pass
+
+def destroyer(game_data, ship, owner):
+    """
+    Get input for a destroyer.
+
+    Parameters
+    ----------
+    game_data: data of the game (dic).
+    ship: name of the ship to get input from (str).
+    owner: name of the owner of the ship (str).
+
+    Return
+    ------
+    input: input for this ship <faster, slower, left, right, XX-YY>(str).
+    
+    
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17)
+    """
+    pass
+
+def battlecruiser(game_data, ship, owner):
+    """
+    Get input for a battlecruiser.
+
+    Parameters
+    ----------
+    game_data: data of the game (dic).
+    ship: name of the ship to get input from (str).
+    owner: name of the owner of the ship (str).
+
+    Return
+    ------
+    input: input for this ship <faster, slower, left, right, XX-YY>(str).
+    
+    
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
+    """
+    pass
+
+def move_to(game_data, ship, coordinates):
+    """
+    Move a ship at given coordinates.
+    
+    Parameters
+    ----------
+    game_data: data of the game (dic).
+    ship: name of the ship to move (str).
+    coordinates: destination of the ship (tuple(int, int)).
+    
+    Return
+    ------
+    input: input to execute <left, right, faster, slower>(str).
+    
+    
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
+    """
+    pass
+
+
 def get_ai_spaceships(player_name, game_data):
     """
     Determine what ships to buy and turn it into a regulated command.
