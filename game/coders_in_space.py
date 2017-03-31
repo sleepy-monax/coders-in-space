@@ -159,7 +159,7 @@ def new_game(level_name, players_list, connection=None):
     """
     # Create random a random game board.
     if level_name == 'random':
-        create_game_board('board/random.cis', (40, 40), 10)
+        create_game_board('board/random.cis', (60, 40), 100)
         level_name = 'board/random.cis'
 
     # Create game_data dictionary.
@@ -224,6 +224,7 @@ def new_game(level_name, players_list, connection=None):
             elif index_player == 2:
                 game_data['players'][player]['ships_starting_point'] = (
                 game_data['board_size'][0] - 10, game_data['board_size'][1] - 10)
+                
                 game_data['players'][player]['ships_starting_direction'] = (-1, -1)
                 game_data['players'][player]['color'] = 'blue'
 
@@ -858,6 +859,8 @@ def show_game_board(game_data):
 
     Implementation: Nicolas Van Bossuyt (v4. 10/02/17).
     """
+    
+    print 'RENDERING UI...'
     # Setup main cnavas.
     rows, columns = get_terminal_size()
     screen_size = (int(rows), int(columns))
@@ -866,7 +869,8 @@ def show_game_board(game_data):
     # Render child canvas.
     c_game_board = render_game_board(game_data)
     game_board_size = c_game_board['size']
-    c_ship_list = render_ship_list(game_data, 30, game_board_size[1])
+    c_ship_list = render_ship_list(game_data, 30, screen_size[1] - 2)
+    c_game_logs = render_game_logs(game_data, screen_size[0] - 32, 30)
 
     c = put_ascii_art(c, 1, screen_size[1] - 25, 'planet')
     if (screen_size > 190):
@@ -876,8 +880,10 @@ def show_game_board(game_data):
     # Put child canvas in the main canvas.
     game_board_coords = (screen_size[0] / 2 - (c_game_board['size'][0] + 2) / 2, screen_size[1] / 2 - (c_game_board['size'][1] + 2) / 2)
     c = put_window(c, c_game_board, 'GAME BOARD', game_board_coords[0], game_board_coords[1], c_game_board['size'][0] + 2, c_game_board['size'][1] + 2)
-    c = put_window(c, c_ship_list, 'SHIP LIST', 0, game_board_coords[1], c_ship_list['size'][0] + 2, c_ship_list['size'][1] + 2)
-
+    c = put_window(c, c_ship_list, 'SHIP LIST', 0, 0, c_ship_list['size'][0] + 2, c_ship_list['size'][1] + 2)
+    c = put_window(c, c_game_logs, 'GAME LOGS', 30, 0, c_game_logs['size'][0] + 2, c_game_logs['size'][1] + 2)
+    
+    print 'DONE !'
     print_canvas(c)
 
 def render_game_board(game_data):
@@ -980,7 +986,28 @@ def render_ship_list(game_data, width, height):
                 ship_index += 1
 
     return c
+    
+def render_game_logs(game_data, width, height):
+    """
+    Render the game logs.
+    
+    Parameter
+    ---------
+    game_data: data of the game (dic).
 
+    Return
+    ------
+    game_logs_canvas: rendered game logs (dic).
+    """
+    c = create_canvas(width, height)
+    y = 0
+    
+    for message in game_data['game_logs'][-height:]:
+        c = put_text(c, 0, y, message)
+        y += 1
+        
+    return c
+    
 # Remote player
 # ------------------------------------------------------------------------------
 # Handeling remote player command.
@@ -1858,7 +1885,7 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_data):
     Implementation: Alisson Leist (v1. 14/2/17)
                     Bayron Mahy, Alisson Leist (v2. 20/02/17)
                     Alisson Leist (v3. 17/03/17)
-					Alisson Leist (v4. 24/03/17)
+                    Alisson Leist (v4. 24/03/17)
     """
     ship_type = game_data['model_ship'][game_data['ships'][ship]['type']]
 
