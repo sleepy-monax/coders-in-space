@@ -499,32 +499,91 @@ def set_color(text, foreground_color, background_color):
 
     if foreground_color is not None: text = format_string % (color[foreground_color] + 30, text)
     if background_color is not None: text = format_string % (color[background_color] + 40, text)
+
     text += reset
 
     return text
 
+# ======================================================================================================================
+# ======================================================================================================================
+
+import os
+import shlex
+import struct
+import platform
+import subprocess
+
 def get_terminal_size():
-    """
-    return the size of the terminal
-     
+    """ 
+    Get the size of the terminal window.
+    
     Return
     ------
-    height, width: size of the terminal (int)
-    
-    Notes
-    -----
-    Code taken from python3 stdlib and translated to python2.
+    size : size of the terminal window (tuple(int, int))
+
+    Originally retrieved from
+    -------------------------
+    http://stackoverflow.com/questions/566746/how-to-get-console-window-width-in-python
     """
-    import os
-    env = os.environ
+    current_os = platform.system()
+    size = None
+
+    if current_os == 'Windows':
+        size = _get_terminal_size_windows()
+        if size is None:
+            size = _get_terminal_size_tput()
+
+    elif current_os in ['Linux', 'Darwin'] or current_os.startswith('CYGWIN'):
+        size = _get_terminal_size_linux()
+
+    if size is None:
+        return (90, 60)  # default value
+    else:
+        return size
+
+
+def _get_terminal_size_windows():
+    try:
+        from ctypes import windll, create_string_buffer
+        # stdin handle is -10
+        # stdout handle is -11
+        # stderr handle is -12
+        h = windll.kernel32.GetStdHandle(-12)
+        csbi = create_string_buffer(22)
+        res = windll.kernel32.GetConsoleScreenBufferInfo(h, csbi)
+        if res:
+            (bufx, bufy, curx, cury, wattr,
+             left, top, right, bottom,
+             maxx, maxy) = struct.unpack("hhhhHhhhhhh", csbi.raw)
+            sizex = right - left + 1
+            sizey = bottom - top + 1
+            return (sizex, sizey)
+    except:
+        pass
+
+
+def _get_terminal_size_tput():
+    # get terminal width
+    # src: http://stackoverflow.com/questions/263890/how-do-i-find-the-width-height-of-a-terminal-window
+    try:
+        cols = int(subprocess.check_call(shlex.split('tput cols')))
+        rows = int(subprocess.check_call(shlex.split('tput lines')))
+        return (cols, rows)
+    except:
+        pass
+
+
+def _get_terminal_size_linux():
     def ioctl_GWINSZ(fd):
         try:
-            import fcntl, termios, struct, os
-            cr = struct.unpack('hh', fcntl.ioctl(fd, termios.TIOCGWINSZ,
-        '1234'))
+            import fcntl
+            import termios
+            cr = struct.unpack('hh',
+                               fcntl.ioctl(fd, termios.TIOCGWINSZ, '1234'))
+            return cr
         except:
-            return
-        return cr
+            pass
+
     cr = ioctl_GWINSZ(0) or ioctl_GWINSZ(1) or ioctl_GWINSZ(2)
     if not cr:
         try:
@@ -534,5 +593,8 @@ def get_terminal_size():
         except:
             pass
     if not cr:
-        cr = (env.get('LINES', 25), env.get('COLUMNS', 80))
+        try:
+            cr = (os.environ['LINES'], os.environ['COLUMNS'])
+        except:
+            return None
     return int(cr[1]), int(cr[0])

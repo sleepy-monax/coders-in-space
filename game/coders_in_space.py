@@ -286,8 +286,10 @@ def show_splash_game(game_data):
         canvas = put_stars_field(canvas, 1, 1, screen_size[0] - 2, screen_size[1] - 2, 1)
 
         return canvas
+    # Setup main canvas.
+    rows, columns = get_terminal_size()
+    screen_size = (int(rows), int(columns))
 
-    screen_size = game_data['screen_size']
     c = create_canvas(screen_size[0], screen_size[1])
 
     # print the alien.
@@ -321,8 +323,9 @@ def show_end_game(game_data):
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
     implementation: Nicolas Van Bossuyt (v1. 27/02/17)
     """
-
-    screen_size = game_data['screen_size']
+    # Setup main canvas.
+    rows, columns = get_terminal_size()
+    screen_size = (int(rows), int(columns))
 
     # Load ascii fonts.
     font_small = load_ascii_font('font_small.txt')
@@ -553,7 +556,10 @@ def show_ship_list(player_name, game_data):
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
     Implementation: Nicolas Van Bossuyt (v1. 22/02/17)
     """
-    screen_size = game_data['screen_size']
+
+    # Setup main canvas.
+    rows, columns = get_terminal_size()
+    screen_size = (int(rows), int(columns))
 
     c_ship_list = create_canvas(106, 10 + len(game_data['ships']) + len(game_data['players']) * 4)
     put_box(c_ship_list, 0, 0, c_ship_list['size'][0], c_ship_list['size'][1], 'double')
@@ -620,230 +626,6 @@ def show_ship_list(player_name, game_data):
             raw_input('\033[%d;%dHPress enter to exit...' % (screen_size[1], 3))
         scroll -= 10
 
-
-def _show_game_board(game_data, hightlight_ship=None):
-    """
-    Show game board on the teminal.
-
-    Parameter
-    ---------
-    game_data: data of the game (dic).
-    (optional) hightlight_ship: ship to hightlight (str).
-
-    Version
-    -------
-    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-                   Nicolas Van Bossuyt (v2. 19/03/17)
-
-    Implementation: Nicolas Van Bossuyt (v0.1. 10/02/17)
-                    - Initial Implementation
-                    Nicolas Van Bossuyt (v0.2. 12/02/17)
-                    - Add ship direction.
-                    Nicolas Van Bossuyt (v0.3. 13/02/17)
-                    - Add player panel.
-                    Nicolas Van Bossuyt (v0.4. 19/02/17)
-                    - Screen refresh.
-                    Nicolas Van Bossuyt (v1.1. 23/02/17)
-                    - Game log on screen.
-                    Nicolas Van Bossuyt (v2.0. 01/03/17)
-                    - Add Ship list.
-                    Nicolas Van Bossuyt (v2.1. 19/03/17)
-                    - Improve ship list.
-    """
-    rows, columns = get_terminal_size()
-    screen_size = (int(rows), int(columns))
-
-    # Create a the main canvas.
-    c_screen = create_canvas(screen_size[0], screen_size[1])
-
-    # Put a cool artwork on the background.
-    c_screen = put_ascii_art(c_screen, 1, screen_size[1] - 30, 'planet')
-    if (screen_size > 190):
-        c_screen = put_ascii_art(c_screen, 191, screen_size[1] - 30, 'planet')
-    c_screen = put_box(c_screen, 0, 0, screen_size[0], screen_size[1], 'single')
-
-    # Create the board frame.
-    # --------------------------------------------------------------------------
-    game_board_size = (game_data['board_size'][0] * 3 + 5, game_data['board_size'][1] + 3)
-    c_board = create_canvas(game_board_size[0], game_board_size[1])
-    c_board = put_box(c_board, 0, 0, game_board_size[0], game_board_size[1])
-    c_board = put_text(c_board, 2, 0, u'[ Game Board ]')
-    c_board = put_stars_field(c_board, 1, 1, game_board_size[0] - 2, game_board_size[1] - 2, 1)
-
-    # Put horizontal coordinate.
-    coordinate_string = ''
-    for i in range(1, game_data['board_size'][0] + 1):
-        value_string = str(i)
-        if len(value_string) == 1:
-            value_string = ' ' + value_string
-        value_string += ' '
-        coordinate_string += value_string
-
-    c_board = put_text(c_board, 4, 1, coordinate_string, 1, 0, 'grey', 'white')
-
-    # Put vertical coordinate.
-    for i in range(1, game_data['board_size'][1] + 1):
-        value_string = str(i)
-        if len(value_string) == 1:
-            value_string = ' ' + value_string
-        c_board = put_text(c_board, 1, i + 1, value_string + ' ', 1, 0, 'grey', 'white')
-
-    # Put game board.
-    for x in range(game_data['board_size'][0]):
-        for y in range(game_data['board_size'][1]):
-            on_screen_board_tile = (x * 3 + 4, y + 2)
-
-            if len(game_data['board'][(x, y)]) == 1:
-                # When there are one, show somme information about.
-                ship_name = game_data['board'][(x, y)][0]
-                ship_type = game_data['ships'][ship_name]['type']
-                ship_icon = game_data['model_ship'][ship_type]['icon']
-                ship_owner = game_data['ships'][ship_name]['owner']
-                ship_owner_color = None
-
-                # Print ship on gameboard.
-                if game_data['ships'][ship_name]['owner'] != 'none':
-                    ship_owner_color = game_data['players'][game_data['ships'][ship_name]['owner']]['color']
-
-                ship_direction = game_data['ships'][ship_name]['direction']
-                ship_speed = game_data['ships'][ship_name]['speed']
-
-                # Put direction line.
-                direction_char = '|'
-
-                if ship_direction == (1, 1) or ship_direction == (-1, -1):
-                    direction_char = '\\'
-                elif ship_direction == (1, -1) or ship_direction == (-1, 1):
-                    direction_char = '/'
-                elif ship_direction == (1, 0) or ship_direction == (-1, 0):
-                    direction_char = u'─'
-
-                # Put the space sip in the gameboard.
-                if ship_name == hightlight_ship:
-                    c_board = put_text(c_board, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon, 1, 0,
-                                       ship_owner_color, 'yellow')
-                else:
-                    c_board = put_text(c_board, on_screen_board_tile[0] + 1, on_screen_board_tile[1], ship_icon, 1, 0,
-                                       ship_owner_color)
-
-                c_board = put_text(c_board, on_screen_board_tile[0] + 1 + ship_direction[0],
-                                   on_screen_board_tile[1] + ship_direction[1], direction_char, 1, 0, ship_owner_color)
-
-            elif len(game_data['board'][(x, y)]) > 0:
-                # in other case show how many ship there are in the tile.
-                c_board = put_text(c_board, on_screen_board_tile[0], on_screen_board_tile[1],
-                                   '[%d]' % (len(game_data['board'][(x, y)])), 1, 0, 'green')
-
-    game_board_location = (
-    screen_size[0] / 2 - (c_board['size'][0] - 31) / 2, (screen_size[1] - 7) / 2 - c_board['size'][1] / 2)
-    c_screen = put_canvas(c_screen, c_board, game_board_location[0], game_board_location[1])
-
-    # Ships list
-    # ---------------------------------------------------------------------------
-
-    nb_ships = len(game_data['ships'])
-    max_nb_ships = game_board_size[1] - 8
-    c_ships = {}
-    is_to_big = False
-
-    if (nb_ships) + 8 > game_board_size[1]:
-        c_ships = create_canvas(30, game_board_size[1] - 5)
-        is_to_big = True
-    else:
-        c_ships = create_canvas(30, nb_ships + 3)
-
-    ship_index = 0
-    for ship in game_data['ships']:
-        if ship_index <= max_nb_ships:
-            ship_data = game_data['ships'][ship]
-            ship_name = ship
-            ship_color = None
-
-            if ship_data['owner'] != 'none':
-                ship_color = game_data['players'][ship_data['owner']]['color']
-                ship_name = ship_name.replace(ship_data['owner'] + '_', '')
-
-            c_ships = put_text(c_ships, 1, ship_index + 2,
-                               str("(%d, %d)" % (ship_data['position'][0] + 1, ship_data['position'][1] + 1)),
-                               color=ship_color)
-            c_ships = put_text(c_ships, 10, ship_index + 2, ship_name, color=ship_color)
-
-        ship_index += 1
-
-    c_ships = put_text(c_ships, 1, 1, ' X,  Y  | Name' + ' ' * 20, color='grey', back_color='white')
-
-    if is_to_big:
-        c_ships = put_box(c_ships, 0, 0, 30, game_board_size[1] - 5)
-        c_ships = put_text(c_ships, 1, c_ships['size'][1] - 1, '- ' * 14)
-    else:
-        c_ships = put_box(c_ships, 0, 0, 30, nb_ships + 3)
-
-    c_ships = put_text(c_ships, 1, 0, '[ Ships ]')
-
-    c_screen = put_canvas(c_screen, c_ships, game_board_location[0] - 31, game_board_location[1] + 5)
-
-    # Game info
-    # --------------------------------------------------------------------------
-    c_info = create_canvas(30, 5)
-
-    c_info = put_text(c_info, 1, 1, 'Board:')
-    c_info = put_text(c_info, 8, 1, game_data['level_name'])
-
-    c_info = put_text(c_info, 1, 2, 'Round:')
-    c_info = put_text(c_info, 8, 2, '%s /%s' % (game_data['nb_rounds'], game_data['max_nb_rounds']))
-
-    c_info = put_text(c_info, 1, 3, 'Ships:')
-    c_info = put_text(c_info, 8, 3, str(len(game_data['ships'])))
-
-    c_info = put_box(c_info, 0, 0, 30, 5)
-
-    c_info = put_text(c_info, 1, 0, '[ Coders In Space ]')
-    c_screen = put_canvas(c_screen, c_info, game_board_location[0] - 31, game_board_location[1])
-
-    # Put players liste frame.
-    # --------------------------------------------------------------------------
-    players_bord_size = (len(game_data['players']) * 30 + 2, 7)
-    players_bord_location = (0, screen_size[1] - 7)
-
-    c_screen = put_box(c_screen, 0, players_bord_location[1], players_bord_size[0], players_bord_size[1])
-    c_screen = put_text(c_screen, 1, players_bord_location[1], u'[ Players ]')
-
-    # Put players list.
-    player_count = 0
-    for player in game_data['players']:
-        if player != 'none':
-            location = ((player_count * 30) + 1, players_bord_location[1] + 1,)
-            c_screen = put_box(c_screen, location[0], location[1], 30, 5, 'single')
-
-            # Put player informations.
-            c_screen = put_text(c_screen, location[0] + 2, location[1],
-                                '[ ' + game_data['players'][player]['name'] + ' ]',
-                                color=game_data['players'][player]['color'])
-            c_screen = put_text(c_screen, location[0] + 2, location[1] + 1,
-                                'Type: ' + game_data['players'][player]['type'])
-            c_screen = put_text(c_screen, location[0] + 2, location[1] + 2,
-                                'Money: ' + str(game_data['players'][player]['money']))
-            c_screen = put_text(c_screen, location[0] + 2, location[1] + 3,
-                                'Spaceship count: ' + str(game_data['players'][player]['nb_ships']))
-
-            player_count += 1
-
-    # Put Game Logs frame.
-    # --------------------------------------------------------------------------
-    logs_size = (screen_size[0] - players_bord_size[0], 7)
-    logs_location = (players_bord_size[0], screen_size[1] - 7)
-
-    c_screen = put_box(c_screen, logs_location[0], logs_location[1], logs_size[0], logs_size[1])
-    c_screen = put_text(c_screen, logs_location[0] + 1, logs_location[1], u'[ Game Logs ]')
-
-    line_index = 1
-    for line in game_data['game_logs'][-5:]:
-        c_screen = put_text(c_screen, logs_location[0] + 1, logs_location[1] + line_index, line)
-        line_index += 1
-
-    # Show the game board in the terminal.
-    print_canvas(c_screen)
-
 def show_game_board(game_data):
     """
     Show game board on the teminal.
@@ -859,18 +641,16 @@ def show_game_board(game_data):
 
     Implementation: Nicolas Van Bossuyt (v4. 10/02/17).
     """
-    
-    print 'RENDERING UI...'
-    # Setup main cnavas.
+
+    # Setup main canvas.
     rows, columns = get_terminal_size()
     screen_size = (int(rows), int(columns))
     c = create_canvas(*screen_size)
 
     # Render child canvas.
     c_game_board = render_game_board(game_data)
-    game_board_size = c_game_board['size']
     c_ship_list = render_ship_list(game_data, 30, screen_size[1] - 2)
-    c_game_logs = render_game_logs(game_data, screen_size[0] - 32, 30)
+    c_game_logs = render_game_logs(game_data, c_game_board['size'][0], 10)
 
     c = put_ascii_art(c, 1, screen_size[1] - 25, 'planet')
     if (screen_size > 190):
@@ -878,12 +658,17 @@ def show_game_board(game_data):
     c = put_box(c, 0, 0, *screen_size)
 
     # Put child canvas in the main canvas.
-    game_board_coords = (screen_size[0] / 2 - (c_game_board['size'][0] + 2) / 2, screen_size[1] / 2 - (c_game_board['size'][1] + 2) / 2)
-    c = put_window(c, c_game_board, 'GAME BOARD', game_board_coords[0], game_board_coords[1], c_game_board['size'][0] + 2, c_game_board['size'][1] + 2)
-    c = put_window(c, c_ship_list, 'SHIP LIST', 0, 0, c_ship_list['size'][0] + 2, c_ship_list['size'][1] + 2)
-    c = put_window(c, c_game_logs, 'GAME LOGS', 30, 0, c_game_logs['size'][0] + 2, c_game_logs['size'][1] + 2)
-    
-    print 'DONE !'
+    game_board_pos = (screen_size[0] / 2 - (c_game_board['size'][0] + 2) / 2,
+                      screen_size[1] / 2 - (c_game_board['size'][1] + 2) / 2 - (c_game_logs['size'][1] + 2) /2)
+
+    c = put_window(c, c_game_board, 'GAME BOARD', game_board_pos[0], game_board_pos[1], c_game_board['size'][0] + 2, c_game_board['size'][1] + 2)
+    c = put_window(c, c_game_logs, 'GAME LOGS', game_board_pos[0], game_board_pos[1] + c_game_board['size'][1] + 2, c_game_logs['size'][0] + 2, c_game_logs['size'][1] + 2)
+
+    if game_board_pos[0] - (c_ship_list['size'][0] + 2) > 0:
+        c = put_window(c, c_ship_list, 'SHIP LIST', 0, 0, c_ship_list['size'][0] + 2, c_ship_list['size'][1] + 2)
+
+
+
     print_canvas(c)
 
 def render_game_board(game_data):
@@ -965,8 +750,9 @@ def render_ship_list(game_data, width, height):
     ship_count = len(game_data['ships'])
     ship_index = 0
 
-    put_text(c, 0, 0, ' T | Coords | Name' + ' '*25, 1, 0, 'grey', 'white')
+    put_text(c, 0, 0, ' T | X   Y | Name' + ' '*25, 1, 0, 'grey', 'white')
     for player in game_data['players']:
+        ship_index += 1
         y = ship_index + 1
         put_text(c, 1, y, '%s (t:%s s:%d)' % (player, game_data['players'][player]['type'], game_data['players'][player]['nb_ships']))
         put_text(c, 0, y + 1, '-' * width)
@@ -1355,8 +1141,8 @@ def get_dumb_ai_spaceships(player_name, game_data):
     Implementation: Bayron Mahy (v1. 17/03/17)
     """
 
-    ship_name_list = ['Apple-Pen', 'Akbar', 'amiral', 'bob', 'fob', 'I\'m_Bob_Lenon', 'Frenay-Acceleray', '',
-                      'pew-pew-pew', 'Algobot', 'blblblblblblbl', 'Stack-overflow', 'mu', 'Seiyar', '25']
+    ship_name_list = ['Apple-Pen', 'Akbar', 'amiral', 'bob', 'fob', 'I\'m_Bob_Lenon', 'Frenay-Acceleray', 'Pomme verte',
+                      'pew-pew-pew', 'Algobot', 'blblblblblblbl', 'Stack-overflow', 'mu', 'Seiyar', '24', 'Monax']
     ship_type_list = game_data['model_ship'].keys()
 
     money = 100
@@ -2060,4 +1846,4 @@ def create_game_board(file_name, board_size, lost_ships_count):
     f.close()
 
 if __name__ == '__main__':
-    play_game('random', ('dumbInSpace', 'dumby', 'dumbo', 'botbot'), no_gui=False, no_splash=True, max_rounds_count=100)
+    play_game('random', ('dumbInSpace', 'dumby', 'dumbo', 'botbot'), no_gui=False, no_splash=False, max_rounds_count=100)
