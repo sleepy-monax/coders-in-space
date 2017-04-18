@@ -136,7 +136,7 @@ def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None,
     x, y: coordinate to pute the art (int).
     ascii_art_name: name of the art file (string).
     canvas: canvas to put the art on it (dic).
-    (optiona) color, back_color: color for the ASCII art (string).
+    (optional) color, back_color: color for the ASCII art (string).
     transparency_char: ignored char (str).
 
     Return
@@ -152,7 +152,7 @@ def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None,
     
     
     art_path = 'art/' + ascii_art_name + '.txt'
-    if (not path.isfile(art_path)): 
+    if not path.isfile(art_path):
         return canvas
     
     art_file = open(art_path,'r')
@@ -240,8 +240,9 @@ def load_ascii_font(font_name):
     current_char_width = 0
     
     font_path = 'art/%s' % (font_name)
-    if (not path.isfile(font_name)): 
+    if not path.isfile(font_path):
         return None
+
     f = open(font_path, 'r')
 
     for line in f:
@@ -254,7 +255,6 @@ def load_ascii_font(font_name):
             font[chars[char_index]]['width'] = current_char_width
 
             current_char = ''
-            current_char_width = 0
             char_index += 1
 
     f.close()
@@ -573,7 +573,7 @@ def _get_terminal_size_windows():
              maxx, maxy) = struct.unpack("hhhhHhhhhhh", csbi.raw)
             sizex = right - left + 1
             sizey = bottom - top + 1
-            return (sizex, sizey)
+            return int(sizex), int(sizey)
     except:
         pass
 
@@ -581,36 +581,13 @@ def _get_terminal_size_windows():
 def _get_terminal_size_tput():
     # get terminal width
     # src: http://stackoverflow.com/questions/263890/how-do-i-find-the-width-height-of-a-terminal-window
-    try:
-        cols = int(subprocess.check_call(shlex.split('tput cols')))
-        rows = int(subprocess.check_call(shlex.split('tput lines')))
-        return (cols, rows)
-    except:
-        pass
+
+    cols = int(subprocess.check_call(shlex.split('tput cols')))
+    rows = int(subprocess.check_call(shlex.split('tput lines')))
+    return int(cols), int(rows)
 
 
 def _get_terminal_size_linux():
-    def ioctl_GWINSZ(fd):
-        try:
-            import fcntl
-            import termios
-            cr = struct.unpack('hh',
-                               fcntl.ioctl(fd, termios.TIOCGWINSZ, '1234'))
-            return cr
-        except:
-            pass
-
-    cr = ioctl_GWINSZ(0) or ioctl_GWINSZ(1) or ioctl_GWINSZ(2)
-    if not cr:
-        try:
-            fd = os.open(os.ctermid(), os.O_RDONLY)
-            cr = ioctl_GWINSZ(fd)
-            os.close(fd)
-        except:
-            pass
-    if not cr:
-        try:
-            cr = (os.environ['LINES'], os.environ['COLUMNS'])
-        except:
-            return None
-    return int(cr[1]), int(cr[0])
+    # Open a tty sub process to get the size of the terminal.
+    rows, columns = os.popen('stty size', 'r').read().split()
+    return int(columns), int(rows)

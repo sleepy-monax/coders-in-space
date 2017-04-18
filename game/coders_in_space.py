@@ -39,12 +39,13 @@ from math import *
 from time import sleep  # because everyone needs to rest.
 from graphics import *
 from remote_play import notify_remote_orders, get_remote_orders, connect_to_player, disconnect_from_player
+import os
 
 # Game
 # ==============================================================================
 # Create a new game and play it.
 
-def play_game(level_name, players_list, no_splash=False, no_gui=False, notebook = False, distant_id=None, distant_ip=None, verbose_connection=False, max_rounds_count=10):
+def play_game(level_name, players_list, no_splash=False, no_gui=False, distant_id=None, distant_ip=None, verbose_connection=False, max_rounds_count=10, auto_screen_shots = False):
     """
     Main function that executes the game loop.
 
@@ -52,6 +53,7 @@ def play_game(level_name, players_list, no_splash=False, no_gui=False, notebook 
     ----------
     level_name: name of the level (str).
     players_list: list of players (list).
+    
     (optional) no_splash: ship the splash screen (bool).
     (optional) no_gui: disable game user interface (bool).
     (optional) notebook: enable the notebook mode of the game.
@@ -73,6 +75,9 @@ def play_game(level_name, players_list, no_splash=False, no_gui=False, notebook 
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
     Implementation: Bayron Mahy, Nicolas Van Bossuyt (v1. 15/02/17)
     """
+    # Create the log file.
+    open('log.txt', 'w').close()
+
     # Create the new game.
     is_distant_game = (distant_id != None and distant_ip != None)
 
@@ -91,14 +96,18 @@ def play_game(level_name, players_list, no_splash=False, no_gui=False, notebook 
     is_ship_buy = True
     game_running = True
     # Game loop.
+    total_turn = -1;
     while game_running:
-
+        if total_turn > -1:
+            write_log(game_data, u'It\'s turn nb %d' % (total_turn), 0)
         # Cleaning the pending_attack list.
         game_data['pending_attacks'] = []
 
         # Show the game board to the human player.
         if not no_gui:
             show_game_board(game_data)
+            if auto_screen_shots:
+                os.system('gnome-screenshot --window --file=pics/%d.png' % (total_turn))
 
         # getting players input.
         for player in players_list:
@@ -111,11 +120,10 @@ def play_game(level_name, players_list, no_splash=False, no_gui=False, notebook 
                     p_input = get_game_input(player, False, game_data)
                     game_data = parse_command(p_input, player, game_data)
                 elif game_data['players'][player]['type'] != 'none':
-                    game_data['game_logs'].append(player + ' has lost all these ships, so he has nothing to do.')
+
+                    write_log(game_data, player + ' has lost all these ships, so he has nothing to do.', 1)
 
         is_ship_buy = False
-
-        print game_data['pending_attacks']
 
         # Show the game board to the human player.
         if not no_gui:
@@ -132,6 +140,7 @@ def play_game(level_name, players_list, no_splash=False, no_gui=False, notebook 
         game_data = do_attack(game_data)
 
         game_data['nb_rounds'] += 1
+        total_turn += 1
         game_running = is_game_continue(game_data)
 
     # Disconect the remote player.
@@ -168,7 +177,7 @@ def new_game(level_name, players_list, connection=None):
     """
     # Create random a random game board.
     if level_name == 'random':
-        create_game_board('board/random.cis', (40, 40), 26)
+        create_game_board('board/random.cis', (30, 30), 26)
         level_name = 'board/random.cis'
 
     # Create game_data dictionary.
@@ -248,8 +257,8 @@ def new_game(level_name, players_list, connection=None):
                 game_data['players'][player]['color'] = 'magenta'
 
         else:
-            game_data['game_logs'].append(
-                'There is too many player the player %s is a loser he must be watch you playing' % (player))
+            write_log(game_data, 'There is too many player the player %s is a loser he must be watch you playing' % (player), 1)
+
 
         index_player += 1
 
@@ -507,6 +516,8 @@ def get_game_input(player_name, buy_ships, game_data):
     if game_data['is_remote_game'] and (player_type == 'human' or player_type == 'ai' or player_type == 'ai_dumb'):
         notify_remote_orders(game_data['players']['distant']['connection'], player_input)
 
+    write_log(game_data, '[%s] %s' % (player_name, player_input), 3)
+
     return player_input
 
 
@@ -532,13 +543,20 @@ def get_human_input(player_name, buy_ship, game_data):
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
     Implementation: Nicolas Van Bosuyt (v1. 22/02/17)
     """
-
     while True:
+        # Setup main canvas.
+        screen_size = get_terminal_size()
+
         # Show the game board to the human player.
         show_game_board(game_data)
         # Getting human player input.
-        player_input = raw_input(set_color('\033[%d;%dH %s>' % (game_data['screen_size'][1], 3, player_name),
-                                           game_data['players'][player_name]['color'], None))
+        c = create_canvas(screen_size[0], 5)
+        c = put_box(c, 0, 0, screen_size[0], 5, 'single')
+        c = put_text(c, 1, 0, '| PLAYER INPUT |')
+        print_canvas(c, screen_size[1] - 4, 0)
+
+        player_input = raw_input(set_color('\033[%d;%dH %s>' % (screen_size[1] - 2, 3, player_name),
+                                           game_data['players'][player_name]['color'], 'white'))
 
         # Run human player command.
         if '/' in player_input:
@@ -567,8 +585,7 @@ def show_ship_list(player_name, game_data):
     """
 
     # Setup main canvas.
-    rows, columns = get_terminal_size()
-    screen_size = (int(rows), int(columns))
+    screen_size = get_terminal_size()
 
     c_ship_list = create_canvas(106, 10 + len(game_data['ships']) + len(game_data['players']) * 4)
     put_box(c_ship_list, 0, 0, c_ship_list['size'][0], c_ship_list['size'][1], 'double')
@@ -607,9 +624,9 @@ def show_ship_list(player_name, game_data):
                 ship = game_data['ships'][ship_name]
                 if ship['owner'] == player:
                     c_ship_list = put_text(c_ship_list, 3, 4 + line_index,
-                                           '[%s] %s // heal: %spv ~ speed: %skm/s ~ Facing: %s' % (
+                                           '[%s] %s // heal: %spv ~ speed: %skm/s ~ Facing: %s ~ NextPos: %s' % (
                                            game_data['model_ship'][ship['type']]['icon'], ship_name,
-                                           ship['heal_points'], ship['speed'], str(ship['direction'])))
+                                           ship['heal_points'], ship['speed'], str(ship['direction']), str(predict_next_pos(game_data, ship_name))))
                     line_index += 1
         else:
             c_ship_list = put_text(c_ship_list, 3, 4 + line_index, 'Sorry no space ships:/')
@@ -652,8 +669,7 @@ def show_game_board(game_data):
     """
 
     # Setup main canvas.
-    rows, columns = get_terminal_size()
-    screen_size = (int(rows), int(columns))
+    screen_size = get_terminal_size()
     c = create_canvas(*screen_size)
 
     # Render child canvas.
@@ -741,7 +757,6 @@ def render_game_board(game_data):
         elif len(ships_at_coords) > 1:
             put_text(c, on_canvas_coords[0], on_canvas_coords[1], '[%d]' % len(ships_at_coords),  1, 0, 'green', None)
 
-    print game_data['pending_attacks']
     for coords in game_data['pending_attacks']:
         coords = coords[2]
         on_canvas_coords = (3 + coords[0] * 3, coords[1] + 1)
@@ -801,11 +816,16 @@ def render_game_logs(game_data, width, height):
     ------
     game_logs_canvas: rendered game logs (dic).
     """
+
     c = create_canvas(width, height)
     y = 0
+
+    message_color = ['blue', 'yellow', 'red', None]
+    message_prefix = ['INFO', 'WARN', 'ERRO', '>>>>']
     
     for message in game_data['game_logs'][-height:]:
-        c = put_text(c, 0, y, message)
+        c = put_text(c, 5, y,  message[1], 1, 0)
+        c = put_text(c, 0, y, message_prefix[message[0]], 1, 0, message_color[message[0]])
         y += 1
         
     return c
@@ -833,8 +853,7 @@ def get_distant_input(game_data):
     Implementation: Nicolas Van Bossuyt (v1. 03/03/17)
     """
 
-    connection = game_data['players']['distant']['connection']
-    return get_remote_orders(connection)
+    return game_data['players']['distant']['connection']
 
 # A.I.
 # ==============================================================================
@@ -1501,7 +1520,7 @@ def command_change_speed(ship, change, game_data):
 
     # Show a message when is a invalide change.
     else:
-        game_data['game_logs'].append('you cannot make that change on the speed of "' + ship + '"')
+        write_log(game_data, 'you cannot make that change on the speed of "' + ship + '"', 2)
 
     return game_data
 
@@ -1677,7 +1696,7 @@ def take_abandonned_ship(game_data):
                 game_data['board'][abandoned_ship['position']].append(new_ship_name)
                 game_data['ships'][new_ship_name] = abandoned_ship
                 game_data['players'][owner]['nb_ships'] += 1
-                game_data['game_logs'].append('%s as take %s !' % (owner, new_ship_name))
+                write_log(game_data, '%s as take %s !' % (owner, new_ship_name), 0)
 
     return game_data
 
@@ -1722,7 +1741,7 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_data):
             game_data['ships'][target_ship]['heal_points'] -= damages
 
             if game_data['ships'][target_ship]['heal_points'] <= 0:
-                game_data['game_logs'].append('%s kill %s' % (ship, target_ship))
+                write_log(game_data, '%s kill %s' % (ship, target_ship), 0)
 
                 # Remove the space ship.
                 game_data['board'][target_coordinate].remove(target_ship)
@@ -1835,7 +1854,6 @@ def vector2d_to_direction(vector):
     ---------
 	vector: vector2d to convert in direction (tuple(int, int)).
 
-
     Return
     ------
     direction: direction <up|down|left|right|up-left|up-right|down-left|down-right>(str).
@@ -1847,6 +1865,39 @@ def vector2d_to_direction(vector):
     """
     convert = {(0, 1): 'up', (-1, 1): 'up-left', (-1, 0): 'left', (-1, -1): 'down-left', (0, -1): 'down', (1, 0): 'right', (1, -1): 'down-right', (1, 1): 'up-right'}
     return convert[vector]
+
+def write_log(game_data, message, type=0):
+    """
+    Write a message in the game logs.
+    
+    Parameters
+    ----------
+    game_data: data of the game (dic).
+    message: message to print to game logs (str).
+    (optional) type: type of the message <0 = info|1 = warning|2 = error>
+    
+    Return
+    ------
+    game_data: new data of the game (dic)
+    
+    Version
+    -------
+    Specification: Nicolas Van Bossuyt (v1. 18/04/2017)
+    Implementation: Nicolas Van Bossuyt (v1. 18/04/2017)
+    """
+
+    game_data['game_logs'].append((type, message))
+    f = open('log.txt', 'r')
+    txt = f.read();
+    f.close()
+
+    txt += '%s\n' % message
+
+    f = open('log.txt', 'w')
+    f.write(txt)
+    f.close()
+
+    return game_data
 
 def create_game_board(file_name, board_size, lost_ships_count):
     """
@@ -1866,16 +1917,19 @@ def create_game_board(file_name, board_size, lost_ships_count):
     ship_type = ['fighter', 'destroyer', 'battlecruiser']
     ship_direction = ['up', 'up-left', 'up-right', 'left', 'right', 'down', 'down-left', 'down-right']
 
-    f = open(file_name, 'w')
+    buffer = ''
 
-    print >> f, "%d %d" % (board_size[0], board_size[1])
+
+    buffer += "%d %d\n" % (board_size[0], board_size[1])
 
     for i in range(lost_ships_count):
-        print >> f, '%d %d %s:%s %s' % (randint(0, board_size[0] - 1), randint(0, board_size[1] - 1), 'ship_' + str(i),
-                                        ship_type[randint(0, len(ship_type) - 1)], \
+        buffer += '%d %d %s:%s %s\n' % (randint(0, board_size[0] - 1), randint(0, board_size[1] - 1),
+                                        'ship_' + str(i), ship_type[randint(0, len(ship_type) - 1)],
                                         ship_direction[randint(0, len(ship_direction) - 1)])
-
+    f = open(file_name, 'w')
+    f.write(buffer)
     f.close()
 
+# Use for quick debuging.
 if __name__ == '__main__':
-    play_game('random', ('dumbInSpace', 'dumby', 'dumbo', 'botbot'), no_gui=False, no_splash=False, max_rounds_count=100)
+    play_game('random', ('dumb', 'Nicolas'), no_gui=False, no_splash=False, max_rounds_count=10, auto_screen_shots=True)

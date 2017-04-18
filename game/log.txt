@@ -1,0 +1,54 @@
+[dumb] Frenay-Acceleray:fighter Apple-Pen:destroyer Monax:destroyer 24:destroyer I'm_Bob_Lenon:destroyer Algobot:battlecruiser
+[Nicolas] f:fighter d:destroyer b:battlecruiser
+It's turn nb 0
+[dumb] Apple-Pen:faster Frenay-Acceleray:left Monax:slower 24:right I'm_Bob_Lenon:slower
+you cannot make that change on the speed of "dumb_Monax"
+you cannot make that change on the speed of "dumb_I'm_Bob_Lenon"
+[Nicolas] f:10-10 b:10-10 d:10-10
+It's turn nb 1
+[dumb] Apple-Pen:faster Frenay-Acceleray:faster Monax:slower 24:right I'm_Bob_Lenon:slower
+you cannot make that change on the speed of "dumb_Monax"
+you cannot make that change on the speed of "dumb_I'm_Bob_Lenon"
+[Nicolas] f:faster d:left b:right
+It's turn nb 2
+[dumb] Apple-Pen:right Frenay-Acceleray:left Monax:left 24:slower I'm_Bob_Lenon:right
+you cannot make that change on the speed of "dumb_24"
+[Nicolas] b:faster d:faster
+It's turn nb 3
+[dumb] Apple-Pen:right Frenay-Acceleray:left Monax:right 24:left I'm_Bob_Lenon:left
+[Nicolas] 
+dumb as take dumb_ship_10 !
+It's turn nb 4
+[dumb] ship_10:faster Apple-Pen:left Frenay-Acceleray:left Monax:right 24:slower I'm_Bob_Lenon:slower
+you cannot make that change on the speed of "dumb_24"
+you cannot make that change on the speed of "dumb_I'm_Bob_Lenon"
+[Nicolas] f:right
+Nicolas as take Nicolas_ship_14 !
+It's turn nb 5
+[dumb] ship_10:slower Apple-Pen:right Frenay-Acceleray:left Monax:slower 24:faster I'm_Bob_Lenon:left
+you cannot make that change on the speed of "dumb_Monax"
+[Nicolas] 
+dumb as take dumb_ship_9 !
+Nicolas as take Nicolas_ship_13 !
+It's turn nb 6
+[dumb] ship_10:right Apple-Pen:left Frenay-Acceleray:faster Monax:left 24:right I'm_Bob_Lenon:slower ship_9:right
+you cannot make that change on the speed of "dumb_I'm_Bob_Lenon"
+[Nicolas] 
+It's turn nb 7
+[dumb] ship_10:faster Apple-Pen:right Frenay-Acceleray:slower Monax:right 24:right I'm_Bob_Lenon:slower ship_9:slower
+you cannot make that change on the speed of "dumb_I'm_Bob_Lenon"
+you cannot make that change on the speed of "dumb_ship_9"
+[Nicolas] 
+Nicolas as take Nicolas_ship_3 !
+It's turn nb 8
+[dumb] ship_10:left Apple-Pen:slower Frenay-Acceleray:left Monax:left 24:right I'm_Bob_Lenon:left ship_9:left
+[Nicolas] d:8-20
+dumb as take dumb_ship_8 !
+It's turn nb 9
+[dumb] ship_10:faster Apple-Pen:left Frenay-Acceleray:faster Monax:left 24:left I'm_Bob_Lenon:left ship_9:right ship_8:left
+you cannot make that change on the speed of "dumb_ship_10"
+[Nicolas] d:9-19
+It's turn nb 10
+[dumb] ship_10:right Apple-Pen:left Frenay-Acceleray:left Monax:right 24:faster I'm_Bob_Lenon:faster ship_9:right ship_8:slower
+you cannot make that change on the speed of "dumb_ship_8"
+[Nicolas] d:14-21
