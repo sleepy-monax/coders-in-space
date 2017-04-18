@@ -44,7 +44,7 @@ from remote_play import notify_remote_orders, get_remote_orders, connect_to_play
 # ==============================================================================
 # Create a new game and play it.
 
-def play_game(level_name, players_list, no_splash=False, no_gui=False, distant_id=None, distant_ip=None, verbose_connection=False, max_rounds_count=10):
+def play_game(level_name, players_list, no_splash=False, no_gui=False, notebook = False, distant_id=None, distant_ip=None, verbose_connection=False, max_rounds_count=10):
     """
     Main function that executes the game loop.
 
@@ -54,6 +54,7 @@ def play_game(level_name, players_list, no_splash=False, no_gui=False, distant_i
     players_list: list of players (list).
     (optional) no_splash: ship the splash screen (bool).
     (optional) no_gui: disable game user interface (bool).
+    (optional) notebook: enable the notebook mode of the game.
     (optional) screen_size: size of the terminal window (tuple(int, int)).
     (optional) distant_id: ID of the distant player (int).
     (optional) distant_ip: IP of the distant player (str).
@@ -92,12 +93,12 @@ def play_game(level_name, players_list, no_splash=False, no_gui=False, distant_i
     # Game loop.
     while game_running:
 
+        # Cleaning the pending_attack list.
+        game_data['pending_attacks'] = []
+
         # Show the game board to the human player.
         if not no_gui:
             show_game_board(game_data)
-
-        # Cleaning the pending_attack list.
-        game_data['pending_attack'] = []
 
         # getting players input.
         for player in players_list:
@@ -114,9 +115,20 @@ def play_game(level_name, players_list, no_splash=False, no_gui=False, distant_i
 
         is_ship_buy = False
 
+        print game_data['pending_attacks']
+
+        # Show the game board to the human player.
+        if not no_gui:
+            show_game_board(game_data)
+
         # Do game loop.
         game_data = do_moves(game_data)
         game_data = take_abandonned_ship(game_data)
+        
+        # Show the game board to the human player.
+        if not no_gui:
+            show_game_board(game_data)
+
         game_data = do_attack(game_data)
 
         game_data['nb_rounds'] += 1
@@ -156,7 +168,7 @@ def new_game(level_name, players_list, connection=None):
     """
     # Create random a random game board.
     if level_name == 'random':
-        create_game_board('board/random.cis', (60, 40), 100)
+        create_game_board('board/random.cis', (40, 40), 26)
         level_name = 'board/random.cis'
 
     # Create game_data dictionary.
@@ -652,7 +664,7 @@ def show_game_board(game_data):
     c = put_ascii_art(c, 1, screen_size[1] - 25, 'planet')
     if (screen_size > 190):
         c_screen = put_ascii_art(c, 185, screen_size[1] - 25, 'planet')
-    c = put_box(c, 0, 0, *screen_size)
+    c = put_box(c, 0, 0, screen_size[0], screen_size[1], 'single')
 
     # Put child canvas in the main canvas.
     game_board_pos = (screen_size[0] / 2 - (c_game_board['size'][0] + 2) / 2,
@@ -729,11 +741,12 @@ def render_game_board(game_data):
         elif len(ships_at_coords) > 1:
             put_text(c, on_canvas_coords[0], on_canvas_coords[1], '[%d]' % len(ships_at_coords),  1, 0, 'green', None)
 
-    for coord in game_data['pending_attacks']:
-        
+    print game_data['pending_attacks']
+    for coords in game_data['pending_attacks']:
+        coords = coords[2]
         on_canvas_coords = (3 + coords[0] * 3, coords[1] + 1)
-        put_text(c, on_canvas_coords[0], on_canvas_coords[1], '[', 1, 0, 'red', None)
-        put_text(c, on_canvas_coords[0] + 2, on_canvas_coords[1], ']', 1, 0, 'red', None)
+        put_text(c, on_canvas_coords[0], on_canvas_coords[1], '[', 1, 0, 'white', 'red')
+        put_text(c, on_canvas_coords[0] + 2, on_canvas_coords[1], ']', 1, 0, 'white', 'red')
 
     return c
 
@@ -1142,7 +1155,6 @@ def predict_next_pos(game_data, ship_name):
 
     return predicted_postion
 
-
 # D.A.I.C.I.S
 # ------------------------------------------------------------------------------
 # [D]umb [A]rtificial [I]nteligence for [C]oders [I]n [S]pace.
@@ -1199,6 +1211,7 @@ def get_dumb_ai_spaceships(player_name, game_data):
 
     ship_name_list = ['Apple-Pen', 'Akbar', 'amiral', 'bob', 'fob', 'I\'m_Bob_Lenon', 'Frenay-Acceleray', 'Pomme_Verte',
                       'pew-pew-pew', 'Algobot', 'blblblblblblbl', 'Stack-overflow', 'mu', 'Seiyar', '24', 'Monax']
+					  
     ship_type_list = game_data['model_ship'].keys()
 
     money = 100
@@ -1402,17 +1415,13 @@ def command_buy_ships(ships, player, game_data):
                     Nicolas Van Bossuyt (v2. 23/02/17)
     """
     for ship in ships.split(' '):
-
         ship = ship.split(':')
 
         # Allow human player to dont have to write the full ship type name.
-        if ship[1][0] == 'f':
-            ship[1] = 'fighter'
-        elif ship[1][0] == 'd':
-            ship[1] = 'destroyer'
-        elif ship[1][0] == 'b':
-            ship[1] = 'battlecruiser'
+        ships_type_convert = {'f':'fighter', 'd':'destroyer', 'b':'battlecruiser'}
+        ship[1] = ships_type_convert[ship[1][0]]
 
+        # Get the price of the space ship.
         ship_price = game_data['model_ship'][ship[1]]['price']
 
         if ship_price <= game_data['players'][player]['money']:
@@ -1444,10 +1453,13 @@ def create_ship(player_name, ship_name, ship_type, game_data):
     """
 
     # Creatting the new space ship and add to the game_data.
-    game_data['ships'][ship_name] = {'type': ship_type, 'heal_points': game_data['model_ship'][ship_type]['max_heal'],
-                                     'direction': game_data['players'][player_name]['ships_starting_direction'],
-                                     'speed': 0, 'owner': player_name,
-                                     'position': game_data['players'][player_name]['ships_starting_point']}
+    game_data['ships'][ship_name] = {
+	                                    'type': ship_type, 'heal_points': game_data['model_ship'][ship_type]['max_heal'],
+                                        'direction': game_data['players'][player_name]['ships_starting_direction'],
+                                        'speed': 0, 'owner': player_name,
+                                        'position': game_data['players'][player_name]['ships_starting_point']
+									}
+									 
     game_data['board'][game_data['players'][player_name]['ships_starting_point']].append(ship_name)
     game_data['players'][player_name]['nb_ships'] += 1
 
@@ -1810,34 +1822,31 @@ def direction_to_vector2d(direction):
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
     Implementation: Nicolas Van Bossuyt (v1. 11/02/17)
     """
-    vector = ()
 
-    if direction == 'up':
-        vector = (0, 1)
+    convert = {'up': (0, 1), 'up-right':(1, 1),'right': (1, 0), 'down-right':(1, -1), 'down':(0, -1), 'down-left':(-1, -1), 'left':(-1, 0), 'up-left':(-1, 1)}
+    return convert[direction]
 
-    elif direction == 'up-right':
-        vector = (1, 1)
 
-    elif direction == 'right':
-        vector = (1, 0)
+def vector2d_to_direction(vector):
+    """
+    Convert a string direction to a vector2d.
 
-    elif direction == 'down-right':
-        vector = (1, -1)
+    Parameter
+    ---------
+	vector: vector2d to convert in direction (tuple(int, int)).
 
-    elif direction == 'down':
-        vector = (0, -1)
 
-    elif direction == 'down-left':
-        vector = (-1, -1)
+    Return
+    ------
+    direction: direction <up|down|left|right|up-left|up-right|down-left|down-right>(str).
 
-    elif direction == 'left':
-        vector = (-1, 0)
-
-    elif direction == 'up-left':
-        vector = (-1, 1)
-
-    return vector
-
+    Version
+    -------
+    Specification: Nicolas Van Bossuyt (v1. 18/04/17)
+    Implementation: Nicolas Van Bossuyt (v1. 18/04/17)
+    """
+    convert = {(0, 1): 'up', (-1, 1): 'up-left', (-1, 0): 'left', (-1, -1): 'down-left', (0, -1): 'down', (1, 0): 'right', (1, -1): 'down-right', (1, 1): 'up-right'}
+    return convert[vector]
 
 def create_game_board(file_name, board_size, lost_ships_count):
     """

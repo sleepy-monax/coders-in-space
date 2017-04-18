@@ -2,6 +2,7 @@
 
 
 from random import seed, randint
+from os import path
 
 
 # Gui framework
@@ -148,7 +149,13 @@ def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None,
     Implementation: Nicolas Van Bossuyt (V1. 15/02/17)
                     Nicolas Van Bossuyt (v2. 26/02/17)
     """
-    art_file = open('art/' + ascii_art_name + '.txt','r')
+    
+    
+    art_path = 'art/' + ascii_art_name + '.txt'
+    if (not path.isfile(art_path)): 
+        return canvas
+    
+    art_file = open(art_path,'r')
 
     line_index = 0
 
@@ -186,6 +193,10 @@ def put_ascii_text(canvas, font, text, x, y, color = None, back_color = None):
     """
     char_x = 0
 
+    if font is None:
+        canvas = put_text(canvas, x, y, text, 1, 0, color, back_color)
+        return canvas
+    
     for char in text:
         char_ascii = font[char]
         char_width = char_ascii['width']
@@ -227,8 +238,11 @@ def load_ascii_font(font_name):
     char_index = 0
     current_char = ''
     current_char_width = 0
-
-    f = open('art/%s' % (font_name), 'r')
+    
+    font_path = 'art/%s' % (font_name)
+    if (not path.isfile(font_name)): 
+        return None
+    f = open(font_path, 'r')
 
     for line in f:
         current_char_width = len(line.replace('@', ''))
@@ -267,6 +281,8 @@ def mesure_ascii_text(font, text):
     Implementation: Nicolas Van Bossuyt (v1. 22/02/17)
     """
     lenght = 0
+    if font is None:
+        return len(text)
 
     for char in text:
         char_ascii = font[char]
