@@ -44,8 +44,7 @@ from remote_play import notify_remote_orders, get_remote_orders, connect_to_play
 # ==============================================================================
 # Create a new game and play it.
 
-def play_game(level_name, players_list, no_splash=False, no_gui=False, screen_size=(190, 50), distant_id=None,
-              distant_ip=None, verbose_connection=False, max_rounds_count=10):
+def play_game(level_name, players_list, no_splash=False, no_gui=False, distant_id=None, distant_ip=None, verbose_connection=False, max_rounds_count=10):
     """
     Main function that executes the game loop.
 
@@ -58,7 +57,6 @@ def play_game(level_name, players_list, no_splash=False, no_gui=False, screen_si
     (optional) screen_size: size of the terminal window (tuple(int, int)).
     (optional) distant_id: ID of the distant player (int).
     (optional) distant_ip: IP of the distant player (str).
-    (optional) verbose_connection: anabled connection output in terminal (bool).
     (optional) max_rounds_count: number of rounds (int).
 
     Return
@@ -82,7 +80,6 @@ def play_game(level_name, players_list, no_splash=False, no_gui=False, screen_si
     else:
         game_data = new_game(level_name, players_list)
 
-    game_data['screen_size'] = screen_size
     game_data['max_nb_rounds'] = max_rounds_count
 
     # Show the splash screen.
@@ -732,6 +729,12 @@ def render_game_board(game_data):
         elif len(ships_at_coords) > 1:
             put_text(c, on_canvas_coords[0], on_canvas_coords[1], '[%d]' % len(ships_at_coords),  1, 0, 'green', None)
 
+    for coord in game_data['pending_attacks']:
+        
+        on_canvas_coords = (3 + coords[0] * 3, coords[1] + 1)
+        put_text(c, on_canvas_coords[0], on_canvas_coords[1], '[', 1, 0, 'red', None)
+        put_text(c, on_canvas_coords[0] + 2, on_canvas_coords[1], ']', 1, 0, 'red', None)
+
     return c
 
 def render_ship_list(game_data, width, height):
@@ -948,33 +951,14 @@ def move_to(game_data, ship, coordinates):
     Version
     -------
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
-    """
-
-    passdef move_to(game_data, ship, coordinates):
-    """
-    Move a ship at given coordinates.
-    
-    Parameters
-    ----------
-    game_data: data of the game (dic).
-    ship: name of the ship to move (str).
-    coordinates: destination of the ship (tuple(int, int)).
-    
-    Return
-    ------
-    input: input to execute <left, right, faster, slower>(str).
-    
-    
-    Version
-    -------
-    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
     Implementation: Bayron Mahy (v1. 16/04/17).
     """
+    
     #check if changing direction is a good idee.
     direction_base = game_data['ships'][ship]['direction']
     
     #determine the vector of the 2 direction around the actual.
-    if abs(direction_base[0] + direction_base[1]) == 2 or direction_base[0] + direction_base[1] == 0 :
+    if abs(direction_base[0] + direction_base[1]) == 2 or direction_base[0] + direction_base[1] == 0:
         direction_rotate_one_dir = (0,direction_base[1])
         direction_rotate_other_dir = (direction_base[0],0)
     elif direction_base[0] == 0:
@@ -995,10 +979,12 @@ def move_to(game_data, ship, coordinates):
     dist_maybe_nc_3_to_coord = get_distance(maybe_new_coord_3, coordinates, game_data['board_size'])
     
     #compare the distance between each coords and the goal to determine which coordinates are the best choice
-    if dist_maybe_nc_2_to_coord < dist_maybe_nc_1_to_coord and dist_maybe_nc_2_to_coord < dist_maybe_nc_3_to_coord
+    if dist_maybe_nc_2_to_coord < dist_maybe_nc_1_to_coord and dist_maybe_nc_2_to_coord < dist_maybe_nc_3_to_coord:
         #changer la direction vers direction_rotate_other_dir
-    elif if dist_maybe_nc_1_to_coord < dist_maybe_nc_2_to_coord and dist_maybe_nc_1_to_coord < dist_maybe_nc_3_to_coord
+        pass
+    elif dist_maybe_nc_1_to_coord < dist_maybe_nc_2_to_coord and dist_maybe_nc_1_to_coord < dist_maybe_nc_3_to_coord:
         #changer la direction vers direction_rotate_one_dir
+        pass
     else:
     #if changing direction wasn't a good idee maybe change the speed.
         speed = float(game_data['ships'][ship]['speed'])
@@ -1017,9 +1003,11 @@ def move_to(game_data, ship, coordinates):
                 
             #determine which speed is the best to reach the goal with minimum loops.
             if speed_rate > speed_p1_rate  and speed_p1_rate < speed_11_rate:
-                return '%s: faster' %ship
+                return '%s: faster' % ship
             elif speed_rate > speed_l1_rate  and speed_l1_rate < speed_p1_rate:
-                return '%s: slower' %ship
+                return '%s: slower' % ship
+
+    return ''
 
 
 def get_ai_spaceships(player_name, game_data):
@@ -1150,8 +1138,7 @@ def predict_next_pos(game_data, ship_name):
     speed = game_data['ships'][ship_name]['speed']
     position = game_data['ships'][ship_name]['position']
     direction = game_data['ships'][ship_name]['direction']
-    predicted_postion = convert_coordinates((position[0] + direction[0] * speed, position[1] + direction[1] * speed),
-                                            game_data['board_size'])
+    predicted_postion = convert_coordinates((position[0] + direction[0] * speed, position[1] + direction[1] * speed), game_data['board_size'])
 
     return predicted_postion
 
@@ -1210,7 +1197,7 @@ def get_dumb_ai_spaceships(player_name, game_data):
     Implementation: Bayron Mahy (v1. 17/03/17)
     """
 
-    ship_name_list = ['Apple-Pen', 'Akbar', 'amiral', 'bob', 'fob', 'I\'m_Bob_Lenon', 'Frenay-Acceleray', 'Pomme verte',
+    ship_name_list = ['Apple-Pen', 'Akbar', 'amiral', 'bob', 'fob', 'I\'m_Bob_Lenon', 'Frenay-Acceleray', 'Pomme_Verte',
                       'pew-pew-pew', 'Algobot', 'blblblblblblbl', 'Stack-overflow', 'mu', 'Seiyar', '24', 'Monax']
     ship_type_list = game_data['model_ship'].keys()
 
@@ -1325,23 +1312,6 @@ def convert_coordinates(coord, size):
     """
 
     def convert(a, size):
-        """subbtract or add board size to coordinate depending on their position.
-
-        Parameters
-        ----------
-        a: coordinate to convert (int).
-        size: board size to add/sub (int).
-
-        Return
-        ------
-        a: coordinate after convertion (int).
-
-        Version
-        -------
-        Specification: Bayron Mahy (v1. 22/02/17)
-        Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
-        """
-        # Apply toric space.
         if a >= size:
             a -= size
         elif a < 0:
@@ -1601,22 +1571,6 @@ def to_unit_vector(vector):
     """
 
     def convert(value):
-        """
-        turn the float value into int with specifical criterium.
-
-        parameter
-        ---------
-        value: value to convert
-
-        return
-        ------
-        1, -1, 0: Value after round.
-
-        Version
-        -------
-        Specification: Bayron Mahy (v1. 11/02/17)
-        Implementation: Nicolas Van Bossuyt (v1. 22/02/17)
-        """
         if value > 0.25:
             return 1
         elif value < -0.25:
