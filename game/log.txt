@@ -1,54 +1,61 @@
-[dumb] Frenay-Acceleray:fighter Apple-Pen:destroyer Monax:destroyer 24:destroyer I'm_Bob_Lenon:destroyer Algobot:battlecruiser
-[Nicolas] f:fighter d:destroyer b:battlecruiser
+[dumb] Seiyar:destroyer I'm_Bob_Lenon:fighter blblblblblblbl:destroyer Pomme_Verte:fighter Frenay-Acceleray:fighter bob:fighter mu:fighter 24:battlecruiser
+[dumby] Algobot:battlecruiser Apple-Pen:battlecruiser amiral:battlecruiser Pomme_Verte:fighter
 It's turn nb 0
-[dumb] Apple-Pen:faster Frenay-Acceleray:left Monax:slower 24:right I'm_Bob_Lenon:slower
-you cannot make that change on the speed of "dumb_Monax"
-you cannot make that change on the speed of "dumb_I'm_Bob_Lenon"
-[Nicolas] f:10-10 b:10-10 d:10-10
+[dumb] Frenay-Acceleray:slower Pomme_Verte:left blblblblblblbl:left bob:slower mu:right I'm_Bob_Lenon:right Seiyar:faster
+[dumby] Algobot:slower amiral:faster Pomme_Verte:right Apple-Pen:slower
+you cannot make that change on the speed of "dumb_Frenay-Acceleray"
+you cannot make that change on the speed of "dumb_bob"
+you cannot make that change on the speed of "dumby_Algobot"
+you cannot make that change on the speed of "dumby_Apple-Pen"
 It's turn nb 1
-[dumb] Apple-Pen:faster Frenay-Acceleray:faster Monax:slower 24:right I'm_Bob_Lenon:slower
-you cannot make that change on the speed of "dumb_Monax"
-you cannot make that change on the speed of "dumb_I'm_Bob_Lenon"
-[Nicolas] f:faster d:left b:right
+[dumb] Frenay-Acceleray:left Pomme_Verte:slower blblblblblblbl:right bob:faster mu:faster I'm_Bob_Lenon:right Seiyar:left
+[dumby] Algobot:faster amiral:faster Pomme_Verte:slower Apple-Pen:faster
+you cannot make that change on the speed of "dumb_Pomme_Verte"
+you cannot make that change on the speed of "dumby_amiral"
+you cannot make that change on the speed of "dumby_Pomme_Verte"
 It's turn nb 2
-[dumb] Apple-Pen:right Frenay-Acceleray:left Monax:left 24:slower I'm_Bob_Lenon:right
-you cannot make that change on the speed of "dumb_24"
-[Nicolas] b:faster d:faster
+[dumb] Frenay-Acceleray:left Pomme_Verte:left blblblblblblbl:faster bob:left mu:right I'm_Bob_Lenon:left Seiyar:faster
+[dumby] Algobot:right amiral:faster Pomme_Verte:faster Apple-Pen:right
+you cannot make that change on the speed of "dumby_amiral"
 It's turn nb 3
-[dumb] Apple-Pen:right Frenay-Acceleray:left Monax:right 24:left I'm_Bob_Lenon:left
-[Nicolas] 
-dumb as take dumb_ship_10 !
+[dumb] Frenay-Acceleray:slower Pomme_Verte:left blblblblblblbl:right bob:faster mu:faster I'm_Bob_Lenon:faster Seiyar:left
+[dumby] Algobot:left amiral:left Pomme_Verte:faster Apple-Pen:right
+you cannot make that change on the speed of "dumb_Frenay-Acceleray"
+dumby as take dumby_ship_2 !
 It's turn nb 4
-[dumb] ship_10:faster Apple-Pen:left Frenay-Acceleray:left Monax:right 24:slower I'm_Bob_Lenon:slower
-you cannot make that change on the speed of "dumb_24"
-you cannot make that change on the speed of "dumb_I'm_Bob_Lenon"
-[Nicolas] f:right
-Nicolas as take Nicolas_ship_14 !
+[dumb] Frenay-Acceleray:left Pomme_Verte:right blblblblblblbl:left bob:left mu:right I'm_Bob_Lenon:faster Seiyar:left
+[dumby] Algobot:faster ship_2:slower amiral:left Pomme_Verte:right Apple-Pen:faster
+you cannot make that change on the speed of "dumby_Algobot"
+you cannot make that change on the speed of "dumby_ship_2"
+you cannot make that change on the speed of "dumby_Apple-Pen"
 It's turn nb 5
-[dumb] ship_10:slower Apple-Pen:right Frenay-Acceleray:left Monax:slower 24:faster I'm_Bob_Lenon:left
-you cannot make that change on the speed of "dumb_Monax"
-[Nicolas] 
-dumb as take dumb_ship_9 !
-Nicolas as take Nicolas_ship_13 !
+[dumb] Frenay-Acceleray:left Pomme_Verte:faster blblblblblblbl:slower bob:faster mu:left I'm_Bob_Lenon:left Seiyar:right
+[dumby] Algobot:right ship_2:faster amiral:right Pomme_Verte:slower Apple-Pen:left
 It's turn nb 6
-[dumb] ship_10:right Apple-Pen:left Frenay-Acceleray:faster Monax:left 24:right I'm_Bob_Lenon:slower ship_9:right
-you cannot make that change on the speed of "dumb_I'm_Bob_Lenon"
-[Nicolas] 
+[dumb] Frenay-Acceleray:left Pomme_Verte:faster blblblblblblbl:slower bob:slower mu:faster I'm_Bob_Lenon:right Seiyar:left
+[dumby] Algobot:faster ship_2:faster amiral:left Pomme_Verte:faster Apple-Pen:faster
+you cannot make that change on the speed of "dumb_blblblblblblbl"
+you cannot make that change on the speed of "dumby_Algobot"
+you cannot make that change on the speed of "dumby_ship_2"
+you cannot make that change on the speed of "dumby_Apple-Pen"
 It's turn nb 7
-[dumb] ship_10:faster Apple-Pen:right Frenay-Acceleray:slower Monax:right 24:right I'm_Bob_Lenon:slower ship_9:slower
-you cannot make that change on the speed of "dumb_I'm_Bob_Lenon"
-you cannot make that change on the speed of "dumb_ship_9"
-[Nicolas] 
-Nicolas as take Nicolas_ship_3 !
+[dumb] Frenay-Acceleray:slower Pomme_Verte:faster blblblblblblbl:faster bob:slower mu:faster I'm_Bob_Lenon:faster Seiyar:faster
+[dumby] Algobot:faster ship_2:left amiral:slower Pomme_Verte:slower Apple-Pen:faster
+you cannot make that change on the speed of "dumb_Frenay-Acceleray"
+you cannot make that change on the speed of "dumb_Seiyar"
+you cannot make that change on the speed of "dumby_Algobot"
+you cannot make that change on the speed of "dumby_Apple-Pen"
 It's turn nb 8
-[dumb] ship_10:left Apple-Pen:slower Frenay-Acceleray:left Monax:left 24:right I'm_Bob_Lenon:left ship_9:left
-[Nicolas] d:8-20
-dumb as take dumb_ship_8 !
+[dumb] Frenay-Acceleray:slower Pomme_Verte:slower blblblblblblbl:right bob:right mu:slower I'm_Bob_Lenon:slower Seiyar:faster
+[dumby] Algobot:slower ship_2:slower amiral:left Pomme_Verte:right Apple-Pen:left
+you cannot make that change on the speed of "dumb_Frenay-Acceleray"
+you cannot make that change on the speed of "dumb_Seiyar"
 It's turn nb 9
-[dumb] ship_10:faster Apple-Pen:left Frenay-Acceleray:faster Monax:left 24:left I'm_Bob_Lenon:left ship_9:right ship_8:left
-you cannot make that change on the speed of "dumb_ship_10"
-[Nicolas] d:9-19
+[dumb] Frenay-Acceleray:faster Pomme_Verte:right blblblblblblbl:left bob:slower mu:right I'm_Bob_Lenon:slower Seiyar:left
+[dumby] Algobot:right ship_2:faster amiral:right Pomme_Verte:faster Apple-Pen:left
 It's turn nb 10
-[dumb] ship_10:right Apple-Pen:left Frenay-Acceleray:left Monax:right 24:faster I'm_Bob_Lenon:faster ship_9:right ship_8:slower
-you cannot make that change on the speed of "dumb_ship_8"
-[Nicolas] d:14-21
+[dumb] Frenay-Acceleray:left Pomme_Verte:faster blblblblblblbl:right bob:slower mu:faster I'm_Bob_Lenon:left Seiyar:slower
+[dumby] Algobot:left ship_2:faster amiral:left Pomme_Verte:right Apple-Pen:left
+you cannot make that change on the speed of "dumb_bob"
+you cannot make that change on the speed of "dumby_ship_2"
+dumby as take dumby_ship_17 !

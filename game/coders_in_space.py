@@ -41,11 +41,13 @@ from graphics import *
 from remote_play import notify_remote_orders, get_remote_orders, connect_to_player, disconnect_from_player
 import os
 
+
 # Game
 # ==============================================================================
 # Create a new game and play it.
 
-def play_game(level_name, players_list, no_splash=False, no_gui=False, distant_id=None, distant_ip=None, verbose_connection=False, max_rounds_count=10, auto_screen_shots = False):
+def play_game(level_name, players_list, no_splash=False, no_gui=False, distant_id=None, distant_ip=None,
+              verbose_connection=False, max_rounds_count=10, auto_screen_shots=False):
     """
     Main function that executes the game loop.
 
@@ -102,6 +104,7 @@ def play_game(level_name, players_list, no_splash=False, no_gui=False, distant_i
             write_log(game_data, u'It\'s turn nb %d' % (total_turn), 0)
         # Cleaning the pending_attack list.
         game_data['pending_attacks'] = []
+        pending_command = []
 
         # Show the game board to the human player.
         if not no_gui:
@@ -112,16 +115,17 @@ def play_game(level_name, players_list, no_splash=False, no_gui=False, distant_i
         # getting players input.
         for player in players_list:
 
-            # Get current player input.
-            if is_ship_buy:
-                game_data = command_buy_ships(get_game_input(player, True, game_data), player, game_data)
+            if is_ship_buy or game_data['players'][player]['nb_ships'] > 0:
+                pending_command.append((player, get_game_input(player, is_ship_buy, game_data)))
             else:
-                if game_data['players'][player]['nb_ships'] > 0:
-                    p_input = get_game_input(player, False, game_data)
-                    game_data = parse_command(p_input, player, game_data)
-                elif game_data['players'][player]['type'] != 'none':
+                write_log(game_data, player + ' has lost all these ships, so he has nothing to do.', 1)
 
-                    write_log(game_data, player + ' has lost all these ships, so he has nothing to do.', 1)
+        # Executing pending commands.
+        for command in pending_command:
+            if is_ship_buy:
+                game_data = command_buy_ships(command[1], command[0], game_data)
+            else:
+                game_data = parse_command(command[1], command[0], game_data)
 
         is_ship_buy = False
 
@@ -132,7 +136,7 @@ def play_game(level_name, players_list, no_splash=False, no_gui=False, distant_i
         # Do game loop.
         game_data = do_moves(game_data)
         game_data = take_abandonned_ship(game_data)
-        
+
         # Show the game board to the human player.
         if not no_gui:
             show_game_board(game_data)
@@ -223,10 +227,7 @@ def new_game(level_name, players_list, connection=None):
         if index_player <= 4:
             game_data['players'][player] = {'name': player, 'money': 100, 'nb_ships': 0}
 
-            # Set player type.
-            if 'bot' in player or player == 'LAICIS':
-                game_data['players'][player]['type'] = 'ai'
-            elif 'dumb' in player:
+            if 'dumb' in player:
                 game_data['players'][player]['type'] = 'ai_dumb'
             elif player == 'distant':
                 game_data['players'][player]['type'] = 'distant'
@@ -241,8 +242,8 @@ def new_game(level_name, players_list, connection=None):
 
             elif index_player == 2:
                 game_data['players'][player]['ships_starting_point'] = (
-                game_data['board_size'][0] - 10, game_data['board_size'][1] - 10)
-                
+                    game_data['board_size'][0] - 10, game_data['board_size'][1] - 10)
+
                 game_data['players'][player]['ships_starting_direction'] = (-1, -1)
                 game_data['players'][player]['color'] = 'blue'
 
@@ -257,8 +258,8 @@ def new_game(level_name, players_list, connection=None):
                 game_data['players'][player]['color'] = 'magenta'
 
         else:
-            write_log(game_data, 'There is too many player the player %s is a loser he must be watch you playing' % (player), 1)
-
+            write_log(game_data,
+                      'There is too many player the player %s is a loser he must be watch you playing' % (player), 1)
 
         index_player += 1
 
@@ -304,6 +305,7 @@ def show_splash_game(game_data):
         canvas = put_stars_field(canvas, 1, 1, screen_size[0] - 2, screen_size[1] - 2, 1)
 
         return canvas
+
     # Setup main canvas.
     rows, columns = get_terminal_size()
     screen_size = (int(rows), int(columns))
@@ -494,13 +496,6 @@ def get_game_input(player_name, buy_ships, game_data):
         # get input from the human player.
         player_input = get_human_input(player_name, buy_ships, game_data)
 
-    elif player_type == 'ai':
-        # get input from the ai.
-        if buy_ships:
-            player_input = get_ai_spaceships(game_data, player_name)
-        else:
-            player_input = get_ai_input(game_data, player_name)
-
     elif player_type == 'ai_dumb':
         # Get input from the dumb ai.
         if buy_ships:
@@ -600,8 +595,8 @@ def show_ship_list(player_name, game_data):
         ship_model = game_data['model_ship'][ship_model_name]
         c_ship_list = put_text(c_ship_list, 3, 4 + line_index,
                                '[%s] %s // heal: %spv ~ speed: %skm/s ~ damages: %spv ~ attack range: %skm ~ price: %sG$ ' % (
-                               ship_model['icon'], ship_model_name, ship_model['max_heal'], ship_model['max_speed'],
-                               ship_model['damages'], ship_model['range'], ship_model['price']))
+                                   ship_model['icon'], ship_model_name, ship_model['max_heal'], ship_model['max_speed'],
+                                   ship_model['damages'], ship_model['range'], ship_model['price']))
         line_index += 1
 
     c_ship_list = put_text(c_ship_list, 1, 4 + line_index, '-' * 104)
@@ -625,8 +620,9 @@ def show_ship_list(player_name, game_data):
                 if ship['owner'] == player:
                     c_ship_list = put_text(c_ship_list, 3, 4 + line_index,
                                            '[%s] %s // heal: %spv ~ speed: %skm/s ~ Facing: %s ~ NextPos: %s' % (
-                                           game_data['model_ship'][ship['type']]['icon'], ship_name,
-                                           ship['heal_points'], ship['speed'], str(ship['direction']), str(predict_next_pos(game_data, ship_name))))
+                                               game_data['model_ship'][ship['type']]['icon'], ship_name,
+                                               ship['heal_points'], ship['speed'], str(ship['direction']),
+                                               str(predict_next_pos(game_data, ship_name))))
                     line_index += 1
         else:
             c_ship_list = put_text(c_ship_list, 3, 4 + line_index, 'Sorry no space ships:/')
@@ -651,6 +647,7 @@ def show_ship_list(player_name, game_data):
         else:
             raw_input('\033[%d;%dHPress enter to exit...' % (screen_size[1], 3))
         scroll -= 10
+
 
 def show_game_board(game_data):
     """
@@ -684,17 +681,18 @@ def show_game_board(game_data):
 
     # Put child canvas in the main canvas.
     game_board_pos = (screen_size[0] / 2 - (c_game_board['size'][0] + 2) / 2,
-                      screen_size[1] / 2 - (c_game_board['size'][1] + 2) / 2 - (c_game_logs['size'][1] + 2) /2)
+                      screen_size[1] / 2 - (c_game_board['size'][1] + 2) / 2 - (c_game_logs['size'][1] + 2) / 2)
 
-    c = put_window(c, c_game_board, 'GAME BOARD', game_board_pos[0], game_board_pos[1], c_game_board['size'][0] + 2, c_game_board['size'][1] + 2)
-    c = put_window(c, c_game_logs, 'GAME LOGS', game_board_pos[0], game_board_pos[1] + c_game_board['size'][1] + 2, c_game_logs['size'][0] + 2, c_game_logs['size'][1] + 2)
+    c = put_window(c, c_game_board, 'GAME BOARD', game_board_pos[0], game_board_pos[1], c_game_board['size'][0] + 2,
+                   c_game_board['size'][1] + 2)
+    c = put_window(c, c_game_logs, 'GAME LOGS', game_board_pos[0], game_board_pos[1] + c_game_board['size'][1] + 2,
+                   c_game_logs['size'][0] + 2, c_game_logs['size'][1] + 2)
 
     if game_board_pos[0] - (c_ship_list['size'][0] + 2) > 0:
         c = put_window(c, c_ship_list, 'SHIP LIST', 0, 0, c_ship_list['size'][0] + 2, c_ship_list['size'][1] + 2)
 
-
-
     print_canvas(c)
+
 
 def render_game_board(game_data):
     """
@@ -722,7 +720,7 @@ def render_game_board(game_data):
         c = put_text(c, 3 + offset * 3, 0, val_str, 1, 0, 'grey', 'white')
 
         # Vertical
-        c = put_text(c,0, 1 + offset, val_str, 1, 0, 'grey', 'white')
+        c = put_text(c, 0, 1 + offset, val_str, 1, 0, 'grey', 'white')
         offset += 1
 
     # Put Space ships.
@@ -752,10 +750,11 @@ def render_game_board(game_data):
                 direction_char = u'─'
 
             put_text(c, on_canvas_coords[0] + 1, on_canvas_coords[1], ship_icon, 1, 0, ship_color, None)
-            put_text(c, on_canvas_coords[0] + 1 + ship_direction[0], on_canvas_coords[1] + ship_direction[1], direction_char, 1, 0, ship_color, None)
+            put_text(c, on_canvas_coords[0] + 1 + ship_direction[0], on_canvas_coords[1] + ship_direction[1],
+                     direction_char, 1, 0, ship_color, None)
 
         elif len(ships_at_coords) > 1:
-            put_text(c, on_canvas_coords[0], on_canvas_coords[1], '[%d]' % len(ships_at_coords),  1, 0, 'green', None)
+            put_text(c, on_canvas_coords[0], on_canvas_coords[1], '[%d]' % len(ships_at_coords), 1, 0, 'green', None)
 
     for coords in game_data['pending_attacks']:
         coords = coords[2]
@@ -764,6 +763,7 @@ def render_game_board(game_data):
         put_text(c, on_canvas_coords[0] + 2, on_canvas_coords[1], ']', 1, 0, 'white', 'red')
 
     return c
+
 
 def render_ship_list(game_data, width, height):
     """
@@ -781,11 +781,12 @@ def render_ship_list(game_data, width, height):
     ship_count = len(game_data['ships'])
     ship_index = 0
 
-    put_text(c, 0, 0, ' T | X   Y | Name' + ' '*25, 1, 0, 'grey', 'white')
+    put_text(c, 0, 0, ' T | X   Y | Name' + ' ' * 25, 1, 0, 'grey', 'white')
     for player in game_data['players']:
         ship_index += 1
         y = ship_index + 1
-        put_text(c, 1, y, '%s (t:%s s:%d)' % (player, game_data['players'][player]['type'], game_data['players'][player]['nb_ships']))
+        put_text(c, 1, y, '%s (t:%s s:%d)' % (
+        player, game_data['players'][player]['type'], game_data['players'][player]['nb_ships']))
         put_text(c, 0, y + 1, '-' * width)
         ship_index += 2
         for ship in game_data['ships']:
@@ -798,12 +799,14 @@ def render_ship_list(game_data, width, height):
                 put_text(c, 4, y, str(game_data['ships'][ship]['position']))
 
                 # Ship name.
-                put_text(c, 14, y, ship[len(player + '_'):], 1, 0, game_data['players'][game_data['ships'][ship]['owner']]['color'])
+                put_text(c, 14, y, ship[len(player + '_'):], 1, 0,
+                         game_data['players'][game_data['ships'][ship]['owner']]['color'])
 
                 ship_index += 1
 
     return c
-    
+
+
 def render_game_logs(game_data, width, height):
     """
     Render the game logs.
@@ -822,14 +825,15 @@ def render_game_logs(game_data, width, height):
 
     message_color = ['blue', 'yellow', 'red', None]
     message_prefix = ['INFO', 'WARN', 'ERRO', '>>>>']
-    
+
     for message in game_data['game_logs'][-height:]:
-        c = put_text(c, 5, y,  message[1], 1, 0)
+        c = put_text(c, 5, y, message[1], 1, 0)
         c = put_text(c, 0, y, message_prefix[message[0]], 1, 0, message_color[message[0]])
         y += 1
-        
+
     return c
-    
+
+
 # Remote player
 # ------------------------------------------------------------------------------
 # Handeling remote player command.
@@ -855,297 +859,6 @@ def get_distant_input(game_data):
 
     return game_data['players']['distant']['connection']
 
-# A.I.
-# ==============================================================================
-# AI interactions
-
-# L.A.I.C.I.S.
-# ------------------------------------------------------------------------------
-# [L]earning [A]rtificial [I]nteligence for [C]oders [I]n [S]pace.
-
-def get_ai_input(game_data, player_name):
-    """
-    Get input from an AI player.
-
-    Parameter
-    ---------
-    player_name: name of the player (str).
-    game_data: state of the game (dic).
-
-    Return
-    ------
-    ai_input: game input from AI (str).
-
-    Version
-    -------
-    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-    Implementation: Nicolas Van Bossuyt (v1. 16/03/17)
-    """
-
-    action = ['faster', 'slower', 'left', 'right', 'attack']
-
-    ai_input = ''
-
-    for ship in game_data['ships']:
-        if game_data['ships'][ship]['owner'] == player_name:
-            ship_action = action[randint(0, len(action) - 1)]
-
-            if ship_action == 'slower' or ship_action == 'faster':
-                ship_action = speed(game_data, ship, ship_action)
-            elif ship_action == 'attack':
-                ship_action = attack(game_data, ship)
-
-            ai_input += '%s:%s ' % (ship, ship_action)
-
-    return ai_input[:-1].replace(player_name + '_', '')
-
-
-def fighter(game_data, ship, owner):
-    """
-    Get input for a fighter.
-    
-    Parameters
-    ----------
-    game_data: data of the game (dic).
-    ship: name of the ship to get input from (str).
-    owner: name of the owner of the ship (str).
-    
-    Return
-    ------
-    input: input for this ship <faster, slower, left, right, XX-YY>(str).
-    
-    Version
-    -------
-    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17)
-    """
-
-    pass
-
-def destroyer(game_data, ship, owner):
-    """
-    Get input for a destroyer.
-
-    Parameters
-    ----------
-    game_data: data of the game (dic).
-    ship: name of the ship to get input from (str).
-    owner: name of the owner of the ship (str).
-
-    Return
-    ------
-    input: input for this ship <faster, slower, left, right, XX-YY>(str).
-    
-    
-    Version
-    -------
-    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17)
-    """
-
-    pass
-
-def battlecruiser(game_data, ship, owner):
-    """
-    Get input for a battlecruiser.
-
-    Parameters
-    ----------
-    game_data: data of the game (dic).
-    ship: name of the ship to get input from (str).
-    owner: name of the owner of the ship (str).
-
-    Return
-    ------
-    input: input for this ship <faster, slower, left, right, XX-YY>(str).
-    
-    
-    Version
-    -------
-    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
-    """
-
-    pass
-
-def move_to(game_data, ship, coordinates):
-    """
-    Move a ship at given coordinates.
-    
-    Parameters
-    ----------
-    game_data: data of the game (dic).
-    ship: name of the ship to move (str).
-    coordinates: destination of the ship (tuple(int, int)).
-    
-    Return
-    ------
-    input: input to execute <left, right, faster, slower>(str).
-    
-    
-    Version
-    -------
-    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
-    Implementation: Bayron Mahy (v1. 16/04/17).
-    """
-    
-    #check if changing direction is a good idee.
-    direction_base = game_data['ships'][ship]['direction']
-    
-    #determine the vector of the 2 direction around the actual.
-    if abs(direction_base[0] + direction_base[1]) == 2 or direction_base[0] + direction_base[1] == 0:
-        direction_rotate_one_dir = (0,direction_base[1])
-        direction_rotate_other_dir = (direction_base[0],0)
-    elif direction_base[0] == 0:
-        direction_rotate_one_dir = (-1,direction_base[1])
-        direction_rotate_other_dir = (1,direction_base[1])
-    else:
-        direction_rotate_one_dir = (direction_base[0],-1)
-        direction_rotate_other_dir = (direction_base[0],1)
-    
-    #compute the 3 possible new coordinates.
-    maybe_new_coord_1 = predict_next_pos(game_data, ship, direction_rotate_one_dir) 
-    maybe_new_coord_2 = predict_next_pos(game_data, ship, direction_rotate_other_dir) 
-    maybe_new_coord_3 = predict_next_pos(game_data, ship, direction_base)
-    
-    #compute the distance between each coords and the goal.
-    dist_maybe_nc_1_to_coord = get_distance(maybe_new_coord_1, coordinates, game_data['board_size'])
-    dist_maybe_nc_2_to_coord = get_distance(maybe_new_coord_2, coordinates, game_data['board_size'])
-    dist_maybe_nc_3_to_coord = get_distance(maybe_new_coord_3, coordinates, game_data['board_size'])
-    
-    #compare the distance between each coords and the goal to determine which coordinates are the best choice
-    if dist_maybe_nc_2_to_coord < dist_maybe_nc_1_to_coord and dist_maybe_nc_2_to_coord < dist_maybe_nc_3_to_coord:
-        #changer la direction vers direction_rotate_other_dir
-        pass
-    elif dist_maybe_nc_1_to_coord < dist_maybe_nc_2_to_coord and dist_maybe_nc_1_to_coord < dist_maybe_nc_3_to_coord:
-        #changer la direction vers direction_rotate_one_dir
-        pass
-    else:
-    #if changing direction wasn't a good idee maybe change the speed.
-        speed = float(game_data['ships'][ship]['speed'])
-        #check if the speed isn't already good.
-        if dist_maybe_nc_3_to_coord != int(speed):
-            #compute how many game loop is needed to reach the goal with each speed in the case it is between 0 and max speed.
-            speed_rate = dist_maybe_nc_3_to_coord/speed
-            if int(speed) + 1 <= game_data['model_ship'][game_data['ships'][ship]['type']]['max_speed']:
-                speed_p1_rate = dist_maybe_nc_3_to_coord/(speed+1)
-            else:
-                speed_p1_rate = speed_rate
-            if int(speed) != 0:
-                speed_l1_rate = dist_maybe_nc_3_to_coord/(speed-1)
-            else:
-                speed_l1_rate = speed_rate
-                
-            #determine which speed is the best to reach the goal with minimum loops.
-            if speed_rate > speed_p1_rate  and speed_p1_rate < speed_11_rate:
-                return '%s: faster' % ship
-            elif speed_rate > speed_l1_rate  and speed_l1_rate < speed_p1_rate:
-                return '%s: slower' % ship
-
-    return ''
-
-
-def get_ai_spaceships(player_name, game_data):
-    """
-    Determine what ships to buy and turn it into a regulated command.
-
-    Parameters
-    ----------
-    player_name: name of the player (str).
-    game_data: state of the game (dic).
-
-    Return
-    ------
-    ai_input: game input from AI (str).
-
-    Version
-    -------
-    Specification: Nicolas Van Bossuyt (v1. 10/03/17)
-                   Bayron Mahy (v2. 17/03/17)
-    Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
-    """
-
-    return 'arow:fighter stardestroyer:destroyer race_cruiser:battlecruiser'
-
-
-def speed(game_data, ship, change):
-    """
-    Check if LAICIS can increase/decrease the speed of its ship
-
-    parameters
-    ----------
-    game_data: game's data (dic).
-    ship: targeted ship (str).
-    change: change applied by LAICIS to the ship (str).
-
-    return
-    ------
-    '%s:%s' % (ship, change): regular input for the game loop (str).
-
-    Version
-    -------
-    Specification: Bayron Mahy (v1. 20/03/17)
-    Implementation: Bayron Mahy (v1. 20/03/17)
-                    Nicolas Van Bossuyt (v2. 29/03/17)
-    """
-
-    ship_type = game_data['ships'][ship]['type']
-    ship_speed = game_data['ships'][ship]['speed']
-    ship_max_speed = game_data['model_ship'][ship_type]['max_speed']
-
-    if (change == 'faster' and ship_speed + 1 > ship_max_speed):
-        return 'slower'
-    elif (change == 'slower' and ship_speed - 1 < 0):
-        return 'faster'
-    else:
-        return change
-
-
-def attack(game_data, ship):
-    """
-    Attack command of LAICIS.
-
-    Parameters
-    ----------
-    game_data: data of the game (dic).
-    ship: name of the current ship (str).
-
-    Return
-    ------
-    attack input (str)
-
-    Version
-    -------
-    Specification: Nicolas Van Bossuyt (v1. 19/03/17).
-    Implementation: Nicolas Van Bossuyt (v1. 19/03/17).
-                    Bayron Mahy (v2. 22/03/17).
-    """
-
-    ship_pos = game_data['ships'][ship]['position']
-    ship_range = game_data['model_ship'][game_data['ships'][ship]['type']]['range']
-    ship_owner = game_data['ships'][ship]['owner']
-    nearby_ships = get_nearby_ship(game_data, ship, ship_range)
-
-    if len(nearby_ships) > 0:
-        ships_targeted = []
-
-        for perhaps_target in nearby_ships:
-            if game_data['ships'][perhaps_target]['owner'] != ship_owner and game_data['ships'][perhaps_target][
-                'owner'] != 'none':
-                ships_targeted.append(perhaps_target)
-
-        if len(ships_targeted) > 0:
-
-            targets_life = []
-
-            for target in ships_targeted:
-                targets_life.append(game_data['ships'][target]['heal_points'])
-
-            final_target = ships_targeted[targets_life.index(min(targets_life))]
-            target_coords = convert_coordinates(
-                (game_data['ships'][final_target]['position'][0], game_data['ships'][final_target]['position'][1]),
-                game_data['board_size'])
-            return '%d-%d' % (target_coords[0] + 1, target_coords[1] + 1)
-
-    return ''
-
 
 def predict_next_pos(game_data, ship_name):
     """
@@ -1170,9 +883,11 @@ def predict_next_pos(game_data, ship_name):
     speed = game_data['ships'][ship_name]['speed']
     position = game_data['ships'][ship_name]['position']
     direction = game_data['ships'][ship_name]['direction']
-    predicted_postion = convert_coordinates((position[0] + direction[0] * speed, position[1] + direction[1] * speed), game_data['board_size'])
+    predicted_postion = convert_coordinates((position[0] + direction[0] * speed, position[1] + direction[1] * speed),
+                                            game_data['board_size'])
 
     return predicted_postion
+
 
 # D.A.I.C.I.S
 # ------------------------------------------------------------------------------
@@ -1230,7 +945,7 @@ def get_dumb_ai_spaceships(player_name, game_data):
 
     ship_name_list = ['Apple-Pen', 'Akbar', 'amiral', 'bob', 'fob', 'I\'m_Bob_Lenon', 'Frenay-Acceleray', 'Pomme_Verte',
                       'pew-pew-pew', 'Algobot', 'blblblblblblbl', 'Stack-overflow', 'mu', 'Seiyar', '24', 'Monax']
-					  
+
     ship_type_list = game_data['model_ship'].keys()
 
     money = 100
@@ -1245,6 +960,7 @@ def get_dumb_ai_spaceships(player_name, game_data):
             money -= game_data['model_ship'][ship_type]['price']
 
     return army[:-1]
+
 
 # AI - command corection.
 # ------------------------------------------------------------------------------
@@ -1353,6 +1069,7 @@ def convert_coordinates(coord, size):
 
     return (convert(coord[0], size[0]), convert(coord[1], size[1]))
 
+
 # Game commands
 # ==============================================================================
 # Game command parsing and execution.
@@ -1409,6 +1126,7 @@ def parse_command(commands, player_name, game_data):
 
     return game_data
 
+
 # Ship creation
 # ------------------------------------------------------------------------------
 # Buy and create a spaceship.
@@ -1437,7 +1155,7 @@ def command_buy_ships(ships, player, game_data):
         ship = ship.split(':')
 
         # Allow human player to dont have to write the full ship type name.
-        ships_type_convert = {'f':'fighter', 'd':'destroyer', 'b':'battlecruiser'}
+        ships_type_convert = {'f': 'fighter', 'd': 'destroyer', 'b': 'battlecruiser'}
         ship[1] = ships_type_convert[ship[1][0]]
 
         # Get the price of the space ship.
@@ -1473,16 +1191,17 @@ def create_ship(player_name, ship_name, ship_type, game_data):
 
     # Creatting the new space ship and add to the game_data.
     game_data['ships'][ship_name] = {
-	                                    'type': ship_type, 'heal_points': game_data['model_ship'][ship_type]['max_heal'],
-                                        'direction': game_data['players'][player_name]['ships_starting_direction'],
-                                        'speed': 0, 'owner': player_name,
-                                        'position': game_data['players'][player_name]['ships_starting_point']
-									}
-									 
+        'type': ship_type, 'heal_points': game_data['model_ship'][ship_type]['max_heal'],
+        'direction': game_data['players'][player_name]['ships_starting_direction'],
+        'speed': 0, 'owner': player_name,
+        'position': game_data['players'][player_name]['ships_starting_point']
+    }
+
     game_data['board'][game_data['players'][player_name]['ships_starting_point']].append(ship_name)
     game_data['players'][player_name]['nb_ships'] += 1
 
     return game_data
+
 
 # Move Command
 # ------------------------------------------------------------------------------
@@ -1778,6 +1497,7 @@ def do_attack(game_data):
 
     return game_data
 
+
 # Utils
 # ==============================================================================
 # Somme use full function for a simple life. And also parse game file.
@@ -1842,7 +1562,8 @@ def direction_to_vector2d(direction):
     Implementation: Nicolas Van Bossuyt (v1. 11/02/17)
     """
 
-    convert = {'up': (0, 1), 'up-right':(1, 1),'right': (1, 0), 'down-right':(1, -1), 'down':(0, -1), 'down-left':(-1, -1), 'left':(-1, 0), 'up-left':(-1, 1)}
+    convert = {'up': (0, 1), 'up-right': (1, 1), 'right': (1, 0), 'down-right': (1, -1), 'down': (0, -1),
+               'down-left': (-1, -1), 'left': (-1, 0), 'up-left': (-1, 1)}
     return convert[direction]
 
 
@@ -1863,8 +1584,10 @@ def vector2d_to_direction(vector):
     Specification: Nicolas Van Bossuyt (v1. 18/04/17)
     Implementation: Nicolas Van Bossuyt (v1. 18/04/17)
     """
-    convert = {(0, 1): 'up', (-1, 1): 'up-left', (-1, 0): 'left', (-1, -1): 'down-left', (0, -1): 'down', (1, 0): 'right', (1, -1): 'down-right', (1, 1): 'up-right'}
+    convert = {(0, 1): 'up', (-1, 1): 'up-left', (-1, 0): 'left', (-1, -1): 'down-left', (0, -1): 'down',
+               (1, 0): 'right', (1, -1): 'down-right', (1, 1): 'up-right'}
     return convert[vector]
+
 
 def write_log(game_data, message, type=0):
     """
@@ -1899,6 +1622,7 @@ def write_log(game_data, message, type=0):
 
     return game_data
 
+
 def create_game_board(file_name, board_size, lost_ships_count):
     """
     Create a new "coders in space"'s board file.
@@ -1919,7 +1643,6 @@ def create_game_board(file_name, board_size, lost_ships_count):
 
     buffer = ''
 
-
     buffer += "%d %d\n" % (board_size[0], board_size[1])
 
     for i in range(lost_ships_count):
@@ -1930,6 +1653,7 @@ def create_game_board(file_name, board_size, lost_ships_count):
     f.write(buffer)
     f.close()
 
+
 # Use for quick debuging.
 if __name__ == '__main__':
-    play_game('random', ('dumb', 'Nicolas'), no_gui=False, no_splash=False, max_rounds_count=10, auto_screen_shots=True)
+    play_game('random', ('bob', 'dumb'))
