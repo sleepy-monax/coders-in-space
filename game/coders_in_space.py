@@ -200,13 +200,28 @@ def new_game(level_name, players_list, connection=None):
                  'is_remote_game': connection is not None}
 
     # Create ship specs sheet.
-    game_data['model_ship']['fighter'] = {'icon': u'F', 'max_heal': 3, 'max_speed': 5, 'damages': 1, 'range': 5,
+    game_data['model_ship']['fighter'] = {'icon': u'F',
+										  'max_heal': 3,
+										  'max_speed': 5,
+										  'damages': 1,
+										  'range': 5,
                                           'price': 10}
-    game_data['model_ship']['destroyer'] = {'icon': u'D', 'max_heal': 8, 'max_speed': 2, 'damages': 2, 'range': 7,
+										  
+    game_data['model_ship']['destroyer'] = {'icon': u'D',
+											'max_heal': 8,
+											'max_speed': 2,
+											'damages': 2,
+											'range': 7,
                                             'price': 20}
-    game_data['model_ship']['battlecruiser'] = {'icon': u'B', 'max_heal': 20, 'max_speed': 1, 'damages': 4, 'range': 10,
+											
+    game_data['model_ship']['battlecruiser'] = {'icon': u'B',
+												'max_heal': 20,
+												'max_speed': 1,
+												'damages': 4,
+												'range': 10,
                                                 'price': 30}
-    # (here  we can define new spaceship type if you want).
+												
+    # (here you can define new spaceship type if you want).
 
     # Create the game board.
     for line in range(game_file['size'][0]):
@@ -227,8 +242,8 @@ def new_game(level_name, players_list, connection=None):
         if index_player <= 4:
             game_data['players'][player] = {'name': player, 'money': 100, 'nb_ships': 0}
 
-            if 'dumb' in player:
-                game_data['players'][player]['type'] = 'ai_dumb'
+            if 'bot' in player:
+                game_data['players'][player]['type'] = 'ai'
             elif player == 'distant':
                 game_data['players'][player]['type'] = 'distant'
             else:
@@ -370,7 +385,6 @@ def show_end_game(game_data):
             if player in game_data['winners']:
                 # The player win the game.
                 text_lenght = mesure_ascii_text(font_standard, player)
-
                 text_font = font_standard
                 text_color = game_data['players'][player]['color']
 
@@ -496,12 +510,12 @@ def get_game_input(player_name, buy_ships, game_data):
         # get input from the human player.
         player_input = get_human_input(player_name, buy_ships, game_data)
 
-    elif player_type == 'ai_dumb':
+    elif player_type == 'ai':
         # Get input from the dumb ai.
         if buy_ships:
-            player_input = get_dumb_ai_spaceships(player_name, game_data)
+            player_input = get_ai_spaceships(game_data, player_name) 
         else:
-            player_input = get_dumb_ai_input(player_name, game_data)
+            player_input = get_ai_input(game_data, player_name)
 
     elif player_type == 'distant':
         # Get input from the distant player.
@@ -824,7 +838,7 @@ def render_game_logs(game_data, width, height):
     y = 0
 
     message_color = ['blue', 'yellow', 'red', None]
-    message_prefix = ['INFO', 'WARN', 'ERRO', '>>>>']
+    message_prefix = ['INFO', 'WARN', 'ERRO', 'INPT']
 
     for message in game_data['game_logs'][-height:]:
         c = put_text(c, 5, y, message[1], 1, 0)
@@ -859,20 +873,246 @@ def get_distant_input(game_data):
 
     return game_data['players']['distant']['connection']
 
+# A.I.C.I.S
+# ------------------------------------------------------------------------------
+# [A]rtificial [I]nteligence for [C]oders [I]n [S]pace.
 
-def predict_next_pos(game_data, ship_name):
+def get_ai_input(game_data, player_name):
     """
-    Predict the next position of a space ship.
+    Get input from an AI player.
+    Parameter
+    ---------
+    player_name: name of the player (str).
+    game_data: state of the game (dic).
+    Return
+    ------
+    ai_input: game input from AI (str).
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+    Implementation: Nicolas Van Bossuyt (v1. 16/03/17)
+    """
 
+    action = ['faster', 'slower', 'left', 'right', 'attack']
+
+    ai_input = ''
+
+    for ship in game_data['ships']:
+        if game_data['ships'][ship]['owner'] == player_name:
+            ship_action = action[randint(0, len(action) - 1)]
+
+            if ship_action == 'slower' or ship_action == 'faster':
+                ship_action = speed(game_data, ship, ship_action)
+            elif ship_action == 'attack':
+                ship_action = attack(game_data, ship)
+
+            ai_input += '%s:%s ' % (ship, ship_action)
+
+    return ai_input[:-1].replace(player_name + '_', '')
+
+
+def fighter(game_data, ship, owner):
+    """
+    Get input for a fighter.
+    
     Parameters
     ----------
     game_data: data of the game (dic).
-    ship_name: name of the spaceship to predicte the next position (str).
-
+    ship: name of the ship to get input from (str).
+    owner: name of the owner of the ship (str).
+    
     Return
     ------
-    predicted_postion : predicte_postion of the spaceship (tuple(int, int)).
+    input: input for this ship <faster, slower, left, right, XX-YY>(str).
+    
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17)
+    """
 
+    pass
+
+def destroyer(game_data, ship, owner):
+    """
+    Get input for a destroyer.
+    Parameters
+    ----------
+    game_data: data of the game (dic).
+    ship: name of the ship to get input from (str).
+    owner: name of the owner of the ship (str).
+    Return
+    ------
+    input: input for this ship <faster, slower, left, right, XX-YY>(str).
+    
+    
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17)
+    """
+
+    pass
+
+def battlecruiser(game_data, ship, owner):
+    """
+    Get input for a battlecruiser.
+    Parameters
+    ----------
+    game_data: data of the game (dic).
+    ship: name of the ship to get input from (str).
+    owner: name of the owner of the ship (str).
+    Return
+    ------
+    input: input for this ship <faster, slower, left, right, XX-YY>(str).
+    
+    
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
+    """
+
+    pass
+
+def move_to(game_data, ship, coordinates):
+    """
+    Move a ship at given coordinates.
+    
+    Parameters
+    ----------
+    game_data: data of the game (dic).
+    ship: name of the ship to move (str).
+    coordinates: destination of the ship (tuple(int, int)).
+    
+    Return
+    ------
+    input: input to execute <left, right, faster, slower>(str).
+    
+    
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
+    Implementation: Bayron Mahy (v1. 16/04/17).
+    """
+    
+    #check if changing direction is a good idee.
+    direction_base = game_data['ships'][ship]['direction']
+    
+    #determine the vector of the 2 direction around the actual.
+    if abs(direction_base[0] + direction_base[1]) == 2 or direction_base[0] + direction_base[1] == 0:
+        direction_rotate_one_dir = (0,direction_base[1])
+        direction_rotate_other_dir = (direction_base[0],0)
+    elif direction_base[0] == 0:
+        direction_rotate_one_dir = (-1,direction_base[1])
+        direction_rotate_other_dir = (1,direction_base[1])
+    else:
+        direction_rotate_one_dir = (direction_base[0],-1)
+        direction_rotate_other_dir = (direction_base[0],1)
+    
+    #compute the 3 possible new coordinates.
+    maybe_new_coord_1 = predict_next_pos(game_data, ship, direction_rotate_one_dir) 
+    maybe_new_coord_2 = predict_next_pos(game_data, ship, direction_rotate_other_dir) 
+    maybe_new_coord_3 = predict_next_pos(game_data, ship, direction_base)
+    
+    #compute the distance between each coords and the goal.
+    dist_maybe_nc_1_to_coord = get_distance(maybe_new_coord_1, coordinates, game_data['board_size'])
+    dist_maybe_nc_2_to_coord = get_distance(maybe_new_coord_2, coordinates, game_data['board_size'])
+    dist_maybe_nc_3_to_coord = get_distance(maybe_new_coord_3, coordinates, game_data['board_size'])
+    
+    #compare the distance between each coords and the goal to determine which coordinates are the best choice
+    if dist_maybe_nc_2_to_coord < dist_maybe_nc_1_to_coord and dist_maybe_nc_2_to_coord < dist_maybe_nc_3_to_coord:
+        #changer la direction vers direction_rotate_other_dir
+        pass
+    elif dist_maybe_nc_1_to_coord < dist_maybe_nc_2_to_coord and dist_maybe_nc_1_to_coord < dist_maybe_nc_3_to_coord:
+        #changer la direction vers direction_rotate_one_dir
+        pass
+    else:
+    #if changing direction wasn't a good idee maybe change the speed.
+        speed = float(game_data['ships'][ship]['speed'])
+        #check if the speed isn't already good.
+        if dist_maybe_nc_3_to_coord != int(speed):
+            #compute how many game loop is needed to reach the goal with each speed in the case it is between 0 and max speed.
+            speed_rate = dist_maybe_nc_3_to_coord/speed
+            if int(speed) + 1 <= game_data['model_ship'][game_data['ships'][ship]['type']]['max_speed']:
+                speed_p1_rate = dist_maybe_nc_3_to_coord/(speed+1)
+            else:
+                speed_p1_rate = speed_rate
+            if int(speed) != 0:
+                speed_l1_rate = dist_maybe_nc_3_to_coord/(speed-1)
+            else:
+                speed_l1_rate = speed_rate
+                
+            #determine which speed is the best to reach the goal with minimum loops.
+            if speed_rate > speed_p1_rate  and speed_p1_rate < speed_11_rate:
+                return '%s: faster' % ship
+            elif speed_rate > speed_l1_rate  and speed_l1_rate < speed_p1_rate:
+                return '%s: slower' % ship
+
+    return ''
+
+
+def get_ai_spaceships(player_name, game_data):
+    """
+    Determine what ships to buy and turn it into a regulated command.
+    Parameters
+    ----------
+    player_name: name of the player (str).
+    game_data: state of the game (dic).
+    Return
+    ------
+    ai_input: game input from AI (str).
+    Version
+    -------
+    Specification: Nicolas Van Bossuyt (v1. 10/03/17)
+                   Bayron Mahy (v2. 17/03/17)
+    Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
+    """
+
+    return 'arow:fighter stardestroyer:destroyer race_cruiser:battlecruiser'
+
+	
+# AI - command corection.
+# ------------------------------------------------------------------------------
+# Because nothing is perfect.
+
+def speed(game_data, ship, change):
+    """
+    Check if LAICIS can increase/decrease the speed of its ship
+    parameters
+    ----------
+    game_data: game's data (dic).
+    ship: targeted ship (str).
+    change: change applied by LAICIS to the ship (str).
+    return
+    ------
+    '%s:%s' % (ship, change): regular input for the game loop (str).
+    Version
+    -------
+    Specification: Bayron Mahy (v1. 20/03/17)
+    Implementation: Bayron Mahy (v1. 20/03/17)
+                    Nicolas Van Bossuyt (v2. 29/03/17)
+    """
+
+    ship_type = game_data['ships'][ship]['type']
+    ship_speed = game_data['ships'][ship]['speed']
+    ship_max_speed = game_data['model_ship'][ship_type]['max_speed']
+
+    if (change == 'faster' and ship_speed + 1 > ship_max_speed):
+        return 'slower'
+    elif (change == 'slower' and ship_speed - 1 < 0):
+        return 'faster'
+    else:
+        return change
+
+
+def attack(game_data, ship):
+    """
+    Attack command of LAICIS.
+    Parameters
+    ----------
+    game_data: data of the game (dic).
+    ship: name of the current ship (str).
+    Return
+    ------
+    attack input (str)
     Version
     -------
     Specification: Nicolas Van Bossuyt (v1. 19/03/17).
@@ -880,92 +1120,35 @@ def predict_next_pos(game_data, ship_name):
                     Bayron Mahy (v2. 22/03/17).
     """
 
-    speed = game_data['ships'][ship_name]['speed']
-    position = game_data['ships'][ship_name]['position']
-    direction = game_data['ships'][ship_name]['direction']
-    predicted_postion = convert_coordinates((position[0] + direction[0] * speed, position[1] + direction[1] * speed),
-                                            game_data['board_size'])
+    ship_pos = game_data['ships'][ship]['position']
+    ship_range = game_data['model_ship'][game_data['ships'][ship]['type']]['range']
+    ship_owner = game_data['ships'][ship]['owner']
+    nearby_ships = get_nearby_ship(game_data, ship, ship_range)
 
-    return predicted_postion
+    if len(nearby_ships) > 0:
+        ships_targeted = []
 
+        for perhaps_target in nearby_ships:
+            if game_data['ships'][perhaps_target]['owner'] != ship_owner and game_data['ships'][perhaps_target][
+                'owner'] != 'none':
+                ships_targeted.append(perhaps_target)
 
-# D.A.I.C.I.S
-# ------------------------------------------------------------------------------
-# [D]umb [A]rtificial [I]nteligence for [C]oders [I]n [S]pace.
-def get_dumb_ai_input(player_name, game_data, ):
-    """
-    Get input from an AI player.
+        if len(ships_targeted) > 0:
 
-    Parameter
-    ---------
-    player_name: name of the player (str).
+            targets_life = []
 
-    game_data: state of the game (dic).
+            for target in ships_targeted:
+                targets_life.append(game_data['ships'][target]['heal_points'])
 
-    Return
-    ------
-    ai_input: game input from AI (str).
+            final_target = ships_targeted[targets_life.index(min(targets_life))]
+            target_coords = convert_coordinates(
+                (game_data['ships'][final_target]['position'][0], game_data['ships'][final_target]['position'][1]),
+                game_data['board_size'])
+            return '%d-%d' % (target_coords[0] + 1, target_coords[1] + 1)
 
-    Version
-    -------
-    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-    Implementation: Nicolas Van Bossuyt (v1. 16/03/17)
-    """
+    return ''
 
-    action = ['faster', 'slower', 'left', 'right']
-
-    ai_input = ''
-
-    for ship in game_data['ships']:
-        if game_data['ships'][ship]['owner'] == player_name:
-            ai_input += ship.replace(player_name + '_', '') + ':' + action[randint(0, len(action) - 1)] + ' '
-
-    return ai_input[:-1]
-
-
-def get_dumb_ai_spaceships(player_name, game_data):
-    """
-    Take random ships to make the army of the dumb AI
-
-    Parameters
-    ----------
-    player_name: name of the player (str).
-
-    game_data: state of the game (dic).
-
-    Return
-    ------
-    ai_input: game input from AI (str).
-
-    Version
-    -------
-    Specification: Nicolas Van Bossuyt (v1. 10/03/17)
-    Implementation: Bayron Mahy (v1. 17/03/17)
-    """
-
-    ship_name_list = ['Apple-Pen', 'Akbar', 'amiral', 'bob', 'fob', 'I\'m_Bob_Lenon', 'Frenay-Acceleray', 'Pomme_Verte',
-                      'pew-pew-pew', 'Algobot', 'blblblblblblbl', 'Stack-overflow', 'mu', 'Seiyar', '24', 'Monax']
-
-    ship_type_list = game_data['model_ship'].keys()
-
-    money = 100
-    army = ''
-
-    while money > 0:
-        ship_type = ship_type_list[randint(0, len(ship_type_list) - 1)]
-        ship_name = ship_name_list[randint(0, len(ship_name_list) - 1)]
-
-        if not ship_name in army:
-            army += '%s:%s ' % (ship_name, ship_type)
-            money -= game_data['model_ship'][ship_type]['price']
-
-    return army[:-1]
-
-
-# AI - command corection.
-# ------------------------------------------------------------------------------
-# Because nothing is perfect.
-
+	
 def get_nearby_ship(game_data, target_ship, search_range):
     """
     Make a list of around ship in range.
@@ -1068,6 +1251,35 @@ def convert_coordinates(coord, size):
         return a
 
     return (convert(coord[0], size[0]), convert(coord[1], size[1]))
+	
+def predict_next_pos(game_data, ship_name):
+    """
+    Predict the next position of a space ship.
+
+    Parameters
+    ----------
+    game_data: data of the game (dic).
+    ship_name: name of the spaceship to predicte the next position (str).
+
+    Return
+    ------
+    predicted_postion : predicte_postion of the spaceship (tuple(int, int)).
+
+    Version
+    -------
+    Specification: Nicolas Van Bossuyt (v1. 19/03/17).
+    Implementation: Nicolas Van Bossuyt (v1. 19/03/17).
+                    Bayron Mahy (v2. 22/03/17).
+    """
+
+    speed = game_data['ships'][ship_name]['speed']
+    position = game_data['ships'][ship_name]['position']
+    direction = game_data['ships'][ship_name]['direction']
+	
+    predicted_postion = convert_coordinates((position[0] + direction[0] * speed, position[1] + direction[1] * speed),
+                                            game_data['board_size'])
+
+    return predicted_postion
 
 
 # Game commands
@@ -1656,4 +1868,4 @@ def create_game_board(file_name, board_size, lost_ships_count):
 
 # Use for quick debuging.
 if __name__ == '__main__':
-    play_game('random', ('bob', 'dumb'))
+    play_game('random', ('botInSpace', 'bobot'))
