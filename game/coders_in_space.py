@@ -526,7 +526,7 @@ def get_game_input(player_name, buy_ships, game_data):
     elif player_type == 'ai':
         # Get input from the dumb ai.
         if buy_ships:
-            player_input = get_ai_spaceships(game_data, player_name) 
+            player_input = get_ai_spaceships(player_name, game_data) 
         else:
             player_input = get_ai_input(game_data, player_name)
 
@@ -1077,9 +1077,37 @@ def get_ai_spaceships(player_name, game_data):
     Specification: Nicolas Van Bossuyt (v1. 10/03/17)
                    Bayron Mahy (v2. 17/03/17)
     Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
+                    Alisson Leist (v2. 21/0417)
     """
 
-    return 'arow:fighter stardestroyer:destroyer race_cruiser:battlecruiser'
+    ai_input=''
+    name=0
+    
+    ship_name_list = ['Apple-Pen', 'Akbar', 'amiral', 'bob', 'fob', 'I\'m_Bob_Lenon', 'Frenay-Acceleray', 'Pomme_Verte',
+                      'pew-pew-pew', 'Algobot', 'blblblblblblbl', 'Stack-overflow', 'mu', 'Seiyar', '24', 'Monax']
+    
+    if len(game_data['ships'])==0:
+        
+        ship_type=['b','b','d','d']
+        
+    else :
+        abandonned_ships_rate=game_data['board_size'][0]*game_data['board_size'][1]/len(game_data['ships'])
+        
+        if abandonned_ships_rate<=25:
+            ship_type=['f','f','f','f','f','f','f','f','f','f']
+        
+        elif abandonned_ships_rate<=50:
+            ship_type=['b','d','f','f','f','f','f']
+        
+        else:
+            ship_type=['b','b','d','f','f','f']
+        
+    for element in ship_type :
+            ship_name=ship_name_list[name]
+            name+=1
+            ai_input+= '%s:%s ' % (ship_name, element)
+
+    return ai_input[:-1]
 
     
 # AI - command corection.

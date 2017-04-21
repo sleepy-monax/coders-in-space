@@ -1,428 +1,258 @@
-[botInSpace] arow:fighter stardestroyer:destroyer race_cruiser:battlecruiser
-[bobot] arow:fighter stardestroyer:destroyer race_cruiser:battlecruiser
+[botInSpace] Apple-Pen:b Akbar:d amiral:f bob:f fob:f I'm_Bob_Lenon:f Frenay-Acceleray:f
+[bobot] Apple-Pen:b Akbar:d amiral:f bob:f fob:f I'm_Bob_Lenon:f Frenay-Acceleray:f
 It's turn nb 0
-[botInSpace] stardestroyer:right race_cruiser:right arow:
-[bobot] stardestroyer: arow:faster race_cruiser:faster
+[botInSpace] Apple-Pen:right fob:right Frenay-Acceleray:right bob: Akbar:right I'm_Bob_Lenon:left amiral:left
+[bobot] amiral:faster Apple-Pen:faster bob:left Frenay-Acceleray:faster I'm_Bob_Lenon:faster Akbar:right fob:right
 It's turn nb 1
-[botInSpace] stardestroyer: race_cruiser: arow:faster
-[bobot] stardestroyer:faster arow:slower race_cruiser:left
+[botInSpace] Apple-Pen:right fob:faster Frenay-Acceleray:left bob:faster Akbar:faster I'm_Bob_Lenon:faster amiral:faster
+[bobot] amiral:left Apple-Pen:right bob:faster Frenay-Acceleray:left I'm_Bob_Lenon: Akbar:right fob:left
 It's turn nb 2
-[botInSpace] stardestroyer:right race_cruiser:faster arow:slower
-[bobot] stardestroyer:left arow:faster race_cruiser:left
+[botInSpace] Apple-Pen: fob:right Frenay-Acceleray:left bob:faster Akbar:left I'm_Bob_Lenon:slower amiral:slower
+[bobot] amiral:faster Apple-Pen:slower bob: Frenay-Acceleray:left I'm_Bob_Lenon:faster Akbar:faster fob:faster
 It's turn nb 3
-[botInSpace] stardestroyer:faster race_cruiser: arow:left
-[bobot] stardestroyer: arow:faster race_cruiser:right
-It's turn nb 4
-[botInSpace] stardestroyer:left race_cruiser: arow:left
-[bobot] stardestroyer:faster arow:slower race_cruiser:left
-botInSpace as take botInSpace_ship_14 !
-It's turn nb 5
-[botInSpace] ship_14:faster stardestroyer:left race_cruiser:left arow:faster
-[bobot] stardestroyer:right arow:left race_cruiser:slower
-botInSpace as take botInSpace_ship_9 !
-It's turn nb 6
-[botInSpace] ship_14:slower stardestroyer:right race_cruiser:right arow:slower ship_9:
-[bobot] stardestroyer:left arow:faster race_cruiser:faster
-It's turn nb 7
-[botInSpace] ship_14:left stardestroyer:right race_cruiser:right arow:faster ship_9:right
-[bobot] stardestroyer:right arow:11-14 race_cruiser:
-bobot_arow shot botInSpace_ship_9
-It's turn nb 8
-[botInSpace] ship_14:right stardestroyer:left race_cruiser:9-16 arow:right ship_9:9-16
-[bobot] stardestroyer:slower arow:faster race_cruiser:left
-bobot as take bobot_ship_16 !
-botInSpace_race_cruiser shot botInSpace_stardestroyer
-botInSpace_ship_9 shot botInSpace_stardestroyer
-It's turn nb 9
-[botInSpace] ship_14:faster stardestroyer:left race_cruiser:slower arow:faster ship_9:faster
-[bobot] stardestroyer:11-14 arow:left race_cruiser:right ship_16:faster
-It's turn nb 10
-[botInSpace] ship_14:slower stardestroyer:right race_cruiser:left arow:left ship_9:10-14
-[bobot] stardestroyer:slower arow:right race_cruiser:left ship_16:right
-It's turn nb 11
-[botInSpace] ship_14:faster stardestroyer:faster race_cruiser:faster arow: ship_9:faster
-[bobot] stardestroyer:14-14 arow: race_cruiser:slower ship_16:faster
-It's turn nb 12
-[botInSpace] ship_14:slower stardestroyer:left race_cruiser:14-15 arow: ship_9:left
-[bobot] stardestroyer:right arow:right race_cruiser:10-22 ship_16:17-14
-botInSpace_race_cruiser shot bobot_ship_16
-It's turn nb 13
-[botInSpace] ship_14:faster stardestroyer:13-27 race_cruiser:slower arow:slower ship_9:
-[bobot] stardestroyer:left arow:faster race_cruiser:faster ship_16:left
-It's turn nb 14
-[botInSpace] ship_14:right stardestroyer:left race_cruiser:left arow:right ship_9:18-8
-[bobot] stardestroyer:left arow:left race_cruiser:slower ship_16:slower
-It's turn nb 15
-[botInSpace] ship_14:slower stardestroyer:slower race_cruiser:faster arow:slower ship_9:left
-[bobot] stardestroyer:4-17 arow:left race_cruiser:faster ship_16:
-botInSpace as take botInSpace_ship_15 !
-It's turn nb 16
-[botInSpace] ship_15:faster ship_14:faster stardestroyer:left race_cruiser:slower arow:faster ship_9:faster
-[bobot] stardestroyer:faster arow:right race_cruiser:18-24 ship_16:faster
-It's turn nb 17
-[botInSpace] ship_15:22-7 ship_14:right stardestroyer:right race_cruiser:6-16 arow:faster ship_9:slower
-[bobot] stardestroyer:slower arow:faster race_cruiser:right ship_16:slower
-It's turn nb 18
-[botInSpace] ship_15:faster ship_14:slower stardestroyer:right race_cruiser:30-16 arow: ship_9:left
-[bobot] stardestroyer:2-15 arow:slower race_cruiser:right ship_16:right
-It's turn nb 19
-[botInSpace] ship_15:right ship_14:right stardestroyer:slower race_cruiser:faster arow:slower ship_9:faster
-[bobot] stardestroyer:faster arow:3-16 race_cruiser:17-27 ship_16:right
-bobot_arow shot botInSpace_ship_14
-It's turn nb 20
-[botInSpace] ship_15: ship_14:faster stardestroyer:left race_cruiser: arow: ship_9:
-[bobot] stardestroyer:faster arow:faster race_cruiser:slower ship_16:faster
-bobot as take bobot_ship_2 !
-It's turn nb 21
-[botInSpace] ship_15:slower ship_14:slower stardestroyer:left race_cruiser:slower arow: ship_9:faster
-[bobot] stardestroyer:slower ship_2:right arow:slower race_cruiser:right ship_16:
-It's turn nb 22
-[botInSpace] ship_15:left ship_14:faster stardestroyer:faster race_cruiser:left arow:left ship_9:faster
-[bobot] stardestroyer:left ship_2:right arow: race_cruiser:3-2 ship_16:slower
-It's turn nb 23
-[botInSpace] ship_15: ship_14:slower stardestroyer:faster race_cruiser:faster arow: ship_9:1-16
-[bobot] stardestroyer:right ship_2:faster arow: race_cruiser:left ship_16:29-9
-bobot_ship_16 kill botInSpace_ship_9
-It's turn nb 24
-[botInSpace] ship_15:faster ship_14:6-16 stardestroyer:right race_cruiser:slower arow:faster
-[bobot] stardestroyer:slower ship_2:left arow:slower race_cruiser:5-29 ship_16:left
-botInSpace as take botInSpace_ship_17 !
-It's turn nb 25
-[botInSpace] ship_15:right ship_14:faster ship_17:faster stardestroyer:left race_cruiser:left arow:slower
-[bobot] stardestroyer:faster ship_2:slower arow:right race_cruiser:faster ship_16:slower
-It's turn nb 26
-[botInSpace] ship_15:left ship_14:right ship_17:slower stardestroyer:left race_cruiser: arow:right
-[bobot] stardestroyer:29-17 ship_2:3-12 arow:faster race_cruiser:slower ship_16:right
-It's turn nb 27
-[botInSpace] ship_15:slower ship_14:26-5 ship_17:right stardestroyer:slower race_cruiser: arow:faster
-[bobot] stardestroyer:27-15 ship_2:right arow:left race_cruiser:faster ship_16:27-15
-It's turn nb 28
-[botInSpace] ship_15:left ship_14:right ship_17:faster stardestroyer:30-15 race_cruiser:right arow:right
-[bobot] stardestroyer:left ship_2:right arow:faster race_cruiser:slower ship_16:28-17
-botInSpace_stardestroyer shot bobot_ship_16
-It's turn nb 29
-[botInSpace] ship_15:left ship_14:slower ship_17:left stardestroyer:right race_cruiser:faster arow:faster
-[bobot] stardestroyer:left ship_2:faster arow:right race_cruiser:faster ship_16:left
-It's turn nb 30
-[botInSpace] ship_15:slower ship_14:right ship_17:faster stardestroyer:right race_cruiser:left arow:left
-[bobot] stardestroyer:25-17 ship_2:slower arow:left race_cruiser:left ship_16:right
-bobot_stardestroyer shot ship_13
-It's turn nb 31
-[botInSpace] ship_15:faster ship_14:left ship_17:slower stardestroyer:slower race_cruiser:left arow:slower
-[bobot] stardestroyer:26-17 ship_2:right arow:left race_cruiser:5-5 ship_16:right
-botInSpace as take botInSpace_ship_7 !
-botInSpace as take botInSpace_ship_13 !
-It's turn nb 32
-[botInSpace] ship_13:30-15 ship_15:27-20 ship_14:left ship_17:slower stardestroyer:right race_cruiser:left arow:faster ship_7:
-[bobot] stardestroyer:24-17 ship_2:faster arow:right race_cruiser:slower ship_16:faster
-botInSpace_ship_15 shot bobot_stardestroyer
-bobot_stardestroyer shot botInSpace_ship_15
-It's turn nb 33
-[botInSpace] ship_13:faster ship_15:left ship_14:26-9 ship_17:faster stardestroyer:left race_cruiser:left arow:right ship_7:right
-[bobot] stardestroyer:right ship_2:slower arow:left race_cruiser:5-4 ship_16:right
-It's turn nb 34
-[botInSpace] ship_13:faster ship_15:left ship_14:left ship_17:left stardestroyer:faster race_cruiser:slower arow:faster ship_7:left
-[bobot] stardestroyer:left ship_2:faster arow:right race_cruiser:faster ship_16:slower
-It's turn nb 35
-[botInSpace] ship_13:left ship_15:faster ship_14:left ship_17:right stardestroyer:faster race_cruiser:right arow:5-9 ship_7:right
-[bobot] stardestroyer:slower ship_2:slower arow:left race_cruiser:slower ship_16:faster
-It's turn nb 36
-[botInSpace] ship_13:right ship_15:faster ship_14:right ship_17:slower stardestroyer:slower race_cruiser:faster arow:left ship_7:faster
-[bobot] stardestroyer:right ship_2:left arow:13-19 race_cruiser:right ship_16:right
-It's turn nb 37
-[botInSpace] ship_13:slower ship_15:slower ship_14:faster ship_17:faster stardestroyer:4-10 race_cruiser:left arow:faster ship_7:slower
-[bobot] stardestroyer:left ship_2:6-7 arow: race_cruiser:left ship_16:faster
-botInSpace_stardestroyer shot bobot_ship_2
-It's turn nb 38
-[botInSpace] ship_13:right ship_15:slower ship_14:slower ship_17:4-10 stardestroyer:faster race_cruiser:slower arow:right ship_7:
-[bobot] stardestroyer:23-28 ship_2:right arow:slower race_cruiser:faster ship_16:slower
-botInSpace as take botInSpace_ship_10 !
-botInSpace_ship_17 shot bobot_ship_2
-It's turn nb 39
-[botInSpace] ship_10:left ship_13:left ship_15:faster ship_14:4-10 ship_17:left stardestroyer:left race_cruiser:faster arow:left ship_7:faster
-[bobot] stardestroyer: ship_2:faster arow:slower race_cruiser:slower ship_16:slower
-It's turn nb 40
-[botInSpace] ship_10:right ship_13:left ship_15:left ship_14:left ship_17:6-8 stardestroyer:slower race_cruiser:left arow:slower ship_7:right
-[bobot] stardestroyer:faster ship_2:left arow:slower race_cruiser:faster ship_16:right
+[botInSpace] Apple-Pen: fob: Frenay-Acceleray: bob:left Akbar:faster I'm_Bob_Lenon:right amiral:right
+[bobot] amiral:faster Apple-Pen: bob:left Frenay-Acceleray:slower I'm_Bob_Lenon:left Akbar:slower fob:right
 botInSpace as take botInSpace_ship_0 !
-It's turn nb 41
-[botInSpace] ship_10:faster ship_13:left ship_15: ship_14:faster ship_17:left stardestroyer:slower race_cruiser:left arow:left ship_0:faster ship_7:
-[bobot] stardestroyer:1-18 ship_2:slower arow:right race_cruiser:left ship_16:left
-It's turn nb 42
-[botInSpace] ship_10:23-8 ship_13:faster ship_15:left ship_14:left ship_17:slower stardestroyer:left race_cruiser:left arow: ship_0:faster ship_7:
-[bobot] stardestroyer:slower ship_2:10-11 arow:slower race_cruiser:left ship_16:faster
-It's turn nb 43
-[botInSpace] ship_10:23-8 ship_13:slower ship_15:left ship_14:right ship_17: stardestroyer:5-8 race_cruiser:slower arow:slower ship_0:left ship_7:slower
-[bobot] stardestroyer:26-24 ship_2:faster arow:slower race_cruiser:right ship_16:left
-bobot_stardestroyer shot bobot_stardestroyer
-It's turn nb 44
-[botInSpace] ship_10:left ship_13:right ship_15:faster ship_14:slower ship_17: stardestroyer:right race_cruiser:faster arow:slower ship_0:right ship_7:faster
-[bobot] stardestroyer:left ship_2:left arow:left race_cruiser:3-29 ship_16:slower
-It's turn nb 45
-[botInSpace] ship_10:faster ship_13:left ship_15:faster ship_14:faster ship_17:faster stardestroyer:right race_cruiser:slower arow: ship_0:slower ship_7:faster
-[bobot] stardestroyer:faster ship_2:left arow: race_cruiser:9-11 ship_16:faster
-bobot_race_cruiser kill botInSpace_stardestroyer
-It's turn nb 46
-[botInSpace] ship_10:right ship_13:right ship_15:faster ship_14:24-8 ship_17:slower race_cruiser:left arow:left ship_0:slower ship_7:28-26
-[bobot] stardestroyer:left ship_2:left arow:right race_cruiser:11-11 ship_16:faster
-botInSpace_ship_14 kill bobot_arow
-botInSpace_ship_7 shot ship_8
-It's turn nb 47
-[botInSpace] ship_10:right ship_13:right ship_15: ship_14:left ship_17: race_cruiser:faster arow:slower ship_0:faster ship_7:right
-[bobot] stardestroyer:30-20 ship_2:left race_cruiser:slower ship_16:slower
-It's turn nb 48
-[botInSpace] ship_10:left ship_13:right ship_15:slower ship_14:right ship_17:left race_cruiser:right arow:faster ship_0:left ship_7:right
-[bobot] stardestroyer:2-22 ship_2:left race_cruiser:faster ship_16:slower
-It's turn nb 49
-[botInSpace] ship_10:left ship_13:faster ship_15:left ship_14:slower ship_17:faster race_cruiser:right arow:right ship_0:right ship_7:right
-[bobot] stardestroyer:4-26 ship_2:right race_cruiser:10-11 ship_16:14-24
-botInSpace as take botInSpace_ship_20 !
-It's turn nb 50
-[botInSpace] ship_10:slower ship_13:left ship_15: ship_14:left ship_17:slower ship_20:faster race_cruiser:slower arow:left ship_0:faster ship_7:slower
-[bobot] stardestroyer:faster ship_2:right race_cruiser:left ship_16:faster
-It's turn nb 51
-[botInSpace] ship_10:faster ship_13:left ship_15:faster ship_14:right ship_17:right ship_20:slower race_cruiser:16-25 arow:right ship_0:slower ship_7:left
-[bobot] stardestroyer:right ship_2:left race_cruiser:slower ship_16:slower
-It's turn nb 52
-[botInSpace] ship_10:left ship_13:17-24 ship_15:left ship_14:2-13 ship_17:faster ship_20:faster race_cruiser:17-24 arow:right ship_0:2-13 ship_7:faster
-[bobot] stardestroyer:right ship_2:3-14 race_cruiser:3-14 ship_16:18-20
-botInSpace_ship_13 kill bobot_ship_16
-botInSpace_ship_0 shot bobot_ship_2
-bobot_ship_2 shot botInSpace_ship_0
-bobot_race_cruiser kill botInSpace_ship_0
-It's turn nb 53
-[botInSpace] ship_10:5-1 ship_13:slower ship_15:slower ship_14: ship_17:faster ship_20:faster race_cruiser:faster arow:left ship_7:left
-[bobot] stardestroyer:left ship_2:right race_cruiser:
-It's turn nb 54
-[botInSpace] ship_10:slower ship_13:slower ship_15:faster ship_14:faster ship_17:slower ship_20:slower race_cruiser: arow:right ship_7:right
-[bobot] stardestroyer:right ship_2:slower race_cruiser:faster
-It's turn nb 55
-[botInSpace] ship_10:slower ship_13:faster ship_15:slower ship_14:right ship_17:right ship_20:left race_cruiser:slower arow: ship_7:slower
-[bobot] stardestroyer:11-4 ship_2:faster race_cruiser:slower
-It's turn nb 56
-[botInSpace] ship_10:7-7 ship_13:faster ship_15:right ship_14:slower ship_17:faster ship_20:slower race_cruiser:faster arow:left ship_7:7-7
-[bobot] stardestroyer:right ship_2:left race_cruiser:faster
-It's turn nb 57
-[botInSpace] ship_10:3-9 ship_13:right ship_15:3-9 ship_14:right ship_17:slower ship_20:faster race_cruiser:left arow:slower ship_7:left
-[bobot] stardestroyer:slower ship_2:right race_cruiser:9-18
-It's turn nb 58
-[botInSpace] ship_10:left ship_13:slower ship_15:faster ship_14:faster ship_17:right ship_20:faster race_cruiser:right arow:28-18 ship_7:left
-[bobot] stardestroyer:left ship_2:slower race_cruiser:right
-bobot as take bobot_ship_11 !
-botInSpace as take botInSpace_ship_4 !
-It's turn nb 59
-[botInSpace] ship_10:4-10 ship_13:left ship_15:left ship_14:slower ship_17:right ship_20:faster race_cruiser:slower arow:29-17 ship_4: ship_7:slower
-[bobot] stardestroyer:right ship_2:faster race_cruiser:slower ship_11:faster
-It's turn nb 60
-[botInSpace] ship_10:2-11 ship_13:9-21 ship_15:right ship_14:right ship_17: ship_20:slower race_cruiser: arow:27-19 ship_4:left ship_7:faster
-[bobot] stardestroyer:faster ship_2:slower race_cruiser:right ship_11:
-botInSpace_ship_13 shot bobot_ship_11
-It's turn nb 61
-[botInSpace] ship_10:right ship_13:slower ship_15:left ship_14:faster ship_17:left ship_20:slower race_cruiser:faster arow:left ship_4: ship_7:right
-[bobot] stardestroyer:29-11 ship_2:right race_cruiser:faster ship_11:faster
-It's turn nb 62
-[botInSpace] ship_10:faster ship_13:left ship_15:slower ship_14:right ship_17:slower ship_20:left race_cruiser:13-25 arow:slower ship_4:faster ship_7:
-[bobot] stardestroyer:left ship_2:faster race_cruiser:slower ship_11:left
-It's turn nb 63
-[botInSpace] ship_10:faster ship_13:right ship_15:faster ship_14: ship_17:faster ship_20:slower race_cruiser:right arow:left ship_4:slower ship_7:slower
-[bobot] stardestroyer:1-15 ship_2:right race_cruiser:9-15 ship_11:faster
-bobot_race_cruiser shot botInSpace_ship_13
-It's turn nb 64
-[botInSpace] ship_10: ship_13:right ship_15:slower ship_14:right ship_17:slower ship_20:faster race_cruiser:right arow:faster ship_4:faster ship_7:right
-[bobot] stardestroyer:30-15 ship_2:slower race_cruiser:9-15 ship_11:left
-bobot_race_cruiser kill botInSpace_ship_13
-It's turn nb 65
-[botInSpace] ship_10: ship_15:right ship_14:slower ship_17:left ship_20: race_cruiser:right arow:left ship_4:slower ship_7:right
-[bobot] stardestroyer:right ship_2:right race_cruiser:right ship_11:17-19
-bobot_ship_11 shot botInSpace_ship_17
-It's turn nb 66
-[botInSpace] ship_10:left ship_15: ship_14:right ship_17:left ship_20: race_cruiser:right arow:left ship_4:left ship_7:
-[bobot] stardestroyer:slower ship_2:faster race_cruiser:right ship_11:faster
-It's turn nb 67
-[botInSpace] ship_10:slower ship_15:slower ship_14:right ship_17: ship_20:slower race_cruiser:slower arow:left ship_4: ship_7:left
-[bobot] stardestroyer:faster ship_2:slower race_cruiser:left ship_11:right
-It's turn nb 68
-[botInSpace] ship_10:left ship_15:faster ship_14:faster ship_17:faster ship_20:left race_cruiser:left arow:left ship_4:faster ship_7:faster
-[bobot] stardestroyer:slower ship_2:27-15 race_cruiser:faster ship_11:slower
-It's turn nb 69
-[botInSpace] ship_10:left ship_15:slower ship_14:slower ship_17:right ship_20:faster race_cruiser:right arow:right ship_4:right ship_7:faster
-[bobot] stardestroyer:slower ship_2:29-16 race_cruiser:slower ship_11:left
-It's turn nb 70
-[botInSpace] ship_10:faster ship_15:faster ship_14:right ship_17:faster ship_20:slower race_cruiser: arow:slower ship_4:left ship_7:slower
-[bobot] stardestroyer:left ship_2:28-17 race_cruiser:faster ship_11:faster
-It's turn nb 71
-[botInSpace] ship_10:slower ship_15:left ship_14:faster ship_17:slower ship_20:right race_cruiser:right arow:faster ship_4:left ship_7:right
-[bobot] stardestroyer:right ship_2:left race_cruiser:right ship_11:left
-It's turn nb 72
-[botInSpace] ship_10:26-16 ship_15:left ship_14: ship_17:slower ship_20:faster race_cruiser:faster arow:left ship_4:10-28 ship_7:slower
-[bobot] stardestroyer:faster ship_2:left race_cruiser:right ship_11:left
-botInSpace_ship_10 shot bobot_ship_2
-It's turn nb 73
-[botInSpace] ship_10:slower ship_15: ship_14:slower ship_17:faster ship_20:faster race_cruiser:right arow:right ship_4:slower ship_7:
-[bobot] stardestroyer:faster ship_2:faster race_cruiser:right ship_11:
-It's turn nb 74
-[botInSpace] ship_10:faster ship_15:left ship_14: ship_17:faster ship_20:faster race_cruiser:left arow:right ship_4:faster ship_7:right
-[bobot] stardestroyer:slower ship_2:slower race_cruiser:right ship_11:slower
-It's turn nb 75
-[botInSpace] ship_10:slower ship_15:slower ship_14:faster ship_17:left ship_20: race_cruiser:left arow:left ship_4:left ship_7:left
-[bobot] stardestroyer:15-27 ship_2:27-28 race_cruiser:left ship_11:right
-It's turn nb 76
-[botInSpace] ship_10:left ship_15:faster ship_14: ship_17:faster ship_20:right race_cruiser:17-2 arow:right ship_4:right ship_7:right
-[bobot] stardestroyer:left ship_2:left race_cruiser:16-14 ship_11:faster
-It's turn nb 77
-[botInSpace] ship_10:right ship_15:left ship_14:slower ship_17:faster ship_20:left race_cruiser:18-3 arow:right ship_4:slower ship_7:left
-[bobot] stardestroyer:faster ship_2:faster race_cruiser:slower ship_11:right
-It's turn nb 78
-[botInSpace] ship_10:7-6 ship_15: ship_14:left ship_17: ship_20:left race_cruiser:slower arow: ship_4:faster ship_7:faster
-[bobot] stardestroyer:right ship_2:left race_cruiser:faster ship_11:slower
-It's turn nb 79
-[botInSpace] ship_10:faster ship_15:faster ship_14:faster ship_17:right ship_20:slower race_cruiser:faster arow:faster ship_4:slower ship_7:right
-[bobot] stardestroyer:right ship_2:slower race_cruiser:4-15 ship_11:left
-It's turn nb 80
-[botInSpace] ship_10:10-12 ship_15:slower ship_14:right ship_17:slower ship_20:faster race_cruiser:right arow:slower ship_4:right ship_7:
-[bobot] stardestroyer:slower ship_2:faster race_cruiser:left ship_11:
-bobot as take bobot_ship_1 !
-It's turn nb 81
-[botInSpace] ship_10:slower ship_15:faster ship_14:right ship_17:right ship_20:left race_cruiser:slower arow:slower ship_4:faster ship_7:slower
-[bobot] stardestroyer:right ship_1:faster ship_2:21-22 race_cruiser:left ship_11:slower
-It's turn nb 82
-[botInSpace] ship_10:faster ship_15:right ship_14:24-21 ship_17:slower ship_20:slower race_cruiser: arow:faster ship_4:left ship_7:left
-[bobot] stardestroyer:faster ship_1:faster ship_2:22-22 race_cruiser:right ship_11:faster
-botInSpace_ship_14 shot bobot_ship_2
-It's turn nb 83
-[botInSpace] ship_10:left ship_15:right ship_14:right ship_17:slower ship_20:slower race_cruiser:faster arow:slower ship_4:left ship_7:
-[bobot] stardestroyer: ship_1:slower ship_2:slower race_cruiser:left ship_11:slower
-It's turn nb 84
-[botInSpace] ship_10:slower ship_15:slower ship_14:left ship_17: ship_20:left race_cruiser:slower arow:faster ship_4:left ship_7:faster
-[bobot] stardestroyer: ship_1: ship_2:21-22 race_cruiser:slower ship_11:slower
-It's turn nb 85
-[botInSpace] ship_10:faster ship_15:7-9 ship_14:24-21 ship_17: ship_20:faster race_cruiser:faster arow:slower ship_4:6-22 ship_7:
-[bobot] stardestroyer:slower ship_1:right ship_2:right race_cruiser:faster ship_11:right
-botInSpace_ship_14 shot bobot_ship_2
-It's turn nb 86
-[botInSpace] ship_10:right ship_15:slower ship_14:left ship_17:faster ship_20: race_cruiser:left arow:faster ship_4:slower ship_7:slower
-[bobot] stardestroyer:faster ship_1:faster ship_2:left race_cruiser:slower ship_11:left
-bobot as take bobot_ship_12 !
-It's turn nb 87
-[botInSpace] ship_10:faster ship_15:left ship_14:left ship_17:slower ship_20:slower race_cruiser:slower arow:right ship_4:faster ship_7:faster
-[bobot] stardestroyer:slower ship_1:left ship_2:left race_cruiser:right ship_12:faster ship_11:left
-It's turn nb 88
-[botInSpace] ship_10:slower ship_15:faster ship_14:slower ship_17:right ship_20:right race_cruiser:24-21 arow:faster ship_4:slower ship_7:faster
-[bobot] stardestroyer:right ship_1:20-26 ship_2:21-16 race_cruiser:faster ship_12:17-20 ship_11:4-25
-botInSpace_race_cruiser shot bobot_ship_2
-bobot_ship_2 shot ship_5
-bobot_ship_12 shot botInSpace_race_cruiser
-It's turn nb 89
-[botInSpace] ship_10:slower ship_15:faster ship_14:left ship_17:right ship_20:left race_cruiser:left arow:faster ship_4:right ship_7:slower
-[bobot] stardestroyer:left ship_1:21-25 ship_2:left race_cruiser:right ship_12:right ship_11:slower
-bobot as take bobot_ship_23 !
-It's turn nb 90
-[botInSpace] ship_10:right ship_15:16-20 ship_14:faster ship_17:faster ship_20:faster race_cruiser:24-21 arow:faster ship_4:faster ship_7:right
-[bobot] stardestroyer:right ship_23:left ship_1:left ship_2:10-27 race_cruiser: ship_12:right ship_11:left
-bobot as take bobot_ship_24 !
-botInSpace_race_cruiser kill bobot_ship_2
-It's turn nb 91
-[botInSpace] ship_10:right ship_15:slower ship_14:left ship_17: ship_20:slower race_cruiser:right arow:slower ship_4:right ship_7:right
-[bobot] stardestroyer:faster ship_23:faster ship_24:3-24 ship_1:left race_cruiser:left ship_12:5-2 ship_11:faster
-It's turn nb 92
-[botInSpace] ship_10: ship_15:left ship_14:right ship_17:faster ship_20:left race_cruiser:10-20 arow:slower ship_4:right ship_7:faster
-[bobot] stardestroyer:left ship_23:right ship_24:2-22 ship_1:slower race_cruiser:slower ship_12:slower ship_11:2-22
-bobot_ship_24 shot ship_22
-bobot_ship_11 shot ship_22
-It's turn nb 93
-[botInSpace] ship_10:faster ship_15:left ship_14:29-26 ship_17:right ship_20:right race_cruiser:left arow:slower ship_4:2-19 ship_7:10-20
-[bobot] stardestroyer:slower ship_23:left ship_24:faster ship_1:right race_cruiser:faster ship_12:faster ship_11:right
-It's turn nb 94
-[botInSpace] ship_10:slower ship_15: ship_14: ship_17:slower ship_20:slower race_cruiser:right arow:faster ship_4:slower ship_7:right
-[bobot] stardestroyer:slower ship_23:faster ship_24:faster ship_1:slower race_cruiser:left ship_12:slower ship_11:faster
-It's turn nb 95
-[botInSpace] ship_10:faster ship_15:right ship_14: ship_17:faster ship_20: race_cruiser:faster arow:left ship_4:left ship_7:left
-[bobot] stardestroyer:faster ship_23:right ship_24:slower ship_1:15-21 race_cruiser:slower ship_12:faster ship_11:
-bobot_ship_1 shot botInSpace_ship_20
-It's turn nb 96
-[botInSpace] ship_10:faster ship_15:right ship_14:left ship_17: ship_20: race_cruiser:left arow:left ship_4:faster ship_7:slower
-[bobot] stardestroyer: ship_23:right ship_24:right ship_1:faster race_cruiser:faster ship_12:15-21 ship_11:slower
-bobot_ship_12 kill botInSpace_ship_20
-It's turn nb 97
-[botInSpace] ship_10:left ship_15:left ship_14:24-30 ship_17:24-30 race_cruiser:left arow:faster ship_4:right ship_7:right
-[bobot] stardestroyer:faster ship_23:slower ship_24:slower ship_1:right race_cruiser:left ship_12:right ship_11:slower
-It's turn nb 98
-[botInSpace] ship_10:left ship_15:right ship_14:slower ship_17:left race_cruiser:right arow:left ship_4:slower ship_7:slower
-[bobot] stardestroyer:slower ship_23:right ship_24:left ship_1:right race_cruiser:right ship_12:left ship_11:faster
-It's turn nb 99
-[botInSpace] ship_10:left ship_15:3-29 ship_14:faster ship_17: race_cruiser:slower arow:slower ship_4:left ship_7:11-15
-[bobot] stardestroyer:left ship_23:right ship_24:faster ship_1:faster race_cruiser:right ship_12:slower ship_11:24-15
-It's turn nb 100
-[botInSpace] ship_10:slower ship_15:left ship_14:slower ship_17: race_cruiser:faster arow:right ship_4:25-15 ship_7:right
-[bobot] stardestroyer:left ship_23: ship_24:24-16 ship_1:6-14 race_cruiser:right ship_12:faster ship_11:slower
-botInSpace_ship_4 shot bobot_ship_24
-bobot_ship_1 shot botInSpace_ship_7
-It's turn nb 101
-[botInSpace] ship_10:24-14 ship_15:faster ship_14:left ship_17:faster race_cruiser:slower arow:24-14 ship_4:faster ship_7:
-[bobot] stardestroyer:faster ship_23:right ship_24:20-18 ship_1:right race_cruiser:left ship_12:10-1 ship_11:
+It's turn nb 4
+[botInSpace] Apple-Pen:faster fob:slower Frenay-Acceleray:faster bob:left Akbar:13-17 I'm_Bob_Lenon:left amiral:right ship_0:right
+[bobot] amiral:right Apple-Pen:faster bob:faster Frenay-Acceleray:right I'm_Bob_Lenon:faster Akbar:right fob:left
+It's turn nb 5
+[botInSpace] Apple-Pen:9-17 fob:faster Frenay-Acceleray: bob:right Akbar:9-17 I'm_Bob_Lenon:faster amiral:left ship_0:faster
+[bobot] amiral:slower Apple-Pen:slower bob: Frenay-Acceleray:faster I'm_Bob_Lenon:slower Akbar:left fob:right
+It's turn nb 6
+[botInSpace] Apple-Pen:slower fob:right Frenay-Acceleray:slower bob:faster Akbar:right I'm_Bob_Lenon: amiral:right ship_0:8-17
+[bobot] amiral:6-15 Apple-Pen:faster bob:faster Frenay-Acceleray:slower I'm_Bob_Lenon:faster Akbar:right fob:slower
+bobot_amiral shot ship_14
+It's turn nb 7
+[botInSpace] Apple-Pen:5-11 fob:right Frenay-Acceleray:faster bob: Akbar:left I'm_Bob_Lenon:left amiral:faster ship_0:left
+[bobot] amiral:left Apple-Pen:left bob: Frenay-Acceleray:faster I'm_Bob_Lenon:left Akbar:right fob:17-22
+botInSpace as take botInSpace_ship_2 !
 botInSpace as take botInSpace_ship_19 !
-botInSpace_ship_10 shot bobot_ship_24
-botInSpace_arow shot bobot_ship_24
-It's turn nb 102
-[botInSpace] ship_19:left ship_10:faster ship_15:slower ship_14: ship_17:faster race_cruiser:17-17 arow:right ship_4:slower ship_7:faster
-[bobot] stardestroyer:slower ship_23:left ship_24:faster ship_1:slower race_cruiser:slower ship_12:slower ship_11:
-It's turn nb 103
-[botInSpace] ship_19:left ship_10:right ship_15:left ship_14:left ship_17:left race_cruiser:right arow:17-17 ship_4:right ship_7:right
-[bobot] stardestroyer:faster ship_23:faster ship_24:slower ship_1:16-18 race_cruiser:29-1 ship_12:faster ship_11:left
-bobot_ship_1 shot bobot_stardestroyer
-bobot_ship_1 shot botInSpace_arow
-It's turn nb 104
-[botInSpace] ship_19:left ship_10:25-11 ship_15:faster ship_14:faster ship_17: race_cruiser:left arow:slower ship_4:faster ship_7:left
-[bobot] stardestroyer:left ship_23:slower ship_24:right ship_1:slower race_cruiser:faster ship_12:left ship_11:left
-botInSpace_ship_10 kill bobot_ship_11
-It's turn nb 105
-[botInSpace] ship_19:faster ship_10: ship_15:slower ship_14:left ship_17:left race_cruiser:left arow:faster ship_4: ship_7:slower
-[bobot] stardestroyer:left ship_23:slower ship_24:19-16 ship_1:left race_cruiser:slower ship_12:left
-It's turn nb 106
-[botInSpace] ship_19:slower ship_10:left ship_15:left ship_14:right ship_17:slower race_cruiser:faster arow: ship_4:slower ship_7:faster
-[bobot] stardestroyer: ship_23:left ship_24:slower ship_1:right race_cruiser:faster ship_12:slower
-It's turn nb 107
-[botInSpace] ship_19:faster ship_10:right ship_15:slower ship_14:left ship_17:left race_cruiser:left arow:faster ship_4:faster ship_7:faster
-[bobot] stardestroyer:right ship_23:faster ship_24: ship_1:right race_cruiser:2-19 ship_12:
-It's turn nb 108
-[botInSpace] ship_19:5-23 ship_10:slower ship_15:20-28 ship_14:right ship_17:left race_cruiser:slower arow:left ship_4:left ship_7:left
-[bobot] stardestroyer:right ship_23:slower ship_24:faster ship_1:right race_cruiser:5-18 ship_12:7-6
-botInSpace_ship_19 shot bobot_race_cruiser
-It's turn nb 109
-[botInSpace] ship_19:faster ship_10: ship_15:left ship_14:slower ship_17:right race_cruiser: arow:right ship_4:left ship_7:slower
-[bobot] stardestroyer:slower ship_23:faster ship_24: ship_1: race_cruiser:slower ship_12:3-4
-botInSpace as take botInSpace_ship_6 !
+It's turn nb 8
+[botInSpace] Apple-Pen:left ship_19:faster fob:slower Frenay-Acceleray:slower bob: Akbar:15-21 I'm_Bob_Lenon:slower amiral: ship_0:slower ship_2:
+[bobot] amiral:4-12 Apple-Pen:right bob:left Frenay-Acceleray:19-22 I'm_Bob_Lenon:left Akbar:faster fob:right
+botInSpace_Akbar shot bobot_Frenay-Acceleray
+It's turn nb 9
+[botInSpace] Apple-Pen:right ship_19:left fob:faster Frenay-Acceleray:faster bob:faster Akbar:left I'm_Bob_Lenon:right amiral: ship_0:left ship_2:left
+[bobot] amiral:faster Apple-Pen:slower bob:slower Frenay-Acceleray:17-20 I'm_Bob_Lenon: Akbar:faster fob:17-20
+bobot as take bobot_ship_13 !
+It's turn nb 10
+[botInSpace] Apple-Pen:8-9 ship_19:slower fob:left Frenay-Acceleray:right bob:left Akbar:slower I'm_Bob_Lenon:left amiral:faster ship_0:13-21 ship_2:faster
+[bobot] amiral:slower Apple-Pen:faster bob:faster Frenay-Acceleray:right I'm_Bob_Lenon:right Akbar:slower fob:faster ship_13:left
+It's turn nb 11
+[botInSpace] Apple-Pen:faster ship_19:faster fob:faster Frenay-Acceleray:right bob:faster Akbar:left I'm_Bob_Lenon:faster amiral: ship_0:faster ship_2:left
+[bobot] amiral:left Apple-Pen:slower bob:left Frenay-Acceleray:faster I'm_Bob_Lenon:faster Akbar:left fob:16-16 ship_13:faster
+botInSpace as take botInSpace_ship_20 !
+botInSpace as take botInSpace_ship_3 !
+It's turn nb 12
+[botInSpace] Apple-Pen:right ship_19:slower fob:right Frenay-Acceleray:faster bob: Akbar:28-24 I'm_Bob_Lenon: amiral:slower ship_20:28-13 ship_0:left ship_3:faster ship_2:right
+[bobot] amiral:right Apple-Pen:right bob:right Frenay-Acceleray:11-19 I'm_Bob_Lenon: Akbar:26-22 fob:left ship_13:right
+bobot as take bobot_ship_16 !
+botInSpace_Akbar shot bobot_Akbar
+botInSpace_Akbar shot bobot_ship_16
+bobot_Akbar shot botInSpace_Akbar
+It's turn nb 13
+[botInSpace] Apple-Pen:left ship_19:right fob:slower Frenay-Acceleray:left bob: Akbar:slower I'm_Bob_Lenon:left amiral:7-14 ship_20:faster ship_0:7-14 ship_3:7-14 ship_2:19-11
+[bobot] amiral:right Apple-Pen:faster bob:left Frenay-Acceleray:right I'm_Bob_Lenon:faster Akbar:27-21 fob:17-13 ship_16:faster ship_13:right
+bobot_fob shot botInSpace_ship_0
+It's turn nb 14
+[botInSpace] Apple-Pen:slower ship_19:faster fob:faster Frenay-Acceleray:faster bob: Akbar:right I'm_Bob_Lenon:slower amiral:left ship_20: ship_0:slower ship_3:left ship_2:right
+[bobot] amiral:slower Apple-Pen:right bob:right Frenay-Acceleray:faster I'm_Bob_Lenon:left Akbar:26-22 fob:left ship_16:26-17 ship_13:slower
+bobot_Akbar shot botInSpace_Akbar
+bobot_Akbar shot bobot_ship_16
+bobot_ship_16 kill botInSpace_bob
+It's turn nb 15
+[botInSpace] Apple-Pen:faster ship_19:left fob:left Frenay-Acceleray:left Akbar:1-24 I'm_Bob_Lenon:faster amiral:faster ship_20:slower ship_0:9-8 ship_3:slower ship_2:slower
+[bobot] amiral:faster Apple-Pen:right bob:13-21 Frenay-Acceleray:slower I'm_Bob_Lenon:23-22 Akbar:slower fob:17-13 ship_16:left ship_13:faster
+bobot_fob shot botInSpace_ship_0
+It's turn nb 16
+[botInSpace] Apple-Pen:left ship_19:slower fob:faster Frenay-Acceleray:faster Akbar:right I'm_Bob_Lenon:right amiral:14-28 ship_20:faster ship_0:right ship_3:faster ship_2:faster
+[bobot] amiral:faster Apple-Pen:right bob:faster Frenay-Acceleray:left I'm_Bob_Lenon:16-24 Akbar:26-22 fob:slower ship_16:26-19 ship_13:22-7
+bobot_I'm_Bob_Lenon shot botInSpace_amiral
+bobot_Akbar shot botInSpace_Akbar
+It's turn nb 17
+[botInSpace] Apple-Pen:right ship_19: fob:left Frenay-Acceleray:right Akbar:faster I'm_Bob_Lenon:13-4 amiral:18-2 ship_20:slower ship_0:right ship_3:5-5 ship_2:slower
+[bobot] amiral:faster Apple-Pen:slower bob:slower Frenay-Acceleray: I'm_Bob_Lenon:right Akbar:right fob:17-13 ship_16:right ship_13:faster
+bobot as take bobot_ship_23 !
+botInSpace_ship_3 kill bobot_Frenay-Acceleray
+bobot_fob shot botInSpace_ship_0
+It's turn nb 18
+[botInSpace] Apple-Pen:right ship_19:left fob:slower Frenay-Acceleray:left Akbar:faster I'm_Bob_Lenon:faster amiral:faster ship_20:faster ship_0:faster ship_3:left ship_2:faster
+[bobot] amiral:left Apple-Pen:faster bob:slower I'm_Bob_Lenon: ship_23:right Akbar:28-24 fob:15-13 ship_16:28-24 ship_13:slower
+It's turn nb 19
+[botInSpace] Apple-Pen:slower ship_19:right fob:right Frenay-Acceleray:left Akbar:right I'm_Bob_Lenon:left amiral:left ship_20:faster ship_0:left ship_3:right ship_2:19-11
+[bobot] amiral:slower Apple-Pen:left bob:right I'm_Bob_Lenon: ship_23:right Akbar:right fob:right ship_16:left ship_13:left
+botInSpace_ship_2 kill bobot_fob
+It's turn nb 20
+[botInSpace] Apple-Pen:faster ship_19:left fob:slower Frenay-Acceleray: Akbar:30-24 I'm_Bob_Lenon:left amiral:right ship_20:faster ship_0:20-20 ship_3:right ship_2:slower
+[bobot] amiral:faster Apple-Pen:20-11 bob:faster I'm_Bob_Lenon:slower ship_23:right Akbar:faster ship_16:slower ship_13:slower
+bobot_Apple-Pen shot botInSpace_ship_0
+It's turn nb 21
+[botInSpace] Apple-Pen:slower ship_19:right fob:faster Frenay-Acceleray:right Akbar:right I'm_Bob_Lenon:right amiral:left ship_20:slower ship_0:21-20 ship_3:right ship_2:faster
+[bobot] amiral:30-5 Apple-Pen:slower bob:slower I'm_Bob_Lenon:right ship_23:right Akbar:left ship_16:16-25 ship_13:30-5
+botInSpace_ship_0 shot bobot_ship_16
+bobot_amiral shot ship_6
+bobot_ship_13 shot ship_6
+It's turn nb 22
+[botInSpace] Apple-Pen:left ship_19:faster fob:right Frenay-Acceleray:faster Akbar:23-3 I'm_Bob_Lenon:slower amiral:23-3 ship_20:slower ship_0:slower ship_3:left ship_2:slower
+[bobot] amiral:25-3 Apple-Pen:faster bob:slower I'm_Bob_Lenon: ship_23: Akbar:3-2 ship_16:faster ship_13:3-2
+bobot as take bobot_ship_15 !
+botInSpace_Akbar shot bobot_amiral
+bobot_amiral shot botInSpace_Akbar
+It's turn nb 23
+[botInSpace] Apple-Pen:left ship_19:right fob:5-13 Frenay-Acceleray:right Akbar:left I'm_Bob_Lenon:right amiral:slower ship_20:right ship_0:19-3 ship_3:slower ship_2:right
+[bobot] ship_15:right amiral:right Apple-Pen:27-15 bob:left I'm_Bob_Lenon:right ship_23:6-2 Akbar:right ship_16:right ship_13:right
+It's turn nb 24
+[botInSpace] Apple-Pen:right ship_19:slower fob:left Frenay-Acceleray:right Akbar:slower I'm_Bob_Lenon:18-18 amiral:left ship_20:left ship_0:left ship_3:faster ship_2:right
+[bobot] ship_15:faster amiral:slower Apple-Pen:slower bob:right I'm_Bob_Lenon: ship_23:left Akbar:slower ship_16:20-22 ship_13:right
+bobot_ship_16 kill botInSpace_I'm_Bob_Lenon
+It's turn nb 25
+[botInSpace] Apple-Pen:right ship_19:right fob:faster Frenay-Acceleray:left Akbar:left amiral:faster ship_20:faster ship_0:faster ship_3:4-15 ship_2:faster
+[bobot] ship_15:27-30 amiral:slower Apple-Pen:27-30 bob:faster I'm_Bob_Lenon:left ship_23:9-28 Akbar:9-28 ship_16:right ship_13:25-7
+It's turn nb 26
+[botInSpace] Apple-Pen:faster ship_19:left fob:right Frenay-Acceleray:slower Akbar:left amiral: ship_20:left ship_0:right ship_3:right ship_2:slower
+[bobot] ship_15:slower amiral:right Apple-Pen:right bob:faster I'm_Bob_Lenon:right ship_23:left Akbar:7-5 ship_16:slower ship_13:left
+It's turn nb 27
+[botInSpace] Apple-Pen:right ship_19:right fob:left Frenay-Acceleray:slower Akbar:slower amiral:slower ship_20: ship_0:27-5 ship_3:left ship_2:faster
+[bobot] ship_15:right amiral:right Apple-Pen:left bob:right I'm_Bob_Lenon:left ship_23:10-8 Akbar:left ship_16:right ship_13:left
+botInSpace_ship_0 shot bobot_ship_13
+It's turn nb 28
+[botInSpace] Apple-Pen:right ship_19:right fob:left Frenay-Acceleray: Akbar:left amiral:left ship_20:faster ship_0:slower ship_3:right ship_2:right
+[bobot] ship_15:faster amiral:slower Apple-Pen:28-15 bob:28-15 I'm_Bob_Lenon:slower ship_23:faster Akbar: ship_16:left ship_13:left
+It's turn nb 29
+[botInSpace] Apple-Pen:right ship_19:faster fob: Frenay-Acceleray:left Akbar:right amiral:right ship_20: ship_0:faster ship_3:left ship_2:slower
+[bobot] ship_15:slower amiral:right Apple-Pen:right bob:left I'm_Bob_Lenon:faster ship_23:right Akbar:faster ship_16:faster ship_13:faster
+botInSpace as take botInSpace_ship_5 !
+It's turn nb 30
+[botInSpace] Apple-Pen:left ship_19:left fob:right Frenay-Acceleray:faster Akbar:faster amiral:left ship_20:right ship_0:20-4 ship_3:right ship_2:faster ship_5:
+[bobot] ship_15:19-16 amiral:faster Apple-Pen:right bob: I'm_Bob_Lenon:faster ship_23:27-7 Akbar:left ship_16:right ship_13:27-7
+It's turn nb 31
+[botInSpace] Apple-Pen:1-6 ship_19:slower fob:left Frenay-Acceleray:slower Akbar:left amiral:slower ship_20:right ship_0:left ship_3:slower ship_2:slower ship_5:faster
+[bobot] ship_15:right amiral:slower Apple-Pen:faster bob:faster I'm_Bob_Lenon: ship_23:faster Akbar:right ship_16:17-14 ship_13:29-7
+It's turn nb 32
+[botInSpace] Apple-Pen:left ship_19: fob:slower Frenay-Acceleray:slower Akbar:faster amiral:left ship_20:right ship_0:23-5 ship_3:faster ship_2:23-5 ship_5:
+[bobot] ship_15:17-14 amiral: Apple-Pen:slower bob:faster I'm_Bob_Lenon:slower ship_23:30-5 Akbar:left ship_16:right ship_13:30-5
+botInSpace as take botInSpace_ship_9 !
+botInSpace_ship_0 kill bobot_ship_13
+bobot_ship_23 shot ship_6
+It's turn nb 33
+[botInSpace] Apple-Pen:slower ship_19: fob:slower Frenay-Acceleray:slower Akbar:slower amiral:22-14 ship_20:26-6 ship_9: ship_0:right ship_3:slower ship_2:faster ship_5:right
+[bobot] ship_15:left amiral:right Apple-Pen: bob:slower I'm_Bob_Lenon:right ship_23:slower Akbar:left ship_16:left
+botInSpace_ship_20 shot botInSpace_ship_2
+It's turn nb 34
+[botInSpace] Apple-Pen:left ship_19:faster fob: Frenay-Acceleray: Akbar:right amiral:slower ship_20:slower ship_9:faster ship_0:left ship_3:left ship_2:26-6 ship_5:right
+[bobot] ship_15:faster amiral:slower Apple-Pen:faster bob:faster I'm_Bob_Lenon:left ship_23:slower Akbar:left ship_16:slower
+It's turn nb 35
+[botInSpace] Apple-Pen:right ship_19:faster fob:left Frenay-Acceleray:faster Akbar:left amiral:right ship_20:slower ship_9:left ship_0:slower ship_3: ship_2:left ship_5:slower
+[bobot] ship_15:slower amiral:left Apple-Pen:left bob:right I'm_Bob_Lenon:left ship_23:faster Akbar: ship_16:right
+It's turn nb 36
+[botInSpace] Apple-Pen:left ship_19:slower fob: Frenay-Acceleray:right Akbar:faster amiral:left ship_20:left ship_9: ship_0:left ship_3:left ship_2:slower ship_5:
+[bobot] ship_15:left amiral:faster Apple-Pen:slower bob:right I'm_Bob_Lenon:right ship_23:slower Akbar:faster ship_16:faster
+It's turn nb 37
+[botInSpace] Apple-Pen:faster ship_19: fob:left Frenay-Acceleray: Akbar:slower amiral:right ship_20:24-13 ship_9:left ship_0:right ship_3:faster ship_2:right ship_5:faster
+[bobot] ship_15:faster amiral:left Apple-Pen:right bob:left I'm_Bob_Lenon:right ship_23:right Akbar:8-28 ship_16:slower
+It's turn nb 38
+[botInSpace] Apple-Pen:slower ship_19:faster fob:right Frenay-Acceleray:right Akbar:left amiral:faster ship_20:left ship_9:faster ship_0:right ship_3:right ship_2:right ship_5:left
+[bobot] ship_15:slower amiral: Apple-Pen:right bob:slower I'm_Bob_Lenon:faster ship_23:right Akbar:slower ship_16:right
 botInSpace as take botInSpace_ship_8 !
-It's turn nb 110
-[botInSpace] ship_19:slower ship_10:slower ship_15:faster ship_14:21-6 ship_17:slower race_cruiser:faster arow:faster ship_8:5-23 ship_4:slower ship_7:faster ship_6:left
-[bobot] stardestroyer:slower ship_23: ship_24: ship_1:faster race_cruiser:left ship_12:right
-botInSpace as take botInSpace_ship_22 !
-botInSpace_ship_14 kill bobot_ship_24
-It's turn nb 111
-[botInSpace] ship_19:faster ship_10: ship_15:5-23 ship_14:right ship_17:11-3 ship_22:faster race_cruiser:slower arow:faster ship_8:5-23 ship_4:right ship_7:slower ship_6:right
-[bobot] stardestroyer:right ship_23:slower ship_1:left race_cruiser:faster ship_12:right
-botInSpace_ship_17 shot bobot_ship_12
-It's turn nb 112
-[botInSpace] ship_19:left ship_10:faster ship_15:slower ship_14:faster ship_17:faster ship_22:left race_cruiser:faster arow:left ship_8:faster ship_4:faster ship_7: ship_6:right
-[bobot] stardestroyer:right ship_23:faster ship_1:left race_cruiser:left ship_12:15-7
-It's turn nb 113
-[botInSpace] ship_19:right ship_10: ship_15:faster ship_14: ship_17:slower ship_22:left race_cruiser:slower arow:slower ship_8:2-22 ship_4:left ship_7: ship_6:faster
-[bobot] stardestroyer:left ship_23:slower ship_1:left race_cruiser:right ship_12:left
-It's turn nb 114
-[botInSpace] ship_19:17-29 ship_10: ship_15:left ship_14: ship_17:right ship_22:right race_cruiser:right arow:right ship_8:1-20 ship_4:22-12 ship_7:faster ship_6:left
-[bobot] stardestroyer:faster ship_23: ship_1:22-14 race_cruiser:left ship_12:faster
-botInSpace_ship_4 shot bobot_ship_1
-It's turn nb 115
-[botInSpace] ship_19:slower ship_10:right ship_15:13-5 ship_14:slower ship_17:faster ship_22:slower race_cruiser:faster arow:faster ship_8:slower ship_4:left ship_7:slower ship_6:30-21
-[bobot] stardestroyer:left ship_23:19-17 ship_1:slower race_cruiser:slower ship_12:left
-It's turn nb 116
-[botInSpace] ship_19:slower ship_10:right ship_15:slower ship_14:right ship_17:slower ship_22:faster race_cruiser:right arow:left ship_8:1-21 ship_4:slower ship_7:left ship_6:slower
-[bobot] stardestroyer:right ship_23:left ship_1:right race_cruiser:7-19 ship_12:right
-botInSpace_ship_8 shot bobot_race_cruiser
-It's turn nb 117
-[botInSpace] ship_19:left ship_10:slower ship_15:faster ship_14: ship_17:faster ship_22:left race_cruiser:right arow: ship_8:faster ship_4:right ship_7:faster ship_6:faster
-[bobot] stardestroyer:slower ship_23:faster ship_1:right race_cruiser:6-17 ship_12:left
-It's turn nb 118
-[botInSpace] ship_19:left ship_10:faster ship_15:slower ship_14: ship_17:right ship_22:1-21 race_cruiser:right arow:right ship_8:left ship_4:left ship_7:right ship_6:right
-[bobot] stardestroyer:left ship_23:left ship_1:right race_cruiser:left ship_12:left
-It's turn nb 119
+It's turn nb 39
+[botInSpace] Apple-Pen:right ship_19:right fob:faster Frenay-Acceleray:slower Akbar:slower amiral:right ship_20:slower ship_9:slower ship_8:right ship_0:faster ship_3:slower ship_2:faster ship_5:
+[bobot] ship_15:left amiral:slower Apple-Pen:22-17 bob:left I'm_Bob_Lenon:slower ship_23:faster Akbar:faster ship_16:faster
+It's turn nb 40
+[botInSpace] Apple-Pen:faster ship_19:slower fob:left Frenay-Acceleray:faster Akbar:left amiral:faster ship_20:left ship_9:faster ship_8:7-17 ship_0:slower ship_3:7-17 ship_2:26-4 ship_5:faster
+[bobot] ship_15:left amiral: Apple-Pen:right bob:left I'm_Bob_Lenon:slower ship_23:30-6 Akbar:slower ship_16:left
+botInSpace as take botInSpace_ship_6 !
+botInSpace_ship_2 shot bobot_ship_23
+It's turn nb 41
+[botInSpace] Apple-Pen:left ship_19:left fob:right Frenay-Acceleray:slower Akbar:left amiral: ship_20:20-17 ship_9:slower ship_8:faster ship_0:faster ship_3:faster ship_2:slower ship_5:left ship_6:faster
+[bobot] ship_15:20-7 amiral:faster Apple-Pen:left bob:left I'm_Bob_Lenon:left ship_23:left Akbar:faster ship_16:left
+botInSpace as take botInSpace_ship_24 !
+botInSpace_ship_20 shot bobot_ship_15
+bobot_ship_15 kill botInSpace_amiral
+It's turn nb 42
+[botInSpace] Apple-Pen:right ship_19:left fob: Frenay-Acceleray:left Akbar: ship_24:2-18 ship_20:right ship_9:left ship_8:right ship_0:right ship_3:24-23 ship_2:28-16 ship_5:right ship_6:faster
+[bobot] ship_15:faster amiral:faster Apple-Pen:right bob:faster I'm_Bob_Lenon:2-21 ship_23:26-1 Akbar: ship_16:21-16
+botInSpace_ship_24 shot bobot_I'm_Bob_Lenon
+botInSpace_ship_3 shot bobot_Apple-Pen
+bobot_ship_16 kill botInSpace_ship_20
+It's turn nb 43
+[botInSpace] Apple-Pen:slower ship_19:left fob: Frenay-Acceleray:left Akbar:right ship_24:left ship_9:29-18 ship_8:right ship_0:slower ship_3:21-30 ship_2:faster ship_5:right ship_6:left
+[bobot] ship_15: amiral:left Apple-Pen:left bob:19-28 I'm_Bob_Lenon:faster ship_23:25-5 Akbar:slower ship_16:slower
+botInSpace_ship_3 kill bobot_bob
+It's turn nb 44
+[botInSpace] Apple-Pen:right ship_19:right fob:faster Frenay-Acceleray:left Akbar:faster ship_24:right ship_9:right ship_8:right ship_0:22-30 ship_3:right ship_2:29-11 ship_5: ship_6:27-12
+[bobot] ship_15:slower amiral:faster Apple-Pen:faster I'm_Bob_Lenon:right ship_23:faster Akbar:right ship_16:faster
+It's turn nb 45
+[botInSpace] Apple-Pen:right ship_19:left fob:slower Frenay-Acceleray:slower Akbar:left ship_24:faster ship_9:left ship_8:right ship_0:19-27 ship_3:slower ship_2:slower ship_5:left ship_6:20-10
+[bobot] ship_15:faster amiral:faster Apple-Pen:right I'm_Bob_Lenon:slower ship_23:right Akbar:right ship_16:slower
+It's turn nb 46
+[botInSpace] Apple-Pen:faster ship_19:right fob:faster Frenay-Acceleray:faster Akbar: ship_24:faster ship_9:right ship_8:slower ship_0:faster ship_3:faster ship_2:faster ship_5:slower ship_6:left
+[bobot] ship_15:right amiral:left Apple-Pen:left I'm_Bob_Lenon:19-13 ship_23:right Akbar:slower ship_16:faster
+botInSpace as take botInSpace_ship_1 !
+It's turn nb 47
+[botInSpace] Apple-Pen:slower ship_19:faster fob:slower Frenay-Acceleray:left Akbar:slower ship_24:slower ship_9:right ship_8:faster ship_0:slower ship_3:slower ship_2:left ship_5:right ship_6:right ship_1:left
+[bobot] ship_15:21-15 amiral:left Apple-Pen:21-15 I'm_Bob_Lenon:slower ship_23:slower Akbar:left ship_16:slower
+It's turn nb 48
+[botInSpace] Apple-Pen:faster ship_19:slower fob:9-13 Frenay-Acceleray:right Akbar:right ship_24: ship_9:right ship_8:slower ship_0:faster ship_3:17-2 ship_2:left ship_5:right ship_6:slower ship_1:faster
+[bobot] ship_15:left amiral:faster Apple-Pen:slower I'm_Bob_Lenon: ship_23: Akbar:13-14 ship_16:faster
+botInSpace_fob shot bobot_Akbar
+bobot_Akbar shot botInSpace_fob
+It's turn nb 49
+[botInSpace] Apple-Pen:slower ship_19: fob:slower Frenay-Acceleray:right Akbar:faster ship_24:left ship_9:right ship_8:faster ship_0:right ship_3:right ship_2:right ship_5:right ship_6:18-24 ship_1:slower
+[bobot] ship_15:left amiral:slower Apple-Pen:left I'm_Bob_Lenon:faster ship_23:faster Akbar:13-16 ship_16:1-13
+It's turn nb 50
+[botInSpace] Apple-Pen:faster ship_19:slower fob:faster Frenay-Acceleray:slower Akbar:right ship_24:slower ship_9:slower ship_8:right ship_0:left ship_3:faster ship_2:9-13 ship_5:faster ship_6:slower ship_1:faster
+[bobot] ship_15:16-18 amiral:faster Apple-Pen:left I'm_Bob_Lenon:faster ship_23:right Akbar:13-16 ship_16:3-1
+botInSpace_ship_2 shot bobot_Akbar
+It's turn nb 51
+[botInSpace] Apple-Pen:left ship_19:faster fob:right Frenay-Acceleray:faster Akbar:right ship_24:left ship_9:faster ship_8:9-13 ship_0:slower ship_3:right ship_2:slower ship_5:3-23 ship_6:right ship_1:left
+[bobot] ship_15:right amiral:right Apple-Pen:left I'm_Bob_Lenon:right ship_23:slower Akbar:faster ship_16:right
+It's turn nb 52
+[botInSpace] Apple-Pen:left ship_19:faster fob:faster Frenay-Acceleray:left Akbar:7-19 ship_24:right ship_9:faster ship_8:right ship_0:27-22 ship_3:slower ship_2:1-21 ship_5: ship_6:faster ship_1:
+[bobot] ship_15:slower amiral:5-23 Apple-Pen:faster I'm_Bob_Lenon:5-23 ship_23:right Akbar:left ship_16:slower
+bobot_I'm_Bob_Lenon kill botInSpace_Akbar
+It's turn nb 53
+[botInSpace] Apple-Pen:slower ship_19:left fob:7-15 Frenay-Acceleray:slower ship_24:7-15 ship_9:slower ship_8:left ship_0:right ship_3:left ship_2:right ship_5:right ship_6:slower ship_1:faster
+[bobot] ship_15:faster amiral:slower Apple-Pen:slower I'm_Bob_Lenon:right ship_23:slower Akbar:slower ship_16:left
+It's turn nb 54
+[botInSpace] Apple-Pen:faster ship_19:right fob:faster Frenay-Acceleray:faster ship_24:right ship_9:right ship_8:15-11 ship_0:1-22 ship_3:20-28 ship_2:15-11 ship_5:left ship_6:faster ship_1:
+[bobot] ship_15:right amiral:right Apple-Pen:28-20 I'm_Bob_Lenon:10-16 ship_23:faster Akbar:faster ship_16:faster
+botInSpace_ship_8 kill bobot_I'm_Bob_Lenon
+It's turn nb 55
+[botInSpace] Apple-Pen: ship_19:slower fob:faster Frenay-Acceleray:faster ship_24: ship_9:faster ship_8:21-23 ship_0:left ship_3:faster ship_2:right ship_5:slower ship_6:right ship_1:right
+[bobot] ship_15:slower amiral:right Apple-Pen:faster ship_23:left Akbar:12-14 ship_16:slower
+It's turn nb 56
+[botInSpace] Apple-Pen:slower ship_19:4-23 fob: Frenay-Acceleray:faster ship_24:faster ship_9:slower ship_8:right ship_0:faster ship_3:slower ship_2:faster ship_5: ship_6:right ship_1:
+[bobot] ship_15:faster amiral:left Apple-Pen:right ship_23:slower Akbar:left ship_16:left
+It's turn nb 57
+[botInSpace] Apple-Pen:right ship_19:faster fob:right Frenay-Acceleray:right ship_24:left ship_9:3-23 ship_8:left ship_0:right ship_3:faster ship_2:left ship_5:slower ship_6:faster ship_1:slower
+[bobot] ship_15:left amiral:slower Apple-Pen:right ship_23:27-21 Akbar:right ship_16:5-30
+bobot as take bobot_ship_10 !
+botInSpace_ship_9 shot bobot_ship_23
+It's turn nb 58
+[botInSpace] Apple-Pen:left ship_19:right fob:slower Frenay-Acceleray:left ship_24:right ship_9:3-23 ship_8:right ship_0:slower ship_3:slower ship_2:slower ship_5:faster ship_6:right ship_1:right
+[bobot] ship_15:slower amiral:slower Apple-Pen:slower ship_23: Akbar:left ship_16:6-2 ship_10:right
+botInSpace_ship_9 kill bobot_ship_23
+It's turn nb 59
+[botInSpace] Apple-Pen:left ship_19:left fob: Frenay-Acceleray:faster ship_24:slower ship_9:right ship_8:slower ship_0:7-5 ship_3:left ship_2:faster ship_5:right ship_6:slower ship_1:faster
+[bobot] ship_15:faster amiral:left Apple-Pen:faster Akbar:faster ship_16:5-14 ship_10:right
+botInSpace as take botInSpace_ship_18 !
+It's turn nb 60
+[botInSpace] Apple-Pen:faster ship_19: fob: Frenay-Acceleray:faster ship_18:faster ship_24: ship_9:left ship_8:faster ship_0:faster ship_3:faster ship_2:right ship_5:right ship_6: ship_1:right
+[bobot] ship_15:right amiral:slower Apple-Pen:right Akbar:slower ship_16:4-9 ship_10:faster
+bobot_ship_16 kill botInSpace_fob
+It's turn nb 61
+[botInSpace] Apple-Pen:23-27 ship_19:faster Frenay-Acceleray:slower ship_18:faster ship_24:right ship_9: ship_8:slower ship_0:slower ship_3:slower ship_2:left ship_5:faster ship_6:left ship_1:faster
+[bobot] ship_15:slower amiral:right Apple-Pen:slower Akbar:7-3 ship_16:faster ship_10:22-23
+It's turn nb 62
+[botInSpace] Apple-Pen:slower ship_19:slower Frenay-Acceleray:left ship_18:left ship_24:faster ship_9:right ship_8:faster ship_0:3-1 ship_3:faster ship_2:left ship_5:left ship_6:faster ship_1:
+[bobot] ship_15:left amiral:right Apple-Pen:faster Akbar:faster ship_16:right ship_10:left
+It's turn nb 63
+[botInSpace] Apple-Pen:faster ship_19:right Frenay-Acceleray: ship_18:right ship_24:faster ship_9:right ship_8:left ship_0:left ship_3:left ship_2:slower ship_5:right ship_6:slower ship_1:right
+[bobot] ship_15:right amiral:slower Apple-Pen:18-4 Akbar:slower ship_16:slower ship_10:faster
+It's turn nb 64
+[botInSpace] Apple-Pen:slower ship_19:left Frenay-Acceleray:slower ship_18:17-2 ship_24:16-27 ship_9: ship_8:slower ship_0:faster ship_3:16-27 ship_2:30-28 ship_5: ship_6:slower ship_1:right
+[bobot] ship_15:faster amiral:24-23 Apple-Pen:left Akbar:slower ship_16:left ship_10:right
+It's turn nb 65
+[botInSpace] Apple-Pen:left ship_19:left Frenay-Acceleray:faster ship_18:slower ship_24:right ship_9:faster ship_8:left ship_0:right ship_3:left ship_2:right ship_5: ship_6:faster ship_1:right
+[bobot] ship_15:slower amiral:23-23 Apple-Pen:18-5 Akbar:left ship_16:left ship_10:right
