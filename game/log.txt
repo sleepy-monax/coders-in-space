@@ -1,33 +1,38 @@
-[distant_bot] Apple-Pen:b Akbar:b amiral:d bob:f fob:f I'm_Bob_Lenon:f
-[TheGroupe24_bot] Apple-Pen:b Akbar:b amiral:d bob:f fob:f I'm_Bob_Lenon:f
+[bot!!!!!!] Apple-Pen:b Akbar:d amiral:f bob:f fob:f I'm_Bob_Lenon:f Frenay-Acceleray:f
+[TheGroupe24_bot] Apple-Pen:b Akbar:d amiral:f bob:f fob:f I'm_Bob_Lenon:f Frenay-Acceleray:f
 It's turn nb 0
-[distant_bot] Akbar:left bob: Apple-Pen:right amiral: fob:faster
-[TheGroupe24_bot] Apple-Pen:faster bob:faster Akbar:left fob:faster amiral:left
+[bot!!!!!!] I'm_Bob_Lenon:left Akbar:faster amiral:left Apple-Pen:left Frenay-Acceleray:right fob: bob:
+[TheGroupe24_bot] Apple-Pen: I'm_Bob_Lenon: bob:faster Akbar:right amiral:faster fob:faster Frenay-Acceleray:faster
 It's turn nb 1
-[distant_bot] Akbar:left bob: Apple-Pen:faster amiral:right fob:
-[TheGroupe24_bot] Apple-Pen:left bob:faster Akbar:faster fob:right amiral:faster
+[bot!!!!!!] I'm_Bob_Lenon:faster Akbar:slower amiral:right Apple-Pen: Frenay-Acceleray:faster fob:right bob:faster
+[TheGroupe24_bot] Apple-Pen:faster I'm_Bob_Lenon:faster bob:slower Akbar:faster amiral:right fob: Frenay-Acceleray:left
+TheGroupe24_bot as take TheGroupe24_bot_ship_7 !
 It's turn nb 2
-[distant_bot] Akbar:left bob:faster Apple-Pen:slower amiral:right fob:right
-[TheGroupe24_bot] Apple-Pen:slower bob:left Akbar: fob:faster amiral:faster
+[bot!!!!!!] I'm_Bob_Lenon: Akbar:faster amiral:faster Apple-Pen:right Frenay-Acceleray:faster fob:left bob:faster
+[TheGroupe24_bot] Apple-Pen:right I'm_Bob_Lenon:right bob:right Akbar:left amiral:left fob: ship_7:faster Frenay-Acceleray:right
+bot!!!!!! as take bot!!!!!!_ship_12 !
 It's turn nb 3
-[distant_bot] Akbar:right bob:slower Apple-Pen:faster amiral:faster fob:right
-[TheGroupe24_bot] Apple-Pen:faster bob:slower Akbar:slower fob:slower amiral:slower
+[bot!!!!!!] I'm_Bob_Lenon:left Akbar:faster amiral: ship_12: Apple-Pen:left Frenay-Acceleray:left fob:faster bob:slower
+[TheGroupe24_bot] Apple-Pen: I'm_Bob_Lenon:right bob:left Akbar: amiral:faster fob:faster ship_7:slower Frenay-Acceleray:slower
 It's turn nb 4
-[distant_bot] Akbar: bob:faster Apple-Pen: amiral:faster fob:faster
-[TheGroupe24_bot] Apple-Pen:left bob:right Akbar:right fob:left amiral:right
+[bot!!!!!!] I'm_Bob_Lenon:slower Akbar:slower amiral:slower ship_12:faster Apple-Pen:faster Frenay-Acceleray:14-14 fob:faster bob:right
+[TheGroupe24_bot] Apple-Pen:right I'm_Bob_Lenon:slower bob:faster Akbar: amiral:left fob:left ship_7: Frenay-Acceleray:faster
 It's turn nb 5
-[distant_bot] Akbar:faster bob:left Apple-Pen:left amiral:left fob:left
-[TheGroupe24_bot] Apple-Pen:left bob: Akbar:right fob:slower amiral:faster
+[bot!!!!!!] I'm_Bob_Lenon:left Akbar:slower amiral:left ship_12: Apple-Pen:13-16 Frenay-Acceleray:right fob:left bob:right
+[TheGroupe24_bot] Apple-Pen:16-19 I'm_Bob_Lenon:right bob:right Akbar:right amiral:slower fob:16-19 ship_7: Frenay-Acceleray:slower
 It's turn nb 6
-[distant_bot] Akbar:slower bob:right Apple-Pen:left amiral:right fob:left
-[TheGroupe24_bot] Apple-Pen:right bob:slower Akbar:right fob:faster amiral:slower
-distant_bot as take distant_bot_b6 !
+[bot!!!!!!] I'm_Bob_Lenon:faster Akbar:faster amiral:right ship_12:faster Apple-Pen:13-16 Frenay-Acceleray:faster fob:left bob:right
+[TheGroupe24_bot] Apple-Pen:17-13 I'm_Bob_Lenon:faster bob:faster Akbar:faster amiral:12-17 fob:faster ship_7:faster Frenay-Acceleray:right
 It's turn nb 7
-[distant_bot] Akbar:faster bob: Apple-Pen:right amiral:slower b6:right fob:left
-[TheGroupe24_bot] Apple-Pen:slower bob:left Akbar:faster fob:slower amiral:left
+[bot!!!!!!] I'm_Bob_Lenon:faster Akbar:17-18 amiral:right ship_12:slower Apple-Pen:slower Frenay-Acceleray:slower fob:18-12 bob:slower
+[TheGroupe24_bot] Apple-Pen:19-9 I'm_Bob_Lenon: bob:faster Akbar:left amiral:faster fob:slower ship_7:faster Frenay-Acceleray:faster
+bot!!!!!! as take bot!!!!!!_ship_0 !
+TheGroupe24_bot as take TheGroupe24_bot_ship_6 !
 It's turn nb 8
-[distant_bot] Akbar:slower bob:right Apple-Pen:slower amiral: b6:left fob:faster
-[TheGroupe24_bot] Apple-Pen:left bob:faster Akbar:slower fob:faster amiral:
+[bot!!!!!!] I'm_Bob_Lenon:right Akbar:right amiral:9-16 ship_0:faster ship_12: Apple-Pen:left Frenay-Acceleray:right fob:faster bob:left
+[TheGroupe24_bot] Apple-Pen:slower I'm_Bob_Lenon: bob:21-7 Akbar:slower amiral:left fob:right ship_7:slower ship_6:left Frenay-Acceleray:left
+bot!!!!!! as take bot!!!!!!_ship_2 !
 It's turn nb 9
-[distant_bot] Akbar:faster bob:slower Apple-Pen:faster amiral:slower b6:left fob:slower
-[TheGroupe24_bot] Apple-Pen:right bob:slower Akbar:faster fob:right amiral:slower
+[bot!!!!!!] I'm_Bob_Lenon:left Akbar:left amiral:faster ship_2:faster ship_0:slower ship_12:left Apple-Pen:faster Frenay-Acceleray:right fob:left bob:faster
+[TheGroupe24_bot] Apple-Pen:faster I'm_Bob_Lenon: bob:slower Akbar:12-12 amiral:12-16 fob:faster ship_7:faster ship_6:faster Frenay-Acceleray:faster
+TheGroupe24_bot as take TheGroupe24_bot_ship_15 !
