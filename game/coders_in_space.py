@@ -884,7 +884,7 @@ def get_distant_input(game_data):
     Implementation: Nicolas Van Bossuyt (v1. 03/03/17)
     """
 
-    return game_data['players']['distant']['connection']
+    return get_remote_orders(game_data['players']['distant']['connection'])
 
 # A.I.C.I.S
 # ------------------------------------------------------------------------------
@@ -1371,7 +1371,7 @@ def parse_command(commands, player_name, game_data):
                 else:
                     attack_coords = ship_command.split('-')
                     if len(attack_coords) == 2:
-                        attack_coords = (int(attack_coords[0]) - 1, int(attack_coords[1]) - 1)
+                        attack_coords = (int(attack_coords[1]) - 1, int(attack_coords[0]) - 1)
                         game_data['pending_attacks'].append(
                             (ship_name, game_data['ships'][ship_name]['position'], attack_coords))
 
@@ -1779,7 +1779,7 @@ def parse_game_file(path):
 
     # Get the size of the gameboard.
     size_str = file_content[0].split(' ')
-    size = (int(size_str[0]), int(size_str[1]))
+    size = (int(size_str[1]), int(size_str[0]))
 
     # Get lost space ship in the file..
     ships_list = []
@@ -1787,7 +1787,7 @@ def parse_game_file(path):
         ship_str = file_content[line_index + 1].split(' ')
         if len(ship_str) == 4:
             ship_name_and_type = ship_str[2].split(':')
-            ship = (int(ship_str[0]), int(ship_str[1]), ship_name_and_type[0], ship_name_and_type[1],
+            ship = (int(ship_str[1]), int(ship_str[0]), ship_name_and_type[0], ship_name_and_type[1],
                     direction_to_vector2d(ship_str[3]))
             ships_list.append(ship)
 
@@ -1908,5 +1908,6 @@ def create_game_board(file_name, board_size, lost_ships_count):
 
 
 # Use for quick debuging.
-if __name__ == '__main__':
-    play_game('random', ('botInSpace', 'bobot'))
+if __name__ == '__main__': 
+    play_game("board/battlefield.cis", ("distant_bot","TheGroupe24_bot"), no_splash=False, no_gui=False,
+              verbose_connection=True, max_rounds_count=10, auto_screen_shots=False)
