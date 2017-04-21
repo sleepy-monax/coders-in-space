@@ -88,7 +88,7 @@ def play_game(level_name, players_list, no_splash=False, no_gui=False, distant_i
     else:
         game_data = new_game(level_name, players_list)
 
-    game_data['max_nb_rounds'] = max_rounds_count
+    game_data['max_nb_rounds'] = max_rounds_count - 1
 
     # Show the splash screen.
     if not no_splash:
@@ -275,7 +275,7 @@ def new_game(level_name, players_list, connection=None):
 
         else:
             write_log(game_data,
-                      'There is too many player the player %s is a loser he must be watch you playing' % (player), 1)
+                      'There is too many player, %s is a loser he must be watch you playing' % (player), 1)
 
         index_player += 1
 
@@ -1632,7 +1632,7 @@ def take_abandonned_ship(game_data):
                 new_ship_name = "%s_%s" % (owner, ship)
 
                 if new_ship_name in game_data['ships']:
-                    new_ship_name += '2'
+                    new_ship_name += '_2'
 
                 # Place the new ship on the game board.
                 game_data['board'][abandoned_ship['position']].append(new_ship_name)
