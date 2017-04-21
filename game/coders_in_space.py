@@ -154,6 +154,7 @@ def play_game(level_name, players_list, no_splash=False, no_gui=False, distant_i
     # Show the end game screen.
     if not no_splash:
         show_end_game(game_data)
+        raw_input()
 
     return game_data
 
@@ -201,26 +202,26 @@ def new_game(level_name, players_list, connection=None):
 
     # Create ship specs sheet.
     game_data['model_ship']['fighter'] = {'icon': u'F',
-										  'max_heal': 3,
-										  'max_speed': 5,
-										  'damages': 1,
-										  'range': 5,
+                                          'max_heal': 3,
+                                          'max_speed': 5,
+                                          'damages': 1,
+                                          'range': 5,
                                           'price': 10}
-										  
+                                          
     game_data['model_ship']['destroyer'] = {'icon': u'D',
-											'max_heal': 8,
-											'max_speed': 2,
-											'damages': 2,
-											'range': 7,
+                                            'max_heal': 8,
+                                            'max_speed': 2,
+                                            'damages': 2,
+                                            'range': 7,
                                             'price': 20}
-											
+                                            
     game_data['model_ship']['battlecruiser'] = {'icon': u'B',
-												'max_heal': 20,
-												'max_speed': 1,
-												'damages': 4,
-												'range': 10,
+                                                'max_heal': 20,
+                                                'max_speed': 1,
+                                                'damages': 4,
+                                                'range': 10,
                                                 'price': 30}
-												
+                                                
     # (here you can define new spaceship type if you want).
 
     # Create the game board.
@@ -325,6 +326,8 @@ def show_splash_game(game_data):
     rows, columns = get_terminal_size()
     screen_size = (int(rows), int(columns))
 
+  
+    
     c = create_canvas(screen_size[0], screen_size[1])
 
     # print the alien.
@@ -341,7 +344,17 @@ def show_splash_game(game_data):
 
     # Print coders in space logo.
     c = clear_canvas(c)
-    c = put_ascii_art(c, screen_size[0] / 2 - 69, screen_size[1] / 2 - 5, 'coders_in_space', 'yellow')
+    
+    game_title = 'Coders In Space'
+    game_copyright = '(c) 2017 - 3342 Groupe24 corp.'
+    font_standard = load_ascii_font('font_standard.txt')
+    text_width = mesure_ascii_text(font_standard, game_title)
+    text_location = (screen_size[0] / 2 - text_width / 2, screen_size[1] / 2 - 5)
+    
+    c = put_ascii_text(c, font_standard, game_title, text_location[0], text_location[1], 'yellow')
+    c = put_text(c, text_location[0], text_location[1] + 7, '-' * text_width)
+    c = put_text(c, text_location[0] + text_width - len(game_copyright), text_location[1] + 9, game_copyright, color='yellow')
+    
     print_canvas(c)
 
 
@@ -838,7 +851,7 @@ def render_game_logs(game_data, width, height):
     y = 0
 
     message_color = ['blue', 'yellow', 'red', None]
-    message_prefix = ['INFO', 'WARN', 'ERRO', 'INPT']
+    message_prefix = ['  I ', ' /!\\', ' !!!', '  > ']
 
     for message in game_data['game_logs'][-height:]:
         c = put_text(c, 5, y, message[1], 1, 0)
@@ -1068,7 +1081,7 @@ def get_ai_spaceships(player_name, game_data):
 
     return 'arow:fighter stardestroyer:destroyer race_cruiser:battlecruiser'
 
-	
+    
 # AI - command corection.
 # ------------------------------------------------------------------------------
 # Because nothing is perfect.
@@ -1141,14 +1154,12 @@ def attack(game_data, ship):
                 targets_life.append(game_data['ships'][target]['heal_points'])
 
             final_target = ships_targeted[targets_life.index(min(targets_life))]
-            target_coords = convert_coordinates(
-                (game_data['ships'][final_target]['position'][0], game_data['ships'][final_target]['position'][1]),
-                game_data['board_size'])
+            target_coords = predict_next_pos(game_data, final_target)
             return '%d-%d' % (target_coords[0] + 1, target_coords[1] + 1)
 
     return ''
 
-	
+    
 def get_nearby_ship(game_data, target_ship, search_range):
     """
     Make a list of around ship in range.
@@ -1251,7 +1262,7 @@ def convert_coordinates(coord, size):
         return a
 
     return (convert(coord[0], size[0]), convert(coord[1], size[1]))
-	
+    
 def predict_next_pos(game_data, ship_name):
     """
     Predict the next position of a space ship.
@@ -1275,7 +1286,7 @@ def predict_next_pos(game_data, ship_name):
     speed = game_data['ships'][ship_name]['speed']
     position = game_data['ships'][ship_name]['position']
     direction = game_data['ships'][ship_name]['direction']
-	
+    
     predicted_postion = convert_coordinates((position[0] + direction[0] * speed, position[1] + direction[1] * speed),
                                             game_data['board_size'])
 
@@ -1672,7 +1683,7 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_data):
             game_data['ships'][target_ship]['heal_points'] -= damages
 
             if game_data['ships'][target_ship]['heal_points'] <= 0:
-                write_log(game_data, '%s kill %s' % (ship, target_ship), 0)
+                write_log(game_data, '%s kill %s' % (ship, target_ship), 1)
 
                 # Remove the space ship.
                 game_data['board'][target_coordinate].remove(target_ship)
@@ -1680,6 +1691,8 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_data):
                     game_data['players'][game_data['ships'][target_ship]['owner']]['nb_ships'] -= 1
 
                 del game_data['ships'][target_ship]
+            else:
+                write_log(game_data, '%s shot %s' % (ship, target_ship), 1)
 
     return game_data
 
@@ -1785,7 +1798,7 @@ def vector2d_to_direction(vector):
 
     Parameter
     ---------
-	vector: vector2d to convert in direction (tuple(int, int)).
+    vector: vector2d to convert in direction (tuple(int, int)).
 
     Return
     ------

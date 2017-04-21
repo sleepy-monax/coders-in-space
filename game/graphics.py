@@ -573,7 +573,7 @@ def _get_terminal_size_windows():
              maxx, maxy) = struct.unpack("hhhhHhhhhhh", csbi.raw)
             sizex = right - left + 1
             sizey = bottom - top + 1
-            return int(sizex), int(sizey)
+            return int(sizex) - 1, int(sizey)
     except:
         pass
 

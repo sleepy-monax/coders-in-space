@@ -1,0 +1,489 @@
+[botInSpace] arow:fighter stardestroyer:destroyer race_cruiser:battlecruiser
+[bobot] arow:fighter stardestroyer:destroyer race_cruiser:battlecruiser
+It's turn nb 0
+[botInSpace] stardestroyer:faster race_cruiser:right arow:left
+[bobot] stardestroyer:faster arow:left race_cruiser:faster
+It's turn nb 1
+[botInSpace] stardestroyer: race_cruiser:left arow:faster
+[bobot] stardestroyer:right arow:right race_cruiser:
+It's turn nb 2
+[botInSpace] stardestroyer:right race_cruiser: arow:slower
+[bobot] stardestroyer:faster arow: race_cruiser:right
+It's turn nb 3
+[botInSpace] stardestroyer:left race_cruiser:left arow:right
+[bobot] stardestroyer:left arow:right race_cruiser:right
+It's turn nb 4
+[botInSpace] stardestroyer:left race_cruiser:right arow:faster
+[bobot] stardestroyer:right arow: race_cruiser:right
+It's turn nb 5
+[botInSpace] stardestroyer:faster race_cruiser:left arow:slower
+[bobot] stardestroyer:right arow: race_cruiser:slower
+bobot as take bobot_ship_9 !
+It's turn nb 6
+[botInSpace] stardestroyer:slower race_cruiser:faster arow:left
+[bobot] stardestroyer:left ship_9:faster arow:faster race_cruiser:faster
+It's turn nb 7
+[botInSpace] stardestroyer:slower race_cruiser:right arow:left
+[bobot] stardestroyer: ship_9:slower arow:slower race_cruiser:right
+It's turn nb 8
+[botInSpace] stardestroyer:faster race_cruiser:slower arow:faster
+[bobot] stardestroyer:left ship_9:faster arow:faster race_cruiser:slower
+It's turn nb 9
+[botInSpace] stardestroyer:faster race_cruiser:faster arow:right
+[bobot] stardestroyer:slower ship_9:faster arow:left race_cruiser:19-14
+It's turn nb 10
+[botInSpace] stardestroyer:19-17 race_cruiser: arow:faster
+[bobot] stardestroyer:faster ship_9:slower arow:faster race_cruiser:22-14
+botInSpace as take botInSpace_ship_6 !
+bobot_race_cruiser shot botInSpace_stardestroyer
+bobot_race_cruiser shot botInSpace_ship_6
+It's turn nb 11
+[botInSpace] stardestroyer:slower race_cruiser:right arow:slower ship_6:faster
+[bobot] stardestroyer:left ship_9: arow:left race_cruiser:right
+It's turn nb 12
+[botInSpace] stardestroyer:slower race_cruiser:right arow:left ship_6:slower
+[bobot] stardestroyer:left ship_9: arow:14-15 race_cruiser:left
+It's turn nb 13
+[botInSpace] stardestroyer:faster race_cruiser:right arow:right ship_6:23-18
+[bobot] stardestroyer:slower ship_9:left arow:left race_cruiser:faster
+It's turn nb 14
+[botInSpace] stardestroyer:faster race_cruiser:slower arow: ship_6:25-20
+[bobot] stardestroyer:right ship_9:faster arow:faster race_cruiser:25-14
+bobot as take bobot_ship_20 !
+bobot as take bobot_ship_2 !
+botInSpace_ship_6 shot bobot_race_cruiser
+It's turn nb 15
+[botInSpace] stardestroyer:slower race_cruiser:6-24 arow:right ship_6:faster
+[bobot] stardestroyer: ship_20: ship_9:slower ship_2:faster arow:faster race_cruiser:slower
+bobot as take bobot_ship_22 !
+It's turn nb 16
+[botInSpace] stardestroyer:left race_cruiser:9-23 arow:slower ship_6:slower
+[bobot] stardestroyer:left ship_22:faster ship_20:faster ship_9:faster ship_2:slower arow:right race_cruiser:left
+It's turn nb 17
+[botInSpace] stardestroyer:left race_cruiser:right arow: ship_6:left
+[bobot] stardestroyer:faster ship_22: ship_20:faster ship_9:left ship_2: arow:right race_cruiser:left
+It's turn nb 18
+[botInSpace] stardestroyer:faster race_cruiser:right arow:faster ship_6:left
+[bobot] stardestroyer: ship_22:left ship_20:slower ship_9: ship_2:right arow:right race_cruiser:24-14
+bobot_race_cruiser shot botInSpace_ship_6
+It's turn nb 19
+[botInSpace] stardestroyer:slower race_cruiser:faster arow:faster ship_6:faster
+[bobot] stardestroyer:slower ship_22: ship_20: ship_9: ship_2:left arow:right race_cruiser:24-14
+It's turn nb 20
+[botInSpace] stardestroyer:right race_cruiser:slower arow:faster ship_6:5-9
+[bobot] stardestroyer:faster ship_22:slower ship_20:slower ship_9:slower ship_2:faster arow: race_cruiser:right
+It's turn nb 21
+[botInSpace] stardestroyer:left race_cruiser:left arow:faster ship_6:slower
+[bobot] stardestroyer:slower ship_22: ship_20:left ship_9:left ship_2:left arow:slower race_cruiser:faster
+It's turn nb 22
+[botInSpace] stardestroyer:right race_cruiser:faster arow: ship_6:left
+[bobot] stardestroyer:right ship_22:left ship_20:faster ship_9:slower ship_2:left arow:slower race_cruiser:slower
+It's turn nb 23
+[botInSpace] stardestroyer: race_cruiser:right arow:4-28 ship_6:faster
+[bobot] stardestroyer:24-12 ship_22:faster ship_20:slower ship_9:faster ship_2: arow:slower race_cruiser:faster
+It's turn nb 24
+[botInSpace] stardestroyer:left race_cruiser:right arow:13-26 ship_6:slower
+[bobot] stardestroyer:22-10 ship_22:13-2 ship_20:faster ship_9:left ship_2: arow:left race_cruiser:left
+It's turn nb 25
+[botInSpace] stardestroyer:right race_cruiser:left arow:slower ship_6:right
+[bobot] stardestroyer:left ship_22:left ship_20:faster ship_9:right ship_2:slower arow:slower race_cruiser:left
+It's turn nb 26
+[botInSpace] stardestroyer:faster race_cruiser:slower arow:left ship_6:24-16
+[bobot] stardestroyer:left ship_22:right ship_20:slower ship_9: ship_2:faster arow:faster race_cruiser:slower
+It's turn nb 27
+[botInSpace] stardestroyer:slower race_cruiser:left arow:faster ship_6:right
+[bobot] stardestroyer:slower ship_22:slower ship_20:faster ship_9:right ship_2:faster arow:left race_cruiser:
+It's turn nb 28
+[botInSpace] stardestroyer:slower race_cruiser:left arow:slower ship_6:25-16
+[bobot] stardestroyer:23-11 ship_22:left ship_20:6-29 ship_9:slower ship_2:left arow: race_cruiser:left
+botInSpace_ship_6 shot bobot_stardestroyer
+bobot_stardestroyer shot botInSpace_ship_6
+It's turn nb 29
+[botInSpace] stardestroyer:faster race_cruiser: arow:faster ship_6:left
+[bobot] stardestroyer:23-11 ship_22: ship_20:right ship_9: ship_2: arow:5-30 race_cruiser:faster
+bobot_stardestroyer shot botInSpace_ship_6
+It's turn nb 30
+[botInSpace] stardestroyer:left race_cruiser:faster arow:faster ship_6:left
+[bobot] stardestroyer:faster ship_22:left ship_20:slower ship_9:right ship_2:faster arow:left race_cruiser:23-11
+bobot_race_cruiser shot botInSpace_ship_6
+It's turn nb 31
+[botInSpace] stardestroyer:slower race_cruiser:slower arow:slower ship_6:right
+[bobot] stardestroyer: ship_22:faster ship_20:left ship_9:right ship_2:left arow:6-27 race_cruiser:right
+It's turn nb 32
+[botInSpace] stardestroyer:5-28 race_cruiser:faster arow:faster ship_6:23-11
+[bobot] stardestroyer: ship_22:slower ship_20:slower ship_9: ship_2:left arow:6-28 race_cruiser:slower
+botInSpace_stardestroyer shot bobot_arow
+botInSpace_ship_6 kill botInSpace_ship_6
+bobot_arow shot botInSpace_stardestroyer
+It's turn nb 33
+[botInSpace] stardestroyer:faster race_cruiser:left arow:slower
+[bobot] stardestroyer:faster ship_22:left ship_20: ship_9:faster ship_2: arow:6-28 race_cruiser:faster
+It's turn nb 34
+[botInSpace] stardestroyer:right race_cruiser:slower arow:slower
+[bobot] stardestroyer:left ship_22:right ship_20:faster ship_9: ship_2:left arow:slower race_cruiser:slower
+It's turn nb 35
+[botInSpace] stardestroyer:4-28 race_cruiser:right arow:right
+[bobot] stardestroyer:left ship_22:faster ship_20:slower ship_9:slower ship_2: arow:8-25 race_cruiser:
+botInSpace_stardestroyer kill bobot_arow
+It's turn nb 36
+[botInSpace] stardestroyer:left race_cruiser:left arow:faster
+[bobot] stardestroyer:slower ship_22:left ship_20:faster ship_9:right ship_2:9-11 race_cruiser:faster
+bobot_ship_2 shot botInSpace_race_cruiser
+It's turn nb 37
+[botInSpace] stardestroyer: race_cruiser:left arow:right
+[bobot] stardestroyer:faster ship_22:8-23 ship_20:slower ship_9: ship_2:faster race_cruiser:right
+bobot_ship_22 kill botInSpace_stardestroyer
+It's turn nb 38
+[botInSpace] race_cruiser:faster arow:left
+[bobot] stardestroyer:slower ship_22:right ship_20:left ship_9: ship_2:faster race_cruiser:slower
+It's turn nb 39
+[botInSpace] race_cruiser:1-11 arow:left
+[bobot] stardestroyer:right ship_22: ship_20:right ship_9:left ship_2:left race_cruiser:faster
+botInSpace_race_cruiser shot bobot_ship_20
+It's turn nb 40
+[botInSpace] race_cruiser:slower arow:left
+[bobot] stardestroyer:right ship_22:right ship_20: ship_9:faster ship_2:slower race_cruiser:
+It's turn nb 41
+[botInSpace] race_cruiser:faster arow:right
+[bobot] stardestroyer:slower ship_22:right ship_20:left ship_9:left ship_2:right race_cruiser:
+It's turn nb 42
+[botInSpace] race_cruiser:left arow:slower
+[bobot] stardestroyer:faster ship_22:18-16 ship_20:faster ship_9:left ship_2:slower race_cruiser:
+It's turn nb 43
+[botInSpace] race_cruiser:left arow:right
+[bobot] stardestroyer:right ship_22:right ship_20: ship_9:slower ship_2:faster race_cruiser:slower
+It's turn nb 44
+[botInSpace] race_cruiser:left arow:faster
+[bobot] stardestroyer:faster ship_22:slower ship_20:faster ship_9:faster ship_2:faster race_cruiser:right
+It's turn nb 45
+[botInSpace] race_cruiser:7-17 arow:left
+[bobot] stardestroyer: ship_22:left ship_20: ship_9:13-13 ship_2:left race_cruiser:faster
+botInSpace_race_cruiser kill bobot_ship_20
+bobot_ship_9 shot botInSpace_race_cruiser
+It's turn nb 46
+[botInSpace] race_cruiser:right arow:slower
+[bobot] stardestroyer:left ship_22:faster ship_9:14-12 ship_2:2-23 race_cruiser:left
+It's turn nb 47
+[botInSpace] race_cruiser:right arow:slower
+[bobot] stardestroyer:right ship_22:15-13 ship_9:faster ship_2:slower race_cruiser:right
+It's turn nb 48
+[botInSpace] race_cruiser:9-9 arow:
+[bobot] stardestroyer:slower ship_22:slower ship_9:slower ship_2: race_cruiser:slower
+It's turn nb 49
+[botInSpace] race_cruiser:slower arow:
+[bobot] stardestroyer:faster ship_22:17-16 ship_9:slower ship_2:left race_cruiser:faster
+bobot as take bobot_ship_21 !
+It's turn nb 50
+[botInSpace] race_cruiser:left arow:slower
+[bobot] stardestroyer:slower ship_22:faster ship_21:faster ship_9:faster ship_2:slower race_cruiser:
+It's turn nb 51
+[botInSpace] race_cruiser:right arow:right
+[bobot] stardestroyer:faster ship_22:slower ship_21:left ship_9:slower ship_2:slower race_cruiser:left
+It's turn nb 52
+[botInSpace] race_cruiser:left arow:
+[bobot] stardestroyer:right ship_22:faster ship_21:left ship_9:faster ship_2:16-15 race_cruiser:
+bobot_ship_2 shot botInSpace_race_cruiser
+It's turn nb 53
+[botInSpace] race_cruiser:16-18 arow:left
+[bobot] stardestroyer:16-15 ship_22:slower ship_21:slower ship_9:left ship_2:faster race_cruiser:left
+bobot_stardestroyer shot botInSpace_race_cruiser
+It's turn nb 54
+[botInSpace] race_cruiser:faster arow:left
+[bobot] stardestroyer:slower ship_22:16-15 ship_21:16-15 ship_9:slower ship_2:16-15 race_cruiser:left
+botInSpace as take botInSpace_ship_15 !
+It's turn nb 55
+[botInSpace] ship_15:right race_cruiser:slower arow:left
+[bobot] stardestroyer:slower ship_22:right ship_21:left ship_9:faster ship_2:right race_cruiser:right
+botInSpace as take botInSpace_ship_13 !
+It's turn nb 56
+[botInSpace] ship_13:right ship_15:right race_cruiser:right arow:faster
+[bobot] stardestroyer:17-15 ship_22:left ship_21: ship_9:left ship_2:right race_cruiser:slower
+bobot_stardestroyer shot botInSpace_ship_15
+bobot_stardestroyer shot botInSpace_race_cruiser
+It's turn nb 57
+[botInSpace] ship_13:faster ship_15:16-11 race_cruiser:faster arow:left
+[bobot] stardestroyer:left ship_22:faster ship_21:faster ship_9: ship_2:right race_cruiser:
+botInSpace_ship_15 shot bobot_stardestroyer
+It's turn nb 58
+[botInSpace] ship_13:4-19 ship_15:faster race_cruiser:right arow:slower
+[bobot] stardestroyer:right ship_22:right ship_21:slower ship_9:right ship_2:right race_cruiser:
+bobot as take bobot_ship_0 !
+It's turn nb 59
+[botInSpace] ship_13:7-16 ship_15:16-11 race_cruiser:left arow:left
+[bobot] stardestroyer:right ship_22:18-18 ship_21:faster ship_9:slower ship_0:faster ship_2:left race_cruiser:faster
+botInSpace_ship_15 kill bobot_stardestroyer
+It's turn nb 60
+[botInSpace] ship_13:left ship_15:faster race_cruiser:left arow:faster
+[bobot] ship_22:slower ship_21:left ship_9:faster ship_0:7-18 ship_2:faster race_cruiser:slower
+It's turn nb 61
+[botInSpace] ship_13:slower ship_15:right race_cruiser:right arow:faster
+[bobot] ship_22:faster ship_21:right ship_9:slower ship_0:right ship_2:faster race_cruiser:right
+It's turn nb 62
+[botInSpace] ship_13:5-23 ship_15:slower race_cruiser:26-23 arow:right
+[bobot] ship_22:right ship_21:slower ship_9:faster ship_0:left ship_2:slower race_cruiser:left
+bobot as take bobot_ship_14 !
+It's turn nb 63
+[botInSpace] ship_13:6-24 ship_15:faster race_cruiser:right arow:
+[bobot] ship_22:slower ship_21:left ship_9:slower ship_0:left ship_2:slower race_cruiser:left ship_14:faster
+It's turn nb 64
+[botInSpace] ship_13:faster ship_15:left race_cruiser:left arow:left
+[bobot] ship_22:left ship_21:11-19 ship_9:faster ship_0:slower ship_2:faster race_cruiser:faster ship_14:right
+It's turn nb 65
+[botInSpace] ship_13:left ship_15:left race_cruiser:25-23 arow:left
+[bobot] ship_22:faster ship_21:faster ship_9:left ship_0:faster ship_2:faster race_cruiser:right ship_14:right
+It's turn nb 66
+[botInSpace] ship_13:slower ship_15:slower race_cruiser:slower arow:slower
+[bobot] ship_22:slower ship_21:right ship_9: ship_0:left ship_2:slower race_cruiser:right ship_14:
+It's turn nb 67
+[botInSpace] ship_13:faster ship_15:slower race_cruiser:26-24 arow:left
+[bobot] ship_22:left ship_21:right ship_9:faster ship_0: ship_2:faster race_cruiser:slower ship_14:faster
+botInSpace_race_cruiser shot bobot_ship_22
+It's turn nb 68
+[botInSpace] ship_13:slower ship_15: race_cruiser:left arow:left
+[bobot] ship_22:faster ship_21:slower ship_9:slower ship_0:faster ship_2:slower race_cruiser:faster ship_14:slower
+It's turn nb 69
+[botInSpace] ship_13:left ship_15:faster race_cruiser:faster arow:left
+[bobot] ship_22:right ship_21:left ship_9:left ship_0:faster ship_2: race_cruiser:8-18 ship_14:slower
+bobot_race_cruiser shot botInSpace_ship_13
+It's turn nb 70
+[botInSpace] ship_13:left ship_15: race_cruiser:right arow:
+[bobot] ship_22:slower ship_21:faster ship_9:25-21 ship_0: ship_2:left race_cruiser:slower ship_14:
+bobot_ship_9 shot botInSpace_arow
+It's turn nb 71
+[botInSpace] ship_13:9-26 ship_15:left race_cruiser:slower arow:right
+[bobot] ship_22:27-21 ship_21:left ship_9:27-21 ship_0:16-28 ship_2:left race_cruiser:left ship_14:
+botInSpace_ship_13 shot bobot_race_cruiser
+It's turn nb 72
+[botInSpace] ship_13:faster ship_15:faster race_cruiser:24-25 arow:slower
+[bobot] ship_22:faster ship_21:left ship_9:faster ship_0: ship_2:slower race_cruiser:15-29 ship_14:left
+bobot as take bobot_ship_17 !
+botInSpace_race_cruiser kill bobot_ship_0
+It's turn nb 73
+[botInSpace] ship_13:right ship_15:left race_cruiser:left arow:left
+[bobot] ship_22:29-25 ship_21:right ship_9:29-25 ship_2:right race_cruiser:left ship_17:8-20 ship_14:right
+It's turn nb 74
+[botInSpace] ship_13:left ship_15:left race_cruiser:faster arow:1-28
+[bobot] ship_22:slower ship_21:slower ship_9:right ship_2:faster race_cruiser:faster ship_17:faster ship_14:right
+It's turn nb 75
+[botInSpace] ship_13:right ship_15:left race_cruiser:slower arow:30-27
+[bobot] ship_22:right ship_21:right ship_9:right ship_2:slower race_cruiser:slower ship_17:7-22 ship_14:right
+botInSpace_arow shot bobot_ship_22
+It's turn nb 76
+[botInSpace] ship_13:slower ship_15:right race_cruiser:19-24 arow:left
+[bobot] ship_22:right ship_21:left ship_9:left ship_2:slower race_cruiser:2-24 ship_17:5-23 ship_14:right
+It's turn nb 77
+[botInSpace] ship_13:left ship_15:right race_cruiser:faster arow:faster
+[bobot] ship_22:3-22 ship_21:6-22 ship_9: ship_2: race_cruiser:faster ship_17:left ship_14:faster
+bobot_ship_21 shot botInSpace_ship_13
+It's turn nb 78
+[botInSpace] ship_13:right ship_15:slower race_cruiser:6-23 arow:faster
+[bobot] ship_22:faster ship_21:right ship_9:left ship_2:right race_cruiser:left ship_17:6-19 ship_14:right
+It's turn nb 79
+[botInSpace] ship_13:7-26 ship_15:faster race_cruiser:slower arow:right
+[bobot] ship_22:slower ship_21:10-15 ship_9: ship_2:faster race_cruiser:slower ship_17:slower ship_14:left
+It's turn nb 80
+[botInSpace] ship_13:left ship_15:right race_cruiser:5-25 arow:slower
+[bobot] ship_22:29-24 ship_21:faster ship_9:slower ship_2:slower race_cruiser:right ship_17:faster ship_14:left
+bobot_ship_22 shot botInSpace_race_cruiser
+It's turn nb 81
+[botInSpace] ship_13:right ship_15:left race_cruiser:faster arow:slower
+[bobot] ship_22:faster ship_21:14-18 ship_9:faster ship_2:slower race_cruiser:right ship_17:left ship_14:left
+botInSpace as take botInSpace_ship_11 !
+It's turn nb 82
+[botInSpace] ship_11:right ship_13:right ship_15:right race_cruiser:slower arow:faster
+[bobot] ship_22:right ship_21:right ship_9:right ship_2:right race_cruiser:1-24 ship_17:left ship_14:1-24
+It's turn nb 83
+[botInSpace] ship_11:15-20 ship_13:2-29 ship_15:right race_cruiser:left arow:15-20
+[bobot] ship_22:slower ship_21:slower ship_9:slower ship_2:slower race_cruiser:left ship_17:left ship_14:slower
+It's turn nb 84
+[botInSpace] ship_11:right ship_13:right ship_15:left race_cruiser:faster arow:right
+[bobot] ship_22:left ship_21:right ship_9:right ship_2:faster race_cruiser:right ship_17:right ship_14:faster
+It's turn nb 85
+[botInSpace] ship_11:faster ship_13:left ship_15: race_cruiser:right arow:faster
+[bobot] ship_22:left ship_21:left ship_9:slower ship_2:left race_cruiser:faster ship_17:21-22 ship_14:faster
+It's turn nb 86
+[botInSpace] ship_11:17-17 ship_13:left ship_15: race_cruiser:28-3 arow:
+[bobot] ship_22:faster ship_21:faster ship_9:left ship_2:left race_cruiser:right ship_17:slower ship_14:slower
+It's turn nb 87
+[botInSpace] ship_11:left ship_13:faster ship_15:slower race_cruiser:right arow:left
+[bobot] ship_22:slower ship_21:slower ship_9:left ship_2:slower race_cruiser:slower ship_17:faster ship_14:
+It's turn nb 88
+[botInSpace] ship_11: ship_13:slower ship_15: race_cruiser:7-22 arow:slower
+[bobot] ship_22:right ship_21:right ship_9: ship_2:faster race_cruiser:left ship_17:right ship_14:slower
+botInSpace_race_cruiser shot bobot_race_cruiser
+It's turn nb 89
+[botInSpace] ship_11: ship_13:right ship_15:left race_cruiser:7-22 arow:
+[bobot] ship_22:left ship_21:faster ship_9:faster ship_2:left race_cruiser:faster ship_17:left ship_14:right
+It's turn nb 90
+[botInSpace] ship_11:faster ship_13:faster ship_15:faster race_cruiser:slower arow:
+[bobot] ship_22:4-26 ship_21:slower ship_9:slower ship_2:slower race_cruiser:slower ship_17:slower ship_14:
+It's turn nb 91
+[botInSpace] ship_11:right ship_13:right ship_15:left race_cruiser:left arow:slower
+[bobot] ship_22: ship_21:6-26 ship_9:right ship_2: race_cruiser:faster ship_17:right ship_14:faster
+bobot_ship_21 shot botInSpace_race_cruiser
+It's turn nb 92
+[botInSpace] ship_11:slower ship_13:left ship_15:slower race_cruiser:faster arow:right
+[bobot] ship_22:faster ship_21:faster ship_9:faster ship_2:right race_cruiser:slower ship_17:right ship_14:left
+It's turn nb 93
+[botInSpace] ship_11:faster ship_13:right ship_15:faster race_cruiser:slower arow:left
+[bobot] ship_22:slower ship_21:left ship_9:right ship_2: race_cruiser:7-28 ship_17:faster ship_14:left
+It's turn nb 94
+[botInSpace] ship_11:left ship_13:slower ship_15:right race_cruiser:faster arow:
+[bobot] ship_22:faster ship_21:right ship_9:faster ship_2:faster race_cruiser:faster ship_17:slower ship_14:right
+It's turn nb 95
+[botInSpace] ship_11: ship_13:left ship_15:slower race_cruiser:slower arow:
+[bobot] ship_22:right ship_21:1-21 ship_9:left ship_2:right race_cruiser:9-27 ship_17:right ship_14:faster
+bobot_ship_21 shot botInSpace_ship_13
+bobot_race_cruiser kill botInSpace_arow
+It's turn nb 96
+[botInSpace] ship_11:faster ship_13:left ship_15:left race_cruiser:left
+[bobot] ship_22:slower ship_21:right ship_9:left ship_2:slower race_cruiser:8-26 ship_17:right ship_14:
+bobot_race_cruiser kill botInSpace_race_cruiser
+It's turn nb 97
+[botInSpace] ship_11:right ship_13:right ship_15:
+[bobot] ship_22:faster ship_21:slower ship_9:slower ship_2:right race_cruiser:slower ship_17:right ship_14:left
+It's turn nb 98
+[botInSpace] ship_11: ship_13:faster ship_15:slower
+[bobot] ship_22:slower ship_21:1-21 ship_9:slower ship_2:faster race_cruiser:right ship_17:faster ship_14:
+It's turn nb 99
+[botInSpace] ship_11: ship_13:right ship_15:faster
+[bobot] ship_22:right ship_21:right ship_9: ship_2: race_cruiser:left ship_17:left ship_14:
+bobot as take bobot_ship_16 !
+It's turn nb 100
+[botInSpace] ship_11:left ship_13:slower ship_15:left
+[bobot] ship_22:left ship_21:left ship_9:faster ship_2:faster race_cruiser:1-17 ship_16:right ship_17:slower ship_14:
+It's turn nb 101
+[botInSpace] ship_11:slower ship_13:faster ship_15:right
+[bobot] ship_22:right ship_21:right ship_9:slower ship_2:slower race_cruiser:left ship_16:right ship_17:right ship_14:slower
+It's turn nb 102
+[botInSpace] ship_11:faster ship_13:right ship_15:13-28
+[bobot] ship_22:right ship_21:24-13 ship_9:faster ship_2:faster race_cruiser:left ship_16:faster ship_17:left ship_14:slower
+It's turn nb 103
+[botInSpace] ship_11: ship_13:left ship_15:11-28
+[bobot] ship_22:right ship_21:right ship_9:slower ship_2:faster race_cruiser:faster ship_16:left ship_17:faster ship_14:faster
+bobot as take bobot_ship_3 !
+It's turn nb 104
+[botInSpace] ship_11: ship_13:slower ship_15:left
+[bobot] ship_22:faster ship_21:26-16 ship_9: ship_2:right ship_3:faster race_cruiser:26-16 ship_16:faster ship_17:right ship_14:right
+It's turn nb 105
+[botInSpace] ship_11:left ship_13:left ship_15:
+[bobot] ship_22:slower ship_21:27-17 ship_9: ship_2: ship_3:left race_cruiser:27-17 ship_16:left ship_17:slower ship_14:right
+botInSpace as take botInSpace_ship_24 !
+bobot_ship_21 shot botInSpace_ship_13
+bobot_race_cruiser kill botInSpace_ship_13
+It's turn nb 106
+[botInSpace] ship_11:left ship_15:left ship_24:left
+[bobot] ship_22:faster ship_21:right ship_9:left ship_2:left ship_3:right race_cruiser:left ship_16:slower ship_17:faster ship_14:left
+It's turn nb 107
+[botInSpace] ship_11:faster ship_15:left ship_24:left
+[bobot] ship_22:slower ship_21:right ship_9: ship_2: ship_3:8-12 race_cruiser:slower ship_16: ship_17: ship_14:slower
+It's turn nb 108
+[botInSpace] ship_11:7-17 ship_15:right ship_24:19-5
+[bobot] ship_22:23-30 ship_21:3-17 ship_9:right ship_2:slower ship_3:14-6 race_cruiser:left ship_16:left ship_17: ship_14:right
+botInSpace_ship_11 shot bobot_ship_9
+bobot_ship_3 shot botInSpace_ship_24
+It's turn nb 109
+[botInSpace] ship_11:faster ship_15:slower ship_24:faster
+[bobot] ship_22:faster ship_21:29-21 ship_9:faster ship_2:left ship_3:14-6 race_cruiser:29-21 ship_16:left ship_17: ship_14:
+It's turn nb 110
+[botInSpace] ship_11:slower ship_15:left ship_24:slower
+[bobot] ship_22:right ship_21:left ship_9: ship_2:left ship_3:16-4 race_cruiser:faster ship_16:16-4 ship_17:left ship_14:faster
+botInSpace as take botInSpace_ship_5 !
+It's turn nb 111
+[botInSpace] ship_11: ship_15:faster ship_24:right ship_5:faster
+[bobot] ship_22:right ship_21: ship_9:faster ship_2:slower ship_3:15-5 race_cruiser: ship_16:15-5 ship_17: ship_14:right
+bobot_ship_3 shot botInSpace_ship_24
+bobot_ship_16 shot botInSpace_ship_24
+It's turn nb 112
+[botInSpace] ship_11:slower ship_15:slower ship_24:faster ship_5:faster
+[bobot] ship_22:slower ship_21:right ship_9: ship_2:faster ship_3:15-5 race_cruiser:left ship_16:left ship_17:left ship_14:slower
+It's turn nb 113
+[botInSpace] ship_11:slower ship_15:faster ship_24:slower ship_5:27-30
+[bobot] ship_22:left ship_21:right ship_9:slower ship_2:17-5 ship_3:14-6 race_cruiser:slower ship_16:left ship_17:slower ship_14:left
+botInSpace_ship_5 shot bobot_ship_22
+It's turn nb 114
+[botInSpace] ship_11:14-3 ship_15:left ship_24:right ship_5:slower
+[bobot] ship_22:26-28 ship_21:faster ship_9:right ship_2:left ship_3:right race_cruiser:right ship_16:13-7 ship_17:faster ship_14:right
+botInSpace_ship_11 shot bobot_ship_16
+bobot_ship_16 shot botInSpace_ship_11
+It's turn nb 115
+[botInSpace] ship_11:right ship_15:faster ship_24:left ship_5:27-30
+[bobot] ship_22:faster ship_21: ship_9:right ship_2: ship_3:slower race_cruiser:faster ship_16:right ship_17:slower ship_14:left
+It's turn nb 116
+[botInSpace] ship_11:faster ship_15:right ship_24:faster ship_5:right
+[bobot] ship_22:slower ship_21:right ship_9:left ship_2:right ship_3:left race_cruiser: ship_16:16-5 ship_17:right ship_14:faster
+It's turn nb 117
+[botInSpace] ship_11:faster ship_15:left ship_24:slower ship_5:left
+[bobot] ship_22:left ship_21:slower ship_9:slower ship_2:left ship_3:faster race_cruiser:left ship_16:18-5 ship_17:left ship_14:slower
+It's turn nb 118
+[botInSpace] ship_11:faster ship_15:left ship_24:18-29 ship_5:slower
+[bobot] ship_22:left ship_21:27-20 ship_9:left ship_2:faster ship_3:right race_cruiser:27-20 ship_16:left ship_17: ship_14:right
+It's turn nb 119
+[botInSpace] ship_11:slower ship_15:slower ship_24:faster ship_5:
+[bobot] ship_22:24-7 ship_21:faster ship_9:right ship_2:left ship_3:slower race_cruiser:left ship_16:faster ship_17:faster ship_14:right
+It's turn nb 120
+[botInSpace] ship_11:slower ship_15:right ship_24:left ship_5:
+[bobot] ship_22:2-5 ship_21:21-7 ship_9:right ship_2: ship_3:right race_cruiser:left ship_16:slower ship_17:left ship_14:left
+It's turn nb 121
+[botInSpace] ship_11:left ship_15:slower ship_24:17-25 ship_5:faster
+[bobot] ship_22:faster ship_21:slower ship_9:faster ship_2:left ship_3: race_cruiser:left ship_16:left ship_17:slower ship_14:faster
+It's turn nb 122
+[botInSpace] ship_11:faster ship_15:left ship_24:right ship_5:faster
+[bobot] ship_22:left ship_21:faster ship_9:slower ship_2:slower ship_3:right race_cruiser:slower ship_16:faster ship_17: ship_14:
+It's turn nb 123
+[botInSpace] ship_11:faster ship_15:23-16 ship_24:right ship_5:left
+[bobot] ship_22:right ship_21:right ship_9: ship_2:right ship_3:faster race_cruiser:faster ship_16:right ship_17: ship_14:faster
+It's turn nb 124
+[botInSpace] ship_11:9-15 ship_15:left ship_24:left ship_5:right
+[bobot] ship_22:left ship_21:right ship_9:right ship_2: ship_3:5-24 race_cruiser:slower ship_16:left ship_17:5-24 ship_14:5-24
+botInSpace_ship_11 shot bobot_ship_14
+bobot_ship_17 kill botInSpace_ship_11
+It's turn nb 125
+[botInSpace] ship_15:23-13 ship_24:slower ship_5:right
+[bobot] ship_22:left ship_21:left ship_9: ship_2:faster ship_3:11-12 race_cruiser:right ship_16: ship_17:faster ship_14:slower
+It's turn nb 126
+[botInSpace] ship_15:right ship_24:22-29 ship_5:right
+[bobot] ship_22:23-4 ship_21:left ship_9:faster ship_2: ship_3:9-14 race_cruiser:left ship_16:slower ship_17: ship_14:left
+botInSpace_ship_24 shot bobot_ship_22
+It's turn nb 127
+[botInSpace] ship_15: ship_24:faster ship_5:8-15
+[bobot] ship_22:left ship_21:24-18 ship_9:right ship_2: ship_3:slower race_cruiser:faster ship_16:right ship_17: ship_14:slower
+bobot as take bobot_ship_4 !
+bobot_ship_21 shot botInSpace_ship_15
+It's turn nb 128
+[botInSpace] ship_15:faster ship_24:right ship_5:9-14
+[bobot] ship_22:25-4 ship_21:slower ship_9:faster ship_4:right ship_2:faster ship_3:faster race_cruiser:slower ship_16:faster ship_17:slower ship_14:faster
+It's turn nb 129
+[botInSpace] ship_15:20-13 ship_24:slower ship_5:left
+[bobot] ship_22:left ship_21:left ship_9:right ship_4:faster ship_2:faster ship_3: race_cruiser:faster ship_16:right ship_17:right ship_14:slower
+botInSpace_ship_15 shot bobot_ship_21
+It's turn nb 130
+[botInSpace] ship_15:right ship_24:faster ship_5:slower
+[bobot] ship_22:slower ship_21:faster ship_9:3-22 ship_4:slower ship_2:slower ship_3:slower race_cruiser:left ship_16:slower ship_17:left ship_14:left
+It's turn nb 131
+[botInSpace] ship_15:faster ship_24:slower ship_5:faster
+[bobot] ship_22:left ship_21:left ship_9:right ship_4:right ship_2:right ship_3:left race_cruiser:left ship_16:left ship_17:faster ship_14:
+It's turn nb 132
+[botInSpace] ship_15:slower ship_24:right ship_5:slower
+[bobot] ship_22:faster ship_21:slower ship_9: ship_4:right ship_2:slower ship_3:left race_cruiser:slower ship_16:right ship_17:left ship_14:faster
+It's turn nb 133
+[botInSpace] ship_15:left ship_24:faster ship_5:faster
+[bobot] ship_22:26-6 ship_21:right ship_9:left ship_4:right ship_2:right ship_3:right race_cruiser:left ship_16: ship_17:slower ship_14:faster
+It's turn nb 134
+[botInSpace] ship_15:slower ship_24:slower ship_5:slower
+[bobot] ship_22:right ship_21:left ship_9: ship_4:faster ship_2:faster ship_3:faster race_cruiser:faster ship_16:slower ship_17:right ship_14:slower
+It's turn nb 135
+[botInSpace] ship_15:faster ship_24:right ship_5:left
+[bobot] ship_22:right ship_21:left ship_9:left ship_4: ship_2:right ship_3:right race_cruiser:3-28 ship_16:right ship_17:left ship_14:slower
+It's turn nb 136
+[botInSpace] ship_15:right ship_24:left ship_5:faster
+[bobot] ship_22:slower ship_21:faster ship_9:left ship_4:right ship_2:right ship_3:right race_cruiser:left ship_16:faster ship_17:right ship_14:right
+It's turn nb 137
+[botInSpace] ship_15:left ship_24:left ship_5:slower
+[bobot] ship_22:right ship_21:left ship_9:slower ship_4:slower ship_2: ship_3:slower race_cruiser:right ship_16: ship_17:left ship_14:faster
+It's turn nb 138
+[botInSpace] ship_15:faster ship_24:faster ship_5:faster
+[bobot] ship_22:left ship_21:left ship_9:left ship_4:faster ship_2:right ship_3:left race_cruiser:slower ship_16:faster ship_17:left ship_14:right
+It's turn nb 139
+[botInSpace] ship_15:slower ship_24:left ship_5:left
+[bobot] ship_22:left ship_21:right ship_9:slower ship_4:left ship_2:faster ship_3:right race_cruiser:faster ship_16:15-4 ship_17:left ship_14:left
