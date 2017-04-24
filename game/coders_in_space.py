@@ -46,7 +46,7 @@ import os
 # ==============================================================================
 # Create a new game and play it.
 
-def play_game(level_name, players_list, no_splash=False, no_gui=False, distant_id=None, distant_ip=None,
+def play_game(level_name, players_list, no_splash=False, no_gui=False, remote_id=None, remote_ip=None,
 			  verbose_connection=True, max_rounds_count=10, auto_screen_shots=False):
 	"""
 	Main function that executes the game loop.
@@ -60,8 +60,8 @@ def play_game(level_name, players_list, no_splash=False, no_gui=False, distant_i
 	(optional) no_gui: disable game user interface (bool).
 	(optional) notebook: enable the notebook mode of the game.
 	(optional) screen_size: size of the terminal window (tuple(int, int)).
-	(optional) distant_id: ID of the distant player (int).
-	(optional) distant_ip: IP of the distant player (str).
+	(optional) remote_id: ID of the remote player (int).
+	(optional) remote_ip: IP of the remote player (str).
 	(optional) max_rounds_count: number of rounds (int).
 
 	Return
@@ -81,15 +81,15 @@ def play_game(level_name, players_list, no_splash=False, no_gui=False, distant_i
 	open('log.txt', 'w').close()
 
 	# Create the new game.
-	is_distant_game = (distant_id != None and distant_ip != None)
+	is_remote_game = (remote_id != None and remote_ip != None)
 
 	# Show the splash screen.
 	if not no_splash:
-		show_splash_game(verbose_connection and is_distant_game)
+		show_splash_game(verbose_connection and is_remote_game)
 	
-	if is_distant_game:
+	if is_remote_game:
 		print "CodersInSpace - Online multiplayer"
-		game_data = new_game(level_name, players_list, connect_to_player(distant_id, distant_ip, verbose_connection))
+		game_data = new_game(level_name, players_list, connect_to_player(remote_id, remote_ip, verbose_connection))
 	else:
 		game_data = new_game(level_name, players_list)
 
@@ -148,10 +148,12 @@ def play_game(level_name, players_list, no_splash=False, no_gui=False, distant_i
 		game_data['nb_rounds'] += 1
 		total_turn += 1
 		game_running = is_game_continue(game_data)
+		
+		raw_input()
 
 	# Disconect the remote player.
-	if is_distant_game:
-		disconnect_from_player(game_data['players']['distant']['connection'])
+	if is_remote_game:
+		disconnect_from_player(game_data['players']['remote']['connection'])
 
 	# Show the end game screen.
 	if not no_splash:
@@ -169,7 +171,7 @@ def new_game(level_name, players_list, connection=None):
 	----------
 	level_name: name of the path to .cis file (str).
 	players_list: list of players (list).
-	(optional) connection: distant player connection (tuple).
+	(optional) connection: remote player connection (tuple).
 
 	Return
 	-------
@@ -247,8 +249,8 @@ def new_game(level_name, players_list, connection=None):
 
 			if 'bot' in player:
 				game_data['players'][player]['type'] = 'ai'
-			elif player == 'distant':
-				game_data['players'][player]['type'] = 'distant'
+			elif player == 'remote':
+				game_data['players'][player]['type'] = 'remote'
 			else:
 				game_data['players'][player]['type'] = 'human'
 
@@ -282,7 +284,7 @@ def new_game(level_name, players_list, connection=None):
 		index_player += 1
 
 	if connection is not None:
-		game_data['players']['distant']['connection'] = connection
+		game_data['players']['remote']['connection'] = connection
 
 	return game_data
 
@@ -535,13 +537,13 @@ def get_game_input(player_name, buy_ships, game_data):
 		else:
 			player_input = get_ai_input(game_data, player_name)
 
-	elif player_type == 'distant':
-		# Get input from the distant player.
-		player_input = get_distant_input(game_data)
+	elif player_type == 'remote':
+		# Get input from the remote player.
+		player_input = get_remote_input(game_data)
 
 	# Send the order to the remote player.
 	if game_data['is_remote_game'] and (player_type == 'human' or player_type == 'ai' or player_type == 'ai_dumb'):
-		notify_remote_orders(game_data['players']['distant']['connection'], player_input)
+		notify_remote_orders(game_data['players']['remote']['connection'], player_input)
 
 	write_log(game_data, '[%s] %s' % (player_name, player_input), 3)
 
@@ -870,9 +872,9 @@ def render_game_logs(game_data, width, height):
 # ------------------------------------------------------------------------------
 # Handeling remote player command.
 
-def get_distant_input(game_data):
+def get_remote_input(game_data):
 	"""
-	Get input from a distant player.
+	Get input from a remote player.
 
 	Parameter
 	---------
@@ -880,7 +882,7 @@ def get_distant_input(game_data):
 
 	Return
 	------
-	remote_input: input from distant player (str).
+	remote_input: input from remote player (str).
 
 	Version
 	-------
@@ -889,7 +891,7 @@ def get_distant_input(game_data):
 	Implementation: Nicolas Van Bossuyt (v1. 03/03/17)
 	"""
 
-	return get_remote_orders(game_data['players']['distant']['connection'])
+	return get_remote_orders(game_data['players']['remote']['connection'])
 
 # A.I.C.I.S
 # ------------------------------------------------------------------------------
@@ -928,6 +930,57 @@ def get_ai_input(game_data, player_name):
 
 	return ai_input[:-1].replace(player_name + '_', '')
 
+# Pathfinding
+# -----------------------------------------------------------------------------
+# A* pathfinding algorithme implementation.
+
+SAFE = 0
+UNSAFE = 1
+X = 0
+Y = 1
+
+def create_navigation_map(game_data, player):
+	nav_map = {'size' : game_data['board_size'], 'map' : {}}
+
+	for coords in game_data['board']:
+		for ship in game_data['board'][coods]:
+			ship = game_data['ships'][ship]
+			ship_owner = ship['owner']
+			
+			if ship_owner == player:
+				pass
+			
+			elif ship_owner == 'None':
+				pass
+		
+		
+def set_nav_map(nav_map, coords, value, radius):
+	if radius == 0:
+		return nav_map
+	else:
+		nav_map['map'][converted_coord(coords, nav_map['size'])] = value
+		radius -= 1
+		
+		coords = (coord[X] + 1, coords[Y])
+		if nav_map['map'] != value: set_nav_map(nav_map, coords, value, radius)
+		
+		coords = (coord[X] - 1, coords[Y])
+		if nav_map['map'] != value: set_nav_map(nav_map, coords, value, radius)
+		
+		
+		coords = (coord[X], coords[Y] + 1)
+		if nav_map['map'] != value: set_nav_map(nav_map, coords, value, radius)
+		
+		
+		coords = (coord[X], coords[Y] - 1)
+		if nav_map['map'] != value: set_nav_map(nav_map, coords, value, radius)
+		
+		return nav_map
+	
+
+# Ships AIs
+# -----------------------------------------------------------------------------
+#
 
 def fighter(game_data, ship, owner):
 	"""
@@ -1060,9 +1113,9 @@ def move_to(game_data, ship, coordinates):
 				
 			#determine which speed is the best to reach the goal with minimum loops.
 			if speed_rate > speed_p1_rate  and speed_p1_rate < speed_11_rate:
-				return '%s: faster' % ship
+				return '%s:faster' % ship
 			elif speed_rate > speed_l1_rate  and speed_l1_rate < speed_p1_rate:
-				return '%s: slower' % ship
+				return '%s:slower' % ship
 
 	return ''
 
@@ -1082,7 +1135,7 @@ def get_ai_spaceships(player_name, game_data):
 	Specification: Nicolas Van Bossuyt (v1. 10/03/17)
 				   Bayron Mahy (v2. 17/03/17)
 	Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
-					Alisson Leist (v2. 21/0417)
+					Alisson Leist (v2. 21/04/17)
 	"""
 
 	ai_input=''
@@ -1090,7 +1143,7 @@ def get_ai_spaceships(player_name, game_data):
 	
 	ship_name_list = ['Apple-Pen', 'Akbar', 'amiral', 'bob', 'fob', 'I\'m_Bob_Lenon', 'Frenay-Acceleray', 'Pomme_Verte',
 					  'pew-pew-pew', 'Algobot', 'blblblblblblbl', 'Stack-overflow', 'mu', 'Seiyar', '24', 'Monax']
-	
+	ship_type_name = {'f' : 'fighter', 'b' : 'battlecruiser', 'd' : 'destroyer'}
 	if len(game_data['ships'])==0:
 		
 		ship_type=['b','b','d','d']
@@ -1110,7 +1163,7 @@ def get_ai_spaceships(player_name, game_data):
 	for element in ship_type :
 			ship_name=ship_name_list[name]
 			name+=1
-			ai_input+= '%s:%s ' % (ship_name, element)
+			ai_input+= '%s:%s ' % (ship_name, ship_type_name[element])
 
 	return ai_input[:-1]
 
@@ -1232,6 +1285,7 @@ def get_nearby_ship(game_data, target_ship, search_range):
 			dx, dy = -dy, dx
 
 		x, y = x + dx, y + dy
+
 	return nearby_ships
 
 
@@ -1407,19 +1461,21 @@ def command_buy_ships(ships, player, game_data):
 	Implementation: Nicolas Van Bossuyt (v1. 14/02/17)
 					Nicolas Van Bossuyt (v2. 23/02/17)
 	"""
+	print ships
 	for ship in ships.split(' '):
 		ship = ship.split(':')
+		
+		if len(ship) == 2:
+			# Allow human player to dont have to write the full ship type name.
+			ships_type_convert = {'f': 'fighter', 'd': 'destroyer', 'b': 'battlecruiser'}
+			ship[1] = ships_type_convert[ship[1][0]]
 
-		# Allow human player to dont have to write the full ship type name.
-		ships_type_convert = {'f': 'fighter', 'd': 'destroyer', 'b': 'battlecruiser'}
-		ship[1] = ships_type_convert[ship[1][0]]
+			# Get the price of the space ship.
+			ship_price = game_data['model_ship'][ship[1]]['price']
 
-		# Get the price of the space ship.
-		ship_price = game_data['model_ship'][ship[1]]['price']
-
-		if ship_price <= game_data['players'][player]['money']:
-			game_data['players'][player]['money'] -= ship_price
-			create_ship(player, '%s_%s' % (player, ship[0]), ship[1], game_data)
+			if ship_price <= game_data['players'][player]['money']:
+				game_data['players'][player]['money'] -= ship_price
+				create_ship(player, '%s_%s' % (player, ship[0]), ship[1], game_data)
 
 	return game_data
 
@@ -1914,5 +1970,4 @@ def create_game_board(file_name, board_size, lost_ships_count):
 
 # Use for quick debuging.
 if __name__ == '__main__': 
-	play_game("random", ("bot!!!!!!","TheGroupe24_bot"),no_splash=False, no_gui=False,
-			  verbose_connection=True, max_rounds_count=10, auto_screen_shots=False)
+	play_game('board/battlefield.cis', ('LikeABreakingbot', 'remote'),remote_id=1, remote_ip="192.168.137.106")
