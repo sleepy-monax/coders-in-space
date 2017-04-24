@@ -1,8 +1,51 @@
-[remote] tesla:fighter
+[remote] uNoob:destroyer Olaf:destroyer Yoda:destroyer Amiiii:battlecruiser 404_not_found:fighter 
 [botB] Apple-Pen:battlecruiser Akbar:destroyer amiral:fighter bob:fighter fob:fighter I'm_Bob_Lenon:fighter Frenay-Acceleray:fighter
 It's turn nb 0
-[remote] tesla:left
-[botB] Apple-Pen:right fob:faster bob:faster amiral: Akbar:faster I'm_Bob_Lenon: Frenay-Acceleray:
+[remote] 404_not_found:left Amiiii:faster Olaf:left Yoda:right uNoob:right
+[botB] Apple-Pen:left fob:faster bob:faster amiral:faster Akbar:right I'm_Bob_Lenon:left Frenay-Acceleray:left
 It's turn nb 1
-[remote] tesla:faster
-[botB] Apple-Pen:faster fob:right bob:faster amiral:faster Akbar:slower I'm_Bob_Lenon:faster Frenay-Acceleray:faster
+[remote] 404_not_found:faster Amiiii:slower Olaf:right Yoda:left uNoob:faster
+[botB] Apple-Pen:faster fob:slower bob:left amiral:right Akbar:faster I'm_Bob_Lenon:left Frenay-Acceleray:faster
+It's turn nb 2
+[remote] 404_not_found:faster Amiiii:right Olaf:right Yoda:faster uNoob:slower
+[botB] Apple-Pen:slower fob:right bob:faster amiral:left Akbar:left I'm_Bob_Lenon:faster Frenay-Acceleray:left
+It's turn nb 3
+[remote] 404_not_found:right Amiiii:right Olaf:faster Yoda:left uNoob:right
+[botB] Apple-Pen:right fob:left bob:faster amiral:slower Akbar:faster I'm_Bob_Lenon:left Frenay-Acceleray:
+It's turn nb 4
+[remote] 404_not_found:left Amiiii:left Olaf:slower Yoda:right uNoob:faster
+[botB] Apple-Pen:faster fob:right bob:left amiral:faster Akbar: I'm_Bob_Lenon:faster Frenay-Acceleray:left
+It's turn nb 5
+[remote] 404_not_found:slower Amiiii:faster Olaf:right Yoda:right uNoob:right
+[botB] Apple-Pen:slower fob:faster bob:slower amiral:right Akbar:slower I'm_Bob_Lenon:faster Frenay-Acceleray:right
+It's turn nb 6
+[remote] 404_not_found:faster Amiiii:slower Olaf:left Yoda:right uNoob:faster
+[botB] Apple-Pen:faster fob:right bob:slower amiral:right Akbar:slower I'm_Bob_Lenon: Frenay-Acceleray:right
+It's turn nb 7
+[remote] 404_not_found:left Amiiii:faster Olaf:right Yoda:faster uNoob:slower
+[botB] Apple-Pen: fob:left bob:right amiral: Akbar:right I'm_Bob_Lenon:slower Frenay-Acceleray:right
+It's turn nb 8
+[remote] 404_not_found:right Amiiii:right Olaf:right Yoda:right uNoob:faster
+[botB] Apple-Pen:left fob:right bob:left amiral:left Akbar:faster I'm_Bob_Lenon:right Frenay-Acceleray:
+botB as take botB_b34 !
+It's turn nb 9
+[remote] 404_not_found:8-25 Amiiii:right Olaf:left Yoda:slower uNoob:slower
+[botB] Apple-Pen:left fob: bob:faster amiral:faster b34: Akbar: I'm_Bob_Lenon:faster Frenay-Acceleray:slower
+botB as take botB_b32 !
+It's turn nb 10
+[remote] 404_not_found:11-25 Amiiii:slower Olaf:left Yoda:faster uNoob:right
+[botB] Apple-Pen:slower fob:left bob:left amiral:faster b34:faster Akbar:right b32:faster I'm_Bob_Lenon:left Frenay-Acceleray:left
+botB as take botB_b41 !
+botB as take botB_b33 !
+It's turn nb 11
+[remote] 404_not_found:14-28 Amiiii:faster Olaf:faster Yoda:slower uNoob:faster
+[botB] Apple-Pen:right b41:right fob:right bob:slower amiral:left b34:right Akbar:faster b33:faster b32:right I'm_Bob_Lenon:left Frenay-Acceleray:
+It's turn nb 12
+[remote] 404_not_found:12-27 Amiiii:slower Olaf:slower Yoda:faster uNoob:right
+[botB] Apple-Pen:faster b41:right fob:right bob:faster amiral:left b34: Akbar:slower b33:slower b32:slower I'm_Bob_Lenon:left Frenay-Acceleray:faster
+It's turn nb 13
+[remote] 404_not_found:right Amiiii:faster Olaf:right Yoda:left uNoob:left
+[botB] Apple-Pen:left b41:right fob:slower bob:slower amiral:slower b34:right Akbar:right b33:faster b32:34-10 I'm_Bob_Lenon:left Frenay-Acceleray:left
+It's turn nb 14
+[remote] 404_not_found:left Amiiii:right Olaf:left Yoda:left uNoob:left
+[botB] Apple-Pen:slower b41:left fob:faster bob: amiral:faster b34:slower Akbar: b33:right b32:faster I'm_Bob_Lenon:right Frenay-Acceleray:slower

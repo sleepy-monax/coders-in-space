@@ -148,8 +148,6 @@ def play_game(level_name, players_list, no_splash=False, no_gui=False, remote_id
 		game_data['nb_rounds'] += 1
 		total_turn += 1
 		game_running = is_game_continue(game_data)
-		
-		raw_input()
 
 	# Disconect the remote player.
 	if is_remote_game:
@@ -1205,13 +1203,16 @@ def speed(game_data, ship, change):
 def attack(game_data, ship):
 	"""
 	Attack command of LAICIS.
+
 	Parameters
 	----------
 	game_data: data of the game (dic).
 	ship: name of the current ship (str).
+
 	Return
 	------
 	attack input (str)
+
 	Version
 	-------
 	Specification: Nicolas Van Bossuyt (v1. 19/03/17).
@@ -1273,8 +1274,7 @@ def get_nearby_ship(game_data, target_ship, search_range):
 	nearby_ships = []
 
 	for i in range((search_range * 2) ** 2):
-		if (-search_range < x <= search_range) and (-search_range < y <= search_range) and abs(x) + abs(
-				y) <= search_range:
+		if (-search_range < x <= search_range) and (-search_range < y <= search_range) and abs(x) + abs(y) <= search_range:
 
 			coords = convert_coordinates((ship_coords[0] + x, ship_coords[1] + y), game_data['board_size'])
 
@@ -1341,6 +1341,7 @@ def convert_coordinates(coord, size):
 	"""
 
 	def convert(a, size):
+		size -= 1
 		if a >= size:
 			a -= size
 		elif a < 0:
@@ -1374,8 +1375,7 @@ def predict_next_pos(game_data, ship_name):
 	position = game_data['ships'][ship_name]['position']
 	direction = game_data['ships'][ship_name]['direction']
 	
-	predicted_postion = convert_coordinates((position[0] + direction[0] * speed, position[1] + direction[1] * speed),
-											game_data['board_size'])
+	predicted_postion = convert_coordinates((position[0] + direction[0] * speed, position[1] + direction[1] * speed), game_data['board_size'])
 
 	return predicted_postion
 
@@ -1848,7 +1848,7 @@ def parse_game_file(path):
 		ship_str = file_content[line_index + 1].split(' ')
 		if len(ship_str) == 4:
 			ship_name_and_type = ship_str[2].split(':')
-			ship = (int(ship_str[1]), int(ship_str[0]), ship_name_and_type[0], ship_name_and_type[1],
+			ship = (int(ship_str[1]) - 1, int(ship_str[0]) - 1, ship_name_and_type[0], ship_name_and_type[1],
 					direction_to_vector2d(ship_str[3]))
 			ships_list.append(ship)
 
