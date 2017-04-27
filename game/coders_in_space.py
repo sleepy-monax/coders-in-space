@@ -224,7 +224,7 @@ def initialize_game(level_name, players_names, players_types, max_rounds_count, 
     for ships in game_file['ships']:
         game_data['ships'][ships[2]] = {'type': ships[3], 'heal_points': game_data['model_ship'][ships[3]]['max_heal'],
                                         'facing': ships[4], 'speed': 0, 'owner': 'none',
-                                        'location': (ships[0], ships[1])}
+                                        'location': (ships[0], ships[1]), 'objective': 'none', 'objective_path': []}
         game_data['board'][(ships[0], ships[1])].append(ships[2])
 
     index_player = 0
@@ -906,59 +906,57 @@ def get_ai_input(game_data, player_name):
     for ship_name in game_data['ships']:
         ship = game_data['ships'][ship_name]
         if ship['owner'] == player_name:
-            print ship_name, '-' * 10
-            if not 'objective' in ship:
-                ship['objective'] = None
-                ship['objective_path'] = []
-        
-            # The objective was kill in the last turn.
-            if not ship['objective'] in game_data['ships']:
-                ship['objective'] = None
-                ship['objective_path'] = []
+            if ship['objective'] == 'none' or len(ship['objective_path']) == 0:
+                sucess = False
+                while not sucess:
+                    # Try again !
+                    ship['objective'] = random.choice(get_ships(game_data, player_name))
+                    start_node = node(ship['location'], ship['facing'])
+                    end_node = node(game_data['ships'][ship['objective']]['location'])
                 
-            # Chose a objective and find a path to it.
-            if ship['objective'] == None or not 'objective' in ship: # The ship a no objective let's give then one.
-                ship['objective'] = random.choice(get_ships(game_data, player_name))
-                ship['objective_path'] = []
-                
-            # No path to the objective, let's find one.    
-            objective_ship = game_data['ships'][ship['objective']]
-            if len(ship['objective_path']) == 0:
-                # Path find to the objective.
-                start_node = node(ship['location'], ship['facing'], get_distance(ship['location'], objective_ship['location'], game_data['board_size']), ship['speed'])
-                end_node = node(game_data['ships'][ship['objective']]['location'])
-                _, ship['objective_path'] = path_finding(start_node, game_data['model_ship'][ship['type']]['max_speed'], end_node, game_data['board_size'])
-            
+                    sucess, ship['objective_path'] =  path_finding(start_node, game_data['model_ship'][ship['type']]['max_speed'], end_node, game_data['board_size'])
             ship_action = ''
         
-            # Do the path finded.
-            if not ship['objective_path'] is None:
-                to_do_node = ship['objective_path'].pop()
-                
-                if to_do_node['to_do'] == 'none': # Nothing to do => Attack somebody.
-                    ship_action = attack(game_data, ship_name)
-                else: # Do the "to do" node.
-                    ship_action = to_do_node['to_do']
+
+            to_do_node = ship['objective_path'].pop()
             
-            if get_distance(ship['location'], objective_ship['location'], game_data['board_size']) <= game_data['model_ship'][ship['type']]['range']:
-                # The objective ship is in the attack range.
-                if not (objective_ship['owner'] == 'None' or objective_ship['owner'] == player_name):
-                    # The ship is friendly => don't attack.
-                    
-                    ship_action = attack(game_data, ship_name)
-                    ship['objective'] = None
-                    
-            ai_input += '%s:%s ' % (ship_name[len(player_name) + 1:], ship_action)
+            if to_do_node['to_do'] == 'none': # Nothing to do => Attack somebody.
+                ship_action = attack(game_data, ship_name)
+            else: # Do the "to do" node.
+                ship_action = to_do_node['to_do']
+            
+            if ship['objective'] in game_data['ships']:
+                objective_ship = game_data['ships'][ship['objective']]
+                
+                if get_distance(ship['location'], objective_ship['location'], game_data['board_size']) <= game_data['model_ship'][ship['type']]['range']:
+                    # The objective ship is in the attack range.
+                    if not (objective_ship['owner'] == 'None' or objective_ship['owner'] == player_name):
+                        # The ship is friendly => don't attack.
+                        
+                        ship_action = attack(game_data, ship_name)
+                        ship['objective'] = 'none'
+                        
+                ai_input += '%s:%s ' % (ship_name[len(player_name) + 1:], ship_action)
+            else:
+                ship['objective'] = 'none'
 
     return ai_input[:-1]
     
-def get_ships(game_data, exclude_owner):
-    ships = []
+def filter_ships(ships, exclude_owner):
+    fonded_ships = []
     for ship in game_data['ships']:
         if game_data['ships'][ship]['owner'] != exclude_owner:
-            ships.append(ship)
+            fonded_ships.append(ship)
             
-    return ships
+    return fonded_ships
+ 
+def get_ship_owner(ships, owner):
+    fonded_ships = []
+    for ship in ships:
+        if ships[ship]['owner'] == owner:
+            fonded_ships.append(ship)
+            
+    return fonded_ships
 
 def get_ai_spaceships(player_name, game_data):
     """
@@ -1014,9 +1012,9 @@ def get_ai_spaceships(player_name, game_data):
 # -----------------------------------------------------------------------------
 #
 
-def get_fighter_target(game_data, ship, owner):
+def get_fighter_action(game_data, ship, owner):
     """
-	Get target for a fighter.
+	Get action for a fighter.
 	
 	Parameters
 	----------
@@ -1026,7 +1024,7 @@ def get_fighter_target(game_data, ship, owner):
 	
 	Return
 	------
-	target: target for this ship(str).
+	action: action for this ship(str).
 	
 	Version
 	-------
@@ -1036,9 +1034,9 @@ def get_fighter_target(game_data, ship, owner):
     pass
 
 
-def get_destroyer_target(game_data, ship, owner):
+def get_destroyer_action(game_data, ship, owner):
     """
-	Get target for a destroyer.
+	Get action for a destroyer.
 	
     Parameters
 	----------
@@ -1048,7 +1046,7 @@ def get_destroyer_target(game_data, ship, owner):
     
 	Return
 	------
-    target: target for this ship(str).
+    action: action for this ship(str).
 	
 	Version
 	-------
@@ -1058,9 +1056,9 @@ def get_destroyer_target(game_data, ship, owner):
     pass
 
 
-def get_battlecruiser_target(game_data, ship, owner):
+def get_battlecruiser_action(game_data, ship, owner):
     """
-	Get target for a battlecruiser.
+	Get action for a battlecruiser.
     
 	Parameters
 	----------
@@ -1070,7 +1068,7 @@ def get_battlecruiser_target(game_data, ship, owner):
     
 	Return
 	------
-	target: target for this ship(str).
+	action: action for this ship(str).
 	
 	
 	Version
@@ -1084,66 +1082,66 @@ def get_battlecruiser_target(game_data, ship, owner):
 # -----------------------------------------------------------------------------
 # Pathfinding, 
     
-def path_finding(start_node, max_speed, end_node, board_size, best_distance = sys.maxint, path = []):
+def path_finding_test():
+    while True:
+        sucess, _ = path_finding(node((randint(0, 39), randint(0, 39)), (1, 1)), 1, node((randint(0, 39), randint(0, 39))), (40, 40))
+        if sucess:raw_input()
+        
+def path_finding(start_node, max_speed, end_node, board_size, best_distance = sys.maxint, path = [], max_distance = 8):
+    
+    # Show the path finding animation
+    c = create_canvas(board_size[0] + 2, board_size[1] + 2)
+    for n in path:
+        c = put(c, n['location'][0] + 1, n['location'][1] + 1, ' ', 'white', 'green')
+    c = put(c, end_node['location'][0] + 1, end_node['location'][1] + 1, ' ', 'white', 'white')
+    c = put_box(c, 0, 0, board_size[0] + 2, board_size[1] + 2)
+    c = put_text(c, 2, 0, '| Path Finding... |')
+    print_canvas(c)
+    
     nodes = get_next_nodes(start_node, end_node, max_speed, board_size)
     
+    dict_sort(nodes, 'distance')
+    
+    max_distance -= 1
+    
+    if max_distance == 0:
+        return False, None
+    
     for node in nodes:
-        if node['distance'] < best_distance:
-            result, result_nodes = path_finding(node, max_speed, end_node, board_size, node['distance'], path[:])
-            if result == True:
-                print 'FOUND !'
-                return True, path.extend(result_nodes)
-                
-    return False, None
-    
-def _path_finding(start_node, max_speed, end_node, board_size):
-    print start_node['speed'], '------------------'
-    path = []
-    
-    steps = []
-    steps_count = 0
-    
-    while start_node['location'] != end_node['location']:
+        new_path = list(path)
+        new_path.append(node)
         
-        nodes = get_next_nodes(start_node, end_node, max_speed, board_size)
-        
-        best_node = {}
-        best_distance = sys.maxint
-        
-        for node in nodes:
-            if node['distance'] < best_distance:
-                best_node = node
-                best_distance = node['distance']
-                
-        
-        start_node = best_node
-        path.append(best_node)
-        
-        print best_node['to_do'],
-        print best_distance,
-        
-        steps_count += 1
-        
-    print ''
-    raw_input()
-    return path
-            
+        if node['location'] == end_node['location']:
 
-def get_next_nodes(start_node, end_node, max_speed, board_size):
+            return True, new_path
+        else:
+            objective_finded, path_to_objective = path_finding(node, max_speed, end_node, board_size, best_distance, new_path, max_distance)
+
+            if objective_finded:
+                return True, path_to_objective
+        
+                 
+    return False, path
+                
+                
+def get_next_nodes(start_node, end_node, max_speed, board_size, just_rotate = False):
     nodes = []
     
     speed = start_node['speed']
     
-    # Faster
-    if speed < max_speed and get_slow_down(speed) < get_distance(start_node['location'], end_node['location'], board_size):
+    if not just_rotate and speed < max_speed and get_slow_down(speed) < get_distance(start_node['location'], end_node['location'], board_size):
         next_location = next_pos(start_node['location'], start_node['facing'], speed + 1, board_size)
         nodes.append(node(next_location, start_node['facing'], get_distance(next_location, end_node['location'], board_size), speed + 1, 'faster'))
     
-    # Slower
-    if speed > 0:
         next_location = next_pos(start_node['location'], start_node['facing'], speed - 1, board_size)
         nodes.append(node(next_location, start_node['facing'], get_distance(next_location, end_node['location'], board_size), speed - 1, 'slower'))
         
+    if not just_rotate and speed > 0:
+        # Do nothing.
+        next_location = next_pos(start_node['location'], start_node['facing'], speed, board_size)
+        nodes.append(node(next_location, start_node['facing'], get_distance(next_location, end_node['location'], board_size), speed, 'none'))
+    
+    if speed > 0:
         # Rotate left.
         v = to_unit_vector(rotate_vector_2d(start_node['facing'], -45))
         next_location = next_pos(start_node['location'], v, speed, board_size)
@@ -1153,11 +1151,7 @@ def get_next_nodes(start_node, end_node, max_speed, board_size):
         v = to_unit_vector(rotate_vector_2d(start_node['facing'], 45))
         next_location = next_pos(start_node['location'], v, speed, board_size)
         nodes.append(node(next_location, v, get_distance(next_location, end_node['location'], board_size), speed, 'right'))
-        
-        # Do nothing.
-        next_location = next_pos(start_node['location'], start_node['facing'], speed, board_size)
-        nodes.append(node(next_location, start_node['facing'], get_distance(next_location, end_node['location'], board_size), speed, 'none'))
-    
+   
     return nodes
     
     
@@ -1548,7 +1542,11 @@ def create_ship(player_name, ship_name, ship_type, game_data):
         'type': ship_type, 'heal_points': game_data['model_ship'][ship_type]['max_heal'],
         'facing': game_data['players'][player_name]['ships_starting_facing'],
         'speed': 0, 'owner': player_name,
-        'location': game_data['players'][player_name]['ships_starting_point']
+        'location': game_data['players'][player_name]['ships_starting_point'],
+        
+        # Just for the ai.
+        'objective': 'none',
+        'objective_path': []
     }
 
     game_data['board'][game_data['players'][player_name]['ships_starting_point']].append(ship_name)
@@ -2017,6 +2015,13 @@ def create_game_board(file_name, board_size, lost_ships_count):
     f.write(buffer)
     f.close()
 
+    
+def dict_sort(items, key):
+        """ Implementation of bubble sort """
+        for i in range(len(items)):
+                for j in range(len(items)-1-i):
+                        if items[j][key] > items[j+1][key]:
+                                items[j], items[j+1] = items[j+1], items[j] 
 
 # Use for quick debuging.
 if __name__ == '__main__':
