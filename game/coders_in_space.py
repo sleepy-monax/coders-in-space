@@ -930,11 +930,11 @@ def get_ai_input(game_data, player_name):
                 sucess = False
                 while not sucess:
                     # Try again !
-                    ship['objective'] = random.choice(get_ships(game_data, player_name))
+                    ship['objective'] = random.choice(filter_ships(game_data['ships'], player_name))
                     start_node = node(ship['location'], ship['facing'])
                     end_node = node(game_data['ships'][ship['objective']]['location'])
                 
-                    sucess, ship['objective_path'] =  path_finding(start_node, game_data['model_ship'][ship['type']]['max_speed'], end_node, game_data['board_size'])
+                    sucess, ship['objective_path'] =  path_finding(start_node, game_data['model_ship'][ship['type']]['max_speed'], end_node, game_data['board_size'],sys.maxint, [], get_distance(ship['location'], game_data['ships'][ship['objective']]['location'], game_data['board_size']) / game_data['model_ship'][ship['type']]['max_speed'])
             ship_action = ''
         
 
@@ -964,8 +964,8 @@ def get_ai_input(game_data, player_name):
     
 def filter_ships(ships, exclude_owner):
     fonded_ships = []
-    for ship in game_data['ships']:
-        if game_data['ships'][ship]['owner'] != exclude_owner:
+    for ship in ships:
+        if ships[ship]['owner'] != exclude_owner:
             fonded_ships.append(ship)
             
     return fonded_ships
@@ -1120,17 +1120,19 @@ def path_finding_test():
         sucess, _ = path_finding(node((randint(0, 39), randint(0, 39)), (1, 1)), 1, node((randint(0, 39), randint(0, 39))), (40, 40))
         if sucess:raw_input()
         
-def path_finding(start_node, max_speed, end_node, board_size, best_distance = sys.maxint, path = [], max_distance = 8):
+def path_finding(start_node, max_speed, end_node, board_size, best_distance = sys.maxint, path = [], max_distance = 16):
     
-    # Show the path finding animation
-    c = create_canvas(board_size[0] + 2, board_size[1] + 2)
-    for n in path:
-        c = put(c, n['location'][0] + 1, n['location'][1] + 1, ' ', 'white', 'green')
-    c = put(c, end_node['location'][0] + 1, end_node['location'][1] + 1, ' ', 'white', 'white')
-    c = put_box(c, 0, 0, board_size[0] + 2, board_size[1] + 2)
-    c = put_text(c, 2, 0, '| Path Finding... |')
-    print_canvas(c)
-    
+    if True: #max_distance == 0:
+        # Show the path finding animation
+        c = create_canvas(board_size[0] + 2, board_size[1] + 2)
+        for n in path:
+            c = put(c, n['location'][0] + 1, n['location'][1] + 1, ' ', 'white', 'green')
+        c = put(c, start_node['location'][0] + 1, start_node['location'][1] + 1, ' ', 'white', 'red')
+        c = put(c, end_node['location'][0] + 1, end_node['location'][1] + 1, ' ', 'white', 'white')
+        c = put_box(c, 0, 0, board_size[0] + 2, board_size[1] + 2)
+        c = put_text(c, 2, 0, '| Path Finding... max speed:%s |' % (max_speed))
+        print_canvas(c)
+   
     nodes = get_next_nodes(start_node, end_node, max_speed, board_size)
     
     dict_sort(nodes, 'distance')
@@ -1145,6 +1147,15 @@ def path_finding(start_node, max_speed, end_node, board_size, best_distance = sy
         new_path.append(node)
         
         if node['location'] == end_node['location']:
+
+            # Show the path finding animation
+            c = create_canvas(board_size[0] + 2, board_size[1] + 2)
+            for n in path:
+                c = put(c, n['location'][0] + 1, n['location'][1] + 1, ' ', 'white', 'green')
+            c = put(c, end_node['location'][0] + 1, end_node['location'][1] + 1, ' ', 'white', 'white')
+            c = put_box(c, 0, 0, board_size[0] + 2, board_size[1] + 2)
+            c = put_text(c, 2, 0, '| Path Finding... |')
+            print_canvas(c)
 
             return True, new_path
         else:
@@ -2050,11 +2061,14 @@ def create_game_board(file_name, board_size, lost_ships_count):
 
     
 def dict_sort(items, key):
-        """ Implementation of bubble sort """
-        for i in range(len(items)):
-                for j in range(len(items)-1-i):
-                        if items[j][key] > items[j+1][key]:
-                                items[j], items[j+1] = items[j+1], items[j] 
+    """
+    Implementation of bubble sort
+    """
+    
+    for i in range(len(items)):
+            for j in range(len(items)-1-i):
+                    if items[j][key] > items[j+1][key]:
+                            items[j], items[j+1] = items[j+1], items[j] 
 
 # Use for quick debuging.
 if __name__ == '__main__':
