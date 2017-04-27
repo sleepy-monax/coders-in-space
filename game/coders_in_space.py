@@ -687,10 +687,11 @@ def show_game_board(game_data):
     c = create_canvas(*screen_size)
 
     # Render child canvas.
-    c_game_board = render_game_board(game_data)
-    c_ship_list = render_ship_list(game_data, 30, screen_size[1] - 2)
+    c_game_board = render_game_board(game_data) # The game board.
+    c_ship_list = render_ship_list(game_data, 30, screen_size[1] - 2) # The list 
     c_game_logs = render_game_logs(game_data, c_game_board['size'][0], 10)
 
+    # Put somme nice decoration.
     c = put_ascii_art(c, 1, screen_size[1] - 25, 'planet')
     if (screen_size > 190):
         c_screen = put_ascii_art(c, 185, screen_size[1] - 25, 'planet')
@@ -723,6 +724,7 @@ def render_game_board(game_data):
 	------
 	game_board_canvas: rendered game board (dic)
 	"""
+    # Setup the drawing canvas.
     board_size = game_data['board_size']
     c = create_canvas(board_size[0] * 3 + 3, board_size[1] + 1)
     c = put_stars_field(c, 0, 0, *c['size'])
@@ -740,12 +742,16 @@ def render_game_board(game_data):
         c = put_text(c, 0, 1 + offset, val_str, 1, 0, 'grey', 'white')
         offset += 1
 
-    # Put Space ships.
+    # Put Spaceships on the game board.
     for location in game_data['board']:
+        # Get ships on given location and the location on the screen.
         ships_at_location = game_data['board'][location]
         on_canvas_location = (3 + location[0] * 3, location[1] + 1)
-
+        
+        # There are only on ship on the location.
         if len(ships_at_location) == 1:
+        
+            # Get all ships informations.
             ship_name = ships_at_location[0]
             ship = game_data['ships'][ship_name]
             ship_owner = ship['owner']
@@ -753,26 +759,30 @@ def render_game_board(game_data):
             ship_color = 'white'
             ship_facing = ship['facing']
 
+            # Set the color to white if the ship dosen't have any owner.
             if ship_owner != 'none':
                 ship_color = game_data['players'][ship_owner]['color']
 
             # Put facing line.
-            facing_char = '|'
+            facing_char = '|' # The ship is facing 'up' or 'down'.
 
             if ship_facing == (1, 1) or ship_facing == (-1, -1):
-                facing_char = '\\'
+                facing_char = '\\' # The ship is facing 'up-left' or 'down-right'.
             elif ship_facing == (1, -1) or ship_facing == (-1, 1):
-                facing_char = '/'
+                facing_char = '/' # The ship is facing 'up-right' or 'down-left'.
             elif ship_facing == (1, 0) or ship_facing == (-1, 0):
-                facing_char = u'─'
+                facing_char = u'─' # The ship is facing 'left' or 'right'.
 
+            # Put the ship and the direction line on the game board.
             put_text(c, on_canvas_location[0] + 1, on_canvas_location[1], ship_icon, 1, 0, ship_color, None)
             put_text(c, on_canvas_location[0] + 1 + ship_facing[0], on_canvas_location[1] + ship_facing[1],
                      facing_char, 1, 0, ship_color, None)
 
+        # There are more than one ship on the location, show how many there are.
         elif len(ships_at_location) > 1:
             put_text(c, on_canvas_location[0], on_canvas_location[1], '[%d]' % len(ships_at_location), 1, 0, 'green', None)
 
+    # Show attack location on the game board.
     for location in game_data['pending_attacks']:
         location = location[2]
         on_canvas_location = (3 + location[0] * 3, location[1] + 1)
@@ -794,21 +804,30 @@ def render_ship_list(game_data, width, height):
 	------
 	ship_list_canvas: rendered ship list (dic).
 	"""
+    # Setup the drawing canvas.
     c = create_canvas(width, height)
     ship_count = len(game_data['ships'])
     ship_index = 0
 
+    # Put list header.
     put_text(c, 0, 0, ' T | X   Y | Name' + ' ' * 25, 1, 0, 'grey', 'white')
     for player in game_data['players']:
         ship_index += 1
         y = ship_index + 1
+        
+        # Put all information about the players.
         put_text(c, 1, y, '%s (t:%s s:%d)' % (
             player, game_data['players'][player]['type'], game_data['players'][player]['nb_ships']))
         put_text(c, 0, y + 1, '-' * width)
         ship_index += 2
+        
+        # get all space ship of a player.
         for ship in game_data['ships']:
             if game_data['ships'][ship]['owner'] == player:
                 y = ship_index + 1
+                
+                # Put information about the selected spaceship.
+                
                 # Ship type.
                 put_text(c, 1, y, game_data['ships'][ship]['type'].upper()[0])
 
@@ -836,13 +855,14 @@ def render_game_logs(game_data, width, height):
 	------
 	game_logs_canvas: rendered game logs (dic).
 	"""
-
+    # Setup the canvas.
     c = create_canvas(width, height)
     y = 0
 
     message_color = ['blue', 'yellow', 'red', None]
     message_prefix = ['  I ', ' /!\\', ' !!!', '  > ']
 
+    # Put all message in the logs screen.
     for message in game_data['game_logs'][-height:]:
         c = put_text(c, 5, y, message[1], 1, 0)
         c = put_text(c, 0, y, message_prefix[message[0]], 1, 0, message_color[message[0]])
@@ -1030,7 +1050,13 @@ def get_fighter_action(game_data, ship, owner):
 	-------
 	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17)
 	"""
-
+    # Get objective.
+    
+    # Find path to the objective.
+    
+    # Move to the objective.
+    
+    # If move is none, attack something.
     pass
 
 
@@ -1052,7 +1078,9 @@ def get_destroyer_action(game_data, ship, owner):
 	-------
 	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17)
 	"""
-
+    # If friend battle cuiser is'nt in range, move to it.
+    
+    # If the friend battlecruiser and objective is in randge, attack the objective.
     pass
 
 
@@ -1075,7 +1103,12 @@ def get_battlecruiser_action(game_data, ship, owner):
 	-------
 	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
 	"""
-
+    # Find a abojective.
+    
+    # Move to the objective.
+    
+    # if the objective is in the attack range, attack !
+    
     pass
 
 # Ai - sub function.
