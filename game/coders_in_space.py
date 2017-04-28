@@ -1223,25 +1223,75 @@ def get_slow_down(speed):
     
 def move_to(game_data, ship, objective):
     """
-	Move a ship at given objective.
-	
-	Parameters
-	----------
-	game_data: data of the game (dic).
-	ship: name of the ship to move (str).
-	objective: destination of the ship (tuple(int, int)).
-	
-	Return
-	------
-	input: input to execute <left, right, faster, slower>(str).
-	
-	
-	Version
-	-------
-	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
+    Move a ship at given coordinates.
+    
+    Parameters
+    ----------
+    game_data: data of the game (dic).
+    ship: name of the ship to move (str).
+    coordinates: destination of the ship (tuple(int, int)).
+    
+    Return
+    ------
+    input: input to execute <left, right, faster, slower>(str).
+    
+    
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
 	Implementation: Bayron Mahy (v1. 16/04/17).
-	"""
-    pass
+    """
+	#check if changing direction is a good idee.
+	direction_base = game_data['ships'][ship]['direction']
+	
+	#determine the vector of the 2 direction around the actual.
+	if abs(direction_base[0] + direction_base[1]) == 2 or direction_base[0] + direction_base[1] == 0 :
+		direction_rotate_one_dir = (0,direction_base[1])
+		direction_rotate_other_dir = (direction_base[0],0)
+	elif direction_base[0] == 0:
+		direction_rotate_one_dir = (-1,direction_base[1])
+		direction_rotate_other_dir = (1,direction_base[1])
+	else:
+		direction_rotate_one_dir = (direction_base[0],-1)
+		direction_rotate_other_dir = (direction_base[0],1)
+	
+	#compute the 3 possible new coordinates.
+	maybe_new_coord_1 = predict_next_pos(game_data, ship, direction_rotate_one_dir) 
+	maybe_new_coord_2 = predict_next_pos(game_data, ship, direction_rotate_other_dir) 
+    maybe_new_coord_3 = predict_next_pos(game_data, ship, direction_base)
+	
+	#compute the distance between each coords and the goal.
+	dist_maybe_nc_1_to_coord = get_distance(maybe_new_coord_1, coordinates, game_data['board_size'])
+	dist_maybe_nc_2_to_coord = get_distance(maybe_new_coord_2, coordinates, game_data['board_size'])
+	dist_maybe_nc_3_to_coord = get_distance(maybe_new_coord_3, coordinates, game_data['board_size'])
+	
+	#compare the distance between each coords and the goal to determine which coordinates are the best choice
+	if dist_maybe_nc_2_to_coord < dist_maybe_nc_1_to_coord and dist_maybe_nc_2_to_coord < dist_maybe_nc_3_to_coord
+		#changer la direction vers direction_rotate_other_dir
+	elif if dist_maybe_nc_1_to_coord < dist_maybe_nc_2_to_coord and dist_maybe_nc_1_to_coord < dist_maybe_nc_3_to_coord
+		#changer la direction vers direction_rotate_one_dir
+	else:
+	#if changing direction wasn't a good idee maybe change the speed.
+		speed = float(game_data['ships'][ship]['speed'])
+		#check if the speed isn't already good.
+		if dist_maybe_nc_3_to_coord != int(speed):
+			#compute how many game loop is needed to reach the goal with each speed in the case it is between 0 and max speed.
+			speed_rate = dist_maybe_nc_3_to_coord/speed
+			if int(speed) + 1 <= game_data['model_ship'][game_data['ships'][ship]['type']]['max_speed']:
+				speed_p1_rate = dist_maybe_nc_3_to_coord/(speed+1)
+			else:
+				speed_p1_rate = speed_rate
+			if int(speed) != 0:
+				speed_l1_rate = dist_maybe_nc_3_to_coord/(speed-1)
+			else:
+				speed_l1_rate = speed_rate
+				
+			#determine which speed is the best to reach the goal with minimum loops.
+			if speed_rate > speed_p1_rate  and speed_p1_rate < speed_11_rate:
+				return '%s: faster' %ship
+			elif speed_rate > speed_l1_rate  and speed_l1_rate < speed_p1_rate:
+				return '%s: slower' %ship
+
 
 
 # AI - command corection.
@@ -1948,7 +1998,27 @@ def parse_game_file(path):
 
     return parsed_data
 
+def vector2d_to_facing(vector2d):
+    """
+	Convert a tuple to a string.
 
+	Parameter
+	---------
+	vector2d: vector to convert (tuple).
+
+	Return
+	------
+	convert[vector2d]: vector2d converted in facing string (str).
+
+	Version
+	-------
+	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+	Implementation: Bayron Mahy (v1. 11/02/17)
+	"""
+
+    convert = {(0, -1):'up', (1, -1):'up-right', (1, 0):'right', (1, 1):'down-right', (0, 1):'down', (-1, 1):'down-left', (-1, 0):'left', (-1, -1):'up-left'}
+    return convert[vector2d]
+	
 def facing_to_vector2d(facing):
     """
 	Convert a string facing to a vector2d.
