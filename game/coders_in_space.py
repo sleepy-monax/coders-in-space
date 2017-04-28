@@ -639,7 +639,7 @@ def show_ship_list(player_name, game_data):
                                            '[%s] %s // heal: %spv ~ speed: %skm/s ~ Facing: %s ~ NextPos: %s' % (
                                                game_data['model_ship'][ship['type']]['icon'], ship_name,
                                                ship['heal_points'], ship['speed'], str(ship['facing']),
-                                               str(predict_next_pos(game_data, ship_name))))
+                                               str(predict_next_pos(game_data, ship_name, game_data['ships'][ship_name]['direction']))))
                     line_index += 1
         else:
             c_ship_list = put_text(c_ship_list, 3, 4 + line_index, 'Sorry no space ships:/')
@@ -1032,32 +1032,36 @@ def get_ai_spaceships(player_name, game_data):
 # -----------------------------------------------------------------------------
 #
 
-def get_fighter_action(game_data, ship, owner):
+def get_fighter_action(game_data, ship):
     """
     Get action for a fighter.
     
     Parameters
     ----------
     game_data: data of the game (dic).
-    ship:      name of the ship to get input from (str).
-    owner:     name of the owner of the ship (str).
+    ship: name of the ship to get input from (str).
     
     Return
     ------
-    action: action for this ship(str).
+    action: what the ship will do(str).
     
     Version
     -------
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17)
     """
-    # Get objective.
     
-    # Find path to the objective.
-    
-    # Move to the objective.
-    
-    # If move is none, attack something.
-    pass
+    if game_data['ships'][ship]['type'] == 'fighter':
+        nearby_ships = get_nearby_ship(game_data, ship, game_data['board_size'][1])
+        nearby_other_ships = []
+        for element in nearby_ships:
+            if game_data['ships'][element]['owner']!=game_data['ships'][ship]['owner']:
+                nearby_other_ships += element
+        if game_data['ships'][nearby_other_ships[0]]['owner'] == 'none':
+            return move_to (game_data, ship, game_data['ships'][nearby_other_ships[0]]['position'])
+        else:
+            return go_to_opposite (game_data, ship, game_data['ships'][nearby_other_ships[0]]['position'])
+    else:
+        return 'that\'s no fighter'
 
 
 def get_destroyer_action(game_data, ship, owner):
@@ -1220,7 +1224,59 @@ def get_slow_down(speed):
         x += i
     return x
     
+def go_to_opposite(game_data, ship, objective):
+    """
+    Move a ship to the opposite of given coordinates.
     
+    Parameters
+    ----------
+    game_data: data of the game (dic).
+    ship: name of the ship to move (str).
+    coordinates: destination of the ship (tuple(int, int)).
+    
+    Return
+    ------
+    input: input to execute <left, right, faster, slower>(str).
+    
+    
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
+    Implementation: Bayron Mahy (v1. 16/04/17).
+    """
+
+    direction_base = game_data['ships'][ship]['direction']
+    
+    #determine what are the 2 vectors around the actual.
+    if abs(direction_base[0] + direction_base[1]) == 2 or direction_base[0] + direction_base[1] == 0 :
+        direction_rotate_one_dir = (0,direction_base[1])
+        direction_rotate_other_dir = (direction_base[0],0)
+    elif direction_base[0] == 0:
+        direction_rotate_one_dir = (-1,direction_base[1])
+        direction_rotate_other_dir = (1,direction_base[1])
+    else:
+        direction_rotate_one_dir = (direction_base[0],-1)
+        direction_rotate_other_dir = (direction_base[0],1)
+    
+    #compute the 3 possible new coordinates.
+    maybe_new_coord_1 = predict_next_pos(game_data, ship, direction_rotate_one_dir) 
+    maybe_new_coord_2 = predict_next_pos(game_data, ship, direction_rotate_other_dir) 
+    maybe_new_coord_3 = predict_next_pos(game_data, ship, direction_base)
+    
+    #compute the distance between each coords and the goal.
+    dist_maybe_nc_1_to_coord = get_distance(maybe_new_coord_1, coordinates, game_data['board_size'])
+    dist_maybe_nc_2_to_coord = get_distance(maybe_new_coord_2, coordinates, game_data['board_size'])
+    dist_maybe_nc_3_to_coord = get_distance(maybe_new_coord_3, coordinates, game_data['board_size'])
+    
+    #compare the distance between each coords and the goal to determine which coordinates are the best choice
+    if dist_maybe_nc_2_to_coord > dist_maybe_nc_1_to_coord and dist_maybe_nc_2_to_coord > dist_maybe_nc_3_to_coord
+        return '%s: %s' %(ship, vector2d_to_facing(direction_rotate_other_dir))
+    elif if dist_maybe_nc_1_to_coord > dist_maybe_nc_2_to_coord and dist_maybe_nc_1_to_coord > dist_maybe_nc_3_to_coord
+        return '%s: %s' %(ship, vector2d_to_facing(direction_rotate_one_dir))
+    else:
+        #if direction was already the best, increase the speed as mush as possible.
+        if game_data['ships'][ship]['speed'] + 1 <= game_data['model_ship'][game_data['ships'][ship]['type']]['max_speed']:
+            return '%s: faster' %ship
 def move_to(game_data, ship, objective):
     """
     Move a ship at given coordinates.
@@ -1244,7 +1300,7 @@ def move_to(game_data, ship, objective):
     #check if changing direction is a good idee.
     direction_base = game_data['ships'][ship]['direction']
     
-    #determine the vector of the 2 direction around the actual.
+    #determine what are the 2 vectors around the actual.
     if abs(direction_base[0] + direction_base[1]) == 2 or direction_base[0] + direction_base[1] == 0 :
         direction_rotate_one_dir = (0,direction_base[1])
         direction_rotate_other_dir = (direction_base[0],0)
@@ -1369,7 +1425,7 @@ def attack(game_data, ship):
                 targets_life.append(game_data['ships'][target]['heal_points'])
 
             final_target = ships_targeted[targets_life.index(min(targets_life))]
-            target_location = predict_next_pos(game_data, final_target)
+            target_location = predict_next_pos(game_data, final_target, game_data['ships'][final_target]['direction'])
             return '%d-%d' % (target_location[0] + 1, target_location[1] + 1)
 
     return ''
@@ -1481,14 +1537,15 @@ def convert_coordinates(coord, size):
     return (convert(coord[0], size[0]), convert(coord[1], size[1]))
 
 
-def predict_next_pos(game_data, ship_name):
+def predict_next_pos(game_data, ship_name, direction):
     """
-    Predict the next location of a space ship.
+    Predict the next position of a space ship.
 
     Parameters
     ----------
     game_data: data of the game (dic).
-    ship_name: name of the spaceship to predicte the next location (str).
+    ship_name: name of the spaceship to predicte the next position (str).
+    direction: direction of the ship (tuple)
 
     Return
     ------
@@ -1502,11 +1559,11 @@ def predict_next_pos(game_data, ship_name):
     """
 
     speed = game_data['ships'][ship_name]['speed']
-    location = game_data['ships'][ship_name]['location']
-    facing = game_data['ships'][ship_name]['facing']
+    position = game_data['ships'][ship_name]['position']
+    predicted_postion = convert_coordinates((position[0] + direction[0] * speed, position[1] + direction[1] * speed),
+                                            game_data['board_size'])
 
-    return next_pos(location, facing, speed, game_data['board_size'])
-    
+    return predicted_postion  
     
 def next_pos(location, facing, speed, board_size):
     return convert_coordinates((location[0] + facing[0] * speed, location[1] + facing[1] * speed), board_size)
@@ -1798,7 +1855,8 @@ def do_moves(game_data):
     """
     for ship in game_data['ships']:
         location = game_data['ships'][ship]['location']
-        new_location = predict_next_pos(game_data, ship)
+        direction = game_data['ships'][ship]['direction']
+        new_position = predict_next_pos(game_data, ship, direction)
 
         # Move the ship.
         game_data['board'][location].remove(ship)
@@ -1900,15 +1958,15 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_data):
     if distance <= ship_type['range'] and len(game_data['board'][target_coordinate]) != 0:
         game_data['nb_rounds'] = 0
 
-        # Give damages to all ship on targe coordinate.
+        # Give damages to all ships on targeted coordinate.
         for target_ship in game_data['board'][target_coordinate]:
-            # Give damages to the taget ship.
+            # Give damages to the tageted ship.
             game_data['ships'][target_ship]['heal_points'] -= damages
 
             if game_data['ships'][target_ship]['heal_points'] <= 0:
                 write_log(game_data, '%s kill %s' % (ship, target_ship), 1)
 
-                # Remove the space ship.
+                # Remove a space ship.
                 game_data['board'][target_coordinate].remove(target_ship)
                 if game_data['ships'][target_ship]['owner'] != 'none':
                     game_data['players'][game_data['ships'][target_ship]['owner']]['nb_ships'] -= 1
@@ -1948,7 +2006,7 @@ def do_attack(game_data):
 
 # Utils
 # ==============================================================================
-# Somme use full function for a simple life. And also parse game file.
+# Some useful functions to simplify life. And also parse game file.
 
 def parse_game_file(path):
     """
