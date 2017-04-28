@@ -1,4 +1,36 @@
-[Botbot] Apple-Pen:battlecruiser Akbar:destroyer amiral:fighter bob:fighter fob:fighter I'm_Bob_Lenon:fighter Frenay-Acceleray:fighter
-[A.I.C.I.S.] Apple-Pen:battlecruiser Akbar:destroyer amiral:fighter bob:fighter fob:fighter I'm_Bob_Lenon:fighter Frenay-Acceleray:fighter
+[Josay !] OVNI:destroyer Bug:fighter YourMother:fighter Niente_Problem:battlecruiser Kaniel_Outis:fighter IHaveAPen:fighter ApplePen:fighter
+[A.I.C.I.S] Apple-Pen:battlecruiser Akbar:destroyer amiral:fighter bob:fighter fob:fighter I'm_Bob_Lenon:fighter Frenay-Acceleray:fighter
 It's turn nb 0
-[Botbot] Frenay-Acceleray:left amiral: I'm_Bob_Lenon: bob: fob: Akbar: Apple-Pen:
+[Josay !] YourMother:left Kaniel_Outis:left Niente_Problem:faster OVNI:right ApplePen:faster IHaveAPen:faster Bug:right
+[A.I.C.I.S] Akbar:faster amiral: Apple-Pen: Frenay-Acceleray:left fob: bob:faster I'm_Bob_Lenon:faster
+It's turn nb 1
+[Josay !] YourMother:left Kaniel_Outis:left Niente_Problem:right OVNI:left ApplePen:slower IHaveAPen:left Bug:faster
+[A.I.C.I.S] Akbar:slower amiral:right Apple-Pen:faster Frenay-Acceleray:faster fob:right bob:right I'm_Bob_Lenon:
+It's turn nb 2
+[Josay !] YourMother:right Kaniel_Outis:faster Niente_Problem:slower OVNI:right ApplePen:right IHaveAPen:slower Bug:faster
+[A.I.C.I.S] Akbar: amiral:right Apple-Pen:right Frenay-Acceleray:right fob:right bob:slower I'm_Bob_Lenon:left
+It's turn nb 3
+[Josay !] YourMother:right Kaniel_Outis:left Niente_Problem:faster OVNI:faster ApplePen:faster IHaveAPen:left Bug:faster
+[A.I.C.I.S] Akbar:faster amiral: Apple-Pen:slower Frenay-Acceleray:faster fob:faster bob:right I'm_Bob_Lenon:right
+It's turn nb 4
+[Josay !] YourMother:left Kaniel_Outis:faster Niente_Problem:right OVNI:faster ApplePen:right IHaveAPen:right Bug:slower
+[A.I.C.I.S] Akbar:faster amiral:faster Apple-Pen:left Frenay-Acceleray:slower fob: bob: I'm_Bob_Lenon:right
+Josay ! as take Josay !_b5 !
+It's turn nb 5
+[Josay !] d2:right YourMother:left Kaniel_Outis:slower Niente_Problem:slower OVNI:right ApplePen:slower IHaveAPen:left Bug:left
+[A.I.C.I.S] Akbar:slower amiral:right Apple-Pen: Frenay-Acceleray:left fob:left bob: I'm_Bob_Lenon:
+It's turn nb 6
+[Josay !] d2:left YourMother:right Kaniel_Outis:left Niente_Problem:left OVNI:right ApplePen:left IHaveAPen:right Bug:slower
+[A.I.C.I.S] Akbar:right amiral:slower Apple-Pen:faster Frenay-Acceleray: fob:right bob:faster I'm_Bob_Lenon:faster
+A.I.C.I.S as take A.I.C.I.S_b37 !
+It's turn nb 7
+[Josay !] d2:right YourMother:left Kaniel_Outis:right Niente_Problem:right OVNI:slower ApplePen:right IHaveAPen:left Bug:right
+[A.I.C.I.S] b37:faster Akbar:slower amiral:faster Apple-Pen:slower Frenay-Acceleray:slower fob:faster bob:slower I'm_Bob_Lenon:
+It's turn nb 8
+[Josay !] d2:left YourMother:left Kaniel_Outis:slower Niente_Problem:left OVNI:slower ApplePen:right IHaveAPen:left Bug:right
+[A.I.C.I.S] b37:right Akbar:right amiral:right Apple-Pen: Frenay-Acceleray: fob: bob:faster I'm_Bob_Lenon:right
+A.I.C.I.S as take A.I.C.I.S_b31 !
+It's turn nb 9
+[Josay !] d2:right YourMother:faster Kaniel_Outis:faster Niente_Problem:left OVNI:faster ApplePen:faster IHaveAPen:right Bug:right
+[A.I.C.I.S] b37:slower b31:faster Akbar: amiral: Apple-Pen:faster Frenay-Acceleray:left fob: bob: I'm_Bob_Lenon:right
+Josay ! as take Josay !_b10 !
