@@ -5,47 +5,47 @@
 # A cool friend to get in touch wile coding.
 
 """
-                                                              ▄██████████▄                
-                                                            ▄█▒▒▒▒▒▒▒▒▒▒▒▒█▄              
-                                                            █▒▒▐█▌▒▒▒▒▒▐█▌▒█▄             
-                                                            █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▄            
-                                                            █▒██████████████▒█▄           
-                                                            █▒█▄ █ █ █ █ ▄██▒▒█           
-                                                            █▒▒████████████▒▒▒█           
-                                                            █▒▒▒█▄ █  █ ▄█▒▒▒▒█           
-                                                            █▒▒▒▒████████▒▒▒▒▒█           
-                                                            █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▀           
-                                                           ▄█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█            
-                                                           █▒▒▒▀▀▄▄▄▄▄▄▀▀▒▒▒█▀            
-                                                          ▄█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█             
-                                                          █▒▒▒▒▒▀▀▄▄▄▄▀▀▒▒▒█▀             
-                                                          █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█              
-                                                          █▒▒▒▒▒▀▀▄▄▄▀▀▒▒▒▒█              
-                                                          █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█              
-                                                          █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█              
-                                                          █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█              
-                                                          █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█              
-                                                          █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█              
-                                                         ▄█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██             
-                                                        ▄█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██▄           
-                                                        █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█████▄      
-                                                        █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒███▄   
-                                                        █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██  
-                                                        █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██ 
-                                                        █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒██
-                                                        █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒█
-                                                        ▀█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒█
-                                                         ▀█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒█
-                                                          ▀█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒█▒▒█
-                                                           ██▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒█▒▒▒▒▒▒█▒▒▒█
-                                                           █▒█▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒█▒▒▒▒█
-                                                           █▒▒█▒▒▒▒▒▒▒▒▒█▒▒▒█▒▒▒▒▒███▒▒▒▒█
-                                                           ▀█▒▒██████████▒▒▒██████▀ █▒▒▒▒█
-                                                            ▀█▒▒█▄      █▒▒▒█ █▒▒█  █▒▒▒▒█
-                                                             ▀█▒▒█▄     █▒▒▒█ █▒▒█  █▒▒▒█▀
-                                                              ▀█▒▒█     █▒▒█▀ █▒▒█  █▒▒█▀ 
-                                                               ▀█▒█     █▒█▀  █▒▒█  █▒█▀  
-                                                                ▀██     ██▀   ▀██▀  ██▀  
+       ▄██████████▄                
+     ▄█▒▒▒▒▒▒▒▒▒▒▒▒█▄              
+     █▒▒▐█▌▒▒▒▒▒▐█▌▒█▄             
+     █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▄            
+     █▒██████████████▒█▄           
+     █▒█▄ █ █ █ █ ▄██▒▒█           
+     █▒▒████████████▒▒▒█           
+     █▒▒▒█▄ █  █ ▄█▒▒▒▒█           
+     █▒▒▒▒████████▒▒▒▒▒█           
+     █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▀           
+    ▄█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█            
+    █▒▒▒▀▀▄▄▄▄▄▄▀▀▒▒▒█▀            
+   ▄█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█             
+   █▒▒▒▒▒▀▀▄▄▄▄▀▀▒▒▒█▀             
+   █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█              
+   █▒▒▒▒▒▀▀▄▄▄▀▀▒▒▒▒█              
+   █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█              
+   █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█              
+   █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█              
+   █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█              
+   █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█              
+  ▄█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██             
+ ▄█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██▄           
+ █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█████▄      
+ █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒███▄   
+ █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██  
+ █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██ 
+ █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒██
+ █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒█
+ ▀█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒█
+  ▀█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒█
+   ▀█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒█▒▒█
+    ██▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒█▒▒▒▒▒▒█▒▒▒█
+    █▒█▒▒▒▒▒▒▒▒▒▒█▒▒▒▒█▒▒▒▒▒▒█▒▒▒▒█
+    █▒▒█▒▒▒▒▒▒▒▒▒█▒▒▒█▒▒▒▒▒███▒▒▒▒█
+    ▀█▒▒██████████▒▒▒██████▀ █▒▒▒▒█
+     ▀█▒▒█▄      █▒▒▒█ █▒▒█  █▒▒▒▒█
+      ▀█▒▒█▄     █▒▒▒█ █▒▒█  █▒▒▒█▀
+       ▀█▒▒█     █▒▒█▀ █▒▒█  █▒▒█▀ 
+        ▀█▒█     █▒█▀  █▒▒█  █▒█▀  
+         ▀██     ██▀   ▀██▀  ██▀  
 """
 
 # Imports
@@ -166,6 +166,9 @@ def play_game(level_name, players_names, players_types, no_splash=False, no_gui=
         total_turn += 1
         game_running = is_game_continue(game_data)
 
+    if not no_gui:
+        show_game_board(game_data)
+		
     # Disconnect the remote player.
     if is_remote_game:
         disconnect_from_player(game_data['connection'])
@@ -940,7 +943,7 @@ def get_ai_input(game_data, player_name):
     for ship_name in get_ship_by_owner(game_data['ships'], player_name):
 
         ship = game_data['ships'][ship_name]
-
+        print "\033[0;0H Thinking: %s..." % ship_name
         ship_order = ''
         if ship['type'] == 'fighter':
             ship_order = get_fighter_action(game_data, ship_name, player_name)
@@ -1049,7 +1052,7 @@ def get_fighter_action(game_data, ship_name, owner):
 	"""
 
     ship = game_data['ships'][ship_name]
-    if ship['objective'] == 'none' or len(ship['objective_path']) == 0 or ship['objective'] in game_data['ships']:
+    if ship['objective'] == 'none' or len(ship['objective_path']) == 0 or not ship['objective'] in game_data['ships']:
         abandoned_ships = get_ship_by_owner(game_data['ships'], 'none')
         if len(abandoned_ships) > 0:
             random.shuffle(abandoned_ships)
@@ -1119,10 +1122,13 @@ def get_battlecruiser_action(game_data, ship_name, owner):
     Implementation : Alisson Leist (v1. 28/04/17).
     """
     ship = game_data['ships'][ship_name]
-
+	# Get the objective of the ship.
     if not ship['objective'] in game_data['ships']:
-        ship['objective'] = filter_ships(game_data['ships'], owner)[0]
+        objectives = filter_ships(game_data['ships'], owner)
+        random.shuffle(objectives)
+        ship['objective'] = objectives[0]
 
+	# Get ship object from objective name.
     objective = game_data['ships'][ship['objective']]
 
     if get_distance(ship['location'], objective['location'], game_data['board_size']) <=  game_data['model_ship'][ship['type']]['range']:
@@ -1141,7 +1147,6 @@ def get_battlecruiser_action(game_data, ship_name, owner):
 # Pathfinding, random orders
 
 def path_finding(start_node, max_speed, end_node, board_size, best_distance = sys.maxint, path = [], max_distance = 8):
-    print "\033[0;0HPATH FINDING..."
     nodes = get_next_nodes(start_node, end_node, max_speed, board_size)
     
     dict_sort(nodes, 'distance')
@@ -1197,7 +1202,7 @@ def get_next_nodes(start_node, end_node, max_speed, board_size):
         v = to_unit_vector(rotate_vector_2d(start_node['facing'], -45))
         next_location = next_pos(start_node['location'], v, speed, board_size)
         nodes.append(node(next_location, v, get_distance(next_location, end_node['location'], board_size), speed, 'left'))
-
+        
         # Rotate right.
         v = to_unit_vector(rotate_vector_2d(start_node['facing'], 45))
         next_location = next_pos(start_node['location'], v, speed, board_size)
@@ -1263,8 +1268,10 @@ def go_to_opposite(game_data, ship, objective):
     ship = game_data['ships'][ship_name]
     nodes = get_next_nodes(node(ship['location'], ship['facing'], 0, ship['speed']), node(objective),
                            game_data['model_ship'][ship['type']]['max_speed'], game_data['board_size'])
-
-    return dict_sort(nodes, 'distance')[-1]['to_do']
+ 
+    ict_sort(nodes, 'distance')[-1]['to_do']
+	
+    return nodes[-1]['to_do']
 
 def move_to(game_data, ship_name, objective):
     """
@@ -1288,9 +1295,11 @@ def move_to(game_data, ship_name, objective):
     """
 
     ship = game_data['ships'][ship_name]
-    nodes = get_next_nodes(node(ship['location'], ship['facing'], 0, ship['speed']), node(objective), game_data['model_ship'][ship['type']]['max_speed'], game_data['board_size'])
+    nodes = get_next_nodes(node(ship['location'], ship['facing'], 0, ship['speed']), node(objective),
+                           game_data['model_ship'][ship['type']]['max_speed'], game_data['board_size'])
 
-    print dict_sort(nodes, 'distance')[0]['to_do']
+    dict_sort(nodes, 'distance')
+    return nodes[0]['to_do']
 
 
 def do_random_action(game_data, ship_name):
