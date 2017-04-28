@@ -939,9 +939,6 @@ def get_ai_input(game_data, player_name):
 
     for ship_name in get_ship_by_owner(game_data['ships'], player_name):
 
-        ship_order = do_random_action(game_data, ship_name)
-
-        """
         ship = game_data['ships'][ship_name]
 
         ship_order = ''
@@ -951,7 +948,7 @@ def get_ai_input(game_data, player_name):
             ship_order = get_destroyer_action(game_data, ship_name, player_name)
         elif ship['type'] == 'battlecruiser':
             ship_order = get_battlecruiser_action(game_data, ship_name, player_name)
-        """
+
         ai_input += '%s:%s ' % (ship_name[len(player_name) + 1:], ship_order)
 
 
@@ -1047,11 +1044,12 @@ def get_fighter_action(game_data, ship_name, owner):
 	
 	Version
 	-------
-	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17)
+	Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17)
+	Implementation: Bayron Mahy, Nicolas Van Bossuyt (v1. 28/04/17)
 	"""
 
     ship = game_data['ships'][ship_name]
-    if ship['objective'] == 'none' or len(ship['objective_path']) == 0:
+    if ship['objective'] == 'none' or len(ship['objective_path']) == 0 or ship['objective'] in game_data['ships']:
         abandoned_ships = get_ship_by_owner(game_data['ships'], 'none')
         if len(abandoned_ships) > 0:
             random.shuffle(abandoned_ships)
@@ -1062,7 +1060,7 @@ def get_fighter_action(game_data, ship_name, owner):
                 objective_ship = game_data['ships'][ship['objective']]
                 start_node = node(ship['location'], ship['facing'], 0, ship['speed'])
                 end_node = node(objective_ship['location'], objective_ship['facing'])
-                success, path = path_finding(start_node, 7, end_node, game_data['board_size'], sys.maxint, [], 8)
+                success, path = path_finding(start_node, game_data['model_ship'][ship['type']]['max_speed'], end_node, game_data['board_size'], sys.maxint, [], 8)
                 if success:
                     ship['objective_path'] = path
         else:
@@ -1075,30 +1073,15 @@ def get_fighter_action(game_data, ship_name, owner):
     else:
         return  action
 
-    # ------------------------------------------------------------------------------------------------------------------
-    nearby_ships = ship_owner(game_data['ships'], 'none')
-    nearby_other_ships = []
 
-    for element in nearby_ships:
-        if game_data['ships'][element]['owner'] != game_data['ships'][ship]['owner']:
-            nearby_other_ships += element
-
-
-    if game_data['ships'][nearby_other_ships[0]]['owner'] == 'none':
-        return move_to(game_data, ship, game_data['ships'][nearby_other_ships[0]]['location'])
-    else:
-        return go_to_opposite(game_data, ship, game_data['ships'][nearby_other_ships[0]]['location'])
-    # ------------------------------------------------------------------------------------------------------------------
-
-
-def get_destroyer_action(game_data, ship, owner):
+def get_destroyer_action(game_data, ship_name, owner):
     """
     Get action for a destroyer.
     
     Parameters
     ----------
     game_data: data of the game (dic).
-    ship: name of the ship to get input from (str).
+    ship_name: name of the ship to get input from (str).
     owner: name of the owner of the ship (str).
     
     Return
@@ -1112,9 +1095,8 @@ def get_destroyer_action(game_data, ship, owner):
     # If friend battle cuiser is'nt in range, move to it.
     
     # If the friend battlecruiser and objective is in randge, attack the objective.
-    pass
 
-
+    return do_random_action(game_data, ship_name)
 
 
 def get_battlecruiser_action(game_data, ship_name, owner):
@@ -1136,40 +1118,30 @@ def get_battlecruiser_action(game_data, ship_name, owner):
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
     Implementation : Alisson Leist (v1. 28/04/17).
     """
-    ship_range = game_data['model_ship'][game_data['ships'][ship_name]['type']]['range']
-    objective = get_nearby_ship(game_data, ship_name,ship_range)
-    ennemies_in_range = []
-    action = ship_name
-    action += ':'
+    ship = game_data['ships'][ship_name]
 
-    #search owner of nearby ships
-    for target in objective:
-        target_owner = get_ship_by_owner(target, owner)
-        
-        #find ennemies in the range of the ship
-        if target_owner != owner:
-            ennemies_in_range.append(target)
-    
-    #attack an ennemy if there is one in range               
-    if len(ennemies_in_range)!=0: 
-        action+=attack(game_data_ship_name)
-        
-    else:            
-        
-        rotate_command=randint(1,2)
-        if rotate_command==1:
-            action+='left'
-            
-        else:
-            action+='right'    
-            
-    return action
+    if not ship['objective'] in game_data['ships']:
+        ship['objective'] = filter_ships(game_data['ships'], owner)[0]
+
+    objective = game_data['ships'][ship['objective']]
+
+    if get_distance(ship['location'], objective['location'], game_data['board_size']) <=  game_data['model_ship'][ship['type']]['range']:
+        return attack(game_data, ship_name)
+    else:
+        action = move_to(game_data, ship_name, objective['location'])
+
+        if action == 'none':
+            action = attack(game_data, ship_name)
+
+        return  action
+
 
 # Ai - sub function.
 # -----------------------------------------------------------------------------
 # Pathfinding, random orders
 
 def path_finding(start_node, max_speed, end_node, board_size, best_distance = sys.maxint, path = [], max_distance = 8):
+    print "\033[0;0HPATH FINDING..."
     nodes = get_next_nodes(start_node, end_node, max_speed, board_size)
     
     dict_sort(nodes, 'distance')
@@ -1184,29 +1156,31 @@ def path_finding(start_node, max_speed, end_node, board_size, best_distance = sy
         new_path.append(node)
         
         if node['location'] == end_node['location']:
-            show_path(new_path, start_node, end_node, board_size)
+            # show_path(new_path, start_node, end_node, board_size)
             return True, new_path
         else:
             objective_finded, path_to_objective = path_finding(node, max_speed, end_node, board_size, best_distance, new_path, max_distance)
 
             if objective_finded:
                 return True, path_to_objective
-        
-                 
+
     return False, path
 
 def follow_path(game_data, ship_name):
     ship = game_data['ships'][ship_name]
-    to_do_node = ship['objective_path'].pop()
+    if len(ship['objective_path']) > 0:
+        to_do_node = ship['objective_path'].pop(0)
 
-    return to_do_node['to_do']
+        return to_do_node['to_do']
 
 
 def show_path(path,start_node, end_node, board_size):
     # Show the path finding animation
     c = create_canvas((board_size[0] * 3) + 2, board_size[1] + 2)
+
     for n in path:
         c = put(c, (n['location'][0] * 3 + 1) + 1, n['location'][1] + 1, ' ', 'white', 'green')
+
     c = put(c, (end_node['location'][0] * 3  + 1) + 1, end_node['location'][1] + 1, ' ', 'white', 'white')
     c = put_box(c, 0, 0, c['size'][0], c['size'][1])
     c = put_text(c, 2, 0, '| Path Finding... |')
@@ -1222,33 +1196,29 @@ def get_next_nodes(start_node, end_node, max_speed, board_size):
         # Rotate left.
         v = to_unit_vector(rotate_vector_2d(start_node['facing'], -45))
         next_location = next_pos(start_node['location'], v, speed, board_size)
-        nodes.append(
-            node(next_location, v, get_distance(next_location, end_node['location'], board_size), speed, 'left'))
+        nodes.append(node(next_location, v, get_distance(next_location, end_node['location'], board_size), speed, 'left'))
 
         # Rotate right.
         v = to_unit_vector(rotate_vector_2d(start_node['facing'], 45))
         next_location = next_pos(start_node['location'], v, speed, board_size)
-        nodes.append(
-            node(next_location, v, get_distance(next_location, end_node['location'], board_size), speed, 'right'))
+        nodes.append(node(next_location, v, get_distance(next_location, end_node['location'], board_size), speed, 'right'))
 
     if speed < max_speed:
         next_location = next_pos(start_node['location'], start_node['facing'], speed + 1, board_size)
         nodes.append(node(next_location, start_node['facing'], get_distance(next_location, end_node['location'], board_size), speed + 1, 'faster'))
-    
+
+    if speed > 0:
         next_location = next_pos(start_node['location'], start_node['facing'], speed - 1, board_size)
         nodes.append(node(next_location, start_node['facing'], get_distance(next_location, end_node['location'], board_size), speed - 1, 'slower'))
 
-    if speed > 0:
         # Do nothing.
         next_location = next_pos(start_node['location'], start_node['facing'], speed, board_size)
-        nodes.append(
-            node(next_location, start_node['facing'], get_distance(next_location, end_node['location'], board_size),
-                 speed, 'none'))
+        nodes.append(node(next_location, start_node['facing'], get_distance(next_location, end_node['location'], board_size), speed, 'none'))
 
     return nodes
 
 
-def node(location, facing = (0, 0), distance = 0, speed = 1, to_do = 'none'):
+def node(location, facing = (0, 0), distance = 0, speed = 0, to_do = 'none'):
     """
     Create a new path finding node.
     
@@ -1290,47 +1260,20 @@ def go_to_opposite(game_data, ship, objective):
     Implementation: Bayron Mahy (v1. 16/04/17).
     """
 
-    facing_base = game_data['ships'][ship]['facing']
-    
-    #determine what are the 2 vectors around the actual.
-    if abs(facing_base[0] + facing_base[1]) == 2 or facing_base[0] + facing_base[1] == 0 :
-        facing_rotate_one_dir = (0,facing_base[1])
-        facing_rotate_other_dir = (facing_base[0],0)
-    elif facing_base[0] == 0:
-        facing_rotate_one_dir = (-1,facing_base[1])
-        facing_rotate_other_dir = (1,facing_base[1])
-    else:
-        facing_rotate_one_dir = (facing_base[0],-1)
-        facing_rotate_other_dir = (facing_base[0],1)
-    
-    #compute the 3 possible new coordinates.
-    maybe_new_coord_1 = predict_next_pos(game_data, ship, facing_rotate_one_dir) 
-    maybe_new_coord_2 = predict_next_pos(game_data, ship, facing_rotate_other_dir) 
-    maybe_new_coord_3 = predict_next_pos(game_data, ship, facing_base)
-    
-    #compute the distance between each coords and the goal.
-    dist_maybe_nc_1_to_coord = get_distance(maybe_new_coord_1, coordinates, game_data['board_size'])
-    dist_maybe_nc_2_to_coord = get_distance(maybe_new_coord_2, coordinates, game_data['board_size'])
-    dist_maybe_nc_3_to_coord = get_distance(maybe_new_coord_3, coordinates, game_data['board_size'])
-    
-    #compare the distance between each coords and the goal to determine which coordinates are the best choice
-    if dist_maybe_nc_2_to_coord > dist_maybe_nc_1_to_coord and dist_maybe_nc_2_to_coord > dist_maybe_nc_3_to_coord:
-        return '%s: %s' %(ship, vector2d_to_facing(facing_rotate_other_dir))
-    elif dist_maybe_nc_1_to_coord > dist_maybe_nc_2_to_coord and dist_maybe_nc_1_to_coord > dist_maybe_nc_3_to_coord:
-        return '%s: %s' %(ship, vector2d_to_facing(facing_rotate_one_dir))
-    else:
-        #if facing was already the best, increase the speed as mush as possible.
-        if game_data['ships'][ship]['speed'] + 1 <= game_data['model_ship'][game_data['ships'][ship]['type']]['max_speed']:
-            return '%s: faster' %ship
+    ship = game_data['ships'][ship_name]
+    nodes = get_next_nodes(node(ship['location'], ship['facing'], 0, ship['speed']), node(objective),
+                           game_data['model_ship'][ship['type']]['max_speed'], game_data['board_size'])
 
-def move_to(game_data, ship, objective):
+    return dict_sort(nodes, 'distance')[-1]['to_do']
+
+def move_to(game_data, ship_name, objective):
     """
     Move a ship at given coordinates.
     
     Parameters
     ----------
     game_data: data of the game (dic).
-    ship: name of the ship to move (str).
+    ship_name: name of the ship to move (str).
     coordinates: destination of the ship (tuple(int, int)).
     
     Return
@@ -1343,56 +1286,11 @@ def move_to(game_data, ship, objective):
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
     Implementation: Bayron Mahy (v1. 16/04/17).
     """
-    #check if changing facing is a good idee.
-    facing_base = game_data['ships'][ship]['facing']
-    
-    #determine what are the 2 vectors around the actual.
-    if abs(facing_base[0] + facing_base[1]) == 2 or facing_base[0] + facing_base[1] == 0 :
-        facing_rotate_one_dir = (0,facing_base[1])
-        facing_rotate_other_dir = (facing_base[0],0)
-    elif facing_base[0] == 0:
-        facing_rotate_one_dir = (-1,facing_base[1])
-        facing_rotate_other_dir = (1,facing_base[1])
-    else:
-        facing_rotate_one_dir = (facing_base[0],-1)
-        facing_rotate_other_dir = (facing_base[0],1)
-    
-    #compute the 3 possible new coordinates.
-    maybe_new_coord_1 = predict_next_pos(game_data, ship, facing_rotate_one_dir) 
-    maybe_new_coord_2 = predict_next_pos(game_data, ship, facing_rotate_other_dir) 
-    maybe_new_coord_3 = predict_next_pos(game_data, ship, facing_base)
-    
-    #compute the distance between each coords and the goal.
-    dist_maybe_nc_1_to_coord = get_distance(maybe_new_coord_1, coordinates, game_data['board_size'])
-    dist_maybe_nc_2_to_coord = get_distance(maybe_new_coord_2, coordinates, game_data['board_size'])
-    dist_maybe_nc_3_to_coord = get_distance(maybe_new_coord_3, coordinates, game_data['board_size'])
-    
-    #compare the distance between each coords and the goal to determine which coordinates are the best choice
-    if dist_maybe_nc_2_to_coord < dist_maybe_nc_1_to_coord and dist_maybe_nc_2_to_coord < dist_maybe_nc_3_to_coord:
-        return '%s: %s' %(ship, vector2d_to_facing(facing_rotate_other_dir))
-    elif dist_maybe_nc_1_to_coord < dist_maybe_nc_2_to_coord and dist_maybe_nc_1_to_coord < dist_maybe_nc_3_to_coord:
-        return '%s: %s' %(ship, vector2d_to_facing(facing_rotate_one_dir))
-    else:
-    #if changing facing wasn't a good idee maybe change the speed.
-        speed = float(game_data['ships'][ship]['speed'])
-        #check if the speed isn't already good.
-        if dist_maybe_nc_3_to_coord != int(speed):
-            #compute how many game loop is needed to reach the goal with each speed in the case it is between 0 and max speed.
-            speed_rate = dist_maybe_nc_3_to_coord/speed
-            if int(speed) + 1 <= game_data['model_ship'][game_data['ships'][ship]['type']]['max_speed']:
-                speed_p1_rate = dist_maybe_nc_3_to_coord/(speed+1)
-            else:
-                speed_p1_rate = speed_rate
-            if int(speed) != 0:
-                speed_l1_rate = dist_maybe_nc_3_to_coord/(speed-1)
-            else:
-                speed_l1_rate = speed_rate
-                
-            #determine which speed is the best to reach the goal with minimum loops.
-            if speed_rate > speed_p1_rate  and speed_p1_rate < speed_11_rate:
-                return '%s: faster' %ship
-            elif speed_rate > speed_l1_rate  and speed_l1_rate < speed_p1_rate:
-                return '%s: slower' %ship
+
+    ship = game_data['ships'][ship_name]
+    nodes = get_next_nodes(node(ship['location'], ship['facing'], 0, ship['speed']), node(objective), game_data['model_ship'][ship['type']]['max_speed'], game_data['board_size'])
+
+    print dict_sort(nodes, 'distance')[0]['to_do']
 
 
 def do_random_action(game_data, ship_name):
