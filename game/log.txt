@@ -1,3 +1,4 @@
 [Botbot] Apple-Pen:battlecruiser Akbar:destroyer amiral:fighter bob:fighter fob:fighter I'm_Bob_Lenon:fighter Frenay-Acceleray:fighter
 [A.I.C.I.S.] Apple-Pen:battlecruiser Akbar:destroyer amiral:fighter bob:fighter fob:fighter I'm_Bob_Lenon:fighter Frenay-Acceleray:fighter
 It's turn nb 0
+[Botbot] Frenay-Acceleray:left amiral: I'm_Bob_Lenon: bob: fob: Akbar: Apple-Pen:
