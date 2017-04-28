@@ -5,30 +5,30 @@
 # A cool friend to get in touch wile coding.
 
 """
-						 ___---------___
-					   _".^ .^ ^.  '..:"-_
-					 /:			. .^:.  :\
-				   /: .   .	.		. . .:\
-				  /:			   .  ^ .  . .:\
-				 /.						.  .:\
-				|:					.  .  ^. .:|
-				||		.				. . !:|
-				\(							.:)/
-				|. ######			  .#######::|
-				 |.#######		   ..########:|
-				 \ ########		   :########:/
-				  \ ########	   . ########.:/
-				   \. #######	   #######..:/
-					 \		   .   .   ..:/
-					  \.	   | |	 . .:/
-						\			 ..:/
-						 \.		   .:/
-						   \   ___/  :/
-							\	   :/
-							 |\  .:/|
-							 |  --.:|
-							 "(  ..)"
-							/  .  .::\
+                         ___---------___
+                       _".^ .^ ^.  '..:"-_
+                     /:            . .^:.  :\
+                   /: .   .    .        . . .:\
+                  /:               .  ^ .  . .:\
+                 /.                        .  .:\
+                |:                    .  .  ^. .:|
+                ||        .                . . !:|
+                \(                            .:)/
+                |. ######              .#######::|
+                 |.#######           ..########:|
+                 \ ########           :########:/
+                  \ ########       . ########.:/
+                   \. #######       #######..:/
+                     \           .   .   ..:/
+                      \.       | |     . .:/
+                        \             ..:/
+                         \.           .:/
+                           \   ___/  :/
+                            \       :/
+                             |\  .:/|
+                             |  --.:|
+                             "(  ..)"
+                            /  .  .::\
 """
 
 # Imports
@@ -61,30 +61,30 @@ remote_vs_human = ('remote', 'human')
 
 def play_game(level_name, players_names, players_types, no_splash=False, no_gui=False, remote_id=None, remote_ip=None, max_rounds_count=10):
     """
-	Main function that executes the game loop.
+    Main function that executes the game loop.
 
-	Parameters
-	----------
-	level_name:    name of game level (str).
-	players_names: names of players (list(string)).
-	players_types: types of players (list(string)).
-	
-	(optional) no_splash: ship the splash screen (bool).
-	(optional) no_gui:    disable game user interface (bool).
-	(optional) remote_id: ID of the remote player (int).
-	(optional) remote_ip: IP of the remote player (str).
-	(optional) max_rounds_count: number of rounds (int).
+    Parameters
+    ----------
+    level_name:    name of game level (str).
+    players_names: names of players (list(string)).
+    players_types: types of players (list(string)).
+    
+    (optional) no_splash: ship the splash screen (bool).
+    (optional) no_gui:    disable game user interface (bool).
+    (optional) remote_id: ID of the remote player (int).
+    (optional) remote_ip: IP of the remote player (str).
+    (optional) max_rounds_count: number of rounds (int).
 
-	Return
-	------
-	game_data: game data at the end of the game (str).
+    Return
+    ------
+    game_data: game data at the end of the game (str).
 
     Version
     -------
     Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-					Nicolas Van Bossuyt (v2. 25/04/2017)
+                    Nicolas Van Bossuyt (v2. 25/04/2017)
     Implementation: Bayron Mahy, Nicolas Van Bossuyt (v1. 15/02/17)
-					Nicolas Van Bossuyt (v2. 25/04/2017)
+                    Nicolas Van Bossuyt (v2. 25/04/2017)
     """
 
     # Create the new game.
@@ -163,30 +163,30 @@ def play_game(level_name, players_names, players_types, no_splash=False, no_gui=
 
 def initialize_game(level_name, players_names, players_types, max_rounds_count, connection=None):
     """
-	Create a new game from a '.cis' file.
+    Create a new game from a '.cis' file.
 
-	Parameters
-	----------
-	level_name: name of game level (str).
-	players_names: names of players (list(string)).
-	players_types: types of players (list(string)).
-	max_rounds_count: maximum round count (int).
-	(optional) connection: connection to the remote player.
+    Parameters
+    ----------
+    level_name: name of game level (str).
+    players_names: names of players (list(string)).
+    players_types: types of players (list(string)).
+    max_rounds_count: maximum round count (int).
+    (optional) connection: connection to the remote player.
 
-	Return
-	-------
-	game_data: new game stats (dic).
+    Return
+    -------
+    game_data: new game stats (dic).
 
-	Version
-	-------
-	Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-					Nicolas Van Bossuyt (v2 25/04/2017).
-					
-	Implementation: Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-					Bayron Mahy, Nicolas Van Bossuyt (v2. 13/02/17)
-					Nicolas Van Bossuyt (v3. 23/02/17)
-					Nicolas Van Bossuyt (v4. 25/04/17)
-	"""
+    Version
+    -------
+    Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+                    Nicolas Van Bossuyt (v2 25/04/2017).
+                    
+    Implementation: Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+                    Bayron Mahy, Nicolas Van Bossuyt (v2. 13/02/17)
+                    Nicolas Van Bossuyt (v3. 23/02/17)
+                    Nicolas Van Bossuyt (v4. 25/04/17)
+    """
     # Create the log file.
     open('log.txt', 'w').close()
 
@@ -271,17 +271,17 @@ def initialize_game(level_name, players_names, players_types, max_rounds_count, 
 
 def show_splash_game(is_remote_game=False):
     """
-	Show the splash screen.
+    Show the splash screen.
 
-	Parameter
-	---------
-	game_data: data of the game (dic).
+    Parameter
+    ---------
+    game_data: data of the game (dic).
 
-	Version
-	-------
-	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation: Nicolas Van Bossuyt (v1. 27/02/17)
-	"""
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+    Implementation: Nicolas Van Bossuyt (v1. 27/02/17)
+    """
 
     def clear_canvas(canvas, padding=0):
         """
@@ -414,21 +414,21 @@ def show_end_game(game_data):
 
 def is_game_continue(game_data):
     """
-	Check if the game continue.
+    Check if the game continue.
 
-	Parameter
-	---------
-	game_data: data of the game (dic).
+    Parameter
+    ---------
+    game_data: data of the game (dic).
 
-	Return
-	------
-	False if the game is over. (Bool))
+    Return
+    ------
+    False if the game is over. (Bool))
 
-	Version
-	-------
-	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 24/02/17)
-	Implementation: Alisson Leist (v1. 24/02/17)
-	"""
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 24/02/17)
+    Implementation: Alisson Leist (v1. 24/02/17)
+    """
 
     not_loser = []
 
@@ -465,18 +465,18 @@ def is_game_continue(game_data):
 
 def calculate_value(player_name, game_data):
     """
-	Calculate the total ship value of a player.
+    Calculate the total ship value of a player.
 
-	Parameters
-	----------
-	player_name: name of the player to count value (str)
-	game_data: game before command execution (dic)
+    Parameters
+    ----------
+    player_name: name of the player to count value (str)
+    game_data: game before command execution (dic)
 
-	Version
-	-------
-	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 24/02/17)
-	Implementation: Alisson Leist (v1. 24/02/17)
-	"""
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 24/02/17)
+    Implementation: Alisson Leist (v1. 24/02/17)
+    """
     total_value = 0
 
     for ship in game_data['ships']:
@@ -493,19 +493,19 @@ def calculate_value(player_name, game_data):
 
 def get_game_input(player_name, buy_ships, game_data):
     """
-	Get input from a specified player.
+    Get input from a specified player.
 
-	Parameters
-	----------
-	player_name: name of the player to get input (str).
-	buy_ships: True, if players buy their boats (bool).
-	game_data: data of the game (dic).
+    Parameters
+    ----------
+    player_name: name of the player to get input (str).
+    buy_ships: True, if players buy their boats (bool).
+    game_data: data of the game (dic).
 
-	Version
-	-------
-	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation: Niolas Van Bossuyt (V1. 15/02/17)
-	"""
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+    Implementation: Niolas Van Bossuyt (V1. 15/02/17)
+    """
     player_input = ''
     player_type = game_data['players'][player_name]['type']
 
@@ -539,23 +539,23 @@ def get_game_input(player_name, buy_ships, game_data):
 
 def get_human_input(player_name, buy_ship, game_data):
     """
-	Get input from a human player.
+    Get input from a human player.
 
-	Parameters
-	----------
-	player_name: Name of the player to get input from (str).
-	buy_ships: True, if players buy their boats (bool).
-	game_data: data of the game (dic).
+    Parameters
+    ----------
+    player_name: Name of the player to get input from (str).
+    buy_ships: True, if players buy their boats (bool).
+    game_data: data of the game (dic).
 
-	Returns
-	-------
-	player_input: input from Human (str).
+    Returns
+    -------
+    player_input: input from Human (str).
 
-	Version
-	-------
-	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation: Nicolas Van Bosuyt (v1. 22/02/17)
-	"""
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+    Implementation: Nicolas Van Bosuyt (v1. 22/02/17)
+    """
     while True:
         # Setup main canvas.
         screen_size = get_terminal_size()
@@ -582,18 +582,18 @@ def get_human_input(player_name, buy_ship, game_data):
 
 def show_ship_list(player_name, game_data):
     """
-	(use for debug) Show spaceships information on the terminal.
+    (use for debug) Show spaceships information on the terminal.
 
-	Parameters
-	----------
-	player_name: name of the player to show the information (str).
-	game_data: data of the game (dic).
+    Parameters
+    ----------
+    player_name: name of the player to show the information (str).
+    game_data: data of the game (dic).
 
-	Version
-	-------
-	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation: Nicolas Van Bossuyt (v1. 22/02/17)
-	"""
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+    Implementation: Nicolas Van Bossuyt (v1. 22/02/17)
+    """
 
     # Setup main canvas.
     screen_size = get_terminal_size()
@@ -638,7 +638,7 @@ def show_ship_list(player_name, game_data):
                                            '[%s] %s // heal: %spv ~ speed: %skm/s ~ Facing: %s ~ NextPos: %s' % (
                                                game_data['model_ship'][ship['type']]['icon'], ship_name,
                                                ship['heal_points'], ship['speed'], str(ship['facing']),
-                                               str(predict_next_pos(game_data, ship_name))))
+                                               str(predict_next_pos(game_data, ship_name, game_data['ships'][ship_name]['direction']))))
                     line_index += 1
         else:
             c_ship_list = put_text(c_ship_list, 3, 4 + line_index, 'Sorry no space ships:/')
@@ -667,19 +667,19 @@ def show_ship_list(player_name, game_data):
 
 def show_game_board(game_data):
     """
-	Show game board on the teminal.
+    Show game board on the teminal.
 
-	Parameter
-	---------
-	game_data: data of the game (dic).
+    Parameter
+    ---------
+    game_data: data of the game (dic).
 
-	Version
-	-------
-	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17).
-				   Nicolas Van Bossuyt (v2. 19/03/17).
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17).
+                   Nicolas Van Bossuyt (v2. 19/03/17).
 
-	Implementation: Nicolas Van Bossuyt (v4. 10/02/17).
-	"""
+    Implementation: Nicolas Van Bossuyt (v4. 10/02/17).
+    """
 
     # Setup main canvas.
     screen_size = get_terminal_size()
@@ -713,16 +713,16 @@ def show_game_board(game_data):
 
 def render_game_board(game_data):
     """
-	Render the game board.
+    Render the game board.
 
-	Parameter
-	---------
-	game_data: data of the game (dic).
+    Parameter
+    ---------
+    game_data: data of the game (dic).
 
-	Return
-	------
-	game_board_canvas: rendered game board (dic)
-	"""
+    Return
+    ------
+    game_board_canvas: rendered game board (dic)
+    """
     # Setup the drawing canvas.
     board_size = game_data['board_size']
     c = create_canvas(board_size[0] * 3 + 3, board_size[1] + 1)
@@ -793,16 +793,16 @@ def render_game_board(game_data):
 
 def render_ship_list(game_data, width, height):
     """
-	Render the ship_list.
+    Render the ship_list.
 
-	Parameter
-	---------
-	game_data: data of the game (dic).
+    Parameter
+    ---------
+    game_data: data of the game (dic).
 
-	Return
-	------
-	ship_list_canvas: rendered ship list (dic).
-	"""
+    Return
+    ------
+    ship_list_canvas: rendered ship list (dic).
+    """
     # Setup the drawing canvas.
     c = create_canvas(width, height)
     ship_count = len(game_data['ships'])
@@ -844,16 +844,16 @@ def render_ship_list(game_data, width, height):
 
 def render_game_logs(game_data, width, height):
     """
-	Render the game logs.
-	
-	Parameter
-	---------
-	game_data: data of the game (dic).
+    Render the game logs.
+    
+    Parameter
+    ---------
+    game_data: data of the game (dic).
 
-	Return
-	------
-	game_logs_canvas: rendered game logs (dic).
-	"""
+    Return
+    ------
+    game_logs_canvas: rendered game logs (dic).
+    """
     # Setup the canvas.
     c = create_canvas(width, height)
     y = 0
@@ -875,22 +875,22 @@ def render_game_logs(game_data, width, height):
 
 def get_remote_input(game_data):
     """
-	Get input from a remote player.
+    Get input from a remote player.
 
-	Parameter
-	---------
-	game_data: data of the game (dic).
+    Parameter
+    ---------
+    game_data: data of the game (dic).
 
-	Return
-	------
-	remote_input: input from remote player (str).
+    Return
+    ------
+    remote_input: input from remote player (str).
 
-	Version
-	-------
-	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-					 Nicolas Van Bossuyt (v2. 03/03/17)
-	Implementation: Nicolas Van Bossuyt (v1. 03/03/17)
-	"""
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+                     Nicolas Van Bossuyt (v2. 03/03/17)
+    Implementation: Nicolas Van Bossuyt (v1. 03/03/17)
+    """
 
     return get_remote_orders(game_data['players']['remote']['connection'])
 
@@ -900,60 +900,57 @@ def get_remote_input(game_data):
 
 def get_ai_input(game_data, player_name):
     """
-	Get input from an AI player.
-	Parameter
-	---------
-	player_name: name of the player (str).
-	game_data:   state of the game (dic).
-	Return
-	------
-	ai_input: game input from AI (str).
-	Version
-	-------
-	Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation: Nicolas Van Bossuyt (v1. 16/03/17)
+    Get input from an AI player.
+    Parameter
+    ---------
+    player_name: name of the player (str).
+    game_data:   state of the game (dic).
+    Return
+    ------
+    ai_input: game input from AI (str).
+    Version
+    -------
+    Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+    Implementation: Nicolas Van Bossuyt (v1. 16/03/17)
                     Nicolas Van Bossuyt (v2. 26/04/17)
-	"""
+    """
     action = ['faster', 'slower', 'left', 'right', 'attack']
 
     ai_input = ''
 
-    for ship_name in game_data['ships']:
-        ship = game_data['ships'][ship_name]
-        if ship['owner'] == player_name:
-            if ship['objective'] == 'none' or len(ship['objective_path']) == 0:
-                success = False
-                while not success:
-                    # Try again !
-                    ship['objective'] = random.choice(filter_ships(game_data['ships'], player_name))
-                    start_node = node(ship['location'], ship['facing'])
-                    end_node = node(game_data['ships'][ship['objective']]['location'])
-                
-                    success, ship['objective_path'] =  path_finding(start_node, game_data['model_ship'][ship['type']]['max_speed'], end_node, game_data['board_size'],sys.maxint, [], get_distance(ship['location'], game_data['ships'][ship['objective']]['location'], game_data['board_size']) / game_data['model_ship'][ship['type']]['max_speed'])
-            ship_action = ''
-        
+    for ship_name in get_ship_by_owner(game_data['ships'], player_name):
+        if ship['objective'] == 'none' or len(ship['objective_path']) == 0:
+            success = False
+            while not success:
+                # Try again !
+                ship['objective'] = random.choice(filter_ships(game_data['ships'], player_name))
+                start_node = node(ship['location'], ship['facing'])
+                end_node = node(game_data['ships'][ship['objective']]['location'])
 
-            to_do_node = ship['objective_path'].pop()
-            
-            if to_do_node['to_do'] == 'none': # Nothing to do => Attack somebody.
-                ship_action = attack(game_data, ship_name)
-            else: # Do the "to do" node.
-                ship_action = to_do_node['to_do']
-            
-            if ship['objective'] in game_data['ships']:
-                objective_ship = game_data['ships'][ship['objective']]
-                
-                if get_distance(ship['location'], objective_ship['location'], game_data['board_size']) <= game_data['model_ship'][ship['type']]['range']:
-                    # The objective ship is in the attack range.
-                    if not (objective_ship['owner'] == 'None' or objective_ship['owner'] == player_name):
-                        # The ship is friendly => don't attack.
-                        
-                        ship_action = attack(game_data, ship_name)
-                        ship['objective'] = 'none'
-                        
-                ai_input += '%s:%s ' % (ship_name[len(player_name) + 1:], ship_action)
-            else:
-                ship['objective'] = 'none'
+                success, ship['objective_path'] =  path_finding(start_node, game_data['model_ship'][ship['type']]['max_speed'], end_node, game_data['board_size'],sys.maxint, [], get_distance(ship['location'], game_data['ships'][ship['objective']]['location'], game_data['board_size']) / game_data['model_ship'][ship['type']]['max_speed'])
+        ship_action = ''
+    
+        to_do_node = ship['objective_path'].pop()
+
+        if to_do_node['to_do'] == 'none': # Nothing to do => Attack somebody.
+            ship_action = attack(game_data, ship_name)
+        else: # Do the "to do" node.
+            ship_action = to_do_node['to_do']
+
+        if ship['objective'] in game_data['ships']:
+            objective_ship = game_data['ships'][ship['objective']]
+
+            if get_distance(ship['location'], objective_ship['location'], game_data['board_size']) <= game_data['model_ship'][ship['type']]['range']:
+                # The objective ship is in the attack range.
+                if not (objective_ship['owner'] == 'None' or objective_ship['owner'] == player_name):
+                    # The ship is friendly => don't attack.
+
+                    ship_action = attack(game_data, ship_name)
+                    ship['objective'] = 'none'
+
+            ai_input += '%s:%s ' % (ship_name[len(player_name) + 1:], ship_action)
+        else:
+            ship['objective'] = 'none'
 
     return ai_input[:-1]
 
@@ -967,7 +964,7 @@ def filter_ships(ships, exclude_owner):
     return fonded_ships
 
 
-def get_ship_owner(ships, owner):
+def get_ship_by_owner(ships, owner):
     fonded_ships = []
     for ship in ships:
         if ships[ship]['owner'] == owner:
@@ -978,24 +975,24 @@ def get_ship_owner(ships, owner):
 
 def get_ai_spaceships(player_name, game_data):
     """
-	Determine what ships to buy and turn it into a regulated command.
+    Determine what ships to buy and turn it into a regulated command.
     
-	Parameters
-	----------
-	player_name: name of the player (str).
-	game_data:   state of the game (dic).
+    Parameters
+    ----------
+    player_name: name of the player (str).
+    game_data:   state of the game (dic).
     
-	Return
-	------
-	ai_input: game input from AI (str).
+    Return
+    ------
+    ai_input: game input from AI (str).
     
-	Version
-	-------
-	Specification:  Nicolas Van Bossuyt (v1. 10/03/17)
-				    Bayron Mahy (v2. 17/03/17)
-	Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
-					Alisson Leist (v2. 21/04/17)
-	"""
+    Version
+    -------
+    Specification:  Nicolas Van Bossuyt (v1. 10/03/17)
+                    Bayron Mahy (v2. 17/03/17)
+    Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
+                    Alisson Leist (v2. 21/04/17)
+    """
 
     ai_input = ''
     name = 0
@@ -1049,13 +1046,7 @@ def get_fighter_action(game_data, ship_name, owner):
 	-------
 	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17)
 	"""
-    # Get objective.
-    
-    # Find path to the objective.
-    
-    # Move to the objective.
-    
-    # If move is none, attack something.
+
     ship = game_data['ships'][ship_name]
     if ship['objective'] == 'none' or len(ship['objective_path']) == 0:
         abandoned_ships = ship_owner(game_data['ships'], 'none')
@@ -1081,57 +1072,96 @@ def get_fighter_action(game_data, ship_name, owner):
     else:
         return  action
 
+    # ------------------------------------------------------------------------------------------------------------------
+    nearby_ships = ship_owner(game_data['ships'], 'none')
+    nearby_other_ships = []
+
+    for element in nearby_ships:
+        if game_data['ships'][element]['owner'] != game_data['ships'][ship]['owner']:
+            nearby_other_ships += element
+
+
+    if game_data['ships'][nearby_other_ships[0]]['owner'] == 'none':
+        return move_to(game_data, ship, game_data['ships'][nearby_other_ships[0]]['position'])
+    else:
+        return go_to_opposite(game_data, ship, game_data['ships'][nearby_other_ships[0]]['position'])
+    # ------------------------------------------------------------------------------------------------------------------
+
 
 def get_destroyer_action(game_data, ship, owner):
     """
-	Get action for a destroyer.
-	
-    Parameters
-	----------
-	game_data: data of the game (dic).
-	ship: name of the ship to get input from (str).
-	owner: name of the owner of the ship (str).
+    Get action for a destroyer.
     
-	Return
-	------
+    Parameters
+    ----------
+    game_data: data of the game (dic).
+    ship: name of the ship to get input from (str).
+    owner: name of the owner of the ship (str).
+    
+    Return
+    ------
     action: action for this ship(str).
-	
-	Version
-	-------
-	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17)
-	"""
+    
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17)
+    """
     # If friend battle cuiser is'nt in range, move to it.
     
     # If the friend battlecruiser and objective is in randge, attack the objective.
     pass
 
 
-def get_battlecruiser_action(game_data, ship, owner):
+
+
+def get_battlecruiser_action(game_data, ship_name, owner):
     """
-	Get action for a battlecruiser.
-    
-	Parameters
-	----------
-	game_data: data of the game (dic).
-	ship: name of the ship to get input from (str).
-	owner: name of the owner of the ship (str).
-    
-	Return
-	------
-	action: action for this ship(str).
+    Get action for a battlecruiser.
+    Parameters
+    ----------
+    game_data: data of the game (dic).
+    ship_name: name of the ship to get input from (str).
+    owner: name of the owner of the ship (str).
+
+    Return
+    ------
+    action: action for this ship(str).
 	
 	
-	Version
-	-------
-	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
-	"""
-    # Find a abojective.
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
+    Implementation : Alisson Leist (v1. 28/04/17).
+    """
+    ship_range = game_data['model_ship'][ship_name]['range']
+    objective = get_nearby_ship(game_data, ship_name,ship_range)
+    ennemies_in_range = []
+    action = ship_name
+    action += ':'
+
+    #search owner of nearby ships
+    for target in objective:
+        target_owner = get_ship_by_owner(target, owner)
+        
+        #find ennemies in the range of the ship
+        if target_owner!=owner:
+            ennemies_in_range.append(target)
     
-    # Move to the objective.
-    
-    # if the objective is in the attack range, attack !
-    
-    pass
+    #attack an ennemy if there is one in range               
+    if len(ennemies_in_range)!=0:
+                
+        action+=attack(game_data_ship_name)
+        
+    else:            
+        
+        rotate_command=randint(1,2)
+        if rotate_command==1:
+            action+='left'
+            
+        else:
+            action+='right'    
+            
+    return action
 
 # Ai - sub function.
 # -----------------------------------------------------------------------------
@@ -1182,7 +1212,7 @@ def show_path(path,start_node, end_node, board_size):
     print_canvas(c)
 
 
-def get_next_nodes(start_node, end_node, max_speed, board_size, just_rotate = False):
+def get_next_nodes(start_node, end_node, max_speed, board_size):
     nodes = []
     
     speed = start_node['speed']
@@ -1207,7 +1237,7 @@ def get_next_nodes(start_node, end_node, max_speed, board_size, just_rotate = Fa
         next_location = next_pos(start_node['location'], start_node['facing'], speed - 1, board_size)
         nodes.append(node(next_location, start_node['facing'], get_distance(next_location, end_node['location'], board_size), speed - 1, 'slower'))
 
-    if not just_rotate and speed > 0:
+    if speed > 0:
         # Do nothing.
         next_location = next_pos(start_node['location'], start_node['facing'], speed, board_size)
         nodes.append(
@@ -1238,28 +1268,130 @@ def get_slow_down(speed):
         x += i
     return x
     
+def go_to_opposite(game_data, ship, objective):
+    """
+    Move a ship to the opposite of given coordinates.
     
+    Parameters
+    ----------
+    game_data: data of the game (dic).
+    ship: name of the ship to move (str).
+    coordinates: destination of the ship (tuple(int, int)).
+    
+    Return
+    ------
+    input: input to execute <left, right, faster, slower>(str).
+    
+    
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
+    Implementation: Bayron Mahy (v1. 16/04/17).
+    """
+
+    direction_base = game_data['ships'][ship]['direction']
+    
+    #determine what are the 2 vectors around the actual.
+    if abs(direction_base[0] + direction_base[1]) == 2 or direction_base[0] + direction_base[1] == 0 :
+        direction_rotate_one_dir = (0,direction_base[1])
+        direction_rotate_other_dir = (direction_base[0],0)
+    elif direction_base[0] == 0:
+        direction_rotate_one_dir = (-1,direction_base[1])
+        direction_rotate_other_dir = (1,direction_base[1])
+    else:
+        direction_rotate_one_dir = (direction_base[0],-1)
+        direction_rotate_other_dir = (direction_base[0],1)
+    
+    #compute the 3 possible new coordinates.
+    maybe_new_coord_1 = predict_next_pos(game_data, ship, direction_rotate_one_dir) 
+    maybe_new_coord_2 = predict_next_pos(game_data, ship, direction_rotate_other_dir) 
+    maybe_new_coord_3 = predict_next_pos(game_data, ship, direction_base)
+    
+    #compute the distance between each coords and the goal.
+    dist_maybe_nc_1_to_coord = get_distance(maybe_new_coord_1, coordinates, game_data['board_size'])
+    dist_maybe_nc_2_to_coord = get_distance(maybe_new_coord_2, coordinates, game_data['board_size'])
+    dist_maybe_nc_3_to_coord = get_distance(maybe_new_coord_3, coordinates, game_data['board_size'])
+    
+    #compare the distance between each coords and the goal to determine which coordinates are the best choice
+    if dist_maybe_nc_2_to_coord > dist_maybe_nc_1_to_coord and dist_maybe_nc_2_to_coord > dist_maybe_nc_3_to_coord:
+        return '%s: %s' %(ship, vector2d_to_facing(direction_rotate_other_dir))
+    elif dist_maybe_nc_1_to_coord > dist_maybe_nc_2_to_coord and dist_maybe_nc_1_to_coord > dist_maybe_nc_3_to_coord:
+        return '%s: %s' %(ship, vector2d_to_facing(direction_rotate_one_dir))
+    else:
+        #if direction was already the best, increase the speed as mush as possible.
+        if game_data['ships'][ship]['speed'] + 1 <= game_data['model_ship'][game_data['ships'][ship]['type']]['max_speed']:
+            return '%s: faster' %ship
+
 def move_to(game_data, ship, objective):
     """
-	Move a ship at given objective.
-	
-	Parameters
-	----------
-	game_data: data of the game (dic).
-	ship: name of the ship to move (str).
-	objective: destination of the ship (tuple(int, int)).
-	
-	Return
-	------
-	input: input to execute <left, right, faster, slower>(str).
-	
-	
-	Version
-	-------
-	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
-	Implementation: Bayron Mahy (v1. 16/04/17).
-	"""
-    pass
+    Move a ship at given coordinates.
+    
+    Parameters
+    ----------
+    game_data: data of the game (dic).
+    ship: name of the ship to move (str).
+    coordinates: destination of the ship (tuple(int, int)).
+    
+    Return
+    ------
+    input: input to execute <left, right, faster, slower>(str).
+    
+    
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
+    Implementation: Bayron Mahy (v1. 16/04/17).
+    """
+    #check if changing direction is a good idee.
+    direction_base = game_data['ships'][ship]['direction']
+    
+    #determine what are the 2 vectors around the actual.
+    if abs(direction_base[0] + direction_base[1]) == 2 or direction_base[0] + direction_base[1] == 0 :
+        direction_rotate_one_dir = (0,direction_base[1])
+        direction_rotate_other_dir = (direction_base[0],0)
+    elif direction_base[0] == 0:
+        direction_rotate_one_dir = (-1,direction_base[1])
+        direction_rotate_other_dir = (1,direction_base[1])
+    else:
+        direction_rotate_one_dir = (direction_base[0],-1)
+        direction_rotate_other_dir = (direction_base[0],1)
+    
+    #compute the 3 possible new coordinates.
+    maybe_new_coord_1 = predict_next_pos(game_data, ship, direction_rotate_one_dir) 
+    maybe_new_coord_2 = predict_next_pos(game_data, ship, direction_rotate_other_dir) 
+    maybe_new_coord_3 = predict_next_pos(game_data, ship, direction_base)
+    
+    #compute the distance between each coords and the goal.
+    dist_maybe_nc_1_to_coord = get_distance(maybe_new_coord_1, coordinates, game_data['board_size'])
+    dist_maybe_nc_2_to_coord = get_distance(maybe_new_coord_2, coordinates, game_data['board_size'])
+    dist_maybe_nc_3_to_coord = get_distance(maybe_new_coord_3, coordinates, game_data['board_size'])
+    
+    #compare the distance between each coords and the goal to determine which coordinates are the best choice
+    if dist_maybe_nc_2_to_coord < dist_maybe_nc_1_to_coord and dist_maybe_nc_2_to_coord < dist_maybe_nc_3_to_coord:
+        return '%s: %s' %(ship, vector2d_to_facing(direction_rotate_other_dir))
+    elif dist_maybe_nc_1_to_coord < dist_maybe_nc_2_to_coord and dist_maybe_nc_1_to_coord < dist_maybe_nc_3_to_coord:
+        return '%s: %s' %(ship, vector2d_to_facing(direction_rotate_one_dir))
+    else:
+    #if changing direction wasn't a good idee maybe change the speed.
+        speed = float(game_data['ships'][ship]['speed'])
+        #check if the speed isn't already good.
+        if dist_maybe_nc_3_to_coord != int(speed):
+            #compute how many game loop is needed to reach the goal with each speed in the case it is between 0 and max speed.
+            speed_rate = dist_maybe_nc_3_to_coord/speed
+            if int(speed) + 1 <= game_data['model_ship'][game_data['ships'][ship]['type']]['max_speed']:
+                speed_p1_rate = dist_maybe_nc_3_to_coord/(speed+1)
+            else:
+                speed_p1_rate = speed_rate
+            if int(speed) != 0:
+                speed_l1_rate = dist_maybe_nc_3_to_coord/(speed-1)
+            else:
+                speed_l1_rate = speed_rate
+                
+            #determine which speed is the best to reach the goal with minimum loops.
+            if speed_rate > speed_p1_rate  and speed_p1_rate < speed_11_rate:
+                return '%s: faster' %ship
+            elif speed_rate > speed_l1_rate  and speed_l1_rate < speed_p1_rate:
+                return '%s: slower' %ship
 
 
 def do_random_action(game_data, ship_name):
@@ -1291,21 +1423,21 @@ def do_random_action(game_data, ship_name):
 
 def speed(game_data, ship, change):
     """
-	Check if LAICIS can increase/decrease the speed of its ship
-	parameters
-	----------
-	game_data: game's data (dic).
-	ship: targeted ship (str).
-	change: change applied by LAICIS to the ship (str).
-	return
-	------
-	'%s:%s' % (ship, change): regular input for the game loop (str).
-	Version
-	-------
-	Specification: Bayron Mahy (v1. 20/03/17)
-	Implementation: Bayron Mahy (v1. 20/03/17)
-					Nicolas Van Bossuyt (v2. 29/03/17)
-	"""
+    Check if LAICIS can increase/decrease the speed of its ship
+    parameters
+    ----------
+    game_data: game's data (dic).
+    ship: targeted ship (str).
+    change: change applied by LAICIS to the ship (str).
+    return
+    ------
+    '%s:%s' % (ship, change): regular input for the game loop (str).
+    Version
+    -------
+    Specification: Bayron Mahy (v1. 20/03/17)
+    Implementation: Bayron Mahy (v1. 20/03/17)
+                    Nicolas Van Bossuyt (v2. 29/03/17)
+    """
 
     ship_type = game_data['ships'][ship]['type']
     ship_speed = game_data['ships'][ship]['speed']
@@ -1323,21 +1455,21 @@ def attack(game_data, ship):
     """
 	Attack command of AICIS.
 
-	Parameters
-	----------
-	game_data: data of the game (dic).
-	ship: name of the current ship (str).
+    Parameters
+    ----------
+    game_data: data of the game (dic).
+    ship: name of the current ship (str).
 
-	Return
-	------
-	attack input (str)
+    Return
+    ------
+    attack input (str)
 
-	Version
-	-------
-	Specification: Nicolas Van Bossuyt (v1. 19/03/17).
-	Implementation: Nicolas Van Bossuyt (v1. 19/03/17).
-					Bayron Mahy (v2. 22/03/17).
-	"""
+    Version
+    -------
+    Specification: Nicolas Van Bossuyt (v1. 19/03/17).
+    Implementation: Nicolas Van Bossuyt (v1. 19/03/17).
+                    Bayron Mahy (v2. 22/03/17).
+    """
 
     ship_pos = game_data['ships'][ship]['location']
     ship_range = game_data['model_ship'][game_data['ships'][ship]['type']]['range']
@@ -1360,7 +1492,7 @@ def attack(game_data, ship):
                 targets_life.append(game_data['ships'][target]['heal_points'])
 
             final_target = ships_targeted[targets_life.index(min(targets_life))]
-            target_location = predict_next_pos(game_data, final_target)
+            target_location = predict_next_pos(game_data, final_target, game_data['ships'][final_target]['direction'])
             return '%d-%d' % (target_location[0] + 1, target_location[1] + 1)
 
     return ''
@@ -1368,23 +1500,23 @@ def attack(game_data, ship):
 
 def get_nearby_ship(game_data, target_ship, search_range):
     """
-	Make a list of around ship in range.
+    Make a list of around ship in range.
 
-	Parameters
-	----------
-	game_data: state of the game (dic).
-	target_ship: name of the ship (str).
-	search_range : randge for the search (int).
+    Parameters
+    ----------
+    game_data: state of the game (dic).
+    target_ship: name of the ship (str).
+    search_range : randge for the search (int).
 
-	Return
-	------
-	ships_around: list of ship around the ship (list(str)).
+    Return
+    ------
+    ships_around: list of ship around the ship (list(str)).
 
-	Version
-	-------
-	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation: Bayron Mahy, Nicolas Van Bossuyt (v1. 16/03/17)
-	"""
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+    Implementation: Bayron Mahy, Nicolas Van Bossuyt (v1. 16/03/17)
+    """
     ship_location = ()
     ship_location = game_data['ships'][target_ship]['location']
     x, y = 0, 0
@@ -1411,25 +1543,25 @@ def get_nearby_ship(game_data, target_ship, search_range):
 
 def get_distance(coord1, coord2, size):
     """
-	Get distance between two point in a tore space.
+    Get distance between two point in a tore space.
 
-	Parameters
-	----------
-	coord1: coordinate of the first point (tupe(int, int)).
-	coord2: coordinate of the second point (tupe(int, int)).
-	size: size of the tore (tupe(int, int))
+    Parameters
+    ----------
+    coord1: coordinate of the first point (tupe(int, int)).
+    coord2: coordinate of the second point (tupe(int, int)).
+    size: size of the tore (tupe(int, int))
 
-	Return
-	------
-	Distance: distance between the two points (int).
+    Return
+    ------
+    Distance: distance between the two points (int).
 
-	Version
-	-------
-	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-				   Bayron Mahy (v2. 19/03/17)
-	Implementation: Nicolas Van Bossuyt, Alisson Leist (v1. 14/02/17)
-					Nicolas Van Bossuyt (v2. 09/03/17)
-	"""
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+                   Bayron Mahy (v2. 19/03/17)
+    Implementation: Nicolas Van Bossuyt, Alisson Leist (v1. 14/02/17)
+                    Nicolas Van Bossuyt (v2. 09/03/17)
+    """
 
     def distance(a, b, size):
         size -= 1
@@ -1442,16 +1574,16 @@ def get_distance(coord1, coord2, size):
 
 def convert_coordinates(coord, size):
     """
-	Apply tore space to coordinates.
+    Apply tore space to coordinates.
 
-	Parameters
-	----------
-	coord: coordinates to convert (tuple(int, int))
-	size: Size of the tore tupe(int, int).
+    Parameters
+    ----------
+    coord: coordinates to convert (tuple(int, int))
+    size: Size of the tore tupe(int, int).
 
-	Return
-	------
-	converted_coord: coord with the tore applied.
+    Return
+    ------
+    converted_coord: coord with the tore applied.
 
 	Version
 	-------
@@ -1460,7 +1592,6 @@ def convert_coordinates(coord, size):
 	Implementation: Nicolas Van Bossuyt (v1. 09/03/17)
 	"""
     def convert(a, size):
-        # size -= 1
         if a >= size:
             a -= size
         elif a < 0:
@@ -1468,35 +1599,36 @@ def convert_coordinates(coord, size):
 
         return a
 
-    return (convert(coord[0], size[0]), convert(coord[1], size[1]))
+    return convert(coord[0], size[0]), convert(coord[1], size[1])
 
 
-def predict_next_pos(game_data, ship_name):
+def predict_next_pos(game_data, ship_name, direction):
     """
-	Predict the next location of a space ship.
+    Predict the next position of a space ship.
 
-	Parameters
-	----------
-	game_data: data of the game (dic).
-	ship_name: name of the spaceship to predicte the next location (str).
+    Parameters
+    ----------
+    game_data: data of the game (dic).
+    ship_name: name of the spaceship to predicte the next position (str).
+    direction: direction of the ship (tuple)
 
 	Return
 	------
 	predicted_location : predicte location of the spaceship (tuple(int, int)).
 
-	Version
-	-------
-	Specification: Nicolas Van Bossuyt (v1. 19/03/17).
-	Implementation: Nicolas Van Bossuyt (v1. 19/03/17).
-					Bayron Mahy (v2. 22/03/17).
-	"""
+    Version
+    -------
+    Specification: Nicolas Van Bossuyt (v1. 19/03/17).
+    Implementation: Nicolas Van Bossuyt (v1. 19/03/17).
+                    Bayron Mahy (v2. 22/03/17).
+    """
 
     speed = game_data['ships'][ship_name]['speed']
-    location = game_data['ships'][ship_name]['location']
-    facing = game_data['ships'][ship_name]['facing']
+    position = game_data['ships'][ship_name]['position']
+    predicted_postion = convert_coordinates((position[0] + direction[0] * speed, position[1] + direction[1] * speed),
+                                            game_data['board_size'])
 
-    return next_pos(location, facing, speed, game_data['board_size'])
-    
+    return predicted_postion  
     
 def next_pos(location, facing, speed, board_size):
     """
@@ -1525,22 +1657,22 @@ def next_pos(location, facing, speed, board_size):
 
 def parse_command(commands, player_name, game_data):
     """
-	Parse a player's command and execute it
+    Parse a player's command and execute it
 
-	Parameters
-	----------
-	command: command from a player (str).
-	game_data: game's data (dic).
+    Parameters
+    ----------
+    command: command from a player (str).
+    game_data: game's data (dic).
 
-	Return
-	------
-	game_data: new data of the game (dic).
+    Return
+    ------
+    game_data: new data of the game (dic).
 
-	Version
-	-------
-	Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation: Nicolas Van Bossuyt (V1. 10/02/17)
-	"""
+    Version
+    -------
+    Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+    Implementation: Nicolas Van Bossuyt (V1. 10/02/17)
+    """
     commands = commands.split(' ')
 
     for ship_command in commands:
@@ -1578,24 +1710,24 @@ def parse_command(commands, player_name, game_data):
 
 def command_buy_ships(ships, player, game_data):
     """
-	Allow a player to buy some spaceships.
+    Allow a player to buy some spaceships.
 
-	Parameters
-	----------
-	ships: spaceships to buy (str).
-	player: name of the player (str).
-	game_data: stat of the game (dic).
+    Parameters
+    ----------
+    ships: spaceships to buy (str).
+    player: name of the player (str).
+    game_data: stat of the game (dic).
 
-	Return
-	------
-	game_data: new data of the game (dic).
+    Return
+    ------
+    game_data: new data of the game (dic).
 
-	Version
-	-------
-	Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation: Nicolas Van Bossuyt (v1. 14/02/17)
-					Nicolas Van Bossuyt (v2. 23/02/17)
-	"""
+    Version
+    -------
+    Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+    Implementation: Nicolas Van Bossuyt (v1. 14/02/17)
+                    Nicolas Van Bossuyt (v2. 23/02/17)
+    """
     for ship in ships.split(' '):
         ship = ship.split(':')
 
@@ -1616,24 +1748,24 @@ def command_buy_ships(ships, player, game_data):
 
 def create_ship(player_name, ship_name, ship_type, game_data):
     """
-	Create and add a new ship.
+    Create and add a new ship.
 
-	Parameters
-	----------
-	player_name: name of the owner of the ship (str).
-	ship_name: Name of the ship (str).
-	ship_type: Model of the ship (str).
-	game_data: data of the game (str).
+    Parameters
+    ----------
+    player_name: name of the owner of the ship (str).
+    ship_name: Name of the ship (str).
+    ship_type: Model of the ship (str).
+    game_data: data of the game (str).
 
-	Return
-	------
-	game_data: new data of the game (dic).
+    Return
+    ------
+    game_data: new data of the game (dic).
 
-	Version
-	-------
-	Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
-	Implementation: Nicolas Van Bossuyt (v1. 15/02/17)
-	"""
+    Version
+    -------
+    Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
+    Implementation: Nicolas Van Bossuyt (v1. 15/02/17)
+    """
 
     # Creatting the new space ship and add to the game_data.
     game_data['ships'][ship_name] = {
@@ -1659,23 +1791,23 @@ def create_ship(player_name, ship_name, ship_type, game_data):
 
 def command_change_speed(ship, change, game_data):
     """
-	Increase the speed of a ship.
+    Increase the speed of a ship.
 
-	Parameters
-	----------
-	ship: name of the ship to Increase the speed (str).
-	change: the way to change the speed <"slower"|"faster"> (str).
-	game_data: data of the game (dic).
+    Parameters
+    ----------
+    ship: name of the ship to Increase the speed (str).
+    change: the way to change the speed <"slower"|"faster"> (str).
+    game_data: data of the game (dic).
 
-	Returns
-	-------
-	game_data: new data of the game (dic).
+    Returns
+    -------
+    game_data: new data of the game (dic).
 
-	Version
-	-------
-	Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation: Bayron Mahy (v1. 10/02/17)
-	"""
+    Version
+    -------
+    Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+    Implementation: Bayron Mahy (v1. 10/02/17)
+    """
 
     type = game_data['ships'][ship]['type']
 
@@ -1696,24 +1828,24 @@ def command_change_speed(ship, change, game_data):
 
 def command_rotate(ship, facing, game_data):
     """
-	Rotate the ship.
+    Rotate the ship.
 
-	Parameters
-	----------
-	ship: name of the ship to Increase the speed (str).
-	facing: the facing to rotate the ship <"left"|"right">(str)
-	game_data: data of the game (dic).
+    Parameters
+    ----------
+    ship: name of the ship to Increase the speed (str).
+    facing: the facing to rotate the ship <"left"|"right">(str)
+    game_data: data of the game (dic).
 
-	Returns
-	-------
-	game_data: new data of the game (dic).
+    Returns
+    -------
+    game_data: new data of the game (dic).
 
-	Version
-	-------
-	Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation: Nicolas Van Bossuyt (v1. 10/02/17)
-					Nicolas Van Bossuyt (v2. 22/02/17)
-	"""
+    Version
+    -------
+    Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+    Implementation: Nicolas Van Bossuyt (v1. 10/02/17)
+                    Nicolas Van Bossuyt (v2. 22/02/17)
+    """
     v = (0, 0)
     if facing == 'left':
         v = rotate_vector_2d(game_data['ships'][ship]['facing'], -45)
@@ -1726,23 +1858,23 @@ def command_rotate(ship, facing, game_data):
 
 def rotate_vector_2d(vector, theta):
     """
-	Rotate a vector in a 2d space by a specified angle in radian.
+    Rotate a vector in a 2d space by a specified angle in radian.
 
-	Parameters
-	----------
-	vector: 2d vector ton rotate (tuple(int,int)).
-	radian: angle appli to the 2d vector (float).
+    Parameters
+    ----------
+    vector: 2d vector ton rotate (tuple(int,int)).
+    radian: angle appli to the 2d vector (float).
 
-	Return
-	------
-	vector: rotate vector 2d (tuple(int,int)).
+    Return
+    ------
+    vector: rotate vector 2d (tuple(int,int)).
 
-	Version
-	-------
-	Specification:  Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation: Nicolas Van Bossuyt (v1. 10/02/17)
-					Nicolas Van Bossuyt (v2. 22/02/17)
-	"""
+    Version
+    -------
+    Specification:  Nicolas Van Bossuyt (v1. 10/02/17)
+    Implementation: Nicolas Van Bossuyt (v1. 10/02/17)
+                    Nicolas Van Bossuyt (v2. 22/02/17)
+    """
 
     theta = radians(theta)
     dc, ds = cos(theta), sin(theta)
@@ -1754,21 +1886,21 @@ def rotate_vector_2d(vector, theta):
 
 def to_unit_vector(vector):
     """
-	Convert a vector to a unit vector.
+    Convert a vector to a unit vector.
 
-	Parameter
-	---------
-	vector: vector to convert (tuple(float, float)).
+    Parameter
+    ---------
+    vector: vector to convert (tuple(float, float)).
 
-	Return
-	------
-	unit_vector: a unit vector between 1 and -1 (tuple(int, int)).
+    Return
+    ------
+    unit_vector: a unit vector between 1 and -1 (tuple(int, int)).
 
-	Version
-	-------
-	Specification:  Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation: Nicolas Van Bossuyt (v1. 22/02/17)
-	"""
+    Version
+    -------
+    Specification:  Nicolas Van Bossuyt (v1. 10/02/17)
+    Implementation: Nicolas Van Bossuyt (v1. 22/02/17)
+    """
 
     def convert(value):
         if value > 0.25:
@@ -1783,26 +1915,27 @@ def to_unit_vector(vector):
 
 def do_moves(game_data):
     """
-	Apply move to ships.
+    Apply move to ships.
 
-	Parameters
-	----------
-	game_data: data of the game (dic).
+    Parameters
+    ----------
+    game_data: data of the game (dic).
 
-	Return
-	------
-	game_data: new data of the game (dic).
+    Return
+    ------
+    game_data: new data of the game (dic).
 
-	Version
-	-------
-	Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation: Alisson Leist (v1. 20/02/17)
-					Nicolas Van Bosuuyt (v2. 23/02/17)
-					Nicolas Van Bossuyt (v3. 09/03/17)
-	"""
+    Version
+    -------
+    Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+    Implementation: Alisson Leist (v1. 20/02/17)
+                    Nicolas Van Bosuuyt (v2. 23/02/17)
+                    Nicolas Van Bossuyt (v3. 09/03/17)
+    """
     for ship in game_data['ships']:
         location = game_data['ships'][ship]['location']
-        new_location = predict_next_pos(game_data, ship)
+        direction = game_data['ships'][ship]['direction']
+        new_position = predict_next_pos(game_data, ship, direction)
 
         # Move the ship.
         game_data['board'][location].remove(ship)
@@ -1814,23 +1947,23 @@ def do_moves(game_data):
 
 def take_abandonned_ship(game_data):
     """
-	Check on the board if an abandonned ship can be taken.
+    Check on the board if an abandonned ship can be taken.
 
-	Parameters
-	----------
-	game_data: data of the game (dic).
+    Parameters
+    ----------
+    game_data: data of the game (dic).
 
-	Returns
-	-------
-	game_data: new data of the game (dic).
+    Returns
+    -------
+    game_data: new data of the game (dic).
 
-	Version
-	-------
-	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation: Bayron Mahy (v1. 21/02/17)
-					Bayron Mahy (v2. 22/02/17)
-					Nicolas Van Bossuyt (v3. 09/03/17)
-	"""
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+    Implementation: Bayron Mahy (v1. 21/02/17)
+                    Bayron Mahy (v2. 22/02/17)
+                    Nicolas Van Bossuyt (v3. 09/03/17)
+    """
 
     for location in game_data['board']:
         ships = game_data['board'][location]
@@ -1876,26 +2009,26 @@ def take_abandonned_ship(game_data):
 
 def command_attack(ship, ship_coordinate, target_coordinate, game_data):
     """
-	Determine if the attack works and do it.
+    Determine if the attack works and do it.
 
-	Parameters
-	----------
-	ship_location: coodinate of the first ship (tuple(int, int)).
-	coordinate: coordinate of the tile to attack (tuple(int,int)).
-	game_data: data of the game (dic).
+    Parameters
+    ----------
+    ship_location: coodinate of the first ship (tuple(int, int)).
+    coordinate: coordinate of the tile to attack (tuple(int,int)).
+    game_data: data of the game (dic).
 
-	Return
-	------
-	game_data: new data of the game (dic).
+    Return
+    ------
+    game_data: new data of the game (dic).
 
-	Version
-	-------
-	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
-	Implementation: Alisson Leist (v1. 14/2/17)
-					Bayron Mahy, Alisson Leist (v2. 20/02/17)
-					Alisson Leist (v3. 17/03/17)
-					Alisson Leist (v4. 24/03/17)
-	"""
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/2/17)
+    Implementation: Alisson Leist (v1. 14/2/17)
+                    Bayron Mahy, Alisson Leist (v2. 20/02/17)
+                    Alisson Leist (v3. 17/03/17)
+                    Alisson Leist (v4. 24/03/17)
+    """
     ship_type = game_data['model_ship'][game_data['ships'][ship]['type']]
 
     damages = ship_type['damages']
@@ -1904,15 +2037,15 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_data):
     if distance <= ship_type['range'] and len(game_data['board'][target_coordinate]) != 0:
         game_data['nb_rounds'] = 0
 
-        # Give damages to all ship on targe coordinate.
+        # Give damages to all ships on targeted coordinate.
         for target_ship in game_data['board'][target_coordinate]:
-            # Give damages to the taget ship.
+            # Give damages to the tageted ship.
             game_data['ships'][target_ship]['heal_points'] -= damages
 
             if game_data['ships'][target_ship]['heal_points'] <= 0:
                 write_log(game_data, '%s kill %s' % (ship, target_ship), 1)
 
-                # Remove the space ship.
+                # Remove a space ship.
                 game_data['board'][target_coordinate].remove(target_ship)
                 if game_data['ships'][target_ship]['owner'] != 'none':
                     game_data['players'][game_data['ships'][target_ship]['owner']]['nb_ships'] -= 1
@@ -1926,21 +2059,21 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_data):
 
 def do_attack(game_data):
     """
-	Apply attacks to ships.
+    Apply attacks to ships.
 
-	Parameters
-	----------
-	game_data: data of the game (dic).
+    Parameters
+    ----------
+    game_data: data of the game (dic).
 
-	Return
-	------
-	game_data: new data of the game (dic).
+    Return
+    ------
+    game_data: new data of the game (dic).
 
-	Version
-	-------
-	Specification: Nicolas Van Bossuyt (v1. 20/03/17)
-	Implementation: Nicolas Van Bossuyt (v1. 20/03/17)
-	"""
+    Version
+    -------
+    Specification: Nicolas Van Bossuyt (v1. 20/03/17)
+    Implementation: Nicolas Van Bossuyt (v1. 20/03/17)
+    """
 
     # Do Attack
     for pending_attack in game_data['pending_attacks']:
@@ -1952,26 +2085,26 @@ def do_attack(game_data):
 
 # Utils
 # ==============================================================================
-# Somme use full function for a simple life. And also parse game file.
+# Some useful functions to simplify life. And also parse game file.
 
 def parse_game_file(path):
     """
-	Parse a .cis file and returns its content.
+    Parse a .cis file and returns its content.
 
-	Parameter
-	---------
-	path: path of the .cis file (str).
+    Parameter
+    ---------
+    path: path of the .cis file (str).
 
-	Return
-	------
-	parsed_data: data contained in the .cis file (dic).
+    Return
+    ------
+    parsed_data: data contained in the .cis file (dic).
 
-	Version
-	-------
-	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation: Nicolas Van Bossuyt (v2. 15/02/17)
-	"""
-	
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+    Implementation: Nicolas Van Bossuyt (v2. 15/02/17)
+    """
+    
     # Split file lines and remove '\n' chars.
     cis_file = open(path, 'r')
     file_content = [line.strip() for line in cis_file]
@@ -1985,16 +2118,16 @@ def parse_game_file(path):
     ships_list = []
     for line_index in range(len(file_content) - 1):
         ship_str = file_content[line_index + 1].split(' ')
-		
+        
         if len(ship_str) == 4:
             ship_name_and_type = ship_str[2].split(':')
-			
-            ship = (int(ship_str[1]) - 1,			 # Y location of the ship.
-					int(ship_str[0]) - 1,			 # X location of the ship.
-					ship_name_and_type[0],			 # Name of the ship.
-					ship_name_and_type[1],			 # Type of the ship.
-					facing_to_vector2d(ship_str[3])) # Facing of the ship.
-					
+            
+            ship = (int(ship_str[1]) - 1,             # Y location of the ship.
+                    int(ship_str[0]) - 1,             # X location of the ship.
+                    ship_name_and_type[0],             # Name of the ship.
+                    ship_name_and_type[1],             # Type of the ship.
+                    facing_to_vector2d(ship_str[3])) # Facing of the ship.
+                    
             ships_list.append(ship)
 
     # Create parsed data dictionary and return it.
@@ -2002,24 +2135,44 @@ def parse_game_file(path):
 
     return parsed_data
 
+def vector2d_to_facing(vector2d):
+    """
+    Convert a tuple to a string.
 
+    Parameter
+    ---------
+    vector2d: vector to convert (tuple).
+
+    Return
+    ------
+    convert[vector2d]: vector2d converted in facing string (str).
+
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+    Implementation: Bayron Mahy (v1. 11/02/17)
+    """
+
+    convert = {(0, -1):'up', (1, -1):'up-right', (1, 0):'right', (1, 1):'down-right', (0, 1):'down', (-1, 1):'down-left', (-1, 0):'left', (-1, -1):'up-left'}
+    return convert[vector2d]
+    
 def facing_to_vector2d(facing):
     """
-	Convert a string facing to a vector2d.
+    Convert a string facing to a vector2d.
 
-	Parameter
-	---------
-	facing: facing to convert <up|down|left|right|up-left|up-right|down-left|down-right>(str).
+    Parameter
+    ---------
+    facing: facing to convert <up|down|left|right|up-left|up-right|down-left|down-right>(str).
 
-	Return
-	------
-	vector: vector2d from facing (tuple(int, int)).
+    Return
+    ------
+    vector: vector2d from facing (tuple(int, int)).
 
-	Version
-	-------
-	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
-	Implementation: Nicolas Van Bossuyt (v1. 11/02/17)
-	"""
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
+    Implementation: Nicolas Van Bossuyt (v1. 11/02/17)
+    """
 
     convert = {'up': (0, -1), 'up-right': (1, -1), 'right': (1, 0), 'down-right': (1, 1), 'down': (0, 1), 'down-left': (-1, 1), 'left': (-1, 0), 'up-left': (-1, -1)}
     return convert[facing]
@@ -2027,44 +2180,44 @@ def facing_to_vector2d(facing):
 
 def vector2d_to_facing(vector):
     """
-	Convert a string facing to a vector2d.
+    Convert a string facing to a vector2d.
 
-	Parameter
-	---------
-	vector: vector2d to convert in facing (tuple(int, int)).
+    Parameter
+    ---------
+    vector: vector2d to convert in facing (tuple(int, int)).
 
-	Return
-	------
-	facing: facing <up|down|left|right|up-left|up-right|down-left|down-right>(str).
+    Return
+    ------
+    facing: facing <up|down|left|right|up-left|up-right|down-left|down-right>(str).
 
-	Version
-	-------
-	Specification: Nicolas Van Bossuyt (v1. 18/04/17)
-	Implementation: Nicolas Van Bossuyt (v1. 18/04/17)
-	"""
+    Version
+    -------
+    Specification: Nicolas Van Bossuyt (v1. 18/04/17)
+    Implementation: Nicolas Van Bossuyt (v1. 18/04/17)
+    """
     convert = {(0, 1): 'up', (-1, 1): 'up-left', (-1, 0): 'left', (-1, -1): 'down-left', (0, -1): 'down', (1, 0): 'right', (1, -1): 'down-right', (1, 1): 'up-right'}
     return convert[vector]
 
 
 def write_log(game_data, message, type=0):
     """
-	Write a message in the game logs.
-	
-	Parameters
-	----------
-	game_data: data of the game (dic).
-	message: message to print to game logs (str).
-	(optional) type: type of the message <0 = info|1 = warning|2 = error>
-	
-	Return
-	------
-	game_data: new data of the game (dic)
-	
-	Version
-	-------
-	Specification: Nicolas Van Bossuyt (v1. 18/04/2017)
-	Implementation: Nicolas Van Bossuyt (v1. 18/04/2017)
-	"""
+    Write a message in the game logs.
+    
+    Parameters
+    ----------
+    game_data: data of the game (dic).
+    message: message to print to game logs (str).
+    (optional) type: type of the message <0 = info|1 = warning|2 = error>
+    
+    Return
+    ------
+    game_data: new data of the game (dic)
+    
+    Version
+    -------
+    Specification: Nicolas Van Bossuyt (v1. 18/04/2017)
+    Implementation: Nicolas Van Bossuyt (v1. 18/04/2017)
+    """
 
     game_data['game_logs'].append((type, message))
     f = open('log.txt', 'r')
@@ -2082,34 +2235,34 @@ def write_log(game_data, message, type=0):
 
 def create_game_board(file_name, board_size, lost_ships_count):
     """
-	Create a new "coders in space"'s board file.
+    Create a new "coders in space"'s board file.
 
-	Parameters
-	----------
-	file_name: name of the cis file (str).
-	board_size: size of the game board (tuple(int, int)).
-	lost_ships_count: number of lost ship on the game board (int).
+    Parameters
+    ----------
+    file_name: name of the cis file (str).
+    board_size: size of the game board (tuple(int, int)).
+    lost_ships_count: number of lost ship on the game board (int).
 
-	Version
-	-------
-	Specification: Nicolas Van Bossuyt (v1. 25/02/17)
-	Implementation: Nicolas Van Bossuyt (v1.25/02/17)
-	"""
+    Version
+    -------
+    Specification: Nicolas Van Bossuyt (v1. 25/02/17)
+    Implementation: Nicolas Van Bossuyt (v1.25/02/17)
+    """
     ship_type =   ['fighter', 'destroyer', 'battlecruiser']
     ship_facing = ['up', 'up-left', 'up-right', 'left', 'right', 'down', 'down-left', 'down-right']
-	
+    
     buffer = '' # Create the string buffer for the file.
     buffer += "%d %d\n" % (board_size[0], board_size[1]) # Add the first of the file whith the size of the game board.
 
     for i in range(lost_ships_count):
         buffer += '%d %d %s:%s %s\n' % (randint(0, board_size[0] - 1), # Y coodinate of the ship.
-										randint(0, board_size[1] - 1), # X coodinate of the ship.
-										'ship_' + str(i), 			   # Name of the ship.
-										ship_type[randint(0, len(ship_type) - 1)],     # Type of the ship.
-										ship_facing[randint(0, len(ship_facing) - 1)]) # Facing of the ship
+                                        randint(0, board_size[1] - 1), # X coodinate of the ship.
+                                        'ship_' + str(i),                # Name of the ship.
+                                        ship_type[randint(0, len(ship_type) - 1)],     # Type of the ship.
+                                        ship_facing[randint(0, len(ship_facing) - 1)]) # Facing of the ship
     
-	# Saving the game board to a file.
-	f = open(file_name, 'w')
+    # Saving the game board to a file.
+    f = open(file_name, 'w')
     f.write(buffer)
     f.close()
 
