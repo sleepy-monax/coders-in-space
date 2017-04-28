@@ -1084,32 +1084,57 @@ def get_destroyer_action(game_data, ship, owner):
     pass
 
 
-def get_battlecruiser_action(game_data, ship, owner):
+
+
+def get_battlecruiser_action(game_data, ship_name, owner):
     """
-	Get action for a battlecruiser.
-    
-	Parameters
-	----------
-	game_data: data of the game (dic).
-	ship: name of the ship to get input from (str).
-	owner: name of the owner of the ship (str).
-    
-	Return
-	------
-	action: action for this ship(str).
+    Get action for a battlecruiser.
+
+    Parameters
+    ----------
+    game_data: data of the game (dic).
+    ship_name: name of the ship to get input from (str).
+    owner: name of the owner of the ship (str).
+
+    Return
+    ------
+    action: action for this ship(str).
 	
 	
-	Version
-	-------
-	Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
-	"""
-    # Find a abojective.
+    Version
+    -------
+    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
+    Implementation : Alisson Leist (v1. 28/04/17).
+    """
+    ship_range=game_data['model_ship'][ship_name]['range']	
+    objective=get_nearby_ship(game_data, ship_name,ship_range)
+    ennemies_in_range=[]
+    action=ship_name
+    action+=':'
     
-    # Move to the objective.
+    #search owner of nearby ships
+    for target in objective:
+        target_owner=get_ship_owner(target, owner)
+        
+        #find ennemies in the range of the ship
+        if target_owner!=owner:
+            ennemies_in_range.append(target)
     
-    # if the objective is in the attack range, attack !
-    
-    pass
+    #attack an ennemy if there is one in range               
+    if len(ennemies_in_range)!=0:
+                
+        action+=attack(game_data_ship_name)
+        
+    else:            
+        
+        rotate_command=randint(1,2)
+        if rotate_command==1:
+            action+='left'
+            
+        else:
+            action+='right'    
+            
+    return action
 
 # Ai - sub function.
 # -----------------------------------------------------------------------------
