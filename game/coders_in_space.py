@@ -123,7 +123,7 @@ def play_game(level_name, players_names, players_types, no_splash=False, no_gui=
     game_running = True
     total_turn = -1
 
-    # The mian game loop.
+    # The main game loop.
     while game_running:
         if total_turn > -1:
             write_log(game_data, u'It\'s turn nb %d' % (total_turn), 0)
@@ -997,33 +997,61 @@ def get_ai_spaceships(player_name, game_data):
                     Alisson Leist (v2. 21/04/17)
     """
 
-    ai_input = ''
-    name = 0
-
-    ship_name_list = ['Apple-Pen', 'Akbar', 'amiral', 'bob', 'fob', 'I\'m_Bob_Lenon', 'Frenay-Acceleray', 'Pomme_Verte',
-                      'pew-pew-pew', 'Algobot', 'blblblblblblbl', 'Stack-overflow', 'mu', 'Seiyar', '24', 'Monax']
-
     ship_type_name = {'f': 'fighter', 'b': 'battlecruiser', 'd': 'destroyer'}
-    if len(game_data['ships']) == 0:
 
-        ship_type = ['b', 'b', 'd', 'd']
+    fighters_names = ['ARC-170', 'V-19', 'V-WINGS', 'X-WINGS', 'TIE-FIGHTER', 'DROID-starfighter', 'Ha\'tak', 'Dart',
+                      'Puddle_Jumper', 'Geisha', 'Saragossa', 'Adventurer', 'The_Watcher', 'Alexander', 'ISS_Adventurer',
+                      'BS_Galactica', 'SC_Juggernaut', 'ISS_Europa', 'BC_Pilgrim']
 
+    destroyers_names = ['Achilles', 'Agamemnon', 'Agrippa', 'Alexander', 'Apollo', 'Cadmus',
+                        'Cerberus', 'Charon', 'Churchill', 'Damocles', 'Delphi', 'Excalibur', 'Furies', 'Heracles',
+                        'Heraclion', 'Hermes', 'Hydra', 'Juno', 'Medusa', 'Nemesis', 'Nimrod', 'Olympic', 'Orion',
+                        'Persephone', 'Pollux', 'Pournelle', 'Roanoke', 'Talos', 'Theseus', 'Vesta', 'Zeus']
+
+    battlecruisers_names = ['Aeneas', 'Aleksander', 'Amphitrite', 'Antigone', 'Bismarck', 'Bucephalus', 'Cerberus',
+                            'Circe', 'Cyrus', 'Emperor\'s_Fury', 'Eos', 'Fury', 'Gray_Tiger', 'Helios', 'Hephaestus',
+                            'Herakles', 'Hoosier', 'Huey_Long', 'Hurricane', 'Hyperion', 'Iron_Fist', 'Iron_Justice',
+                            'Jackson_V', 'Jackson\'s_Revenge', 'Kimera', 'Kimeran_Juggernaut', 'Leviathan', 'Loki',
+                            'Meleager', 'Merrimack', 'Metis', 'Napoleon', 'Norad_II', 'Norad_III', 'Palatine',
+                            'Patroclus', 'Phobos', 'Ragnorak', 'Scion', 'Tahoe', 'Theodore_G._Bilbo', 'Thunder_Child',
+                            'Titan', 'Valor_of_Vardona', 'Victory', 'White_Star']
+
+    random.shuffle(fighters_names)
+    random.shuffle(destroyers_names)
+    random.shuffle(battlecruisers_names)
+
+    ships_patern = []
+    abandonned_ships_count = len(get_ship_by_owner(game_data['ships'], 'none'))
+
+    if abandonned_ships_count == 0:
+        ships_patern = ['b', 'b', 'd', 'd']
     else:
-        abandonned_ships_rate = game_data['board_size'][0] * game_data['board_size'][1] / len(game_data['ships'])
 
-        if abandonned_ships_rate <= 25:
-            ship_type = ['f', 'f', 'f', 'f', 'f', 'f', 'f', 'f', 'f', 'f']
+        if abandonned_ships_count >= 15:
+            ships_patern = ['f', 'f', 'f', 'f', 'f', 'f', 'f', 'f', 'f', 'f']
 
-        elif abandonned_ships_rate <= 50:
-            ship_type = ['b', 'd', 'f', 'f', 'f', 'f', 'f']
+        elif abandonned_ships_count >= 10:
+            ships_patern = ['b', 'd', 'f', 'f', 'f', 'f', 'f']
 
         else:
-            ship_type = ['b', 'b', 'd', 'f', 'f', 'f']
+            ships_patern = ['b', 'b', 'd', 'f', 'f', 'f']
 
-    for element in ship_type:
-        ship_name = ship_name_list[name]
-        name += 1
-        ai_input += '%s:%s ' % (ship_name, ship_type_name[element])
+    ai_input = ''
+
+    while len(ships_patern) > 0:
+        ship_type = ship_type_name[ships_patern.pop()]
+
+        ship_name = ''
+
+        if ship_type == 'fighter':
+            ship_name = fighters_names.pop()
+        elif shipe_type == 'destroyer':
+            ship_name = destroyers_names.pop()
+        elif ship_type == 'battlecruiser':
+            ship_name = battlecruisers_names.pop()
+
+        ai_input += '%s:%s ' % (ship_name, ship_type)
+
 
     return ai_input[:-1]
 
@@ -1063,7 +1091,7 @@ def get_fighter_action(game_data, ship_name, owner):
                 objective_ship = game_data['ships'][ship['objective']]
                 start_node = node(ship['location'], ship['facing'], 0, ship['speed'])
                 end_node = node(objective_ship['location'], objective_ship['facing'])
-                success, path = path_finding(start_node, game_data['model_ship'][ship['type']]['max_speed'], end_node, game_data['board_size'], sys.maxint, [], 8)
+                success, path = path_finding(start_node, game_data['model_ship'][ship['type']]['max_speed'], end_node, game_data['board_size'], [], 8)
                 if success:
                     ship['objective_path'] = path
         else:
@@ -1099,7 +1127,27 @@ def get_destroyer_action(game_data, ship_name, owner):
     
     # If the friend battlecruiser and objective is in randge, attack the objective.
 
-    return do_random_action(game_data, ship_name)
+    ship = game_data['ships'][ship_name]
+
+    # Get the objective of the ship.
+    if not ship['objective'] in game_data['ships']:
+        objectives = get_ship_by_owner(game_data['ships'], owner)
+        random.shuffle(objectives)
+        ship['objective'] = objectives[0]
+
+    # Get ship object from objective name.
+    objective = game_data['ships'][ship['objective']]
+
+    if get_distance(ship['location'], objective['location'], game_data['board_size']) <= \
+            game_data['model_ship'][ship['type']]['range']:
+        return attack(game_data, ship_name)
+    else:
+        action = move_to(game_data, ship_name, objective['location'])
+
+        if action == 'none':
+            action = attack(game_data, ship_name)
+
+        return action
 
 
 def get_battlecruiser_action(game_data, ship_name, owner):
@@ -1121,14 +1169,16 @@ def get_battlecruiser_action(game_data, ship_name, owner):
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
     Implementation : Alisson Leist (v1. 28/04/17).
     """
+
     ship = game_data['ships'][ship_name]
-	# Get the objective of the ship.
+
+    # Get the objective of the ship.
     if not ship['objective'] in game_data['ships']:
         objectives = filter_ships(game_data['ships'], owner)
         random.shuffle(objectives)
         ship['objective'] = objectives[0]
 
-	# Get ship object from objective name.
+    # Get ship object from objective name.
     objective = game_data['ships'][ship['objective']]
 
     if get_distance(ship['location'], objective['location'], game_data['board_size']) <=  game_data['model_ship'][ship['type']]['range']:
@@ -1146,7 +1196,7 @@ def get_battlecruiser_action(game_data, ship_name, owner):
 # -----------------------------------------------------------------------------
 # Pathfinding, random orders
 
-def path_finding(start_node, max_speed, end_node, board_size, best_distance = sys.maxint, path = [], max_distance = 8):
+def path_finding(start_node, max_speed, end_node, board_size, path = [], max_distance = 8):
     nodes = get_next_nodes(start_node, end_node, max_speed, board_size)
     
     dict_sort(nodes, 'distance')
@@ -1164,7 +1214,7 @@ def path_finding(start_node, max_speed, end_node, board_size, best_distance = sy
             # show_path(new_path, start_node, end_node, board_size)
             return True, new_path
         else:
-            objective_finded, path_to_objective = path_finding(node, max_speed, end_node, board_size, best_distance, new_path, max_distance)
+            objective_finded, path_to_objective = path_finding(node, max_speed, end_node, board_size, new_path, max_distance)
 
             if objective_finded:
                 return True, path_to_objective
@@ -1269,7 +1319,7 @@ def go_to_opposite(game_data, ship, objective):
     nodes = get_next_nodes(node(ship['location'], ship['facing'], 0, ship['speed']), node(objective),
                            game_data['model_ship'][ship['type']]['max_speed'], game_data['board_size'])
  
-    ict_sort(nodes, 'distance')[-1]['to_do']
+    dict_sort(nodes, 'distance')[-1]['to_do']
 	
     return nodes[-1]['to_do']
 
@@ -2163,8 +2213,8 @@ def create_game_board(file_name, board_size, lost_ships_count):
     buffer += "%d %d\n" % (board_size[0], board_size[1]) # Add the first of the file whith the size of the game board.
 
     for i in range(lost_ships_count):
-        buffer += '%d %d %s:%s %s\n' % (randint(0, board_size[0] - 1), # Y coodinate of the ship.
-                                        randint(0, board_size[1] - 1), # X coodinate of the ship.
+        buffer += '%d %d %s:%s %s\n' % (randint(1, board_size[0]), # Y coodinate of the ship.
+                                        randint(1, board_size[1]), # X coodinate of the ship.
                                         'ship_' + str(i),                # Name of the ship.
                                         ship_type[randint(0, len(ship_type) - 1)],     # Type of the ship.
                                         ship_facing[randint(0, len(ship_facing) - 1)]) # Facing of the ship
@@ -2187,4 +2237,4 @@ def dict_sort(items, key):
 
 # Use for quick debuging.
 if __name__ == '__main__':
-    play_game('board/battlefield.cis', ('Botbot', 'A.I.C.I.S.'), ai_vs_ai, max_rounds_count = 1000)
+    play_game('random', ('Botbot', 'A.I.C.I.S.', 'BotLenon', 'Pomme'), ('ai','ai','ai','ai' ), max_rounds_count = 1000)

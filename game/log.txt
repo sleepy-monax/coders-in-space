@@ -1,263 +1,567 @@
-[Botbot] Apple-Pen:battlecruiser Akbar:destroyer amiral:fighter bob:fighter fob:fighter I'm_Bob_Lenon:fighter Frenay-Acceleray:fighter
-[A.I.C.I.S.] Apple-Pen:battlecruiser Akbar:destroyer amiral:fighter bob:fighter fob:fighter I'm_Bob_Lenon:fighter Frenay-Acceleray:fighter
+[Botbot] ISS_Adventurer:fighter V-19:fighter BC_Pilgrim:fighter BS_Galactica:fighter ISS_Europa:fighter Alexander:fighter Geisha:fighter DROID-starfighter:fighter Adventurer:fighter Puddle_Jumper:fighter
+[A.I.C.I.S.] Dart:fighter BC_Pilgrim:fighter ARC-170:fighter DROID-starfighter:fighter ISS_Adventurer:fighter The_Watcher:fighter ISS_Europa:fighter X-WINGS:fighter SC_Juggernaut:fighter Geisha:fighter
+[BotLenon] Geisha:fighter Alexander:fighter V-19:fighter Ha'tak:fighter TIE-FIGHTER:fighter Dart:fighter The_Watcher:fighter Saragossa:fighter Puddle_Jumper:fighter ISS_Adventurer:fighter
+[Pomme] ISS_Europa:fighter Puddle_Jumper:fighter SC_Juggernaut:fighter BS_Galactica:fighter V-WINGS:fighter DROID-starfighter:fighter The_Watcher:fighter Alexander:fighter X-WINGS:fighter TIE-FIGHTER:fighter
 It's turn nb 0
-[Botbot] Frenay-Acceleray:faster amiral:faster I'm_Bob_Lenon:faster bob:faster fob:faster Akbar: Apple-Pen:faster
-[A.I.C.I.S.] Frenay-Acceleray:faster bob:faster Apple-Pen:faster fob:faster I'm_Bob_Lenon:faster amiral:faster Akbar:
+[Botbot] DROID-starfighter:faster V-19:faster BS_Galactica:faster Alexander:faster ISS_Europa:faster ISS_Adventurer:faster Puddle_Jumper:faster Geisha:faster BC_Pilgrim:faster Adventurer:faster
+[A.I.C.I.S.] ISS_Europa:faster Dart:faster DROID-starfighter:faster ISS_Adventurer:faster ARC-170:faster Geisha:faster SC_Juggernaut:faster BC_Pilgrim:faster The_Watcher:faster X-WINGS:faster
+[BotLenon] Dart:faster TIE-FIGHTER:faster ISS_Adventurer:faster Alexander:faster Geisha:faster V-19:faster Saragossa:faster Ha'tak:faster Puddle_Jumper:faster The_Watcher:faster
+[Pomme] The_Watcher:faster Puddle_Jumper:faster TIE-FIGHTER:faster Alexander:faster ISS_Europa:faster SC_Juggernaut:faster BS_Galactica:faster X-WINGS:faster DROID-starfighter:faster V-WINGS:faster
 It's turn nb 1
-[Botbot] Frenay-Acceleray:faster amiral:faster I'm_Bob_Lenon:faster bob:faster fob:right Akbar: Apple-Pen:
-[A.I.C.I.S.] Frenay-Acceleray:faster bob:faster Apple-Pen: fob:faster I'm_Bob_Lenon:right amiral:faster Akbar:
+[Botbot] DROID-starfighter:faster V-19:faster BS_Galactica:right Alexander:right ISS_Europa:faster ISS_Adventurer:left Puddle_Jumper:left Geisha:faster BC_Pilgrim:faster Adventurer:right
+[A.I.C.I.S.] ISS_Europa:left Dart:left DROID-starfighter:left ISS_Adventurer:faster ARC-170:faster Geisha:faster SC_Juggernaut:right BC_Pilgrim:faster The_Watcher:faster X-WINGS:right
+[BotLenon] Dart:left TIE-FIGHTER:faster ISS_Adventurer:left Alexander:faster Geisha:faster V-19:faster Saragossa:left Ha'tak:faster Puddle_Jumper:faster The_Watcher:faster
+[Pomme] The_Watcher:left Puddle_Jumper:left TIE-FIGHTER:left Alexander:right ISS_Europa:faster SC_Juggernaut:right BS_Galactica:right X-WINGS:faster DROID-starfighter:faster V-WINGS:left
 It's turn nb 2
-[Botbot] Frenay-Acceleray:faster amiral:faster I'm_Bob_Lenon:faster bob:faster fob:faster Akbar: Apple-Pen:
-[A.I.C.I.S.] Frenay-Acceleray: bob:faster Apple-Pen: fob:faster I'm_Bob_Lenon:faster amiral:faster Akbar:
+[Botbot] DROID-starfighter:15-16 V-19:15-16 BS_Galactica: Alexander:right ISS_Europa:15-16 ISS_Adventurer:left Puddle_Jumper:faster Geisha:faster BC_Pilgrim:15-16 Adventurer:right
+[A.I.C.I.S.] ISS_Europa:left Dart:faster DROID-starfighter: ISS_Adventurer:faster ARC-170:faster Geisha:slower SC_Juggernaut:right BC_Pilgrim:left The_Watcher:left X-WINGS:right
+[BotLenon] Dart:faster TIE-FIGHTER:faster ISS_Adventurer:left Alexander:faster Geisha:faster V-19:faster Saragossa:left Ha'tak:faster Puddle_Jumper:faster The_Watcher:faster
+[Pomme] The_Watcher:left Puddle_Jumper:left TIE-FIGHTER:left Alexander:faster ISS_Europa:faster SC_Juggernaut:faster BS_Galactica:faster X-WINGS:left DROID-starfighter:faster V-WINGS:left
+Botbot_DROID-starfighter shot Pomme_ISS_Europa
+Botbot_DROID-starfighter shot Pomme_DROID-starfighter
+Botbot_V-19 shot Pomme_ISS_Europa
+Botbot_V-19 shot Pomme_DROID-starfighter
+Botbot_ISS_Europa kill Pomme_ISS_Europa
+Botbot_BC_Pilgrim kill Pomme_DROID-starfighter
 It's turn nb 3
-[Botbot] Frenay-Acceleray:faster amiral:slower I'm_Bob_Lenon:left bob:faster fob:faster Akbar: Apple-Pen:
-[A.I.C.I.S.] Frenay-Acceleray:right bob:slower Apple-Pen: fob:slower I'm_Bob_Lenon:faster amiral:slower Akbar:
-Botbot as take Botbot_b4 !
-A.I.C.I.S. as take A.I.C.I.S._b38 !
+[Botbot] DROID-starfighter:faster V-19:12-12 BS_Galactica:right Alexander:left ISS_Europa:faster ISS_Adventurer: Puddle_Jumper:faster Geisha:slower BC_Pilgrim:12-12 Adventurer:left
+[A.I.C.I.S.] ISS_Europa:left Dart:left DROID-starfighter:left ISS_Adventurer:left ARC-170:left Geisha:19-19 SC_Juggernaut:right BC_Pilgrim:right The_Watcher:left X-WINGS:faster
+[BotLenon] Dart:faster TIE-FIGHTER:left ISS_Adventurer:faster Alexander:faster Geisha:right V-19:right Saragossa:faster Ha'tak:faster Puddle_Jumper:19-19 The_Watcher:faster
+[Pomme] The_Watcher:right Puddle_Jumper:left TIE-FIGHTER:left Alexander:right SC_Juggernaut:faster BS_Galactica:faster X-WINGS:left V-WINGS:faster
+Pomme as take Pomme_ship_1 !
+Pomme as take Pomme_ship_18 !
 It's turn nb 4
-[Botbot] b4: Frenay-Acceleray: amiral: I'm_Bob_Lenon:faster bob:right fob:left Akbar: Apple-Pen:
-[A.I.C.I.S.] Frenay-Acceleray:faster bob:left Apple-Pen: fob:slower b38:faster I'm_Bob_Lenon:faster amiral:left Akbar:
-Botbot as take Botbot_b21 !
-Botbot as take Botbot_b17 !
+[Botbot] DROID-starfighter:right V-19:faster BS_Galactica:faster Alexander:right ISS_Europa:right ISS_Adventurer:left Puddle_Jumper:faster Geisha:20-20 BC_Pilgrim:faster Adventurer:right
+[A.I.C.I.S.] ISS_Europa:left Dart:right DROID-starfighter:faster ISS_Adventurer:16-9 ARC-170:16-9 Geisha:left SC_Juggernaut:faster BC_Pilgrim:faster The_Watcher:faster X-WINGS:left
+[BotLenon] Dart:18-23 TIE-FIGHTER:left ISS_Adventurer:right Alexander:18-8 Geisha:right V-19:faster Saragossa:right Ha'tak:right Puddle_Jumper:right The_Watcher:right
+[Pomme] ship_1:faster The_Watcher:right Puddle_Jumper:faster TIE-FIGHTER:faster Alexander:left SC_Juggernaut:faster ship_18:faster BS_Galactica:faster X-WINGS:right V-WINGS:left
+A.I.C.I.S. as take A.I.C.I.S._ship_14 !
+Botbot_Geisha shot BotLenon_Dart
+Botbot_Geisha shot Botbot_V-19
+Botbot_Geisha shot ship_10
+Botbot_Geisha shot Botbot_Geisha
+Botbot_Geisha shot Botbot_BC_Pilgrim
 It's turn nb 5
-[Botbot] b4: Frenay-Acceleray:left b21:23-19 amiral:right I'm_Bob_Lenon: bob:left fob:slower Akbar: b17:21-21 Apple-Pen:
-[A.I.C.I.S.] Frenay-Acceleray:slower bob:slower Apple-Pen:28-28 fob:28-28 b38:left I'm_Bob_Lenon: amiral:slower Akbar:
-A.I.C.I.S. as take A.I.C.I.S._b22 !
-Botbot as take Botbot_b25 !
-Botbot as take Botbot_b36 !
-A.I.C.I.S. as take A.I.C.I.S._b28 !
-Botbot as take Botbot_b19 !
-Botbot_b17 kill A.I.C.I.S._fob
+[Botbot] DROID-starfighter:faster V-19:left BS_Galactica:faster Alexander:faster ISS_Europa:faster ISS_Adventurer:faster Puddle_Jumper:left Geisha:left BC_Pilgrim:left Adventurer:right
+[A.I.C.I.S.] ISS_Europa:faster Dart:faster DROID-starfighter:faster ship_14: ISS_Adventurer:left ARC-170:left Geisha:left SC_Juggernaut:right BC_Pilgrim:faster The_Watcher:faster X-WINGS:faster
+[BotLenon] Dart:right TIE-FIGHTER:left ISS_Adventurer:left Alexander:slower Geisha:slower V-19:right Saragossa:left Ha'tak:slower Puddle_Jumper:faster The_Watcher:slower
+[Pomme] ship_1:right The_Watcher:faster Puddle_Jumper:faster TIE-FIGHTER:faster Alexander:faster SC_Juggernaut:23-20 ship_18:left BS_Galactica:faster X-WINGS:faster V-WINGS:left
+Botbot as take Botbot_ship_24 !
+Pomme as take Pomme_ship_9 !
 It's turn nb 6
-[Botbot] b4: Frenay-Acceleray:24-24 b21:23-19 amiral:right b25:faster b19:faster I'm_Bob_Lenon:right bob:slower fob:slower Akbar: b17:23-19 b36:17-26 Apple-Pen:
-[A.I.C.I.S.] b22:16-31 b28:16-31 Frenay-Acceleray:left bob:right Apple-Pen:24-32 b38:24-32 I'm_Bob_Lenon:left amiral:right Akbar:
-Botbot as take Botbot_b18 !
-Botbot_Frenay-Acceleray shot A.I.C.I.S._Apple-Pen
-Botbot_b36 shot b26
-A.I.C.I.S._Apple-Pen kill Botbot_Frenay-Acceleray
+[Botbot] DROID-starfighter:right V-19:21-27 BS_Galactica:19-1 Alexander:21-3 ISS_Europa:right ISS_Adventurer:left Puddle_Jumper:right Geisha:22-24 ship_24:faster BC_Pilgrim:21-27 Adventurer:faster
+[A.I.C.I.S.] ISS_Europa:faster Dart:19-9 DROID-starfighter:faster ship_14: ISS_Adventurer:slower ARC-170:slower Geisha:faster SC_Juggernaut:left BC_Pilgrim:slower The_Watcher:slower X-WINGS:
+[BotLenon] Dart:29-18 TIE-FIGHTER:slower ISS_Adventurer:slower Alexander:left Geisha:5-3 V-19:faster Saragossa:slower Ha'tak:right Puddle_Jumper:22-2 The_Watcher:faster
+[Pomme] ship_1:right The_Watcher:18-13 Puddle_Jumper:left TIE-FIGHTER:left Alexander:20-24 SC_Juggernaut:slower ship_18:left BS_Galactica:right ship_9: X-WINGS:left V-WINGS:slower
+Botbot as take Botbot_ship_15 !
+A.I.C.I.S. as take A.I.C.I.S._ship_13 !
+A.I.C.I.S. as take A.I.C.I.S._ship_5 !
+Pomme as take Pomme_ship_20 !
+BotLenon as take BotLenon_ship_2 !
+A.I.C.I.S. as take A.I.C.I.S._ship_22 !
+Botbot_BS_Galactica shot BotLenon_Puddle_Jumper
+Botbot_BS_Galactica shot BotLenon_ship_2
+Botbot_Geisha shot Pomme_Alexander
+Botbot_Geisha shot Pomme_ship_20
+Pomme_Alexander shot Botbot_Geisha
 It's turn nb 7
-[Botbot] b4: b21:21-18 amiral:right b25:15-22 b19:21-18 I'm_Bob_Lenon:right bob:left fob:right Akbar: b17:21-18 b36:faster b18:faster Apple-Pen:right
-[A.I.C.I.S.] b22:24-35 b28:24-35 Frenay-Acceleray:left bob:right Apple-Pen:26-16 b38:26-16 I'm_Bob_Lenon:slower amiral:faster Akbar:
-Botbot as take Botbot_b39 !
+[Botbot] DROID-starfighter:right ship_15:19-27 V-19:slower BS_Galactica:right Alexander:faster ISS_Europa:left ISS_Adventurer:left Puddle_Jumper:right Geisha:22-27 ship_24:right BC_Pilgrim:right Adventurer:15-7
+[A.I.C.I.S.] ISS_Europa:right Dart:slower DROID-starfighter:left ship_13:faster ship_14: ISS_Adventurer:faster ship_5:faster ARC-170:left Geisha:20-7 SC_Juggernaut:faster BC_Pilgrim:right The_Watcher:right X-WINGS:left ship_22:faster
+[BotLenon] Dart:left TIE-FIGHTER:20-26 ISS_Adventurer:left Alexander:right Geisha:3-1 V-19:7-3 Saragossa:right Ha'tak:right ship_2:faster Puddle_Jumper:left The_Watcher:20-29
+[Pomme] ship_1:19-27 The_Watcher:left Puddle_Jumper:left TIE-FIGHTER:left Alexander:slower SC_Juggernaut:slower ship_20:faster ship_18:right BS_Galactica:left ship_9: X-WINGS:faster V-WINGS:right
+BotLenon as take BotLenon_ship_11 !
+A.I.C.I.S. as take A.I.C.I.S._ship_4 !
+BotLenon_TIE-FIGHTER shot ship_19
+BotLenon_TIE-FIGHTER shot ship_12
+BotLenon_TIE-FIGHTER kill Botbot_Geisha
 It's turn nb 8
-[Botbot] b4:18-15 b21:20-19 amiral:right b25:17-20 b19:20-19 I'm_Bob_Lenon:left bob:left fob:right b39:20-19 Akbar: b17:20-19 b36:left b18:right Apple-Pen:right
-[A.I.C.I.S.] b22:28-31 b28:28-31 Frenay-Acceleray:faster bob:right Apple-Pen:25-17 b38:25-17 I'm_Bob_Lenon:left amiral:left Akbar:
-Botbot as take Botbot_b16 !
+[Botbot] DROID-starfighter:2-14 ship_15:17-3 V-19:faster BS_Galactica:right Alexander:left ISS_Europa:left ISS_Adventurer:faster Puddle_Jumper:faster ship_24:faster BC_Pilgrim:slower Adventurer:right
+[A.I.C.I.S.] ISS_Europa:right Dart:25-11 DROID-starfighter:slower ship_13:left ship_14: ship_4: ISS_Adventurer:26-2 ship_5:27-23 ARC-170:left Geisha:right SC_Juggernaut:17-3 BC_Pilgrim:slower The_Watcher:right X-WINGS:right ship_22:left
+[BotLenon] Dart:right TIE-FIGHTER:22-28 ISS_Adventurer:faster ship_11:faster Alexander:slower Geisha:left V-19:left Saragossa:22-28 Ha'tak:slower ship_2:faster Puddle_Jumper:right The_Watcher:right
+[Pomme] ship_1:17-3 The_Watcher:left Puddle_Jumper:26-2 TIE-FIGHTER:left Alexander:slower SC_Juggernaut:faster ship_20:right ship_18:faster BS_Galactica:slower ship_9: X-WINGS:slower V-WINGS:right
+A.I.C.I.S. as take A.I.C.I.S._ship_3 !
 It's turn nb 9
-[Botbot] b4:20-13 b21:19-21 amiral:left b25:16-30 b19:19-21 I'm_Bob_Lenon:left bob:left fob:right b39:20-13 Akbar: b16:faster b17:19-21 b36:19-21 b18:19-21 Apple-Pen:20-13
-[A.I.C.I.S.] b22:12-27 b28:21-26 Frenay-Acceleray:18-22 bob:faster Apple-Pen:26-15 b38:18-22 I'm_Bob_Lenon:left amiral:20-12 Akbar:
-Botbot_b4 kill A.I.C.I.S._amiral
-Botbot_b25 shot A.I.C.I.S._b22
-A.I.C.I.S._b22 shot Botbot_b25
-A.I.C.I.S._b28 shot Botbot_b36
-A.I.C.I.S._Frenay-Acceleray shot A.I.C.I.S._bob
-A.I.C.I.S._Frenay-Acceleray shot Botbot_b18
-A.I.C.I.S._b38 kill A.I.C.I.S._bob
+[Botbot] DROID-starfighter:left ship_15:22-28 V-19:20-6 BS_Galactica:right Alexander:slower ISS_Europa:slower ISS_Adventurer:left Puddle_Jumper:slower ship_24:right BC_Pilgrim:right Adventurer:faster
+[A.I.C.I.S.] ISS_Europa:faster Dart:right ship_3:20-4 DROID-starfighter:4-4 ship_13:11-22 ship_14: ship_4: ISS_Adventurer:left ship_5:23-19 ARC-170:left Geisha:faster SC_Juggernaut:right BC_Pilgrim:slower The_Watcher:slower X-WINGS:faster ship_22:left
+[BotLenon] Dart:right TIE-FIGHTER:faster ISS_Adventurer:faster ship_11:right Alexander:left Geisha: V-19:slower Saragossa:22-28 Ha'tak:faster ship_2:faster Puddle_Jumper:slower The_Watcher:20-21
+[Pomme] ship_1:27-3 The_Watcher:left Puddle_Jumper:slower TIE-FIGHTER:right Alexander:faster SC_Juggernaut:faster ship_20:faster ship_18:14-6 BS_Galactica:left ship_9: X-WINGS:right V-WINGS:faster
+A.I.C.I.S. as take A.I.C.I.S._ship_7 !
+A.I.C.I.S. as take A.I.C.I.S._ship_21 !
+A.I.C.I.S._ship_3 kill Botbot_V-19
 It's turn nb 10
-[Botbot] b4:17-13 b21:20-20 amiral:slower b25:16-30 b19:17-13 I'm_Bob_Lenon: bob:left fob:right b39:17-13 Akbar: b16:left b17:17-13 b36:16-30 b18:17-13 Apple-Pen:17-13
-[A.I.C.I.S.] b22:11-27 b28:20-25 Frenay-Acceleray:slower Apple-Pen:25-14 b38:20-25 I'm_Bob_Lenon:left Akbar:
-Botbot as take Botbot_b13 !
-Botbot as take Botbot_b33 !
-Botbot_b21 shot A.I.C.I.S._Apple-Pen
-Botbot_b21 shot Botbot_b17
-Botbot_b25 shot A.I.C.I.S._b22
-Botbot_b36 shot A.I.C.I.S._b22
-A.I.C.I.S._b22 shot Botbot_b25
-A.I.C.I.S._b28 shot Botbot_b36
-A.I.C.I.S._b38 shot Botbot_b36
+[Botbot] DROID-starfighter:faster ship_15:faster BS_Galactica:right Alexander:23-1 ISS_Europa:slower ISS_Adventurer:right Puddle_Jumper:left ship_24:left BC_Pilgrim:slower Adventurer:right
+[A.I.C.I.S.] ISS_Europa:faster Dart:left ship_3:22-1 ship_7:faster ship_21:faster DROID-starfighter:right ship_13:left ship_14: ship_4: ISS_Adventurer:left ship_5:right ARC-170:left Geisha:faster SC_Juggernaut:left BC_Pilgrim:left The_Watcher:right X-WINGS: ship_22:2-5
+[BotLenon] Dart:right TIE-FIGHTER:faster ISS_Adventurer:faster ship_11:faster Alexander:left Geisha:left V-19: Saragossa:left Ha'tak:faster ship_2:right Puddle_Jumper:slower The_Watcher:left
+[Pomme] ship_1:slower The_Watcher:left Puddle_Jumper:slower TIE-FIGHTER:right Alexander:faster SC_Juggernaut:faster ship_20:23-17 ship_18:6-1 BS_Galactica:right ship_9: X-WINGS:29-1 V-WINGS:right
+Botbot as take Botbot_ship_23 !
+A.I.C.I.S. as take A.I.C.I.S._ship_6 !
+A.I.C.I.S. as take A.I.C.I.S._ship_25 !
+A.I.C.I.S. as take A.I.C.I.S._ship_16 !
+Botbot_Alexander shot Pomme_X-WINGS
+A.I.C.I.S._ship_3 shot Botbot_ship_15
 It's turn nb 11
-[Botbot] b4:17-12 b21:19-19 amiral:right b25:right b19:18-17 I'm_Bob_Lenon:left bob:slower fob:left b39:17-12 Akbar: b33:16-30 b16:18-17 b17:18-17 b36:16-30 b13:faster b18:18-17 Apple-Pen:17-12
-[A.I.C.I.S.] b22:19-27 b28:19-27 Frenay-Acceleray:slower Apple-Pen:23-13 b38:19-24 I'm_Bob_Lenon:left Akbar:
-Botbot as take Botbot_b14 !
-Botbot as take Botbot_b8 !
-A.I.C.I.S. as take A.I.C.I.S._b15 !
-Botbot as take Botbot_b30 !
-Botbot as take Botbot_b12 !
-Botbot_b21 shot A.I.C.I.S._Apple-Pen
-Botbot_b33 shot A.I.C.I.S._b22
-Botbot_b36 kill A.I.C.I.S._b22
-A.I.C.I.S._b38 shot Botbot_b36
+[Botbot] ship_23:faster DROID-starfighter:slower ship_15:right BS_Galactica:right Alexander:right ISS_Europa:right ISS_Adventurer:left Puddle_Jumper:faster ship_24:faster BC_Pilgrim:left Adventurer:left
+[A.I.C.I.S.] ISS_Europa:slower Dart:faster ship_3:22-5 ship_7:right ship_21:faster DROID-starfighter:right ship_13:faster ship_14: ship_16:faster ship_4: ISS_Adventurer:faster ship_5:right ARC-170:right Geisha:faster SC_Juggernaut:slower ship_6: BC_Pilgrim:faster The_Watcher:left ship_25: X-WINGS:23-16 ship_22:right
+[BotLenon] Dart:faster TIE-FIGHTER:faster ISS_Adventurer:faster ship_11:right Alexander:faster Geisha:faster V-19:slower Saragossa:right Ha'tak:right ship_2:right Puddle_Jumper:20-20 The_Watcher:left
+[Pomme] ship_1:faster The_Watcher:faster Puddle_Jumper:right TIE-FIGHTER:right Alexander:faster SC_Juggernaut:slower ship_20:left ship_18:left BS_Galactica:slower ship_9: X-WINGS:faster V-WINGS:left
+A.I.C.I.S. as take A.I.C.I.S._ship_19 !
+A.I.C.I.S. as take A.I.C.I.S._ship_12 !
+A.I.C.I.S. as take A.I.C.I.S._ship_10 !
+A.I.C.I.S._ship_3 shot A.I.C.I.S._ship_4
+A.I.C.I.S._X-WINGS shot BotLenon_Puddle_Jumper
+BotLenon_Puddle_Jumper shot A.I.C.I.S._X-WINGS
+BotLenon_Puddle_Jumper shot A.I.C.I.S._ship_10
 It's turn nb 12
-[Botbot] b4:17-12 b21:21-23 amiral: b30:faster b25:right b19:21-23 I'm_Bob_Lenon:left bob:right fob: b39:21-23 Akbar: b14:faster b33:31-31 b16:21-23 b17:faster b36:21-23 b12:17-12 b13:right b8:faster b18:21-23 Apple-Pen:17-12
-[A.I.C.I.S.] b28:18-26 Frenay-Acceleray:right b15:18-26 Apple-Pen:18-26 b38:slower I'm_Bob_Lenon:slower Akbar:
-Botbot as take Botbot_b7 !
-Botbot as take Botbot_b11 !
-A.I.C.I.S. as take A.I.C.I.S._b3 !
-Botbot_b33 shot A.I.C.I.S._Akbar
-A.I.C.I.S._b28 shot b27
-A.I.C.I.S._b15 shot b27
-A.I.C.I.S._Apple-Pen shot b27
+[Botbot] DROID-starfighter:slower ship_15:15-1 Alexander:right Puddle_Jumper:right BC_Pilgrim:21-27 ship_24:13-29 ship_23:faster Adventurer:faster BS_Galactica:left ISS_Europa:faster ISS_Adventurer:faster
+[A.I.C.I.S.] Dart:left DROID-starfighter:right ship_10:23-14 ship_12: ship_13:right ship_14: ship_16:right ship_6: ship_7:right ship_4: ship_5:23-14 ship_3:22-10 SC_Juggernaut:slower ARC-170:23-14 ISS_Europa:left Geisha:slower ship_19:faster X-WINGS:right ISS_Adventurer: BC_Pilgrim:right The_Watcher:slower ship_25: ship_21:right ship_22:right
+[BotLenon] Ha'tak:faster ISS_Adventurer:slower The_Watcher:21-4 Saragossa:right Dart:slower TIE-FIGHTER:22-10 Geisha:left ship_11: Alexander:faster V-19:slower ship_2:17-14 Puddle_Jumper:slower
+[Pomme] Alexander:22-14 ship_20:left ship_1:slower ship_18:left ship_9: V-WINGS:left Puddle_Jumper:right TIE-FIGHTER:right SC_Juggernaut:23-14 BS_Galactica:right X-WINGS:right The_Watcher:faster
+A.I.C.I.S. as take A.I.C.I.S._ship_0 !
+A.I.C.I.S._ship_3 kill Pomme_Alexander
 It's turn nb 13
-[Botbot] b4:15-11 b21:22-24 amiral:faster b30:22-24 b25: b19:22-24 I'm_Bob_Lenon:faster bob:19-26 fob:faster b39:22-24 Akbar: b14:left b33:22-24 b16:slower b17:right b36:22-24 b11:faster b12:15-11 b13:right b8:right b18:22-24 Apple-Pen:slower b7:faster
-[A.I.C.I.S.] b28:16-28 Frenay-Acceleray:left b15:16-28 Apple-Pen:16-28 b38:faster I'm_Bob_Lenon:left b3:19-8 Akbar:
-Botbot as take Botbot_b6 !
-Botbot as take Botbot_b24 !
-Botbot_bob shot A.I.C.I.S._b28
-A.I.C.I.S._b28 kill Botbot_bob
-A.I.C.I.S._b15 shot Botbot_b24
+[Botbot] DROID-starfighter:12-28 ship_15:19-25 Alexander:right Puddle_Jumper:right BC_Pilgrim:left ship_24:left ship_23:left Adventurer:2-21 BS_Galactica:left ISS_Europa:right ISS_Adventurer:slower
+[A.I.C.I.S.] Dart:right DROID-starfighter:right ship_10:23-14 ship_12: ship_13:18-17 ship_14: ship_16:right ship_6: ship_7:faster ship_4: ship_5:23-14 ship_3:faster ship_0:faster SC_Juggernaut:left ARC-170:faster ISS_Europa:faster Geisha:slower ship_19:faster X-WINGS:left ISS_Adventurer:faster BC_Pilgrim:right The_Watcher:left ship_25: ship_21:right ship_22:23-14
+[BotLenon] Ha'tak:slower ISS_Adventurer:left The_Watcher:left Saragossa:left Dart:left TIE-FIGHTER:slower Geisha:right ship_11:right Alexander:slower V-19:right ship_2:right Puddle_Jumper:right
+[Pomme] ship_20:left ship_1:faster ship_18:faster ship_9: V-WINGS:right Puddle_Jumper:faster TIE-FIGHTER:faster SC_Juggernaut:slower BS_Galactica:22-24 X-WINGS:faster The_Watcher:left
+A.I.C.I.S._ship_13 shot Botbot_DROID-starfighter
 It's turn nb 14
-[Botbot] b4:16-10 b6:16-10 b21:20-26 amiral:faster b30:20-26 b24:20-26 b25:right b19:20-26 I'm_Bob_Lenon:right fob:faster b39:16-16 Akbar: b14:left b33:20-26 b16:faster b17:right b36:20-26 b11:right b12:16-10 b13:right b8:right b18:20-26 Apple-Pen:faster b7:16-10
-[A.I.C.I.S.] b28:16-21 Frenay-Acceleray:left b15:16-21 Apple-Pen:16-21 b38:slower I'm_Bob_Lenon:faster b3:16-5 Akbar:
-A.I.C.I.S. as take A.I.C.I.S._b29 !
-Botbot as take Botbot_b5 !
-Botbot_b39 shot A.I.C.I.S._Apple-Pen
-A.I.C.I.S._b28 kill Botbot_b36
+[Botbot] DROID-starfighter:slower ship_15:left Alexander:faster Puddle_Jumper:right BC_Pilgrim:slower ship_24:left ship_23:faster Adventurer:22-17 BS_Galactica: ISS_Europa:faster ISS_Adventurer:21-18
+[A.I.C.I.S.] Dart:slower DROID-starfighter:right ship_10:21-13 ship_12: ship_13:21-14 ship_14: ship_16:22-22 ship_6: ship_7:right ship_4: ship_5:22-22 ship_3:left ship_0:right SC_Juggernaut:slower ARC-170:21-13 ISS_Europa:right Geisha:slower ship_19:faster X-WINGS:left ISS_Adventurer:right BC_Pilgrim:faster The_Watcher:left ship_25: ship_21:faster ship_22:21-13
+[BotLenon] Ha'tak:left ISS_Adventurer:left The_Watcher:left Saragossa:left Dart:left TIE-FIGHTER:right Geisha:slower ship_11:slower Alexander:23-14 V-19:faster ship_2:right Puddle_Jumper:left
+[Pomme] ship_20:slower ship_1:slower ship_18:8-24 ship_9: V-WINGS:faster Puddle_Jumper:right TIE-FIGHTER:right SC_Juggernaut:right BS_Galactica:faster X-WINGS:slower The_Watcher:slower
+A.I.C.I.S._ship_16 kill A.I.C.I.S._ship_0
 It's turn nb 15
-[Botbot] b4:18-9 b6:18-9 b5:faster b21:18-20 amiral:left b30:20-30 b24:20-30 b25:right b19:15-15 I'm_Bob_Lenon:right fob:right b39:15-15 Akbar: b14:left b33:20-30 b16:slower b17:right b11:18-9 b12:18-9 b13:15-15 b8:right b18:slower Apple-Pen:slower b7:18-9
-[A.I.C.I.S.] b28:16-28 b29:16-28 Frenay-Acceleray:left b15:18-23 Apple-Pen:5-17 b38:faster I'm_Bob_Lenon:right b3:5-17 Akbar:
-A.I.C.I.S. as take A.I.C.I.S._b34 !
-Botbot_b21 shot A.I.C.I.S._b15
-Botbot_b19 shot A.I.C.I.S._Apple-Pen
-Botbot_b13 kill A.I.C.I.S._Apple-Pen
-A.I.C.I.S._b28 shot Botbot_b30
-A.I.C.I.S._b28 shot Botbot_b24
-A.I.C.I.S._b29 shot Botbot_b30
-A.I.C.I.S._b29 shot Botbot_b24
+[Botbot] DROID-starfighter:slower ship_15:left Alexander:slower Puddle_Jumper:slower BC_Pilgrim:faster ship_24:right ship_23:faster Adventurer:left BS_Galactica:slower ISS_Europa:slower ISS_Adventurer:slower
+[A.I.C.I.S.] Dart:23-14 DROID-starfighter:slower ship_10:22-12 ship_12: ship_13:left ship_14: ship_16:left ship_6: ship_7:faster ship_4: ship_5:slower ship_3:right SC_Juggernaut:faster ARC-170:faster ISS_Europa:right Geisha:slower ship_19:faster X-WINGS:slower ISS_Adventurer:right BC_Pilgrim:slower The_Watcher:faster ship_25: ship_21:slower ship_22:22-12
+[BotLenon] Ha'tak:slower ISS_Adventurer:faster The_Watcher: Saragossa:faster Dart:faster TIE-FIGHTER:right Geisha:22-13 ship_11:right Alexander:right V-19:faster ship_2:23-14 Puddle_Jumper:left
+[Pomme] ship_20:slower ship_1:faster ship_18:22-20 ship_9: V-WINGS:faster Puddle_Jumper:faster TIE-FIGHTER:right SC_Juggernaut:20-26 BS_Galactica:left X-WINGS:left The_Watcher:slower
+Pomme as take Pomme_ship_17 !
+Pomme_SC_Juggernaut shot Botbot_ship_15
+Pomme_SC_Juggernaut shot A.I.C.I.S._ship_12
+Pomme_SC_Juggernaut shot A.I.C.I.S._ship_16
 It's turn nb 16
-[Botbot] b4:19-10 b6:19-10 b5:left b21:18-20 amiral:left b30:26-33 b24:26-33 b25: b19:right I'm_Bob_Lenon:slower fob:faster b39:18-20 Akbar: b14:19-10 b33:26-33 b16:faster b17:18-20 b11:19-10 b12:19-10 b13:18-20 b8:19-10 b18:faster Apple-Pen:faster b7:19-10
-[A.I.C.I.S.] b28:16-28 b29:faster Frenay-Acceleray:left b15:16-28 b34:faster b38:slower I'm_Bob_Lenon:slower b3:10-10 Akbar:
-Botbot_b4 shot Botbot_b6
-Botbot_b6 shot Botbot_b6
-Botbot_b21 shot A.I.C.I.S._b15
-Botbot_b39 shot A.I.C.I.S._b15
-Botbot_b17 shot A.I.C.I.S._b15
-Botbot_b11 shot Botbot_b6
-Botbot_b12 shot Botbot_b6
-Botbot_b13 kill A.I.C.I.S._b15
-Botbot_b8 kill Botbot_b6
-A.I.C.I.S._b28 shot Botbot_b24
-A.I.C.I.S._b3 shot Botbot_Akbar
+[Botbot] DROID-starfighter:faster ship_15:22-28 Alexander:faster Puddle_Jumper:right BC_Pilgrim:right ship_24:28-4 ship_23:left Adventurer:faster BS_Galactica:slower ISS_Europa:24-11 ISS_Adventurer:faster
+[A.I.C.I.S.] Dart:left DROID-starfighter:left ship_10:22-14 ship_12: ship_13:right ship_14: ship_16:left ship_6: ship_7:right ship_4: ship_5:faster ship_3:right SC_Juggernaut:right ARC-170:slower ISS_Europa:2-1 Geisha:left ship_19:right X-WINGS:faster ISS_Adventurer:24-11 BC_Pilgrim:left The_Watcher:faster ship_25: ship_21:left ship_22:24-11
+[BotLenon] Ha'tak:left ISS_Adventurer:slower The_Watcher:left Saragossa:left Dart:4-12 TIE-FIGHTER:left Geisha:faster ship_11:left Alexander:right V-19:faster ship_2:slower Puddle_Jumper:faster
+[Pomme] ship_20:faster ship_1:left ship_18:faster ship_9: V-WINGS:slower Puddle_Jumper:faster TIE-FIGHTER:left SC_Juggernaut:slower BS_Galactica:slower X-WINGS:left ship_17:faster The_Watcher:left
+Botbot_ship_24 shot Pomme_The_Watcher
+Botbot_ISS_Europa shot Botbot_ship_23
+A.I.C.I.S._ISS_Adventurer shot Botbot_ship_23
+A.I.C.I.S._ship_22 kill Botbot_ship_23
 It's turn nb 17
-[Botbot] b4:20-12 b5:left b21: amiral:slower b30:19-26 b24:19-26 b25:18-27 b19:right I'm_Bob_Lenon:slower fob:left b39: Akbar: b14:20-12 b33:27-34 b16:slower b17:19-26 b11:right b12:20-12 b13: b8:20-12 b18:slower Apple-Pen:slower b7:20-12
-[A.I.C.I.S.] b28:16-28 b29:left Frenay-Acceleray:right b34:16-28 b38:faster I'm_Bob_Lenon:right b3:10-10 Akbar:
-A.I.C.I.S. as take A.I.C.I.S._b32 !
-A.I.C.I.S. as take A.I.C.I.S._b27 !
-Botbot_b30 shot A.I.C.I.S._b28
-Botbot_b24 shot A.I.C.I.S._b28
-Botbot_b17 shot A.I.C.I.S._b28
-A.I.C.I.S._b28 kill Botbot_b24
-A.I.C.I.S._b3 kill Botbot_Akbar
+[Botbot] DROID-starfighter:faster ship_15:22-30 Alexander:left Puddle_Jumper:right BC_Pilgrim:right ship_24:30-6 Adventurer:right BS_Galactica:left ISS_Europa:right ISS_Adventurer:27-8
+[A.I.C.I.S.] Dart:faster DROID-starfighter:faster ship_10:24-14 ship_12: ship_13:faster ship_14: ship_16:13-17 ship_6: ship_7:27-8 ship_4: ship_5:slower ship_3:right SC_Juggernaut:faster ARC-170:faster ISS_Europa:left Geisha:faster ship_19:24-6 X-WINGS:slower ISS_Adventurer:left BC_Pilgrim:left The_Watcher:faster ship_25: ship_21:left ship_22:slower
+[BotLenon] Ha'tak:faster ISS_Adventurer:left The_Watcher:slower Saragossa:faster Dart:right TIE-FIGHTER:left Geisha:25-10 ship_11:left Alexander:slower V-19:20-25 ship_2:right Puddle_Jumper:25-10
+[Pomme] ship_20:right ship_1:27-8 ship_18:25-10 ship_9: V-WINGS:left Puddle_Jumper:left TIE-FIGHTER:left SC_Juggernaut:right BS_Galactica:faster X-WINGS:faster ship_17:left The_Watcher:right
+Botbot_ship_24 shot BotLenon_ship_2
+BotLenon_V-19 shot Pomme_ship_9
+Pomme_ship_1 kill BotLenon_Puddle_Jumper
 It's turn nb 18
-[Botbot] b4:21-11 b5:left b21: amiral:right b30:19-26 b25:19-26 b19:12-15 I'm_Bob_Lenon: fob:faster b39:21-11 b14:21-11 b33:29-32 b16:faster b17:19-26 b11:21-11 b12:21-11 b13: b8:21-11 b18:faster Apple-Pen:faster b7:21-11
-[A.I.C.I.S.] b28:13-28 b29:left Frenay-Acceleray:faster b27:10-27 b34:17-32 b32:faster b38:slower I'm_Bob_Lenon:right b3:17-11 Akbar:
-Botbot_b30 shot A.I.C.I.S._b28
-Botbot_b25 kill A.I.C.I.S._b28
-A.I.C.I.S._b27 kill Botbot_I'm_Bob_Lenon
-A.I.C.I.S._b3 shot Botbot_b4
+[Botbot] DROID-starfighter:slower ship_15:21-20 Alexander:left Puddle_Jumper:faster BC_Pilgrim:right ship_24:30-4 Adventurer:right BS_Galactica:slower ISS_Europa:30-4 ISS_Adventurer:slower
+[A.I.C.I.S.] Dart:slower DROID-starfighter:30-4 ship_10:faster ship_12: ship_13:slower ship_14: ship_16:21-12 ship_6: ship_7:slower ship_4: ship_5:faster ship_3:right SC_Juggernaut:faster ARC-170:left ISS_Europa:slower Geisha:faster ship_19:30-4 X-WINGS:slower ISS_Adventurer:slower BC_Pilgrim: The_Watcher:right ship_25: ship_21:faster ship_22:faster
+[BotLenon] Ha'tak:slower ISS_Adventurer:left The_Watcher:slower Saragossa:2-4 Dart:slower TIE-FIGHTER:left Geisha:slower ship_11:left Alexander:right V-19:16-15 ship_2:30-4
+[Pomme] ship_20:faster ship_1:30-4 ship_18:slower ship_9: V-WINGS:30-4 Puddle_Jumper:21-12 TIE-FIGHTER: SC_Juggernaut:slower BS_Galactica:3-6 X-WINGS:right ship_17:right The_Watcher:faster
+Botbot_ship_15 shot A.I.C.I.S._ship_10
+Botbot_ship_24 shot Botbot_Puddle_Jumper
+Botbot_ship_24 shot ship_8
+Botbot_ship_24 shot Botbot_BS_Galactica
+Botbot_ship_24 shot Botbot_ISS_Europa
+Botbot_ship_24 shot BotLenon_TIE-FIGHTER
+Botbot_ship_24 shot A.I.C.I.S._ship_19
+Botbot_ship_24 kill BotLenon_ship_2
+Botbot_ISS_Europa shot Botbot_Puddle_Jumper
+Botbot_ISS_Europa shot ship_8
+Botbot_ISS_Europa shot Botbot_BS_Galactica
+Botbot_ISS_Europa shot Botbot_ISS_Europa
+Botbot_ISS_Europa shot BotLenon_TIE-FIGHTER
+Botbot_ISS_Europa kill A.I.C.I.S._ship_19
+A.I.C.I.S._DROID-starfighter kill Botbot_Puddle_Jumper
+A.I.C.I.S._DROID-starfighter kill Botbot_BS_Galactica
+A.I.C.I.S._DROID-starfighter kill BotLenon_TIE-FIGHTER
+BotLenon_V-19 shot A.I.C.I.S._ship_14
+Pomme_ship_1 kill ship_8
 It's turn nb 19
-[Botbot] b4:24-11 b5:24-11 b21: amiral:faster b30:18-26 b25:18-26 b19:18-26 fob:19-30 b39:24-11 b14:24-11 b33:31-28 b16:slower b17:18-26 b11:24-11 b12:24-11 b13: b8:24-11 b18:slower Apple-Pen:slower b7:24-11
-[A.I.C.I.S.] b29:left Frenay-Acceleray:slower b27:17-26 b34:17-26 b32:left b38:faster I'm_Bob_Lenon:right b3:17-11 Akbar:
-A.I.C.I.S. as take A.I.C.I.S._b10 !
-Botbot as take Botbot_b26 !
-Botbot_b30 shot A.I.C.I.S._b27
-Botbot_b25 kill A.I.C.I.S._b27
-Botbot_fob shot A.I.C.I.S._b34
-A.I.C.I.S._b34 kill Botbot_fob
-A.I.C.I.S._b3 shot Botbot_b4
+[Botbot] DROID-starfighter:faster ship_15:21-24 Alexander:faster BC_Pilgrim:right ship_24:left Adventurer:right ISS_Europa:left ISS_Adventurer:faster
+[A.I.C.I.S.] Dart:right DROID-starfighter:slower ship_10:right ship_12: ship_13:30-1 ship_14: ship_16:2-25 ship_6: ship_7:left ship_4: ship_5:slower ship_3:30-1 SC_Juggernaut:slower ARC-170:slower ISS_Europa:faster Geisha:slower X-WINGS:30-5 ISS_Adventurer:faster BC_Pilgrim:7-30 The_Watcher:30-1 ship_25: ship_21:right ship_22:slower
+[BotLenon] Ha'tak:right ISS_Adventurer:right The_Watcher: Saragossa:30-1 Dart:slower Geisha:right ship_11:right Alexander:right V-19:right
+[Pomme] ship_20:24-6 ship_1:30-1 ship_18:slower ship_9: V-WINGS:slower Puddle_Jumper:slower TIE-FIGHTER:faster SC_Juggernaut:right BS_Galactica:right X-WINGS:slower ship_17:24-6 The_Watcher:30-1
+Pomme_ship_17 kill A.I.C.I.S._X-WINGS
 It's turn nb 20
-[Botbot] b4:24-11 b5:24-11 b21:24-11 amiral:slower b30:18-30 b26:faster b25:18-30 b19:left b39:24-11 b14:24-11 b33:29-26 b16:faster b17:29-26 b11:24-11 b12:24-11 b13:29-26 b8:24-11 b18:faster Apple-Pen:faster b7:16-12
-[A.I.C.I.S.] b29:20-28 Frenay-Acceleray:24-13 b10:17-11 b34:20-28 b32:20-28 b38:slower I'm_Bob_Lenon:right b3:17-11 Akbar:
-Botbot as take Botbot_b31 !
-Botbot_b4 kill A.I.C.I.S._Frenay-Acceleray
-Botbot_b30 shot A.I.C.I.S._b34
-Botbot_b25 shot A.I.C.I.S._b34
-Botbot_b7 shot A.I.C.I.S._b3
-A.I.C.I.S._b10 shot Botbot_b4
-A.I.C.I.S._b3 shot Botbot_b4
+[Botbot] DROID-starfighter:faster ship_15:21-25 Alexander:left BC_Pilgrim:left ship_24:left Adventurer:9-4 ISS_Europa:slower ISS_Adventurer:faster
+[A.I.C.I.S.] Dart:faster DROID-starfighter:slower ship_10:20-25 ship_12: ship_13:right ship_14: ship_16:20-25 ship_6: ship_7:slower ship_4: ship_5:faster ship_3:22-4 SC_Juggernaut:slower ARC-170:slower ISS_Europa:slower Geisha:faster ISS_Adventurer:slower BC_Pilgrim:slower The_Watcher:faster ship_25: ship_21:right ship_22:faster
+[BotLenon] Ha'tak:6-28 ISS_Adventurer:30-7 The_Watcher:left Saragossa:30-7 Dart:left Geisha:30-7 ship_11:right Alexander:right V-19:right
+[Pomme] ship_20:right ship_1:6-28 ship_18:right ship_9: V-WINGS:right Puddle_Jumper:left TIE-FIGHTER:right SC_Juggernaut:faster BS_Galactica:left X-WINGS:faster ship_17:12-11 The_Watcher:left
+A.I.C.I.S._ship_10 shot Pomme_ship_9
+A.I.C.I.S._ship_16 kill Pomme_ship_9
 It's turn nb 21
-[Botbot] b4:16-12 b5:16-12 b21:25-24 amiral:left b30:right b31:25-24 b26:left b25:17-30 b19: b39:21-22 b14:16-12 b33:25-24 b16:left b17:25-24 b11:left b12:16-12 b13:25-24 b8:25-24 b18:slower Apple-Pen:slower b7:16-12
-[A.I.C.I.S.] b29:20-27 b10:17-11 b34:20-27 b32:20-27 b38:faster I'm_Bob_Lenon:faster b3:17-11 Akbar:
-A.I.C.I.S. as take A.I.C.I.S._b40 !
-Botbot_b4 shot A.I.C.I.S._b3
-Botbot_b5 shot A.I.C.I.S._b3
-Botbot_b25 shot A.I.C.I.S._b34
-Botbot_b39 shot A.I.C.I.S._b29
-Botbot_b14 shot A.I.C.I.S._b3
-Botbot_b12 kill A.I.C.I.S._b3
-A.I.C.I.S._b10 kill Botbot_b4
+[Botbot] DROID-starfighter:7-1 ship_15:23-22 Alexander:faster BC_Pilgrim:left ship_24:slower Adventurer:slower ISS_Europa:left ISS_Adventurer:right
+[A.I.C.I.S.] Dart:right DROID-starfighter:slower ship_10:23-22 ship_12: ship_13:slower ship_14: ship_16:23-22 ship_6: ship_7:faster ship_4: ship_5:17-29 ship_3:left SC_Juggernaut:left ARC-170:faster ISS_Europa:left Geisha:faster ISS_Adventurer:slower BC_Pilgrim:left The_Watcher:7-27 ship_25: ship_21:left ship_22:left
+[BotLenon] Ha'tak:left ISS_Adventurer:20-4 The_Watcher:right Saragossa:27-15 Dart:right Geisha:slower ship_11:slower Alexander:left V-19:slower
+[Pomme] ship_20:30-3 ship_1:7-27 ship_18:faster V-WINGS:faster Puddle_Jumper:right TIE-FIGHTER:left SC_Juggernaut:slower BS_Galactica:left X-WINGS:right ship_17:23-1 The_Watcher:slower
+A.I.C.I.S._ship_5 kill BotLenon_ISS_Adventurer
 It's turn nb 22
-[Botbot] b5:left b21:21-20 amiral:left b30:slower b31:21-20 b26:left b25:16-30 b19:16-26 b39:21-20 b14:23-11 b33:faster b16:left b17:21-20 b11:21-20 b12:21-20 b13:21-20 b8:21-20 b18:faster Apple-Pen:faster b7:10-13
-[A.I.C.I.S.] b40:24-25 b29:24-25 b10:24-13 b34:24-25 b32:24-25 b38:slower I'm_Bob_Lenon:24-20 Akbar:
-Botbot as take Botbot_b9 !
-Botbot as take Botbot_b37 !
-Botbot_b21 kill A.I.C.I.S._I'm_Bob_Lenon
-Botbot_b25 shot A.I.C.I.S._b34
-Botbot_b19 shot A.I.C.I.S._b32
-Botbot_b14 shot A.I.C.I.S._b10
-A.I.C.I.S._b10 shot Botbot_b12
+[Botbot] DROID-starfighter:9-29 ship_15:20-25 Alexander:right BC_Pilgrim:slower ship_24:13-11 Adventurer:right ISS_Europa:slower ISS_Adventurer:6-26
+[A.I.C.I.S.] Dart:28-3 DROID-starfighter:faster ship_10:20-25 ship_12: ship_13:slower ship_14: ship_16:right ship_6: ship_7:faster ship_4: ship_5:9-29 ship_3:left SC_Juggernaut:right ARC-170:right ISS_Europa:faster Geisha:left ISS_Adventurer:right BC_Pilgrim:9-29 The_Watcher:right ship_25: ship_21:slower ship_22:right
+[BotLenon] Ha'tak:left The_Watcher:right Saragossa:24-18 Dart:right Geisha:slower ship_11:27-27 Alexander:left V-19:faster
+[Pomme] ship_20:right ship_1:right ship_18:slower V-WINGS:slower Puddle_Jumper:23-28 TIE-FIGHTER:27-5 SC_Juggernaut:9-29 BS_Galactica:slower X-WINGS:12-8 ship_17:right The_Watcher:faster
+Botbot_DROID-starfighter shot A.I.C.I.S._BC_Pilgrim
+Botbot_ISS_Adventurer shot Pomme_SC_Juggernaut
+A.I.C.I.S._ship_5 kill A.I.C.I.S._BC_Pilgrim
+Pomme_Puddle_Jumper shot Pomme_V-WINGS
 It's turn nb 23
-[Botbot] b5:right b9:faster b21:23-20 amiral:left b30:faster b31:15-30 b26:left b25:15-30 b19:15-25 b37:23-20 b39:faster b14:left b33:left b16:left b17:31-31 b11:23-20 b12:23-11 b13:31-31 b8:23-20 b18:slower Apple-Pen:slower b7:11-14
-[A.I.C.I.S.] b40:26-27 b29:26-27 b10:24-13 b34:20-31 b32:26-27 b38:faster Akbar:
-A.I.C.I.S. as take A.I.C.I.S._b20 !
-Botbot_b21 shot A.I.C.I.S._b29
-Botbot_b21 shot A.I.C.I.S._b20
-Botbot_b31 kill A.I.C.I.S._b34
-Botbot_b19 shot A.I.C.I.S._b32
-Botbot_b37 shot A.I.C.I.S._b29
-Botbot_b37 shot A.I.C.I.S._b20
-Botbot_b17 kill A.I.C.I.S._Akbar
-Botbot_b11 shot A.I.C.I.S._b29
-Botbot_b11 shot A.I.C.I.S._b20
-Botbot_b12 shot A.I.C.I.S._b10
-Botbot_b8 kill A.I.C.I.S._b29
-A.I.C.I.S._b10 shot Botbot_b12
+[Botbot] DROID-starfighter:right ship_15:right Alexander:right BC_Pilgrim:faster ship_24:left Adventurer:faster ISS_Europa:right ISS_Adventurer:left
+[A.I.C.I.S.] Dart:slower DROID-starfighter: ship_10:24-20 ship_12: ship_13:right ship_14: ship_16:right ship_6: ship_7:left ship_4: ship_5:9-29 ship_3:21-26 SC_Juggernaut:slower ARC-170:left ISS_Europa:slower Geisha:slower ISS_Adventurer:right The_Watcher:slower ship_25: ship_21:21-26 ship_22:17-15
+[BotLenon] Ha'tak:slower The_Watcher:5-3 Saragossa:right Dart:9-29 Geisha:left ship_11:right Alexander:24-1 V-19:slower
+[Pomme] ship_20:right ship_1:right ship_18:faster V-WINGS:right Puddle_Jumper:26-25 TIE-FIGHTER:left SC_Juggernaut:left BS_Galactica:slower X-WINGS:slower ship_17:right The_Watcher:faster
 It's turn nb 24
-[Botbot] b5:23-11 b9:right b21:23-20 amiral:left b30:slower b31:14-24 b26:23-20 b25: b19:slower b37:23-20 b39:left b14:left b33:left b16:23-11 b17: b11:23-20 b12:23-20 b13:left b8:slower b18:faster Apple-Pen:faster b7:9-12
-[A.I.C.I.S.] b20:24-13 b40:28-31 b10:24-13 b32:17-22 b38:slower
-Botbot_b5 shot A.I.C.I.S._b10
-Botbot_b21 shot A.I.C.I.S._b20
-Botbot_b26 kill A.I.C.I.S._b20
-Botbot_b16 shot A.I.C.I.S._b10
-A.I.C.I.S._b10 shot Botbot_b12
-A.I.C.I.S._b32 shot Botbot_b26
+[Botbot] DROID-starfighter:right ship_15:right Alexander:right BC_Pilgrim:6-5 ship_24:4-22 Adventurer:right ISS_Europa:8-26 ISS_Adventurer:left
+[A.I.C.I.S.] Dart:19-28 DROID-starfighter:right ship_10:right ship_12: ship_13:faster ship_14: ship_16:right ship_6: ship_7:right ship_4: ship_5:10-27 ship_3:19-28 SC_Juggernaut:faster ARC-170:slower ISS_Europa:left Geisha:faster ISS_Adventurer:left The_Watcher:faster ship_25: ship_21:29-25 ship_22:13-14
+[BotLenon] Ha'tak:faster The_Watcher:7-3 Saragossa:left Dart:faster Geisha:left ship_11:faster Alexander:slower V-19:left
+[Pomme] ship_20:faster ship_1:right ship_18:slower V-WINGS:right Puddle_Jumper:left TIE-FIGHTER:slower SC_Juggernaut:right BS_Galactica:slower X-WINGS:left ship_17:18-4 The_Watcher:17-11
+Botbot_BC_Pilgrim shot BotLenon_The_Watcher
+A.I.C.I.S._ship_5 kill Botbot_ISS_Europa
+BotLenon_The_Watcher shot Botbot_BC_Pilgrim
 It's turn nb 25
-[Botbot] b5:23-11 b9:23-11 b21:23-11 amiral:left b30:faster b31:faster b26:13-23 b25: b19:faster b37:24-23 b39:23-11 b14:left b33:left b16:23-11 b17: b11:13-23 b12:23-11 b13: b8:faster b18:slower Apple-Pen:slower b7:right
-[A.I.C.I.S.] b40:26-33 b10:24-13 b32:left b38:faster
-Botbot as take Botbot_b41 !
-Botbot_b5 kill A.I.C.I.S._b10
-Botbot_b37 shot A.I.C.I.S._b40
+[Botbot] DROID-starfighter: ship_15:26-24 Alexander:right BC_Pilgrim:8-7 ship_24:3-23 Adventurer:slower ISS_Adventurer:faster
+[A.I.C.I.S.] Dart:right DROID-starfighter:slower ship_10:right ship_12: ship_13:left ship_14: ship_16:26-24 ship_6: ship_7:right ship_4: ship_5:left ship_3:25-21 SC_Juggernaut:faster ARC-170:slower ISS_Europa:8-7 Geisha:left ISS_Adventurer:faster The_Watcher:slower ship_25: ship_21:faster ship_22:5-10
+[BotLenon] Ha'tak:faster The_Watcher:slower Saragossa:9-24 Dart:faster Geisha:left ship_11:28-30 Alexander:left V-19:12-3
+[Pomme] ship_20:left ship_1:8-3 ship_18:right V-WINGS:21-1 Puddle_Jumper:slower TIE-FIGHTER:right SC_Juggernaut:right BS_Galactica:left X-WINGS:23-18 ship_17:5-10 The_Watcher:slower
+Pomme_X-WINGS shot A.I.C.I.S._ship_16
+Pomme_ship_17 kill Botbot_DROID-starfighter
 It's turn nb 26
-[Botbot] b5:right b9: b21:faster amiral:left b41: b30:slower b31:left b26:left b25:24-23 b19:slower b37:24-23 b39: b14: b33:24-23 b16:8-11 b17:slower b11:slower b12:24-23 b13: b8:slower b18:faster Apple-Pen:faster b7:right
-[A.I.C.I.S.] b40:faster b32:left b38:slower
+[Botbot] ship_15:right Alexander:slower BC_Pilgrim:left ship_24:right Adventurer:slower ISS_Adventurer:slower
+[A.I.C.I.S.] Dart:right DROID-starfighter:left ship_10:20-16 ship_12: ship_13:left ship_14: ship_16:right ship_6: ship_7:slower ship_4: ship_5:left ship_3:28-26 SC_Juggernaut:right ARC-170:right ISS_Europa:left Geisha:right ISS_Adventurer:left The_Watcher: ship_25: ship_21:right ship_22:13-19
+[BotLenon] Ha'tak:left The_Watcher:9-3 Saragossa:right Dart:slower Geisha:faster ship_11:left Alexander:faster V-19:slower
+[Pomme] ship_20:right ship_1:29-29 ship_18:left V-WINGS:18-5 Puddle_Jumper:left TIE-FIGHTER:left SC_Juggernaut:faster BS_Galactica:left X-WINGS:25-19 ship_17:14-17 The_Watcher:20-16
+A.I.C.I.S._ship_3 kill Pomme_The_Watcher
+A.I.C.I.S._ship_22 kill Pomme_X-WINGS
+Pomme_V-WINGS shot A.I.C.I.S._DROID-starfighter
 It's turn nb 27
-[Botbot] b5: b9:9-12 b21:right amiral:left b41:faster b30:faster b31:16-21 b26:left b25:22-23 b19:faster b37:22-23 b39: b14:left b33:22-23 b16:9-12 b17:faster b11:faster b12: b13: b8:faster b18:slower Apple-Pen:slower b7:9-12
-[A.I.C.I.S.] b40:20-21 b32:20-21 b38:faster
-Botbot_b31 shot A.I.C.I.S._b32
-Botbot_b25 shot A.I.C.I.S._b40
-Botbot_b37 shot A.I.C.I.S._b40
-Botbot_b33 shot A.I.C.I.S._b40
+[Botbot] ship_15:right Alexander:faster BC_Pilgrim:left ship_24:left Adventurer:left ISS_Adventurer:right
+[A.I.C.I.S.] Dart:12-30 DROID-starfighter:13-6 ship_10:18-14 ship_12: ship_13:right ship_14: ship_16:right ship_6: ship_7:left ship_4: ship_5:right ship_3:29-23 SC_Juggernaut:slower ARC-170:faster ISS_Europa:faster Geisha:slower ISS_Adventurer:slower The_Watcher:left ship_25: ship_21:left ship_22:8-20
+[BotLenon] Ha'tak:faster The_Watcher:faster Saragossa:faster Dart:slower Geisha:slower ship_11:28-26 Alexander:24-23 V-19:1-28
+[Pomme] ship_20:16-1 ship_1:1-28 ship_18:right V-WINGS:18-5 Puddle_Jumper:right TIE-FIGHTER:right SC_Juggernaut:right BS_Galactica:right ship_17:9-8
+A.I.C.I.S._ship_3 kill BotLenon_Alexander
+BotLenon_ship_11 shot Pomme_ship_1
+Pomme_V-WINGS shot A.I.C.I.S._DROID-starfighter
 It's turn nb 28
-[Botbot] b5: b9:17-20 b21:21-23 amiral: b41:left b30:slower b31:21-23 b26:21-23 b25:21-23 b19:slower b37:21-23 b39: b14:21-23 b33:slower b16:7-10 b17:slower b11:slower b12: b13: b8:slower b18:faster Apple-Pen:faster b7:7-10
-[A.I.C.I.S.] b40:18-29 b32:21-23 b38:slower
-Botbot_b9 shot A.I.C.I.S._b32
-Botbot_b21 kill A.I.C.I.S._b40
-Botbot_b31 shot Botbot_b26
-Botbot_b26 shot Botbot_b26
-Botbot_b37 kill Botbot_b26
+[Botbot] ship_15:17-13 Alexander:slower BC_Pilgrim:faster ship_24:right Adventurer:faster ISS_Adventurer:right
+[A.I.C.I.S.] Dart:faster DROID-starfighter:faster ship_10:17-13 ship_12: ship_13:28-30 ship_14: ship_16:left ship_6: ship_7:left ship_4: ship_5:left ship_3:23-26 SC_Juggernaut:slower ARC-170:right ISS_Europa:slower Geisha:faster ISS_Adventurer:left The_Watcher:right ship_25: ship_21:2-11 ship_22:4-18
+[BotLenon] Ha'tak:right The_Watcher:slower Saragossa:9-6 Dart:slower Geisha:faster ship_11:right V-19:30-27
+[Pomme] ship_20:right ship_1:30-27 ship_18:2-11 V-WINGS:faster Puddle_Jumper:left TIE-FIGHTER:12-11 SC_Juggernaut:right BS_Galactica:left ship_17:9-6
+A.I.C.I.S._ship_13 shot BotLenon_V-19
+BotLenon_V-19 shot A.I.C.I.S._ship_13
+Pomme_ship_1 kill A.I.C.I.S._ship_13
 It's turn nb 29
-[Botbot] b5: b9:right b21:18-19 amiral:right b41: b30:faster b31:18-19 b25: b19:faster b37: b39:18-19 b14:18-19 b33:faster b16:18-19 b17:faster b11:faster b12: b13: b8:faster b18:slower Apple-Pen:slower b7:8-11
-[A.I.C.I.S.] b32:16-27 b38:faster
-Botbot as take Botbot_b23 !
-Botbot_b21 kill A.I.C.I.S._b32
+[Botbot] ship_15:left Alexander:20-26 BC_Pilgrim:faster ship_24:30-20 Adventurer:slower ISS_Adventurer:24-9
+[A.I.C.I.S.] Dart:faster DROID-starfighter:left ship_10:17-13 ship_12: ship_14: ship_16:left ship_6: ship_7:faster ship_4: ship_5:9-9 ship_3:2-20 SC_Juggernaut:left ARC-170:slower ISS_Europa: Geisha:slower ISS_Adventurer:right The_Watcher:faster ship_25: ship_21:slower ship_22:2-20
+[BotLenon] Ha'tak:slower The_Watcher:slower Saragossa:slower Dart:16-15 Geisha:6-5 ship_11:faster V-19:right
+[Pomme] ship_20:9-9 ship_1:25-30 ship_18:slower V-WINGS:9-9 Puddle_Jumper:slower TIE-FIGHTER:slower SC_Juggernaut:faster BS_Galactica:left ship_17:9-9
+Botbot_Alexander shot A.I.C.I.S._ship_12
+A.I.C.I.S._ship_10 kill BotLenon_Dart
 It's turn nb 30
-[Botbot] b5: b9: b21:left amiral:faster b41: b30:slower b23:faster b31:slower b25: b19:left b37: b39: b14: b33:right b16:right b17:slower b11:slower b12: b13:left b8:slower b18:faster Apple-Pen:faster b7:right
-[A.I.C.I.S.] b38:left
+[Botbot] ship_15:left Alexander:faster BC_Pilgrim:faster ship_24:left Adventurer:slower ISS_Adventurer:right
+[A.I.C.I.S.] Dart:3-9 DROID-starfighter:right ship_10:22-6 ship_12: ship_14: ship_16:left ship_6: ship_7:faster ship_4: ship_5:3-9 ship_3:right SC_Juggernaut:faster ARC-170:faster ISS_Europa:faster Geisha:faster ISS_Adventurer:slower The_Watcher:slower ship_25: ship_21:24-13 ship_22:28-20
+[BotLenon] Ha'tak:left The_Watcher:left Saragossa:16-15 Geisha:right ship_11:right V-19:left
+[Pomme] ship_20:slower ship_1:22-6 ship_18:24-8 V-WINGS:right Puddle_Jumper: TIE-FIGHTER:faster SC_Juggernaut:24-14 BS_Galactica:faster ship_17:9-13
+A.I.C.I.S._ship_21 shot Pomme_ship_18
+BotLenon_Saragossa shot A.I.C.I.S._ship_14
 It's turn nb 31
-[Botbot] b5: b9: b21:left amiral:faster b41: b30:faster b23:left b31:faster b25: b19:left b37: b39:7-8 b14: b33:right b16:right b17:faster b11:faster b12: b13:left b8:faster b18:left Apple-Pen:right b7:right
-[A.I.C.I.S.] b38:left
+[Botbot] ship_15:23-12 Alexander:slower BC_Pilgrim:faster ship_24:23-26 Adventurer:faster ISS_Adventurer:faster
+[A.I.C.I.S.] Dart:left DROID-starfighter:slower ship_10:right ship_12: ship_14: ship_16:right ship_6: ship_7:23-12 ship_4: ship_5:13-23 ship_3:right SC_Juggernaut:faster ARC-170:13-23 ISS_Europa:slower Geisha:right ISS_Adventurer:right The_Watcher:right ship_25: ship_21:23-12 ship_22:left
+[BotLenon] Ha'tak:left The_Watcher:faster Saragossa:slower Geisha:2-10 ship_11:left V-19:faster
+[Pomme] ship_20:right ship_1:21-11 ship_18:slower V-WINGS:left Puddle_Jumper:slower TIE-FIGHTER:slower SC_Juggernaut:right BS_Galactica:slower ship_17:9-18
 It's turn nb 32
-[Botbot] b5: b9: b21: amiral:faster b41: b30:left b23:left b31:slower b25: b19: b37: b39:9-7 b14: b33: b16:right b17:slower b11:slower b12: b13: b8:slower b18:left Apple-Pen:right b7:9-7
-[A.I.C.I.S.] b38:14-8
-Botbot_b39 shot A.I.C.I.S._b38
-Botbot_b7 shot A.I.C.I.S._b38
-A.I.C.I.S._b38 shot Botbot_b39
+[Botbot] ship_15:24-13 Alexander:6-23 BC_Pilgrim:left ship_24:left Adventurer:8-18 ISS_Adventurer:right
+[A.I.C.I.S.] Dart:right DROID-starfighter:14-3 ship_10:right ship_12: ship_14: ship_16:right ship_6: ship_7: ship_4: ship_5:2-23 ship_3:22-26 SC_Juggernaut:right ARC-170:left ISS_Europa:right Geisha:slower ISS_Adventurer:faster The_Watcher:slower ship_25: ship_21:slower ship_22:9-24
+[BotLenon] Ha'tak:left The_Watcher:right Saragossa:left Geisha:left ship_11:left V-19:right
+[Pomme] ship_20:6-7 ship_1:24-19 ship_18:right V-WINGS:slower Puddle_Jumper:left TIE-FIGHTER:faster SC_Juggernaut:slower BS_Galactica:14-23 ship_17:left
+Botbot_ship_15 kill Pomme_ship_18
+Botbot_Alexander shot A.I.C.I.S._ship_22
+Botbot_Adventurer shot Pomme_Puddle_Jumper
+A.I.C.I.S._ship_5 kill Botbot_Alexander
 It's turn nb 33
-[Botbot] b5: b9: b21: amiral: b41: b30:left b23:left b31:faster b25: b19:right b37: b39:10-6 b14: b33: b16: b17:faster b11:faster b12: b13: b8:faster b18: Apple-Pen:right b7:10-6
-[A.I.C.I.S.] b38:13-7
-Botbot_b39 shot A.I.C.I.S._b38
-Botbot_b7 shot A.I.C.I.S._b38
-A.I.C.I.S._b38 shot Botbot_b39
+[Botbot] ship_15:13-13 BC_Pilgrim:right ship_24:24-4 Adventurer:left ISS_Adventurer:right
+[A.I.C.I.S.] Dart: DROID-starfighter:left ship_10:10-11 ship_12: ship_14: ship_16:slower ship_6: ship_7:left ship_4: ship_5:29-29 ship_3:30-22 SC_Juggernaut:slower ARC-170: ISS_Europa:right Geisha:faster ISS_Adventurer:slower The_Watcher:right ship_25: ship_21:faster ship_22:right
+[BotLenon] Ha'tak:faster The_Watcher:faster Saragossa:faster Geisha: ship_11:left V-19:15-4
+[Pomme] ship_20:faster ship_1:22-21 V-WINGS:slower Puddle_Jumper:left TIE-FIGHTER:slower SC_Juggernaut:faster BS_Galactica:slower ship_17:left
+A.I.C.I.S._ship_10 kill BotLenon_V-19
 It's turn nb 34
-[Botbot] b5: b9: b21: amiral: b41: b30: b23: b31:slower b25: b19: b37: b39:11-5 b14: b33: b16:11-5 b17:slower b11:slower b12: b13: b8:slower b18: Apple-Pen:left b7:
-[A.I.C.I.S.] b38:12-6
-Botbot_b39 kill A.I.C.I.S._b38
+[Botbot] ship_15:right BC_Pilgrim:left ship_24:slower Adventurer:faster ISS_Adventurer:slower
+[A.I.C.I.S.] Dart:slower DROID-starfighter:faster ship_10:16-16 ship_12: ship_14: ship_16:faster ship_6: ship_7:slower ship_4: ship_5:4-4 ship_3:30-22 SC_Juggernaut:faster ARC-170:4-8 ISS_Europa:faster Geisha:slower ISS_Adventurer:left The_Watcher:slower ship_25: ship_21:left ship_22:4-4
+[BotLenon] Ha'tak:left The_Watcher:12-21 Saragossa:left Geisha: ship_11:right
+[Pomme] ship_20:left ship_1:22-25 V-WINGS:right Puddle_Jumper:left TIE-FIGHTER:12-21 SC_Juggernaut:faster BS_Galactica:left ship_17:8-10
+A.I.C.I.S._ship_10 kill BotLenon_The_Watcher
+Pomme_ship_17 kill BotLenon_Geisha
+It's turn nb 35
+[Botbot] ship_15:right BC_Pilgrim: ship_24:slower Adventurer:3-30 ISS_Adventurer:left
+[A.I.C.I.S.] Dart:slower DROID-starfighter:slower ship_10:12-6 ship_12: ship_14: ship_16:slower ship_6: ship_7:29-4 ship_4: ship_5:1-23 ship_3:28-21 SC_Juggernaut: ARC-170:slower ISS_Europa:22-16 Geisha:left ISS_Adventurer:right The_Watcher:left ship_25: ship_21:faster ship_22:slower
+[BotLenon] Ha'tak:left Saragossa:faster ship_11:11-22
+[Pomme] ship_20:right ship_1:26-18 V-WINGS:left Puddle_Jumper:faster TIE-FIGHTER:right SC_Juggernaut:faster BS_Galactica:16-28 ship_17:1-11
+Botbot_Adventurer shot A.I.C.I.S._ship_7
+It's turn nb 36
+[Botbot] ship_15:12-21 BC_Pilgrim: ship_24:faster Adventurer:left ISS_Adventurer:left
+[A.I.C.I.S.] Dart:faster DROID-starfighter:right ship_10:6-12 ship_12: ship_14: ship_16:21-27 ship_6: ship_7:right ship_4: ship_5:1-24 ship_3:19-14 SC_Juggernaut:faster ARC-170:right ISS_Europa:right Geisha:slower ISS_Adventurer:faster The_Watcher:left ship_25: ship_21: ship_22:faster
+[BotLenon] Ha'tak:left Saragossa:14-3 ship_11:9-20
+[Pomme] ship_20:slower ship_1:12-21 V-WINGS:faster Puddle_Jumper:slower TIE-FIGHTER:right SC_Juggernaut:right BS_Galactica:right ship_17:2-14
+A.I.C.I.S._ship_16 kill Pomme_BS_Galactica
+A.I.C.I.S._ship_3 kill Botbot_BC_Pilgrim
+It's turn nb 37
+[Botbot] ship_15:11-17 ship_24:22-5 Adventurer:slower ISS_Adventurer:faster
+[A.I.C.I.S.] Dart:left DROID-starfighter:7-7 ship_10:11-17 ship_12: ship_14: ship_16:7-16 ship_6: ship_7:slower ship_4: ship_5:left ship_3:right SC_Juggernaut:faster ARC-170:slower ISS_Europa: Geisha:right ISS_Adventurer:left The_Watcher:7-19 ship_25: ship_21:slower ship_22:slower
+[BotLenon] Ha'tak:left Saragossa:faster ship_11:7-19
+[Pomme] ship_20:faster ship_1:7-16 V-WINGS:slower Puddle_Jumper:faster TIE-FIGHTER:7-17 SC_Juggernaut:slower ship_17:6-18
+Botbot_ship_24 shot A.I.C.I.S._ship_4
+A.I.C.I.S._The_Watcher shot A.I.C.I.S._SC_Juggernaut
+BotLenon_ship_11 shot A.I.C.I.S._SC_Juggernaut
+Pomme_TIE-FIGHTER shot BotLenon_ship_11
+It's turn nb 38
+[Botbot] ship_15:11-23 ship_24:right Adventurer:slower ISS_Adventurer:20-26
+[A.I.C.I.S.] Dart:right DROID-starfighter:left ship_10:11-20 ship_12: ship_14: ship_16:faster ship_6: ship_7:faster ship_4: ship_5:right ship_3:right SC_Juggernaut:5-21 ARC-170: ISS_Europa:left Geisha:right ISS_Adventurer:2-6 The_Watcher:slower ship_25: ship_21:right ship_22:faster
+[BotLenon] Ha'tak:slower Saragossa:right ship_11:left
+[Pomme] ship_20:faster ship_1:16-15 V-WINGS:faster Puddle_Jumper:11-23 TIE-FIGHTER:slower SC_Juggernaut:right ship_17:left
+Botbot_ship_15 kill A.I.C.I.S._SC_Juggernaut
+Botbot_ISS_Adventurer shot A.I.C.I.S._ship_12
+Pomme_ship_1 shot A.I.C.I.S._ship_14
+It's turn nb 39
+[Botbot] ship_15:19-24 ship_24:22-5 Adventurer:left ISS_Adventurer:slower
+[A.I.C.I.S.] Dart:slower DROID-starfighter:faster ship_10:left ship_12: ship_14: ship_16:left ship_6: ship_7: ship_4: ship_5:4-22 ship_3:16-14 ARC-170: ISS_Europa: Geisha:faster ISS_Adventurer:7-13 The_Watcher:faster ship_25: ship_21:faster ship_22:slower
+[BotLenon] Ha'tak:slower Saragossa:9-12 ship_11:slower
+[Pomme] ship_20:slower ship_1:16-15 V-WINGS:right Puddle_Jumper:4-19 TIE-FIGHTER:left SC_Juggernaut:slower ship_17:right
+Botbot_ship_24 shot A.I.C.I.S._ship_4
+A.I.C.I.S._ship_3 shot Pomme_ship_1
+BotLenon_Saragossa shot A.I.C.I.S._ISS_Adventurer
+Pomme_ship_1 kill A.I.C.I.S._ship_14
+It's turn nb 40
+[Botbot] ship_15:left ship_24:slower Adventurer:right ISS_Adventurer:right
+[A.I.C.I.S.] Dart: DROID-starfighter:left ship_10:left ship_12: ship_16:left ship_6: ship_7:left ship_4: ship_5:3-23 ship_3:21-26 ARC-170:faster ISS_Europa:right Geisha:slower ISS_Adventurer:left The_Watcher:right ship_25: ship_21:left ship_22:faster
+[BotLenon] Ha'tak:faster Saragossa:left ship_11:slower
+[Pomme] ship_20:right ship_1:17-14 V-WINGS:slower Puddle_Jumper:slower TIE-FIGHTER:faster SC_Juggernaut:right ship_17:30-11
+It's turn nb 41
+[Botbot] ship_15:left ship_24:22-5 Adventurer:faster ISS_Adventurer:
+[A.I.C.I.S.] Dart:7-9 DROID-starfighter:right ship_10:7-14 ship_12: ship_16:slower ship_6: ship_7:slower ship_4: ship_5:4-22 ship_3:24-23 ARC-170:left ISS_Europa:right Geisha:28-8 ISS_Adventurer:left The_Watcher:right ship_25: ship_21:right ship_22:left
+[BotLenon] Ha'tak:25-2 Saragossa:slower ship_11:left
+[Pomme] ship_20:faster ship_1:14-17 V-WINGS:22-26 Puddle_Jumper:26-28 TIE-FIGHTER:right SC_Juggernaut:faster ship_17:30-10
+Botbot_ship_24 shot A.I.C.I.S._ship_4
+A.I.C.I.S._ship_10 kill BotLenon_ship_11
+Pomme_ship_17 kill A.I.C.I.S._Geisha
+It's turn nb 42
+[Botbot] ship_15:12-21 ship_24:faster Adventurer:slower ISS_Adventurer:4-22
+[A.I.C.I.S.] Dart:right DROID-starfighter:left ship_10:12-14 ship_12: ship_16:faster ship_6: ship_7:left ship_4: ship_5:29-23 ship_3:13-11 ARC-170:slower ISS_Europa:left ISS_Adventurer:slower The_Watcher:slower ship_25: ship_21:left ship_22:29-23
+[BotLenon] Ha'tak:right Saragossa:22-1
+[Pomme] ship_20:7-9 ship_1:14-18 V-WINGS:faster Puddle_Jumper:right TIE-FIGHTER:slower SC_Juggernaut:left ship_17:22-5
+Botbot_ship_15 shot A.I.C.I.S._ship_16
+Botbot_ISS_Adventurer shot Pomme_Puddle_Jumper
+A.I.C.I.S._ship_10 kill Pomme_ship_20
+Pomme_ship_17 kill A.I.C.I.S._ship_4
+It's turn nb 43
+[Botbot] ship_15:4-22 ship_24: Adventurer:faster ISS_Adventurer:slower
+[A.I.C.I.S.] Dart:faster DROID-starfighter:9-2 ship_10:7-16 ship_12: ship_16:slower ship_6: ship_7:7-16 ship_5:27-19 ship_3:left ARC-170:right ISS_Europa:slower ISS_Adventurer:slower The_Watcher:27-19 ship_25: ship_21:12-10 ship_22:3-1
+[BotLenon] Ha'tak:right Saragossa:right
+[Pomme] ship_1:slower V-WINGS:19-5 Puddle_Jumper:right TIE-FIGHTER:faster SC_Juggernaut:left ship_17:1-8
+Botbot_ship_15 kill Pomme_Puddle_Jumper
+A.I.C.I.S._ship_10 shot Botbot_ship_15
+It's turn nb 44
+[Botbot] ship_15:8-22 ship_24:right Adventurer:faster ISS_Adventurer:faster
+[A.I.C.I.S.] Dart: DROID-starfighter:slower ship_10:5-2 ship_12: ship_16:faster ship_6: ship_7:faster ship_5:25-8 ship_3:left ARC-170:faster ISS_Europa:faster ISS_Adventurer:right The_Watcher:25-19 ship_25: ship_21:15-7 ship_22:left
+[BotLenon] Ha'tak:left Saragossa:25-8
+[Pomme] ship_1:faster V-WINGS:left TIE-FIGHTER:slower SC_Juggernaut:faster ship_17:23-9
+Pomme_ship_17 kill BotLenon_Saragossa
+It's turn nb 45
+[Botbot] ship_15:4-26 ship_24:faster Adventurer: ISS_Adventurer:right
+[A.I.C.I.S.] Dart:left DROID-starfighter:faster ship_10:30-2 ship_12: ship_16:right ship_6: ship_7:right ship_5:21-10 ship_3:20-19 ARC-170:11-9 ISS_Europa:right ISS_Adventurer:right The_Watcher:left ship_25: ship_21:right ship_22:left
+[BotLenon] Ha'tak:12-28
+[Pomme] ship_1:slower V-WINGS:right TIE-FIGHTER:19-30 SC_Juggernaut:right ship_17:right
+It's turn nb 46
+[Botbot] ship_15:9-16 ship_24:slower Adventurer:faster ISS_Adventurer:faster
+[A.I.C.I.S.] Dart: DROID-starfighter:faster ship_10:9-16 ship_12: ship_16:right ship_6: ship_7:faster ship_5:23-12 ship_3:16-11 ARC-170: ISS_Europa:right ISS_Adventurer:faster The_Watcher:left ship_25: ship_21:slower ship_22:right
+[BotLenon] Ha'tak:faster
+[Pomme] ship_1:16-15 V-WINGS:left TIE-FIGHTER:faster SC_Juggernaut:4-13 ship_17:right
+Botbot_ship_15 kill Pomme_SC_Juggernaut
+Pomme_ship_1 kill A.I.C.I.S._ARC-170
+It's turn nb 47
+[Botbot] ship_15:right ship_24:right Adventurer:right ISS_Adventurer:slower
+[A.I.C.I.S.] Dart:faster DROID-starfighter:left ship_10:3-12 ship_12: ship_16: ship_6: ship_7:left ship_5:19-14 ship_3:16-11 ISS_Europa:26-30 ISS_Adventurer:right The_Watcher:right ship_25: ship_21:left ship_22:26-30
+[BotLenon] Ha'tak:slower
+[Pomme] ship_1:16-11 V-WINGS:slower TIE-FIGHTER:right ship_17:20-2
+It's turn nb 48
+[Botbot] ship_15:right ship_24:slower Adventurer:right ISS_Adventurer:right
+[A.I.C.I.S.] Dart:slower DROID-starfighter:slower ship_10:slower ship_12: ship_16: ship_6: ship_7:slower ship_5:19-14 ship_3:19-14 ISS_Europa:left ISS_Adventurer:left The_Watcher: ship_25: ship_21:faster ship_22:23-30
+[BotLenon] Ha'tak:
+[Pomme] ship_1:18-12 V-WINGS:faster TIE-FIGHTER:13-12 ship_17:15-12
+A.I.C.I.S._ship_22 kill BotLenon_Ha'tak
+Pomme_TIE-FIGHTER shot A.I.C.I.S._ship_6
+It's turn nb 49
+[Botbot] ship_15:27-10 ship_24:16-17 Adventurer:left ISS_Adventurer:slower
+[A.I.C.I.S.] Dart:right DROID-starfighter:faster ship_10:faster ship_12: ship_16:slower ship_6: ship_7:faster ship_5:16-17 ship_3:16-17 ISS_Europa:slower ISS_Adventurer:right The_Watcher:slower ship_25: ship_21:slower ship_22:
+BotLenon has lost all these ships, so he has nothing to do.
+[Pomme] ship_1:11-10 V-WINGS:right TIE-FIGHTER:faster ship_17:27-10
+It's turn nb 50
+[Botbot] ship_15:right ship_24:faster Adventurer:left ISS_Adventurer:13-12
+[A.I.C.I.S.] Dart:right DROID-starfighter:18-19 ship_10:slower ship_12: ship_16:faster ship_6: ship_7:left ship_5:18-19 ship_3:right ISS_Europa:faster ISS_Adventurer:faster The_Watcher:faster ship_25: ship_21:faster ship_22:18-19
+BotLenon has lost all these ships, so he has nothing to do.
+[Pomme] ship_1:11-12 V-WINGS:right TIE-FIGHTER:faster ship_17:22-15
+Botbot_ISS_Adventurer shot A.I.C.I.S._ship_6
+Pomme_ship_1 kill Botbot_ISS_Adventurer
+It's turn nb 51
+[Botbot] ship_15:slower ship_24:slower Adventurer:8-13
+[A.I.C.I.S.] Dart:slower DROID-starfighter:left ship_10:faster ship_12: ship_16:slower ship_6: ship_7:faster ship_5:19-13 ship_3:right ISS_Europa:slower ISS_Adventurer:faster The_Watcher:22-21 ship_25: ship_21: ship_22:22-21
+BotLenon has lost all these ships, so he has nothing to do.
+[Pomme] ship_1:19-13 V-WINGS:21-16 TIE-FIGHTER:left ship_17:21-16
+A.I.C.I.S._The_Watcher shot Pomme_V-WINGS
+A.I.C.I.S._ship_22 kill Pomme_V-WINGS
+It's turn nb 52
+[Botbot] ship_15:faster ship_24:faster Adventurer:left
+[A.I.C.I.S.] Dart:slower DROID-starfighter: ship_10:slower ship_12: ship_16:faster ship_6: ship_7:right ship_5:18-12 ship_3:30-17 ISS_Europa:faster ISS_Adventurer:right The_Watcher:left ship_25: ship_21:right ship_22:
+BotLenon has lost all these ships, so he has nothing to do.
+[Pomme] ship_1:12-11 TIE-FIGHTER:left ship_17:23-18
+It's turn nb 53
+[Botbot] ship_15:slower ship_24:19-15 Adventurer:29-9
+[A.I.C.I.S.] Dart:slower DROID-starfighter:faster ship_10:faster ship_12: ship_16:left ship_6: ship_7:slower ship_5:20-14 ship_3:25-7 ISS_Europa:right ISS_Adventurer:left The_Watcher:right ship_25: ship_21:right ship_22:20-14
+BotLenon has lost all these ships, so he has nothing to do.
+[Pomme] ship_1:7-21 TIE-FIGHTER: ship_17:7-21
+A.I.C.I.S._ship_22 kill Botbot_ship_24
+It's turn nb 54
+[Botbot] ship_15:faster Adventurer:slower
+[A.I.C.I.S.] Dart:faster DROID-starfighter:slower ship_10:right ship_12: ship_16:left ship_6: ship_7: ship_5:12-10 ship_3:1-17 ISS_Europa: ISS_Adventurer:right The_Watcher:slower ship_25: ship_21:left ship_22:15-14
+BotLenon has lost all these ships, so he has nothing to do.
+[Pomme] ship_1:faster TIE-FIGHTER:left ship_17:left
+It's turn nb 55
+[Botbot] ship_15:slower Adventurer:slower
+[A.I.C.I.S.] Dart:left DROID-starfighter:slower ship_10:right ship_12: ship_16:left ship_6: ship_7:faster ship_5:17-29 ship_3:1-19 ISS_Europa:right ISS_Adventurer:right The_Watcher:faster ship_25: ship_21:left ship_22:14-13
+BotLenon has lost all these ships, so he has nothing to do.
+[Pomme] ship_1:right TIE-FIGHTER:slower ship_17:left
+It's turn nb 56
+[Botbot] ship_15:faster Adventurer:right
+[A.I.C.I.S.] Dart:slower DROID-starfighter:faster ship_10: ship_12: ship_16:left ship_6: ship_7: ship_5:15-27 ship_3:1-18 ISS_Europa:slower ISS_Adventurer:right The_Watcher:faster ship_25: ship_21: ship_22:15-17
+BotLenon has lost all these ships, so he has nothing to do.
+[Pomme] ship_1:right TIE-FIGHTER:right ship_17:left
+A.I.C.I.S._ship_3 kill A.I.C.I.S._DROID-starfighter
+It's turn nb 57
+[Botbot] ship_15:slower Adventurer:left
+[A.I.C.I.S.] Dart:right ship_10: ship_12: ship_16:1-20 ship_6: ship_7: ship_5:right ship_3:1-20 ISS_Europa:left ISS_Adventurer:slower The_Watcher:slower ship_25: ship_21:faster ship_22:11-21
+BotLenon has lost all these ships, so he has nothing to do.
+[Pomme] ship_1:13-12 TIE-FIGHTER:left ship_17:left
+Pomme_ship_1 shot A.I.C.I.S._ship_6
+It's turn nb 58
+[Botbot] ship_15:faster Adventurer:faster
+[A.I.C.I.S.] Dart:left ship_10: ship_12: ship_16:7-13 ship_6: ship_7:slower ship_5:right ship_3:1-19 ISS_Europa:left ISS_Adventurer:slower The_Watcher:slower ship_25: ship_21: ship_22:7-13
+BotLenon has lost all these ships, so he has nothing to do.
+[Pomme] ship_1:13-12 TIE-FIGHTER:faster ship_17:13-12
+Pomme_ship_1 kill A.I.C.I.S._ship_6
+It's turn nb 59
+[Botbot] ship_15:slower Adventurer:slower
+[A.I.C.I.S.] Dart:faster ship_10:17-8 ship_12: ship_16:4-19 ship_7:slower ship_5: ship_3:4-19 ISS_Europa:faster ISS_Adventurer:slower The_Watcher:faster ship_25: ship_21:4-19 ship_22:1-7
+BotLenon has lost all these ships, so he has nothing to do.
+[Pomme] ship_1:11-17 TIE-FIGHTER:slower ship_17:11-17
+A.I.C.I.S._ship_10 shot Pomme_ship_17
+It's turn nb 60
+[Botbot] ship_15:faster Adventurer:slower
+[A.I.C.I.S.] Dart:faster ship_10:28-4 ship_12: ship_16:2-17 ship_7:right ship_5: ship_3:left ISS_Europa:slower ISS_Adventurer:slower The_Watcher:right ship_25: ship_21:left ship_22:5-14
+BotLenon has lost all these ships, so he has nothing to do.
+[Pomme] ship_1:9-19 TIE-FIGHTER:slower ship_17:25-8
+A.I.C.I.S._ship_22 shot Pomme_ship_1
+It's turn nb 61
+[Botbot] ship_15:slower Adventurer:right
+[A.I.C.I.S.] Dart:right ship_10:19-6 ship_12: ship_16:1-16 ship_7: ship_5:26-2 ship_3:left ISS_Europa:right ISS_Adventurer:faster The_Watcher:faster ship_25: ship_21:right ship_22:4-15
+BotLenon has lost all these ships, so he has nothing to do.
+[Pomme] ship_1:1-16 TIE-FIGHTER: ship_17:25-11
+A.I.C.I.S._ship_10 shot Pomme_ship_17
+It's turn nb 62
+[Botbot] ship_15:faster Adventurer:slower
+[A.I.C.I.S.] Dart:left ship_10:20-5 ship_12: ship_16:29-18 ship_7:faster ship_5: ship_3:right ISS_Europa:slower ISS_Adventurer: The_Watcher:left ship_25: ship_21:faster ship_22:left
+BotLenon has lost all these ships, so he has nothing to do.
+[Pomme] ship_1:29-18 TIE-FIGHTER:slower ship_17:21-1
+A.I.C.I.S._ship_10 shot Pomme_ship_17
+Pomme_ship_17 shot A.I.C.I.S._ship_25
+It's turn nb 63
+[Botbot] ship_15:slower Adventurer:slower
+[A.I.C.I.S.] Dart:right ship_10:21-4 ship_12: ship_16:2-17 ship_7:slower ship_5: ship_3:right ISS_Europa:left ISS_Adventurer:slower The_Watcher:faster ship_25: ship_21: ship_22:left
+BotLenon has lost all these ships, so he has nothing to do.
+[Pomme] ship_1:29-18 TIE-FIGHTER:faster ship_17:21-1
+A.I.C.I.S._ship_10 shot Pomme_ship_17
+A.I.C.I.S._ship_16 shot Pomme_ship_1
+Pomme_ship_17 kill A.I.C.I.S._ship_25
+It's turn nb 64
+[Botbot] ship_15:27-21 Adventurer:left
+[A.I.C.I.S.] Dart:left ship_10:22-3 ship_12: ship_16:slower ship_7:slower ship_5: ship_3:left ISS_Europa:faster ISS_Adventurer: The_Watcher:slower ship_21:slower ship_22:
+BotLenon has lost all these ships, so he has nothing to do.
+[Pomme] ship_1:30-18 TIE-FIGHTER:20-26 ship_17:20-26
+Pomme_ship_1 kill Botbot_Adventurer
+Pomme_TIE-FIGHTER shot A.I.C.I.S._ship_12
+Pomme_ship_17 kill A.I.C.I.S._ship_12
+It's turn nb 65
+[Botbot] ship_15:2-19
+[A.I.C.I.S.] Dart:right ship_10: ship_16:faster ship_7:left ship_5: ship_3:15-21 ISS_Europa:faster ISS_Adventurer:right The_Watcher:30-19 ship_21:left ship_22:
+BotLenon has lost all these ships, so he has nothing to do.
+[Pomme] ship_1:29-19 TIE-FIGHTER:faster ship_17:slower
+Botbot_ship_15 kill A.I.C.I.S._The_Watcher
+It's turn nb 66
+[Botbot] ship_15:3-21
+[A.I.C.I.S.] Dart:slower ship_10:right ship_16:slower ship_7:faster ship_5: ship_3:29-20 ISS_Europa:slower ISS_Adventurer:left ship_21: ship_22:
+BotLenon has lost all these ships, so he has nothing to do.
+[Pomme] ship_1:3-21 TIE-FIGHTER:slower ship_17:faster
+A.I.C.I.S._ship_3 shot Pomme_ship_1
+It's turn nb 67
+[Botbot] ship_15:3-21
+[A.I.C.I.S.] Dart:28-21 ship_10:right ship_16:faster ship_7:left ship_5: ship_3:28-21 ISS_Europa:left ISS_Adventurer:right ship_21:slower ship_22:
+BotLenon has lost all these ships, so he has nothing to do.
+[Pomme] ship_1:3-21 TIE-FIGHTER:slower ship_17:right
+Botbot_ship_15 kill A.I.C.I.S._Dart
+A.I.C.I.S._ship_3 kill Pomme_ship_1
+It's turn nb 68
+[Botbot] ship_15:faster
+[A.I.C.I.S.] ship_10:left ship_16:7-13 ship_7:right ship_5:left ship_3:23-30 ISS_Europa: ISS_Adventurer:right ship_21:faster ship_22:23-30
+BotLenon has lost all these ships, so he has nothing to do.
+[Pomme] TIE-FIGHTER:faster ship_17:right
+It's turn nb 69
+[Botbot] ship_15:slower
+[A.I.C.I.S.] ship_10:left ship_16:3-9 ship_7:left ship_5:left ship_3:right ISS_Europa: ISS_Adventurer:faster ship_21:21-29 ship_22:21-29
+BotLenon has lost all these ships, so he has nothing to do.
+[Pomme] TIE-FIGHTER:right ship_17:17-25
+A.I.C.I.S._ship_21 shot Pomme_ship_17
+A.I.C.I.S._ship_22 kill Pomme_ship_17
+It's turn nb 70
+[Botbot] ship_15:faster
+[A.I.C.I.S.] ship_10: ship_16:slower ship_7:right ship_5:right ship_3:left ISS_Europa:slower ISS_Adventurer: ship_21:faster ship_22:right
+BotLenon has lost all these ships, so he has nothing to do.
+[Pomme] TIE-FIGHTER:slower
+It's turn nb 71
+[Botbot] ship_15:slower
+[A.I.C.I.S.] ship_10: ship_16:faster ship_7:right ship_5:right ship_3:right ISS_Europa:slower ISS_Adventurer:faster ship_21:slower ship_22:right
+BotLenon has lost all these ships, so he has nothing to do.
+[Pomme] TIE-FIGHTER:left
+It's turn nb 72
+[Botbot] ship_15:faster
+[A.I.C.I.S.] ship_10: ship_16:right ship_7:left ship_5:27-8 ship_3:left ISS_Europa:faster ISS_Adventurer:slower ship_21:faster ship_22:
+BotLenon has lost all these ships, so he has nothing to do.
+[Pomme] TIE-FIGHTER:26-13
+A.I.C.I.S._ship_5 kill Pomme_TIE-FIGHTER
+It's turn nb 73
+[Botbot] ship_15:right
+[A.I.C.I.S.] ship_10: ship_16:right ship_7:faster ship_5: ship_3:right ISS_Europa:faster ISS_Adventurer:slower ship_21:slower ship_22:
+BotLenon has lost all these ships, so he has nothing to do.
+Pomme has lost all these ships, so he has nothing to do.
+It's turn nb 74
+[Botbot] ship_15:right
+[A.I.C.I.S.] ship_10: ship_16: ship_7:left ship_5: ship_3: ISS_Europa:slower ISS_Adventurer:faster ship_21:slower ship_22:
+BotLenon has lost all these ships, so he has nothing to do.
+Pomme has lost all these ships, so he has nothing to do.
+It's turn nb 75
+[Botbot] ship_15:right
+[A.I.C.I.S.] ship_10: ship_16: ship_7: ship_5: ship_3:left ISS_Europa:left ISS_Adventurer:left ship_21:left ship_22:
+BotLenon has lost all these ships, so he has nothing to do.
+Pomme has lost all these ships, so he has nothing to do.
+It's turn nb 76
+[Botbot] ship_15:6-22
+[A.I.C.I.S.] ship_10:5-24 ship_16: ship_7:faster ship_5: ship_3:left ISS_Europa:faster ISS_Adventurer:faster ship_21:left ship_22:5-24
+BotLenon has lost all these ships, so he has nothing to do.
+Pomme has lost all these ships, so he has nothing to do.
+A.I.C.I.S._ship_10 shot Botbot_ship_15
+A.I.C.I.S._ship_22 shot Botbot_ship_15
+It's turn nb 77
+[Botbot] ship_15:30-22
+[A.I.C.I.S.] ship_10:6-23 ship_16: ship_7:slower ship_5: ship_3:6-23 ISS_Europa:faster ISS_Adventurer: ship_21:right ship_22:6-23
+BotLenon has lost all these ships, so he has nothing to do.
+Pomme has lost all these ships, so he has nothing to do.
+A.I.C.I.S._ship_10 kill Botbot_ship_15
