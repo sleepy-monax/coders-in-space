@@ -1,32 +1,59 @@
-[Botbot] Adventurer:fighter Ha'tak:fighter Puddle_Jumper:fighter SC_Juggernaut:fighter TIE-FIGHTER:fighter V-19:fighter X-WINGS:fighter The_Watcher:fighter Saragossa:fighter ARC-170:fighter
-[A.I.C.I.S.] Adventurer:fighter DROID-starfighter:fighter Ha'tak:fighter Dart:fighter BS_Galactica:fighter BC_Pilgrim:fighter ARC-170:fighter Puddle_Jumper:fighter ISS_Adventurer:fighter TIE-FIGHTER:fighter
+[Botbot] Geisha:fighter Adventurer:fighter V-WINGS:fighter Alexander:fighter ISS_Adventurer:fighter Juno:destroyer Palatine:battlecruiser
+[A.I.C.I.S.] DROID-starfighter:fighter Alexander:fighter Dart:fighter Geisha:fighter V-19:fighter Medusa:destroyer Emperor's_Fury:battlecruiser
 It's turn nb 0
-[Botbot] Puddle_Jumper:faster Ha'tak:faster The_Watcher:faster Saragossa:faster Adventurer:faster TIE-FIGHTER:faster V-19:faster SC_Juggernaut:faster X-WINGS:faster ARC-170:faster
-[A.I.C.I.S.] BC_Pilgrim:faster Dart:faster Adventurer:faster Ha'tak:faster ISS_Adventurer:faster BS_Galactica:faster DROID-starfighter:faster ARC-170:faster Puddle_Jumper:faster TIE-FIGHTER:faster
+[Botbot] Alexander:faster ISS_Adventurer:faster V-WINGS:faster Geisha:faster Juno:faster Adventurer:faster Palatine:faster
+[A.I.C.I.S.] Geisha:faster Alexander:faster Dart:faster DROID-starfighter:faster Emperor's_Fury:faster V-19:faster Medusa:faster
 It's turn nb 1
-[Botbot] Puddle_Jumper:faster Ha'tak:faster The_Watcher:right Saragossa:faster Adventurer:left TIE-FIGHTER:right V-19:faster SC_Juggernaut:right X-WINGS:faster ARC-170:right
-[A.I.C.I.S.] BC_Pilgrim:left Dart:faster Adventurer:left Ha'tak:faster ISS_Adventurer:faster BS_Galactica:right DROID-starfighter:left ARC-170:right Puddle_Jumper:faster TIE-FIGHTER:right
+[Botbot] Alexander:faster ISS_Adventurer:faster V-WINGS:faster Geisha:left Juno:right Adventurer:left Palatine:left
+[A.I.C.I.S.] Geisha:left Alexander:left Dart:faster DROID-starfighter:left Emperor's_Fury:left V-19:left Medusa:faster
 It's turn nb 2
-[Botbot] Puddle_Jumper:faster Ha'tak:faster The_Watcher:right Saragossa:faster Adventurer:faster TIE-FIGHTER:faster V-19:faster SC_Juggernaut:right X-WINGS:faster ARC-170:right
-[A.I.C.I.S.] BC_Pilgrim:faster Dart:faster Adventurer:faster Ha'tak:faster ISS_Adventurer:left BS_Galactica:faster DROID-starfighter:faster ARC-170:right Puddle_Jumper:right TIE-FIGHTER:faster
+[Botbot] Alexander:faster ISS_Adventurer:faster V-WINGS:faster Geisha:left Juno:right Adventurer:left Palatine:left
+[A.I.C.I.S.] Geisha:left Alexander:left Dart:faster DROID-starfighter:left Emperor's_Fury:left V-19:left Medusa:
 It's turn nb 3
-[Botbot] Puddle_Jumper:right Ha'tak:right The_Watcher:faster Saragossa:right Adventurer:left TIE-FIGHTER:right V-19:right SC_Juggernaut: X-WINGS:right ARC-170:faster
-[A.I.C.I.S.] BC_Pilgrim:faster Dart:slower Adventurer:left Ha'tak:faster ISS_Adventurer:faster BS_Galactica:faster DROID-starfighter:left ARC-170:faster Puddle_Jumper:left TIE-FIGHTER:right
-A.I.C.I.S. as take A.I.C.I.S._Eos129 !
-A.I.C.I.S. as take A.I.C.I.S._Aleksander86 !
-Botbot as take Botbot_[Legandary]Nicolas's_Spaceships !
+[Botbot] Alexander:right ISS_Adventurer: V-WINGS: Geisha:faster Juno:faster Adventurer:faster Palatine:
+[A.I.C.I.S.] Geisha:left Alexander:faster Dart:faster DROID-starfighter:faster Emperor's_Fury: V-19:faster Medusa:left
 It's turn nb 4
-[Botbot] Puddle_Jumper:slower Ha'tak:faster The_Watcher:slower Saragossa:slower [Legandary]Nicolas's_Spaceships:faster Adventurer:faster TIE-FIGHTER:left V-19:slower SC_Juggernaut:faster X-WINGS:faster ARC-170:slower
-[A.I.C.I.S.] BC_Pilgrim:faster Dart:right Eos129:faster Adventurer:faster Ha'tak:faster ISS_Adventurer:faster BS_Galactica:faster DROID-starfighter:faster Aleksander86:faster ARC-170:left Puddle_Jumper:right TIE-FIGHTER:faster
-Botbot as take Botbot_Phobos26 !
-A.I.C.I.S. as take A.I.C.I.S._Meleager91 !
+[Botbot] Alexander: ISS_Adventurer:right V-WINGS:right Geisha:faster Juno: Adventurer:faster Palatine:
+[A.I.C.I.S.] Geisha:left Alexander:left Dart:faster DROID-starfighter:faster Emperor's_Fury: V-19:left Medusa:right
 It's turn nb 5
-[Botbot] Puddle_Jumper:slower Ha'tak:slower The_Watcher:left Saragossa:left Phobos26:faster [Legandary]Nicolas's_Spaceships:left Adventurer:faster TIE-FIGHTER: V-19:left SC_Juggernaut:right X-WINGS:left ARC-170:
-[A.I.C.I.S.] BC_Pilgrim:slower Dart:right Eos129: Adventurer:right Ha'tak:left ISS_Adventurer:faster BS_Galactica:right DROID-starfighter:faster Aleksander86:left ARC-170:faster Meleager91:faster Puddle_Jumper:faster TIE-FIGHTER:faster
-Botbot as take Botbot_Amphitrite63 !
-A.I.C.I.S. as take A.I.C.I.S._Ragnorak95 !
-A.I.C.I.S. as take A.I.C.I.S._Merrimack85 !
-Botbot as take Botbot_Huey_Long84 !
-A.I.C.I.S. as take A.I.C.I.S._Aeneas39 !
-Botbot as take Botbot_Hurricane78 !
+[Botbot] Alexander: ISS_Adventurer:right V-WINGS:right Geisha:faster Juno:left Adventurer:faster Palatine:11-11
+[A.I.C.I.S.] Geisha: Alexander:slower Dart: DROID-starfighter:faster Emperor's_Fury: V-19:slower Medusa:25-19
+Botbot_Palatine kill A.I.C.I.S._Dart
 It's turn nb 6
+[Botbot] Alexander:left ISS_Adventurer:faster V-WINGS:faster Geisha:faster Juno:right Adventurer:faster Palatine:4-15
+[A.I.C.I.S.] Geisha:left Alexander:right DROID-starfighter:faster Emperor's_Fury:37-26 V-19:right Medusa:28-16
+A.I.C.I.S. as take A.I.C.I.S._Helios15 !
+A.I.C.I.S. as take A.I.C.I.S._Scion30 !
+It's turn nb 7
+[Botbot] Alexander:left ISS_Adventurer:right V-WINGS:right Geisha:left Juno: Adventurer:38-24 Palatine:10-9
+[A.I.C.I.S.] Geisha: Alexander:slower DROID-starfighter:slower Helios15:faster Emperor's_Fury:31-32 Scion30:faster V-19:left Medusa:
+A.I.C.I.S. as take A.I.C.I.S._Kimera22 !
+It's turn nb 8
+[Botbot] Alexander:left ISS_Adventurer:right V-WINGS:right Geisha:left Juno: Adventurer:34-33 Palatine:3-12
+[A.I.C.I.S.] Geisha:faster Alexander:faster Kimera22:26-27 DROID-starfighter:slower Helios15:left Emperor's_Fury:26-27 Scion30:left V-19:left Medusa:
+It's turn nb 9
+[Botbot] Alexander:left ISS_Adventurer:faster V-WINGS:slower Geisha:slower Juno: Adventurer:left Palatine:4-11
+[A.I.C.I.S.] Geisha: Alexander:left Kimera22:faster DROID-starfighter:right Helios15:left Emperor's_Fury:3-20 Scion30:left V-19:left Medusa:left
+It's turn nb 10
+[Botbot] Alexander:left ISS_Adventurer:right V-WINGS:slower Geisha:slower Juno:right Adventurer:right Palatine:40-24
+[A.I.C.I.S.] Geisha:faster Alexander:faster Kimera22:right DROID-starfighter:right Helios15:faster Emperor's_Fury:right Scion30:left V-19:left Medusa:left
+It's turn nb 11
+[Botbot] Alexander:left ISS_Adventurer:slower V-WINGS: Geisha:faster Juno: Adventurer:left Palatine:3-24
+[A.I.C.I.S.] Geisha:right Alexander:left Kimera22:right DROID-starfighter:right Helios15: Emperor's_Fury:1-22 Scion30:faster V-19:left Medusa:left
+It's turn nb 12
+[Botbot] Alexander:left ISS_Adventurer:slower V-WINGS:right Geisha:right Juno: Adventurer:slower Palatine:5-28
+[A.I.C.I.S.] Geisha:faster Alexander:faster Kimera22:40-23 DROID-starfighter: Helios15:6-2 Emperor's_Fury:40-23 Scion30:right V-19: Medusa:left
+Botbot as take Botbot_Bucephalus36 !
+A.I.C.I.S. as take A.I.C.I.S._Titan25 !
+A.I.C.I.S._Kimera22 shot Botbot_Palatine
+A.I.C.I.S._Emperor's_Fury shot Botbot_Palatine
+It's turn nb 13
+[Botbot] Alexander:left Bucephalus36:faster ISS_Adventurer:left V-WINGS:faster Geisha:faster Juno: Adventurer:left Palatine:35-28
+[A.I.C.I.S.] Geisha:faster Alexander:faster Kimera22:39-24 DROID-starfighter:3-2 Helios15:3-2 Emperor's_Fury:39-24 Scion30:left V-19:left Medusa:25-13 Titan25:
+Botbot as take Botbot_Cerberus33 !
+Botbot as take Botbot_Eos38 !
+Botbot as take Botbot_Meleager18 !
+A.I.C.I.S. as take A.I.C.I.S._FrenayAcceleray !
+A.I.C.I.S._Kimera22 shot Botbot_Palatine
+A.I.C.I.S._Emperor's_Fury shot Botbot_Palatine
+It's turn nb 14

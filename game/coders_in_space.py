@@ -211,7 +211,7 @@ def initialize_game(level_name, players_names, players_types, max_rounds_count, 
             if index_player == 0:
                 game_data['players'][player]['ships_starting_point'] = (9, 9)
                 game_data['players'][player]['ships_starting_facing'] = (1, 1)
-                game_data['players'][player]['color'] = 'red'
+                game_data['players'][player]['color'] = 'green'
 
             elif index_player == 1:
                 game_data['players'][player]['ships_starting_point'] = (
@@ -261,8 +261,7 @@ def do_moves(game_data):
     """
     for ship in game_data['ships']:
         location = game_data['ships'][ship]['location']
-        facing = game_data['ships'][ship]['facing']
-        new_location = predict_next_pos(game_data, ship, facing)
+        new_location = predict_next_location(game_data, ship)
 
         # Move the ship.
         game_data['board'][location].remove(ship)
@@ -495,21 +494,22 @@ def get_human_input(player_name, buy_ship, game_data):
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
     Implementation: Nicolas Van Bosuyt (v1. 22/02/17)
     """
-    while True:
-        # Setup main canvas.
-        screen_size = get_terminal_size()
+    # Setup main canvas.
+    screen_size = get_terminal_size()
 
-        # Show the game board to the human player.
-        show_game_board(game_data)
-        # Getting human player input.
-        c = create_canvas(screen_size[0], 5)
-        c = put_box(c, 0, 0, screen_size[0], 5, 'single')
-        c = put_text(c, 1, 0, '| PLAYER INPUT |')
-        print_canvas(c, screen_size[1] - 4, 0)
+    # Show the game board to the human player.
+    show_game_board(game_data)
 
-        player_input = raw_input(set_color('\033[%d;%dH %s>' % (screen_size[1] - 2, 3, player_name),
-                                           game_data['players'][player_name]['color'], 'white'))
-        return player_input
+    # Add a input box.
+    c = create_canvas(screen_size[0], 5)
+    c = put_box(c, 0, 0, screen_size[0], 5, 'single')
+    c = put_text(c, 1, 0, '| PLAYER INPUT |')
+    print_canvas(c, screen_size[1] - 4, 0)
+
+    # Getting human player input.
+    player_input = raw_input(set_color('\033[%d;%dH %s>' % (screen_size[1] - 2, 3, player_name),
+                                       game_data['players'][player_name]['color'], 'white'))
+    return player_input
 
 
 def get_remote_input(game_data, player_name):
@@ -551,15 +551,17 @@ def get_ai_input(game_data, player_name):
     Implementation: Nicolas Van Bossuyt (v1. 16/03/17)
                     Nicolas Van Bossuyt (v2. 26/04/17)
     """
-    action = ['faster', 'slower', 'left', 'right', 'attack']
-
+    screen_size = get_terminal_size()
     ai_input = ''
-
-    for ship_name in get_ship_by_owner(game_data['ships'], player_name):
-
+    ai_ships = get_ship_by_owner(game_data['ships'], player_name)
+    ship_index = 0
+    for ship_name in ai_ships:
+        ship_index += 1
         ship = game_data['ships'][ship_name]
-        print "\033[0;0H Thinking: %s..." % ship_name
-        ship_order = ''
+
+        # print '\033[0;0H   ' + player_name + ' ' * 3
+        # print '   Thinking : %d/%d   ' % (ship_index, len(ai_ships))
+
         if ship['type'] == 'fighter':
             ship_order = get_fighter_action(game_data, ship_name, player_name)
         else:
@@ -595,13 +597,12 @@ def get_ai_spaceships(player_name, game_data):
 
     fighters_names = ['ARC-170', 'V-19', 'V-WINGS', 'X-WINGS', 'TIE-FIGHTER', 'DROID-starfighter', 'Ha\'tak', 'Dart',
                       'Puddle_Jumper', 'Geisha', 'Saragossa', 'Adventurer', 'The_Watcher', 'Alexander',
-                      'ISS_Adventurer',
-                      'BS_Galactica', 'SC_Juggernaut', 'ISS_Europa', 'BC_Pilgrim']
+                      'ISS_Adventurer', 'BS_Galactica', 'SC_Juggernaut', 'ISS_Europa', 'BC_Pilgrim']
 
-    destroyers_names = ['Achilles', 'Agamemnon', 'Agrippa', 'Alexander', 'Apollo', 'Cadmus',
-                        'Cerberus', 'Charon', 'Churchill', 'Damocles', 'Delphi', 'Excalibur', 'Furies', 'Heracles',
-                        'Heraclion', 'Hermes', 'Hydra', 'Juno', 'Medusa', 'Nemesis', 'Nimrod', 'Olympic', 'Orion',
-                        'Persephone', 'Pollux', 'Pournelle', 'Roanoke', 'Talos', 'Theseus', 'Vesta', 'Zeus']
+    destroyers_names = ['Achilles', 'Agamemnon', 'Agrippa', 'Apollo', 'Cadmus', 'Cerberus', 'Charon',
+                        'Churchill', 'Damocles', 'Delphi', 'Excalibur', 'Furies', 'Heracles', 'Heraclion', 'Hermes',
+                        'Hydra', 'Juno', 'Medusa', 'Nemesis', 'Nimrod', 'Olympic', 'Orion', 'Persephone', 'Pollux',
+                        'Pournelle', 'Roanoke', 'Talos', 'Theseus', 'Vesta', 'Zeus']
 
     battlecruisers_names = ['Aeneas', 'Aleksander', 'Amphitrite', 'Antigone', 'Bismarck', 'Bucephalus', 'Cerberus',
                             'Circe', 'Cyrus', 'Emperor\'s_Fury', 'Eos', 'Fury', 'Gray_Tiger', 'Helios', 'Hephaestus',
@@ -622,7 +623,7 @@ def get_ai_spaceships(player_name, game_data):
         ships_patern = ['b', 'b', 'd', 'd']
     else:
 
-        if abandonned_ships_count >= 15:
+        if abandonned_ships_count >= 50:
             ships_patern = ['f', 'f', 'f', 'f', 'f', 'f', 'f', 'f', 'f', 'f']
 
         elif abandonned_ships_count >= 10:
@@ -640,7 +641,7 @@ def get_ai_spaceships(player_name, game_data):
 
         if ship_type == 'fighter':
             ship_name = fighters_names.pop()
-        elif shipe_type == 'destroyer':
+        elif ship_type == 'destroyer':
             ship_name = destroyers_names.pop()
         elif ship_type == 'battlecruiser':
             ship_name = battlecruisers_names.pop()
@@ -656,23 +657,23 @@ def get_ai_spaceships(player_name, game_data):
 
 def get_fighter_action(game_data, ship_name, owner):
     """
-	Get action for a fighter.
-
-	Parameters
-	----------
-	game_data: data of the game (dic).
-	ship:      name of the ship to get input from (dic).
-	owner:     name of the owner of the ship (str).
-
-	Return
-	------
-	action: action for this ship(str).
-
-	Version
-	-------
-	Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17)
-	Implementation: Bayron Mahy, Nicolas Van Bossuyt (v1. 28/04/17)
-	"""
+    Get action for a fighter.
+    
+    Parameters
+    ----------
+    game_data: data of the game (dic).
+    ship: name of the ship to get input from (dic).
+    owner: name of the owner of the ship (str).
+    
+    Return
+    ------
+    action: action for this ship(str).
+    
+    Version
+    -------
+    Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17)
+    Implementation: Bayron Mahy, Nicolas Van Bossuyt (v1. 28/04/17)
+    """
 
     ship = game_data['ships'][ship_name]
     if ship['objective'] == 'none' or len(ship['objective_path']) == 0 or not ship['objective'] in game_data['ships']:
@@ -926,7 +927,7 @@ def speed(game_data, ship, change):
 
 def attack(game_data, ship):
     """
-	Attack command of AICIS.
+    Attack command of AICIS.
 
     Parameters
     ----------
@@ -953,8 +954,8 @@ def attack(game_data, ship):
         ships_targeted = []
 
         for perhaps_target in nearby_ships:
-            if game_data['ships'][perhaps_target]['owner'] != ship_owner and game_data['ships'][perhaps_target][
-                'owner'] != 'none':
+            if game_data['ships'][perhaps_target]['owner'] != ship_owner and\
+               game_data['ships'][perhaps_target]['owner'] != 'none':
                 ships_targeted.append(perhaps_target)
 
         if len(ships_targeted) > 0:
@@ -965,7 +966,7 @@ def attack(game_data, ship):
                 targets_life.append(game_data['ships'][target]['heal_points'])
 
             final_target = ships_targeted[targets_life.index(min(targets_life))]
-            target_location = predict_next_pos(game_data, final_target, game_data['ships'][final_target]['facing'])
+            target_location = predict_next_location(game_data, final_target)
             return '%d-%d' % (target_location[1] + 1, target_location[0] + 1)
 
     return ''
@@ -990,29 +991,29 @@ def path_finding(start_node, max_speed, end_node, board_size, path=[], max_dista
 
     Return
     ------
-    shortess_path: the shortest path to the end node (list(nodes)).
+    shortess_path: the shortest path to the end node (list(steps)).
     """
-    nodes = get_next_step(start_node, end_node, max_speed, board_size)
+    steps = get_next_step(start_node, end_node, max_speed, board_size)
 
-    dict_sort(nodes, 'distance')
+    dict_sort(steps, 'distance')
 
     max_distance -= 1
 
     if max_distance == 0:
         return False, None
 
-    for node in nodes:
+    for step in steps:
         new_path = list(path)
-        new_path.append(node)
+        new_path.append(step)
 
-        if node['location'] == end_node['location']:
+        if step['location'] == end_node['location']:
             # show_path(new_path, end_node, board_size)
             return True, new_path
         else:
-            objective_finded, path_to_objective = path_finding(node, max_speed, end_node, board_size, new_path,
-                                                               max_distance)
+            objective_find, path_to_objective = path_finding(step, max_speed, end_node,
+                                                             board_size, new_path, max_distance)
 
-            if objective_finded:
+            if objective_find:
                 return True, path_to_objective
 
     return False, path
@@ -1040,32 +1041,32 @@ def get_next_step(start_node, end_node, max_speed, board_size):
     if speed > 0:
         # Rotate left.
         v = to_unit_vector(rotate_vector_2d(start_node['facing'], -45))
-        next_location = next_pos(start_node['location'], v, speed, board_size)
+        next_step_location = next_location(start_node['location'], v, speed, board_size)
         nodes.append(
-            node(next_location, v, get_distance(next_location, end_node['location'], board_size), speed, 'left'))
+            node(next_step_location, v, get_distance(next_step_location, end_node['location'], board_size), speed, 'left'))
 
         # Rotate right.
         v = to_unit_vector(rotate_vector_2d(start_node['facing'], 45))
-        next_location = next_pos(start_node['location'], v, speed, board_size)
+        next_step_location = next_location(start_node['location'], v, speed, board_size)
         nodes.append(
-            node(next_location, v, get_distance(next_location, end_node['location'], board_size), speed, 'right'))
+            node(next_step_location, v, get_distance(next_step_location, end_node['location'], board_size), speed, 'right'))
 
     if speed < max_speed:
-        next_location = next_pos(start_node['location'], start_node['facing'], speed + 1, board_size)
+        next_step_location = next_location(start_node['location'], start_node['facing'], speed + 1, board_size)
         nodes.append(
-            node(next_location, start_node['facing'], get_distance(next_location, end_node['location'], board_size),
+            node(next_step_location, start_node['facing'], get_distance(next_step_location, end_node['location'], board_size),
                  speed + 1, 'faster'))
 
     if speed > 0:
-        next_location = next_pos(start_node['location'], start_node['facing'], speed - 1, board_size)
+        next_step_location = next_location(start_node['location'], start_node['facing'], speed - 1, board_size)
         nodes.append(
-            node(next_location, start_node['facing'], get_distance(next_location, end_node['location'], board_size),
+            node(next_step_location, start_node['facing'], get_distance(next_step_location, end_node['location'], board_size),
                  speed - 1, 'slower'))
 
         # Do nothing.
-        next_location = next_pos(start_node['location'], start_node['facing'], speed, board_size)
+        next_step_location = next_location(start_node['location'], start_node['facing'], speed, board_size)
         nodes.append(
-            node(next_location, start_node['facing'], get_distance(next_location, end_node['location'], board_size),
+            node(next_step_location, start_node['facing'], get_distance(next_step_location, end_node['location'], board_size),
                  speed, 'none'))
 
     return nodes
@@ -1214,17 +1215,18 @@ def show_game_board(game_data):
 
     # Render child canvas.
     c_game_board = render_game_board(game_data)  # The game board.
-    c_ship_list = render_ship_list(game_data, 30, screen_size[1] - 2)  # The list
+    c_ship_list = render_ship_list(game_data, 34, screen_size[1] - 2)  # The list
     c_game_logs = render_game_logs(game_data, c_game_board['size'][0], 10)
 
-    # Put somme nice decoration.
+    # Put some nice decoration.
     c = put_ascii_art(c, 1, screen_size[1] - 25, 'planet')
-    if (screen_size > 190):
-        c_screen = put_ascii_art(c, 185, screen_size[1] - 25, 'planet')
+    if screen_size > 190:
+        c = put_ascii_art(c, 185, screen_size[1] - 25, 'planet')
+
     c = put_box(c, 0, 0, screen_size[0], screen_size[1], 'single')
 
     # Put child canvas in the main canvas.
-    game_board_pos = (screen_size[0] / 2 - (c_game_board['size'][0] + 2) / 2,
+    game_board_pos = (((screen_size[0] - c_ship_list['size'][0]) / 2 - (c_game_board['size'][0] + 2) / 2) + c_ship_list['size'][0],
                       screen_size[1] / 2 - (c_game_board['size'][1] + 2) / 2 - (c_game_logs['size'][1] + 2) / 2)
 
     c = put_window(c, c_game_board, 'GAME BOARD', game_board_pos[0], game_board_pos[1], c_game_board['size'][0] + 2,
@@ -1253,19 +1255,29 @@ def render_game_board(game_data):
     # Setup the drawing canvas.
     board_size = game_data['board_size']
     c = create_canvas(board_size[0] * 3 + 3, board_size[1] + 1)
-    c = put_stars_field(c, 0, 0, *c['size'])
+    # c = put_stars_field(c, 0, 0, *c['size'])
     offset = 0
 
     # Put coordinates.
+    dark = False
     for i in range(max(board_size)):
         val_str = str(i + 1)
         val_str = ' ' * (3 - len(val_str)) + val_str
 
-        # Horizontal
-        c = put_text(c, 3 + offset * 3, 0, val_str, 1, 0, 'grey', 'white')
+        if dark:
+            # Horizontal
+            c = put_text(c, 3 + offset * 3, 0, val_str, 1, 0, 'white', 'grey')
 
-        # Vertical
-        c = put_text(c, 0, 1 + offset, val_str, 1, 0, 'grey', 'white')
+            # Vertical
+            c = put_text(c, 0, 1 + offset, val_str, 1, 0, 'white', 'grey')
+        else:
+            # Horizontal
+            c = put_text(c, 3 + offset * 3, 0, val_str, 1, 0, 'grey', 'white')
+
+            # Vertical
+            c = put_text(c, 0, 1 + offset, val_str, 1, 0, 'grey', 'white')
+
+        dark = not dark
         offset += 1
 
     # Put Spaceships on the game board.
@@ -1313,8 +1325,8 @@ def render_game_board(game_data):
     for location in game_data['pending_attacks']:
         location = location[2]
         on_canvas_location = (3 + location[0] * 3, location[1] + 1)
-        put_text(c, on_canvas_location[0], on_canvas_location[1], '[', 1, 0, 'white', 'red')
-        put_text(c, on_canvas_location[0] + 2, on_canvas_location[1], ']', 1, 0, 'white', 'red')
+        put_text(c, on_canvas_location[0], on_canvas_location[1], '[', 1, 0, 'red')
+        put_text(c, on_canvas_location[0] + 2, on_canvas_location[1], ']', 1, 0, 'red')
 
     return c
 
@@ -1333,11 +1345,10 @@ def render_ship_list(game_data, width, height):
     """
     # Setup the drawing canvas.
     c = create_canvas(width, height)
-    ship_count = len(game_data['ships'])
     ship_index = 0
 
     # Put list header.
-    put_text(c, 0, 0, ' T | X   Y | Name' + ' ' * 25, 1, 0, 'grey', 'white')
+    put_text(c, 0, 0, ' T | h | X   Y | Name' + ' ' * 25, 1, 0, 'grey', 'white')
     for player in game_data['players']:
         ship_index += 1
         y = ship_index + 1
@@ -1349,23 +1360,25 @@ def render_ship_list(game_data, width, height):
         ship_index += 2
 
         # get all space ship of a player.
-        for ship in game_data['ships']:
-            if game_data['ships'][ship]['owner'] == player:
-                y = ship_index + 1
+        for ship in get_ship_by_owner(game_data['ships'], player):
+            y = ship_index + 1
 
-                # Put information about the selected spaceship.
+            # Put information about the selected spaceship.
 
-                # Ship type.
-                put_text(c, 1, y, game_data['ships'][ship]['type'].upper()[0])
+            # Ship type.
+            put_text(c, 1, y, game_data['ships'][ship]['type'].upper()[0])
 
-                # Ship coordinates
-                put_text(c, 4, y, str(game_data['ships'][ship]['location']))
+            # ships heal
+            put_text(c, 5, y, str(game_data['ships'][ship]['heal_points']))
 
-                # Ship name.
-                put_text(c, 14, y, ship[len(player + '_'):], 1, 0,
-                         game_data['players'][game_data['ships'][ship]['owner']]['color'])
+            # Ship coordinates
+            put_text(c, 9, y, str(game_data['ships'][ship]['location']))
 
-                ship_index += 1
+            # Ship name.
+            put_text(c, 17, y, ship[len(player + '_'):], 1, 0,
+                     game_data['players'][game_data['ships'][ship]['owner']]['color'])
+
+            ship_index += 1
 
     return c
 
@@ -1427,35 +1440,27 @@ def show_end_game(game_data):
 
     line_index = 0
 
-    # Text property.
-    text_lenght = 0
-    text_location = (0, 0)
-    text_font = font_small
-    text_color = 'white'
-
     # Put players stats.
     for player in game_data['players']:
         if player != 'none':
             if player in game_data['winners']:
                 # The player win the game.
-                text_lenght = mesure_ascii_text(font_standard, player)
+                text_length = mesure_ascii_text(font_standard, player)
                 text_font = font_standard
                 text_color = game_data['players'][player]['color']
 
             else:
                 # The player lost the game.
-                text_lenght = mesure_ascii_text(font_small, player)
-                text_location = (95 - int(text_lenght / 2), line_index * 11 + 2)
+                text_length = mesure_ascii_text(font_small, player)
                 text_font = font_small
                 text_color = 'white'
 
-            text_location = (screen_size[0] / 2 - int(text_lenght / 2), line_index * 11 + 2)
+            text_location = (screen_size[0] / 2 - int(text_length / 2), line_index * 11 + 2)
 
-            # Put player informations.
+            # Put player information.
             c = put_ascii_text(c, text_font, player, text_location[0], text_location[1], text_color)
-            c = put_text(c, text_location[0], text_location[1] + 6, '_' * text_lenght)
-            c = put_text(c, text_location[0], text_location[1] + 8,
-                         "%d spaceships" % (game_data['players'][player]['nb_ships']))
+            c = put_text(c, text_location[0], text_location[1] + 6, '_' * text_length)
+            c = put_text(c, text_location[0], text_location[1] + 8, "%d spaceships" % (game_data['players'][player]['nb_ships']))
             c = put_text(c, text_location[0], text_location[1] + 9, "%d G$" % (calculate_value(player, game_data)))
 
             line_index += 1
@@ -1474,7 +1479,7 @@ def parse_command(commands, player_name, game_data):
 
     Parameters
     ----------
-    command: command from a player (str).
+    commands: commands from a player (str).
     game_data: game's data (dic).
 
     Return
@@ -1585,7 +1590,7 @@ def command_change_speed(ship, change, game_data):
     elif change == 'slower' and game_data['ships'][ship]['speed'] > 0:
         game_data['ships'][ship]['speed'] -= 1
 
-    # Show a message when is a invalide change.
+    # Show a message when is a invalid change.
     else:
         write_log(game_data, 'you cannot make that change on the speed of "' + ship + '"', 2)
 
@@ -1628,7 +1633,8 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_data):
 
     Parameters
     ----------
-    ship_location: coodinate of the first ship (tuple(int, int)).
+    ship: focus ships (str).
+    ship_location: coodinates of the first ship (tuple(int, int)).
     coordinate: coordinate of the tile to attack (tuple(int,int)).
     game_data: data of the game (dic).
 
@@ -1703,25 +1709,25 @@ def get_distance(coord1, coord2, size):
     return distance(coord1[0], coord2[0], size[0]) + distance(coord1[1], coord2[1], size[1])
 
 
-def convert_coordinates(coord, size):
+def convert_coordinates(coordinates, board_size):
     """
     Apply tore space to coordinates.
 
     Parameters
     ----------
-    coord: coordinates to convert (tuple(int, int))
-    size: Size of the tore tupe(int, int).
+    coordinates: coordinates to convert (tuple(int, int))
+    board_size: Size of the tore tupe(int, int).
 
     Return
     ------
     converted_coord: coord with the tore applied.
 
-	Version
-	-------
-	Specification: Nicolas Van Bossuyt (v1. 09/03/17)
-	Specification: Nicolas Van Bossuyt (v1. 09/03/17)
-	Implementation: Nicolas Van Bossuyt (v1. 09/03/17)
-	"""
+    Version
+    -------
+    Specification: Nicolas Van Bossuyt (v1. 09/03/17)
+    Specification: Nicolas Van Bossuyt (v1. 09/03/17)
+    Implementation: Nicolas Van Bossuyt (v1. 09/03/17)
+    """
 
     def convert(a, size):
         if a >= size:
@@ -1731,7 +1737,7 @@ def convert_coordinates(coord, size):
 
         return a
 
-    return convert(coord[0], size[0]), convert(coord[1], size[1])
+    return convert(coordinates[0], board_size[0]), convert(coordinates[1], board_size[1])
 
 
 def create_ship(player_name, ship_name, ship_type, game_data):
@@ -1755,7 +1761,7 @@ def create_ship(player_name, ship_name, ship_type, game_data):
     Implementation: Nicolas Van Bossuyt (v1. 15/02/17)
     """
 
-    # Creatting the new space ship and add to the game_data.
+    # Creating the new space ship and add to the game_data.
     game_data['ships'][ship_name] = {
         'type': ship_type, 'heal_points': game_data['model_ship'][ship_type]['max_heal'],
         'facing': game_data['players'][player_name]['ships_starting_facing'],
@@ -1798,7 +1804,7 @@ def rotate_vector_2d(vector, theta):
     x, y = vector[0], vector[1]
     x, y = dc * x - ds * y, ds * x + dc * y
 
-    return (x, y)
+    return x, y
 
 
 def to_unit_vector(vector):
@@ -1827,10 +1833,10 @@ def to_unit_vector(vector):
 
         return 0
 
-    return (convert(vector[0]), convert(vector[1]))
+    return convert(vector[0]), convert(vector[1])
 
 
-def predict_next_pos(game_data, ship_name, facing):
+def predict_next_location(game_data, ship_name):
     """
     Predict the next location of a space ship.
 
@@ -1840,10 +1846,10 @@ def predict_next_pos(game_data, ship_name, facing):
     ship_name: name of the spaceship to predicte the next location (str).
     facing: facing of the ship (tuple)
 
-	Return
-	------
-	predicted_location : predicte location of the spaceship (tuple(int, int)).
-
+    Return
+    ------
+    predicted_location : predicte location of the spaceship (tuple(int, int)).
+    
     Version
     -------
     Specification: Nicolas Van Bossuyt (v1. 19/03/17).
@@ -1851,30 +1857,30 @@ def predict_next_pos(game_data, ship_name, facing):
                     Bayron Mahy (v2. 22/03/17).
     """
 
-    speed = game_data['ships'][ship_name]['speed']
-    location = game_data['ships'][ship_name]['location']
-    predicted_postion = convert_coordinates((location[0] + facing[0] * speed, location[1] + facing[1] * speed),
-                                            game_data['board_size'])
+    ship_location = game_data['ships'][ship_name]['location']
+    ship_facing = game_data['ships'][ship_name]['facing']
+    ship_speed = game_data['ships'][ship_name]['speed']
 
-    return predicted_postion
+    return next_location(ship_location, ship_facing, ship_speed, game_data['board_size'])
 
 
-def next_pos(location, facing, speed, board_size):
+def next_location(ship_location, ships_facing, ship_speed, game_board_size):
     """
     Predict the next location of a space ship base on his speed and facing.
 
     Parameters
     ----------
-    location: location of the space ship (tuple(int, int))
-    facing: facing of the space ship (tuple(int, int))
-    speed: speed of the space ship (int).
-    board_size: size of the game board (tuple(int, int))
+    ship_location: location of the space ship (tuple(int, int))
+    ships_facing: facing of the space ship (tuple(int, int))
+    ship_speed: speed of the space ship (int).
+    game_board_size: size of the game board (tuple(int, int))
 
     Return
     ------
     predicted_location : predicte location of the spaceship (tuple(int, int)).
     """
-    return convert_coordinates((location[0] + facing[0] * speed, location[1] + facing[1] * speed), board_size)
+    return convert_coordinates((ship_location[0] + ships_facing[0] * ship_speed,
+                                ship_location[1] + ships_facing[1] * ship_speed), game_board_size)
 
 
 # +------------------------------------------------------------------------------------------------------------------+ #
@@ -1905,8 +1911,8 @@ def create_random_game_board(file_name, board_size, lost_ships_count):
     for i in range(lost_ships_count):
         buffer += '%d %d %s:%s %s\n' % (randint(1, board_size[0]),  # Y coodinate of the ship.
                                         randint(1, board_size[1]),  # X coodinate of the ship.
-                                        'ship_' + str(i),  # Name of the ship.
-                                        ship_type[randint(0, len(ship_type) - 1)],  # Type of the ship.
+                                        'ship_' + str(i),           # Name of the ship.
+                                        ship_type[randint(0, len(ship_type) - 1)],      # Type of the ship.
                                         ship_facing[randint(0, len(ship_facing) - 1)])  # Facing of the ship
 
     # Saving the game board to a file.
@@ -2089,4 +2095,4 @@ def dict_sort(items, key):
 # Use for quick debuging.
 
 if __name__ == '__main__':
-    play_game('board/alien.cis', ('Botbot', 'A.I.C.I.S.'), ai_vs_ai)
+    play_game('board/crops_circle.cis', ('Botbot', 'A.I.C.I.S.'), ai_vs_ai)
