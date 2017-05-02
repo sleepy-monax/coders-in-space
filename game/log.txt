@@ -1,282 +1,234 @@
-[Botbot] V-WINGS:fighter V-19:fighter BS_Galactica:fighter ISS_Europa:fighter Puddle_Jumper:fighter Adventurer:fighter Ha'tak:fighter ARC-170:fighter BC_Pilgrim:fighter ISS_Adventurer:fighter
-[A.I.C.I.S.] Puddle_Jumper:fighter Saragossa:fighter Ha'tak:fighter BS_Galactica:fighter V-19:fighter Alexander:fighter ISS_Europa:fighter X-WINGS:fighter BC_Pilgrim:fighter Adventurer:fighter
+[A.I.C.I.S] X-WINGS:fighter Puddle_Jumper:fighter The_Watcher:fighter V-19:fighter DROID-starfighter:fighter Charon:destroyer White_Star:battlecruiser
+[Pomme] Niente_Problem:battlecruiser Unicorn:destroyer 404_not_found:destroyer Biloute:fighter KeepCalm:fighter Amiiii:fighter
 It's turn nb 0
-[Botbot] BC_Pilgrim:faster Puddle_Jumper:faster Ha'tak:faster BS_Galactica:faster ISS_Europa:faster ISS_Adventurer:faster Adventurer:faster V-WINGS:faster V-19:faster ARC-170:faster
-[A.I.C.I.S.] BC_Pilgrim:faster V-19:faster ISS_Europa:faster Saragossa:faster Adventurer:faster X-WINGS:faster Ha'tak:faster BS_Galactica:faster Alexander:faster Puddle_Jumper:faster
+[A.I.C.I.S] X-WINGS:faster Charon:faster White_Star:faster The_Watcher:faster Puddle_Jumper:faster V-19:faster DROID-starfighter:faster
+[Pomme] Unicorn:faster Niente_Problem:faster KeepCalm:faster Amiiii:faster Biloute:faster 404_not_found:faster
 It's turn nb 1
-[Botbot] BC_Pilgrim:faster Puddle_Jumper:right Ha'tak:left BS_Galactica:faster ISS_Europa:left ISS_Adventurer:faster Adventurer:left V-WINGS:faster V-19:left ARC-170:right
-[A.I.C.I.S.] BC_Pilgrim:faster V-19: ISS_Europa:faster Saragossa:right Adventurer:faster X-WINGS:right Ha'tak:left BS_Galactica:faster Alexander:faster Puddle_Jumper:left
+[A.I.C.I.S] X-WINGS:faster Charon:right White_Star: The_Watcher:faster Puddle_Jumper:faster V-19:faster DROID-starfighter:faster
+[Pomme] Unicorn:right Niente_Problem:left KeepCalm:right Amiiii:faster Biloute:right 404_not_found:right
 It's turn nb 2
-[Botbot] BC_Pilgrim:faster Puddle_Jumper:faster Ha'tak:left BS_Galactica:faster ISS_Europa:faster ISS_Adventurer:faster Adventurer:faster V-WINGS:right V-19:left ARC-170:right
-[A.I.C.I.S.] BC_Pilgrim:faster V-19:left ISS_Europa:left Saragossa:right Adventurer:faster X-WINGS: Ha'tak:faster BS_Galactica:faster Alexander: Puddle_Jumper:left
-A.I.C.I.S. as take A.I.C.I.S._Tahoe111 !
-A.I.C.I.S. as take A.I.C.I.S._Amphitrite107 !
+[A.I.C.I.S] X-WINGS:faster Charon:right White_Star: The_Watcher:faster Puddle_Jumper:faster V-19:faster DROID-starfighter:faster
+[Pomme] Unicorn:right Niente_Problem:slower KeepCalm:nothing Amiiii:right Biloute:faster 404_not_found:right
 It's turn nb 3
-[Botbot] BC_Pilgrim:right Puddle_Jumper:faster Ha'tak:faster BS_Galactica:faster ISS_Europa:left ISS_Adventurer:right Adventurer:faster V-WINGS:faster V-19: ARC-170:faster
-[A.I.C.I.S.] BC_Pilgrim:faster V-19:left ISS_Europa:right Saragossa:faster Adventurer:left X-WINGS:faster Ha'tak:left BS_Galactica:faster Alexander:faster Tahoe111:faster Amphitrite107:faster Puddle_Jumper:faster
-A.I.C.I.S. as take A.I.C.I.S._Aleksander86 !
-Botbot as take Botbot_Hephaestus47 !
-A.I.C.I.S. as take A.I.C.I.S._Meleager119 !
+[A.I.C.I.S] X-WINGS:slower Charon: White_Star: The_Watcher:slower Puddle_Jumper: V-19:slower DROID-starfighter:
+[Pomme] Unicorn:right Niente_Problem:faster KeepCalm:right Amiiii:nothing Biloute:nothing 404_not_found:right
+Pomme as take Pomme_b12 !
 It's turn nb 4
-[Botbot] BC_Pilgrim:slower Hephaestus47:faster Puddle_Jumper: Ha'tak:faster BS_Galactica:right ISS_Europa:faster ISS_Adventurer: Adventurer:left V-WINGS:faster V-19:faster ARC-170:
-[A.I.C.I.S.] BC_Pilgrim:faster V-19:faster ISS_Europa:left Saragossa:faster Adventurer:slower X-WINGS:faster Ha'tak:faster BS_Galactica:faster Alexander:left Aleksander86:faster Meleager119:faster Tahoe111:right Amphitrite107:faster Puddle_Jumper:
-A.I.C.I.S. as take A.I.C.I.S._Meleager91 !
-A.I.C.I.S. as take A.I.C.I.S._White_Star120 !
-Botbot as take Botbot_Amphitrite63 !
-A.I.C.I.S. as take A.I.C.I.S._Leviathan82 !
-Botbot as take Botbot_Phobos62 !
-A.I.C.I.S. as take A.I.C.I.S._Emperor's_Fury76 !
+[A.I.C.I.S] X-WINGS:slower Charon: White_Star: The_Watcher:slower Puddle_Jumper: V-19: DROID-starfighter:left
+[Pomme] Unicorn:right Niente_Problem:slower KeepCalm:right Amiiii:slower Biloute:nothing b12:faster 404_not_found:right
+A.I.C.I.S as take A.I.C.I.S_d6 !
+Pomme as take Pomme_f12 !
 It's turn nb 5
-[Botbot] Amphitrite63:faster BC_Pilgrim:right Hephaestus47:left Puddle_Jumper: Ha'tak: BS_Galactica:slower ISS_Europa:faster ISS_Adventurer:faster Adventurer:left V-WINGS:faster V-19:left Phobos62:faster ARC-170:
-[A.I.C.I.S.] BC_Pilgrim:left V-19:faster Leviathan82:faster ISS_Europa:slower Saragossa:faster Adventurer:left X-WINGS:right Ha'tak:faster BS_Galactica:left Alexander:faster Aleksander86:left White_Star120:faster Meleager91:faster Meleager119:left Tahoe111:right Emperor's_Fury76:faster Amphitrite107:28-20 Puddle_Jumper:slower
-Botbot as take Botbot_Hurricane40 !
-A.I.C.I.S. as take A.I.C.I.S._Herakles71 !
-A.I.C.I.S. as take A.I.C.I.S._Merrimack85 !
-Botbot as take Botbot_Patroclus53 !
-Botbot as take Botbot_Huey_Long84 !
-Botbot as take Botbot_Huey_Long79 !
-A.I.C.I.S. as take A.I.C.I.S._Titan64 !
-Botbot as take Botbot_Hurricane78 !
+[A.I.C.I.S] X-WINGS: d6: Charon: White_Star: The_Watcher:left Puddle_Jumper:slower V-19:right DROID-starfighter:slower
+[Pomme] Unicorn:right Niente_Problem:faster KeepCalm:right Amiiii:right Biloute:slower f12:faster b12:24-24 404_not_found:faster
+A.I.C.I.S as take A.I.C.I.S_f6 !
+A.I.C.I.S as take A.I.C.I.S_f7 !
+Pomme as take Pomme_b11 !
+Pomme_b12 kill A.I.C.I.S_Puddle_Jumper
 It's turn nb 6
-[Botbot] Amphitrite63:left BC_Pilgrim:left Hephaestus47:faster Puddle_Jumper:left Patroclus53:faster Ha'tak:right BS_Galactica:right ISS_Europa:right Huey_Long79:faster ISS_Adventurer:right Huey_Long84:faster Adventurer: V-WINGS:slower V-19:faster Hurricane78:faster Phobos62:left ARC-170:left Hurricane40:faster
-[A.I.C.I.S.] Herakles71:faster BC_Pilgrim:slower V-19: Leviathan82:right ISS_Europa:30-20 Saragossa:slower Adventurer:left Titan64:faster X-WINGS:faster Merrimack85:faster Ha'tak: BS_Galactica:slower Alexander:slower Aleksander86:left White_Star120:left Meleager91:right Meleager119:slower Tahoe111:right Emperor's_Fury76:left Amphitrite107:right Puddle_Jumper:left
-Botbot as take Botbot_Hyperion75 !
-A.I.C.I.S. as take A.I.C.I.S._Hurricane145 !
-A.I.C.I.S. as take A.I.C.I.S._Jackson_V1 !
-A.I.C.I.S. as take A.I.C.I.S._Merrimack77 !
-A.I.C.I.S. as take A.I.C.I.S._Metis51 !
-A.I.C.I.S. as take A.I.C.I.S._Victory70 !
-Botbot as take Botbot_Napoleon49 !
-Botbot as take Botbot_Fury61 !
-A.I.C.I.S. as take A.I.C.I.S._Gray_Tiger88 !
-A.I.C.I.S. as take A.I.C.I.S._Valor_of_Vardona48 !
-Botbot as take Botbot_Thunder_Child45 !
-Botbot as take Botbot_Emperor's_Fury8 !
+[A.I.C.I.S] X-WINGS:right d6: f6:faster Charon: White_Star:left f7:faster The_Watcher:right V-19:left DROID-starfighter:left
+[Pomme] Unicorn:right Niente_Problem:25-23 KeepCalm:right Amiiii:nothing b11:faster Biloute:right f12:right b12:25-23 404_not_found:slower
+A.I.C.I.S as take A.I.C.I.S_b6 !
+A.I.C.I.S as take A.I.C.I.S_d9 !
 It's turn nb 7
-[Botbot] Amphitrite63:left BC_Pilgrim:left Hephaestus47:faster Puddle_Jumper:left Patroclus53:faster Ha'tak:right BS_Galactica:right ISS_Europa:faster Huey_Long79:slower Thunder_Child45:faster ISS_Adventurer:right Hyperion75:1-16 Fury61:faster Huey_Long84:left Napoleon49:faster Adventurer:left V-WINGS:left V-19:left Hurricane78:right Phobos62:faster ARC-170:left Hurricane40:right Emperor's_Fury8:faster
-[A.I.C.I.S.] Herakles71:left BC_Pilgrim:slower V-19:right Hurricane145:faster Jackson_V1:faster Leviathan82:right ISS_Europa:faster Saragossa:faster Adventurer:left Titan64:left Merrimack77:faster X-WINGS:left Merrimack85:right Ha'tak:left BS_Galactica:left Alexander:slower Victory70:faster Aleksander86:left White_Star120:faster Meleager91:faster Meleager119:faster Tahoe111:faster Gray_Tiger88:faster Emperor's_Fury76:left Amphitrite107:right Valor_of_Vardona48:faster Puddle_Jumper:right Metis51:faster
-A.I.C.I.S. as take A.I.C.I.S._Hurricane0 !
-A.I.C.I.S. as take A.I.C.I.S._Valor_of_Vardona106 !
-Botbot as take Botbot_Valor_of_Vardona11 !
-Botbot as take Botbot_Huey_Long17 !
-A.I.C.I.S. as take A.I.C.I.S._Norad_III56 !
-A.I.C.I.S. as take A.I.C.I.S._Ragnorak90 !
+[A.I.C.I.S] X-WINGS:right d6: f6:left Charon: d9:faster b6:faster White_Star: f7:left The_Watcher:right V-19:left DROID-starfighter:left
+[Pomme] d11:faster Unicorn:right Niente_Problem:24-24 KeepCalm:right Amiiii:right b11:21-20 Biloute:right f12:right b12:24-25 404_not_found:slower
+A.I.C.I.S as take A.I.C.I.S_f9 !
+Pomme_Niente_Problem kill A.I.C.I.S_V-19
 It's turn nb 8
-[Botbot] Amphitrite63:20-14 BC_Pilgrim:faster Hephaestus47:left Puddle_Jumper:left Patroclus53:26-16 Ha'tak:slower BS_Galactica:right ISS_Europa:right Huey_Long79:faster Thunder_Child45:left ISS_Adventurer:right Hyperion75:39-21 Fury61:right Huey_Long84:right Huey_Long17:faster Valor_of_Vardona11:faster Napoleon49:faster Adventurer:slower V-WINGS:left V-19:faster Hurricane78:faster Phobos62:right ARC-170:left Hurricane40:right Emperor's_Fury8:slower
-[A.I.C.I.S.] Herakles71:26-20 BC_Pilgrim:right V-19:slower Hurricane145:left Ragnorak90:faster Jackson_V1:left Leviathan82:faster ISS_Europa:faster Saragossa:left Adventurer:right Titan64:faster Merrimack77:faster X-WINGS:slower Merrimack85:faster Ha'tak:left BS_Galactica:left Alexander:faster Victory70:right Aleksander86:left Valor_of_Vardona106:faster Hurricane0:faster White_Star120: Norad_III56:36-10 Meleager91:right Meleager119:slower Tahoe111: Gray_Tiger88:right Emperor's_Fury76:28-22 Amphitrite107:16-22 Valor_of_Vardona48:faster Puddle_Jumper:right Metis51:right
-A.I.C.I.S. as take A.I.C.I.S._Bismarck110 !
-A.I.C.I.S. as take A.I.C.I.S._Emperor's_Fury143 !
-Botbot as take Botbot_Meleager60 !
-Botbot as take Botbot_Valor_of_Vardona37 !
-A.I.C.I.S. as take A.I.C.I.S._Titan18 !
-A.I.C.I.S. as take A.I.C.I.S._Meleager101 !
-A.I.C.I.S. as take A.I.C.I.S._Iron_Justice55 !
+[A.I.C.I.S] X-WINGS:faster d6: f6:left Charon: d9:right b6:19-30 White_Star: f7:faster The_Watcher:right f9:faster DROID-starfighter:left
+[Pomme] d11:19-24 Unicorn:faster Niente_Problem:21-24 KeepCalm:right Amiiii:right b11:21-21 Biloute:right f12:right b12:slower f11:faster 404_not_found:faster
+A.I.C.I.S as take A.I.C.I.S_b13 !
+Pomme as take Pomme_d14 !
+A.I.C.I.S as take A.I.C.I.S_b8 !
+A.I.C.I.S_b6 shot Pomme_b11
 It's turn nb 9
-[Botbot] Amphitrite63:faster BC_Pilgrim:left Hephaestus47:left Puddle_Jumper:left Patroclus53:faster Ha'tak:left BS_Galactica:faster Valor_of_Vardona37:faster ISS_Europa:6-37 Huey_Long79:left Thunder_Child45:left ISS_Adventurer:slower Hyperion75:38-20 Meleager60:faster Fury61:right Huey_Long84:slower Huey_Long17:left Valor_of_Vardona11:left Napoleon49:26-12 Adventurer:left V-WINGS:faster V-19: Hurricane78:left Phobos62:left ARC-170:left Hurricane40:faster Emperor's_Fury8:faster
-[A.I.C.I.S.] Herakles71:20-23 BC_Pilgrim:right Titan18:faster V-19:faster Hurricane145:left Ragnorak90:right Jackson_V1:faster Leviathan82:33-15 ISS_Europa:right Bismarck110:faster Iron_Justice55:faster Saragossa:right Adventurer:right Titan64:faster Merrimack77:right X-WINGS:12-2 Merrimack85:slower Ha'tak:slower Emperor's_Fury143:faster BS_Galactica:left Alexander:faster Victory70:faster Aleksander86:faster Valor_of_Vardona106:faster Hurricane0: White_Star120:18-24 Norad_III56:faster Meleager91:faster Meleager119:faster Tahoe111:left Gray_Tiger88:right Emperor's_Fury76:20-23 Amphitrite107:18-24 Valor_of_Vardona48:23-10 Puddle_Jumper:right Meleager101:faster Metis51:right
-Botbot as take Botbot_Helios28 !
-A.I.C.I.S. as take A.I.C.I.S._Scion72 !
-A.I.C.I.S. as take A.I.C.I.S._Kimera97 !
-A.I.C.I.S. as take A.I.C.I.S._Metis35 !
-A.I.C.I.S. as take A.I.C.I.S._Circe25 !
-A.I.C.I.S. as take A.I.C.I.S._Titan38 !
-A.I.C.I.S. as take A.I.C.I.S._Kimeran_Juggernaut44 !
-Botbot as take Botbot_Aleksander41 !
-A.I.C.I.S. as take A.I.C.I.S._Amphitrite58 !
-Botbot_ISS_Europa shot A.I.C.I.S._X-WINGS
-A.I.C.I.S._Leviathan82 shot Huey_Long59
-A.I.C.I.S._Valor_of_Vardona48 shot Scion36
+[A.I.C.I.S] X-WINGS:right b8:faster d6: f6:faster Charon: d9:right b6:18-30 White_Star: f7:right The_Watcher:left f9:left b13:faster DROID-starfighter:left
+[Pomme] d14:faster d11:19-26 Unicorn:right Niente_Problem:24-20 KeepCalm:faster Amiiii:right b11:19-25 b10:faster Biloute:right f12:right b12:faster f11:right 404_not_found:left
+A.I.C.I.S as take A.I.C.I.S_d5 !
+A.I.C.I.S as take A.I.C.I.S_d7 !
+A.I.C.I.S as take A.I.C.I.S_f10 !
+A.I.C.I.S_b6 shot Pomme_b11
+Pomme_Niente_Problem shot b7
 It's turn nb 10
-[Botbot] Amphitrite63:left BC_Pilgrim:slower Hephaestus47:left Puddle_Jumper:left Patroclus53:faster Ha'tak: BS_Galactica:23-40 Valor_of_Vardona37:slower ISS_Europa:7-1 Huey_Long79:left Thunder_Child45:faster ISS_Adventurer:23-40 Helios28:faster Hyperion75:36-19 Meleager60:faster Fury61:faster Huey_Long84:faster Huey_Long17:right Valor_of_Vardona11:faster Aleksander41:faster Napoleon49:32-11 Adventurer:left V-WINGS:left V-19:32-11 Hurricane78:37-16 Phobos62:faster ARC-170:right Hurricane40:slower Emperor's_Fury8:slower
-[A.I.C.I.S.] Herakles71:17-20 BC_Pilgrim:right Titan18:slower V-19:faster Hurricane145:faster Ragnorak90:faster Jackson_V1:17-7 Titan38:faster Leviathan82:35-17 ISS_Europa:faster Bismarck110:left Kimeran_Juggernaut44:faster Iron_Justice55:left Saragossa:faster Adventurer:faster Titan64:faster Kimera97:faster Merrimack77:faster X-WINGS:right Merrimack85:right Ha'tak:14-26 Emperor's_Fury143:slower Metis35:faster BS_Galactica:slower Alexander:faster Victory70:right Aleksander86:right Valor_of_Vardona106:left Hurricane0:right Amphitrite58:faster White_Star120:19-28 Norad_III56:right Meleager91:faster Meleager119:slower Tahoe111: Gray_Tiger88:faster Emperor's_Fury76:17-20 Amphitrite107:14-26 Valor_of_Vardona48:right Puddle_Jumper:faster Circe25:faster Meleager101:faster Metis51:faster Scion72:faster
-A.I.C.I.S. as take A.I.C.I.S._Phobos26 !
-Botbot as take Botbot_Hurricane32 !
-Botbot as take Botbot_Cyrus4 !
-A.I.C.I.S. as take A.I.C.I.S._Napoleon34 !
-A.I.C.I.S. as take A.I.C.I.S._Fury148 !
-Botbot as take Botbot_Ragnorak95 !
-Botbot as take Botbot_Hephaestus33 !
-Botbot as take Botbot_Hoosier21 !
-Botbot as take Botbot_Aeneas39 !
-A.I.C.I.S._Leviathan82 shot Botbot_Hurricane78
+[A.I.C.I.S] X-WINGS:faster b8:left d5:faster d6: f6:faster Charon:slower d9:right f10:faster b6:17-30 White_Star: d7:faster f7:slower The_Watcher:right f9:left b13:right DROID-starfighter:left
+[Pomme] d14:21-28 d11:16-26 Unicorn:right Niente_Problem:24-19 KeepCalm:faster Amiiii:right b11:19-29 b10:14-24 Biloute:right f12:right b12:slower f11:nothing 404_not_found:left
+A.I.C.I.S as take A.I.C.I.S_d10 !
+A.I.C.I.S_b6 shot Pomme_b11
+Pomme_Niente_Problem kill A.I.C.I.S_The_Watcher
 It's turn nb 11
-[Botbot] Amphitrite63:14-12 BC_Pilgrim:slower Ragnorak95:faster Hephaestus47:faster Puddle_Jumper:16-17 Patroclus53:right Hoosier21:faster Ha'tak:6-36 Hurricane32:faster BS_Galactica:slower Valor_of_Vardona37:faster ISS_Europa:left Huey_Long79:faster Thunder_Child45:21-10 ISS_Adventurer:left Helios28:faster Hyperion75:34-21 Meleager60:37-12 Fury61:6-9 Huey_Long84:slower Huey_Long17:faster Valor_of_Vardona11:21-10 Aleksander41:left Napoleon49:right Cyrus4:faster Adventurer:left V-WINGS:left Hephaestus33:faster V-19: Hurricane78:faster Phobos62:13-31 ARC-170:slower Aeneas39:faster Hurricane40:left Emperor's_Fury8:faster
-[A.I.C.I.S.] Napoleon34:faster Herakles71:21-14 BC_Pilgrim:faster Titan18:faster V-19:left Hurricane145:right Ragnorak90:right Jackson_V1: Titan38:faster Leviathan82:29-13 ISS_Europa:faster Bismarck110:left Kimeran_Juggernaut44:faster Iron_Justice55:right Saragossa:slower Adventurer:37-17 Titan64:left Kimera97:left Merrimack77:37-17 X-WINGS:right Merrimack85:faster Ha'tak:slower Emperor's_Fury143:faster Fury148:faster Metis35:left BS_Galactica:slower Alexander:17-35 Victory70:slower Phobos26:faster Aleksander86:right Valor_of_Vardona106: Hurricane0:faster Amphitrite58:faster White_Star120:16-25 Norad_III56:right Meleager91:slower Meleager119:faster Tahoe111:16-25 Gray_Tiger88:right Emperor's_Fury76:14-14 Amphitrite107:10-30 Valor_of_Vardona48:left Puddle_Jumper:faster Circe25:right Meleager101:faster Metis51:left Scion72:right
-A.I.C.I.S. as take A.I.C.I.S._Phobos117 !
-Botbot as take Botbot_Jackson's_Revenge23 !
-Botbot as take Botbot_Eos139 !
-A.I.C.I.S. as take A.I.C.I.S._Cerberus140 !
-A.I.C.I.S. as take A.I.C.I.S._Jackson's_Revenge122 !
-A.I.C.I.S. as take A.I.C.I.S._Norad_II66 !
-Botbot as take Botbot_Scion7 !
-Botbot as take Botbot_Scion43 !
-Botbot as take Botbot_Antigone124 !
-Botbot as take Botbot_[Legandary]Nicolas's_Spaceships !
-Botbot as take Botbot_Napoleon3 !
-Botbot as take Botbot_Scion36 !
-Botbot_Meleager60 shot A.I.C.I.S._Merrimack77
-Botbot_Fury61 shot A.I.C.I.S._Napoleon34
-Botbot_Fury61 shot A.I.C.I.S._Titan18
-Botbot_Fury61 shot Napoleon29
-A.I.C.I.S._Emperor's_Fury76 kill Botbot_Puddle_Jumper
-A.I.C.I.S._Amphitrite107 shot Botbot_Phobos62
+[A.I.C.I.S] X-WINGS:slower b8:left d5:left d6:faster f6:slower Charon:faster d9:right f10:right b6:16-30 White_Star:16-30 d10:faster d7:left f7:right f9:left b13:right DROID-starfighter:left
+[Pomme] d14:22-27 d11:14-24 Unicorn:20-27 Niente_Problem:24-23 KeepCalm:faster Amiiii:right b11:16-22 b10:17-24 Biloute:right f12:right b12:faster f11:right b9:faster 404_not_found:right
+Pomme as take Pomme_f8 !
+A.I.C.I.S as take A.I.C.I.S_b10 !
+A.I.C.I.S_b6 shot Pomme_b11
+A.I.C.I.S_b6 kill Pomme_f8
+A.I.C.I.S_White_Star kill Pomme_b11
+Pomme_Niente_Problem kill f14
 It's turn nb 12
-[Botbot] Amphitrite63:right BC_Pilgrim:right Eos139:faster Ragnorak95:left Hephaestus47:faster Patroclus53: Hoosier21:left Napoleon3:faster Ha'tak:right Jackson's_Revenge23:faster Hurricane32:faster BS_Galactica:left Valor_of_Vardona37:left ISS_Europa:left Huey_Long79:31-24 Thunder_Child45:left ISS_Adventurer:right Helios28:right Scion36:faster Hyperion75:5-23 Antigone124:faster Meleager60:40-9 Scion7:faster Fury61:13-11 Huey_Long84:faster Huey_Long17: Valor_of_Vardona11:18-7 [Legandary]Nicolas's_Spaceships:faster Aleksander41:faster Napoleon49:18-7 Cyrus4:left Adventurer:left V-WINGS:left Hephaestus33:left V-19:right Hurricane78:faster Phobos62:slower Scion43:faster ARC-170:left Aeneas39:right Hurricane40:faster Emperor's_Fury8:slower
-[A.I.C.I.S.] Napoleon34:faster Herakles71:23-10 BC_Pilgrim:right Titan18:slower V-19:right Hurricane145:right Jackson's_Revenge122:faster Ragnorak90:faster Jackson_V1:7-37 Titan38:left Norad_II66:faster Leviathan82:right ISS_Europa:left Bismarck110:right Kimeran_Juggernaut44:slower Iron_Justice55:faster Saragossa:slower Adventurer:3-11 Titan64: Kimera97:left Merrimack77:left Phobos117:faster X-WINGS:right Merrimack85:right Ha'tak:19-23 Emperor's_Fury143:slower Fury148:faster Metis35:left BS_Galactica:left Alexander:slower Victory70:right Phobos26:right Aleksander86:right Valor_of_Vardona106:slower Hurricane0:13-37 Amphitrite58:left Cerberus140:faster White_Star120:right Norad_III56:left Meleager91:left Meleager119:slower Tahoe111:7-33 Gray_Tiger88:right Emperor's_Fury76:21-14 Amphitrite107:7-33 Valor_of_Vardona48:slower Puddle_Jumper:faster Circe25:right Meleager101:slower Metis51:2-20 Scion72:left
-A.I.C.I.S. as take A.I.C.I.S._Iron_Fist152 !
-Botbot as take Botbot_Cyrus100 !
-Botbot as take Botbot_Kimeran_Juggernaut103 !
-A.I.C.I.S. as take A.I.C.I.S._Amphitrite42 !
-A.I.C.I.S. as take A.I.C.I.S._Napoleon29 !
-A.I.C.I.S. as take A.I.C.I.S._Norad_II138 !
-A.I.C.I.S. as take A.I.C.I.S._Cyrus150 !
-Botbot as take Botbot_Gray_Tiger46 !
-Botbot as take Botbot_Iron_Justice68 !
-A.I.C.I.S. as take A.I.C.I.S._Patroclus109 !
-Botbot as take Botbot_Huey_Long126 !
-Botbot_Hyperion75 shot A.I.C.I.S._Metis51
-A.I.C.I.S._Metis51 shot Botbot_Hyperion75
+[A.I.C.I.S] X-WINGS:right b8: d5:right d6:right f6:right Charon:slower d9:faster f10:faster b6:slower White_Star: d10:right d7:30-18 f7:faster f9:faster b13:right b10:24-30 DROID-starfighter:slower
+[Pomme] d14:23-29 d11:18-21 Unicorn:22-27 Niente_Problem:25-23 KeepCalm:faster Amiiii:nothing b10:22-16 Biloute:faster f12:right b12:left f11:right b9:19-26 404_not_found:faster
+A.I.C.I.S as take A.I.C.I.S_b5 !
 It's turn nb 13
-[Botbot] Amphitrite63:slower BC_Pilgrim:right Eos139:left Ragnorak95:left Hephaestus47: Patroclus53:left Hoosier21:17-5 Kimeran_Juggernaut103:faster Napoleon3:slower Ha'tak:right Jackson's_Revenge23:faster Hurricane32:faster BS_Galactica:faster Valor_of_Vardona37:left ISS_Europa:11-19 Huey_Long79:33-16 Thunder_Child45:18-7 ISS_Adventurer:faster Helios28:left Scion36:left Hyperion75:5-25 Antigone124:faster Meleager60:24-7 Scion7:slower Huey_Long126:faster Fury61:12-9 Huey_Long84:right Huey_Long17: Valor_of_Vardona11:24-7 [Legandary]Nicolas's_Spaceships:left Aleksander41:30-19 Napoleon49:18-7 Gray_Tiger46:faster Cyrus4:left Adventurer:left V-WINGS:right Hephaestus33:left Cyrus100:faster V-19:17-34 Hurricane78:right Iron_Justice68:faster Phobos62:slower Scion43:left ARC-170:right Aeneas39:faster Hurricane40:faster Emperor's_Fury8:faster
-[A.I.C.I.S.] Napoleon34:12-5 Herakles71:21-12 BC_Pilgrim:left Titan18:faster V-19:faster Hurricane145:left Jackson's_Revenge122:right Ragnorak90:faster Jackson_V1:6-34 Titan38:right Cyrus150:faster Norad_II66:slower Leviathan82:right ISS_Europa:right Bismarck110:right Kimeran_Juggernaut44:left Iron_Justice55:32-16 Saragossa:32-27 Adventurer:faster Titan64:slower Iron_Fist152:faster Kimera97:left Merrimack77:right Phobos117:left X-WINGS:right Merrimack85:left Ha'tak:left Emperor's_Fury143:faster Fury148:6-34 Metis35:faster BS_Galactica:left Alexander:23-29 Norad_II138:faster Victory70:left Phobos26:right Aleksander86:right Patroclus109:faster Valor_of_Vardona106:left Hurricane0:right Amphitrite58:left Cerberus140:right White_Star120:left Norad_III56:6-17 Meleager91:left Meleager119:faster Tahoe111:6-34 Gray_Tiger88:32-27 Emperor's_Fury76:21-12 Amphitrite107:6-34 Valor_of_Vardona48:left Napoleon29:faster Puddle_Jumper:faster Circe25:faster Meleager101:right Amphitrite42:faster Metis51:7-26 Scion72:left
-A.I.C.I.S. as take A.I.C.I.S._Jackson's_Revenge118 !
-A.I.C.I.S. as take A.I.C.I.S._Merrimack65 !
-Botbot as take Botbot_Victory69 !
-Botbot as take Botbot_Eos15 !
-A.I.C.I.S. as take A.I.C.I.S._Gray_Tiger5 !
-Botbot as take Botbot_Cerberus57 !
-A.I.C.I.S. as take A.I.C.I.S._Scion14 !
-A.I.C.I.S. as take A.I.C.I.S._Norad_III12 !
-Botbot as take Botbot_Titan144 !
-A.I.C.I.S._Napoleon34 shot Hurricane10
-A.I.C.I.S._Iron_Justice55 shot Botbot_Huey_Long79
+[A.I.C.I.S] X-WINGS:slower b5:faster b8:21-27 d5:right d6:right f6:right Charon:faster d9:24-28 f10:slower b6:faster White_Star: d10:faster d7:24-28 f7:faster f9:right b13:30-12 b10:22-30 DROID-starfighter:right
+[Pomme] d14:faster d11:17-19 d12:faster Unicorn:23-24 Niente_Problem:24-24 KeepCalm:right Amiiii:faster b10:18-20 Biloute:faster f12:left b12:right f11:faster b9:25-27 404_not_found:slower
+Pomme as take Pomme_d13 !
+A.I.C.I.S_b8 shot Pomme_Unicorn
+Pomme_Unicorn shot A.I.C.I.S_d9
+Pomme_Niente_Problem shot A.I.C.I.S_d10
+Pomme_Niente_Problem shot A.I.C.I.S_d7
 It's turn nb 14
-[Botbot] Amphitrite63:right BC_Pilgrim:left Eos139:faster Ragnorak95:left Hephaestus47:slower Patroclus53:slower Cerberus57:faster Hoosier21:right Kimeran_Juggernaut103:left Napoleon3:faster Ha'tak:10-38 Titan144:faster Jackson's_Revenge23:21-15 Hurricane32:faster BS_Galactica:19-36 Valor_of_Vardona37:29-18 ISS_Europa:right Huey_Long79:29-18 Thunder_Child45:18-1 ISS_Adventurer:13-28 Helios28:left Scion36:faster Hyperion75:faster Antigone124:21-28 Meleager60:18-1 Scion7:faster Huey_Long126:left Fury61:left Huey_Long84:right Eos15:faster Huey_Long17: Valor_of_Vardona11:21-15 [Legandary]Nicolas's_Spaceships:left Aleksander41:28-21 Napoleon49:right Gray_Tiger46:right Cyrus4:left Adventurer:left V-WINGS:slower Hephaestus33:32-13 Cyrus100:left V-19:slower Hurricane78:left Victory69:faster Iron_Justice68:right Phobos62:left Scion43:right ARC-170:faster Aeneas39:faster Hurricane40:faster Emperor's_Fury8:slower
-[A.I.C.I.S.] Napoleon34:12-5 Herakles71:20-11 BC_Pilgrim:slower Titan18:slower V-19: Hurricane145:left Jackson's_Revenge122:right Ragnorak90:right Jackson_V1:6-34 Titan38:12-5 Gray_Tiger5:faster Cyrus150:right Norad_II66:faster Merrimack65:faster Scion14:faster Leviathan82:20-11 ISS_Europa:slower Bismarck110:right Kimeran_Juggernaut44:18-6 Iron_Justice55:left Saragossa:left Adventurer:left Titan64:slower Iron_Fist152:faster Kimera97:left Merrimack77:slower Phobos117:left X-WINGS:right Merrimack85:slower Ha'tak:left Emperor's_Fury143:right Fury148:6-34 Metis35:left BS_Galactica:faster Alexander:left Norad_II138:faster Victory70:right Phobos26:16-3 Norad_III12:faster Aleksander86:right Patroclus109:faster Valor_of_Vardona106:faster Jackson's_Revenge118:faster Hurricane0:16-29 Amphitrite58:faster Cerberus140:6-34 White_Star120:10-16 Norad_III56:10-9 Meleager91:faster Meleager119:slower Tahoe111:6-34 Gray_Tiger88:33-26 Emperor's_Fury76:20-11 Amphitrite107:6-34 Valor_of_Vardona48:right Napoleon29:right Puddle_Jumper:26-9 Circe25:12-5 Meleager101:slower Amphitrite42:faster Metis51:40-25 Scion72:left
-A.I.C.I.S. as take A.I.C.I.S._Hoosier16 !
-A.I.C.I.S. as take A.I.C.I.S._Theodore_G._Bilbo123 !
-A.I.C.I.S. as take A.I.C.I.S._Iron_Justice6 !
-A.I.C.I.S. as take A.I.C.I.S._Victory54 !
-Botbot as take Botbot_Merrimack113 !
-A.I.C.I.S. as take A.I.C.I.S._Victory13 !
-A.I.C.I.S. as take A.I.C.I.S._Hurricane10 !
-Botbot as take Botbot_Bismarck73 !
-Botbot as take Botbot_Aleksander130 !
-A.I.C.I.S. as take A.I.C.I.S._Aleksander19 !
-Botbot_ISS_Adventurer shot A.I.C.I.S._Patroclus109
-Botbot_Valor_of_Vardona11 shot Botbot_Cerberus57
-Botbot_Valor_of_Vardona11 shot A.I.C.I.S._Leviathan82
-A.I.C.I.S._Napoleon34 shot A.I.C.I.S._Adventurer
-A.I.C.I.S._Napoleon34 shot A.I.C.I.S._Hurricane10
-A.I.C.I.S._Titan38 kill A.I.C.I.S._Adventurer
-A.I.C.I.S._Hurricane0 shot Botbot_BS_Galactica
-A.I.C.I.S._Hurricane0 shot Botbot_Merrimack113
-A.I.C.I.S._Circe25 shot A.I.C.I.S._Hurricane10
+[A.I.C.I.S] X-WINGS:right b5:left b8:21-28 d5: d6:right f6:right Charon:slower d9:24-23 f10:right b6:slower White_Star:24-23 d10:right d7:24-23 f7:left f9:right b13:20-7 b10:21-28 DROID-starfighter:faster
+[Pomme] d14:right d11:15-18 d12:25-27 d13:faster Unicorn:26-25 Niente_Problem:26-22 KeepCalm:slower Amiiii:slower b10:24-27 Biloute:nothing f12:faster b12:slower f11:left b9:24-27 404_not_found:right
+A.I.C.I.S_d9 shot Pomme_Biloute
+A.I.C.I.S_White_Star kill Pomme_Biloute
+A.I.C.I.S_b13 kill A.I.C.I.S_X-WINGS
 It's turn nb 15
-[Botbot] Amphitrite63:right BC_Pilgrim:faster Eos139:11-28 Ragnorak95:20-26 Hephaestus47:slower Bismarck73:faster Patroclus53:right Cerberus57:left Merrimack113:faster Hoosier21:faster Kimeran_Juggernaut103:faster Napoleon3:slower Ha'tak:left Titan144:right Jackson's_Revenge23:33-14 Hurricane32:25-22 BS_Galactica:slower Valor_of_Vardona37:25-22 ISS_Europa:slower Huey_Long79:33-14 Thunder_Child45:left Aleksander130:faster ISS_Adventurer:left Helios28:left Scion36:left Hyperion75:right Antigone124:20-26 Meleager60:right Scion7:right Huey_Long126:faster Fury61:left Huey_Long84:right Eos15:left Huey_Long17:21-32 Valor_of_Vardona11:25-22 [Legandary]Nicolas's_Spaceships:faster Aleksander41:25-22 Napoleon49:right Gray_Tiger46:right Cyrus4:faster Adventurer:faster V-WINGS:right Hephaestus33:34-8 Cyrus100:faster V-19:left Hurricane78:right Victory69:left Iron_Justice68:faster Phobos62:left Scion43:faster ARC-170:faster Aeneas39:right Hurricane40:faster Emperor's_Fury8:faster
-[A.I.C.I.S.] Napoleon34:right Herakles71:22-15 BC_Pilgrim:left Theodore_G._Bilbo123:faster Titan18:faster V-19:37-25 Hurricane145:right Jackson's_Revenge122:faster Ragnorak90:right Jackson_V1:left Titan38:11-6 Gray_Tiger5:left Cyrus150:right Norad_II66:slower Merrimack65:right Scion14:left Iron_Justice6:faster Leviathan82:22-15 ISS_Europa:slower Bismarck110:faster Kimeran_Juggernaut44:right Iron_Justice55:left Saragossa:28-24 Titan64:right Iron_Fist152:14-2 Kimera97:23-25 Merrimack77:faster Phobos117:faster X-WINGS:left Merrimack85:left Ha'tak:left Emperor's_Fury143:right Fury148:left Metis35:left BS_Galactica:faster Hurricane10:faster Alexander:left Norad_II138:left Victory70:right Phobos26:faster Norad_III12:right Aleksander86:faster Patroclus109:16-25 Valor_of_Vardona106:7-26 Aleksander19:faster Jackson's_Revenge118:right Victory54:faster Hurricane0:16-25 Amphitrite58:28-24 Cerberus140:5-33 White_Star120:right Norad_III56:14-13 Meleager91:faster Meleager119:faster Tahoe111:5-33 Gray_Tiger88:23-25 Emperor's_Fury76:left Amphitrite107:5-33 Hoosier16:faster Valor_of_Vardona48:faster Napoleon29:left Victory13:faster Puddle_Jumper:left Circe25:14-2 Meleager101:right Amphitrite42:right Metis51:5-33 Scion72:left
-A.I.C.I.S. as take A.I.C.I.S._Iron_Fist102 !
-Botbot as take Botbot_Huey_Long99 !
-A.I.C.I.S. as take A.I.C.I.S._Herakles149 !
-Botbot as take Botbot_Helios22 !
-Botbot as take Botbot_Hurricane125 !
-A.I.C.I.S. as take A.I.C.I.S._Huey_Long59 !
-A.I.C.I.S. as take A.I.C.I.S._Emperor's_Fury89 !
-Botbot_Ragnorak95 shot A.I.C.I.S._Kimera97
-Botbot_Antigone124 kill A.I.C.I.S._Kimera97
-Botbot_Huey_Long17 shot A.I.C.I.S._Theodore_G._Bilbo123
-Botbot_Huey_Long17 shot A.I.C.I.S._Phobos117
-A.I.C.I.S._Gray_Tiger88 shot Botbot_Ragnorak95
+[A.I.C.I.S] b5:18-25 b8:18-25 d5: d6:18-25 f6:right Charon:faster d9:right f10:right b6:faster White_Star:18-25 d10:24-25 d7:24-25 f7: f9:left b13:18-25 b10:18-25 DROID-starfighter:
+[Pomme] d14:right d11:14-27 d12:25-25 d13:24-26 Unicorn:17-26 Niente_Problem:25-21 KeepCalm:slower Amiiii:right b10:26-20 f12:right b12:faster f11:right b9:16-25 404_not_found:right
+A.I.C.I.S as take A.I.C.I.S_b7 !
+Pomme_d13 shot A.I.C.I.S_d7
 It's turn nb 16
-[Botbot] Amphitrite63:right BC_Pilgrim:slower Eos139:9-28 Ragnorak95:left Hephaestus47:right Bismarck73:left Patroclus53:9-35 Cerberus57:faster Merrimack113:left Hoosier21:left Kimeran_Juggernaut103:28-28 Napoleon3:faster Ha'tak:left Titan144:faster Jackson's_Revenge23:34-16 Hurricane32:faster Helios22:faster BS_Galactica:right Valor_of_Vardona37:35-22 ISS_Europa:slower Huey_Long79:26-4 Thunder_Child45: Aleksander130:right ISS_Adventurer: Helios28:left Scion36:17-4 Hyperion75:right Antigone124:22-31 Meleager60:left Scion7:right Huey_Long126:right Fury61:17-4 Huey_Long99:faster Huey_Long84:faster Eos15:faster Huey_Long17:21-33 Valor_of_Vardona11:left Hurricane125:faster [Legandary]Nicolas's_Spaceships:right Aleksander41:20-27 Napoleon49:right Gray_Tiger46:right Cyrus4:21-33 Adventurer:faster V-WINGS:right Hephaestus33:26-4 Cyrus100:8-23 V-19:left Hurricane78:11-9 Victory69:faster Iron_Justice68:2-19 Phobos62:faster Scion43:faster ARC-170:17-19 Aeneas39:right Hurricane40:21-33 Emperor's_Fury8:slower
-[A.I.C.I.S.] Napoleon34:right Herakles71:18-5 BC_Pilgrim:slower Theodore_G._Bilbo123:left Titan18:left V-19:right Hurricane145:right Jackson's_Revenge122:left Ragnorak90:33-12 Jackson_V1:left Titan38:11-39 Gray_Tiger5:left Cyrus150:right Norad_II66:faster Merrimack65:right Scion14:faster Iron_Justice6:right Huey_Long59:faster Leviathan82:23-17 ISS_Europa:slower Bismarck110:right Kimeran_Juggernaut44:faster Iron_Justice55:right Saragossa:left Titan64:left Iron_Fist152:10-8 Merrimack77:slower Phobos117:slower X-WINGS:slower Merrimack85:left Ha'tak:left Emperor's_Fury143:right Fury148:left Metis35:faster BS_Galactica:24-26 Hurricane10:18-5 Alexander:slower Norad_II138:left Victory70:right Phobos26:right Norad_III12:faster Aleksander86:slower Patroclus109:faster Iron_Fist102:faster Valor_of_Vardona106:faster Aleksander19:right Jackson's_Revenge118:faster Herakles149:faster Victory54:faster Hurricane0:left Amphitrite58:left Cerberus140:4-31 White_Star120:right Norad_III56:18-5 Meleager91:right Meleager119:slower Tahoe111:4-31 Gray_Tiger88:left Emperor's_Fury76:left Amphitrite107:right Hoosier16:left Valor_of_Vardona48:right Napoleon29:faster Victory13:right Puddle_Jumper:left Circe25:20-3 Meleager101:right Emperor's_Fury89:faster Amphitrite42: Metis51:4-31 Scion72:left
-A.I.C.I.S. as take A.I.C.I.S._Metis134 !
-A.I.C.I.S. as take A.I.C.I.S._Aleksander74 !
-A.I.C.I.S. as take A.I.C.I.S._Herakles2 !
-A.I.C.I.S. as take A.I.C.I.S._Huey_Long81 !
-Botbot as take Botbot_Eos96 !
-Botbot_Aleksander41 shot A.I.C.I.S._BS_Galactica
-Botbot_ARC-170 shot A.I.C.I.S._Leviathan82
-A.I.C.I.S._Herakles71 kill Botbot_Hurricane78
+[A.I.C.I.S] b7:22-24 b5:30-16 b8:22-24 d5: d6:16-27 f6:right Charon:right d9:right f10:faster b6:slower White_Star:16-27 d10:22-24 d7:22-24 f7:faster f9:slower b13:16-27 b10:16-27 DROID-starfighter:slower
+[Pomme] d14:slower d11:17-20 d12:23-38 d13:24-20 Unicorn:15-27 Niente_Problem:23-20 KeepCalm:slower Amiiii:right b10:24-26 f12:right b12:23-38 f11:right b9:17-27 404_not_found:faster
+A.I.C.I.S as take A.I.C.I.S_f3 !
+A.I.C.I.S as take A.I.C.I.S_f13 !
+A.I.C.I.S as take A.I.C.I.S_f5 !
+Pomme as take Pomme_d8 !
+A.I.C.I.S_d6 shot A.I.C.I.S_White_Star
+A.I.C.I.S_White_Star shot A.I.C.I.S_White_Star
+A.I.C.I.S_b13 shot A.I.C.I.S_White_Star
+A.I.C.I.S_b10 shot A.I.C.I.S_White_Star
+Pomme_d13 shot A.I.C.I.S_b7
+Pomme_Unicorn shot Pomme_Unicorn
 It's turn nb 17
-[Botbot] Amphitrite63:right BC_Pilgrim:right Eos139:right Ragnorak95:left Hephaestus47:faster Bismarck73:left Patroclus53:slower Cerberus57:left Merrimack113:right Hoosier21:slower Kimeran_Juggernaut103:22-23 Napoleon3:slower Ha'tak:left Titan144:left Jackson's_Revenge23:33-17 Hurricane32:left Helios22:right BS_Galactica:right Valor_of_Vardona37:29-19 ISS_Europa:right Huey_Long79:22-40 Thunder_Child45:26-36 Aleksander130:faster ISS_Adventurer:13-15 Helios28:left Scion36:14-1 Hyperion75:right Antigone124:17-20 Meleager60:left Scion7:faster Huey_Long126:faster Fury61:17-10 Eos96:faster Huey_Long99:right Huey_Long84:left Eos15:19-3 Huey_Long17:23-34 Valor_of_Vardona11:16-31 Hurricane125:left [Legandary]Nicolas's_Spaceships:faster Aleksander41:16-31 Napoleon49:17-10 Gray_Tiger46:faster Cyrus4:23-34 Adventurer:slower V-WINGS:slower Hephaestus33:33-17 Cyrus100:4-19 V-19:left Victory69:2-11 Iron_Justice68:5-28 Phobos62:faster Scion43:left ARC-170:left Aeneas39:slower Hurricane40:left Emperor's_Fury8:faster
-[A.I.C.I.S.] Napoleon34:13-37 Herakles71:13-5 BC_Pilgrim:right Theodore_G._Bilbo123:faster Titan18:left V-19:right Hurricane145:right Jackson's_Revenge122:slower Ragnorak90:right Jackson_V1:left Titan38:15-3 Gray_Tiger5:left Cyrus150:faster Norad_II66:left Merrimack65:faster Scion14: Iron_Justice6:faster Huey_Long59:right Leviathan82:20-26 ISS_Europa:right Bismarck110:left Kimeran_Juggernaut44:left Iron_Justice55:slower Saragossa:right Aleksander74:faster Titan64:faster Iron_Fist152:11-9 Merrimack77:right Phobos117:right X-WINGS:left Merrimack85:faster Ha'tak:faster Emperor's_Fury143:right Fury148:left Metis35:slower BS_Galactica:slower Hurricane10:13-5 Huey_Long81:faster Alexander:slower Norad_II138:right Victory70:23-27 Phobos26:left Norad_III12:right Aleksander86:23-33 Patroclus109:left Iron_Fist102:left Valor_of_Vardona106:right Aleksander19:13-5 Jackson's_Revenge118:faster Herakles149:left Victory54:26-20 Hurricane0:left Metis134:faster Amphitrite58:slower Cerberus140:left White_Star120:9-12 Norad_III56:right Meleager91:left Meleager119:faster Tahoe111:1-28 Gray_Tiger88:23-27 Emperor's_Fury76:13-5 Amphitrite107:right Hoosier16:faster Herakles2:faster Valor_of_Vardona48:right Napoleon29:6-11 Victory13:right Puddle_Jumper:right Circe25:23-40 Meleager101:right Emperor's_Fury89:left Amphitrite42:34-13 Metis51:1-28 Scion72:faster
-Botbot as take Botbot_Cerberus151 !
-A.I.C.I.S. as take A.I.C.I.S._Thunder_Child87 !
-A.I.C.I.S. as take A.I.C.I.S._Kimera83 !
-A.I.C.I.S. as take A.I.C.I.S._Kimeran_Juggernaut135 !
-A.I.C.I.S. as take A.I.C.I.S._Hephaestus146 !
-A.I.C.I.S. as take A.I.C.I.S._Hurricane93 !
-Botbot as take Botbot_Huey_Long80 !
-Botbot_ISS_Adventurer shot A.I.C.I.S._Napoleon29
-Botbot_Fury61 shot A.I.C.I.S._Emperor's_Fury76
-Botbot_Napoleon49 shot A.I.C.I.S._Emperor's_Fury76
-A.I.C.I.S._Napoleon34 shot A.I.C.I.S._Meleager101
-A.I.C.I.S._Herakles71 kill Botbot_Scion36
-A.I.C.I.S._Aleksander86 kill A.I.C.I.S._Phobos117
-A.I.C.I.S._Circe25 shot Botbot_Eos15
-A.I.C.I.S._Amphitrite42 shot A.I.C.I.S._Huey_Long59
-A.I.C.I.S._Amphitrite42 shot Botbot_Hephaestus33
+[A.I.C.I.S] b7:21-25 b5:21-25 f3:faster b8:21-25 d5: d6:21-25 f6:left f5:faster Charon:right d9: f10:faster b6:faster f13:faster White_Star:13-27 d10: d7:21-25 f7:left f9:left b13:13-27 b10:13-27 DROID-starfighter:right
+[Pomme] d14:22-39 d11:17-20 d12:21-37 d13:25-27 Unicorn:14-27 Niente_Problem:22-16 KeepCalm:slower Amiiii:right b10:21-20 f12:slower b12:23-38 d8:faster f11:faster b9:21-26 404_not_found:slower
+A.I.C.I.S as take A.I.C.I.S_d1 !
+A.I.C.I.S as take A.I.C.I.S_b4 !
+A.I.C.I.S_White_Star kill Pomme_Unicorn
+Pomme_d13 shot A.I.C.I.S_f13
 It's turn nb 18
-[Botbot] Amphitrite63:right BC_Pilgrim:faster Eos139:9-24 Ragnorak95:faster Hephaestus47:left Bismarck73:slower Patroclus53:right Cerberus57:left Merrimack113:faster Hoosier21:right Kimeran_Juggernaut103:17-13 Napoleon3:faster Ha'tak:12-1 Titan144:left Jackson's_Revenge23:left Hurricane32:right Helios22:faster BS_Galactica:right Valor_of_Vardona37:right ISS_Europa:right Huey_Long79:18-4 Thunder_Child45:30-40 Aleksander130:14-33 ISS_Adventurer:faster Helios28:27-20 Hyperion75:faster Antigone124:14-23 Meleager60:left Scion7:16-37 Huey_Long126:faster Fury61:17-13 Eos96:left Huey_Long99:right Huey_Long84:left Huey_Long80:faster Eos15:faster Huey_Long17:21-32 Valor_of_Vardona11:right Hurricane125:left [Legandary]Nicolas's_Spaceships:right Aleksander41:14-33 Napoleon49:17-13 Gray_Tiger46:8-9 Cyrus4:16-37 Adventurer:slower V-WINGS:right Hephaestus33:33-20 Cyrus100:right V-19:left Cerberus151:faster Victory69:1-9 Iron_Justice68:left Phobos62:right Scion43:left ARC-170:14-33 Aeneas39:9-24 Hurricane40:right Emperor's_Fury8:slower
-[A.I.C.I.S.] Napoleon34:7-40 Herakles71:13-10 BC_Pilgrim:faster Theodore_G._Bilbo123:left Hephaestus146:faster Titan18:faster V-19:slower Hurricane145:right Jackson's_Revenge122:right Ragnorak90:right Jackson_V1:left Titan38:25-38 Gray_Tiger5:faster Cyrus150:20-33 Norad_II66:left Merrimack65:24-22 Scion14:7-40 Thunder_Child87:faster Iron_Justice6:13-10 Huey_Long59:right Leviathan82:7-23 ISS_Europa:right Bismarck110:left Kimeran_Juggernaut135:faster Kimeran_Juggernaut44:right Iron_Justice55:right Saragossa:right Aleksander74:left Titan64:right Iron_Fist152:3-5 Merrimack77:slower X-WINGS:18-5 Merrimack85:left Ha'tak:12-28 Emperor's_Fury143:faster Fury148:left Metis35:right BS_Galactica:right Kimera83:faster Hurricane10:11-5 Huey_Long81:left Alexander:left Norad_II138:right Victory70:left Phobos26:left Norad_III12:right Aleksander86:right Patroclus109:faster Iron_Fist102:right Valor_of_Vardona106:slower Aleksander19:3-5 Jackson's_Revenge118:left Herakles149:left Victory54:24-22 Hurricane0:left Metis134:slower Amphitrite58:slower Cerberus140:left White_Star120:38-20 Norad_III56:left Meleager91:left Meleager119:slower Tahoe111:5-29 Gray_Tiger88:21-28 Emperor's_Fury76:right Amphitrite107:3-5 Hoosier16:left Herakles2:faster Valor_of_Vardona48:right Napoleon29:9-8 Victory13:right Puddle_Jumper:right Circe25:25-38 Hurricane93:faster Meleager101:faster Emperor's_Fury89:right Amphitrite42:35-14 Metis51:7-40 Scion72:right
-A.I.C.I.S. as take A.I.C.I.S._Eos129 !
-A.I.C.I.S. as take A.I.C.I.S._Hoosier141 !
-Botbot as take Botbot_Leviathan112 !
-A.I.C.I.S. as take A.I.C.I.S._Meleager131 !
-Botbot as take Botbot_Gray_Tiger9 !
-A.I.C.I.S. as take A.I.C.I.S._Emperor's_Fury147 !
-A.I.C.I.S. as take A.I.C.I.S._Jackson's_Revenge92 !
-A.I.C.I.S. as take A.I.C.I.S._Loki136 !
-Botbot_Eos139 shot A.I.C.I.S._Ha'tak
-Botbot_Ha'tak shot A.I.C.I.S._Hurricane10
-Botbot_Helios28 shot A.I.C.I.S._Merrimack65
-Botbot_Gray_Tiger46 shot A.I.C.I.S._Iron_Justice6
-A.I.C.I.S._Ha'tak shot Botbot_Aleksander130
-A.I.C.I.S._Hurricane10 shot Botbot_Ha'tak
-A.I.C.I.S._Hurricane10 shot Botbot_Gray_Tiger9
-A.I.C.I.S._Amphitrite42 shot Botbot_Hephaestus33
+[A.I.C.I.S] b7:20-27 b4:faster b5:30-14 f3:right b8:20-27 d5: d6:20-27 f6:right d1: f5:left Charon:faster d9: f10:29-21 b6:slower f13:left White_Star:14-31 d10:right d7:20-27 f7:faster f9:left b13:right b10:20-27 DROID-starfighter:right
+[Pomme] d14:21-37 d11:faster d12:24-29 d13:26-27 Niente_Problem:25-13 KeepCalm:right b10:22-18 f12:left b12:right d8:17-22 f11:right b9:21-37 404_not_found:slower
+A.I.C.I.S as take A.I.C.I.S_d12 !
+A.I.C.I.S as take A.I.C.I.S_b1 !
+A.I.C.I.S_b5 shot Pomme_Niente_Problem
+A.I.C.I.S_b8 kill Pomme_Amiiii
+A.I.C.I.S_f10 shot Pomme_d13
 It's turn nb 19
-[Botbot] Amphitrite63:faster BC_Pilgrim:faster Eos139:6-21 Ragnorak95:right Hephaestus47:27-32 Bismarck73:faster Patroclus53:17-36 Cerberus57:faster Merrimack113:faster Hoosier21:faster Kimeran_Juggernaut103:13-16 Napoleon3:slower Ha'tak:left Titan144:23-9 Jackson's_Revenge23:left Hurricane32:14-35 Helios22:faster BS_Galactica:slower Valor_of_Vardona37:left ISS_Europa:right Huey_Long79:23-9 Thunder_Child45:34-37 Aleksander130:6-21 ISS_Adventurer:left Helios28:22-8 Hyperion75:37-17 Antigone124:17-19 Meleager60:right Gray_Tiger9:faster Scion7:14-35 Huey_Long126:faster Fury61:22-8 Eos96:right Huey_Long99:right Huey_Long84:6-21 Huey_Long80:right Eos15:faster Huey_Long17:23-27 Valor_of_Vardona11:left Hurricane125:left [Legandary]Nicolas's_Spaceships:27-3 Aleksander41:right Napoleon49:22-8 Gray_Tiger46:left Cyrus4:right Adventurer:left V-WINGS:right Hephaestus33:37-22 Cyrus100:right V-19:slower Leviathan112:faster Cerberus151:faster Victory69:right Iron_Justice68:left Phobos62:right Scion43:faster ARC-170:left Aeneas39:11-29 Hurricane40:slower Emperor's_Fury8:faster
-[A.I.C.I.S.] Napoleon34:8-30 Herakles71:9-7 BC_Pilgrim:23-24 Theodore_G._Bilbo123:right Hephaestus146:right Titan18: V-19:right Hurricane145:right Jackson's_Revenge122:faster Ragnorak90:14-7 Jackson_V1:right Titan38:29-34 Gray_Tiger5:16-37 Cyrus150:18-31 Jackson's_Revenge92:faster Norad_II66:faster Merrimack65:20-24 Scion14:left Thunder_Child87:left Iron_Justice6:9-7 Huey_Long59:faster Leviathan82:9-28 ISS_Europa:faster Hoosier141:faster Bismarck110: Kimeran_Juggernaut135:right Eos129:faster Kimeran_Juggernaut44:faster Loki136:faster Iron_Justice55:right Saragossa:right Aleksander74:faster Titan64:left Iron_Fist152:6-2 Merrimack77:left X-WINGS:slower Merrimack85:faster Ha'tak:faster Emperor's_Fury147:faster Emperor's_Fury143:9-7 Fury148:9-28 Metis35:18-3 BS_Galactica:left Kimera83:right Hurricane10:left Huey_Long81:left Alexander:left Norad_II138:left Victory70:faster Phobos26:left Norad_III12:14-9 Aleksander86:right Patroclus109:faster Iron_Fist102:faster Valor_of_Vardona106:slower Aleksander19:9-7 Jackson's_Revenge118:29-34 Herakles149:left Victory54:20-24 Hurricane0:left Meleager131:faster Metis134:faster Amphitrite58:18-31 Cerberus140:left White_Star120:35-23 Norad_III56:9-7 Meleager91:slower Meleager119:faster Tahoe111:40-29 Gray_Tiger88:18-31 Emperor's_Fury76:right Amphitrite107:9-7 Hoosier16:right Herakles2:20-4 Valor_of_Vardona48:right Napoleon29:10-16 Victory13:faster Puddle_Jumper:slower Circe25:29-34 Hurricane93:faster Meleager101:faster Emperor's_Fury89:right Amphitrite42:27-10 Metis51:40-29 Scion72:faster
-A.I.C.I.S. as take A.I.C.I.S._Bismarck127 !
-Botbot as take Botbot_Emperor's_Fury105 !
-A.I.C.I.S. as take A.I.C.I.S._Leviathan67 !
-A.I.C.I.S. as take A.I.C.I.S._Scion137 !
-Botbot as take Botbot_Leviathan114 !
-A.I.C.I.S. as take A.I.C.I.S._Herakles31 !
-Botbot_Antigone124 shot A.I.C.I.S._Napoleon29
-Botbot_Huey_Long17 shot A.I.C.I.S._BC_Pilgrim
-A.I.C.I.S._Ragnorak90 shot Botbot_Napoleon3
-A.I.C.I.S._Ragnorak90 shot Botbot_Titan144
-A.I.C.I.S._Gray_Tiger5 shot A.I.C.I.S._Gray_Tiger5
-A.I.C.I.S._White_Star120 shot A.I.C.I.S._Norad_II66
-A.I.C.I.S._White_Star120 shot Botbot_Hyperion75
-A.I.C.I.S._Herakles2 shot Botbot_Huey_Long79
-A.I.C.I.S._Napoleon29 shot Botbot_Antigone124
+[A.I.C.I.S] b7:30-20 b4:left b5:30-13 f3: b8:30-20 d5: d6: f6:faster d1: f5:left Charon:left d9: f10:right b6:faster f13:left White_Star:13-30 b1: d12:faster d10:right d7:right f7:left f9:left b13:13-30 b10:faster DROID-starfighter:right
+[Pomme] d14:17-6 d11:15-17 d12:20-35 d13:24-20 Niente_Problem:26-17 KeepCalm:right b10:25-14 f12:right b12:slower d8:15-23 f11:right b9:18-34 404_not_found:faster
+A.I.C.I.S_b7 shot Pomme_d13
+A.I.C.I.S_b5 shot Pomme_Niente_Problem
+A.I.C.I.S_b8 kill Pomme_d13
 It's turn nb 20
-[Botbot] Amphitrite63:right BC_Pilgrim:slower Eos139:7-28 Ragnorak95:left Hephaestus47:left Bismarck73:slower Patroclus53:left Cerberus57:left Merrimack113:7-28 Hoosier21:12-37 Kimeran_Juggernaut103:19-21 Napoleon3:faster Ha'tak:left Titan144:10-16 Jackson's_Revenge23:left Hurricane32:slower Helios22:slower BS_Galactica:right Valor_of_Vardona37:right ISS_Europa:slower Huey_Long79:23-9 Thunder_Child45:30-32 Aleksander130:14-32 ISS_Adventurer:14-39 Helios28:23-9 Hyperion75:37-24 Antigone124:left Meleager60:right Gray_Tiger9:slower Scion7:11-39 Emperor's_Fury105:faster Huey_Long126:slower Fury61:24-19 Eos96:right Huey_Long99:1-16 Huey_Long84:14-32 Huey_Long80:faster Eos15:right Huey_Long17:20-30 Valor_of_Vardona11:21-29 Hurricane125:faster [Legandary]Nicolas's_Spaceships:slower Aleksander41:21-29 Napoleon49:24-19 Gray_Tiger46:10-16 Cyrus4:right Adventurer:faster V-WINGS:right Hephaestus33:faster Cyrus100:left V-19:left Leviathan114:faster Leviathan112:left Cerberus151:11-39 Victory69:left Iron_Justice68:7-28 Phobos62:30-32 Scion43:5-39 ARC-170:left Aeneas39:left Hurricane40:22-5 Emperor's_Fury8:left
-[A.I.C.I.S.] Napoleon34:3-30 Herakles71:7-5 BC_Pilgrim:faster Theodore_G._Bilbo123:faster Hephaestus146:right Titan18: V-19:right Hurricane145:right Jackson's_Revenge122:left Ragnorak90:right Jackson_V1:right Titan38:20-33 Gray_Tiger5:19-31 Scion137:faster Cyrus150:20-33 Jackson's_Revenge92:faster Norad_II66:33-25 Merrimack65:right Scion14:6-37 Thunder_Child87:left Iron_Justice6:6-12 Huey_Long59:25-7 Leviathan82:5-28 ISS_Europa:right Bismarck127:faster Hoosier141:faster Bismarck110:33-25 Kimeran_Juggernaut135:20-33 Eos129:20-33 Kimeran_Juggernaut44:faster Loki136:faster Iron_Justice55:right Saragossa:slower Aleksander74:right Titan64:faster Iron_Fist152:left Merrimack77:faster X-WINGS:faster Merrimack85:slower Ha'tak:right Emperor's_Fury147:right Emperor's_Fury143:16-40 Fury148:right Leviathan67:faster Metis35:19-31 BS_Galactica:left Kimera83:faster Hurricane10:faster Huey_Long81:faster Alexander:slower Norad_II138:left Victory70:slower Phobos26:faster Norad_III12:18-8 Aleksander86:25-29 Patroclus109:right Iron_Fist102:right Valor_of_Vardona106:right Herakles31:faster Aleksander19:7-5 Jackson's_Revenge118:slower Herakles149:8-33 Victory54:16-28 Hurricane0:20-33 Meleager131:right Metis134:slower Amphitrite58:right Cerberus140:right White_Star120:34-29 Norad_III56:7-5 Meleager91:faster Meleager119:slower Tahoe111:31-33 Gray_Tiger88:right Emperor's_Fury76:left Amphitrite107:7-5 Hoosier16:right Herakles2:25-7 Valor_of_Vardona48:right Napoleon29:17-13 Victory13:17-9 Puddle_Jumper:faster Circe25:right Hurricane93:31-33 Meleager101:left Emperor's_Fury89:right Amphitrite42:right Metis51:6-37 Scion72:33-25
-A.I.C.I.S. as take A.I.C.I.S._Kimeran_Juggernaut98 !
-Botbot as take Botbot_Merrimack121 !
-A.I.C.I.S. as take A.I.C.I.S._Cyrus20 !
-A.I.C.I.S. as take A.I.C.I.S._Ragnorak128 !
-Botbot as take Botbot_Herakles24 !
-Botbot as take Botbot_Cyrus116 !
-Botbot_Kimeran_Juggernaut103 shot A.I.C.I.S._Napoleon29
-Botbot_Aleksander130 shot Botbot_Huey_Long84
-Botbot_Hyperion75 shot A.I.C.I.S._Bismarck110
-Botbot_Huey_Long84 shot Botbot_Huey_Long84
-Botbot_Scion43 shot A.I.C.I.S._Metis51
-A.I.C.I.S._Norad_II66 shot A.I.C.I.S._Norad_II66
-A.I.C.I.S._Norad_II66 shot Botbot_Hyperion75
-A.I.C.I.S._Scion14 shot Botbot_Scion43
-A.I.C.I.S._Bismarck110 shot A.I.C.I.S._Norad_II66
-A.I.C.I.S._Bismarck110 shot Botbot_Hyperion75
-A.I.C.I.S._Metis35 kill A.I.C.I.S._BC_Pilgrim
-A.I.C.I.S._Herakles149 shot Botbot_Hoosier21
-A.I.C.I.S._Herakles2 shot Botbot_Hurricane40
-A.I.C.I.S._Herakles2 shot Botbot_Herakles24
-A.I.C.I.S._Napoleon29 shot Botbot_Kimeran_Juggernaut103
-A.I.C.I.S._Metis51 kill Botbot_Scion43
+[A.I.C.I.S] b7: b4:left b5:30-12 f3:right b8:30-12 d5: d6: f6:faster d1: f5:faster Charon:right d9: f10:faster b6:slower f13:left White_Star:12-32 b1: d12:left d10:right d7:slower f7:slower f9:faster b13:slower b10:right DROID-starfighter:right
+[Pomme] d14:17-6 d11:slower d12:24-29 Niente_Problem:24-12 KeepCalm:right b10:26-18 f12:left b12:faster d8:16-23 f11:faster b9:15-31 404_not_found:right
+A.I.C.I.S as take A.I.C.I.S_b2 !
+A.I.C.I.S as take A.I.C.I.S_d2 !
+A.I.C.I.S_b5 shot Pomme_Niente_Problem
+Pomme_Niente_Problem shot d4
+Pomme_d8 shot A.I.C.I.S_b13
 It's turn nb 21
+[A.I.C.I.S] b7: b4:30-11 b5:30-11 b2:faster f3:right b8:30-11 d5: d6: f6:faster d1: d2:faster f5:left Charon:11-31 d9: f10:left b6:faster f13:left White_Star:11-31 b1: d12:left d10:right d7:faster f7:right f9:left b13:faster b10:right DROID-starfighter:left
+[Pomme] d14:17-7 d11:right d12:24-30 Niente_Problem:21-13 KeepCalm:faster b10:23-17 f12:faster b12:right d8:17-24 f11:slower b9:17-31 404_not_found:right
+A.I.C.I.S as take A.I.C.I.S_b9 !
+A.I.C.I.S_b5 shot Pomme_Niente_Problem
+A.I.C.I.S_b8 kill Pomme_Niente_Problem
+It's turn nb 22
+[A.I.C.I.S] b7: b4: b5: b2:right f3:right b8: b9:faster d5: d6: f6:slower d1: d2:right f5:faster Charon:8-31 d9:13-8 f10:left b6:slower f13:faster White_Star:8-31 b1:13-8 d12:left d10:right d7:slower f7:faster f9:faster b13:slower b10:16-23 DROID-starfighter:faster
+[Pomme] d14:15-9 d11:right d12:faster Niente_Problem:27-10 KeepCalm:faster b10:26-15 f12:slower b12:left d8:18-20 f11:slower b9:15-33 404_not_found:slower
+A.I.C.I.S as take A.I.C.I.S_d11 !
+A.I.C.I.S_b10 shot Pomme_d8
+It's turn nb 23
+[A.I.C.I.S] b7: b4: b5: b2:right f3:right b8: b9:left d5:right d6:slower f6:slower d1: d2:right f5:slower Charon:16-22 d9:13-12 f10:left b6:faster f13:left White_Star:8-31 b1:13-12 d12:faster d10:left d11:faster d7:faster f7:left f9:faster b13:faster b10:16-22 DROID-starfighter:
+[Pomme] d14:19-7 d11:right d12:right Niente_Problem:27-9 KeepCalm:faster b10:28-14 f12:left b12:slower d8:22-22 f11:slower b9:15-33 404_not_found:faster
+A.I.C.I.S as take A.I.C.I.S_f1 !
+A.I.C.I.S as take A.I.C.I.S_f11 !
+A.I.C.I.S_b10 kill Pomme_d8
+Pomme_d14 shot A.I.C.I.S_b2
+It's turn nb 24
+[A.I.C.I.S] f11:faster b7: b4: b5: b2:16-6 f3:left b8: b9:slower d5:faster d6:faster f1:faster f6:faster d1:faster d2:16-6 f5:left Charon: d9:left f10:left b6:slower f13:faster White_Star:right b1:13-17 d12:right d10:left d11:faster d7:slower f7:left f9:right b13:slower b10: DROID-starfighter:left
+[Pomme] d14:17-6 d11:faster d12:left Niente_Problem:28-9 KeepCalm:slower b10:29-12 f12:right b12:faster d8:16-26 f11:right b9:16-5 404_not_found:faster
+A.I.C.I.S as take A.I.C.I.S_f2 !
+A.I.C.I.S_b2 shot Pomme_d14
+A.I.C.I.S_d2 shot Pomme_d14
+It's turn nb 25
+[A.I.C.I.S] f11:faster b7: b4:slower b5: b2:16-7 f3:right b8: b9:faster f2:faster d5:16-7 d6:slower f1:right f6:right d1:left d2:16-7 f5:left Charon:right d9:slower f10:slower b6:faster f13:left White_Star:right b1:16-7 d12:right d10:left d11:right d7:faster f7: f9:right b13:faster b10:13-19 DROID-starfighter:left
+[Pomme] d14:17-12 d11:right d12:29-8 Niente_Problem:29-8 KeepCalm:right b10:30-12 f12:slower b12:left d8:17-26 f11:right b9:17-6 404_not_found:left
+A.I.C.I.S as take A.I.C.I.S_f4 !
+A.I.C.I.S_b2 kill Pomme_d14
+It's turn nb 26
+[A.I.C.I.S] f11:left b7:19-22 b4:faster b5:slower b2: f3:right b8: b9:7-30 f2:right d5: d6:faster f1:right f6:slower d1:faster d2:right f5:left Charon:right d9:slower f10:left b6:7-30 f13:left f4:faster White_Star:right b1:19-22 d12: d10:19-22 d11:right d7:slower f7:None f9:right b13:left b10:right DROID-starfighter:left
+[Pomme] d11:6-24 d12:26-5 Niente_Problem:31-10 KeepCalm:slower b10:30-10 f12:faster b12:9-40 d8:14-24 f11:slower b9:12-1 404_not_found:slower
+It's turn nb 27
+[A.I.C.I.S] f11:faster b7:20-23 b4:20-23 b5:faster b2: f3:right b8: b9:5-30 f2:faster d5:right d6:slower f1:right f6:slower d1: d2:faster f5:left Charon:5-30 d9:faster f10:left b6:5-30 f13:slower f4: White_Star: b1: d12: d10:20-23 d11: d7:faster f7:left f9:right b13:20-23 b10:right DROID-starfighter:left
+[Pomme] d11:5-27 d12:30-7 Niente_Problem:31-6 KeepCalm:left b10:31-7 f12:faster b12:10-40 d8:17-16 f11:faster b9:18-7 404_not_found:7-34
+Pomme_404_not_found shot A.I.C.I.S_b6
+It's turn nb 28
+[A.I.C.I.S] f11:right b7:18-25 b4:18-25 b5:slower b2: f3: b8:slower b9: f2:faster d5: d6:faster f1:right f6:left d1: d2: f5:faster Charon:right d9:left f10:left b6:left f13: f4:left White_Star: b1: d12:left d10:18-25 d11: d7:slower f7:left f9: b13:left b10:18-25 DROID-starfighter:left
+[Pomme] d11:13-27 d12:20-10 Niente_Problem:24-9 KeepCalm:left b10:33-8 f12:faster b12:10-40 d8:18-23 f11:left b9:20-10 404_not_found:4-29
+A.I.C.I.S as take A.I.C.I.S_d3 !
+A.I.C.I.S as take A.I.C.I.S_d4 !
+It's turn nb 29
+[A.I.C.I.S] f11:right d4:faster b7:faster b4:14-27 b5:faster b2: f3:left b8:faster b9:14-27 f2:slower d5:4-3 d6:slower f1:faster f6:left d1: d2: f5:slower Charon:38-30 d9:faster f10:left b6:left f13:right f4:left d3: White_Star:right b1:faster d12:left d10:14-27 d11:5-33 d7:faster f7:right f9: b13:left b10:14-27 DROID-starfighter:slower
+[Pomme] d11:13-28 d12:26-12 Niente_Problem:32-8 KeepCalm:slower b10:7-6 f12:slower b12:5-34 d8:20-15 f11:faster b9:22-9 404_not_found:6-32
+A.I.C.I.S as take A.I.C.I.S_b3 !
+A.I.C.I.S_d5 shot Pomme_b12
+A.I.C.I.S_d11 shot A.I.C.I.S_b6
+A.I.C.I.S_d11 shot Pomme_404_not_found
+It's turn nb 30
+[A.I.C.I.S] f11: d4:left b7:right b4:14-27 b5:right b2:right b3:faster f3:right b8:right b9:14-27 f2:left d5:5-4 d6:faster f1:right f6: d1:5-4 d2: f5:faster Charon:37-30 d9: f10:left b6:37-30 f13:slower f4:slower d3:faster White_Star:left b1:left d12:6-32 d10:right d11:6-32 d7:right f7:slower f9:slower b13:14-27 b10:14-27 DROID-starfighter:faster
+[Pomme] d11:16-25 d12:27-13 Niente_Problem:33-8 KeepCalm:slower b10:34-7 f12:left b12:12-2 d8:22-15 f11:faster b9:20-10 404_not_found:2-34
+A.I.C.I.S_d5 shot Pomme_b12
+A.I.C.I.S_d1 shot Pomme_b12
+A.I.C.I.S_d12 shot Pomme_404_not_found
+A.I.C.I.S_d11 shot Pomme_404_not_found
+It's turn nb 31
+[A.I.C.I.S] f11:slower d4:faster b7:right b4:15-26 b5:right b2:left b3:right f3: b8:right b9:7-31 f2:faster d5:6-5 d6:slower f1:left f6:left d1:6-5 d2: f5:slower Charon:7-31 d9:right f10:left b6:left f13:slower f4:faster d3:left White_Star: b1: d12:left d10:left d11:7-31 d7:right f7:faster f9:slower b13:15-26 b10:15-26 DROID-starfighter:right
+[Pomme] d11:15-25 d12:25-18 Niente_Problem:33-6 KeepCalm:faster b10:33-7 f12:right b12:4-1 d8:21-14 f11:slower b9:20-9 404_not_found:4-36
+A.I.C.I.S_b9 kill Pomme_404_not_found
+A.I.C.I.S_d5 shot Pomme_b12
+A.I.C.I.S_d1 shot Pomme_b12
+It's turn nb 32
+[A.I.C.I.S] f11: d4: b7:right b4:13-28 b5: b2:7-6 b3: f3:slower b8: b9:left f2:slower d5:slower d6:faster f1:left f6: d1:left d2:left f5: Charon:right d9:13-28 f10:slower b6:left f13:faster f4:left d3:left White_Star: b1: d12:left d10:slower d11:left d7:faster f7: f9:faster b13:13-28 b10:13-28 DROID-starfighter:slower
+[Pomme] d11:12-31 d12:25-18 Niente_Problem:32-7 KeepCalm:right b10:4-38 f12:slower b12:11-40 d8:19-14 f11:faster b9:24-7 404_not_found:6-36
+It's turn nb 33
+[A.I.C.I.S] f11: d4: b7: b4:14-29 b5: b2:8-7 b3: f3:left b8:right b9:left f2:right d5:slower d6:slower f1: f6: d1:left d2:left f5:faster Charon:right d9:14-29 f10:slower b6: f13:slower f4:right d3:faster White_Star:33-28 b1: d12:right d10:right d11:left d7:33-28 f7:slower f9:right b13:14-29 b10:14-29 DROID-starfighter:
+[Pomme] d11:slower d12:24-16 Niente_Problem:30-4 KeepCalm:left b10:9-39 f12:slower b12:9-39 d8:17-14 f11:right b9:27-9 404_not_found:8-24
+A.I.C.I.S_b4 shot A.I.C.I.S_d9
+A.I.C.I.S_d9 kill A.I.C.I.S_d9
+It's turn nb 34
+[A.I.C.I.S] f11:left d4: b7: b4:12-30 b5:right b2:9-8 b3: f3:faster b8:right b9:left f2:slower d5:faster d6:faster f1:right f6: d1: d2:12-30 f5: Charon:right f10:slower b6:12-30 f13:faster f4: d3: White_Star:34-28 b1: d12:left d10:right d11: d7:34-28 f7:faster f9:left b13:left b10:left DROID-starfighter:
+[Pomme] d11:right d12:25-27 Niente_Problem:33-36 KeepCalm:right b1:faster b10:5-36 f12:faster b12:15-10 d8:17-13 f11:right b9:17-13 404_not_found:3-28
+It's turn nb 35
+[A.I.C.I.S] f11: d4: b7: b4:13-31 b5:left b2: b3: f3:left b8: b9:left f2:slower d5:right d6:slower f1:right f6:right d1: d2:13-31 f5:right Charon: f10: b6:13-31 f13:faster f4:slower d3: White_Star:32-28 b1: d12:right d10:right d11: d7:32-28 f7:left f9:slower b13:left b10:13-31 DROID-starfighter:faster
+[Pomme] d11:right d12:26-26 Niente_Problem:27-3 KeepCalm:faster b1:17-15 b10:7-37 f12:left b12:13-14 d8:13-12 f11:faster d2:faster b9:14-13 404_not_found:9-22
+Pomme_b12 kill A.I.C.I.S_f6
+It's turn nb 36
+[A.I.C.I.S] f11: d4:right b7: b4:13-34 b5: b2:13-34 b3: f3:right b8: b9:13-34 f2:left d5:faster d6:faster f1:left d1:13-34 d2:13-34 f5:slower Charon:13-34 f10:right b6:13-34 f13: f4: d3: White_Star:31-26 b1: d12:left d10:faster d11: d7:left f7: f9: b13: b10:left DROID-starfighter:slower
+[Pomme] d11:27-36 d12:28-25 Niente_Problem:26-39 KeepCalm:faster b1:21-13 b10:6-36 f12:slower b12:right d8:15-15 f11:right d2:22-14 b9:16-16 404_not_found:9-30
+It's turn nb 37
+[A.I.C.I.S] f11:right d4: b7: b4:13-38 b5: b2:13-38 b3: f3:faster b8: b9:13-38 f2:right d5: d6:slower f1:right d1:right d2:left f5:faster Charon:13-38 f10: b6: f13:faster f4:faster d3: White_Star:32-27 b1: d12:right d10: d11:32-27 d7:slower f7:slower f9:faster b13: b10:right DROID-starfighter:
+[Pomme] d11:26-33 d12:29-24 Niente_Problem:30-1 KeepCalm:right b1:15-16 b10:6-35 f12:faster b12:11-19 d8:20-12 f11:right d2:20-13 b9:20-12 404_not_found:8-29
+Pomme_b12 shot A.I.C.I.S_b13
+It's turn nb 38
+[A.I.C.I.S] f11:faster d4:right b7: b4:right b5:19-1 b2: b3:slower f3:faster b8:left b9: f2:left d5: d6:faster f1:faster d1:left d2:left f5:right Charon:left f10:faster b6: f13:left f4:13-9 d3:right White_Star:30-25 b1: d12:left d10: d11:30-25 d7:slower f7:faster f9:faster b13: b10:left DROID-starfighter:left
+[Pomme] d11:25-29 d12:29-30 Niente_Problem:34-39 KeepCalm:left b1:12-19 b10:8-33 f12:right b12:19-11 d8:19-11 f11:right d2:25-10 b9:25-10 404_not_found:13-30
+A.I.C.I.S_f4 shot Pomme_b12
+Pomme_b12 shot A.I.C.I.S_b7
+It's turn nb 39
+[A.I.C.I.S] f11:faster d4:right b7:14-9 b4:right b5: b2: b3:faster f3:right b8: b9: f2:faster d5:left d6:faster f1:slower d1:right d2:left f5:right Charon:right f10: b6: f13:slower f4:left d3:right White_Star:29-26 b1: d12:14-9 d10:right d11:29-26 d7:faster f7:slower f9:slower b13:14-9 b10:right DROID-starfighter:
+[Pomme] d11:29-33 d12:29-35 Niente_Problem:29-35 KeepCalm:faster b1:14-18 b10:9-34 f12:right b12:13-17 d8:right f11:right d2:24-8 b9:13-17 404_not_found:12-24
+A.I.C.I.S_b7 shot Pomme_b12
+A.I.C.I.S_White_Star kill A.I.C.I.S_f9
+A.I.C.I.S_d12 shot Pomme_b12
+Pomme_b12 shot A.I.C.I.S_b13
+It's turn nb 40
+[A.I.C.I.S] f11:slower d4:right b7:15-9 b4:right b5: b2: b3:slower f3:right b8: b9: f2:faster d5:right d6:left f1: d1:left d2:left f5:28-28 Charon:right f10:left b6: f13:left f4:slower d3:28-28 White_Star:28-28 b1: d12:15-9 d10:right d11:28-28 d7:left f7:faster b13:15-9 b10:right DROID-starfighter:left
+[Pomme] 
+A.I.C.I.S_b7 kill Pomme_b12
+A.I.C.I.S_f5 shot Pomme_f12
+A.I.C.I.S_d3 kill Pomme_f12
+It's turn nb 41

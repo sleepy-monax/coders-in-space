@@ -543,13 +543,16 @@ def get_remote_input(game_data, player_name):
 def get_ai_input(game_data, player_name):
     """
     Get input from an AI player.
+    
     Parameter
     ---------
     player_name: name of the player (str).
     game_data:   state of the game (dic).
+    
     Return
     ------
     ai_input: game input from AI (str).
+    
     Version
     -------
     Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
@@ -720,7 +723,6 @@ def get_battleship_action(game_data, ship_name, owner):
     ------
     action: action for this ship(str).
 
-
     Version
     -------
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
@@ -809,6 +811,11 @@ def follow_path(game_data, ship_name):
     Return
     ------
     order: the order to do in order to follow the path <none|left|right|faster|slower>(str).
+    
+    Version
+    -------
+    Specification:  Nicolas Van Bossuyt (v1. 28/04/17)
+    Implementation: Nicolas Van Bossuyt (v1. 28/04/17)
     """
     ship = game_data['ships'][ship_name]
     if len(ship['objective_path']) > 0:
@@ -888,6 +895,11 @@ def do_random_action(game_data, ship_name):
     Return
     ------
     action: randomly chosen action (str).
+    
+    Version
+    -------
+    Specification:  Nicolas Van Bossuyt (v1. 28/04/17)
+    Implementation: Nicolas Van Bossuyt (v1. 28/04/17)
     """
     actions = ['faster', 'slower', 'left', 'right', 'attack']
 
@@ -911,6 +923,7 @@ def speed(game_data, ship, change):
     return
     ------
     '%s:%s' % (ship, change): regular input for the game loop (str).
+    
     Version
     -------
     Specification: Bayron Mahy (v1. 20/03/17)
@@ -997,6 +1010,11 @@ def path_finding(start_node, max_speed, end_node, board_size, path=[], max_dista
     Return
     ------
     shortess_path: the shortest path to the end node (list(steps)).
+    
+    Version
+    -------
+    Specification:  Nicolas Van Bossuyt (v1. 28/04/17)
+    Implementation: Nicolas Van Bossuyt (v1. 28/04/17)
     """
     steps = get_next_step(start_node, end_node, max_speed, board_size)
 
@@ -1038,6 +1056,11 @@ def get_next_step(start_node, end_node, max_speed, board_size):
     Return
     ------
     nex_step: the next step of the path (dic).
+    
+    Version
+    -------
+    Specification:  Nicolas Van Bossuyt (v1. 28/04/17)
+    Implementation: Nicolas Van Bossuyt (v1. 28/04/17)
     """
     nodes = []
 
@@ -1088,6 +1111,15 @@ def node(location, facing=(0, 0), distance=0, speed=0, to_do='none'):
     distance: distance to the objective (int).
     speed: speed of the node.
     to_do: Order to do.
+    
+    Return
+    ------
+    node: path finding node (dic).
+    
+    Version
+    -------
+    Specification:  Nicolas Van Bossuyt (v1. 28/04/17)
+    Implementation: Nicolas Van Bossuyt (v1. 28/04/17)
     """
     return {'location': location, 'facing': facing, 'distance': distance, 'speed': speed, 'to_do': to_do}
 
@@ -1256,8 +1288,12 @@ def render_game_board(game_data):
     Return
     ------
     game_board_canvas: rendered game board (dic)
+    
+    Version
+    -------
+    Specification:  Nicolas Van Bossuyt (v1. 10/04/17)
+    Implementation: Nicolas Van Bossuyt (v1. 10/04/17)
     """
-	#spec to correct
     # Setup the drawing canvas.
     board_size = game_data['board_size']
     c = create_canvas(board_size[0] * 3 + 3, board_size[1] + 1)
@@ -1348,8 +1384,12 @@ def render_ship_list(game_data, width, height):
     Return
     ------
     ship_list_canvas: rendered ship list (dic).
+    
+    Version
+    -------
+    Specification:  Nicolas Van Bossuyt (v1. 10/04/17)
+    Implementation: Nicolas Van Bossuyt (v1. 10/04/17)
     """
-	#spec to correct
     # Setup the drawing canvas.
     c = create_canvas(width, height)
     ship_index = 0
@@ -1401,8 +1441,12 @@ def render_game_logs(game_data, width, height):
     Return
     ------
     game_logs_canvas: rendered game logs (dic).
+    
+    Version
+    -------
+    Specification:  Nicolas Van Bossuyt (v1. 10/04/17)
+    Implementation: Nicolas Van Bossuyt (v1. 10/04/17)
     """
-	#spec to correct
     # Setup the canvas.
     c = create_canvas(width, height)
     y = 0
@@ -1714,7 +1758,7 @@ def get_distance(coord1, coord2, size):
     """
 
     def distance(a, b, size):
-		#spec to correct
+
         size -= 1
         if abs(a - b) > size / 2:
             a += size
@@ -1744,7 +1788,7 @@ def convert_coordinates(coordinates, board_size):
     """
 
     def convert(a, size):
-		#spec to correct
+
         if a >= size:
             a -= size
         elif a < 0:
@@ -1841,7 +1885,7 @@ def to_unit_vector(vector):
     """
 
     def convert(value):
-		#spec to correct
+
         if value > 0.25:
             return 1
         elif value < -0.25:
@@ -1894,8 +1938,12 @@ def next_location(ship_location, ships_facing, ship_speed, game_board_size):
     Return
     ------
     predicted_location : predicte location of the spaceship (tuple(int, int)).
+    
+    Version
+    -------
+    Specification:  Nicolas Van Bossuyt (v1. 10/04/17)
+    Implementation: Nicolas Van Bossuyt (v1. 10/04/17)
     """
-	#spec to correct
     return convert_coordinates((ship_location[0] + ships_facing[0] * ship_speed,
                                 ship_location[1] + ships_facing[1] * ship_speed), game_board_size)
 
@@ -2015,7 +2063,23 @@ def facing_to_vector2d(facing):
 # +------------------------------------------------------------------------------------------------------------------+ #
 
 def filter_ships(ships, exclude_owner):
-	#spec to correct
+    """
+    Get a list of all space ships alive wihout these of a specifique owner.
+     
+    Parameters
+    ----------
+    ships: list of ships to filter (list(dic)).
+    exclude_owner: owner to exclude from the list (str).
+    
+    Return
+    ------
+    ships: filtered ships (list(str)).
+    
+    Version
+    -------
+    Specification:  Nicolas Van Bossuyt (v1. 28/04/17)
+    Implementation: Nicolas Van Bossuyt (v1. 28/04/17)
+    """
     founded_ships = []
     for ship in ships:
         if ships[ship]['owner'] != exclude_owner:
@@ -2025,7 +2089,23 @@ def filter_ships(ships, exclude_owner):
 
 
 def get_ship_by_owner(ships, owner):
-	#spec to correct
+    """
+    Get the list of all ships of a owner.
+    
+    Parameters
+    ----------
+    ships: list of ships to filter (list(dic)).
+    exclude_owner: owner of the spaceships (str).
+    
+    Return
+    ------
+    ships: filtered ships (list(str)).
+    
+    Version
+    -------
+    Specification:  Nicolas Van Bossuyt (v1. 28/04/17)
+    Implementation: Nicolas Van Bossuyt (v1. 28/04/17)
+    """
     founded_ships = []
     for ship in ships:
         if ships[ship]['owner'] == owner:
@@ -2078,7 +2158,7 @@ def write_log(game_data, message, type=0):
 
     game_data['game_logs'].append((type, message))
     f = open('log.txt', 'r')
-    txt = f.read();
+    txt = f.read()
     f.close()
 
     txt += '%s\n' % message
@@ -2102,8 +2182,12 @@ def dict_sort(items, key):
     Returns
     -------
     sorted_dictionaries: (list(dic)).
+    
+    Version
+    -------
+    Specification:  Nicolas Van Bossuyt (v1. 28/04/17)
+    Implementation: Nicolas Van Bossuyt (v1. 28/04/17)
     """
-	#spec to correct
     for i in range(len(items)):
         for j in range(len(items) - 1 - i):
             if items[j][key] > items[j + 1][key]:
