@@ -180,7 +180,7 @@ def initialize_game(level_name, players_names, players_types, max_rounds_count, 
                  'game_logs': [],
                  'winners': [],
                  'is_remote_game': connection is not None,
-                 'max_nb_rounds': max_rounds_count - 1}
+                 'max_nb_rounds': max_rounds_count}
 
     # Create ship specs sheet.
     game_data['model_ship']['fighter'] = {'icon': u'F', 'max_heal': 3, 'max_speed': 5, 'damages': 1, 'range': 5,
@@ -386,7 +386,7 @@ def is_game_continue(game_data):
             not_loser.append(player)
 
     # Check if the game continue.
-    if len(not_loser) > 1 and game_data['nb_rounds'] <= game_data['max_nb_rounds']:
+    if len(not_loser) > 1 and game_data['nb_rounds'] < game_data['max_nb_rounds']:
         return True
 
     winners = {}
@@ -687,28 +687,43 @@ def get_fighter_action(game_data, ship_name, owner):
     Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17)
     Implementation: Bayron Mahy, Nicolas Van Bossuyt (v1. 28/04/17)
     """
-	#to comment
+    # Get data of the ship.
     ship = game_data['ships'][ship_name]
+
+    # If the ship as no objective or no path to it, find a new one.
     if ship['objective'] == 'none' or len(ship['objective_path']) == 0 or not ship['objective'] in game_data['ships']:
+
+        # Get abandoned ships.
         abandoned_ships = get_ship_by_owner(game_data['ships'], 'none')
         if len(abandoned_ships) > 0:
-            random.shuffle(abandoned_ships)
 
+            random.shuffle(abandoned_ships)
             success = False
+
             while len(abandoned_ships) > 0 and not success:
+
+                # Get the objective.
                 ship['objective'] = abandoned_ships.pop()
                 objective_ship = game_data['ships'][ship['objective']]
+
+                # Get the nodes for the pathfinding
                 start_node = node(ship['location'], ship['facing'], 0, ship['speed'])
                 end_node = node(objective_ship['location'], objective_ship['facing'])
+
+                # Get the shortest path to the objective.
                 success, path = path_finding(start_node, game_data['model_ship'][ship['type']]['max_speed'], end_node,
                                              game_data['board_size'], [], 8)
+
                 if success:
                     ship['objective_path'] = path
         else:
+            # If there are no abandoned ships, do random action.
             return do_random_action(game_data, ship_name)
 
+    # The spaceship follow the path only whent it have a objective.
     action = follow_path(game_data, ship_name)
 
+    # If the ships as nothing to do in order to follow the path => attack !
     if action == 'none':
         return attack(game_data, ship_name)
     else:
@@ -776,7 +791,6 @@ def get_nearby_ship(game_data, target_ship, search_range):
     Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
     Implementation: Bayron Mahy, Nicolas Van Bossuyt (v1. 16/03/17)
     """
-    ship_location = ()
     ship_location = game_data['ships'][target_ship]['location']
     x, y = 0, 0
     dx = 0
@@ -784,8 +798,7 @@ def get_nearby_ship(game_data, target_ship, search_range):
     nearby_ships = []
 
     for i in range((search_range * 2) ** 2):
-        if (-search_range < x <= search_range) and (-search_range < y <= search_range) and abs(x) + abs(
-                y) <= search_range:
+        if (-search_range < x <= search_range) and (-search_range < y <= search_range) and abs(x) + abs(y) <= search_range:
 
             location = convert_coordinates((ship_location[0] + x, ship_location[1] + y), game_data['board_size'])
 
