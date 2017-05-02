@@ -1,100 +1,89 @@
-[A.I.C.I.S] ISS_Adventurer:fighter ARC-170:fighter DROID-starfighter:fighter X-WINGS:fighter Alexander:fighter The_Watcher:fighter Adventurer:fighter Puddle_Jumper:fighter Geisha:fighter BS_Galactica:fighter
+[A.I.C.I.S] Geisha:fighter SC_Juggernaut:fighter Ha'tak:fighter The_Watcher:fighter BS_Galactica:fighter DROID-starfighter:fighter BC_Pilgrim:fighter V-19:fighter Puddle_Jumper:fighter V-WINGS:fighter
 [Pomme] AI2_1:fighter AI2_2:fighter AI2_3:destroyer AI2_4:battlecruiser AI2_5:battlecruiser
 It's turn nb 0
-[A.I.C.I.S] ISS_Adventurer:faster ARC-170:faster X-WINGS:faster Puddle_Jumper:faster BS_Galactica:faster Geisha:faster The_Watcher:faster Alexander:faster DROID-starfighter:faster Adventurer:faster
-[Pomme] AI2_4:faster AI2_5:faster AI2_1:faster AI2_2:faster AI2_3:left
-It's turn nb 1
-[A.I.C.I.S] ISS_Adventurer:right ARC-170:right X-WINGS:faster Puddle_Jumper:right BS_Galactica:left Geisha:faster The_Watcher:right Alexander:faster DROID-starfighter:faster Adventurer:faster
-[Pomme] AI2_4:right AI2_5:faster AI2_1: AI2_2: AI2_3:right
+[A.I.C.I.S] V-WINGS:faster Puddle_Jumper:faster BS_Galactica:faster Geisha:faster V-19:faster The_Watcher:faster SC_Juggernaut:faster DROID-starfighter:faster BC_Pilgrim:faster Ha'tak:faster
+[Pomme] AI2_4:faster AI2_5:slower AI2_1:faster AI2_2:faster AI2_3:right
 you cannot make that change on the speed of "Pomme_AI2_5"
+It's turn nb 1
+[A.I.C.I.S] V-WINGS:faster Puddle_Jumper:left BS_Galactica:faster Geisha:right V-19:left The_Watcher:faster SC_Juggernaut:faster DROID-starfighter:right BC_Pilgrim:right Ha'tak:right
+[Pomme] AI2_4:right AI2_5:faster AI2_1: AI2_2: AI2_3:left
 It's turn nb 2
-[A.I.C.I.S] ISS_Adventurer:faster ARC-170:right X-WINGS:faster Puddle_Jumper:right BS_Galactica:left Geisha:faster The_Watcher:faster Alexander:right DROID-starfighter:faster Adventurer:faster
-[Pomme] AI2_4: AI2_5: AI2_1:left AI2_2:left AI2_3:faster
+[A.I.C.I.S] V-WINGS:faster Puddle_Jumper:left BS_Galactica:faster Geisha:faster V-19:left The_Watcher:faster SC_Juggernaut:faster DROID-starfighter:right BC_Pilgrim:faster Ha'tak:right
+[Pomme] AI2_4: AI2_5:right AI2_1:left AI2_2:left AI2_3:faster
 It's turn nb 3
-[A.I.C.I.S] ISS_Adventurer: ARC-170: X-WINGS:right Puddle_Jumper:faster BS_Galactica:faster Geisha:right The_Watcher:right Alexander:faster DROID-starfighter:right Adventurer:left
+[A.I.C.I.S] V-WINGS: Puddle_Jumper:left BS_Galactica:right Geisha:faster V-19:faster The_Watcher:slower SC_Juggernaut:right DROID-starfighter:right BC_Pilgrim:faster Ha'tak:faster
 [Pomme] AI2_4: AI2_5: Tahoe111:left AI2_1: AI2_2:left AI2_3:right
 Pomme as take Pomme_White_Star120 !
-A.I.C.I.S as take A.I.C.I.S_Hephaestus47 !
-A.I.C.I.S as take A.I.C.I.S_[Legandary]Nicolas's_Spaceships !
-A.I.C.I.S as take A.I.C.I.S_Aeneas39 !
 Pomme as take Pomme_Amphitrite107 !
 It's turn nb 4
-[A.I.C.I.S] [Legandary]Nicolas's_Spaceships:faster ISS_Adventurer:left ARC-170: X-WINGS:slower Hephaestus47:faster Puddle_Jumper:right BS_Galactica: Geisha:slower The_Watcher:left Alexander:right DROID-starfighter:slower Aeneas39:faster Adventurer:right
-[Pomme] AI2_4: AI2_5: Tahoe111:left AI2_1:left AI2_2: AI2_3: White_Star120:slower Amphitrite107:left
-you cannot make that change on the speed of "Pomme_White_Star120"
-A.I.C.I.S as take A.I.C.I.S_Phobos26 !
+[A.I.C.I.S] V-WINGS:slower Puddle_Jumper: BS_Galactica: Geisha:faster V-19:faster The_Watcher:right SC_Juggernaut: DROID-starfighter:right BC_Pilgrim:faster Ha'tak:slower
+[Pomme] AI2_4: AI2_5: Tahoe111:left AI2_1:left AI2_2: AI2_3: White_Star120:right Amphitrite107:left
 Pomme as take Pomme_Kimeran_Juggernaut103 !
 Pomme as take Pomme_Meleager119 !
+A.I.C.I.S as take A.I.C.I.S_Cyrus20 !
 It's turn nb 5
-[A.I.C.I.S] [Legandary]Nicolas's_Spaceships:faster ISS_Adventurer:faster ARC-170:left X-WINGS:left Hephaestus47:left Puddle_Jumper:faster BS_Galactica: Geisha:right The_Watcher:faster Alexander:left DROID-starfighter:left Phobos26:faster Aeneas39:right Adventurer:slower
-[Pomme] AI2_4:right AI2_5: Tahoe111:left AI2_1:faster AI2_2:right AI2_3: White_Star120:faster Kimeran_Juggernaut103:faster Amphitrite107:left Meleager119:slower
-you cannot make that change on the speed of "Pomme_Meleager119"
-A.I.C.I.S as take A.I.C.I.S_Hurricane0 !
+[A.I.C.I.S] Cyrus20:faster V-WINGS: Puddle_Jumper:left BS_Galactica:right Geisha: V-19:faster The_Watcher:faster SC_Juggernaut:right DROID-starfighter:left BC_Pilgrim:right Ha'tak:
+[Pomme] AI2_4:right AI2_5:AI2_5:21-21 Tahoe111:left AI2_1:faster AI2_2:right AI2_3: White_Star120:left Kimeran_Juggernaut103:faster Amphitrite107:left Meleager119:
+A.I.C.I.S as take A.I.C.I.S_Phobos26 !
+A.I.C.I.S as take A.I.C.I.S_Aleksander86 !
 Pomme as take Pomme_Kimeran_Juggernaut98 !
-A.I.C.I.S as take A.I.C.I.S_Phobos62 !
 Pomme as take Pomme_Antigone124 !
-A.I.C.I.S as take A.I.C.I.S_Patroclus53 !
-Pomme as take Pomme_Jackson's_Revenge92 !
-A.I.C.I.S as take A.I.C.I.S_Ragnorak90 !
-A.I.C.I.S as take A.I.C.I.S_Hoosier21 !
-It's turn nb 6
-[A.I.C.I.S] [Legandary]Nicolas's_Spaceships: ISS_Adventurer:faster ARC-170:faster X-WINGS:faster Phobos62:faster Hoosier21:faster Hephaestus47:left Patroclus53:faster Puddle_Jumper:left BS_Galactica:left Geisha:right The_Watcher:slower Alexander:faster DROID-starfighter:right Phobos26:right Ragnorak90:faster Aeneas39:right Adventurer:right Hurricane0:
-[Pomme] AI2_4:AI2_4:24-21 AI2_5: Tahoe111:left AI2_1:slower AI2_2:left AI2_3:AI2_3:24-21 White_Star120:right Kimeran_Juggernaut98:left Kimeran_Juggernaut103:right Jackson's_Revenge92:left Amphitrite107:left Antigone124:left Meleager119:left
-A.I.C.I.S as take A.I.C.I.S_Meleager91 !
-A.I.C.I.S as take A.I.C.I.S_Hurricane32 !
-Pomme as take Pomme_Thunder_Child87 !
-A.I.C.I.S as take A.I.C.I.S_Valor_of_Vardona37 !
-A.I.C.I.S as take A.I.C.I.S_Kimeran_Juggernaut44 !
-A.I.C.I.S as take A.I.C.I.S_Cerberus57 !
-Pomme as take Pomme_Ragnorak128 !
-A.I.C.I.S as take A.I.C.I.S_Emperor's_Fury76 !
-A.I.C.I.S as take A.I.C.I.S_Bismarck73 !
-It's turn nb 7
-[A.I.C.I.S] Cerberus57:faster Hurricane32:faster [Legandary]Nicolas's_Spaceships:faster ISS_Adventurer:right ARC-170:faster X-WINGS:right Phobos62:right Valor_of_Vardona37:faster Hoosier21:faster Hephaestus47:right Patroclus53:left Puddle_Jumper:faster BS_Galactica:right Meleager91:faster Geisha:right The_Watcher:right Kimeran_Juggernaut44:faster Bismarck73:faster Alexander:left DROID-starfighter:right Phobos26:faster Ragnorak90:left Aeneas39:right Adventurer:right Emperor's_Fury76:faster Hurricane0:
-[Pomme] AI2_4:AI2_4:25-22 AI2_5: Tahoe111:left AI2_1:AI2_1:20-25 AI2_2:faster AI2_3:right White_Star120:White_Star120:25-22 Ragnorak128:left Kimeran_Juggernaut98:left Thunder_Child87:faster Kimeran_Juggernaut103:faster Jackson's_Revenge92:left Amphitrite107:left Antigone124:left Meleager119:left
-Pomme as take Pomme_Aleksander86 !
-A.I.C.I.S as take A.I.C.I.S_Iron_Justice6 !
-Pomme as take Pomme_Kimeran_Juggernaut135 !
-A.I.C.I.S as take A.I.C.I.S_Victory54 !
-A.I.C.I.S as take A.I.C.I.S_Merrimack85 !
 A.I.C.I.S as take A.I.C.I.S_Herakles24 !
-A.I.C.I.S as take A.I.C.I.S_Amphitrite27 !
+Pomme as take Pomme_Jackson's_Revenge92 !
+It's turn nb 6
+[A.I.C.I.S] Herakles24:faster Cyrus20:right V-WINGS:left Puddle_Jumper:faster BS_Galactica:right Aleksander86:faster Geisha: V-19:slower The_Watcher: SC_Juggernaut:right DROID-starfighter:faster Phobos26:faster BC_Pilgrim:right Ha'tak:left
+[Pomme] AI2_4:AI2_4:23-23 AI2_5:right Tahoe111:left AI2_1:slower AI2_2:left AI2_3:AI2_3:23-23 White_Star120:faster Kimeran_Juggernaut98:left Kimeran_Juggernaut103:right Jackson's_Revenge92:left Amphitrite107:left Antigone124:left Meleager119:left
+A.I.C.I.S as take A.I.C.I.S_Meleager91 !
+A.I.C.I.S as take A.I.C.I.S_Huey_Long99 !
+A.I.C.I.S as take A.I.C.I.S_Kimera97 !
+Pomme as take Pomme_Thunder_Child87 !
+A.I.C.I.S as take A.I.C.I.S_Eos15 !
+Pomme as take Pomme_Ragnorak128 !
+A.I.C.I.S as take A.I.C.I.S_Napoleon34 !
+A.I.C.I.S as take A.I.C.I.S_Victory70 !
 A.I.C.I.S as take A.I.C.I.S_Aleksander41 !
-A.I.C.I.S as take A.I.C.I.S_Scion36 !
-It's turn nb 8
-[A.I.C.I.S] Cerberus57:left Hurricane32:left [Legandary]Nicolas's_Spaceships:right ISS_Adventurer:slower ARC-170:right X-WINGS: Phobos62:left Herakles24:faster Valor_of_Vardona37:slower Hoosier21:faster Hephaestus47:right Patroclus53:faster Victory54:faster Puddle_Jumper:23-33 BS_Galactica:faster Scion36:faster Meleager91:right Geisha:right The_Watcher:right Kimeran_Juggernaut44:left Bismarck73:slower Alexander:left Amphitrite27:faster DROID-starfighter:left Phobos26:right Ragnorak90:left Iron_Justice6:faster Aeneas39:faster Adventurer:right Emperor's_Fury76:left Hurricane0: Merrimack85:faster Aleksander41:faster
-[Pomme] AI2_4:left AI2_5: Tahoe111:faster AI2_1:left AI2_2:left AI2_3:faster White_Star120:White_Star120:26-22 Ragnorak128:left Kimeran_Juggernaut98:left Thunder_Child87:faster Kimeran_Juggernaut103:Kimeran_Juggernaut103:26-22 Jackson's_Revenge92:left Kimeran_Juggernaut135:faster Amphitrite107:left Antigone124:left Aleksander86:faster Huey_Long81:faster Meleager119:left
-A.I.C.I.S as take A.I.C.I.S_Cerberus151 !
-Pomme as take Pomme_Kimera83 !
-Pomme as take Pomme_Leviathan82 !
-A.I.C.I.S as take A.I.C.I.S_Gray_Tiger5 !
-A.I.C.I.S as take A.I.C.I.S_Helios22 !
-A.I.C.I.S_Puddle_Jumper shot Pomme_AI2_3
-A.I.C.I.S_Puddle_Jumper shot Pomme_White_Star120
-It's turn nb 9
-[A.I.C.I.S] Cerberus57:right Hurricane32:left Cerberus151: [Legandary]Nicolas's_Spaceships:faster ISS_Adventurer:right ARC-170:right X-WINGS:left Phobos62:left Herakles24:slower Valor_of_Vardona37:faster Hoosier21: Hephaestus47:left Patroclus53:left Victory54:faster Puddle_Jumper:right BS_Galactica:38-22 Scion36:left Meleager91:right Geisha:right Gray_Tiger5:faster Helios22:faster The_Watcher:right Kimeran_Juggernaut44:faster Bismarck73:faster Alexander: Amphitrite27:right DROID-starfighter: Phobos26:left Ragnorak90:faster Iron_Justice6:right Aeneas39: Adventurer:faster Emperor's_Fury76:left Hurricane0:faster Merrimack85:right Aleksander41:left
-[Pomme] Kimera83:faster Metis134:faster Leviathan82:faster AI2_4:right AI2_5: AI2_1:faster AI2_2:left AI2_3:left White_Star120:faster Ragnorak128:left Kimeran_Juggernaut103:Kimeran_Juggernaut103:32-26 Amphitrite107:left Jackson's_Revenge115:faster Tahoe111:faster Aleksander86:Aleksander86:21-23 Antigone124:left Kimeran_Juggernaut135:faster Huey_Long81:right Kimeran_Juggernaut98:left Thunder_Child87:Thunder_Child87:24-37 Jackson's_Revenge92:left Meleager119:right
-Pomme as take Pomme_Kimera97 !
-Pomme as take Pomme_Scion137 !
-A.I.C.I.S as take A.I.C.I.S_Scion43 !
 A.I.C.I.S as take A.I.C.I.S_Hurricane10 !
-A.I.C.I.S as take A.I.C.I.S_Titan64 !
-A.I.C.I.S as take A.I.C.I.S_Thunder_Child45 !
-Pomme as take Pomme_Hurricane93 !
+A.I.C.I.S as take A.I.C.I.S_Hoosier21 !
+It's turn nb 7
+[A.I.C.I.S] Hurricane10:faster Eos15:faster Herakles24:right Huey_Long99:faster Cyrus20:faster V-WINGS: Puddle_Jumper:left BS_Galactica:faster Meleager91:faster Aleksander86:left Geisha:left V-19:left The_Watcher:right Kimera97:faster SC_Juggernaut:left DROID-starfighter:left Phobos26:right BC_Pilgrim:faster Aleksander41:faster Ha'tak:right Hoosier21:faster Napoleon34:faster Victory70:faster
+[Pomme] AI2_4:AI2_4:24-23 AI2_5:AI2_5:24-23 Tahoe111:left AI2_1:AI2_1:25-38 AI2_2:right AI2_3:right White_Star120:right Ragnorak128:Ragnorak128:24-23 Kimeran_Juggernaut98:left Thunder_Child87:right Kimeran_Juggernaut103:faster Jackson's_Revenge92:left Amphitrite107:left Antigone124:left Meleager119:left
+A.I.C.I.S as take A.I.C.I.S_Napoleon29 !
+A.I.C.I.S as take A.I.C.I.S_Valor_of_Vardona106 !
+Pomme as take Pomme_Kimeran_Juggernaut135 !
+A.I.C.I.S as take A.I.C.I.S_Huey_Long17 !
+Pomme as take Pomme_Huey_Long81 !
+A.I.C.I.S as take A.I.C.I.S_Merrimack85 !
+A.I.C.I.S as take A.I.C.I.S_Huey_Long59 !
+It's turn nb 8
+[A.I.C.I.S] Hurricane10:left Eos15:right Herakles24:faster Huey_Long99:right Cyrus20:slower V-WINGS:faster Puddle_Jumper:left BS_Galactica: Meleager91:right Aleksander86:faster Merrimack85:faster Geisha:right V-19:slower Valor_of_Vardona106:faster Huey_Long17:faster The_Watcher:right Kimera97:left SC_Juggernaut:faster DROID-starfighter: Phobos26:faster BC_Pilgrim:right Napoleon29:faster Aleksander41:left Ha'tak:faster Hoosier21:left Napoleon34:left Huey_Long59:faster Victory70:right
+[Pomme] AI2_4:left AI2_5:AI2_5:27-23 Tahoe111:faster AI2_1:left AI2_2:left AI2_3:faster White_Star120:faster Ragnorak128:left Kimeran_Juggernaut98:left Thunder_Child87:left Kimeran_Juggernaut103:Kimeran_Juggernaut103:27-23 Jackson's_Revenge92:left Kimeran_Juggernaut135:slower Amphitrite107:left Antigone124:left Huey_Long81:right Meleager119:left
+you cannot make that change on the speed of "Pomme_Kimeran_Juggernaut135"
+A.I.C.I.S as take A.I.C.I.S_Bismarck110 !
+Pomme as take Pomme_Metis134 !
+A.I.C.I.S as take A.I.C.I.S_Meleager60 !
+Pomme as take Pomme_Leviathan82 !
+It's turn nb 9
+[A.I.C.I.S] Hurricane10:left Eos15:left Herakles24:right Huey_Long99:right Meleager60:faster Cyrus20: V-WINGS:faster Puddle_Jumper:faster BS_Galactica:right Meleager91:right Aleksander86:left Merrimack85:faster Geisha:left V-19:left Valor_of_Vardona106:faster Huey_Long17:right The_Watcher:right Kimera97:left SC_Juggernaut:left DROID-starfighter:right Phobos26:faster BC_Pilgrim:22-33 Napoleon29:faster Aleksander41:faster Ha'tak:right Hoosier21:faster Napoleon34:left Huey_Long59:slower Victory70:right Bismarck110:faster
+[Pomme] AI2_4:right AI2_5:left Tahoe111:faster AI2_1:AI2_1:25-33 AI2_2:right AI2_3:left White_Star120:faster Ragnorak128:left Kimeran_Juggernaut98:left Thunder_Child87:right Kimeran_Juggernaut103:Kimeran_Juggernaut103:28-22 Jackson's_Revenge92:left Kimeran_Juggernaut135:faster Amphitrite107:left Antigone124:left Jackson's_Revenge115:left Metis134:faster Leviathan82:left Huey_Long81:left Meleager119:right
+you cannot make that change on the speed of "Pomme_White_Star120"
+Pomme as take Pomme_Kimera83 !
+A.I.C.I.S as take A.I.C.I.S_Jackson_V1 !
+A.I.C.I.S as take A.I.C.I.S_Herakles2 !
+Pomme as take Pomme_Scion137 !
+A.I.C.I.S_BC_Pilgrim shot Pomme_AI2_5
+A.I.C.I.S_BC_Pilgrim shot Pomme_Kimeran_Juggernaut135
 It's turn nb 10
-[A.I.C.I.S] Cerberus57:right Hurricane32:left Cerberus151: [Legandary]Nicolas's_Spaceships:faster ISS_Adventurer:37-20 ARC-170:right X-WINGS:left Phobos62:left Hurricane10:faster Herakles24:faster Titan64:faster Valor_of_Vardona37:slower Hoosier21:faster Hephaestus47:faster Patroclus53:20-20 Victory54:left Puddle_Jumper:right BS_Galactica:32-24 Scion36:faster Meleager91:faster Geisha:faster Scion43:faster Gray_Tiger5:right Thunder_Child45:faster Helios22:right The_Watcher:faster Kimeran_Juggernaut44:faster Bismarck73:slower Alexander:right Amphitrite27:faster DROID-starfighter:slower Phobos26:faster Ragnorak90:faster Iron_Justice6:left Aeneas39:faster Adventurer:right Emperor's_Fury76:left Hurricane0:right Merrimack85:faster Aleksander41:left
+[A.I.C.I.S] Hurricane10:left Eos15:right Herakles24: Huey_Long99:right Meleager60:right Cyrus20:left V-WINGS:faster Puddle_Jumper:faster BS_Galactica:right Meleager91: Aleksander86:slower Merrimack85:faster Geisha:slower V-19:left Jackson_V1:faster Valor_of_Vardona106:right Huey_Long17:faster The_Watcher:faster Kimera97:25-31 SC_Juggernaut:left DROID-starfighter: Phobos26:faster BC_Pilgrim:slower Herakles2:faster Napoleon29: Aleksander41: Ha'tak:faster Hoosier21:faster Napoleon34:right Huey_Long59:faster Victory70:right Bismarck110:left
 [Pomme] 
-Pomme as take Pomme_Iron_Fist102 !
-A.I.C.I.S as take A.I.C.I.S_Leviathan112 !
+A.I.C.I.S as take A.I.C.I.S_Hurricane145 !
+A.I.C.I.S as take A.I.C.I.S_Bismarck127 !
+A.I.C.I.S as take A.I.C.I.S_Hurricane0 !
+A.I.C.I.S as take A.I.C.I.S_Emperor's_Fury105 !
 Pomme as take Pomme_Eos139 !
-A.I.C.I.S as take A.I.C.I.S_Amphitrite63 !
 A.I.C.I.S as take A.I.C.I.S_Valor_of_Vardona11 !
-Pomme as take Pomme_Aeneas132 !
-A.I.C.I.S as take A.I.C.I.S_Iron_Justice55 !
+A.I.C.I.S as take A.I.C.I.S_Ragnorak95 !
+A.I.C.I.S as take A.I.C.I.S_Leviathan114 !
+A.I.C.I.S as take A.I.C.I.S_Hephaestus146 !
 Pomme as take Pomme_Tahoe133 !
-A.I.C.I.S as take A.I.C.I.S_Titan144 !
-A.I.C.I.S_ISS_Adventurer shot Pomme_Leviathan82
-A.I.C.I.S_Patroclus53 shot A.I.C.I.S_Phobos62
-A.I.C.I.S_Patroclus53 shot Pomme_AI2_5
-A.I.C.I.S_BS_Galactica shot Pomme_Jackson's_Revenge92
+A.I.C.I.S_Kimera97 shot Pomme_Antigone124
 It's turn nb 11

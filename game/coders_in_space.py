@@ -125,7 +125,7 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
     # Disconnect the remote player.
     if is_remote_game:
         disconnect_from_player(game_data['connection'])
-
+    raw_input()
     # Show the end game screen.
     show_end_game(game_data)
     raw_input()
