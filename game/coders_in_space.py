@@ -63,7 +63,7 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
 
     # Show the splash screen.
     show_splash_game(is_remote_game)
-    raw_input('Press enter to continue...')
+    sleep(1)
 
     # Connected to the remote player.
     if is_remote_game:
@@ -125,6 +125,7 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
     # Disconnect the remote player.
     if is_remote_game:
         disconnect_from_player(game_data['connection'])
+
     raw_input()
     # Show the end game screen.
     show_end_game(game_data)
@@ -235,7 +236,7 @@ def initialize_game(level_name, players_names, players_types, max_rounds_count, 
                 game_data['players'][player]['color'] = 'magenta'
 
         else:
-            write_log(game_data, 'There is too many player, %s is a loser he must be watch you playing' % (player), log_warning)
+            write_log(game_data, 'There is too many player, %s is a loser he must be watch you playing' % player, log_warning)
 
         index_player += 1
 
@@ -560,10 +561,10 @@ def get_ai_input(game_data, player_name):
     Implementation: Nicolas Van Bossuyt (v1. 16/03/17)
                     Nicolas Van Bossuyt (v2. 26/04/17)
     """
-    screen_size = get_terminal_size()
     ai_input = ''
     ai_ships = get_ship_by_owner(game_data['ships'], player_name)
     ship_index = 0
+
     for ship_name in ai_ships:
         ship_index += 1
         ship = game_data['ships'][ship_name]
@@ -574,7 +575,7 @@ def get_ai_input(game_data, player_name):
         if ship['type'] == 'fighter':
             abandoned_ships = get_ship_by_owner(game_data['ships'], 'none')
             if len(abandoned_ships) > 0:
-                ship_order = get_fighter_action(game_data, ship_name, player_name)
+                ship_order = get_fighter_action(game_data, ship_name)
             else:
                 ship_order = get_battleship_action(game_data, ship_name, player_name)
         else:
@@ -605,7 +606,6 @@ def get_ai_spaceships(player_name, game_data):
     Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
                     Alisson Leist (v2. 21/04/17)
     """
-	#to comment
     ship_type_name = {'f': 'fighter', 'b': 'battlecruiser', 'd': 'destroyer'}
 
     fighters_names = ['ARC-170', 'V-19', 'V-WINGS', 'X-WINGS', 'TIE-FIGHTER', 'DROID-starfighter', 'Ha\'tak', 'Dart',
@@ -668,15 +668,14 @@ def get_ai_spaceships(player_name, game_data):
 # | Artificial Intelligence                                                                                          | #
 # +------------------------------------------------------------------------------------------------------------------+ #
 
-def get_fighter_action(game_data, ship_name, owner):
+def get_fighter_action(game_data, ship_name):
     """
     Get action for a fighter.
     
     Parameters
     ----------
     game_data: data of the game (dic).
-    ship: name of the ship to get input from (dic).
-    owner: name of the owner of the ship (str).
+    ship_name: name of the ship to get input from (str).
     
     Return
     ------
@@ -842,36 +841,6 @@ def follow_path(game_data, ship_name):
         return to_do_node['to_do']
 
 
-def go_away(game_data, ship, objective):
-    """
-    Move a ship to the opposite of given coordinates.
-
-    Parameters
-    ----------
-    game_data: data of the game (dic).
-    ship: name of the ship to move (str).
-    coordinates: destination of the ship (tuple(int, int)).
-
-    Return
-    ------
-    input: input to execute <left, right, faster, slower>(str).
-
-
-    Version
-    -------
-    Specification: Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17).
-    Implementation: Bayron Mahy (v1. 16/04/17).
-    """
-
-    ship = game_data['ships'][ship_name]
-    nodes = get_next_step(node(ship['location'], ship['facing'], 0, ship['speed']), node(objective),
-                          game_data['model_ship'][ship['type']]['max_speed'], game_data['board_size'])
-
-    dict_sort(nodes, 'distance')[-1]['to_do']
-
-    return nodes[-1]['to_do']
-
-
 def get_closer(game_data, ship_name, objective):
     """
     Move a ship at given coordinates.
@@ -880,7 +849,7 @@ def get_closer(game_data, ship_name, objective):
     ----------
     game_data: data of the game (dic).
     ship_name: name of the ship to move (str).
-    coordinates: destination of the ship (tuple(int, int)).
+    objective: destination of the ship (tuple(int, int)).
 
     Return
     ------
@@ -928,37 +897,6 @@ def do_random_action(game_data, ship_name):
         return attack(game_data, ship_name)
 
     return action
-
-
-def speed(game_data, ship, change):
-    """
-    Check if LAICIS can increase/decrease the speed of its ship
-    parameters
-    ----------
-    game_data: game's data (dic).
-    ship: targeted ship (str).
-    change: change applied by LAICIS to the ship (str).
-    return
-    ------
-    '%s:%s' % (ship, change): regular input for the game loop (str).
-    
-    Version
-    -------
-    Specification: Bayron Mahy (v1. 20/03/17)
-    Implementation: Bayron Mahy (v1. 20/03/17)
-                    Nicolas Van Bossuyt (v2. 29/03/17)
-    """
-
-    ship_type = game_data['ships'][ship]['type']
-    ship_speed = game_data['ships'][ship]['speed']
-    ship_max_speed = game_data['model_ship'][ship_type]['max_speed']
-
-    if (change == 'faster' and ship_speed + 1 > ship_max_speed):
-        return 'slower'
-    elif (change == 'slower' and ship_speed - 1 < 0):
-        return 'faster'
-    else:
-        return change
 
 
 def attack(game_data, ship):
@@ -1088,32 +1026,24 @@ def get_next_step(start_node, end_node, max_speed, board_size):
         # Rotate left.
         v = to_unit_vector(rotate_vector_2d(start_node['facing'], -45))
         next_step_location = next_location(start_node['location'], v, speed, board_size)
-        nodes.append(
-            node(next_step_location, v, get_distance(next_step_location, end_node['location'], board_size), speed, 'left'))
+        nodes.append(node(next_step_location, v, get_distance(next_step_location, end_node['location'], board_size), speed, 'left'))
 
         # Rotate right.
         v = to_unit_vector(rotate_vector_2d(start_node['facing'], 45))
         next_step_location = next_location(start_node['location'], v, speed, board_size)
-        nodes.append(
-            node(next_step_location, v, get_distance(next_step_location, end_node['location'], board_size), speed, 'right'))
+        nodes.append(node(next_step_location, v, get_distance(next_step_location, end_node['location'], board_size), speed, 'right'))
 
     if speed < max_speed:
         next_step_location = next_location(start_node['location'], start_node['facing'], speed + 1, board_size)
-        nodes.append(
-            node(next_step_location, start_node['facing'], get_distance(next_step_location, end_node['location'], board_size),
-                 speed + 1, 'faster'))
+        nodes.append(node(next_step_location, start_node['facing'], get_distance(next_step_location, end_node['location'], board_size), speed + 1, 'faster'))
 
     if speed > 0:
         next_step_location = next_location(start_node['location'], start_node['facing'], speed - 1, board_size)
-        nodes.append(
-            node(next_step_location, start_node['facing'], get_distance(next_step_location, end_node['location'], board_size),
-                 speed - 1, 'slower'))
+        nodes.append(node(next_step_location, start_node['facing'], get_distance(next_step_location, end_node['location'], board_size), speed - 1, 'slower'))
 
         # Do nothing.
         next_step_location = next_location(start_node['location'], start_node['facing'], speed, board_size)
-        nodes.append(
-            node(next_step_location, start_node['facing'], get_distance(next_step_location, end_node['location'], board_size),
-                 speed, 'none'))
+        nodes.append(node(next_step_location, start_node['facing'], get_distance(next_step_location, end_node['location'], board_size), speed, 'none'))
 
     return nodes
 
@@ -1243,8 +1173,7 @@ def show_splash_game(is_remote_game=False):
 
     c = put_ascii_text(c, font_standard, game_title, text_location[0], text_location[1], 'yellow')
     c = put_text(c, text_location[0], text_location[1] + 7, '-' * text_width)
-    c = put_text(c, text_location[0] + text_width - len(game_copyright), text_location[1] + 9, game_copyright,
-                 color='yellow')
+    c = put_text(c, text_location[0] + text_width - len(game_copyright), text_location[1] + 9, game_copyright, color='yellow')
     print_canvas(c)
 
 
