@@ -1,15 +1,13 @@
 # -*- coding: utf-8 -*-
 
 # Coders In Space - Final Version.
-# Write by Alisson Leist, Bayron Mahy and Nicolas Van Bossuyt
+# Wrote by Alisson Leist, Bayron Mahy and Nicolas Van Bossuyt
 
 from math import *
 from time import sleep  # because everyone needs to rest.
 from graphics import *
 from remote_play import notify_remote_orders, get_remote_orders, connect_to_player, disconnect_from_player
-import os
-import sys
-import random
+import os, sys, random
 
 # Constant for battle template.
 human_vs_ai = ('human', 'ai')
@@ -34,7 +32,7 @@ log_input = 3
 
 def play_game(level_name, players_names, players_types, remote_id=None, remote_ip=None, max_rounds_count=10):
     """
-    Main function that executes the game loop.
+    Main function which executes the game loop.
 
     Parameters
     ----------
@@ -116,7 +114,7 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
         game_data = take_abandoned_ship(game_data)
         game_data = do_attack(game_data)
 
-        # Increment the turn counter.
+        # Increment the round counter.
         game_data['nb_rounds'] += 1
         total_turn += 1
         game_running = is_game_continue(game_data)
@@ -163,7 +161,7 @@ def initialize_game(level_name, players_names, players_types, max_rounds_count, 
     # Create the log file.
     open('log.txt', 'w').close()
 
-    # Create random a random game board.
+    # Create a random game board.
     if level_name == 'random':
         create_random_game_board('board/random.cis', (30, 30), 26)
         level_name = 'board/random.cis'
@@ -196,7 +194,7 @@ def initialize_game(level_name, players_names, players_types, max_rounds_count, 
         for column in range(game_data['board_size'][1]):
             game_data['board'][(line, column)] = []
 
-    # Place lost ships.
+    # Place abandonned ships.
     for ships in game_file['ships']:
         game_data['ships'][ships[2]] = {'type': ships[3], 'heal_points': game_data['model_ship'][ships[3]]['max_heal'],
                                         'facing': ships[4], 'speed': 0, 'owner': 'none',
@@ -381,7 +379,7 @@ def is_game_continue(game_data):
 
     not_loser = []
 
-    # Checking playert thats have more than on ships
+    # Checking players who pocess more than one ship
     for player in game_data['players']:
         if player != 'none' and game_data['players'][player]['nb_ships'] > 0:
             not_loser.append(player)
@@ -414,7 +412,7 @@ def is_game_continue(game_data):
 
 def calculate_value(player_name, game_data):
     """
-    Calculate the total ship value of a player.
+    Compute the total ship value of a player.
 
     Parameters
     ----------
@@ -599,7 +597,7 @@ def get_ai_spaceships(player_name, game_data):
     Implementation: Nicolas Van Bossuyt (v1. 10/03/17)
                     Alisson Leist (v2. 21/04/17)
     """
-
+	#to comment
     ship_type_name = {'f': 'fighter', 'b': 'battlecruiser', 'd': 'destroyer'}
 
     fighters_names = ['ARC-170', 'V-19', 'V-WINGS', 'X-WINGS', 'TIE-FIGHTER', 'DROID-starfighter', 'Ha\'tak', 'Dart',
@@ -681,7 +679,7 @@ def get_fighter_action(game_data, ship_name, owner):
     Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17)
     Implementation: Bayron Mahy, Nicolas Van Bossuyt (v1. 28/04/17)
     """
-
+	#to comment
     ship = game_data['ships'][ship_name]
     if ship['objective'] == 'none' or len(ship['objective_path']) == 0 or not ship['objective'] in game_data['ships']:
         abandoned_ships = get_ship_by_owner(game_data['ships'], 'none')
@@ -951,7 +949,7 @@ def attack(game_data, ship):
     Implementation: Nicolas Van Bossuyt (v1. 19/03/17).
                     Bayron Mahy (v2. 22/03/17).
     """
-
+	#to comment
     ship_pos = game_data['ships'][ship]['location']
     ship_range = game_data['model_ship'][game_data['ships'][ship]['type']]['range']
     ship_owner = game_data['ships'][ship]['owner']
@@ -1259,6 +1257,7 @@ def render_game_board(game_data):
     ------
     game_board_canvas: rendered game board (dic)
     """
+	#spec to correct
     # Setup the drawing canvas.
     board_size = game_data['board_size']
     c = create_canvas(board_size[0] * 3 + 3, board_size[1] + 1)
@@ -1350,6 +1349,7 @@ def render_ship_list(game_data, width, height):
     ------
     ship_list_canvas: rendered ship list (dic).
     """
+	#spec to correct
     # Setup the drawing canvas.
     c = create_canvas(width, height)
     ship_index = 0
@@ -1402,6 +1402,7 @@ def render_game_logs(game_data, width, height):
     ------
     game_logs_canvas: rendered game logs (dic).
     """
+	#spec to correct
     # Setup the canvas.
     c = create_canvas(width, height)
     y = 0
@@ -1507,7 +1508,7 @@ def parse_command(commands, player_name, game_data):
             ship_name = '%s_%s' % (player_name, sub_command[0])
             ship_command = sub_command[1]
 
-            # Check if the space ships existe in the game.
+            # Check if the space ship exists in the game.
             if ship_name in game_data['ships']:
 
                 # Rotate command.
@@ -1713,6 +1714,7 @@ def get_distance(coord1, coord2, size):
     """
 
     def distance(a, b, size):
+		#spec to correct
         size -= 1
         if abs(a - b) > size / 2:
             a += size
@@ -1742,6 +1744,7 @@ def convert_coordinates(coordinates, board_size):
     """
 
     def convert(a, size):
+		#spec to correct
         if a >= size:
             a -= size
         elif a < 0:
@@ -1838,6 +1841,7 @@ def to_unit_vector(vector):
     """
 
     def convert(value):
+		#spec to correct
         if value > 0.25:
             return 1
         elif value < -0.25:
@@ -1891,6 +1895,7 @@ def next_location(ship_location, ships_facing, ship_speed, game_board_size):
     ------
     predicted_location : predicte location of the spaceship (tuple(int, int)).
     """
+	#spec to correct
     return convert_coordinates((ship_location[0] + ships_facing[0] * ship_speed,
                                 ship_location[1] + ships_facing[1] * ship_speed), game_board_size)
 
@@ -2010,6 +2015,7 @@ def facing_to_vector2d(facing):
 # +------------------------------------------------------------------------------------------------------------------+ #
 
 def filter_ships(ships, exclude_owner):
+	#spec to correct
     founded_ships = []
     for ship in ships:
         if ships[ship]['owner'] != exclude_owner:
@@ -2019,6 +2025,7 @@ def filter_ships(ships, exclude_owner):
 
 
 def get_ship_by_owner(ships, owner):
+	#spec to correct
     founded_ships = []
     for ship in ships:
         if ships[ship]['owner'] == owner:
@@ -2096,7 +2103,7 @@ def dict_sort(items, key):
     -------
     sorted_dictionaries: (list(dic)).
     """
-
+	#spec to correct
     for i in range(len(items)):
         for j in range(len(items) - 1 - i):
             if items[j][key] > items[j + 1][key]:
