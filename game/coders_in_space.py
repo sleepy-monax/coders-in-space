@@ -63,6 +63,7 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
 
     # Show the splash screen.
     show_splash_game(is_remote_game)
+    raw_input('Press enter to continue...')
 
     # Connected to the remote player.
     if is_remote_game:
@@ -571,7 +572,11 @@ def get_ai_input(game_data, player_name):
         print '[ Thinking : %d/%d ]' % (ship_index, len(ai_ships))
 
         if ship['type'] == 'fighter':
-            ship_order = get_fighter_action(game_data, ship_name, player_name)
+            abandoned_ships = get_ship_by_owner(game_data['ships'], 'none')
+            if len(abandoned_ships) > 0:
+                ship_order = get_fighter_action(game_data, ship_name, player_name)
+            else:
+                ship_order = get_battleship_action(game_data, ship_name, player_name)
         else:
             ship_order = get_battleship_action(game_data, ship_name, player_name)
 
@@ -1548,28 +1553,29 @@ def parse_command(commands, player_name, game_data):
     for ship_command in commands:
         sub_command = ship_command.split(':')
 
-        if len(sub_command) == 2:
-            ship_name = '%s_%s' % (player_name, sub_command[0])
-            ship_command = sub_command[1]
+        for ship in sub_command[0].split(','):
+            if len(sub_command) == 2:
+                ship_name = '%s_%s' % (player_name, ship)
+                ship_command = sub_command[1]
 
-            # Check if the space ship exists in the game.
-            if ship_name in game_data['ships']:
+                # Check if the space ship exists in the game.
+                if ship_name in game_data['ships']:
 
-                # Rotate command.
-                if ship_command == 'left' or ship_command == 'right':
-                    game_data = command_rotate(ship_name, ship_command, game_data)
+                    # Rotate command.
+                    if ship_command == 'left' or ship_command == 'right':
+                        game_data = command_rotate(ship_name, ship_command, game_data)
 
-                # Speed command
-                elif ship_command == 'faster' or ship_command == 'slower':
-                    game_data = command_change_speed(ship_name, ship_command, game_data)
+                    # Speed command
+                    elif ship_command == 'faster' or ship_command == 'slower':
+                        game_data = command_change_speed(ship_name, ship_command, game_data)
 
-                # In other case speed command.
-                else:
-                    attack_location = ship_command.split('-')
-                    if len(attack_location) == 2:
-                        attack_location = (int(attack_location[1]) - 1, int(attack_location[0]) - 1)
-                        game_data['pending_attacks'].append(
-                            (ship_name, game_data['ships'][ship_name]['location'], attack_location))
+                    # In other case speed command.
+                    else:
+                        attack_location = ship_command.split('-')
+                        if len(attack_location) == 2:
+                            attack_location = (int(attack_location[1]) - 1, int(attack_location[0]) - 1)
+                            game_data['pending_attacks'].append(
+                                (ship_name, game_data['ships'][ship_name]['location'], attack_location))
 
     return game_data
 
@@ -2198,4 +2204,4 @@ def dict_sort(items, key):
 # Use for quick debuging.
 
 if __name__ == '__main__':
-    play_game('board/alien.cis', ('Botbot', 'A.I.C.I.S.'), ai_vs_ai)
+    play_game('board/crops_circle.cis', ('NicolasLeRebelDeL\'espace', 'A.I.C.I.S.', 'bot', 'botbot'), ('ai','ai','ai','ai'))

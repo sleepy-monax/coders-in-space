@@ -113,7 +113,7 @@ def connect_to_player(player_id, remote_IP='127.0.0.1', verbose=False):
         print        
 
     # accept connection to the server socket to receive orders from remote player
-    print 'sutck on accept'
+    print 'stuck on accept'
     socket_in, remote_address = socket_in.accept()
     if verbose:
         print 'now listening to orders from player %d' % (player_id)

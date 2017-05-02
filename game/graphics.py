@@ -246,7 +246,7 @@ def load_ascii_font(font_name):
     f = open(font_path, 'r')
 
     for line in f:
-        current_char_width = len(line.replace('@', ''))
+        current_char_width = len(line.replace('@', '')) - 1
         current_char += line.replace('@', '')
 
         if line.endswith('@@\n'):
