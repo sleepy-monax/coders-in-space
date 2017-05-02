@@ -11,7 +11,7 @@ import os
 import sys
 import random
 
-# Constant for match template.
+# Constant for battle template.
 human_vs_ai = ('human', 'ai')
 human_vs_human = ('human', 'human')
 human_vs_remote = ('human', 'remote')
@@ -20,6 +20,12 @@ ai_vs_human = ('ai', 'human')
 ai_vs_remote = ('ai', 'remote')
 remote_vs_ai = ('remote', 'ai')
 remote_vs_human = ('remote', 'human')
+
+# Constant for logs type.
+log_info = 0
+log_warning = 1
+log_error = 2
+log_input = 3
 
 
 # +------------------------------------------------------------------------------------------------------------------+ #
@@ -76,7 +82,7 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
     # The main game loop.
     while game_running:
         if total_turn > -1:
-            write_log(game_data, u'It\'s turn nb %d' % (total_turn), 0)
+            write_log(game_data, u'It\'s turn nb %d' % (total_turn), log_info)
 
         # Show the game board to the human player.
         show_game_board(game_data)
@@ -90,7 +96,7 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
             if is_ship_buy or game_data['players'][player]['nb_ships'] > 0:
                 pending_command.append((player, get_game_input(player, is_ship_buy, game_data)))
             else:
-                write_log(game_data, player + ' has lost all these ships, so he has nothing to do.', 1)
+                write_log(game_data, player + ' has lost all these ships, so he has nothing to do.', log_warning)
 
         # Executing pending commands.
         for command in pending_command:
@@ -211,7 +217,7 @@ def initialize_game(level_name, players_names, players_types, max_rounds_count, 
             if index_player == 0:
                 game_data['players'][player]['ships_starting_point'] = (9, 9)
                 game_data['players'][player]['ships_starting_facing'] = (1, 1)
-                game_data['players'][player]['color'] = 'green'
+                game_data['players'][player]['color'] = 'red'
 
             elif index_player == 1:
                 game_data['players'][player]['ships_starting_point'] = (
@@ -230,7 +236,7 @@ def initialize_game(level_name, players_names, players_types, max_rounds_count, 
                 game_data['players'][player]['color'] = 'magenta'
 
         else:
-            write_log(game_data, 'There is too many player, %s is a loser he must be watch you playing' % (player), 1)
+            write_log(game_data, 'There is too many player, %s is a loser he must be watch you playing' % (player), log_warning)
 
         index_player += 1
 
@@ -324,7 +330,7 @@ def take_abandoned_ship(game_data):
                 game_data['board'][abandoned_ship['location']].append(new_ship_name)
                 game_data['ships'][new_ship_name] = abandoned_ship
                 game_data['players'][owner]['nb_ships'] += 1
-                write_log(game_data, '%s as take %s !' % (owner, new_ship_name), 0)
+                write_log(game_data, '%s as take %s !' % (owner, new_ship_name), log_info)
 
     return game_data
 
@@ -470,7 +476,7 @@ def get_game_input(player_name, buy_ships, game_data):
     if game_data['is_remote_game'] and (player_type == 'human' or player_type == 'ai' or player_type == 'ai_dumb'):
         notify_remote_orders(game_data['connection'], player_input)
 
-    write_log(game_data, '[%s] %s' % (player_name, player_input), 3)
+    write_log(game_data, '[%s] %s' % (player_name, player_input), log_input)
 
     return player_input
 
@@ -532,6 +538,7 @@ def get_remote_input(game_data, player_name):
     Implementation: Nicolas Van Bossuyt (v1. 03/03/17)
     """
 
+    print '[ WAITING FOR INPUT from %s ]' % player_name
     return get_remote_orders(game_data['connection'])
 
 
@@ -559,8 +566,8 @@ def get_ai_input(game_data, player_name):
         ship_index += 1
         ship = game_data['ships'][ship_name]
 
-        # print '\033[0;0H   ' + player_name + ' ' * 3
-        # print '   Thinking : %d/%d   ' % (ship_index, len(ai_ships))
+        print '\033[0;0H[ ' + player_name + ' ]' + ' ' * 3
+        print '[ Thinking : %d/%d ]' % (ship_index, len(ai_ships))
 
         if ship['type'] == 'fighter':
             ship_order = get_fighter_action(game_data, ship_name, player_name)
@@ -1555,7 +1562,12 @@ def command_buy_ships(ships, player, game_data):
 
             if ship_price <= game_data['players'][player]['money']:
                 game_data['players'][player]['money'] -= ship_price
-                create_ship(player, '%s_%s' % (player, ship[0]), ship[1], game_data)
+                ship_name = '%s_%s' % (player, ship[0])
+
+                if not ship_name in game_data['ships']:
+                    create_ship(player, ship_name, ship[1], game_data)
+                else:
+                    write_log(game_data, "%s is already created." % ship_name, log_error)
 
     return game_data
 
@@ -1592,7 +1604,7 @@ def command_change_speed(ship, change, game_data):
 
     # Show a message when is a invalid change.
     else:
-        write_log(game_data, 'you cannot make that change on the speed of "' + ship + '"', 2)
+        write_log(game_data, 'you cannot make that change on the speed of "' + ship + '"', log_error)
 
     return game_data
 
@@ -1664,7 +1676,7 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_data):
             game_data['ships'][target_ship]['heal_points'] -= damages
 
             if game_data['ships'][target_ship]['heal_points'] <= 0:
-                write_log(game_data, '%s kill %s' % (ship, target_ship), 1)
+                write_log(game_data, '%s kill %s' % (ship, target_ship), log_warning)
 
                 # Remove a space ship.
                 game_data['board'][target_coordinate].remove(target_ship)
@@ -1673,7 +1685,7 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_data):
 
                 del game_data['ships'][target_ship]
             else:
-                write_log(game_data, '%s shot %s' % (ship, target_ship), 1)
+                write_log(game_data, '%s shot %s' % (ship, target_ship), log_warning)
 
     return game_data
 
@@ -2095,4 +2107,4 @@ def dict_sort(items, key):
 # Use for quick debuging.
 
 if __name__ == '__main__':
-    play_game('board/crops_circle.cis', ('Botbot', 'A.I.C.I.S.'), ai_vs_ai)
+    play_game('board/alien.cis', ('Botbot', 'A.I.C.I.S.'), ai_vs_ai)
