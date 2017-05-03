@@ -86,7 +86,7 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
 
         # Show the game board to the human player.
         show_game_board(game_data)
-        raw_input()
+
         # Cleaning the pending_attack list.
         game_data['pending_attacks'] = []
         pending_command = []
@@ -581,8 +581,9 @@ def get_ai_input(game_data, player_name):
                 ship_order = get_battleship_action(game_data, ship_name, player_name)
         else:
             ship_order = get_battleship_action(game_data, ship_name, player_name)
-
-        ai_input += '%s:%s ' % (ship_name[len(player_name) + 1:], ship_order)
+        
+        if ship_order != '':
+            ai_input += '%s:%s ' % (ship_name[len(player_name) + 1:], ship_order)
 
     return ai_input[:-1]
 
@@ -932,7 +933,7 @@ def attack(game_data, ship):
         for perhaps_target in nearby_ships:
             if game_data['ships'][perhaps_target]['owner'] != ship_owner and\
                game_data['ships'][perhaps_target]['owner'] != 'none' and\
-               get_distance(game_data['ships'][perhaps_target]['location'], ship_pos, game_data['board_size']) >= ship_range:
+               get_distance(ship_pos, predict_next_location(game_data, perhaps_target), game_data['board_size']) <= ship_range:
                 ships_targeted.append(perhaps_target)
 
         if len(ships_targeted) > 0:
@@ -1195,7 +1196,6 @@ def show_game_board(game_data):
 
     Implementation: Nicolas Van Bossuyt (v4. 10/02/17).
     """
-
     # Setup main canvas.
     screen_size = get_terminal_size()
     c = create_canvas(*screen_size)
@@ -1519,8 +1519,7 @@ def parse_command(commands, player_name, game_data):
                         attack_location = ship_command.split('-')
                         if len(attack_location) == 2:
                             attack_location = (int(attack_location[1]) - 1, int(attack_location[0]) - 1)
-                            game_data['pending_attacks'].append(
-                                (ship_name, game_data['ships'][ship_name]['location'], attack_location))
+                            game_data['pending_attacks'].append((ship_name, game_data['ships'][ship_name]['location'], attack_location))
 
     return game_data
 
@@ -1712,7 +1711,7 @@ def get_distance(coord1, coord2, size):
     """
 
     def distance(a, b, size):
-        size -= 1
+        # size -= 1
     
         if a > b:
             a, b = b, a
@@ -2156,4 +2155,4 @@ def dict_sort(items, key):
 # Use for quick debuging.
 
 if __name__ == '__main__':
-    play_game('board/alien.cis', ('NicolasLeRebelDeL\'espace', 'A.I.C.I.S.', 'bot', 'botbot'), ('ai','ai','ai','ai'))
+    play_game('board/cis.cis', ('NicolasLeRebelDeL\'espace', 'A.I.C.I.S.', 'bot', 'botbot'), ('ai','ai','ai','ai'))

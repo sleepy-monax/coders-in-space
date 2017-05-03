@@ -1,164 +1,575 @@
-[HODOR] 404_not_found:battlecruiser Malhonnete:destroyer xXkevindu38Xx:destroyer HisFather:fighter Darla:fighter Perdu!:fighter
-[A.I.C.I.S] Ha'tak:fighter ISS_Adventurer:fighter Geisha:fighter Alexander:fighter Dart:fighter Heraclion:destroyer Gray_Tiger:battlecruiser
+[NicolasLeRebelDeL'espace] Saragossa:fighter Puddle_Jumper:fighter V-19:fighter SC_Juggernaut:fighter ARC-170:fighter Roanoke:destroyer Helios:battlecruiser
+[A.I.C.I.S.] BS_Galactica:fighter X-WINGS:fighter BC_Pilgrim:fighter The_Watcher:fighter Dart:fighter Juno:destroyer Helios:battlecruiser
+[bot] SC_Juggernaut:fighter ISS_Europa:fighter X-WINGS:fighter DROID-starfighter:fighter Adventurer:fighter Juno:destroyer Metis:battlecruiser
+[botbot] V-19:fighter Saragossa:fighter ISS_Europa:fighter Dart:fighter SC_Juggernaut:fighter Cerberus:destroyer Iron_Fist:battlecruiser
 It's turn nb 0
-[HODOR] HisFather:faster xXkevindu38Xx:faster Darla:faster Perdu!:faster Malhonnete:faster 404_not_found:faster
-[A.I.C.I.S] Dart:faster Heraclion:faster ISS_Adventurer:faster Alexander:faster Gray_Tiger:faster Ha'tak:faster Geisha:faster
+[NicolasLeRebelDeL'espace] Saragossa:faster SC_Juggernaut:faster Helios:faster V-19:faster Puddle_Jumper:faster Roanoke:faster ARC-170:faster
+[A.I.C.I.S.] BS_Galactica:faster Dart:faster Juno:faster X-WINGS:faster BC_Pilgrim:faster The_Watcher:faster Helios:faster
+[bot] ISS_Europa:faster X-WINGS:faster Adventurer:faster Juno:faster Metis:faster SC_Juggernaut:faster DROID-starfighter:faster
+[botbot] Saragossa:faster SC_Juggernaut:faster V-19:faster ISS_Europa:faster Cerberus:faster Dart:faster Iron_Fist:faster
 It's turn nb 1
-[HODOR] HisFather:right xXkevindu38Xx:right Darla:faster Perdu!:right Malhonnete:faster 404_not_found:left
-[A.I.C.I.S] Dart:faster Heraclion:faster ISS_Adventurer:faster Alexander:faster Gray_Tiger: Ha'tak:faster Geisha:faster
+[NicolasLeRebelDeL'espace] Saragossa:faster SC_Juggernaut:right V-19:faster Puddle_Jumper:faster Roanoke:faster ARC-170:faster
+[A.I.C.I.S.] BS_Galactica:right Dart:right Juno:faster X-WINGS:right BC_Pilgrim:faster The_Watcher:faster
+[bot] ISS_Europa:faster X-WINGS:left Adventurer:faster Juno:right SC_Juggernaut:faster DROID-starfighter:left
+[botbot] SC_Juggernaut:faster V-19:faster ISS_Europa:faster Cerberus:right Dart:faster
 It's turn nb 2
-[HODOR] HisFather:faster xXkevindu38Xx:right Darla:right Perdu!:right Malhonnete:right 404_not_found:left
-[A.I.C.I.S] Dart: Heraclion: ISS_Adventurer:faster Alexander:faster Gray_Tiger: Ha'tak:faster Geisha:faster
+[NicolasLeRebelDeL'espace] Saragossa:faster SC_Juggernaut:right V-19:faster Puddle_Jumper:faster
+[A.I.C.I.S.] BS_Galactica:faster Dart:faster X-WINGS:faster BC_Pilgrim:right The_Watcher:faster
+[bot] ISS_Europa:faster X-WINGS:faster Adventurer:faster Juno:left SC_Juggernaut:faster DROID-starfighter:faster
+[botbot] Saragossa:faster SC_Juggernaut:faster V-19:faster ISS_Europa:faster Cerberus:left Dart:faster
 It's turn nb 3
-[HODOR] HisFather:faster xXkevindu38Xx:right Darla:slower Perdu!:right Malhonnete:slower 404_not_found:left
-[A.I.C.I.S] Dart:right Heraclion: ISS_Adventurer: Alexander:slower Gray_Tiger: Ha'tak:faster Geisha:slower
-HODOR as take HODOR_f1 !
-HODOR as take HODOR_f2 !
-A.I.C.I.S as take A.I.C.I.S_d13 !
+[NicolasLeRebelDeL'espace] Saragossa:faster SC_Juggernaut:left V-19:slower Puddle_Jumper:slower
+[A.I.C.I.S.] BS_Galactica:faster Dart:faster X-WINGS:faster BC_Pilgrim:left
+[bot] ISS_Europa:faster X-WINGS:faster Adventurer:right Juno:faster DROID-starfighter:faster
+[botbot] Saragossa:faster SC_Juggernaut:slower ISS_Europa:slower Cerberus:faster Dart:slower
+botbot as take botbot_b13 !
+NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_d6 !
+A.I.C.I.S. as take A.I.C.I.S._d13 !
 It's turn nb 4
-[HODOR] f1:faster f2:faster HisFather:slower xXkevindu38Xx:right Darla:right Perdu!:right Malhonnete:18-18 404_not_found:16-16
-[A.I.C.I.S] Dart:faster Heraclion: d13:faster ISS_Adventurer:slower Alexander:slower Gray_Tiger: Ha'tak:left Geisha:left
-A.I.C.I.S as take A.I.C.I.S_d6 !
+[NicolasLeRebelDeL'espace] Saragossa:left SC_Juggernaut:faster V-19:slower d6:24-17 ARC-170:right
+[A.I.C.I.S.] BS_Galactica:slower Dart:slower d13:faster X-WINGS:faster BC_Pilgrim:right The_Watcher:left
+[bot] ISS_Europa:right Adventurer:faster SC_Juggernaut:slower
+[botbot] Saragossa:faster SC_Juggernaut:faster V-19:24-17 ISS_Europa:slower Dart:left b13:24-24
+bot as take bot_b6 !
+A.I.C.I.S. as take A.I.C.I.S._b11 !
+NicolasLeRebelDeL'espace_d6 shot botbot_b13
+botbot_V-19 shot botbot_b13
 It's turn nb 5
-[HODOR] f1:right f2:right HisFather:slower xXkevindu38Xx:right Darla:right Perdu!:right Malhonnete:18-18 404_not_found:17-13
-[A.I.C.I.S] d6:faster Dart:faster Heraclion: d13:right ISS_Adventurer:right Alexander:left Gray_Tiger: Ha'tak: Geisha:slower
-A.I.C.I.S as take A.I.C.I.S_b5 !
-A.I.C.I.S as take A.I.C.I.S_d7 !
-A.I.C.I.S as take A.I.C.I.S_d9 !
-A.I.C.I.S as take A.I.C.I.S_f6 !
+[NicolasLeRebelDeL'espace] Saragossa:faster SC_Juggernaut:faster Helios:16-14 V-19:left Puddle_Jumper:right Roanoke:17-24 d6:17-24 ARC-170:right
+[A.I.C.I.S.] BS_Galactica:slower Dart:left d13:slower Juno:23-18 b11:faster X-WINGS:23-30 BC_Pilgrim:slower The_Watcher:faster
+[bot] b6:faster ISS_Europa:slower X-WINGS:right Juno:16-25 Metis:16-25 SC_Juggernaut:left DROID-starfighter:left
+[botbot] Saragossa:right SC_Juggernaut:right V-19:slower ISS_Europa:right Cerberus:22-16 Dart:left b13:22-16 Iron_Fist:22-16
+A.I.C.I.S. as take A.I.C.I.S._d11 !
+A.I.C.I.S. as take A.I.C.I.S._f8 !
+bot as take bot_d7 !
+NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_b2 !
+NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_f11 !
+bot as take bot_d1 !
+NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_f6 !
+A.I.C.I.S. as take A.I.C.I.S._b10 !
+NicolasLeRebelDeL'espace_Helios kill bot_Adventurer
+NicolasLeRebelDeL'espace_Roanoke shot botbot_V-19
+NicolasLeRebelDeL'espace_d6 kill botbot_V-19
+bot_Juno shot bot_Metis
+bot_Metis shot bot_Metis
 It's turn nb 6
-[HODOR] f1:right f2:right HisFather:right xXkevindu38Xx:17-9 Darla:right Perdu!:right Malhonnete:18-19 404_not_found:right
-[A.I.C.I.S] b5: d6:left d7:faster f6:faster d9:faster Dart:slower Heraclion: d13:right ISS_Adventurer:slower Alexander: Gray_Tiger: Ha'tak:slower Geisha:right
-A.I.C.I.S as take A.I.C.I.S_f14 !
-A.I.C.I.S as take A.I.C.I.S_f9 !
-A.I.C.I.S as take A.I.C.I.S_f7 !
-HODOR_Malhonnete shot A.I.C.I.S_d6
-HODOR_Malhonnete shot A.I.C.I.S_f6
+[NicolasLeRebelDeL'espace] f6:faster Saragossa:right Helios:17-14 b2:faster f11:faster V-19:left Puddle_Jumper:left Roanoke:22-21 d6:22-21 ARC-170:faster
+[A.I.C.I.S.] BS_Galactica:left Dart:faster d13:faster d11:faster Juno:19-21 b10:faster b11:left X-WINGS:left BC_Pilgrim:right The_Watcher:faster Helios:26-24 f8:faster
+[bot] b6:19-21 d7:22-21 ISS_Europa:right X-WINGS:right Juno:left d1:faster Metis:20-29 SC_Juggernaut:left DROID-starfighter:right
+[botbot] Saragossa:right SC_Juggernaut:20-26 ISS_Europa:left Cerberus:25-20 Dart:left b13:22-11 Iron_Fist:22-11
+botbot as take botbot_d12 !
+bot as take bot_f2 !
+NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_d4 !
+A.I.C.I.S._Helios shot A.I.C.I.S._d13
+bot_Metis kill A.I.C.I.S._BS_Galactica
+bot_Metis shot A.I.C.I.S._b11
 It's turn nb 7
-[HODOR] f1:right f2:right HisFather:right xXkevindu38Xx:right Darla:right Perdu!:right Malhonnete:16-16 404_not_found:slower
-[A.I.C.I.S] b5: d6:faster d7:slower f6:faster d9:right f7:faster Dart:right f14:faster Heraclion: d13:faster ISS_Adventurer:left f9:faster Alexander:left Gray_Tiger: Ha'tak:slower Geisha:faster
-HODOR as take HODOR_f3 !
-A.I.C.I.S as take A.I.C.I.S_b8 !
-HODOR_Malhonnete shot A.I.C.I.S_Heraclion
+[NicolasLeRebelDeL'espace] f6:faster Saragossa:slower SC_Juggernaut:left Helios:19-12 b2:slower f11:right V-19:faster Puddle_Jumper:left Roanoke:23-21 d6:20-22 d4:faster ARC-170:faster
+[A.I.C.I.S.] Dart:left d13:right d11:faster Juno:left b10:20-30 b11:left X-WINGS:left BC_Pilgrim:right The_Watcher:right Helios:23-21 f8:right
+[bot] b6:17-22 f2:faster d7:26-24 ISS_Europa:left X-WINGS:faster Juno:left d1:right Metis:14-22 SC_Juggernaut:left DROID-starfighter:right
+[botbot] Saragossa:left SC_Juggernaut:slower ISS_Europa:faster Cerberus:23-21 Dart:left b13:26-24 Iron_Fist:26-24 d12:faster
+botbot as take botbot_d14 !
+NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_b4 !
+bot_b6 kill A.I.C.I.S._Dart
 It's turn nb 8
-[HODOR] f1:right f2:right HisFather:right xXkevindu38Xx:right f3:faster Darla:right Perdu!:faster Malhonnete:20-19 404_not_found:faster
-[A.I.C.I.S] b5: b8: d6: d7:faster f6:left d9:right f7:left Dart:right f14:faster Heraclion: d13: ISS_Adventurer:left f9:right Alexander:right Gray_Tiger: Ha'tak:left Geisha:
-A.I.C.I.S as take A.I.C.I.S_b6 !
-HODOR_Malhonnete shot A.I.C.I.S_d13
+[NicolasLeRebelDeL'espace] f6:left b4:faster Saragossa:left SC_Juggernaut:left Helios:17-25 b2:faster f11:right V-19:slower Puddle_Jumper:left Roanoke:25-26 d6:23-16 d4:left
+[A.I.C.I.S.] d13:right d11:18-26 Juno:left b10:24-26 b11:20-31 X-WINGS:left BC_Pilgrim:left The_Watcher:left Helios:24-26 f8:faster
+[bot] b6:17-25 f2:faster d7:26-22 ISS_Europa:faster X-WINGS:faster Juno:24-26 d1:right Metis:17-25 SC_Juggernaut:left DROID-starfighter:right
+[botbot] Saragossa:faster SC_Juggernaut:20-29 d14:faster ISS_Europa:19-22 Cerberus:left Dart:slower b13:23-16 Iron_Fist:left d12:left
+A.I.C.I.S. as take A.I.C.I.S._d10 !
+A.I.C.I.S. as take A.I.C.I.S._d9 !
+NicolasLeRebelDeL'espace_Helios kill botbot_ISS_Europa
+A.I.C.I.S._b10 shot bot_Juno
+A.I.C.I.S._b11 kill botbot_SC_Juggernaut
+A.I.C.I.S._Helios kill bot_Juno
 It's turn nb 9
-[HODOR] f1:right f2:right HisFather:right xXkevindu38Xx:12-12 f3:right Darla:right Perdu!:faster Malhonnete:18-17 404_not_found:12-13
-[A.I.C.I.S] b5: b8: d6: d7:slower f6:faster d9:right f7:faster Dart:right f14:faster Heraclion:left d13: ISS_Adventurer:left f9:right Alexander:right b6: Gray_Tiger: Ha'tak:left Geisha:slower
-A.I.C.I.S as take A.I.C.I.S_b1 !
-HODOR_Malhonnete shot A.I.C.I.S_f14
-HODOR_Malhonnete shot A.I.C.I.S_d13
-HODOR_404_not_found shot A.I.C.I.S_d6
+[NicolasLeRebelDeL'espace] Roanoke:29-24 b2:right b4:slower Saragossa:slower SC_Juggernaut:faster d6:23-20 d4:23-10 Helios:20-14 f6:14-17 ARC-170:right Puddle_Jumper:left f11:faster V-19:right
+[A.I.C.I.S.] Helios:20-28 Juno:left d9:faster d11:left d10:faster d13:faster X-WINGS:14-17 f8:faster b11:20-28 b10:right BC_Pilgrim:left The_Watcher:left
+[bot] d1:right d7:24-21 SC_Juggernaut:left b6:17-24 Metis:17-24 X-WINGS:slower f2:right DROID-starfighter:right
+[botbot] Saragossa:slower Cerberus:left d14:left d12:left Dart:left b13:25-19 Iron_Fist:left
+NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_f1 !
+NicolasLeRebelDeL'espace_d6 shot bot_d7
+NicolasLeRebelDeL'espace_d6 shot A.I.C.I.S._d13
+NicolasLeRebelDeL'espace_Helios kill A.I.C.I.S._X-WINGS
 It's turn nb 10
-[HODOR] f1:faster f2:right HisFather:right xXkevindu38Xx:12-11 f3:right Darla:faster Perdu!:right Malhonnete:21-17 404_not_found:10-13
-[A.I.C.I.S] b5: b1: b8: d6:left d7:faster f6:left d9: f7:slower Dart:right f14:left Heraclion:left d13: ISS_Adventurer:faster f9:right Alexander:right b6: Gray_Tiger:slower Ha'tak:left Geisha:right
-A.I.C.I.S as take A.I.C.I.S_d1 !
-HODOR_xXkevindu38Xx kill A.I.C.I.S_d6
-HODOR_Malhonnete shot A.I.C.I.S_Alexander
+[NicolasLeRebelDeL'espace] Roanoke:left b2:right b4:faster Saragossa:left SC_Juggernaut:slower d6:21-18 d4:24-14 Helios:21-18 f6:left f1:faster ARC-170:faster Puddle_Jumper:left f11:faster V-19:right
+[A.I.C.I.S.] Helios:slower Juno:left d9:right d11:15-26 d10:right d13:25-24 f8:faster b11:18-26 b10:19-26 BC_Pilgrim:left The_Watcher:right
+[bot] d1:faster d7:21-18 SC_Juggernaut:faster b6:15-26 Metis:21-18 ISS_Europa:left X-WINGS:faster f2:24-14 DROID-starfighter:faster
+[botbot] Saragossa:slower Cerberus:left d14:faster d12:left Dart:left b13:21-18 Iron_Fist:slower
+bot as take bot_f5 !
+bot as take bot_b9 !
+bot as take bot_f7 !
+A.I.C.I.S. as take A.I.C.I.S._b8 !
+NicolasLeRebelDeL'espace_d6 kill A.I.C.I.S._d13
+NicolasLeRebelDeL'espace_d4 shot bot_f2
+NicolasLeRebelDeL'espace_d4 shot bot_f5
+A.I.C.I.S._d11 shot bot_b6
+A.I.C.I.S._b11 kill bot_SC_Juggernaut
+bot_b6 shot bot_b6
+bot_f2 kill bot_f2
 It's turn nb 11
-[HODOR] f1:nothing f2:right HisFather:right xXkevindu38Xx:15-11 f3:right Darla:right Perdu!:faster Malhonnete:21-11 404_not_found:right
-[A.I.C.I.S] d1:faster b5: b1: b8: d7:slower f6:left d9: f7:right Dart:right f14:faster Heraclion:left d13: ISS_Adventurer: f9:right Alexander:right b6: Gray_Tiger:faster Ha'tak:left Geisha:right
-A.I.C.I.S as take A.I.C.I.S_f8 !
-A.I.C.I.S as take A.I.C.I.S_f11 !
-A.I.C.I.S as take A.I.C.I.S_b9 !
-HODOR as take HODOR_b4 !
+[NicolasLeRebelDeL'espace] Roanoke:left b2:23-1 b4:left Saragossa:slower SC_Juggernaut:left d6:18-16 d4:24-14 Helios:slower f6:slower f1:right ARC-170:slower Puddle_Jumper:left f11:faster V-19:right
+[A.I.C.I.S.] Helios:faster Juno:24-14 d9:17-27 d11:16-22 d10:faster f8:slower b11:16-22 b10:25-26 BC_Pilgrim:left The_Watcher:right b8:17-27
+[bot] d1:left d7:20-20 b9:faster b6:17-27 Metis:16-22 ISS_Europa:right X-WINGS:slower f5:faster f7:faster DROID-starfighter:20-20
+[botbot] Saragossa:slower Cerberus:left d14:22-25 d12:faster Dart:left b13:24-14 Iron_Fist:faster
+A.I.C.I.S. as take A.I.C.I.S._d8 !
+NicolasLeRebelDeL'espace_d6 shot bot_DROID-starfighter
+A.I.C.I.S._d9 shot A.I.C.I.S._BC_Pilgrim
+A.I.C.I.S._b8 kill A.I.C.I.S._BC_Pilgrim
+bot_d7 shot A.I.C.I.S._Helios
+bot_d7 shot NicolasLeRebelDeL'espace_d6
+bot_DROID-starfighter shot A.I.C.I.S._Helios
+bot_DROID-starfighter shot NicolasLeRebelDeL'espace_d6
 It's turn nb 12
-[HODOR] f1:slower f2:faster HisFather:faster xXkevindu38Xx:14-15 f3:right Darla:right b4:faster Perdu!:right Malhonnete:23-11 404_not_found:right
-[A.I.C.I.S] f11:faster d1:left b5: b1: b8: b9:faster d7:faster f6:slower d9: f7:right Dart:slower f14:faster Heraclion:left d13:left ISS_Adventurer:slower f8:faster f9:faster Alexander:right b6: Gray_Tiger:slower Ha'tak:left Geisha:right
-A.I.C.I.S as take A.I.C.I.S_b10 !
-A.I.C.I.S as take A.I.C.I.S_b11 !
+[NicolasLeRebelDeL'espace] Roanoke:left b2:slower b4:left Saragossa:left SC_Juggernaut:left d6:22-22 d4:17-13 Helios:faster f6:left f1:right ARC-170:right Puddle_Jumper:17-23 f11:faster V-19:right
+[A.I.C.I.S.] Helios:slower Juno:23-20 d9:18-26 d8:18-26 d11:18-20 d10:22-22 f8:slower b11:19-29 b10:22-22 The_Watcher:left b8:18-26
+[bot] d1:18-20 d7:20-20 b9:right b6:18-26 Metis:18-20 X-WINGS:left f5:left f7:left DROID-starfighter:17-13
+[botbot] Saragossa:slower Cerberus:left d14:left d12:18-26 Dart:faster b13:26-14 Iron_Fist:right
+NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_b3 !
+NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_f3 !
+NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_b5 !
+NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_f10 !
+NicolasLeRebelDeL'espace_d6 shot NicolasLeRebelDeL'espace_Helios
+NicolasLeRebelDeL'espace_Puddle_Jumper shot bot_d1
+A.I.C.I.S._Juno shot bot_d7
+A.I.C.I.S._d9 shot botbot_d14
+A.I.C.I.S._d8 shot botbot_d14
+A.I.C.I.S._d11 shot NicolasLeRebelDeL'espace_Puddle_Jumper
+A.I.C.I.S._d11 shot NicolasLeRebelDeL'espace_b5
+A.I.C.I.S._d10 shot NicolasLeRebelDeL'espace_Helios
+A.I.C.I.S._b10 shot NicolasLeRebelDeL'espace_Helios
+A.I.C.I.S._b8 kill botbot_d14
+bot_d1 kill NicolasLeRebelDeL'espace_Puddle_Jumper
+bot_d7 shot A.I.C.I.S._Helios
+bot_d7 shot NicolasLeRebelDeL'espace_d6
+bot_Metis shot NicolasLeRebelDeL'espace_b5
 It's turn nb 13
-[HODOR] f1:right f2:right HisFather:faster xXkevindu38Xx:14-13 f3:faster Darla:faster b4:23-12 Perdu!:slower Malhonnete:23-12 404_not_found:right
-[A.I.C.I.S] f11:faster d1:left b10:faster b5: b1: b8: b9:right d7:slower f6:left d9: f7:right Dart:right f14: Heraclion:left d13:left ISS_Adventurer:right f8:left f9:faster Alexander:left b6: Gray_Tiger:faster Ha'tak:slower b11:faster Geisha:faster
-A.I.C.I.S as take A.I.C.I.S_d11 !
-A.I.C.I.S as take A.I.C.I.S_d10 !
+[NicolasLeRebelDeL'espace] Roanoke:left b3:24-9 b2:faster b5:faster b4:27-16 Saragossa:right SC_Juggernaut:left d6:20-23 d4:17-15 Helios:slower f1:faster f3:faster ARC-170:right f10:faster V-19:faster
+[A.I.C.I.S.] Helios:faster Juno:24-18 d9:right d8:16-26 d11:17-17 d10:23-20 f8:slower b11:left b10:20-23 The_Watcher:left b8:faster
+[bot] d1:19-24 d7:20-20 b9:left b6:slower Metis:24-17 ISS_Europa:slower X-WINGS:right f5:left f7:faster DROID-starfighter:faster
+[botbot] Saragossa:left Cerberus:left d12:19-24 Dart:faster b13:27-16 Iron_Fist:17-12
+NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_d3 !
+NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_f13 !
+NicolasLeRebelDeL'espace_d6 shot NicolasLeRebelDeL'espace_V-19
+A.I.C.I.S._Juno shot NicolasLeRebelDeL'espace_b4
+A.I.C.I.S._Juno shot botbot_Dart
+A.I.C.I.S._d10 shot bot_d7
+A.I.C.I.S._d10 shot A.I.C.I.S._b10
+A.I.C.I.S._b10 kill NicolasLeRebelDeL'espace_V-19
+bot_d1 shot bot_f7
+bot_d7 shot NicolasLeRebelDeL'espace_d6
+bot_Metis shot bot_Metis
+bot_Metis shot botbot_b13
+botbot_d12 kill bot_f7
 It's turn nb 14
-[HODOR] f1:right f2:slower HisFather:faster xXkevindu38Xx:right f3:faster Darla:slower b4:28-11 Perdu!:slower Malhonnete:24-13 404_not_found:15-19
-[A.I.C.I.S] f11:right d1:left b10: b5: b1: b8: b9:right d7:faster f6:left d9: f7:left Dart: f14:slower Heraclion:left d13:left d10:faster d11:faster ISS_Adventurer: f8:left f9:right Alexander:right b6: Gray_Tiger:slower Ha'tak:left b11:left Geisha:right
-A.I.C.I.S as take A.I.C.I.S_b3 !
-A.I.C.I.S as take A.I.C.I.S_f13 !
+[NicolasLeRebelDeL'espace] Roanoke:left b3:22-10 b2:slower b5:right b4:24-21 Saragossa:right SC_Juggernaut:slower d3:faster d6:23-20 d4:23-21 Helios:faster f6:left f1:18-18 f3:faster ARC-170:left f11:slower f10:left f13:faster
+[A.I.C.I.S.] Helios:slower Juno:left d9:right d8:faster d11:17-16 f8:right b11:20-20 b10:24-21 The_Watcher:25-16 b8:right
+[bot] d1:21-28 d7:24-21 b9:left b6:faster Metis:24-21 ISS_Europa:right X-WINGS:slower f5:faster DROID-starfighter:left
+[botbot] Saragossa:faster Cerberus:20-20 d12:13-20 Dart:26-17 b13:26-17 Iron_Fist:20-20
+A.I.C.I.S. as take A.I.C.I.S._b1 !
+NicolasLeRebelDeL'espace_b3 shot NicolasLeRebelDeL'espace_b3
+NicolasLeRebelDeL'espace_b4 kill botbot_Dart
+NicolasLeRebelDeL'espace_d6 kill bot_d7
+NicolasLeRebelDeL'espace_d4 shot botbot_Cerberus
+A.I.C.I.S._d11 shot botbot_Iron_Fist
+A.I.C.I.S._b11 kill NicolasLeRebelDeL'espace_d6
+A.I.C.I.S._The_Watcher shot bot_Metis
+botbot_Cerberus shot NicolasLeRebelDeL'espace_f1
+botbot_Iron_Fist kill NicolasLeRebelDeL'espace_f1
 It's turn nb 15
-[HODOR] f1:right f2:right HisFather:slower xXkevindu38Xx:16-16 f3:slower Darla:slower b4:21-20 Perdu!:slower Malhonnete:22-13 404_not_found:right
-[A.I.C.I.S] f11:faster d1:left b10: b5: b3: b1: b8: b9:right d7:slower f6:left d9: f7:left Dart:slower f13:faster f14:slower Heraclion: d13:left d10:right d11:faster ISS_Adventurer:faster f8:right f9:right Alexander:faster b6: Gray_Tiger:faster Ha'tak:right b11:left Geisha:faster
-A.I.C.I.S as take A.I.C.I.S_d12 !
-HODOR_b4 shot A.I.C.I.S_b6
+[NicolasLeRebelDeL'espace] b3:faster b2:faster b5:15-19 b4:slower Saragossa:right SC_Juggernaut:right d3:slower d4:left Helios:left f6:faster f3:faster f10:left f13:right
+[A.I.C.I.S.] Helios:faster Juno:left d9:right d8:left d11:16-16 f8:left b11:26-20 b10:26-20 The_Watcher:right b8:17-29 b1:faster
+[bot] d1:20-29 b9:right b6:slower Metis:25-23 ISS_Europa:slower X-WINGS:right f5:left DROID-starfighter:slower
+[botbot] Saragossa:faster Cerberus:26-20 d12:right b13:26-20 Iron_Fist:left
+bot as take bot_b7 !
+bot as take bot_b12 !
+A.I.C.I.S._b8 shot bot_d1
+bot_Metis shot botbot_Cerberus
 It's turn nb 16
-[HODOR] f1:right f2:right HisFather:slower xXkevindu38Xx:14-20 f3:right Darla:right b4:21-14 Perdu!:right Malhonnete:22-14 404_not_found:13-19
-[A.I.C.I.S] f11:left d1: b10: b5: b3: b1: b8: b9:right d7:faster f6:right d9: f7:left Dart:right f13:right f14:slower Heraclion: d13: d10:faster d11: ISS_Adventurer:faster f8:faster f9:right Alexander:faster b6: Gray_Tiger:slower d12:faster Ha'tak:faster b11:left Geisha:slower
-A.I.C.I.S as take A.I.C.I.S_b13 !
-A.I.C.I.S as take A.I.C.I.S_f10 !
-HODOR_xXkevindu38Xx shot A.I.C.I.S_Heraclion
+[NicolasLeRebelDeL'espace] Roanoke:21-25 b3:27-14 b2:left b5:14-18 b4:faster Saragossa:faster SC_Juggernaut:right d3:faster d4:left Helios:left f6:left f3:faster ARC-170:left f11:left f10:left f13:left
+[A.I.C.I.S.] Helios:slower Juno:left d9:right d8:faster d11:slower d10:left f8:faster b11:22-22 b10:22-22 The_Watcher:slower b8:slower b1:right
+[bot] d1:18-30 b9:left b6:faster b7:faster Metis:26-15 ISS_Europa:left X-WINGS:faster b12:faster f5:right
+[botbot] Saragossa:slower Cerberus:22-22 d12:right b13:22-22 Iron_Fist:left
+NicolasLeRebelDeL'espace_b3 shot bot_Metis
 It's turn nb 17
-[HODOR] f1:faster f2:right HisFather:slower xXkevindu38Xx:17-17 f3:right Darla:right b4:26-25 Perdu!:right Malhonnete:24-15 404_not_found:15-15
-[A.I.C.I.S] f11:faster d1: b10: b5: b3: b1: b8: b9: d7:slower f6:faster d9: f7:left f10:faster Dart:left f13:right f14:left Heraclion: d13: d10: d11:left ISS_Adventurer:left f8:slower f9:left Alexander:right b6:faster Gray_Tiger:faster d12:left b13:faster Ha'tak: b11: Geisha:left
-A.I.C.I.S as take A.I.C.I.S_b7 !
-A.I.C.I.S as take A.I.C.I.S_f12 !
-HODOR_xXkevindu38Xx shot A.I.C.I.S_Gray_Tiger
-HODOR_b4 kill A.I.C.I.S_f13
-HODOR_Malhonnete shot A.I.C.I.S_d13
+[NicolasLeRebelDeL'espace] Roanoke:24-24 b3:16-7 b2:left b5:right b4:slower Saragossa:24-17 SC_Juggernaut:right d3:slower d4:left Helios:24-24 f6:left f3:right ARC-170:left f11:slower f10:left f13:left
+[A.I.C.I.S.] Helios:faster Juno:left d9:right d8:21-26 d11:slower d10:slower f8:faster b11:right b10:24-24 The_Watcher:right b8:faster b1:16-11
+[bot] d1:17-29 b9:17-29 b6:slower b7:left Metis:slower ISS_Europa:left X-WINGS:21-23 b12:29-27 f5:slower DROID-starfighter:left
+[botbot] Saragossa:right Cerberus:24-24 d12:right b13:24-24 Iron_Fist:left
+bot as take bot_d5 !
+bot as take bot_f14 !
+NicolasLeRebelDeL'espace_Roanoke shot A.I.C.I.S._Juno
+NicolasLeRebelDeL'espace_Saragossa shot botbot_b13
+NicolasLeRebelDeL'espace_Helios shot A.I.C.I.S._Juno
+A.I.C.I.S._d8 shot NicolasLeRebelDeL'espace_Helios
+A.I.C.I.S._b10 kill A.I.C.I.S._Juno
+bot_X-WINGS shot A.I.C.I.S._d8
+bot_b12 kill botbot_Cerberus
 It's turn nb 18
-[HODOR] f1:faster f2:right HisFather:right xXkevindu38Xx:18-21 f3:slower Darla:right b4:24-15 Perdu!:faster Malhonnete:26-15 404_not_found:10-22
-[A.I.C.I.S] f11:left d1: b10: b7:faster b5: b3: b1: b8: b9: d7:faster f6:faster d9: f7:left f10: Dart:right f12:faster f14:left Heraclion: d13: d10: d11:right ISS_Adventurer:left f8:right f9:faster Alexander:right b6:left Gray_Tiger:left d12:left b13:right Ha'tak: b11: Geisha:left
-A.I.C.I.S as take A.I.C.I.S_d5 !
-A.I.C.I.S as take A.I.C.I.S_b2 !
+[NicolasLeRebelDeL'espace] Roanoke:right b3:16-3 b2:16-3 b5:right b4:faster Saragossa:left SC_Juggernaut:right d3:faster d4:left Helios:24-24 f6:24-17 f3:left ARC-170:faster f11:right f10:17-27 f13:left
+[A.I.C.I.S.] Helios:slower d9:left d8:left d11:faster d10:left f8:left b11:right b10:20-19 The_Watcher:left b8:left b1:20-14
+[bot] d1:12-32 d5:faster b9:12-32 b6:faster b7:31-25 Metis:faster ISS_Europa:faster X-WINGS:left b12:29-28 f14:faster f5:left DROID-starfighter:left
+[botbot] Saragossa:right d12:10-27 b13:20-19 Iron_Fist:20-14
+NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_f9 !
+NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_d2 !
+NicolasLeRebelDeL'espace_f6 shot botbot_b13
+A.I.C.I.S._b10 kill NicolasLeRebelDeL'espace_f6
 It's turn nb 19
-[HODOR] f1:right f2:right HisFather:right xXkevindu38Xx:15-21 f3:right Darla:right b4:29-19 Perdu!:left Malhonnete:30-18 404_not_found:12-19
-[A.I.C.I.S] d5:faster f11:faster d1: b10: b7:right b5: b2:faster b3: b1: b8: b9: d7:slower f6: d9: f7:right f10:right Dart:right f12:faster f14:left Heraclion:left d13: d10: d11: ISS_Adventurer:left f8:faster f9: Alexander:right b6:left Gray_Tiger: d12:left b13:right Ha'tak:left b11: Geisha:faster
-A.I.C.I.S as take A.I.C.I.S_d3 !
-A.I.C.I.S as take A.I.C.I.S_b12 !
-HODOR_xXkevindu38Xx shot HODOR_xXkevindu38Xx
-HODOR_Malhonnete shot A.I.C.I.S_d10
-HODOR_404_not_found shot A.I.C.I.S_d11
+[NicolasLeRebelDeL'espace] Roanoke:22-25 b3:24-10 b2:22-40 b5:right b4:right Saragossa:left SC_Juggernaut:faster d3:faster d2:faster d4:faster Helios:22-25 f9:18-26 f3:left ARC-170:right f11:right f10:left f13:left
+[A.I.C.I.S.] Helios:16-12 d9:left d8:22-25 d11:left d10:slower f8:faster b11:left b10:24-10 The_Watcher:slower b8:left b1:16-12
+[bot] d5:left b9:16-28 b6:slower b7:28-28 Metis:slower ISS_Europa:slower X-WINGS:slower b12:28-29 f14:left f5:right DROID-starfighter:slower
+[botbot] Saragossa:faster d12:14-29 b13:18-20 Iron_Fist:24-10
+bot as take bot_f4 !
+A.I.C.I.S. as take A.I.C.I.S._f12 !
 It's turn nb 20
-[HODOR] f1:slower f2:faster HisFather:faster xXkevindu38Xx:20-22 f3:right Darla:right b4:27-26 Perdu!:faster Malhonnete:35-9 404_not_found:11-20
-[A.I.C.I.S] d5:left f11:left d1: b10: b7:right b5: b2:left b3: b1: b8: b9:right d7:faster d3:faster f6:slower d9:right f7: f10:left Dart:right f12:left f14:left Heraclion:left d13: d10: d11: ISS_Adventurer:left f8:right f9:left Alexander:right b6: Gray_Tiger:left d12:left b13:right Ha'tak:left b11:right b12:faster Geisha:right
-A.I.C.I.S as take A.I.C.I.S_d14 !
-A.I.C.I.S as take A.I.C.I.S_d8 !
-HODOR_xXkevindu38Xx shot A.I.C.I.S_b9
+[NicolasLeRebelDeL'espace] Roanoke:left b3:16-10 b2:17-39 b5:right b4:23-26 Saragossa:left SC_Juggernaut:right d3:18-7 d2:right d4:16-10 Helios:23-30 f9:faster f3:slower ARC-170:left f11:faster f10:left f13:slower
+[A.I.C.I.S.] Helios:16-10 d9:left d8:23-26 d11:left d10:faster f8:faster f12:faster b11:left b10:25-9 The_Watcher:left b8:16-27 b1:23-20
+[bot] d1:right d5:left b6:faster b7:27-23 Metis:faster ISS_Europa:faster X-WINGS:left b12:26-30 f14:21-23 f5:left f4:faster DROID-starfighter:right
+[botbot] Saragossa:left d12:10-31 b13:faster Iron_Fist:left
+NicolasLeRebelDeL'espace_b3 shot NicolasLeRebelDeL'espace_b3
+NicolasLeRebelDeL'espace_d4 shot NicolasLeRebelDeL'espace_b3
+A.I.C.I.S._Helios shot NicolasLeRebelDeL'espace_b3
+A.I.C.I.S._b1 kill bot_f14
+bot_b7 shot A.I.C.I.S._d8
 It's turn nb 21
-[HODOR] f1:right f2:faster HisFather:slower xXkevindu38Xx:19-21 f3:nothing Darla:faster b4:33-30 Perdu!:31-12 Malhonnete:31-11 404_not_found:10-18
-[A.I.C.I.S] d5:left f11:left d1: b10: b7:right b5: b2: b3: b1: b8:faster b9: d7:slower d3:right f6:slower d8:faster d9:right f7:left f10: Dart:left f12:left f14:left Heraclion:right d14:faster d13:right d10: d11:left ISS_Adventurer:left f8:faster f9:slower Alexander:right b6: Gray_Tiger:left d12:left b13: Ha'tak:left b11:right b12:right Geisha:right
-HODOR_xXkevindu38Xx shot A.I.C.I.S_b9
+[NicolasLeRebelDeL'espace] Roanoke:20-21 b3:22-7 b2:21-1 b5:20-21 b4:21-27 Saragossa:left SC_Juggernaut:right d3:left d2:faster d4:21-13 Helios:21-27 f9:left f3:21-27 ARC-170:right f11:faster f13:faster
+[A.I.C.I.S.] Helios:19-15 d9:left d8:left d11:left d10:slower f8:30-34 f12:faster b11:21-13 b10:21-13 The_Watcher:faster b8:10-31 b1:19-15
+[bot] d1:right d5:left b9:9-34 b6:slower b7:29-23 Metis:slower ISS_Europa:faster X-WINGS:left b12:slower f5:faster f4:right DROID-starfighter:faster
+[botbot] Saragossa:faster d12:8-33 b13:right Iron_Fist:left
+NicolasLeRebelDeL'espace_b3 shot NicolasLeRebelDeL'espace_d2
+NicolasLeRebelDeL'espace_b4 shot A.I.C.I.S._d9
+NicolasLeRebelDeL'espace_b4 kill NicolasLeRebelDeL'espace_SC_Juggernaut
+NicolasLeRebelDeL'espace_Helios kill A.I.C.I.S._d9
+A.I.C.I.S._Helios shot NicolasLeRebelDeL'espace_Roanoke
+A.I.C.I.S._b1 kill NicolasLeRebelDeL'espace_Roanoke
+bot_b9 shot botbot_d12
 It's turn nb 22
-[HODOR] f1:slower f2:right HisFather:slower xXkevindu38Xx:15-26 f3:faster Darla:faster b4:30-19 Perdu!:34-12 Malhonnete:34-15 404_not_found:16-12
-[A.I.C.I.S] d5:faster f11:right d1: b10: b7: b5: b2: b3: b1: b8:left b9: d7:faster d3:right f6: d8:left d9:right f7:left f10:faster Dart:left f12:left f14:right Heraclion:right d14:left d13:right d10: d11:left ISS_Adventurer:left f8:faster f9:left Alexander:faster b6: Gray_Tiger:left d12:right b13: Ha'tak:left b11: b12:right Geisha:faster
-A.I.C.I.S as take A.I.C.I.S_f4 !
-A.I.C.I.S as take A.I.C.I.S_d2 !
-HODOR_xXkevindu38Xx shot A.I.C.I.S_b8
-HODOR_404_not_found shot A.I.C.I.S_b1
+[NicolasLeRebelDeL'espace] b3:20-10 b2:23-39 b5:19-22 b4:18-30 Saragossa:left d2:25-10 d4:left Helios:slower f9:left f3:left ARC-170:29-33 f11:9-36 f10:left f13:slower
+[A.I.C.I.S.] Helios:faster d8:left d11:slower d10:faster f8:left f12:right b11:left b10:22-14 The_Watcher:right b8:right b1:left
+[bot] d1:right d5:left b9:9-36 b6:faster b7:31-27 Metis:faster ISS_Europa:right X-WINGS:left b12:faster f5:right f4:right DROID-starfighter:faster
+[botbot] Saragossa:faster d12:9-32 b13:right Iron_Fist:22-14
+NicolasLeRebelDeL'espace_b5 kill NicolasLeRebelDeL'espace_Saragossa
+NicolasLeRebelDeL'espace_f11 shot botbot_d12
+bot_b9 kill botbot_d12
 It's turn nb 23
-[HODOR] f1:right f2:slower HisFather:faster xXkevindu38Xx:15-25 f3:slower Darla:19-19 b4:28-25 Perdu!:38-10 Malhonnete:38-12 404_not_found:15-16
-[A.I.C.I.S] d5: f11:left d1:left b10: b7: b5:faster b2: b3: b1:faster b8: b9: d7:slower f4:faster d3:right f6:faster d8:faster d9:faster f7:faster f10:faster Dart:left f12:left f14:right d2: Heraclion: d14:left d13: d10: d11:left ISS_Adventurer:slower f8:right f9:left Alexander:slower b6:right Gray_Tiger: d12:right b13: Ha'tak:left b11: b12: Geisha:left
-A.I.C.I.S as take A.I.C.I.S_d4 !
-HODOR_xXkevindu38Xx shot A.I.C.I.S_b8
-HODOR_xXkevindu38Xx shot A.I.C.I.S_f7
-HODOR_Perdu! shot A.I.C.I.S_d10
+[NicolasLeRebelDeL'espace] b3:right b2:25-35 b5:right b4:right d3:10-39 d4:left Helios:faster f9:left f3:left ARC-170:29-29 f10:left f13:faster
+[A.I.C.I.S.] Helios:left d8:30-21 d11:faster d10:slower f8:left f12:right b11:left b10:28-16 The_Watcher:faster b8:right b1:left
+[bot] d1:21-40 d5:faster b9:slower b6:slower b7:30-21 Metis:right ISS_Europa:faster X-WINGS:left b12:slower f5:right f4:faster DROID-starfighter:left
+[botbot] Saragossa:20-37 b13:right Iron_Fist:24-15
+NicolasLeRebelDeL'espace_b2 kill bot_d1
+NicolasLeRebelDeL'espace_ARC-170 shot A.I.C.I.S._d8
+A.I.C.I.S._d8 shot NicolasLeRebelDeL'espace_ARC-170
+bot_b7 kill NicolasLeRebelDeL'espace_ARC-170
 It's turn nb 24
-[HODOR] f1:right f2:9-15 HisFather:21-26 xXkevindu38Xx:21-24 f3:22-10 Darla:17-20 b4:28-27 Perdu!:right Malhonnete:37-9 404_not_found:19-14
-[A.I.C.I.S] d5:right f11:slower d1:left b10:right b7: b5:left b2: b3: b1:right b8: b9: d4:faster d7:faster f4:right d3:right f6:faster d8: d9: f7: f10:left Dart:faster f12:faster f14:left d2: Heraclion: d14:left d13:right d10:right d11:left ISS_Adventurer:slower f8: f9:left Alexander: b6:right Gray_Tiger: d12:faster b13: Ha'tak:faster b11: b12: Geisha:
-HODOR_xXkevindu38Xx shot A.I.C.I.S_f12
-HODOR_f3 shot A.I.C.I.S_b3
-HODOR_Darla shot A.I.C.I.S_b13
-HODOR_404_not_found kill A.I.C.I.S_Ha'tak
+[NicolasLeRebelDeL'espace] b3:right b2:24-34 b5:right b4:right d3:11-38 d4:right Helios:left f9:faster f3:left f10:faster f13:right
+[A.I.C.I.S.] Helios:left d8:right d11:right d10:faster f8:left f12:faster b11:left b10:28-15 b8:left b1:right
+[bot] d5:16-23 b9:faster b6:faster b7:29-31 Metis:right ISS_Europa:right X-WINGS:left b12:faster f4:left DROID-starfighter:38-19
+[botbot] Saragossa:right b13:25-19 Iron_Fist:25-19
+NicolasLeRebelDeL'espace_b2 kill bot_f5
 It's turn nb 25
-[HODOR] f1:faster f2:11-22 HisFather:26-24 xXkevindu38Xx:24-29 f3:21-10 Darla:11-22 b4:36-30 Perdu!:slower Malhonnete:31-12 404_not_found:21-10
-[A.I.C.I.S] d5:left f11:right d1:left b10:right b7: b5: b2: b3: b1: b8: b9: d4:right d7:slower f4:right d3:faster f6:faster d8: d9:left f7:left f10:left Dart:left f12: f14:faster d2: Heraclion: d14:faster d13:right d10:right d11: ISS_Adventurer:right f8:faster f9:left Alexander:left b6: Gray_Tiger: d12:right b13: b11:right b12: Geisha:
-A.I.C.I.S as take A.I.C.I.S_f5 !
-HODOR_b4 kill A.I.C.I.S_Heraclion
-HODOR_Malhonnete shot A.I.C.I.S_f9
+[NicolasLeRebelDeL'espace] b3:right b5:right b4:right d3:right d2:28-3 d4:right Helios:left f3:left f11:left f10:faster f13:right
+[A.I.C.I.S.] Helios:19-22 d8:32-31 d11:right d10:slower f8:left b11:left b10:31-10 The_Watcher:28-8 b1:right
+[bot] b9:slower b6:left b7:33-33 Metis:30-4 ISS_Europa:left X-WINGS:right b12:slower f4:faster
+[botbot] Saragossa:left b13:19-22 Iron_Fist:right
+NicolasLeRebelDeL'espace_d2 shot A.I.C.I.S._f12
+A.I.C.I.S._The_Watcher shot bot_Metis
+bot_b7 kill A.I.C.I.S._d8
+bot_Metis kill A.I.C.I.S._The_Watcher
 It's turn nb 26
-[HODOR] f1:21-14 f2:faster HisFather:26-27 xXkevindu38Xx:26-27 f3:24-11 Darla:faster b4:30-25 Perdu!:slower Malhonnete:33-12 404_not_found:19-12
-[A.I.C.I.S] d5:right f11:left d1:faster b10: b7: b5:left b2: b3: b1: b8:right b9: d4:faster d7:faster f4:left d3:left f6:left d8: d9:right f7:left f10:faster Dart:faster f12:left f14:left d2: f5:faster d14:right d13: d10: d11: ISS_Adventurer:right f8:right f9:faster Alexander: b6: Gray_Tiger: d12:right b13:right b11:right b12: Geisha:
-HODOR_f1 shot A.I.C.I.S_Dart
-HODOR_404_not_found kill A.I.C.I.S_f6
+[NicolasLeRebelDeL'espace] b3:18-19 b2:31-35 b5:right b4:left d3:right d4:27-7 Helios:10-30 f9:left f3:left f11:27-7 f10:left f13:faster
+[A.I.C.I.S.] Helios:15-14 d11:faster d10:faster f8:left f12:right b11:25-24 b10:26-15 b8:12-18 b1:right
+[bot] d5:13-29 b9:faster b6:left b7:left Metis:24-7 ISS_Europa:25-24 X-WINGS:23-24 b12:faster f4:faster DROID-starfighter:slower
+[botbot] Saragossa:27-7 b13:21-18 Iron_Fist:right
+NicolasLeRebelDeL'espace_b3 shot botbot_b13
+NicolasLeRebelDeL'espace_d4 shot bot_Metis
+NicolasLeRebelDeL'espace_Helios shot bot_d5
+NicolasLeRebelDeL'espace_f11 shot bot_Metis
+A.I.C.I.S._Helios shot NicolasLeRebelDeL'espace_b3
+A.I.C.I.S._b10 kill botbot_Saragossa
+bot_d5 shot NicolasLeRebelDeL'espace_Helios
+bot_Metis shot A.I.C.I.S._d11
+bot_Metis kill NicolasLeRebelDeL'espace_f11
 It's turn nb 27
-[HODOR] f1:22-16 f2:faster HisFather:31-26 xXkevindu38Xx:25-25 f3:22-14 Darla:faster b4:35-32 Perdu!:3-40 Malhonnete:3-10 404_not_found:22-9
-[A.I.C.I.S] d5:left f11:left d1: b10: b7: b5:left b2: b3: b1: b8:right b9:left d4: d7:right f4:left d3:right d8: d9:left f7:left f10:faster Dart:left f12: f14: d2: f5:right d14:right d13: d10: d11:right ISS_Adventurer:right f8:right f9:faster Alexander:left b6: Gray_Tiger: d12: b13:right b11: b12:left Geisha:
-HODOR_f1 shot A.I.C.I.S_f4
-HODOR_f1 shot A.I.C.I.S_d9
-HODOR_f3 shot A.I.C.I.S_ISS_Adventurer
-HODOR_Malhonnete shoot out of range !
+[NicolasLeRebelDeL'espace] b3:right b5:17-20 b4:left d3:right d2:33-37 Helios:8-32 f3:left f10:left f13:left
+[A.I.C.I.S.] Helios:16-15 d11:26-6 d10:right f8:left f12:right b11:25-15 b10:left b8:slower b1:right
+[bot] d5:8-33 b9:slower b6:8-33 Metis:26-5 ISS_Europa:24-19 X-WINGS:24-23 b12:slower f4:right DROID-starfighter:left
+[botbot] b13:23-20 Iron_Fist:24-19
+NicolasLeRebelDeL'espace_b5 shot botbot_b13
+NicolasLeRebelDeL'espace_Helios kill bot_d5
+A.I.C.I.S._d11 kill bot_Metis
+A.I.C.I.S._b11 kill bot_ISS_Europa
+botbot_b13 kill NicolasLeRebelDeL'espace_f9
+botbot_Iron_Fist shot A.I.C.I.S._b11
 It's turn nb 28
+[NicolasLeRebelDeL'espace] b3:right b2:33-33 b5:16-21 b4:22-31 d2:32-36 d4:right f3:faster f10:left f13:left
+[A.I.C.I.S.] Helios:17-14 d10:right f8:left b10:left b8:faster b1:27-27
+[bot] b9:faster b6:6-37 b7:36-33 X-WINGS:right b12:faster f4:left DROID-starfighter:left
+[botbot] b13:right
+A.I.C.I.S._b1 shot NicolasLeRebelDeL'espace_b4
+bot_b6 shot NicolasLeRebelDeL'espace_d3
+bot_b7 kill NicolasLeRebelDeL'espace_d2
+It's turn nb 29
+[NicolasLeRebelDeL'espace] b3:22-9 b2:left b5:17-22 b4:28-34 d4:right Helios:15-30 f10:left f13:right
+[A.I.C.I.S.] Helios:18-12 d10:left f8:left b11:15-20 b8:slower
+[bot] b9:left b7:40-34 X-WINGS:right b12:slower f4:left DROID-starfighter:left
+[botbot] b13:right Iron_Fist:right
+NicolasLeRebelDeL'espace_b3 shot A.I.C.I.S._Helios
+A.I.C.I.S._Helios kill NicolasLeRebelDeL'espace_b3
+A.I.C.I.S._b11 kill NicolasLeRebelDeL'espace_f3
+bot_b7 kill A.I.C.I.S._f12
+It's turn nb 30
+[NicolasLeRebelDeL'espace] b2:31-31 b5:right b4:31-31 d3:6-1 d4:left f10:faster
+[A.I.C.I.S.] d11:30-1 d10:left f8:left b11:19-23 b10:28-10 b8:faster
+[bot] b9:left b7:31-30 X-WINGS:31-30 b12:32-39 DROID-starfighter:left
+[botbot] b13:21-22 Iron_Fist:left
+NicolasLeRebelDeL'espace_b2 kill bot_X-WINGS
+A.I.C.I.S._b11 kill botbot_b13
+bot_b7 shot NicolasLeRebelDeL'espace_b2
+bot_b12 kill A.I.C.I.S._d11
+It's turn nb 31
+[NicolasLeRebelDeL'espace] b2:34-35 b5:right d4:left f10:right f13:left
+[A.I.C.I.S.] d10:left f8:left b10:26-5 b1:left
+[bot] b9:40-3 b6:3-29 b7:32-30 b12:faster f4:right DROID-starfighter:left
+[botbot] Iron_Fist:left
+NicolasLeRebelDeL'espace_b2 shot bot_b7
+bot_b9 kill NicolasLeRebelDeL'espace_d3
+bot_b7 shot NicolasLeRebelDeL'espace_b2
+It's turn nb 32
+[NicolasLeRebelDeL'espace] b2:34-36 b4:34-36 d4:35-39 Helios:4-23 f10:left f13:faster
+[A.I.C.I.S.] Helios:22-7 d10:left f8:left b10:right b1:left
+[bot] b7:36-37 b12:36-37
+[botbot] Iron_Fist:right
+NicolasLeRebelDeL'espace_b2 shot bot_b7
+NicolasLeRebelDeL'espace_b4 shot bot_b7
+NicolasLeRebelDeL'espace_d4 shot bot_b12
+bot_b7 shot NicolasLeRebelDeL'espace_d4
+bot_b12 kill NicolasLeRebelDeL'espace_d4
+It's turn nb 33
+[NicolasLeRebelDeL'espace] b2:left b4:34-37 Helios:2-24 f10:faster f13:faster
+[A.I.C.I.S.] d10:faster f8:left b10:slower
+[bot] b9:3-4 b6:40-21 f4:18-11
+[botbot] Iron_Fist:30-4
+NicolasLeRebelDeL'espace_b4 shot bot_b7
+It's turn nb 34
+[NicolasLeRebelDeL'espace] b5:left b4:34-38 f10:slower f13:faster
+[A.I.C.I.S.] Helios:slower d10:37-25 f8:left b10:faster b1:31-14
+[bot] b6:39-27 DROID-starfighter:left
+[botbot] Iron_Fist:29-5
+NicolasLeRebelDeL'espace_b4 kill bot_b7
+A.I.C.I.S._d10 shot bot_b6
+bot_b6 shot A.I.C.I.S._d10
+It's turn nb 35
+[NicolasLeRebelDeL'espace] b5:left f13:left
+[A.I.C.I.S.] Helios:faster d10:36-24 f8:left b11:left b10:slower
+[bot] b6:right f4:left DROID-starfighter:left
+[botbot] Iron_Fist:28-4
+It's turn nb 36
+[NicolasLeRebelDeL'espace] b2:35-31 f10:left f13:left
+[A.I.C.I.S.] Helios:left f8:left b11:left b10:faster b8:3-6 b1:35-25
+[bot] b6:right b12:35-5 f4:left DROID-starfighter:right
+[botbot] Iron_Fist:right
+NicolasLeRebelDeL'espace_b2 kill A.I.C.I.S._d10
+It's turn nb 37
+[NicolasLeRebelDeL'espace] b2:39-33 b4:39-33 f10:left f13:slower
+[A.I.C.I.S.] Helios:left f8:left b11:right b10:left b8:37-7 b1:34-27
+[bot] b9:38-35 b6:left f4:left DROID-starfighter:slower
+[botbot] Iron_Fist:right
+NicolasLeRebelDeL'espace_b2 shot bot_b9
+NicolasLeRebelDeL'espace_b4 shot bot_b9
+bot_b9 shot NicolasLeRebelDeL'espace_b2
+It's turn nb 38
+[NicolasLeRebelDeL'espace] b2:38-32 b5:5-13 b4:38-32 f10:32-3 f13:left
+[A.I.C.I.S.] Helios:32-3 f8:left b11:right b10:left b8:34-4 b1:33-26
+[bot] b9:39-36 b6:left b12:34-4 f4:faster DROID-starfighter:right
+[botbot] Iron_Fist:left
+NicolasLeRebelDeL'espace_b2 shot bot_b9
+NicolasLeRebelDeL'espace_b4 shot bot_b9
+bot_b9 shot NicolasLeRebelDeL'espace_b2
+It's turn nb 39
+[NicolasLeRebelDeL'espace] b2:33-37 b4:33-37 f13:right
+[A.I.C.I.S.] Helios:33-2 f8:left b11:left b10:33-37 b8:2-6 b1:32-24
+[bot] b9:3-29 b6:right b12:38-40 f4:4-13 DROID-starfighter:left
+[botbot] Iron_Fist:left
+A.I.C.I.S._b8 shot bot_b12
+bot_f4 shot NicolasLeRebelDeL'espace_b5
+It's turn nb 40
+[NicolasLeRebelDeL'espace] b2:36-34 b4:36-34 f10:left f13:35-1
+[A.I.C.I.S.] f8:left b11:left b10:34-2 b8:34-2 b1:36-30
+[bot] b9:37-28 b6:right DROID-starfighter:slower
+[botbot] Iron_Fist:30-36
+NicolasLeRebelDeL'espace_f13 shot botbot_Iron_Fist
+A.I.C.I.S._b10 kill bot_f4
+A.I.C.I.S._b1 kill bot_b9
+botbot_Iron_Fist kill NicolasLeRebelDeL'espace_f13
+It's turn nb 41
+[NicolasLeRebelDeL'espace] b2:3-4 b4:36-33 f10:slower
+[A.I.C.I.S.] Helios:right f8:2-39 b11:right
+[bot] b6:left b12:2-11 DROID-starfighter:right
+[botbot] Iron_Fist:40-40
+NicolasLeRebelDeL'espace_b2 kill A.I.C.I.S._f8
+bot_b12 shot NicolasLeRebelDeL'espace_b5
+botbot_Iron_Fist shot NicolasLeRebelDeL'espace_b4
+It's turn nb 42
+[NicolasLeRebelDeL'espace] b5:5-9 b4:37-39 Helios:right f10:right
+[A.I.C.I.S.] Helios:right b11:right b8:slower b1:32-31
+[bot] b6:left b12:slower DROID-starfighter:right
+[botbot] Iron_Fist:left
+It's turn nb 43
+[NicolasLeRebelDeL'espace] b5:4-8 b4:38-40 Helios:right f10:left
+[A.I.C.I.S.] b11:left b10:40-9 b8:faster
+[bot] b6:right b12:faster DROID-starfighter:right
+[botbot] Iron_Fist:left
+A.I.C.I.S._b10 shot NicolasLeRebelDeL'espace_b5
+It's turn nb 44
+[NicolasLeRebelDeL'espace] b5:6-10 b4:39-2 f10:left
+[A.I.C.I.S.] Helios:39-8 b11:left b10:39-8 b8:slower
+[bot] b6:right b12:slower DROID-starfighter:right
+[botbot] Iron_Fist:3-3
+NicolasLeRebelDeL'espace_b4 shot botbot_Iron_Fist
+A.I.C.I.S._Helios shot NicolasLeRebelDeL'espace_b5
+A.I.C.I.S._b10 kill NicolasLeRebelDeL'espace_b5
+botbot_Iron_Fist shot NicolasLeRebelDeL'espace_b4
+It's turn nb 45
+[NicolasLeRebelDeL'espace] b4:40-3 Helios:left f10:right
+[A.I.C.I.S.] Helios:40-3 b11:right b8:faster
+[bot] b6:left b12:faster DROID-starfighter:right
+[botbot] Iron_Fist:4-4
+NicolasLeRebelDeL'espace_b4 shot botbot_Iron_Fist
+A.I.C.I.S._Helios shot botbot_Iron_Fist
+botbot_Iron_Fist shot NicolasLeRebelDeL'espace_b4
+It's turn nb 46
+[NicolasLeRebelDeL'espace] b4:1-4 Helios:left f10:left
+[A.I.C.I.S.] Helios:1-4 b11:right b10:left b8:slower
+[bot] b6:left b12:slower DROID-starfighter:left
+[botbot] Iron_Fist:5-5
+NicolasLeRebelDeL'espace_b4 shot botbot_Iron_Fist
+A.I.C.I.S._Helios kill botbot_Iron_Fist
+It's turn nb 47
+[NicolasLeRebelDeL'espace] b4:6-10 f10:faster
+[A.I.C.I.S.] b11:left b8:faster
+[bot] b6:right b12:faster
+botbot has lost all these ships, so he has nothing to do.
+It's turn nb 48
+[NicolasLeRebelDeL'espace] b4:8-12 Helios:left f10:29-2
+[A.I.C.I.S.] Helios:left b11:left b8:slower
+[bot] b6:right b12:slower DROID-starfighter:29-2
+botbot has lost all these ships, so he has nothing to do.
+It's turn nb 49
+[NicolasLeRebelDeL'espace] b2:7-11 b4:7-11 f10:32-7
+[A.I.C.I.S.] Helios:left b11:right b8:faster
+[bot] b6:left b12:faster DROID-starfighter:30-3
+botbot has lost all these ships, so he has nothing to do.
+NicolasLeRebelDeL'espace_f10 kill bot_DROID-starfighter
+It's turn nb 50
+[NicolasLeRebelDeL'espace] b2:9-13 b4:9-13 Helios:left f10:right
+[A.I.C.I.S.] b11:right b10:left b8:slower
+[bot] b6:left b12:slower
+botbot has lost all these ships, so he has nothing to do.
+It's turn nb 51
+[NicolasLeRebelDeL'espace] b2:8-12 b4:8-12 Helios:left f10:right
+[A.I.C.I.S.] b11:left b10:left b8:faster
+[bot] b6:right b12:faster
+botbot has lost all these ships, so he has nothing to do.
+It's turn nb 52
+[NicolasLeRebelDeL'espace] b2:10-14 b4:10-14 Helios:left f10:4-6
+[A.I.C.I.S.] Helios:9-3 b11:left b8:right
+[bot] b6:right b12:right
+botbot has lost all these ships, so he has nothing to do.
+NicolasLeRebelDeL'espace_f10 shot A.I.C.I.S._Helios
+A.I.C.I.S._Helios kill NicolasLeRebelDeL'espace_f10
+It's turn nb 53
+[NicolasLeRebelDeL'espace] b2:11-13 b4:11-13 Helios:36-16
+[A.I.C.I.S.] b11:right b10:36-13 b8:right
+[bot] b6:left b12:right
+botbot has lost all these ships, so he has nothing to do.
+NicolasLeRebelDeL'espace_Helios shot A.I.C.I.S._b10
+A.I.C.I.S._b10 shot NicolasLeRebelDeL'espace_Helios
+It's turn nb 54
+[NicolasLeRebelDeL'espace] b2:12-11 b4:12-11 Helios:right
+[A.I.C.I.S.] b11:right b10:37-14
+[bot] b6:left b12:13-13
+botbot has lost all these ships, so he has nothing to do.
+NicolasLeRebelDeL'espace_b2 shot bot_b12
+NicolasLeRebelDeL'espace_b4 shot bot_b12
+bot_b12 kill NicolasLeRebelDeL'espace_b4
+It's turn nb 55
+[NicolasLeRebelDeL'espace] b2:13-10 Helios:right
+[A.I.C.I.S.] b11:left b10:38-13 b1:right
+[bot] b6:right b12:16-13
+botbot has lost all these ships, so he has nothing to do.
+NicolasLeRebelDeL'espace_b2 shot bot_b12
+bot_b12 kill NicolasLeRebelDeL'espace_b2
+It's turn nb 56
+[NicolasLeRebelDeL'espace] Helios:33-16
+[A.I.C.I.S.] b11:left b10:39-11 b1:right
+[bot] b6:right
+botbot has lost all these ships, so he has nothing to do.
+NicolasLeRebelDeL'espace_Helios shot A.I.C.I.S._b10
+A.I.C.I.S._b10 kill NicolasLeRebelDeL'espace_Helios
+It's turn nb 57
+NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
+[A.I.C.I.S.] b11:right b10:left
+[bot] b6:left
+botbot has lost all these ships, so he has nothing to do.
+It's turn nb 58
+NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
+[A.I.C.I.S.] b11:right b1:right
+[bot] b6:left
+botbot has lost all these ships, so he has nothing to do.
+It's turn nb 59
+NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
+[A.I.C.I.S.] Helios:right b11:left b1:right
+[bot] b6:right b12:20-8
+botbot has lost all these ships, so he has nothing to do.
+bot_b12 shot A.I.C.I.S._b8
+It's turn nb 60
+NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
+[A.I.C.I.S.] Helios:right b11:left b8:18-5
+[bot] b6:right b12:19-9
+botbot has lost all these ships, so he has nothing to do.
+A.I.C.I.S._b8 kill bot_b12
+It's turn nb 61
+NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
+[A.I.C.I.S.] Helios:slower b11:right b10:right
+[bot] b6:left
+botbot has lost all these ships, so he has nothing to do.
+It's turn nb 62
+NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
+[A.I.C.I.S.] Helios:faster b11:right b10:right
+[bot] b6:left
+botbot has lost all these ships, so he has nothing to do.
+It's turn nb 63
+NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
+[A.I.C.I.S.] Helios:slower b11:left
+[bot] b6:right
+botbot has lost all these ships, so he has nothing to do.
+It's turn nb 64
+NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
+[A.I.C.I.S.] Helios:faster b11:left
+[bot] b6:right
+botbot has lost all these ships, so he has nothing to do.
+It's turn nb 65
+NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
+[A.I.C.I.S.] Helios:slower b11:right
+[bot] b6:left
+botbot has lost all these ships, so he has nothing to do.
+It's turn nb 66
+NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
+[A.I.C.I.S.] Helios:faster b11:right
+[bot] b6:left
+botbot has lost all these ships, so he has nothing to do.
+It's turn nb 67
+NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
+[A.I.C.I.S.] Helios:slower b11:left
+[bot] b6:right
+botbot has lost all these ships, so he has nothing to do.
+It's turn nb 68
+NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
+[A.I.C.I.S.] Helios:faster b11:left
+[bot] b6:right
+botbot has lost all these ships, so he has nothing to do.
+It's turn nb 69
+NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
+[A.I.C.I.S.] Helios:slower b11:right b1:2-27
+[bot] b6:left
+botbot has lost all these ships, so he has nothing to do.
