@@ -80,12 +80,13 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
 
     # The main game loop.
     while game_running:
+        
         if total_turn > -1:
             write_log(game_data, u'It\'s turn nb %d' % (total_turn), log_info)
 
         # Show the game board to the human player.
         show_game_board(game_data)
-
+        raw_input()
         # Cleaning the pending_attack list.
         game_data['pending_attacks'] = []
         pending_command = []
@@ -126,7 +127,6 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
     if is_remote_game:
         disconnect_from_player(game_data['connection'])
 
-    raw_input()
     # Show the end game screen.
     show_end_game(game_data)
     raw_input()
@@ -308,7 +308,8 @@ def take_abandoned_ship(game_data):
                 if ship_owner == 'none':
                     abandoned_ships.append(ship)
                 else:
-                    owners.append(ship_owner)
+                    if not ship_owner in owners:
+                        owners.append(ship_owner)
 
         if len(owners) == 1:
             owner = owners[0]
@@ -796,7 +797,7 @@ def get_nearby_ship(game_data, target_ship, search_range):
     dy = -1
     nearby_ships = []
 
-    for i in range((search_range * 2) ** 2):
+    for i in range((search_range) ** 2):
         if (-search_range < x <= search_range) and (-search_range < y <= search_range) and abs(x) + abs(y) <= search_range:
 
             location = convert_coordinates((ship_location[0] + x, ship_location[1] + y), game_data['board_size'])
@@ -839,6 +840,8 @@ def follow_path(game_data, ship_name):
         to_do_node = ship['objective_path'].pop(0)
 
         return to_do_node['to_do']
+
+    return 'none'
 
 
 def get_closer(game_data, ship_name, objective):
@@ -918,7 +921,6 @@ def attack(game_data, ship):
     Implementation: Nicolas Van Bossuyt (v1. 19/03/17).
                     Bayron Mahy (v2. 22/03/17).
     """
-	#to comment
     ship_pos = game_data['ships'][ship]['location']
     ship_range = game_data['model_ship'][game_data['ships'][ship]['type']]['range']
     ship_owner = game_data['ships'][ship]['owner']
@@ -929,7 +931,8 @@ def attack(game_data, ship):
 
         for perhaps_target in nearby_ships:
             if game_data['ships'][perhaps_target]['owner'] != ship_owner and\
-               game_data['ships'][perhaps_target]['owner'] != 'none':
+               game_data['ships'][perhaps_target]['owner'] != 'none' and\
+               get_distance(game_data['ships'][perhaps_target]['location'], ship_pos, game_data['board_size']) >= ship_range:
                 ships_targeted.append(perhaps_target)
 
         if len(ships_targeted) > 0:
@@ -1660,25 +1663,27 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_data):
     damages = ship_type['damages']
     distance = get_distance(ship_coordinate, target_coordinate, game_data['board_size'])
 
-    if distance <= ship_type['range'] and len(game_data['board'][target_coordinate]) != 0:
-        game_data['nb_rounds'] = 0
+    if distance <= ship_type['range']:
+        if len(game_data['board'][target_coordinate]) != 0:
+            game_data['nb_rounds'] = 0
 
-        # Give damages to all ships on targeted coordinate.
-        for target_ship in game_data['board'][target_coordinate]:
-            # Give damages to the tageted ship.
-            game_data['ships'][target_ship]['heal_points'] -= damages
+            # Give damages to all ships on targeted coordinate.
+            for target_ship in game_data['board'][target_coordinate]:
+                if  game_data['ships'][target_ship]['owner'] != 'none':
+                    # Give damages to the tageted ship.
+                    game_data['ships'][target_ship]['heal_points'] -= damages
 
-            if game_data['ships'][target_ship]['heal_points'] <= 0:
-                write_log(game_data, '%s kill %s' % (ship, target_ship), log_warning)
+                    if game_data['ships'][target_ship]['heal_points'] <= 0:
+                        # Remove a space ship.
+                        write_log(game_data, '%s kill %s' % (ship, target_ship), log_warning)
+                        game_data['board'][target_coordinate].remove(target_ship)
+                        game_data['players'][game_data['ships'][target_ship]['owner']]['nb_ships'] -= 1
 
-                # Remove a space ship.
-                game_data['board'][target_coordinate].remove(target_ship)
-                if game_data['ships'][target_ship]['owner'] != 'none':
-                    game_data['players'][game_data['ships'][target_ship]['owner']]['nb_ships'] -= 1
-
-                del game_data['ships'][target_ship]
-            else:
-                write_log(game_data, '%s shot %s' % (ship, target_ship), log_warning)
+                        del game_data['ships'][target_ship]
+                    else:
+                        write_log(game_data, '%s shot %s' % (ship, target_ship), log_warning)
+    else:
+        write_log(game_data, '%s shoot out of range !' % ship, log_error)
 
     return game_data
 
@@ -1703,13 +1708,18 @@ def get_distance(coord1, coord2, size):
                    Bayron Mahy (v2. 19/03/17)
     Implementation: Nicolas Van Bossuyt, Alisson Leist (v1. 14/02/17)
                     Nicolas Van Bossuyt (v2. 09/03/17)
+                    Nicolas Van Bossuyt (v3. 03/05/17)
     """
 
     def distance(a, b, size):
-
         size -= 1
+    
+        if a > b:
+            a, b = b, a
+
         if abs(a - b) > size / 2:
             a += size
+
         return abs(a - b)
 
     return distance(coord1[0], coord2[0], size[0]) + distance(coord1[1], coord2[1], size[1])
@@ -2146,4 +2156,4 @@ def dict_sort(items, key):
 # Use for quick debuging.
 
 if __name__ == '__main__':
-    play_game('board/bordel.cis', ('NicolasLeRebelDeL\'espace', 'A.I.C.I.S.', 'bot', 'botbot'), ('ai','ai','ai','ai'))
+    play_game('board/alien.cis', ('NicolasLeRebelDeL\'espace', 'A.I.C.I.S.', 'bot', 'botbot'), ('ai','ai','ai','ai'))
