@@ -79,13 +79,14 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
     total_turn = -1
 
     # The main game loop.
-    while game_running:
-        
+    while game_running:        
         if total_turn > -1:
             write_log(game_data, u'It\'s turn nb %d' % (total_turn), log_info)
 
         # Show the game board to the human player.
         show_game_board(game_data)
+	
+	raw_input()
 
         # Cleaning the pending_attack list.
         game_data['pending_attacks'] = []
@@ -121,7 +122,7 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
         total_turn += 1
         game_running = is_game_continue(game_data)
 
-        show_game_board(game_data)
+    show_game_board(game_data)
 
     # Disconnect the remote player.
     if is_remote_game:
@@ -1305,7 +1306,8 @@ def render_game_board(game_data):
 
             # Put the ship and the facing line on the game board.
             put_text(c, on_canvas_location[0] + 1, on_canvas_location[1], ship_icon, 1, 0, ship_color, None)
-            put_text(c, on_canvas_location[0] + 1 + ship_facing[0], on_canvas_location[1] + ship_facing[1],
+            if ship_owner != 'none':
+                put_text(c, on_canvas_location[0] + 1 + ship_facing[0], on_canvas_location[1] + ship_facing[1],
                      facing_char, 1, 0, ship_color, None)
 
         # There are more than one ship on the location, show how many there are.
@@ -1369,7 +1371,9 @@ def render_ship_list(game_data, width, height):
             put_text(c, 5, y, str(game_data['ships'][ship]['heal_points']))
 
             # Ship coordinates
-            put_text(c, 9, y, str(game_data['ships'][ship]['location']))
+            ship_location = list(game_data['ships'][ship]['location'])
+            ship_location = (ship_location[1] + 1, ship_location[0] + 1)
+            put_text(c, 8, y, str(ship_location))
 
             # Ship name.
             put_text(c, 17, y, ship[len(player + '_'):], 1, 0,
@@ -1681,6 +1685,8 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_data):
                         del game_data['ships'][target_ship]
                     else:
                         write_log(game_data, '%s shot %s' % (ship, target_ship), log_warning)
+        else:
+            write_log(game_data, '%s shoot failed %s!' % (ship, str(target_coordinate)), log_warning)
     else:
         write_log(game_data, '%s shoot out of range !' % ship, log_error)
 
@@ -2112,13 +2118,16 @@ def write_log(game_data, message, type=0):
     Specification: Nicolas Van Bossuyt (v1. 18/04/2017)
     Implementation: Nicolas Van Bossuyt (v1. 18/04/2017)
     """
-
+    prefix = ['INFO', 'WARN', 'ERRO', 'INPU']
     game_data['game_logs'].append((type, message))
+
+
+
     f = open('log.txt', 'r')
     txt = f.read()
     f.close()
 
-    txt += '%s\n' % message
+    txt += '%s - %s\n' % (prefix[type], message)
 
     f = open('log.txt', 'w')
     f.write(txt)
@@ -2155,4 +2164,4 @@ def dict_sort(items, key):
 # Use for quick debuging.
 
 if __name__ == '__main__':
-    play_game('board/cis.cis', ('NicolasLeRebelDeL\'espace', 'A.I.C.I.S.', 'bot', 'botbot'), ('ai','ai','ai','ai'))
+    play_game('board/Yin_Yang.cis', ('NicolasLeRebelDeL\'espace', 'A.I.C.I.S.', 'bot', 'botbot'), ('ai','ai','ai','ai'))

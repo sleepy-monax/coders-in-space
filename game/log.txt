@@ -1,575 +1,319 @@
-[NicolasLeRebelDeL'espace] Saragossa:fighter Puddle_Jumper:fighter V-19:fighter SC_Juggernaut:fighter ARC-170:fighter Roanoke:destroyer Helios:battlecruiser
-[A.I.C.I.S.] BS_Galactica:fighter X-WINGS:fighter BC_Pilgrim:fighter The_Watcher:fighter Dart:fighter Juno:destroyer Helios:battlecruiser
-[bot] SC_Juggernaut:fighter ISS_Europa:fighter X-WINGS:fighter DROID-starfighter:fighter Adventurer:fighter Juno:destroyer Metis:battlecruiser
-[botbot] V-19:fighter Saragossa:fighter ISS_Europa:fighter Dart:fighter SC_Juggernaut:fighter Cerberus:destroyer Iron_Fist:battlecruiser
-It's turn nb 0
-[NicolasLeRebelDeL'espace] Saragossa:faster SC_Juggernaut:faster Helios:faster V-19:faster Puddle_Jumper:faster Roanoke:faster ARC-170:faster
-[A.I.C.I.S.] BS_Galactica:faster Dart:faster Juno:faster X-WINGS:faster BC_Pilgrim:faster The_Watcher:faster Helios:faster
-[bot] ISS_Europa:faster X-WINGS:faster Adventurer:faster Juno:faster Metis:faster SC_Juggernaut:faster DROID-starfighter:faster
-[botbot] Saragossa:faster SC_Juggernaut:faster V-19:faster ISS_Europa:faster Cerberus:faster Dart:faster Iron_Fist:faster
-It's turn nb 1
-[NicolasLeRebelDeL'espace] Saragossa:faster SC_Juggernaut:right V-19:faster Puddle_Jumper:faster Roanoke:faster ARC-170:faster
-[A.I.C.I.S.] BS_Galactica:right Dart:right Juno:faster X-WINGS:right BC_Pilgrim:faster The_Watcher:faster
-[bot] ISS_Europa:faster X-WINGS:left Adventurer:faster Juno:right SC_Juggernaut:faster DROID-starfighter:left
-[botbot] SC_Juggernaut:faster V-19:faster ISS_Europa:faster Cerberus:right Dart:faster
-It's turn nb 2
-[NicolasLeRebelDeL'espace] Saragossa:faster SC_Juggernaut:right V-19:faster Puddle_Jumper:faster
-[A.I.C.I.S.] BS_Galactica:faster Dart:faster X-WINGS:faster BC_Pilgrim:right The_Watcher:faster
-[bot] ISS_Europa:faster X-WINGS:faster Adventurer:faster Juno:left SC_Juggernaut:faster DROID-starfighter:faster
-[botbot] Saragossa:faster SC_Juggernaut:faster V-19:faster ISS_Europa:faster Cerberus:left Dart:faster
-It's turn nb 3
-[NicolasLeRebelDeL'espace] Saragossa:faster SC_Juggernaut:left V-19:slower Puddle_Jumper:slower
-[A.I.C.I.S.] BS_Galactica:faster Dart:faster X-WINGS:faster BC_Pilgrim:left
-[bot] ISS_Europa:faster X-WINGS:faster Adventurer:right Juno:faster DROID-starfighter:faster
-[botbot] Saragossa:faster SC_Juggernaut:slower ISS_Europa:slower Cerberus:faster Dart:slower
-botbot as take botbot_b13 !
-NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_d6 !
-A.I.C.I.S. as take A.I.C.I.S._d13 !
-It's turn nb 4
-[NicolasLeRebelDeL'espace] Saragossa:left SC_Juggernaut:faster V-19:slower d6:24-17 ARC-170:right
-[A.I.C.I.S.] BS_Galactica:slower Dart:slower d13:faster X-WINGS:faster BC_Pilgrim:right The_Watcher:left
-[bot] ISS_Europa:right Adventurer:faster SC_Juggernaut:slower
-[botbot] Saragossa:faster SC_Juggernaut:faster V-19:24-17 ISS_Europa:slower Dart:left b13:24-24
-bot as take bot_b6 !
-A.I.C.I.S. as take A.I.C.I.S._b11 !
-NicolasLeRebelDeL'espace_d6 shot botbot_b13
-botbot_V-19 shot botbot_b13
-It's turn nb 5
-[NicolasLeRebelDeL'espace] Saragossa:faster SC_Juggernaut:faster Helios:16-14 V-19:left Puddle_Jumper:right Roanoke:17-24 d6:17-24 ARC-170:right
-[A.I.C.I.S.] BS_Galactica:slower Dart:left d13:slower Juno:23-18 b11:faster X-WINGS:23-30 BC_Pilgrim:slower The_Watcher:faster
-[bot] b6:faster ISS_Europa:slower X-WINGS:right Juno:16-25 Metis:16-25 SC_Juggernaut:left DROID-starfighter:left
-[botbot] Saragossa:right SC_Juggernaut:right V-19:slower ISS_Europa:right Cerberus:22-16 Dart:left b13:22-16 Iron_Fist:22-16
-A.I.C.I.S. as take A.I.C.I.S._d11 !
-A.I.C.I.S. as take A.I.C.I.S._f8 !
-bot as take bot_d7 !
-NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_b2 !
-NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_f11 !
-bot as take bot_d1 !
-NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_f6 !
-A.I.C.I.S. as take A.I.C.I.S._b10 !
-NicolasLeRebelDeL'espace_Helios kill bot_Adventurer
-NicolasLeRebelDeL'espace_Roanoke shot botbot_V-19
-NicolasLeRebelDeL'espace_d6 kill botbot_V-19
-bot_Juno shot bot_Metis
-bot_Metis shot bot_Metis
-It's turn nb 6
-[NicolasLeRebelDeL'espace] f6:faster Saragossa:right Helios:17-14 b2:faster f11:faster V-19:left Puddle_Jumper:left Roanoke:22-21 d6:22-21 ARC-170:faster
-[A.I.C.I.S.] BS_Galactica:left Dart:faster d13:faster d11:faster Juno:19-21 b10:faster b11:left X-WINGS:left BC_Pilgrim:right The_Watcher:faster Helios:26-24 f8:faster
-[bot] b6:19-21 d7:22-21 ISS_Europa:right X-WINGS:right Juno:left d1:faster Metis:20-29 SC_Juggernaut:left DROID-starfighter:right
-[botbot] Saragossa:right SC_Juggernaut:20-26 ISS_Europa:left Cerberus:25-20 Dart:left b13:22-11 Iron_Fist:22-11
-botbot as take botbot_d12 !
-bot as take bot_f2 !
-NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_d4 !
-A.I.C.I.S._Helios shot A.I.C.I.S._d13
-bot_Metis kill A.I.C.I.S._BS_Galactica
-bot_Metis shot A.I.C.I.S._b11
-It's turn nb 7
-[NicolasLeRebelDeL'espace] f6:faster Saragossa:slower SC_Juggernaut:left Helios:19-12 b2:slower f11:right V-19:faster Puddle_Jumper:left Roanoke:23-21 d6:20-22 d4:faster ARC-170:faster
-[A.I.C.I.S.] Dart:left d13:right d11:faster Juno:left b10:20-30 b11:left X-WINGS:left BC_Pilgrim:right The_Watcher:right Helios:23-21 f8:right
-[bot] b6:17-22 f2:faster d7:26-24 ISS_Europa:left X-WINGS:faster Juno:left d1:right Metis:14-22 SC_Juggernaut:left DROID-starfighter:right
-[botbot] Saragossa:left SC_Juggernaut:slower ISS_Europa:faster Cerberus:23-21 Dart:left b13:26-24 Iron_Fist:26-24 d12:faster
-botbot as take botbot_d14 !
-NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_b4 !
-bot_b6 kill A.I.C.I.S._Dart
-It's turn nb 8
-[NicolasLeRebelDeL'espace] f6:left b4:faster Saragossa:left SC_Juggernaut:left Helios:17-25 b2:faster f11:right V-19:slower Puddle_Jumper:left Roanoke:25-26 d6:23-16 d4:left
-[A.I.C.I.S.] d13:right d11:18-26 Juno:left b10:24-26 b11:20-31 X-WINGS:left BC_Pilgrim:left The_Watcher:left Helios:24-26 f8:faster
-[bot] b6:17-25 f2:faster d7:26-22 ISS_Europa:faster X-WINGS:faster Juno:24-26 d1:right Metis:17-25 SC_Juggernaut:left DROID-starfighter:right
-[botbot] Saragossa:faster SC_Juggernaut:20-29 d14:faster ISS_Europa:19-22 Cerberus:left Dart:slower b13:23-16 Iron_Fist:left d12:left
-A.I.C.I.S. as take A.I.C.I.S._d10 !
-A.I.C.I.S. as take A.I.C.I.S._d9 !
-NicolasLeRebelDeL'espace_Helios kill botbot_ISS_Europa
-A.I.C.I.S._b10 shot bot_Juno
-A.I.C.I.S._b11 kill botbot_SC_Juggernaut
-A.I.C.I.S._Helios kill bot_Juno
-It's turn nb 9
-[NicolasLeRebelDeL'espace] Roanoke:29-24 b2:right b4:slower Saragossa:slower SC_Juggernaut:faster d6:23-20 d4:23-10 Helios:20-14 f6:14-17 ARC-170:right Puddle_Jumper:left f11:faster V-19:right
-[A.I.C.I.S.] Helios:20-28 Juno:left d9:faster d11:left d10:faster d13:faster X-WINGS:14-17 f8:faster b11:20-28 b10:right BC_Pilgrim:left The_Watcher:left
-[bot] d1:right d7:24-21 SC_Juggernaut:left b6:17-24 Metis:17-24 X-WINGS:slower f2:right DROID-starfighter:right
-[botbot] Saragossa:slower Cerberus:left d14:left d12:left Dart:left b13:25-19 Iron_Fist:left
-NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_f1 !
-NicolasLeRebelDeL'espace_d6 shot bot_d7
-NicolasLeRebelDeL'espace_d6 shot A.I.C.I.S._d13
-NicolasLeRebelDeL'espace_Helios kill A.I.C.I.S._X-WINGS
-It's turn nb 10
-[NicolasLeRebelDeL'espace] Roanoke:left b2:right b4:faster Saragossa:left SC_Juggernaut:slower d6:21-18 d4:24-14 Helios:21-18 f6:left f1:faster ARC-170:faster Puddle_Jumper:left f11:faster V-19:right
-[A.I.C.I.S.] Helios:slower Juno:left d9:right d11:15-26 d10:right d13:25-24 f8:faster b11:18-26 b10:19-26 BC_Pilgrim:left The_Watcher:right
-[bot] d1:faster d7:21-18 SC_Juggernaut:faster b6:15-26 Metis:21-18 ISS_Europa:left X-WINGS:faster f2:24-14 DROID-starfighter:faster
-[botbot] Saragossa:slower Cerberus:left d14:faster d12:left Dart:left b13:21-18 Iron_Fist:slower
-bot as take bot_f5 !
-bot as take bot_b9 !
-bot as take bot_f7 !
-A.I.C.I.S. as take A.I.C.I.S._b8 !
-NicolasLeRebelDeL'espace_d6 kill A.I.C.I.S._d13
-NicolasLeRebelDeL'espace_d4 shot bot_f2
-NicolasLeRebelDeL'espace_d4 shot bot_f5
-A.I.C.I.S._d11 shot bot_b6
-A.I.C.I.S._b11 kill bot_SC_Juggernaut
-bot_b6 shot bot_b6
-bot_f2 kill bot_f2
-It's turn nb 11
-[NicolasLeRebelDeL'espace] Roanoke:left b2:23-1 b4:left Saragossa:slower SC_Juggernaut:left d6:18-16 d4:24-14 Helios:slower f6:slower f1:right ARC-170:slower Puddle_Jumper:left f11:faster V-19:right
-[A.I.C.I.S.] Helios:faster Juno:24-14 d9:17-27 d11:16-22 d10:faster f8:slower b11:16-22 b10:25-26 BC_Pilgrim:left The_Watcher:right b8:17-27
-[bot] d1:left d7:20-20 b9:faster b6:17-27 Metis:16-22 ISS_Europa:right X-WINGS:slower f5:faster f7:faster DROID-starfighter:20-20
-[botbot] Saragossa:slower Cerberus:left d14:22-25 d12:faster Dart:left b13:24-14 Iron_Fist:faster
-A.I.C.I.S. as take A.I.C.I.S._d8 !
-NicolasLeRebelDeL'espace_d6 shot bot_DROID-starfighter
-A.I.C.I.S._d9 shot A.I.C.I.S._BC_Pilgrim
-A.I.C.I.S._b8 kill A.I.C.I.S._BC_Pilgrim
-bot_d7 shot A.I.C.I.S._Helios
-bot_d7 shot NicolasLeRebelDeL'espace_d6
-bot_DROID-starfighter shot A.I.C.I.S._Helios
-bot_DROID-starfighter shot NicolasLeRebelDeL'espace_d6
-It's turn nb 12
-[NicolasLeRebelDeL'espace] Roanoke:left b2:slower b4:left Saragossa:left SC_Juggernaut:left d6:22-22 d4:17-13 Helios:faster f6:left f1:right ARC-170:right Puddle_Jumper:17-23 f11:faster V-19:right
-[A.I.C.I.S.] Helios:slower Juno:23-20 d9:18-26 d8:18-26 d11:18-20 d10:22-22 f8:slower b11:19-29 b10:22-22 The_Watcher:left b8:18-26
-[bot] d1:18-20 d7:20-20 b9:right b6:18-26 Metis:18-20 X-WINGS:left f5:left f7:left DROID-starfighter:17-13
-[botbot] Saragossa:slower Cerberus:left d14:left d12:18-26 Dart:faster b13:26-14 Iron_Fist:right
-NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_b3 !
-NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_f3 !
-NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_b5 !
-NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_f10 !
-NicolasLeRebelDeL'espace_d6 shot NicolasLeRebelDeL'espace_Helios
-NicolasLeRebelDeL'espace_Puddle_Jumper shot bot_d1
-A.I.C.I.S._Juno shot bot_d7
-A.I.C.I.S._d9 shot botbot_d14
-A.I.C.I.S._d8 shot botbot_d14
-A.I.C.I.S._d11 shot NicolasLeRebelDeL'espace_Puddle_Jumper
-A.I.C.I.S._d11 shot NicolasLeRebelDeL'espace_b5
-A.I.C.I.S._d10 shot NicolasLeRebelDeL'espace_Helios
-A.I.C.I.S._b10 shot NicolasLeRebelDeL'espace_Helios
-A.I.C.I.S._b8 kill botbot_d14
-bot_d1 kill NicolasLeRebelDeL'espace_Puddle_Jumper
-bot_d7 shot A.I.C.I.S._Helios
-bot_d7 shot NicolasLeRebelDeL'espace_d6
-bot_Metis shot NicolasLeRebelDeL'espace_b5
-It's turn nb 13
-[NicolasLeRebelDeL'espace] Roanoke:left b3:24-9 b2:faster b5:faster b4:27-16 Saragossa:right SC_Juggernaut:left d6:20-23 d4:17-15 Helios:slower f1:faster f3:faster ARC-170:right f10:faster V-19:faster
-[A.I.C.I.S.] Helios:faster Juno:24-18 d9:right d8:16-26 d11:17-17 d10:23-20 f8:slower b11:left b10:20-23 The_Watcher:left b8:faster
-[bot] d1:19-24 d7:20-20 b9:left b6:slower Metis:24-17 ISS_Europa:slower X-WINGS:right f5:left f7:faster DROID-starfighter:faster
-[botbot] Saragossa:left Cerberus:left d12:19-24 Dart:faster b13:27-16 Iron_Fist:17-12
-NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_d3 !
-NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_f13 !
-NicolasLeRebelDeL'espace_d6 shot NicolasLeRebelDeL'espace_V-19
-A.I.C.I.S._Juno shot NicolasLeRebelDeL'espace_b4
-A.I.C.I.S._Juno shot botbot_Dart
-A.I.C.I.S._d10 shot bot_d7
-A.I.C.I.S._d10 shot A.I.C.I.S._b10
-A.I.C.I.S._b10 kill NicolasLeRebelDeL'espace_V-19
-bot_d1 shot bot_f7
-bot_d7 shot NicolasLeRebelDeL'espace_d6
-bot_Metis shot bot_Metis
-bot_Metis shot botbot_b13
-botbot_d12 kill bot_f7
-It's turn nb 14
-[NicolasLeRebelDeL'espace] Roanoke:left b3:22-10 b2:slower b5:right b4:24-21 Saragossa:right SC_Juggernaut:slower d3:faster d6:23-20 d4:23-21 Helios:faster f6:left f1:18-18 f3:faster ARC-170:left f11:slower f10:left f13:faster
-[A.I.C.I.S.] Helios:slower Juno:left d9:right d8:faster d11:17-16 f8:right b11:20-20 b10:24-21 The_Watcher:25-16 b8:right
-[bot] d1:21-28 d7:24-21 b9:left b6:faster Metis:24-21 ISS_Europa:right X-WINGS:slower f5:faster DROID-starfighter:left
-[botbot] Saragossa:faster Cerberus:20-20 d12:13-20 Dart:26-17 b13:26-17 Iron_Fist:20-20
-A.I.C.I.S. as take A.I.C.I.S._b1 !
-NicolasLeRebelDeL'espace_b3 shot NicolasLeRebelDeL'espace_b3
-NicolasLeRebelDeL'espace_b4 kill botbot_Dart
-NicolasLeRebelDeL'espace_d6 kill bot_d7
-NicolasLeRebelDeL'espace_d4 shot botbot_Cerberus
-A.I.C.I.S._d11 shot botbot_Iron_Fist
-A.I.C.I.S._b11 kill NicolasLeRebelDeL'espace_d6
-A.I.C.I.S._The_Watcher shot bot_Metis
-botbot_Cerberus shot NicolasLeRebelDeL'espace_f1
-botbot_Iron_Fist kill NicolasLeRebelDeL'espace_f1
-It's turn nb 15
-[NicolasLeRebelDeL'espace] b3:faster b2:faster b5:15-19 b4:slower Saragossa:right SC_Juggernaut:right d3:slower d4:left Helios:left f6:faster f3:faster f10:left f13:right
-[A.I.C.I.S.] Helios:faster Juno:left d9:right d8:left d11:16-16 f8:left b11:26-20 b10:26-20 The_Watcher:right b8:17-29 b1:faster
-[bot] d1:20-29 b9:right b6:slower Metis:25-23 ISS_Europa:slower X-WINGS:right f5:left DROID-starfighter:slower
-[botbot] Saragossa:faster Cerberus:26-20 d12:right b13:26-20 Iron_Fist:left
-bot as take bot_b7 !
-bot as take bot_b12 !
-A.I.C.I.S._b8 shot bot_d1
-bot_Metis shot botbot_Cerberus
-It's turn nb 16
-[NicolasLeRebelDeL'espace] Roanoke:21-25 b3:27-14 b2:left b5:14-18 b4:faster Saragossa:faster SC_Juggernaut:right d3:faster d4:left Helios:left f6:left f3:faster ARC-170:left f11:left f10:left f13:left
-[A.I.C.I.S.] Helios:slower Juno:left d9:right d8:faster d11:slower d10:left f8:faster b11:22-22 b10:22-22 The_Watcher:slower b8:slower b1:right
-[bot] d1:18-30 b9:left b6:faster b7:faster Metis:26-15 ISS_Europa:left X-WINGS:faster b12:faster f5:right
-[botbot] Saragossa:slower Cerberus:22-22 d12:right b13:22-22 Iron_Fist:left
-NicolasLeRebelDeL'espace_b3 shot bot_Metis
-It's turn nb 17
-[NicolasLeRebelDeL'espace] Roanoke:24-24 b3:16-7 b2:left b5:right b4:slower Saragossa:24-17 SC_Juggernaut:right d3:slower d4:left Helios:24-24 f6:left f3:right ARC-170:left f11:slower f10:left f13:left
-[A.I.C.I.S.] Helios:faster Juno:left d9:right d8:21-26 d11:slower d10:slower f8:faster b11:right b10:24-24 The_Watcher:right b8:faster b1:16-11
-[bot] d1:17-29 b9:17-29 b6:slower b7:left Metis:slower ISS_Europa:left X-WINGS:21-23 b12:29-27 f5:slower DROID-starfighter:left
-[botbot] Saragossa:right Cerberus:24-24 d12:right b13:24-24 Iron_Fist:left
-bot as take bot_d5 !
-bot as take bot_f14 !
-NicolasLeRebelDeL'espace_Roanoke shot A.I.C.I.S._Juno
-NicolasLeRebelDeL'espace_Saragossa shot botbot_b13
-NicolasLeRebelDeL'espace_Helios shot A.I.C.I.S._Juno
-A.I.C.I.S._d8 shot NicolasLeRebelDeL'espace_Helios
-A.I.C.I.S._b10 kill A.I.C.I.S._Juno
-bot_X-WINGS shot A.I.C.I.S._d8
-bot_b12 kill botbot_Cerberus
-It's turn nb 18
-[NicolasLeRebelDeL'espace] Roanoke:right b3:16-3 b2:16-3 b5:right b4:faster Saragossa:left SC_Juggernaut:right d3:faster d4:left Helios:24-24 f6:24-17 f3:left ARC-170:faster f11:right f10:17-27 f13:left
-[A.I.C.I.S.] Helios:slower d9:left d8:left d11:faster d10:left f8:left b11:right b10:20-19 The_Watcher:left b8:left b1:20-14
-[bot] d1:12-32 d5:faster b9:12-32 b6:faster b7:31-25 Metis:faster ISS_Europa:faster X-WINGS:left b12:29-28 f14:faster f5:left DROID-starfighter:left
-[botbot] Saragossa:right d12:10-27 b13:20-19 Iron_Fist:20-14
-NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_f9 !
-NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_d2 !
-NicolasLeRebelDeL'espace_f6 shot botbot_b13
-A.I.C.I.S._b10 kill NicolasLeRebelDeL'espace_f6
-It's turn nb 19
-[NicolasLeRebelDeL'espace] Roanoke:22-25 b3:24-10 b2:22-40 b5:right b4:right Saragossa:left SC_Juggernaut:faster d3:faster d2:faster d4:faster Helios:22-25 f9:18-26 f3:left ARC-170:right f11:right f10:left f13:left
-[A.I.C.I.S.] Helios:16-12 d9:left d8:22-25 d11:left d10:slower f8:faster b11:left b10:24-10 The_Watcher:slower b8:left b1:16-12
-[bot] d5:left b9:16-28 b6:slower b7:28-28 Metis:slower ISS_Europa:slower X-WINGS:slower b12:28-29 f14:left f5:right DROID-starfighter:slower
-[botbot] Saragossa:faster d12:14-29 b13:18-20 Iron_Fist:24-10
-bot as take bot_f4 !
-A.I.C.I.S. as take A.I.C.I.S._f12 !
-It's turn nb 20
-[NicolasLeRebelDeL'espace] Roanoke:left b3:16-10 b2:17-39 b5:right b4:23-26 Saragossa:left SC_Juggernaut:right d3:18-7 d2:right d4:16-10 Helios:23-30 f9:faster f3:slower ARC-170:left f11:faster f10:left f13:slower
-[A.I.C.I.S.] Helios:16-10 d9:left d8:23-26 d11:left d10:faster f8:faster f12:faster b11:left b10:25-9 The_Watcher:left b8:16-27 b1:23-20
-[bot] d1:right d5:left b6:faster b7:27-23 Metis:faster ISS_Europa:faster X-WINGS:left b12:26-30 f14:21-23 f5:left f4:faster DROID-starfighter:right
-[botbot] Saragossa:left d12:10-31 b13:faster Iron_Fist:left
-NicolasLeRebelDeL'espace_b3 shot NicolasLeRebelDeL'espace_b3
-NicolasLeRebelDeL'espace_d4 shot NicolasLeRebelDeL'espace_b3
-A.I.C.I.S._Helios shot NicolasLeRebelDeL'espace_b3
-A.I.C.I.S._b1 kill bot_f14
-bot_b7 shot A.I.C.I.S._d8
-It's turn nb 21
-[NicolasLeRebelDeL'espace] Roanoke:20-21 b3:22-7 b2:21-1 b5:20-21 b4:21-27 Saragossa:left SC_Juggernaut:right d3:left d2:faster d4:21-13 Helios:21-27 f9:left f3:21-27 ARC-170:right f11:faster f13:faster
-[A.I.C.I.S.] Helios:19-15 d9:left d8:left d11:left d10:slower f8:30-34 f12:faster b11:21-13 b10:21-13 The_Watcher:faster b8:10-31 b1:19-15
-[bot] d1:right d5:left b9:9-34 b6:slower b7:29-23 Metis:slower ISS_Europa:faster X-WINGS:left b12:slower f5:faster f4:right DROID-starfighter:faster
-[botbot] Saragossa:faster d12:8-33 b13:right Iron_Fist:left
-NicolasLeRebelDeL'espace_b3 shot NicolasLeRebelDeL'espace_d2
-NicolasLeRebelDeL'espace_b4 shot A.I.C.I.S._d9
-NicolasLeRebelDeL'espace_b4 kill NicolasLeRebelDeL'espace_SC_Juggernaut
-NicolasLeRebelDeL'espace_Helios kill A.I.C.I.S._d9
-A.I.C.I.S._Helios shot NicolasLeRebelDeL'espace_Roanoke
-A.I.C.I.S._b1 kill NicolasLeRebelDeL'espace_Roanoke
-bot_b9 shot botbot_d12
-It's turn nb 22
-[NicolasLeRebelDeL'espace] b3:20-10 b2:23-39 b5:19-22 b4:18-30 Saragossa:left d2:25-10 d4:left Helios:slower f9:left f3:left ARC-170:29-33 f11:9-36 f10:left f13:slower
-[A.I.C.I.S.] Helios:faster d8:left d11:slower d10:faster f8:left f12:right b11:left b10:22-14 The_Watcher:right b8:right b1:left
-[bot] d1:right d5:left b9:9-36 b6:faster b7:31-27 Metis:faster ISS_Europa:right X-WINGS:left b12:faster f5:right f4:right DROID-starfighter:faster
-[botbot] Saragossa:faster d12:9-32 b13:right Iron_Fist:22-14
-NicolasLeRebelDeL'espace_b5 kill NicolasLeRebelDeL'espace_Saragossa
-NicolasLeRebelDeL'espace_f11 shot botbot_d12
-bot_b9 kill botbot_d12
-It's turn nb 23
-[NicolasLeRebelDeL'espace] b3:right b2:25-35 b5:right b4:right d3:10-39 d4:left Helios:faster f9:left f3:left ARC-170:29-29 f10:left f13:faster
-[A.I.C.I.S.] Helios:left d8:30-21 d11:faster d10:slower f8:left f12:right b11:left b10:28-16 The_Watcher:faster b8:right b1:left
-[bot] d1:21-40 d5:faster b9:slower b6:slower b7:30-21 Metis:right ISS_Europa:faster X-WINGS:left b12:slower f5:right f4:faster DROID-starfighter:left
-[botbot] Saragossa:20-37 b13:right Iron_Fist:24-15
-NicolasLeRebelDeL'espace_b2 kill bot_d1
-NicolasLeRebelDeL'espace_ARC-170 shot A.I.C.I.S._d8
-A.I.C.I.S._d8 shot NicolasLeRebelDeL'espace_ARC-170
-bot_b7 kill NicolasLeRebelDeL'espace_ARC-170
-It's turn nb 24
-[NicolasLeRebelDeL'espace] b3:right b2:24-34 b5:right b4:right d3:11-38 d4:right Helios:left f9:faster f3:left f10:faster f13:right
-[A.I.C.I.S.] Helios:left d8:right d11:right d10:faster f8:left f12:faster b11:left b10:28-15 b8:left b1:right
-[bot] d5:16-23 b9:faster b6:faster b7:29-31 Metis:right ISS_Europa:right X-WINGS:left b12:faster f4:left DROID-starfighter:38-19
-[botbot] Saragossa:right b13:25-19 Iron_Fist:25-19
-NicolasLeRebelDeL'espace_b2 kill bot_f5
-It's turn nb 25
-[NicolasLeRebelDeL'espace] b3:right b5:right b4:right d3:right d2:28-3 d4:right Helios:left f3:left f11:left f10:faster f13:right
-[A.I.C.I.S.] Helios:19-22 d8:32-31 d11:right d10:slower f8:left b11:left b10:31-10 The_Watcher:28-8 b1:right
-[bot] b9:slower b6:left b7:33-33 Metis:30-4 ISS_Europa:left X-WINGS:right b12:slower f4:faster
-[botbot] Saragossa:left b13:19-22 Iron_Fist:right
-NicolasLeRebelDeL'espace_d2 shot A.I.C.I.S._f12
-A.I.C.I.S._The_Watcher shot bot_Metis
-bot_b7 kill A.I.C.I.S._d8
-bot_Metis kill A.I.C.I.S._The_Watcher
-It's turn nb 26
-[NicolasLeRebelDeL'espace] b3:18-19 b2:31-35 b5:right b4:left d3:right d4:27-7 Helios:10-30 f9:left f3:left f11:27-7 f10:left f13:faster
-[A.I.C.I.S.] Helios:15-14 d11:faster d10:faster f8:left f12:right b11:25-24 b10:26-15 b8:12-18 b1:right
-[bot] d5:13-29 b9:faster b6:left b7:left Metis:24-7 ISS_Europa:25-24 X-WINGS:23-24 b12:faster f4:faster DROID-starfighter:slower
-[botbot] Saragossa:27-7 b13:21-18 Iron_Fist:right
-NicolasLeRebelDeL'espace_b3 shot botbot_b13
-NicolasLeRebelDeL'espace_d4 shot bot_Metis
-NicolasLeRebelDeL'espace_Helios shot bot_d5
-NicolasLeRebelDeL'espace_f11 shot bot_Metis
-A.I.C.I.S._Helios shot NicolasLeRebelDeL'espace_b3
-A.I.C.I.S._b10 kill botbot_Saragossa
-bot_d5 shot NicolasLeRebelDeL'espace_Helios
-bot_Metis shot A.I.C.I.S._d11
-bot_Metis kill NicolasLeRebelDeL'espace_f11
-It's turn nb 27
-[NicolasLeRebelDeL'espace] b3:right b5:17-20 b4:left d3:right d2:33-37 Helios:8-32 f3:left f10:left f13:left
-[A.I.C.I.S.] Helios:16-15 d11:26-6 d10:right f8:left f12:right b11:25-15 b10:left b8:slower b1:right
-[bot] d5:8-33 b9:slower b6:8-33 Metis:26-5 ISS_Europa:24-19 X-WINGS:24-23 b12:slower f4:right DROID-starfighter:left
-[botbot] b13:23-20 Iron_Fist:24-19
-NicolasLeRebelDeL'espace_b5 shot botbot_b13
-NicolasLeRebelDeL'espace_Helios kill bot_d5
-A.I.C.I.S._d11 kill bot_Metis
-A.I.C.I.S._b11 kill bot_ISS_Europa
-botbot_b13 kill NicolasLeRebelDeL'espace_f9
-botbot_Iron_Fist shot A.I.C.I.S._b11
-It's turn nb 28
-[NicolasLeRebelDeL'espace] b3:right b2:33-33 b5:16-21 b4:22-31 d2:32-36 d4:right f3:faster f10:left f13:left
-[A.I.C.I.S.] Helios:17-14 d10:right f8:left b10:left b8:faster b1:27-27
-[bot] b9:faster b6:6-37 b7:36-33 X-WINGS:right b12:faster f4:left DROID-starfighter:left
-[botbot] b13:right
-A.I.C.I.S._b1 shot NicolasLeRebelDeL'espace_b4
-bot_b6 shot NicolasLeRebelDeL'espace_d3
-bot_b7 kill NicolasLeRebelDeL'espace_d2
-It's turn nb 29
-[NicolasLeRebelDeL'espace] b3:22-9 b2:left b5:17-22 b4:28-34 d4:right Helios:15-30 f10:left f13:right
-[A.I.C.I.S.] Helios:18-12 d10:left f8:left b11:15-20 b8:slower
-[bot] b9:left b7:40-34 X-WINGS:right b12:slower f4:left DROID-starfighter:left
-[botbot] b13:right Iron_Fist:right
-NicolasLeRebelDeL'espace_b3 shot A.I.C.I.S._Helios
-A.I.C.I.S._Helios kill NicolasLeRebelDeL'espace_b3
-A.I.C.I.S._b11 kill NicolasLeRebelDeL'espace_f3
-bot_b7 kill A.I.C.I.S._f12
-It's turn nb 30
-[NicolasLeRebelDeL'espace] b2:31-31 b5:right b4:31-31 d3:6-1 d4:left f10:faster
-[A.I.C.I.S.] d11:30-1 d10:left f8:left b11:19-23 b10:28-10 b8:faster
-[bot] b9:left b7:31-30 X-WINGS:31-30 b12:32-39 DROID-starfighter:left
-[botbot] b13:21-22 Iron_Fist:left
-NicolasLeRebelDeL'espace_b2 kill bot_X-WINGS
-A.I.C.I.S._b11 kill botbot_b13
-bot_b7 shot NicolasLeRebelDeL'espace_b2
-bot_b12 kill A.I.C.I.S._d11
-It's turn nb 31
-[NicolasLeRebelDeL'espace] b2:34-35 b5:right d4:left f10:right f13:left
-[A.I.C.I.S.] d10:left f8:left b10:26-5 b1:left
-[bot] b9:40-3 b6:3-29 b7:32-30 b12:faster f4:right DROID-starfighter:left
-[botbot] Iron_Fist:left
-NicolasLeRebelDeL'espace_b2 shot bot_b7
-bot_b9 kill NicolasLeRebelDeL'espace_d3
-bot_b7 shot NicolasLeRebelDeL'espace_b2
-It's turn nb 32
-[NicolasLeRebelDeL'espace] b2:34-36 b4:34-36 d4:35-39 Helios:4-23 f10:left f13:faster
-[A.I.C.I.S.] Helios:22-7 d10:left f8:left b10:right b1:left
-[bot] b7:36-37 b12:36-37
-[botbot] Iron_Fist:right
-NicolasLeRebelDeL'espace_b2 shot bot_b7
-NicolasLeRebelDeL'espace_b4 shot bot_b7
-NicolasLeRebelDeL'espace_d4 shot bot_b12
-bot_b7 shot NicolasLeRebelDeL'espace_d4
-bot_b12 kill NicolasLeRebelDeL'espace_d4
-It's turn nb 33
-[NicolasLeRebelDeL'espace] b2:left b4:34-37 Helios:2-24 f10:faster f13:faster
-[A.I.C.I.S.] d10:faster f8:left b10:slower
-[bot] b9:3-4 b6:40-21 f4:18-11
-[botbot] Iron_Fist:30-4
-NicolasLeRebelDeL'espace_b4 shot bot_b7
-It's turn nb 34
-[NicolasLeRebelDeL'espace] b5:left b4:34-38 f10:slower f13:faster
-[A.I.C.I.S.] Helios:slower d10:37-25 f8:left b10:faster b1:31-14
-[bot] b6:39-27 DROID-starfighter:left
-[botbot] Iron_Fist:29-5
-NicolasLeRebelDeL'espace_b4 kill bot_b7
-A.I.C.I.S._d10 shot bot_b6
-bot_b6 shot A.I.C.I.S._d10
-It's turn nb 35
-[NicolasLeRebelDeL'espace] b5:left f13:left
-[A.I.C.I.S.] Helios:faster d10:36-24 f8:left b11:left b10:slower
-[bot] b6:right f4:left DROID-starfighter:left
-[botbot] Iron_Fist:28-4
-It's turn nb 36
-[NicolasLeRebelDeL'espace] b2:35-31 f10:left f13:left
-[A.I.C.I.S.] Helios:left f8:left b11:left b10:faster b8:3-6 b1:35-25
-[bot] b6:right b12:35-5 f4:left DROID-starfighter:right
-[botbot] Iron_Fist:right
-NicolasLeRebelDeL'espace_b2 kill A.I.C.I.S._d10
-It's turn nb 37
-[NicolasLeRebelDeL'espace] b2:39-33 b4:39-33 f10:left f13:slower
-[A.I.C.I.S.] Helios:left f8:left b11:right b10:left b8:37-7 b1:34-27
-[bot] b9:38-35 b6:left f4:left DROID-starfighter:slower
-[botbot] Iron_Fist:right
-NicolasLeRebelDeL'espace_b2 shot bot_b9
-NicolasLeRebelDeL'espace_b4 shot bot_b9
-bot_b9 shot NicolasLeRebelDeL'espace_b2
-It's turn nb 38
-[NicolasLeRebelDeL'espace] b2:38-32 b5:5-13 b4:38-32 f10:32-3 f13:left
-[A.I.C.I.S.] Helios:32-3 f8:left b11:right b10:left b8:34-4 b1:33-26
-[bot] b9:39-36 b6:left b12:34-4 f4:faster DROID-starfighter:right
-[botbot] Iron_Fist:left
-NicolasLeRebelDeL'espace_b2 shot bot_b9
-NicolasLeRebelDeL'espace_b4 shot bot_b9
-bot_b9 shot NicolasLeRebelDeL'espace_b2
-It's turn nb 39
-[NicolasLeRebelDeL'espace] b2:33-37 b4:33-37 f13:right
-[A.I.C.I.S.] Helios:33-2 f8:left b11:left b10:33-37 b8:2-6 b1:32-24
-[bot] b9:3-29 b6:right b12:38-40 f4:4-13 DROID-starfighter:left
-[botbot] Iron_Fist:left
-A.I.C.I.S._b8 shot bot_b12
-bot_f4 shot NicolasLeRebelDeL'espace_b5
-It's turn nb 40
-[NicolasLeRebelDeL'espace] b2:36-34 b4:36-34 f10:left f13:35-1
-[A.I.C.I.S.] f8:left b11:left b10:34-2 b8:34-2 b1:36-30
-[bot] b9:37-28 b6:right DROID-starfighter:slower
-[botbot] Iron_Fist:30-36
-NicolasLeRebelDeL'espace_f13 shot botbot_Iron_Fist
-A.I.C.I.S._b10 kill bot_f4
-A.I.C.I.S._b1 kill bot_b9
-botbot_Iron_Fist kill NicolasLeRebelDeL'espace_f13
-It's turn nb 41
-[NicolasLeRebelDeL'espace] b2:3-4 b4:36-33 f10:slower
-[A.I.C.I.S.] Helios:right f8:2-39 b11:right
-[bot] b6:left b12:2-11 DROID-starfighter:right
-[botbot] Iron_Fist:40-40
-NicolasLeRebelDeL'espace_b2 kill A.I.C.I.S._f8
-bot_b12 shot NicolasLeRebelDeL'espace_b5
-botbot_Iron_Fist shot NicolasLeRebelDeL'espace_b4
-It's turn nb 42
-[NicolasLeRebelDeL'espace] b5:5-9 b4:37-39 Helios:right f10:right
-[A.I.C.I.S.] Helios:right b11:right b8:slower b1:32-31
-[bot] b6:left b12:slower DROID-starfighter:right
-[botbot] Iron_Fist:left
-It's turn nb 43
-[NicolasLeRebelDeL'espace] b5:4-8 b4:38-40 Helios:right f10:left
-[A.I.C.I.S.] b11:left b10:40-9 b8:faster
-[bot] b6:right b12:faster DROID-starfighter:right
-[botbot] Iron_Fist:left
-A.I.C.I.S._b10 shot NicolasLeRebelDeL'espace_b5
-It's turn nb 44
-[NicolasLeRebelDeL'espace] b5:6-10 b4:39-2 f10:left
-[A.I.C.I.S.] Helios:39-8 b11:left b10:39-8 b8:slower
-[bot] b6:right b12:slower DROID-starfighter:right
-[botbot] Iron_Fist:3-3
-NicolasLeRebelDeL'espace_b4 shot botbot_Iron_Fist
-A.I.C.I.S._Helios shot NicolasLeRebelDeL'espace_b5
-A.I.C.I.S._b10 kill NicolasLeRebelDeL'espace_b5
-botbot_Iron_Fist shot NicolasLeRebelDeL'espace_b4
-It's turn nb 45
-[NicolasLeRebelDeL'espace] b4:40-3 Helios:left f10:right
-[A.I.C.I.S.] Helios:40-3 b11:right b8:faster
-[bot] b6:left b12:faster DROID-starfighter:right
-[botbot] Iron_Fist:4-4
-NicolasLeRebelDeL'espace_b4 shot botbot_Iron_Fist
-A.I.C.I.S._Helios shot botbot_Iron_Fist
-botbot_Iron_Fist shot NicolasLeRebelDeL'espace_b4
-It's turn nb 46
-[NicolasLeRebelDeL'espace] b4:1-4 Helios:left f10:left
-[A.I.C.I.S.] Helios:1-4 b11:right b10:left b8:slower
-[bot] b6:left b12:slower DROID-starfighter:left
-[botbot] Iron_Fist:5-5
-NicolasLeRebelDeL'espace_b4 shot botbot_Iron_Fist
-A.I.C.I.S._Helios kill botbot_Iron_Fist
-It's turn nb 47
-[NicolasLeRebelDeL'espace] b4:6-10 f10:faster
-[A.I.C.I.S.] b11:left b8:faster
-[bot] b6:right b12:faster
-botbot has lost all these ships, so he has nothing to do.
-It's turn nb 48
-[NicolasLeRebelDeL'espace] b4:8-12 Helios:left f10:29-2
-[A.I.C.I.S.] Helios:left b11:left b8:slower
-[bot] b6:right b12:slower DROID-starfighter:29-2
-botbot has lost all these ships, so he has nothing to do.
-It's turn nb 49
-[NicolasLeRebelDeL'espace] b2:7-11 b4:7-11 f10:32-7
-[A.I.C.I.S.] Helios:left b11:right b8:faster
-[bot] b6:left b12:faster DROID-starfighter:30-3
-botbot has lost all these ships, so he has nothing to do.
-NicolasLeRebelDeL'espace_f10 kill bot_DROID-starfighter
-It's turn nb 50
-[NicolasLeRebelDeL'espace] b2:9-13 b4:9-13 Helios:left f10:right
-[A.I.C.I.S.] b11:right b10:left b8:slower
-[bot] b6:left b12:slower
-botbot has lost all these ships, so he has nothing to do.
-It's turn nb 51
-[NicolasLeRebelDeL'espace] b2:8-12 b4:8-12 Helios:left f10:right
-[A.I.C.I.S.] b11:left b10:left b8:faster
-[bot] b6:right b12:faster
-botbot has lost all these ships, so he has nothing to do.
-It's turn nb 52
-[NicolasLeRebelDeL'espace] b2:10-14 b4:10-14 Helios:left f10:4-6
-[A.I.C.I.S.] Helios:9-3 b11:left b8:right
-[bot] b6:right b12:right
-botbot has lost all these ships, so he has nothing to do.
-NicolasLeRebelDeL'espace_f10 shot A.I.C.I.S._Helios
-A.I.C.I.S._Helios kill NicolasLeRebelDeL'espace_f10
-It's turn nb 53
-[NicolasLeRebelDeL'espace] b2:11-13 b4:11-13 Helios:36-16
-[A.I.C.I.S.] b11:right b10:36-13 b8:right
-[bot] b6:left b12:right
-botbot has lost all these ships, so he has nothing to do.
-NicolasLeRebelDeL'espace_Helios shot A.I.C.I.S._b10
-A.I.C.I.S._b10 shot NicolasLeRebelDeL'espace_Helios
-It's turn nb 54
-[NicolasLeRebelDeL'espace] b2:12-11 b4:12-11 Helios:right
-[A.I.C.I.S.] b11:right b10:37-14
-[bot] b6:left b12:13-13
-botbot has lost all these ships, so he has nothing to do.
-NicolasLeRebelDeL'espace_b2 shot bot_b12
-NicolasLeRebelDeL'espace_b4 shot bot_b12
-bot_b12 kill NicolasLeRebelDeL'espace_b4
-It's turn nb 55
-[NicolasLeRebelDeL'espace] b2:13-10 Helios:right
-[A.I.C.I.S.] b11:left b10:38-13 b1:right
-[bot] b6:right b12:16-13
-botbot has lost all these ships, so he has nothing to do.
-NicolasLeRebelDeL'espace_b2 shot bot_b12
-bot_b12 kill NicolasLeRebelDeL'espace_b2
-It's turn nb 56
-[NicolasLeRebelDeL'espace] Helios:33-16
-[A.I.C.I.S.] b11:left b10:39-11 b1:right
-[bot] b6:right
-botbot has lost all these ships, so he has nothing to do.
-NicolasLeRebelDeL'espace_Helios shot A.I.C.I.S._b10
-A.I.C.I.S._b10 kill NicolasLeRebelDeL'espace_Helios
-It's turn nb 57
-NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
-[A.I.C.I.S.] b11:right b10:left
-[bot] b6:left
-botbot has lost all these ships, so he has nothing to do.
-It's turn nb 58
-NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
-[A.I.C.I.S.] b11:right b1:right
-[bot] b6:left
-botbot has lost all these ships, so he has nothing to do.
-It's turn nb 59
-NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
-[A.I.C.I.S.] Helios:right b11:left b1:right
-[bot] b6:right b12:20-8
-botbot has lost all these ships, so he has nothing to do.
-bot_b12 shot A.I.C.I.S._b8
-It's turn nb 60
-NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
-[A.I.C.I.S.] Helios:right b11:left b8:18-5
-[bot] b6:right b12:19-9
-botbot has lost all these ships, so he has nothing to do.
-A.I.C.I.S._b8 kill bot_b12
-It's turn nb 61
-NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
-[A.I.C.I.S.] Helios:slower b11:right b10:right
-[bot] b6:left
-botbot has lost all these ships, so he has nothing to do.
-It's turn nb 62
-NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
-[A.I.C.I.S.] Helios:faster b11:right b10:right
-[bot] b6:left
-botbot has lost all these ships, so he has nothing to do.
-It's turn nb 63
-NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
-[A.I.C.I.S.] Helios:slower b11:left
-[bot] b6:right
-botbot has lost all these ships, so he has nothing to do.
-It's turn nb 64
-NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
-[A.I.C.I.S.] Helios:faster b11:left
-[bot] b6:right
-botbot has lost all these ships, so he has nothing to do.
-It's turn nb 65
-NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
-[A.I.C.I.S.] Helios:slower b11:right
-[bot] b6:left
-botbot has lost all these ships, so he has nothing to do.
-It's turn nb 66
-NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
-[A.I.C.I.S.] Helios:faster b11:right
-[bot] b6:left
-botbot has lost all these ships, so he has nothing to do.
-It's turn nb 67
-NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
-[A.I.C.I.S.] Helios:slower b11:left
-[bot] b6:right
-botbot has lost all these ships, so he has nothing to do.
-It's turn nb 68
-NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
-[A.I.C.I.S.] Helios:faster b11:left
-[bot] b6:right
-botbot has lost all these ships, so he has nothing to do.
-It's turn nb 69
-NicolasLeRebelDeL'espace has lost all these ships, so he has nothing to do.
-[A.I.C.I.S.] Helios:slower b11:right b1:2-27
-[bot] b6:left
-botbot has lost all these ships, so he has nothing to do.
+INPU - [A.I.C.I.S.] V-19:left Phobos136:faster Eos102:faster Valor_of_Vardona152:faster Jackson_V65:right Leviathan107:left Titan100:22-4 Theodore_G._Bilbo35:left Hurricane82:6-4 Tahoe116:right Cerberus139:left Meleager44:right Victory148:22-25 Patroclus80:right V-WINGS:faster Ragnorak66:left Theodore_G._Bilbo45:left Napoleon123:right ISS_Adventurer:faster Saragossa:left Hephaestus103:slower Geisha:faster Adventurer:22-40 X-WINGS:slower Puddle_Jumper:13-16 Thunder_Child145:left Emperor's_Fury142:6-4 Hyperion153:faster Norad_II109:faster Herakles137:25-31 Antigone1:faster Antigone125:slower ARC-170:slower Aeneas15:faster Victory53:left Loki16:40-40 Iron_Fist122:right Circe141:2-36 Eos62:left Valor_of_Vardona39:left Cyrus32:faster Herakles157:right Scion60:13-16 Thunder_Child31:left Leviathan22:left BC_Pilgrim:right Iron_Justice73:left Merrimack59:15-15
+INPU - [A.I.C.I.S] Puddle_Jumper:fighter V-WINGS:fighter Saragossa:fighter BS_Galactica:fighter Ha'tak:fighter ISS_Europa:fighter V-19:fighter Adventurer:fighter Alexander:fighter Dart:fighter
+INPU - [HODOR] Neptune:fighter Asteroid_with_an_engine:fighter Sloop_William:fighter Bob:fighter Nautilus:battlecruiser Le_Hollandais_Violent:battlecruiser
+INFO - It's turn nb 0
+INPU - [bot] Hurricane97:right Fury54:left Victory38:faster Dart:left Ha'tak:left Fury20:15-15 Norad_III79:left TIE-FIGHTER:19-6 Palatine113:slower Valor_of_Vardona4:right Ragnorak83:right Hoosier72:right White_Star110:right X-WINGS:slower Metis134:faster Victory55:left Alexander:faster Jackson_V154:faster BC_Pilgrim:left Iron_Fist88:faster Jackson's_Revenge18:left Norad_II19:2-36 Napoleon57:12-24 Cyrus106:left Hyperion151:left Thunder_Child41:faster Victory146:17-10 Tahoe89:8-17 Cerberus94:left Cyrus12:left Napoleon40:left Jackson's_Revenge23:left Bucephalus52:right Jackson_V37:faster Bucephalus30:11-9 Cyrus24:slower Bismarck124:faster Jackson's_Revenge138:left
+INPU - [A.I.C.I.S] Puddle_Jumper:faster V-WINGS:faster Alexander:faster BS_Galactica:faster V-19:faster ISS_Europa:faster Adventurer:faster Ha'tak:faster Dart:faster Saragossa:faster
+INPU - [HODOR] Sloop_William:faster Nautilus:right Asteroid_with_an_engine:faster Neptune:left Le_Hollandais_Violent:right
+INFO - It's turn nb 1
+INPU - [A.I.C.I.S] Puddle_Jumper:faster V-WINGS:right Alexander:faster BS_Galactica:right V-19:faster ISS_Europa:right Adventurer:faster Ha'tak:faster Dart:faster Saragossa:faster
+INPU - [HODOR] Nautilus:right Neptune:faster Le_Hollandais_Violent:left Sloop_William:faster Asteroid_with_an_engine:faster
+INFO - It's turn nb 2
+INPU - [botbot] Kimera91:left Valor_of_Vardona70:right Napoleon61:22-25 Napoleon90:right ARC-170:left Jackson's_Revenge118:slower Cyrus144:19-13 Jackson's_Revenge69:27-20 The_Watcher:faster BS_Galactica:right White_Star81:slower Napoleon51:right Phobos104:slower Theodore_G._Bilbo13:left Metis114:right Aeneas63:slower Jackson_V67:28-33 Cyrus126:right Hyperion115:right Geisha:right Victory48:slower Antigone47:right Thunder_Child78:right Metis21:left Cerberus121:faster Hyperion112:right White_Star76:faster Eos10:5-10 Dart:faster Norad_III85:left Jackson_V130:left Kimera111:right Fury84:left Puddle_Jumper:left Cyrus2:8-3 Tahoe143:left Hoosier26:right White_Star56:right Hephaestus68:13-16 Gray_Tiger147:faster Huey_Long92:right Kimera14:22-4 Huey_Long127:left Metis5:left
+WARN - NicolasLeRebelDeL'espace_Hyperion96 shoot failed (22, 21)!
+WARN - NicolasLeRebelDeL'espace_Puddle_Jumper shoot failed (16, 7)!
+WARN - NicolasLeRebelDeL'espace_Patroclus9 kill botbot_Phobos104
+WARN - NicolasLeRebelDeL'espace_Antigone74 shoot failed (13, 22)!
+WARN - A.I.C.I.S._Titan100 shoot failed (3, 21)!
+WARN - A.I.C.I.S._Hurricane82 shot A.I.C.I.S._Theodore_G._Bilbo45
+WARN - A.I.C.I.S._Hurricane82 shot A.I.C.I.S._Aeneas15
+WARN - A.I.C.I.S._Victory148 shoot failed (24, 21)!
+WARN - A.I.C.I.S._Adventurer shot botbot_Kimera14
+WARN - A.I.C.I.S._Puddle_Jumper shoot failed (15, 12)!
+WARN - A.I.C.I.S._Emperor's_Fury142 kill A.I.C.I.S._Theodore_G._Bilbo45
+WARN - A.I.C.I.S._Herakles137 shot botbot_Napoleon61
+WARN - A.I.C.I.S._Loki16 shoot failed (39, 39)!
+WARN - A.I.C.I.S._Circe141 shoot failed (35, 1)!
+WARN - A.I.C.I.S._Scion60 shoot failed (15, 12)!
+WARN - A.I.C.I.S._Merrimack59 shoot failed (14, 14)!
+WARN - bot_Fury20 shoot failed (14, 14)!
+WARN - bot_TIE-FIGHTER kill A.I.C.I.S._Adventurer
+WARN - bot_Norad_II19 shoot failed (35, 1)!
+WARN - bot_Napoleon57 shoot failed (23, 11)!
+WARN - bot_Victory146 shoot failed (9, 16)!
+WARN - bot_Tahoe89 shoot failed (16, 7)!
+WARN - bot_Bucephalus30 shoot failed (8, 10)!
+WARN - botbot_Napoleon61 shoot failed (24, 21)!
+WARN - botbot_Cyrus144 shoot failed (12, 18)!
+WARN - botbot_Jackson's_Revenge69 shoot failed (19, 26)!
+WARN - botbot_Jackson_V67 shoot failed (32, 27)!
+WARN - botbot_Eos10 shot bot_Tahoe89
+WARN - botbot_Cyrus2 shoot failed (2, 7)!
+WARN - botbot_Hephaestus68 shoot failed (15, 12)!
+WARN - botbot_Kimera14 shoot failed (3, 21)!
+INFO - It's turn nb 22
+INPU - [A.I.C.I.S] V-WINGS:right Alexander:faster BS_Galactica:right V-19:faster ISS_Europa:faster Adventurer:faster Ha'tak:faster Dart:faster Saragossa:right
+INPU - [HODOR] Neptune:left Norad_II109:left Sloop_William:faster Asteroid_with_an_engine:left Bob:right Le_Hollandais_Violent:right
+INFO - HODOR as take HODOR_Leviathan107 !
+INFO - A.I.C.I.S as take A.I.C.I.S_Titan46 !
+INFO - It's turn nb 3
+INPU - [NicolasLeRebelDeL'espace] Scion3:right Leviathan105:11-14 Loki6:right ISS_Europa:right Kimera8:faster Antigone36:left X-WINGS:left Jackson_V131:2-35 V-WINGS:right Metis150:slower Loki77:left Hyperion96:20-21 Iron_Justice156:faster Bucephalus149:faster Herakles75:left Huey_Long0:26-9 Merrimack58:left ISS_Adventurer:right Victory129:right Jackson's_Revenge93:faster Fury87:3-29 Puddle_Jumper:faster Ha'tak:left Patroclus9:16-9 Antigone29:left Kimeran_Juggernaut64:left Kimera117:11-7 Theodore_G._Bilbo132:14-15 Cyrus11:slower Patroclus7:right Tahoe25:left Antigone74:26-9 Phobos17:left Helios42:left V-19:faster Bismarck33:12-4 Tahoe140:14-15 Bismarck135:left
+INPU - [A.I.C.I.S.] V-19:8-5 Phobos136:slower Eos102:right Valor_of_Vardona152:faster Jackson_V65:right Leviathan107:6-1 Titan100:left Theodore_G._Bilbo35:left Hurricane82:3-3 Tahoe116:18-20 Cerberus139:faster Meleager44:right Victory148:24-29 Patroclus80:right V-WINGS:left Ragnorak66:4-38 Napoleon123:right ISS_Adventurer:slower Saragossa:slower Hephaestus103:slower Geisha:left X-WINGS:right Puddle_Jumper:left Thunder_Child145:left Emperor's_Fury142:6-9 Hyperion153:26-9 Norad_II109:left Herakles137:24-28 Antigone1:left Antigone125:right ARC-170:left Aeneas15:left Victory53:left Circe141:3-3 Eos62:6-22 Valor_of_Vardona39:faster Cyrus32:slower Herakles157:faster Scion60:16-18 Thunder_Child31:left Leviathan22:3-36 BC_Pilgrim:faster Iron_Justice73:left Merrimack59:15-11
+INPU - [bot] Hurricane97:right Fury54:right Victory38:right Dart:25-13 Ha'tak:left Fury20:left Norad_III79:left TIE-FIGHTER:17-11 Palatine113:13-14 Valor_of_Vardona4:right Ragnorak83:20-22 Hoosier72:slower White_Star110:right X-WINGS:slower Metis134:slower Victory55:faster Alexander:slower Jackson_V154:faster BC_Pilgrim:left Iron_Fist88:left Jackson's_Revenge18:slower Norad_II19:4-38 Napoleon57:left Cyrus106:faster Hyperion151:faster Thunder_Child41:slower Victory146:13-17 Tahoe89:11-14 Cerberus94:faster Cyrus12:14-13 Napoleon40:13-17 Jackson's_Revenge23:left Bucephalus52:faster Jackson_V37:left Bucephalus30:left Cyrus24:left Bismarck124:7-3 Jackson's_Revenge138:left
+INPU - [botbot] Kimera91:15-11 Valor_of_Vardona70:9-9 Napoleon61:24-29 Napoleon90:right ARC-170:left Jackson's_Revenge118:right Cyrus144:16-18 Jackson's_Revenge69:24-16 The_Watcher:faster BS_Galactica:faster White_Star81:faster Napoleon51:slower Theodore_G._Bilbo13:left Metis114:right Aeneas63:left Jackson_V67:36-37 Cyrus126:right Hyperion115:right Geisha:slower Victory48:14-15 Antigone47:slower Thunder_Child78:7-3 Metis21:left Cerberus121:23-24 Hyperion112:faster White_Star76:right Eos10:10-15 Dart:left Jackson_V130:left Kimera111:right Fury84:left Puddle_Jumper:left Cyrus2:7-1 Tahoe143:left Hoosier26:left White_Star56:right Hephaestus68:right Gray_Tiger147:30-4 Huey_Long92:15-11 Kimera14:right Huey_Long127:15-15 Metis5:left
+WARN - NicolasLeRebelDeL'espace_Leviathan105 shoot failed (13, 10)!
+WARN - NicolasLeRebelDeL'espace_Jackson_V131 shot bot_Norad_II19
+WARN - NicolasLeRebelDeL'espace_Hyperion96 shoot failed (20, 19)!
+WARN - NicolasLeRebelDeL'espace_Huey_Long0 shoot failed (8, 25)!
+WARN - NicolasLeRebelDeL'espace_Fury87 shoot failed (28, 2)!
+WARN - NicolasLeRebelDeL'espace_Patroclus9 shoot failed (8, 15)!
+WARN - NicolasLeRebelDeL'espace_Kimera117 shot A.I.C.I.S._V-19
+WARN - NicolasLeRebelDeL'espace_Theodore_G._Bilbo132 shoot failed (14, 13)!
+WARN - NicolasLeRebelDeL'espace_Antigone74 shoot failed (8, 25)!
+WARN - NicolasLeRebelDeL'espace_Bismarck33 shoot failed (3, 11)!
+WARN - NicolasLeRebelDeL'espace_Tahoe140 shoot failed (14, 13)!
+WARN - A.I.C.I.S._V-19 shoot failed (4, 7)!
+WARN - A.I.C.I.S._Leviathan107 shot botbot_Cyrus2
+WARN - A.I.C.I.S._Hurricane82 shot A.I.C.I.S._Circe141
+WARN - A.I.C.I.S._Tahoe116 shoot failed (19, 17)!
+WARN - A.I.C.I.S._Victory148 shoot failed (28, 23)!
+WARN - A.I.C.I.S._Ragnorak66 shoot failed (37, 3)!
+WARN - A.I.C.I.S._Emperor's_Fury142 shoot failed (8, 5)!
+WARN - A.I.C.I.S._Hyperion153 shoot failed (8, 25)!
+WARN - A.I.C.I.S._Herakles137 shoot failed (27, 23)!
+WARN - A.I.C.I.S._Circe141 shot A.I.C.I.S._Circe141
+WARN - A.I.C.I.S._Eos62 shoot failed (21, 5)!
+WARN - A.I.C.I.S._Scion60 kill bot_Fury20
+WARN - A.I.C.I.S._Leviathan22 shot NicolasLeRebelDeL'espace_Fury87
+WARN - A.I.C.I.S._Merrimack59 shot bot_TIE-FIGHTER
+WARN - bot_Dart shoot failed (12, 24)!
+WARN - bot_TIE-FIGHTER shoot failed (10, 16)!
+WARN - bot_Palatine113 shoot failed (13, 12)!
+WARN - bot_Ragnorak83 shoot failed (21, 19)!
+WARN - bot_Norad_II19 shoot failed (37, 3)!
+WARN - bot_Victory146 shot NicolasLeRebelDeL'espace_Tahoe140
+WARN - bot_Tahoe89 shoot failed (13, 10)!
+WARN - bot_Cyrus12 shot botbot_Huey_Long127
+WARN - bot_Napoleon40 kill NicolasLeRebelDeL'espace_Tahoe140
+WARN - bot_Bismarck124 shot bot_Thunder_Child41
+WARN - botbot_Kimera91 kill bot_TIE-FIGHTER
+WARN - botbot_Valor_of_Vardona70 shot A.I.C.I.S._Emperor's_Fury142
+WARN - botbot_Napoleon61 shoot failed (28, 23)!
+WARN - botbot_Cyrus144 shoot failed (17, 15)!
+WARN - botbot_Jackson's_Revenge69 shoot failed (15, 23)!
+WARN - botbot_Jackson_V67 shot NicolasLeRebelDeL'espace_Jackson_V131
+WARN - botbot_Victory48 shoot failed (14, 13)!
+WARN - botbot_Thunder_Child78 shot bot_Thunder_Child41
+WARN - botbot_Cerberus121 shot A.I.C.I.S._Herakles137
+WARN - botbot_Eos10 shot A.I.C.I.S._Iron_Fist122
+WARN - botbot_Cyrus2 shoot failed (0, 6)!
+WARN - botbot_Gray_Tiger147 shoot failed (3, 29)!
+WARN - botbot_Huey_Long92 shoot failed (10, 14)!
+WARN - botbot_Huey_Long127 shot bot_Palatine113
+INFO - It's turn nb 23
+INPU - [NicolasLeRebelDeL'espace] Scion3:left Leviathan105:13-15 Loki6:faster ISS_Europa:10-5 Kimera8:faster Antigone36:left X-WINGS:6-7 Jackson_V131:33-36 V-WINGS:right Metis150:slower Loki77:6-2 Hyperion96:left Iron_Justice156:faster Bucephalus149:left Herakles75:left Huey_Long0:slower Merrimack58:right ISS_Adventurer:13-15 Jackson's_Revenge93:19-12 Napoleon133:slower Fury87:right Puddle_Jumper:left Ha'tak:left Patroclus9:faster Antigone29:left Kimeran_Juggernaut64:13-17 Kimera117:12-10 Theodore_G._Bilbo132:12-14 Cyrus11:27-12 Patroclus7:right Tahoe25:faster Antigone74:22-7 Phobos17:slower Helios42:left V-19:13-15 Bismarck33:9-1 Bismarck135:right
+INPU - [A.I.C.I.S.] V-19:slower Phobos136:faster Eos102:12-14 Valor_of_Vardona152:slower Jackson_V65:right Leviathan107:faster Titan100:left Theodore_G._Bilbo35:left Hurricane82:left Tahoe116:slower Cerberus139:10-9 Meleager44:faster Victory148:19-24 Ragnorak66:right Napoleon123:right ISS_Adventurer:slower Saragossa:right Hephaestus103:slower Geisha:2-18 X-WINGS:right Puddle_Jumper:left Thunder_Child145:left Emperor's_Fury142:5-11 Hyperion153:left Norad_II109:15-18 Herakles137:25-26 Antigone1:6-1 Antigone125:slower ARC-170:faster Aeneas15:left Victory53:right Loki16:right Iron_Fist122:slower Circe141:6-2 Eos62:7-19 Valor_of_Vardona39:left Cyrus32:slower Herakles157:faster Scion60:right Thunder_Child31:faster BC_Pilgrim:faster Iron_Justice73:right Merrimack59:13-8
+INPU - [bot] Hurricane97:right Fury54:right Victory38:faster Dart:left Ha'tak:left Norad_III79:14-15 Palatine113:left Valor_of_Vardona4:right Ragnorak83:left Hoosier72:14-15 White_Star110:right X-WINGS:slower Metis134:19-6 Victory55:left Alexander:left Jackson_V154:25-26 Iron_Fist88:16-26 Jackson's_Revenge18:slower Norad_II19:left Napoleon57:left Cyrus106:5-5 Hyperion151:8-4 Thunder_Child41:slower Victory146:left Tahoe89:6-12 Cerberus94:5-5 Cyrus12:14-15 Napoleon40:left Jackson's_Revenge23:left Bucephalus52:15-2 Jackson_V37:faster Bucephalus30:14-15 Cyrus24:14-15 Bismarck124:10-9 Jackson's_Revenge138:faster
+INPU - [botbot] Kimera91:11-11 Valor_of_Vardona70:11-11 Napoleon90:19-24 ARC-170:faster Jackson's_Revenge118:slower Cyrus144:13-15 Jackson's_Revenge69:23-15 The_Watcher:26-8 BS_Galactica:right White_Star81:slower Napoleon51:right Theodore_G._Bilbo13:left Metis114:right Aeneas63:slower Jackson_V67:37-38 Cyrus126:right Hyperion115:faster Geisha:slower Victory48:13-15 Antigone47:slower Thunder_Child78:faster Metis21:right Cerberus121:left Hyperion112:slower White_Star76:right Eos10:14-15 Dart:faster Norad_III85:faster Jackson_V130:faster Fury84:16-21 Puddle_Jumper:left Cyrus2:8-3 Tahoe143:faster Hoosier26:14-15 White_Star56:right Hephaestus68:right Gray_Tiger147:26-8 Huey_Long92:12-14 Kimera14:right Huey_Long127:slower Metis5:faster
+WARN - NicolasLeRebelDeL'espace_Leviathan105 shot bot_Palatine113
+WARN - NicolasLeRebelDeL'espace_Leviathan105 kill bot_Hoosier72
+WARN - NicolasLeRebelDeL'espace_Leviathan105 shot NicolasLeRebelDeL'espace_Jackson's_Revenge93
+WARN - NicolasLeRebelDeL'espace_Leviathan105 shot botbot_Victory48
+WARN - NicolasLeRebelDeL'espace_Leviathan105 shot A.I.C.I.S._ARC-170
+WARN - NicolasLeRebelDeL'espace_Leviathan105 kill NicolasLeRebelDeL'espace_Kimeran_Juggernaut64
+WARN - NicolasLeRebelDeL'espace_Leviathan105 kill A.I.C.I.S._Iron_Fist122
+WARN - NicolasLeRebelDeL'espace_ISS_Europa shoot failed (4, 9)!
+WARN - NicolasLeRebelDeL'espace_X-WINGS shot botbot_Kimera91
+WARN - NicolasLeRebelDeL'espace_Jackson_V131 shoot failed (35, 32)!
+WARN - NicolasLeRebelDeL'espace_Loki77 shoot failed (1, 5)!
+WARN - NicolasLeRebelDeL'espace_ISS_Adventurer kill bot_Palatine113
+WARN - NicolasLeRebelDeL'espace_ISS_Adventurer shot NicolasLeRebelDeL'espace_Jackson's_Revenge93
+WARN - NicolasLeRebelDeL'espace_ISS_Adventurer shot botbot_Victory48
+WARN - NicolasLeRebelDeL'espace_ISS_Adventurer kill A.I.C.I.S._ARC-170
+WARN - NicolasLeRebelDeL'espace_Jackson's_Revenge93 shot botbot_Cyrus126
+WARN - NicolasLeRebelDeL'espace_Kimera117 shoot failed (9, 11)!
+WARN - NicolasLeRebelDeL'espace_Theodore_G._Bilbo132 shoot failed (13, 11)!
+WARN - NicolasLeRebelDeL'espace_Cyrus11 shot botbot_Jackson's_Revenge69
+WARN - NicolasLeRebelDeL'espace_Antigone74 shoot failed (6, 21)!
+WARN - NicolasLeRebelDeL'espace_V-19 shot A.I.C.I.S._Saragossa
+WARN - NicolasLeRebelDeL'espace_V-19 kill NicolasLeRebelDeL'espace_Jackson's_Revenge93
+WARN - NicolasLeRebelDeL'espace_V-19 shot botbot_Dart
+WARN - NicolasLeRebelDeL'espace_Bismarck33 shoot failed (0, 8)!
+WARN - A.I.C.I.S._Eos102 shoot failed (13, 11)!
+WARN - A.I.C.I.S._Cerberus139 shoot failed (8, 9)!
+WARN - A.I.C.I.S._Victory148 kill bot_Jackson_V154
+WARN - A.I.C.I.S._Geisha shoot failed (17, 1)!
+WARN - A.I.C.I.S._Emperor's_Fury142 kill botbot_Metis5
+WARN - A.I.C.I.S._Norad_II109 shoot failed (17, 14)!
+WARN - A.I.C.I.S._Herakles137 shot botbot_Napoleon90
+WARN - A.I.C.I.S._Antigone1 shot botbot_Cyrus2
+WARN - A.I.C.I.S._Circe141 shoot failed (1, 5)!
+WARN - A.I.C.I.S._Eos62 shoot failed (18, 6)!
+WARN - A.I.C.I.S._Merrimack59 shot NicolasLeRebelDeL'espace_Kimera117
+WARN - bot_Norad_III79 shoot failed (14, 13)!
+WARN - bot_Metis134 shoot failed (5, 18)!
+WARN - bot_Iron_Fist88 kill A.I.C.I.S._Norad_II109
+WARN - bot_Cyrus106 shot A.I.C.I.S._Circe141
+WARN - bot_Hyperion151 shoot failed (3, 7)!
+WARN - bot_Tahoe89 shoot failed (11, 5)!
+WARN - bot_Cerberus94 shot A.I.C.I.S._Circe141
+WARN - bot_Cyrus12 shoot failed (14, 13)!
+WARN - bot_Bucephalus52 shoot failed (1, 14)!
+WARN - bot_Bucephalus30 shoot failed (14, 13)!
+WARN - bot_Cyrus24 shoot failed (14, 13)!
+WARN - bot_Bismarck124 shoot failed (8, 9)!
+WARN - botbot_Kimera91 shot A.I.C.I.S._Valor_of_Vardona152
+WARN - botbot_Kimera91 kill A.I.C.I.S._Emperor's_Fury142
+WARN - botbot_Valor_of_Vardona70 kill A.I.C.I.S._Valor_of_Vardona152
+WARN - botbot_Napoleon90 shoot failed (23, 18)!
+WARN - botbot_Cyrus144 kill A.I.C.I.S._Saragossa
+WARN - botbot_Cyrus144 kill botbot_Victory48
+WARN - botbot_Jackson's_Revenge69 kill NicolasLeRebelDeL'espace_Cyrus11
+WARN - botbot_The_Watcher shoot failed (7, 25)!
+WARN - botbot_Jackson_V67 shot NicolasLeRebelDeL'espace_Jackson_V131
+WARN - botbot_Eos10 shoot failed (14, 13)!
+WARN - botbot_Fury84 shoot failed (20, 15)!
+WARN - botbot_Cyrus2 shot A.I.C.I.S._Antigone1
+WARN - botbot_Hoosier26 shoot failed (14, 13)!
+WARN - botbot_Gray_Tiger147 shoot failed (7, 25)!
+WARN - botbot_Huey_Long92 shoot failed (13, 11)!
+INFO - It's turn nb 24
+INPU - [NicolasLeRebelDeL'espace] Scion3:right Leviathan105:left Loki6:13-9 ISS_Europa:slower Kimera8:slower Antigone36:left X-WINGS:slower Jackson_V131:40-40 V-WINGS:slower Metis150:16-17 Loki77:6-1 Hyperion96:left Iron_Justice156:slower Bucephalus149:slower Herakles75:32-8 Huey_Long0:slower Merrimack58:6-15 ISS_Adventurer:left Victory129:slower BS_Galactica:right Napoleon133:faster Fury87:right Puddle_Jumper:right Ha'tak:left Patroclus9:13-9 Antigone29:left Kimera117:left Theodore_G._Bilbo132:12-14 Patroclus7:slower Tahoe25:13-9 Antigone74:16-4 Phobos17:slower Helios42:right V-19:15-11 Bismarck33:left
+INPU - [A.I.C.I.S.] V-19:left Phobos136:faster Eos102:slower Jackson_V65:4-4 Leviathan107:faster Titan100:left Theodore_G._Bilbo35:left Hurricane82:right Tahoe116:right Cerberus139:slower Meleager44:right Victory148:26-25 Patroclus80:1-2 V-WINGS:right Ragnorak66:right Napoleon123:right ISS_Adventurer:slower Hephaestus103:right Geisha:5-15 X-WINGS:right Puddle_Jumper:left Thunder_Child145:left Hyperion153:slower Antigone1:faster Antigone125:slower Aeneas15:faster Victory53:faster Loki16:left Circe141:10-6 Eos62:12-14 Valor_of_Vardona39:14-17 Cyrus32:slower Herakles157:slower Scion60:right Thunder_Child31:slower BC_Pilgrim:13-9 Iron_Justice73:38-22 Merrimack59:10-6
+INPU - [bot] Hurricane97:right Fury54:right Victory38:slower Dart:22-14 Ha'tak:left Norad_III79:left Valor_of_Vardona4:left Ragnorak83:left White_Star110:faster X-WINGS:right Metis134:slower Victory55:20-19 Alexander:faster Iron_Fist88:13-15 Jackson's_Revenge18:right Norad_II19:slower Napoleon57:left Cyrus106:slower Hyperion151:faster Thunder_Child41:9-6 Victory146:left Tahoe89:slower Cyrus12:left Napoleon40:left Jackson's_Revenge23:20-12 Bucephalus52:slower Jackson_V37:left Bucephalus30:left Cyrus24:left Bismarck124:left
+INPU - [botbot] Kimera91:9-6 Valor_of_Vardona70:left Napoleon61:right Napoleon90:21-25 ARC-170:9-4 Jackson's_Revenge118:left Cyrus144:12-15 Jackson's_Revenge69:21-13 BS_Galactica:1-19 White_Star81:faster Napoleon51:slower Theodore_G._Bilbo13:right Metis114:right Aeneas63:slower Jackson_V67:38-39 Cyrus126:right Hyperion115:9-6 Geisha:left Antigone47:right Thunder_Child78:faster Metis21:8-30 Cerberus121:faster Hyperion112:15-10 Eos10:12-15 Dart:12-15 Norad_III85:right Kimera111:right Fury84:13-15 Puddle_Jumper:left Hoosier26:12-15 White_Star56:slower Hephaestus68:12-15 Gray_Tiger147:26-4 Huey_Long92:left Kimera14:left Huey_Long127:left
+WARN - NicolasLeRebelDeL'espace_Loki6 shot NicolasLeRebelDeL'espace_Loki6
+WARN - NicolasLeRebelDeL'espace_Loki6 shot botbot_Thunder_Child78
+WARN - NicolasLeRebelDeL'espace_Loki6 kill bot_Thunder_Child41
+WARN - NicolasLeRebelDeL'espace_Jackson_V131 kill A.I.C.I.S._Patroclus80
+WARN - NicolasLeRebelDeL'espace_Metis150 shoot failed (16, 15)!
+WARN - NicolasLeRebelDeL'espace_Loki77 kill botbot_Cyrus2
+WARN - NicolasLeRebelDeL'espace_Herakles75 shoot failed (7, 31)!
+WARN - NicolasLeRebelDeL'espace_Merrimack58 shot botbot_BS_Galactica
+WARN - NicolasLeRebelDeL'espace_Merrimack58 shot NicolasLeRebelDeL'espace_BS_Galactica
+WARN - NicolasLeRebelDeL'espace_Patroclus9 kill NicolasLeRebelDeL'espace_Loki6
+WARN - NicolasLeRebelDeL'espace_Theodore_G._Bilbo132 kill NicolasLeRebelDeL'espace_Phobos17
+WARN - NicolasLeRebelDeL'espace_Tahoe25 kill botbot_Thunder_Child78
+WARN - NicolasLeRebelDeL'espace_Antigone74 shoot failed (3, 15)!
+WARN - NicolasLeRebelDeL'espace_V-19 shoot failed (10, 14)!
+WARN - A.I.C.I.S._Jackson_V65 shoot failed (3, 3)!
+WARN - A.I.C.I.S._Victory148 shot botbot_Napoleon90
+WARN - A.I.C.I.S._Geisha shoot failed (14, 4)!
+WARN - A.I.C.I.S._Circe141 kill botbot_ARC-170
+WARN - A.I.C.I.S._Eos62 shoot failed (13, 11)!
+WARN - A.I.C.I.S._Valor_of_Vardona39 shot NicolasLeRebelDeL'espace_Metis150
+WARN - A.I.C.I.S._BC_Pilgrim shoot failed (8, 12)!
+WARN - A.I.C.I.S._Iron_Justice73 shot bot_Jackson's_Revenge138
+WARN - A.I.C.I.S._Merrimack59 shoot failed (5, 9)!
+WARN - bot_Dart shoot failed (13, 21)!
+WARN - bot_Victory55 shoot failed (18, 19)!
+WARN - bot_Iron_Fist88 kill botbot_Jackson's_Revenge118
+WARN - bot_Iron_Fist88 kill NicolasLeRebelDeL'espace_Antigone36
+WARN - bot_Iron_Fist88 kill A.I.C.I.S._Tahoe116
+WARN - bot_Iron_Fist88 kill botbot_Antigone47
+WARN - bot_Iron_Fist88 kill A.I.C.I.S._Valor_of_Vardona39
+WARN - bot_Iron_Fist88 kill botbot_Huey_Long127
+WARN - bot_Jackson's_Revenge23 shoot failed (11, 19)!
+WARN - botbot_Kimera91 shoot failed (5, 8)!
+WARN - botbot_Napoleon90 shot A.I.C.I.S._Victory148
+WARN - botbot_Cyrus144 shot A.I.C.I.S._ISS_Adventurer
+WARN - botbot_Cyrus144 kill botbot_Geisha
+WARN - botbot_Jackson's_Revenge69 shoot failed (12, 20)!
+WARN - botbot_BS_Galactica shoot failed (18, 0)!
+WARN - botbot_Jackson_V67 shot NicolasLeRebelDeL'espace_Jackson_V131
+WARN - botbot_Hyperion115 shoot failed (5, 8)!
+WARN - botbot_Metis21 shoot failed (29, 7)!
+WARN - botbot_Hyperion112 shoot failed (9, 14)!
+WARN - botbot_Eos10 kill A.I.C.I.S._ISS_Adventurer
+WARN - botbot_Dart shoot failed (14, 11)!
+WARN - botbot_Fury84 kill A.I.C.I.S._Eos102
+WARN - botbot_Fury84 shot botbot_Norad_III85
+WARN - botbot_Fury84 shot bot_Bismarck124
+WARN - botbot_Hoosier26 shoot failed (14, 11)!
+WARN - botbot_Hephaestus68 shoot failed (14, 11)!
+WARN - botbot_Gray_Tiger147 shoot failed (3, 25)!
+INFO - It's turn nb 25
+INPU - [NicolasLeRebelDeL'espace] Scion3:faster Leviathan105:left ISS_Europa:right Kimera8:left X-WINGS:slower Jackson_V131:38-37 V-WINGS:right Metis150:slower Loki77:right Hyperion96:left Iron_Justice156:slower Bucephalus149:13-13 Herakles75:34-10 Huey_Long0:left Merrimack58:left ISS_Adventurer:left Victory129:slower BS_Galactica:faster Napoleon133:left Fury87:5-4 Puddle_Jumper:slower Ha'tak:left Patroclus9:left Antigone29:left Kimera117:faster Theodore_G._Bilbo132:17-15 Patroclus7:right Tahoe25:13-13 Antigone74:14-2 Helios42:slower V-19:10-6 Bismarck33:faster
+INPU - [A.I.C.I.S.] V-19:13-12 Jackson_V65:right Leviathan107:left Titan100:left Theodore_G._Bilbo35:slower Hurricane82:right Cerberus139:left Meleager44:slower Victory148:27-24 V-WINGS:slower Ragnorak66:right Napoleon123:slower Hephaestus103:right Geisha:slower X-WINGS:right Puddle_Jumper:left Thunder_Child145:16-12 Hyperion153:slower Herakles137:22-21 Antigone1:faster Antigone125:right Aeneas15:left Victory53:slower Loki16:left Circe141:8-9 Eos62:12-15 Cyrus32:left Scion60:right Thunder_Child31:slower Leviathan22:9-21 BC_Pilgrim:left Merrimack59:7-2
+INPU - [bot] Hurricane97:7-2 Fury54:left Victory38:left Dart:slower Ha'tak:left Norad_III79:left Valor_of_Vardona4:right Ragnorak83:faster White_Star110:right X-WINGS:17-15 Metis134:right Victory55:right Alexander:faster BC_Pilgrim:slower Iron_Fist88:15-18 Jackson's_Revenge18:faster Norad_II19:right Napoleon57:left Cyrus106:slower Hyperion151:left Victory146:left Tahoe89:faster Cerberus94:slower Cyrus12:left Napoleon40:left Jackson's_Revenge23:left Bucephalus52:13-12 Jackson_V37:right Bucephalus30:left Cyrus24:left Bismarck124:17-15
+INPU - [botbot] Kimera91:4-1 Valor_of_Vardona70:13-19 Napoleon61:right Cyrus144:13-12 Jackson's_Revenge69:28-10 The_Watcher:20-12 BS_Galactica:left White_Star81:slower Napoleon51:slower Theodore_G._Bilbo13:right Metis114:faster Aeneas63:right Jackson_V67:1-38 Cyrus126:right Hyperion115:8-9 Cerberus121:left Hyperion112:slower White_Star76:31-17 Eos10:right Dart:9-15 Norad_III85:13-19 Jackson_V130:20-12 Kimera111:slower Fury84:left Puddle_Jumper:right Hoosier26:13-19 White_Star56:right Hephaestus68:12-15 Gray_Tiger147:23-7 Huey_Long92:left Kimera14:right
+WARN - NicolasLeRebelDeL'espace_Jackson_V131 shot botbot_Jackson_V67
+WARN - NicolasLeRebelDeL'espace_Bucephalus149 shot A.I.C.I.S._V-19
+WARN - NicolasLeRebelDeL'espace_Bucephalus149 shot NicolasLeRebelDeL'espace_X-WINGS
+WARN - NicolasLeRebelDeL'espace_Bucephalus149 kill NicolasLeRebelDeL'espace_Kimera117
+WARN - NicolasLeRebelDeL'espace_Herakles75 shoot failed (9, 33)!
+WARN - NicolasLeRebelDeL'espace_Fury87 shot bot_Hurricane97
+WARN - NicolasLeRebelDeL'espace_Theodore_G._Bilbo132 kill botbot_Norad_III85
+WARN - NicolasLeRebelDeL'espace_Tahoe25 kill A.I.C.I.S._V-19
+WARN - NicolasLeRebelDeL'espace_Antigone74 shoot failed (1, 13)!
+WARN - NicolasLeRebelDeL'espace_V-19 shoot failed (5, 9)!
+WARN - A.I.C.I.S._Victory148 shot botbot_Napoleon90
+WARN - A.I.C.I.S._Thunder_Child145 shot bot_White_Star110
+WARN - A.I.C.I.S._Thunder_Child145 shot NicolasLeRebelDeL'espace_Tahoe25
+WARN - A.I.C.I.S._Herakles137 shoot failed (20, 21)!
+WARN - A.I.C.I.S._Circe141 shoot failed (8, 7)!
+WARN - A.I.C.I.S._Eos62 shot botbot_Hoosier26
+WARN - A.I.C.I.S._Leviathan22 shoot failed (20, 8)!
+WARN - A.I.C.I.S._Merrimack59 kill NicolasLeRebelDeL'espace_Fury87
+WARN - bot_Hurricane97 shoot failed (1, 6)!
+WARN - bot_X-WINGS shoot failed (14, 16)!
+WARN - bot_Iron_Fist88 shot botbot_Eos10
+WARN - bot_Bucephalus52 shoot failed (11, 12)!
+WARN - bot_Bismarck124 shoot failed (14, 16)!
+WARN - botbot_Kimera91 shot A.I.C.I.S._Merrimack59
+WARN - botbot_Valor_of_Vardona70 kill bot_Bismarck124
+WARN - botbot_Cyrus144 shoot failed (11, 12)!
+WARN - botbot_Jackson's_Revenge69 shoot failed (9, 27)!
+WARN - botbot_The_Watcher shoot failed (11, 19)!
+WARN - botbot_Jackson_V67 shoot failed (37, 0)!
+WARN - botbot_Hyperion115 shoot failed (8, 7)!
+WARN - botbot_White_Star76 shot A.I.C.I.S._Iron_Justice73
+WARN - botbot_Dart kill botbot_BS_Galactica
+WARN - botbot_Jackson_V130 shoot failed (11, 19)!
+WARN - botbot_Hoosier26 shoot failed (18, 12)!
+WARN - botbot_Hephaestus68 shot botbot_Hoosier26
+WARN - botbot_Gray_Tiger147 shot A.I.C.I.S._Phobos136
+INFO - It's turn nb 26
+INPU - [NicolasLeRebelDeL'espace] Scion3:right Leviathan105:left ISS_Europa:right Kimera8:slower X-WINGS:left Jackson_V131:2-39 V-WINGS:right Metis150:left Loki77:right Hyperion96:left Iron_Justice156:13-17 Bucephalus149:13-16 Herakles75:36-12 Huey_Long0:left Merrimack58:right ISS_Adventurer:left Victory129:slower BS_Galactica:slower Napoleon133:13-16 Puddle_Jumper:right Ha'tak:left Patroclus9:left Antigone29:right Theodore_G._Bilbo132:13-16 Patroclus7:13-16 Tahoe25:left Helios42:slower Bismarck33:left
+INPU - [A.I.C.I.S.] Phobos136:24-9 Jackson_V65:right Leviathan107:faster Titan100:left Theodore_G._Bilbo35:slower Hurricane82:right Cerberus139:slower Meleager44:slower Victory148:19-24 V-WINGS:13-16 Ragnorak66:right Napoleon123:right Hephaestus103:right Geisha:13-16 X-WINGS:right Puddle_Jumper:left Thunder_Child145:slower Hyperion153:right Herakles137:15-16 Antigone1:left Antigone125:slower Aeneas15:left Victory53:slower Loki16:right Circe141:10-11 Eos62:right Cyrus32:slower Herakles157:left Scion60:21-10 Thunder_Child31:right Leviathan22:13-17 BC_Pilgrim:slower Merrimack59:left
+INPU - [A.I.C.I.S] Puddle_Jumper:right V-WINGS:right Alexander:left BS_Galactica:right V-19:faster Titan46:faster Adventurer:left Ha'tak:slower Dart:faster Saragossa:slower
+INPU - [HODOR] 
+INFO - A.I.C.I.S as take A.I.C.I.S_Herakles75 !
+INFO - It's turn nb 4
+INPU - [bot] Hurricane97:5-38 Fury54:slower Victory38:11-15 Dart:11-15 Ha'tak:left Norad_III79:left Valor_of_Vardona4:faster Ragnorak83:left White_Star110:15-14 X-WINGS:slower Metis134:11-15 Victory55:faster Alexander:11-15 BC_Pilgrim:slower Iron_Fist88:14-15 Jackson's_Revenge18:faster Norad_II19:right Napoleon57:14-15 Cyrus106:slower Hyperion151:11-15 Victory146:left Tahoe89:slower Cerberus94:slower Cyrus12:left Napoleon40:left Jackson's_Revenge23:faster Bucephalus52:11-15 Jackson_V37:15-22 Bucephalus30:left Cyrus24:left
+INPU - [botbot] Kimera91:2-39 Valor_of_Vardona70:14-15 Napoleon61:right Napoleon90:25-21 Cyrus144:10-11 Jackson's_Revenge69:21-9 The_Watcher:left White_Star81:faster Napoleon51:13-16 Metis114:faster Aeneas63:16-10 Jackson_V67:1-1 Cyrus126:13-16 Hyperion115:left Metis21:right Hyperion112:slower White_Star76:25-21 Eos10:15-16 Jackson_V130:left Kimera111:13-16 Fury84:slower Puddle_Jumper:slower Hoosier26:13-16 White_Star56:right Hephaestus68:14-15 Gray_Tiger147:21-9 Huey_Long92:14-15 Kimera14:13-9
+WARN - NicolasLeRebelDeL'espace_Jackson_V131 shoot failed (38, 1)!
+WARN - NicolasLeRebelDeL'espace_Iron_Justice156 shot NicolasLeRebelDeL'espace_Iron_Justice156
+WARN - NicolasLeRebelDeL'espace_Iron_Justice156 shot NicolasLeRebelDeL'espace_Huey_Long0
+WARN - NicolasLeRebelDeL'espace_Iron_Justice156 shot bot_Metis134
+WARN - NicolasLeRebelDeL'espace_Bucephalus149 shot botbot_Hoosier26
+WARN - NicolasLeRebelDeL'espace_Herakles75 shoot failed (11, 35)!
+WARN - NicolasLeRebelDeL'espace_Napoleon133 shot botbot_Hoosier26
+WARN - NicolasLeRebelDeL'espace_Theodore_G._Bilbo132 shot botbot_Hoosier26
+WARN - NicolasLeRebelDeL'espace_Patroclus7 shot botbot_Hoosier26
+WARN - A.I.C.I.S._Phobos136 shot botbot_Jackson's_Revenge69
+WARN - A.I.C.I.S._Victory148 shoot failed (23, 18)!
+WARN - A.I.C.I.S._V-WINGS shot botbot_Hoosier26
+WARN - A.I.C.I.S._Geisha shot botbot_Hoosier26
+WARN - A.I.C.I.S._Herakles137 shot A.I.C.I.S._Herakles137
+WARN - A.I.C.I.S._Circe141 shoot failed (10, 9)!
+WARN - A.I.C.I.S._Scion60 kill botbot_Aeneas63
+WARN - A.I.C.I.S._Leviathan22 kill NicolasLeRebelDeL'espace_Iron_Justice156
+WARN - A.I.C.I.S._Leviathan22 kill bot_Metis134
+WARN - bot_Hurricane97 shoot failed (37, 4)!
+WARN - bot_Victory38 shot botbot_Kimera111
+WARN - bot_Dart kill botbot_Kimera111
+WARN - bot_White_Star110 shoot failed (13, 14)!
+WARN - bot_Alexander shoot failed (14, 10)!
+WARN - bot_Iron_Fist88 kill NicolasLeRebelDeL'espace_V-WINGS
+WARN - bot_Napoleon57 shoot failed (14, 13)!
+WARN - bot_Hyperion151 shoot failed (14, 10)!
+WARN - bot_Bucephalus52 shoot failed (14, 10)!
+WARN - bot_Jackson_V37 shot A.I.C.I.S._Leviathan22
+WARN - botbot_Kimera91 shoot failed (38, 1)!
+WARN - botbot_Valor_of_Vardona70 shoot failed (14, 13)!
+WARN - botbot_Napoleon90 shoot failed (20, 24)!
+WARN - botbot_Cyrus144 shoot failed (10, 9)!
+WARN - botbot_Jackson's_Revenge69 shot A.I.C.I.S._Phobos136
+WARN - botbot_Napoleon51 shot botbot_Hoosier26
+WARN - botbot_Jackson_V67 shoot failed (0, 0)!
+WARN - botbot_Cyrus126 shot botbot_Hoosier26
+WARN - botbot_White_Star76 shoot failed (20, 24)!
+WARN - botbot_Eos10 shot A.I.C.I.S._Herakles137
+WARN - botbot_Hoosier26 shot botbot_Hoosier26
+WARN - botbot_Hephaestus68 shoot failed (14, 13)!
+WARN - botbot_Gray_Tiger147 kill A.I.C.I.S._Phobos136
+WARN - botbot_Huey_Long92 shoot failed (14, 13)!
+WARN - botbot_Kimera14 shot A.I.C.I.S._Eos62
+WARN - botbot_Kimera14 shot bot_Napoleon40
+INFO - It's turn nb 27
