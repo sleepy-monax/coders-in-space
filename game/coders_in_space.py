@@ -85,8 +85,6 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
 
         # Show the game board to the human player.
         show_game_board(game_data)
-	
-	raw_input()
 
         # Cleaning the pending_attack list.
         game_data['pending_attacks'] = []
