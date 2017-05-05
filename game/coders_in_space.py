@@ -30,7 +30,7 @@ log_input = 3
 # | Game Loop                                                                                                        | #
 # +------------------------------------------------------------------------------------------------------------------+ #
 
-def play_game(level_name, players_names, players_types, remote_id=None, remote_ip=None, max_rounds_count=10):
+def play_game(level_name, players_names, players_types, remote_id=None, remote_ip=None, max_rounds_count=20):
     """
     Main function which executes the game loop.
 
@@ -85,7 +85,7 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
 
         # Show the game board to the human player.
         show_game_board(game_data)
-
+        raw_input()
         # Cleaning the pending_attack list.
         game_data['pending_attacks'] = []
         pending_command = []
@@ -1669,20 +1669,26 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_data):
             game_data['nb_rounds'] = 0
 
             # Give damages to all ships on targeted coordinate.
+            ships_to_remove = []
+
             for target_ship in game_data['board'][target_coordinate]:
                 if  game_data['ships'][target_ship]['owner'] != 'none':
                     # Give damages to the tageted ship.
                     game_data['ships'][target_ship]['heal_points'] -= damages
 
                     if game_data['ships'][target_ship]['heal_points'] <= 0:
-                        # Remove a space ship.
-                        write_log(game_data, '%s kill %s' % (ship, target_ship), log_warning)
-                        game_data['board'][target_coordinate].remove(target_ship)
-                        game_data['players'][game_data['ships'][target_ship]['owner']]['nb_ships'] -= 1
-
-                        del game_data['ships'][target_ship]
+                        # The ship is death -> add to the ships to remove from
+                        ships_to_remove.append(target_ship)
                     else:
                         write_log(game_data, '%s shot %s' % (ship, target_ship), log_warning)
+
+            # Remove ships from the game.
+            for death_ship in ships_to_remove:
+                write_log(game_data, '%s kill %s' % (ship, death_ship), log_warning)
+                game_data['board'][target_coordinate].remove(death_ship)
+                game_data['players'][game_data['ships'][death_ship]['owner']]['nb_ships'] -= 1
+
+                del game_data['ships'][death_ship]
         else:
             write_log(game_data, '%s shoot failed %s!' % (ship, str(target_coordinate)), log_warning)
     else:

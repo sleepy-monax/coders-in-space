@@ -1,3 +1,3 @@
 from coders_in_space import *
 
-play_game('board/battlefield_bis.cis', ('Gertrude', 'A.I.C.I.S'), remote_vs_ai, remote_id=1, remote_ip = "138.48.160.106")
+play_game('board/example.cis', ('A.I.C.I.S', 'FrenayAcceleray'), ai_vs_remote, remote_id=2, remote_ip = "138.48.160.141")
