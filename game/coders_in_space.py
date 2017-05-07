@@ -61,9 +61,7 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
     # Create the new game.
     is_remote_game = (remote_id != None and remote_ip != None)
 
-    # Show the splash screen.
-    show_splash_game(is_remote_game)
-    sleep(1)
+
 
     # Connected to the remote player.
     if is_remote_game:
@@ -72,6 +70,9 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
                                     connect_to_player(remote_id, remote_ip, True))
     else:
         game_data = initialize_game(level_name, players_names, players_types, max_rounds_count)
+
+    # Show the splash screen.
+    show_splash_game(game_data, is_remote_game)
 
     # Setup game loop.
     is_ship_buy = True
@@ -84,8 +85,8 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
             write_log(game_data, u'It\'s turn nb %d' % (total_turn), log_info)
 
         # Show the game board to the human player.
-        show_game_board(game_data)
-        raw_input()
+        show_game_screen(game_data)
+
         # Cleaning the pending_attack list.
         game_data['pending_attacks'] = []
         pending_command = []
@@ -108,7 +109,7 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
 
         # Show the game board to the human player.
 
-        show_game_board(game_data)
+        show_game_screen(game_data)
 
         # Do game loop.
         game_data = do_moves(game_data)
@@ -120,7 +121,7 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
         total_turn += 1
         game_running = is_game_continue(game_data)
 
-    show_game_board(game_data)
+    show_game_screen(game_data)
 
     # Disconnect the remote player.
     if is_remote_game:
@@ -504,7 +505,7 @@ def get_human_input(player_name, buy_ship, game_data):
     screen_size = get_terminal_size()
 
     # Show the game board to the human player.
-    show_game_board(game_data)
+    show_game_screen(game_data)
 
     # Add a input box.
     c = create_canvas(screen_size[0], 5)
@@ -1105,7 +1106,7 @@ def show_path(path, end_node, board_size):
 # | Users Interfaces                                                                                                 | #
 # +------------------------------------------------------------------------------------------------------------------+ #
 
-def show_splash_game(is_remote_game=False):
+def show_splash_game(game_data, is_remote_game=False):
     """
     Show the splash screen.
 
@@ -1179,8 +1180,16 @@ def show_splash_game(is_remote_game=False):
     c = put_text(c, text_location[0] + text_width - len(game_copyright), text_location[1] + 9, game_copyright, color='yellow')
     print_canvas(c)
 
+    screen_size = get_terminal_size()
+    game_screen = render_game_screen(game_data)
+    title_screen = create_canvas(*screen_size)
+    title_screen = put_box(title_screen, 0, 0, screen_size[0], screen_size[1])
+    title_screen = put_stars_field(title_screen, 1, 1, screen_size[0] - 2, screen_size[1] - 2, 0)
 
-def show_game_board(game_data):
+    slide_animation(title_screen, game_screen)
+
+
+def show_game_screen(game_data):
     """
     Show game board on the teminal.
 
@@ -1194,6 +1203,22 @@ def show_game_board(game_data):
                    Nicolas Van Bossuyt (v2. 19/03/17).
 
     Implementation: Nicolas Van Bossuyt (v4. 10/02/17).
+    """
+    c = render_game_screen(game_data)
+    print_canvas(c)
+
+
+def render_game_screen(game_data):
+    """
+    Render the game screen.
+    
+    Parameter
+    ---------
+    game_data: data of the game (dic).
+    
+    Return
+    ------
+    game_screen: rendered game_screen (canvas).
     """
     # Setup main canvas.
     screen_size = get_terminal_size()
@@ -1223,7 +1248,7 @@ def show_game_board(game_data):
     if game_board_pos[0] - (c_ship_list['size'][0] + 2) > 0:
         c = put_window(c, c_ship_list, 'SHIP LIST', 0, 0, c_ship_list['size'][0] + 2, c_ship_list['size'][1] + 2)
 
-    print_canvas(c)
+    return c
 
 
 def render_game_board(game_data):
@@ -2168,4 +2193,4 @@ def dict_sort(items, key):
 # Use for quick debuging.
 
 if __name__ == '__main__':
-    play_game('board/test.cis', ('NicolasLeRebelDeL\'espace', 'A.I.C.I.S.', 'bot', 'botbot'), ('ai','ai','ai','ai'))
+    play_game('board/mum.cis', ('NicolasLeRebelDeL\'espace', 'A.I.C.I.S.', 'bot', 'botbot'), ('ai','ai','ai','ai'))

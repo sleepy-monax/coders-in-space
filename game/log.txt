@@ -1,345 +1,375 @@
-INPU - [A.I.C.I.S] ISS_Europa:fighter SC_Juggernaut:fighter TIE-FIGHTER:fighter Nimrod:destroyer Hurricane:battlecruiser Aleksander:battlecruiser
-INPU - [FrenayAcceleray] BB-8:battlecruiser Speedy:destroyer The_Simpsons:destroyer ShootingStar:fighter HisFather:fighter Amiiii:fighter
+INPU - [NicolasLeRebelDeL'espace] BS_Galactica:fighter Puddle_Jumper:fighter Geisha:fighter SC_Juggernaut:fighter Alexander:fighter ISS_Europa:fighter BC_Pilgrim:fighter ARC-170:fighter DROID-starfighter:fighter ISS_Adventurer:fighter
+INPU - [A.I.C.I.S.] ISS_Europa:fighter BC_Pilgrim:fighter DROID-starfighter:fighter ARC-170:fighter X-WINGS:fighter Adventurer:fighter Alexander:fighter BS_Galactica:fighter The_Watcher:fighter Puddle_Jumper:fighter
+INPU - [bot] Geisha:fighter ARC-170:fighter Dart:fighter V-19:fighter Saragossa:fighter ISS_Adventurer:fighter Ha'tak:fighter Puddle_Jumper:fighter X-WINGS:fighter V-WINGS:fighter
+INPU - [botbot] BS_Galactica:fighter Dart:fighter TIE-FIGHTER:fighter Adventurer:fighter V-19:fighter ARC-170:fighter SC_Juggernaut:fighter Geisha:fighter Ha'tak:fighter Saragossa:fighter
+INFO - bot as take bot_Bucephalus171 !
 INFO - It's turn nb 0
-INPU - [A.I.C.I.S] SC_Juggernaut:faster ISS_Europa:faster Hurricane:faster TIE-FIGHTER:faster Nimrod:faster
-INPU - [FrenayAcceleray] HisFather:faster The_Simpsons:faster ShootingStar:faster Amiiii:faster Speedy:faster BB-8:faster
+INPU - [NicolasLeRebelDeL'espace] ISS_Adventurer:faster DROID-starfighter:faster Geisha:faster Alexander:faster BS_Galactica:faster ARC-170:faster SC_Juggernaut:faster ISS_Europa:faster BC_Pilgrim:faster Puddle_Jumper:faster
+INPU - [A.I.C.I.S.] BC_Pilgrim:faster Adventurer:faster ISS_Europa:faster X-WINGS:faster BS_Galactica:faster Alexander:faster DROID-starfighter:faster Puddle_Jumper:faster ARC-170:faster The_Watcher:faster
+INPU - [bot] Geisha:faster Saragossa:faster Dart:faster Ha'tak:faster V-19:faster X-WINGS:faster V-WINGS:faster ISS_Adventurer:faster Puddle_Jumper:faster Bucephalus171:faster ARC-170:faster
+INPU - [botbot] ARC-170:faster Saragossa:faster TIE-FIGHTER:faster Ha'tak:faster SC_Juggernaut:faster Dart:faster Adventurer:faster Geisha:faster V-19:faster BS_Galactica:faster
 INFO - It's turn nb 1
-INPU - [A.I.C.I.S] SC_Juggernaut:faster ISS_Europa:left TIE-FIGHTER:left Nimrod:faster
-INPU - [FrenayAcceleray] HisFather:right The_Simpsons:slower ShootingStar:left Amiiii:slower Speedy:faster BB-8:slower
+INPU - [NicolasLeRebelDeL'espace] ISS_Adventurer:faster DROID-starfighter:faster Geisha:left Alexander:faster BS_Galactica:right ARC-170:faster SC_Juggernaut:right ISS_Europa:right
+INPU - [A.I.C.I.S.] BC_Pilgrim:faster Adventurer:faster ISS_Europa:faster X-WINGS:left BS_Galactica:right Alexander:right DROID-starfighter:faster Puddle_Jumper:faster ARC-170:left The_Watcher:faster
+INPU - [bot] Geisha:faster Saragossa:faster Dart:left Ha'tak:faster V-19:faster X-WINGS:right V-WINGS:left ISS_Adventurer:faster Puddle_Jumper:left Bucephalus171:right ARC-170:faster
+INPU - [botbot] ARC-170:right Saragossa:left Ha'tak:faster SC_Juggernaut:faster Dart:right Adventurer:right Geisha:faster V-19:faster BS_Galactica:left
+INFO - bot as take bot_Leviathan158 !
+INFO - botbot as take botbot_White_Star58 !
 INFO - It's turn nb 2
-INPU - [A.I.C.I.S] ISS_Europa:left TIE-FIGHTER:left
-INPU - [FrenayAcceleray] HisFather:left The_Simpsons:faster ShootingStar:left Amiiii:faster Speedy:slower BB-8:faster
+INPU - [NicolasLeRebelDeL'espace] DROID-starfighter:right Geisha:left BS_Galactica:faster ARC-170:slower SC_Juggernaut:faster ISS_Europa:faster BC_Pilgrim:faster Puddle_Jumper:faster
+INPU - [A.I.C.I.S.] BC_Pilgrim:right Adventurer:faster ISS_Europa:faster X-WINGS:left BS_Galactica:faster Alexander:right DROID-starfighter:faster Puddle_Jumper:faster ARC-170:left The_Watcher:right
+INPU - [bot] Geisha:right Saragossa:right Dart:left Ha'tak:faster V-19:left X-WINGS:right V-WINGS:faster ISS_Adventurer:faster Puddle_Jumper:left Leviathan158:faster Bucephalus171:right ARC-170:faster
+INPU - [botbot] ARC-170:right Saragossa:faster TIE-FIGHTER:faster White_Star58:faster Ha'tak:right SC_Juggernaut:left Dart:right Adventurer:right Geisha:right BS_Galactica:left
+INFO - botbot as take botbot_Cerberus56 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Phobos45 !
+INFO - bot as take bot_Hephaestus159 !
+INFO - botbot as take botbot_Napoleon66 !
 INFO - It's turn nb 3
-INPU - [A.I.C.I.S] SC_Juggernaut:slower ISS_Europa:right TIE-FIGHTER:right
-INPU - [FrenayAcceleray] HisFather:right The_Simpsons:slower ShootingStar:slower Amiiii:faster Speedy:slower BB-8:slower
-INFO - A.I.C.I.S as take A.I.C.I.S_d1 !
+INPU - [NicolasLeRebelDeL'espace] Geisha:faster BS_Galactica:slower SC_Juggernaut:right Phobos45:faster BC_Pilgrim:faster Puddle_Jumper:faster
+INPU - [A.I.C.I.S.] BC_Pilgrim:faster Adventurer:right BS_Galactica:faster Alexander:faster ARC-170:left The_Watcher:right
+INPU - [bot] Geisha:faster Saragossa:left Dart:faster Ha'tak:faster V-19:left X-WINGS:faster Hephaestus159:faster V-WINGS:left ISS_Adventurer:faster Puddle_Jumper:faster Leviathan158:right
+INPU - [botbot] ARC-170:right Saragossa:left TIE-FIGHTER:right White_Star58:slower Ha'tak:slower SC_Juggernaut:faster Dart:right Cerberus56:faster Adventurer:right Napoleon66:faster V-19:faster BS_Galactica:left
+INFO - bot as take bot_Napoleon133 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Patroclus54 !
+INFO - botbot as take botbot_Norad_II57 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Leviathan79 !
+INFO - bot as take bot_Cerberus168 !
+INFO - botbot as take botbot_Iron_Justice83 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Kimeran_Juggernaut46 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Napoleon47 !
+INFO - bot as take bot_Jackson_V149 !
 INFO - It's turn nb 4
-INPU - [A.I.C.I.S] SC_Juggernaut:left ISS_Europa:left TIE-FIGHTER:left d1:faster
-INPU - [FrenayAcceleray] HisFather:right The_Simpsons:faster ShootingStar:faster Amiiii:faster Speedy:faster BB-8:faster
-INFO - A.I.C.I.S as take A.I.C.I.S_b1 !
+INPU - [NicolasLeRebelDeL'espace] ISS_Adventurer:left Patroclus54:faster DROID-starfighter:faster Geisha:right Alexander:left BS_Galactica:right Napoleon47:faster ARC-170:left ISS_Europa:left Phobos45:left BC_Pilgrim:right Kimeran_Juggernaut46:faster Leviathan79:faster Puddle_Jumper:faster
+INPU - [A.I.C.I.S.] BC_Pilgrim:right X-WINGS:left BS_Galactica:right Alexander:faster ARC-170:left The_Watcher:faster
+INPU - [bot] Geisha:faster Saragossa:left Dart:left Ha'tak:faster V-19:right X-WINGS:faster Hephaestus159:faster ISS_Adventurer:slower Puddle_Jumper:faster Jackson_V149:faster Leviathan158:right ARC-170:left
+INPU - [botbot] Norad_II57:faster ARC-170:right Saragossa:faster TIE-FIGHTER:faster White_Star58:faster Ha'tak:right SC_Juggernaut:left Dart:right Adventurer:right Geisha:slower Napoleon66:faster V-19:faster BS_Galactica:left
+INFO - bot as take bot_Aeneas160 !
+INFO - bot as take bot_White_Star80 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Antigone92 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Ragnorak73 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Iron_Fist62 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Gray_Tiger72 !
+INFO - botbot as take botbot_Ragnorak84 !
+INFO - bot as take bot_Valor_of_Vardona100 !
+INFO - botbot as take botbot_Norad_II95 !
 INFO - It's turn nb 5
-INPU - [A.I.C.I.S] SC_Juggernaut:faster b1:faster ISS_Europa:faster Hurricane:slower TIE-FIGHTER:faster d1:left
-INPU - [FrenayAcceleray] HisFather:left The_Simpsons:slower ShootingStar:faster Amiiii:slower Speedy:faster BB-8:right
+INPU - [NicolasLeRebelDeL'espace] ISS_Adventurer:faster Patroclus54:right DROID-starfighter:right Geisha:slower Alexander:slower BS_Galactica:faster Napoleon47:left ARC-170:right SC_Juggernaut:faster ISS_Europa:left Ragnorak73:faster Iron_Fist62:faster Phobos45:left BC_Pilgrim:faster Kimeran_Juggernaut46:left Leviathan79:slower Puddle_Jumper:right Antigone92:faster
+INPU - [A.I.C.I.S.] BC_Pilgrim:faster Adventurer:slower ISS_Europa:17-21 X-WINGS:faster BS_Galactica:faster Alexander:slower DROID-starfighter:right Puddle_Jumper:left ARC-170:left The_Watcher:right
+INPU - [bot] Cerberus168:17-35 Geisha:faster Saragossa:left Dart:faster Ha'tak:slower Valor_of_Vardona100:faster White_Star80:faster V-19:faster X-WINGS:faster Hephaestus159:16-26 Aeneas160:faster V-WINGS:faster ISS_Adventurer:left Puddle_Jumper:slower Jackson_V149:right Leviathan158:faster Bucephalus171:16-26 ARC-170:left
+INPU - [botbot] Norad_II57:faster ARC-170:left Saragossa:faster TIE-FIGHTER:faster White_Star58:slower Ha'tak:faster SC_Juggernaut:faster Dart:right Ragnorak84:faster Iron_Justice83:30-12 Adventurer:faster Norad_II95:25-17 Geisha:right V-19:slower BS_Galactica:faster
+INFO - A.I.C.I.S. as take A.I.C.I.S._Scion103 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Bismarck156 !
+INFO - botbot as take botbot_Loki49 !
+INFO - botbot as take botbot_Norad_III134 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Circe169 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Hoosier199 !
+INFO - bot as take bot_Circe94 !
+INFO - botbot as take botbot_Loki52 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Aeneas104 !
+INFO - bot as take bot_Norad_III198 !
+INFO - botbot as take botbot_White_Star97 !
+INFO - bot as take bot_Patroclus101 !
+INFO - botbot as take botbot_Kimera11 !
+WARN - A.I.C.I.S._ISS_Europa shoot failed (20, 16)!
+WARN - bot_Cerberus168 shoot failed (34, 16)!
+WARN - bot_Hephaestus159 shoot failed (25, 15)!
+WARN - bot_Bucephalus171 shoot failed (25, 15)!
+WARN - botbot_Iron_Justice83 shoot failed (11, 29)!
+WARN - botbot_Norad_II95 shoot failed (16, 24)!
 INFO - It's turn nb 6
-INPU - [A.I.C.I.S] SC_Juggernaut:faster b1:left Hurricane:faster Nimrod:20-20 d1:faster
-INPU - [FrenayAcceleray] HisFather:faster The_Simpsons:faster ShootingStar:faster Amiiii:faster Speedy:21-23 BB-8:23-23
-WARN - A.I.C.I.S_Nimrod shoot failed (19, 19)!
-WARN - FrenayAcceleray_Speedy shoot failed (22, 20)!
-WARN - FrenayAcceleray_BB-8 shot A.I.C.I.S_Nimrod
+INPU - [NicolasLeRebelDeL'espace] ISS_Adventurer:slower Patroclus54:slower DROID-starfighter:faster Geisha:left Aeneas104:faster Alexander:left BS_Galactica:faster Napoleon47:left SC_Juggernaut:left ISS_Europa:left Ragnorak73:faster Iron_Fist62:slower Phobos45:left BC_Pilgrim:slower Kimeran_Juggernaut46:faster Leviathan79:faster Puddle_Jumper:27-19 Gray_Tiger72:13-14 Antigone92:slower
+INPU - [A.I.C.I.S.] Hoosier199:faster BC_Pilgrim:faster Adventurer:right Circe169:faster Bismarck156:faster ISS_Europa:right X-WINGS:right BS_Galactica:slower Alexander:faster DROID-starfighter:right Scion103:faster Puddle_Jumper:left ARC-170:left The_Watcher:left
+INPU - [bot] Geisha:slower Saragossa:faster Dart:left Ha'tak:slower Patroclus101:faster Valor_of_Vardona100:right White_Star80:faster V-19:right Napoleon133:13-28 X-WINGS:faster Hephaestus159:17-25 Aeneas160:right V-WINGS:right ISS_Adventurer:slower Puddle_Jumper:left Circe94:faster Jackson_V149:left Leviathan158:15-26 Bucephalus171:right Norad_III198:faster ARC-170:slower
+INPU - [botbot] Norad_II57:33-9 ARC-170:left White_Star97:faster Saragossa:right TIE-FIGHTER:faster Kimera11:faster White_Star58:faster Norad_III134:faster Ha'tak:faster Loki52:faster SC_Juggernaut:faster Dart:right Loki49:faster Ragnorak84:right Iron_Justice83:29-19 Adventurer:right Norad_II95:faster Geisha:right Napoleon66:33-9 V-19:left BS_Galactica:left
+INFO - botbot as take botbot_Leviathan26 !
+INFO - bot as take bot_Cyrus44 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Herakles205 !
+INFO - botbot as take botbot_Norad_III10 !
+INFO - bot as take bot_Helios96 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Iron_Fist148 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Eos20 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Hephaestus78 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Thunder_Child102 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Amphitrite25 !
+INFO - bot as take bot_Metis195 !
+INFO - botbot as take botbot_Merrimack37 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Merrimack211 !
+INFO - botbot as take botbot_Ragnorak60 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Bucephalus124 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Circe141 !
+INFO - botbot as take botbot_Norad_II2 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Patroclus108 !
+INFO - bot as take bot_Hurricane151 !
+INFO - bot as take bot_Hoosier3 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Hoosier82 !
+INFO - bot as take bot_Kimera67 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Aeneas172 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Valor_of_Vardona90 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Hurricane208 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Helios88 !
+INFO - botbot as take botbot_Theodore_G._Bilbo35 !
+WARN - NicolasLeRebelDeL'espace_Puddle_Jumper shot bot_Circe94
+WARN - NicolasLeRebelDeL'espace_Gray_Tiger72 shoot failed (13, 12)!
+WARN - bot_Hephaestus159 shoot failed (24, 16)!
+WARN - bot_Leviathan158 shoot failed (25, 14)!
+WARN - botbot_Norad_II57 shoot failed (8, 32)!
+WARN - botbot_Iron_Justice83 shoot failed (18, 28)!
+WARN - botbot_Napoleon66 shoot failed (8, 32)!
 INFO - It's turn nb 7
-INPU - [A.I.C.I.S] b1:left ISS_Europa:right Hurricane:slower TIE-FIGHTER:right Nimrod:right
-INPU - [FrenayAcceleray] HisFather:faster The_Simpsons:25-25 ShootingStar:right Amiiii:slower Speedy:25-25 BB-8:25-21
-INFO - A.I.C.I.S as take A.I.C.I.S_d2 !
-WARN - FrenayAcceleray_The_Simpsons shoot failed (24, 24)!
-WARN - FrenayAcceleray_Speedy shoot failed (24, 24)!
-WARN - FrenayAcceleray_BB-8 shoot failed (20, 24)!
+INPU - [NicolasLeRebelDeL'espace] ISS_Adventurer:left Patroclus54:faster DROID-starfighter:left Patroclus108:faster Geisha:faster Hoosier82:faster Amphitrite25:faster Valor_of_Vardona90:faster Aeneas104:left Alexander:faster BS_Galactica:right Napoleon47:left Bucephalus124:faster ARC-170:right SC_Juggernaut:left ISS_Europa:16-18 Ragnorak73:24-20 Iron_Fist62:faster Phobos45:faster BC_Pilgrim:left Kimeran_Juggernaut46:left Leviathan79:slower Puddle_Jumper:slower Helios88:faster Gray_Tiger72:faster Eos20:faster Antigone92:faster
+INPU - [A.I.C.I.S.] Hoosier199:right BC_Pilgrim:left Adventurer:left Circe169:faster Bismarck156:left Circe141:faster Iron_Fist148:17-31 ISS_Europa:right Aeneas172:faster Merrimack211:faster X-WINGS:left Thunder_Child102:faster BS_Galactica:faster Alexander:slower DROID-starfighter:10-25 Herakles205:faster Scion103:left Hurricane208:faster Puddle_Jumper:right ARC-170:right The_Watcher:slower Hephaestus78:faster
+INPU - [bot] Cerberus168:13-30 Saragossa:faster Dart:left Ha'tak:slower Patroclus101:faster Valor_of_Vardona100:faster Cyrus44:faster White_Star80:21-21 Kimera67:faster Hoosier3:faster V-19:right Napoleon133:faster X-WINGS:left Hephaestus159:right Aeneas160:right V-WINGS:left ISS_Adventurer:slower Puddle_Jumper:left Circe94:right Jackson_V149:left Leviathan158:17-26 Hurricane151:faster Bucephalus171:right Norad_III198:left Metis195:faster ARC-170:slower Helios96:faster
+INPU - [botbot] Norad_II57:35-7 ARC-170:faster White_Star97:right Saragossa:right Theodore_G._Bilbo35:faster Leviathan26:faster TIE-FIGHTER:right Kimera11:right White_Star58:slower Norad_III134:left Ha'tak:slower Merrimack37:faster Loki52:right SC_Juggernaut:left Dart:faster Loki49:right Ragnorak84:33-21 Cerberus56:right Iron_Justice83:faster Adventurer:right Norad_II95:left Geisha:faster Norad_III10:faster Norad_II2:faster Napoleon66:35-7 Ragnorak60:faster V-19:slower BS_Galactica:left
+INFO - bot as take bot_Ragnorak139 !
+INFO - bot as take bot_Titan0 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Iron_Fist7 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Leviathan71 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Palatine70 !
+INFO - botbot as take botbot_Hurricane34 !
+INFO - bot as take bot_Circe135 !
+INFO - botbot as take botbot_Huey_Long32 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Metis4 !
+INFO - botbot as take botbot_Emperor's_Fury27 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Palatine146 !
+INFO - bot as take bot_Meleager36 !
+WARN - NicolasLeRebelDeL'espace_ISS_Europa shot NicolasLeRebelDeL'espace_Aeneas104
+WARN - NicolasLeRebelDeL'espace_Ragnorak73 shoot failed (19, 23)!
+WARN - A.I.C.I.S._Iron_Fist148 shot bot_Cerberus168
+WARN - A.I.C.I.S._DROID-starfighter shoot failed (24, 9)!
+WARN - bot_White_Star80 shot NicolasLeRebelDeL'espace_Ragnorak73
+WARN - bot_Leviathan158 shot bot_Aeneas160
+WARN - botbot_Norad_II57 shoot failed (6, 34)!
+WARN - botbot_Ragnorak84 shoot failed (20, 32)!
+WARN - botbot_Napoleon66 shoot failed (6, 34)!
 INFO - It's turn nb 8
-INPU - [A.I.C.I.S] SC_Juggernaut:faster b1:left ISS_Europa:left Hurricane:faster TIE-FIGHTER:left Nimrod:right d2:faster d1:15-15
-INPU - [FrenayAcceleray] HisFather:faster The_Simpsons:25-21 ShootingStar:right Amiiii:right Speedy:17-20 BB-8:20-29
-WARN - A.I.C.I.S_d1 shoot failed (14, 14)!
-WARN - FrenayAcceleray_The_Simpsons shoot failed (20, 24)!
-WARN - FrenayAcceleray_Speedy shoot failed (19, 16)!
-WARN - FrenayAcceleray_BB-8 shoot failed (28, 19)!
+INPU - [NicolasLeRebelDeL'espace] ISS_Adventurer:16-25 Patroclus54:slower DROID-starfighter:left Patroclus108:slower Geisha:right Hoosier82:slower Amphitrite25:left Valor_of_Vardona90:left Aeneas104:left Alexander:faster BS_Galactica:slower Napoleon47:faster Bucephalus124:left ARC-170:right SC_Juggernaut:left Palatine70:faster ISS_Europa:slower Ragnorak73:22-18 Iron_Fist62:slower Phobos45:15-15 BC_Pilgrim:faster Kimeran_Juggernaut46:left Leviathan79:faster Puddle_Jumper:34-19 Helios88:slower Gray_Tiger72:right Eos20:left Antigone92:slower
+INPU - [A.I.C.I.S.] Hoosier199:faster BC_Pilgrim:slower Adventurer:faster Circe169:29-30 Bismarck156:faster Circe141:faster Iron_Fist148:13-28 Palatine146:faster Aeneas172:right Merrimack211:right X-WINGS:left Thunder_Child102:right BS_Galactica:9-3 Alexander:left DROID-starfighter:9-25 Herakles205:faster Leviathan71:faster Iron_Fist7:faster Scion103:slower Hurricane208:left Metis4:faster ARC-170:faster The_Watcher:left Hephaestus78:faster
+INPU - [bot] Cerberus168:15-28 Circe135:faster Geisha:slower Saragossa:faster Dart:left Ha'tak:faster Titan0:faster Patroclus101:left Valor_of_Vardona100:19-18 Cyrus44:slower White_Star80:23-23 Kimera67:faster Hoosier3:right V-19:left Napoleon133:slower X-WINGS:37-10 Hephaestus159:right Ragnorak139:faster Aeneas160:faster V-WINGS:right ISS_Adventurer:left Meleager36:faster Puddle_Jumper:left Circe94:faster Jackson_V149:left Leviathan158:left Hurricane151:right Bucephalus171:left Norad_III198:left Metis195:right ARC-170:left Helios96:right
+INPU - [botbot] Norad_II57:36-6 ARC-170:right White_Star97:left Saragossa:slower Theodore_G._Bilbo35:left Leviathan26:35-6 TIE-FIGHTER:32-34 Kimera11:left White_Star58:faster Norad_III134:faster Ha'tak:slower Merrimack37:left Loki52:faster Dart:faster Loki49:right Ragnorak84:33-23 Huey_Long32:faster Cerberus56:right Iron_Justice83:left Hurricane34:faster Emperor's_Fury27:faster Adventurer:left Norad_II95:left Geisha:right Norad_III10:right Norad_II2:left Napoleon66:36-6 Ragnorak60:right V-19:left BS_Galactica:left
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Hurricane22 !
+INFO - bot as take bot_Norad_II192 !
+INFO - bot as take bot_Gray_Tiger116 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Victory210 !
+INFO - botbot as take botbot_Aleksander30 !
+INFO - bot as take bot_Bismarck1 !
+INFO - botbot as take botbot_Norad_II40 !
+INFO - botbot as take botbot_Hurricane213 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Helios147 !
+INFO - bot as take bot_Helios207 !
+INFO - bot as take bot_Eos197 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Norad_III5 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Valor_of_Vardona119 !
+INFO - botbot as take botbot_White_Star42 !
+WARN - NicolasLeRebelDeL'espace_ISS_Adventurer shoot failed (24, 15)!
+WARN - NicolasLeRebelDeL'espace_Ragnorak73 shoot failed (17, 21)!
+WARN - NicolasLeRebelDeL'espace_Phobos45 shoot failed (14, 14)!
+WARN - NicolasLeRebelDeL'espace_Puddle_Jumper shoot failed (18, 33)!
+WARN - A.I.C.I.S._Circe169 shoot failed (29, 28)!
+WARN - A.I.C.I.S._Iron_Fist148 shot NicolasLeRebelDeL'espace_ISS_Adventurer
+WARN - A.I.C.I.S._BS_Galactica shoot failed (2, 8)!
+WARN - A.I.C.I.S._DROID-starfighter shoot failed (24, 8)!
+WARN - bot_Cerberus168 shot A.I.C.I.S._Iron_Fist148
+WARN - bot_Valor_of_Vardona100 shoot failed (17, 18)!
+WARN - bot_White_Star80 shot NicolasLeRebelDeL'espace_Ragnorak73
+WARN - bot_X-WINGS shoot failed (9, 36)!
+WARN - botbot_Norad_II57 shoot failed (5, 35)!
+WARN - botbot_Leviathan26 shoot failed (5, 34)!
+WARN - botbot_TIE-FIGHTER shoot failed (33, 31)!
+WARN - botbot_Ragnorak84 shoot failed (22, 32)!
+WARN - botbot_Napoleon66 shoot failed (5, 35)!
 INFO - It's turn nb 9
-INPU - [A.I.C.I.S] SC_Juggernaut:left b1:13-17 ISS_Europa:right Hurricane:slower TIE-FIGHTER:right d2:right d1:left
-INPU - [FrenayAcceleray] HisFather:left The_Simpsons:20-23 ShootingStar:right Amiiii:slower Speedy:18-23 BB-8:20-23
-WARN - A.I.C.I.S_b1 shoot failed (16, 12)!
-WARN - FrenayAcceleray_The_Simpsons shoot failed (22, 19)!
-WARN - FrenayAcceleray_Speedy shot A.I.C.I.S_d1
-WARN - FrenayAcceleray_BB-8 shoot failed (22, 19)!
+INPU - [NicolasLeRebelDeL'espace] ISS_Adventurer:faster Patroclus54:faster DROID-starfighter:left Patroclus108:faster Geisha:4-26 Hoosier82:faster Amphitrite25:faster Valor_of_Vardona90:faster Hurricane22:faster Aeneas104:faster Alexander:faster BS_Galactica:slower Napoleon47:21-13 Bucephalus124:faster ARC-170:left SC_Juggernaut:left Palatine70:right ISS_Europa:right Ragnorak73:26-23 Iron_Fist62:faster Phobos45:14-19 BC_Pilgrim:slower Kimeran_Juggernaut46:13-1 Leviathan79:slower Puddle_Jumper:slower Helios88:faster Gray_Tiger72:faster Eos20:faster Antigone92:faster
+INPU - [A.I.C.I.S.] Hoosier199:left Adventurer:faster Bismarck156:faster Norad_III5:faster Circe141:right Iron_Fist148:11-30 Palatine146:right ISS_Europa:slower Aeneas172:right Victory210:faster Merrimack211:faster X-WINGS:faster Thunder_Child102:faster Valor_of_Vardona119:faster BS_Galactica:slower Alexander:right Helios147:faster DROID-starfighter:right Herakles205:faster Leviathan71:right Iron_Fist7:right Scion103:faster Hurricane208:faster Metis4:left Puddle_Jumper:slower ARC-170:right The_Watcher:left Hephaestus78:20-16
+INPU - [bot] Cerberus168:15-28 Circe135:right Geisha:slower Saragossa:right Dart:slower Ha'tak:faster Titan0:right Patroclus101:left Valor_of_Vardona100:20-16 Cyrus44:faster White_Star80:19-21 Kimera67:faster Hoosier3:right V-19:faster Napoleon133:faster X-WINGS:right Hephaestus159:20-16 Ragnorak139:left Aeneas160:right V-WINGS:left ISS_Adventurer:right Meleager36:left Norad_II192:faster Puddle_Jumper:left Eos197:faster Circe94:28-17 Leviathan158:25-25 Hurricane151:faster Bismarck1:faster Bucephalus171:right Norad_III198:right Metis195:faster ARC-170:left Gray_Tiger116:faster Helios96:right Helios207:faster
+INPU - [botbot] White_Star42:faster Norad_II57:left ARC-170:1-15 White_Star97:right Saragossa:slower Norad_II40:faster Theodore_G._Bilbo35:36-8 Leviathan26:27-13 TIE-FIGHTER:slower Kimera11:left White_Star58:slower Norad_III134:12-21 Ha'tak:right Merrimack37:left Loki52:faster SC_Juggernaut:slower Dart:27-3 Ragnorak84:31-21 Aleksander30:faster Huey_Long32:left Iron_Justice83:slower Hurricane34:faster Emperor's_Fury27:left Adventurer:left Norad_II95:left Geisha:faster Norad_III10:faster Norad_II2:faster Hurricane213:faster Napoleon66:40-2 Ragnorak60:right V-19:left BS_Galactica:left
+INFO - botbot as take botbot_Antigone8 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Hoosier126 !
+INFO - botbot as take botbot_Leviathan136 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Scion68 !
+INFO - bot as take bot_Norad_III184 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Iron_Fist64 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_White_Star93 !
+INFO - bot as take bot_Hyperion81 !
+INFO - bot as take bot_Kimeran_Juggernaut196 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Loki87 !
+INFO - botbot as take botbot_Fury107 !
+WARN - NicolasLeRebelDeL'espace_Geisha shoot failed (25, 3)!
+WARN - NicolasLeRebelDeL'espace_Napoleon47 shot bot_Valor_of_Vardona100
+WARN - NicolasLeRebelDeL'espace_Ragnorak73 shot bot_Leviathan158
+WARN - NicolasLeRebelDeL'espace_Phobos45 shoot failed (18, 13)!
+WARN - NicolasLeRebelDeL'espace_Kimeran_Juggernaut46 shoot failed (0, 12)!
+WARN - A.I.C.I.S._Iron_Fist148 shoot failed (29, 10)!
+WARN - A.I.C.I.S._Hephaestus78 shoot failed (15, 19)!
+WARN - bot_Cerberus168 shot A.I.C.I.S._Iron_Fist148
+WARN - bot_Cerberus168 shot A.I.C.I.S._Helios147
+WARN - bot_Valor_of_Vardona100 shoot failed (15, 19)!
+WARN - bot_White_Star80 shoot failed (20, 18)!
+WARN - bot_Hephaestus159 shoot failed (15, 19)!
+WARN - bot_Circe94 shoot failed (16, 27)!
+WARN - bot_Leviathan158 shot NicolasLeRebelDeL'espace_Ragnorak73
+WARN - botbot_ARC-170 shot botbot_ARC-170
+WARN - botbot_Theodore_G._Bilbo35 shoot failed (7, 35)!
+WARN - botbot_Leviathan26 shoot failed (12, 26)!
+WARN - botbot_Norad_III134 shoot failed (20, 11)!
+WARN - botbot_Dart shoot failed (2, 26)!
+WARN - botbot_Ragnorak84 shoot failed (20, 30)!
+WARN - botbot_Napoleon66 shoot failed (1, 39)!
 INFO - It's turn nb 10
-INPU - [A.I.C.I.S] SC_Juggernaut:faster b1:13-17 ISS_Europa:faster Hurricane:faster TIE-FIGHTER:faster Nimrod:28-16 d2:right d1:left
-INPU - [FrenayAcceleray] HisFather:left The_Simpsons:17-24 ShootingStar:left Amiiii:right Speedy:12-16 BB-8:18-25
-WARN - A.I.C.I.S_b1 shoot failed (16, 12)!
-WARN - A.I.C.I.S_Nimrod shoot failed (15, 27)!
-WARN - FrenayAcceleray_The_Simpsons shoot failed (23, 16)!
-WARN - FrenayAcceleray_Speedy shoot failed (15, 11)!
-WARN - FrenayAcceleray_BB-8 shoot failed (24, 17)!
+INPU - [NicolasLeRebelDeL'espace] ISS_Adventurer:faster Patroclus54:slower DROID-starfighter:slower Patroclus108:left Geisha:right Hoosier82:slower Valor_of_Vardona90:right Iron_Fist64:faster Hurricane22:faster Aeneas104:16-14 Alexander:left BS_Galactica:left Scion68:faster Napoleon47:23-11 Bucephalus124:23-21 ARC-170:left White_Star93:faster SC_Juggernaut:left Palatine70:right Ragnorak73:24-22 Iron_Fist62:slower Phobos45:9-19 BC_Pilgrim:right Kimeran_Juggernaut46:13-1 Leviathan79:faster Puddle_Jumper:slower Helios88:faster Gray_Tiger72:10-8 Eos20:faster Antigone92:slower
+INPU - [A.I.C.I.S.] Hoosier199:faster BC_Pilgrim:left Loki87:13-22 Adventurer:left Circe169:left Bismarck156:left Norad_III5:faster Circe141:slower Iron_Fist148:17-31 Hoosier126:faster Palatine146:faster ISS_Europa:5-27 Aeneas172:faster Victory210:left Merrimack211:left X-WINGS:slower Thunder_Child102:21-17 Valor_of_Vardona119:left BS_Galactica:3-13 Alexander:faster Helios147:left DROID-starfighter:faster Herakles205:faster Leviathan71:slower Iron_Fist7:right Scion103:slower Hurricane208:faster Metis4:faster Puddle_Jumper:slower ARC-170:faster The_Watcher:12-40 Hephaestus78:23-11
+INPU - [bot] Cerberus168:15-28 Circe135:right Kimeran_Juggernaut196:faster Geisha:right Saragossa:right Dart:faster Ha'tak:slower Titan0:faster Patroclus101:left Valor_of_Vardona100:21-16 Cyrus44:slower White_Star80:15-28 Kimera67:right Hoosier3:faster V-19:left Napoleon133:slower X-WINGS:right Hephaestus159:21-17 Ragnorak139:faster Hyperion81:faster Aeneas160:right V-WINGS:faster ISS_Adventurer:right Meleager36:34-10 Norad_II192:faster Puddle_Jumper:faster Norad_III184:faster Eos197:left Circe94:33-16 Jackson_V149:left Leviathan158:27-27 Bismarck1:right Bucephalus171:left Norad_III198:right Metis195:right ARC-170:left Gray_Tiger116:left Helios96:right Helios207:faster
+INPU - [botbot] White_Star42:right Norad_II57:right ARC-170:5-15 White_Star97:faster Saragossa:left Norad_II40:left Leviathan136:faster Theodore_G._Bilbo35:35-14 Leviathan26:35-14 Antigone8:faster TIE-FIGHTER:slower Kimera11:faster White_Star58:faster Norad_III134:13-22 Ha'tak:left Merrimack37:36-6 Loki52:right SC_Juggernaut:left Dart:slower Loki49:right Ragnorak84:36-14 Aleksander30:faster Huey_Long32:35-14 Iron_Justice83:faster Hurricane34:left Fury107:faster Emperor's_Fury27:36-6 Adventurer:left Norad_II95:right Geisha:faster Norad_III10:15-39 Norad_II2:left Hurricane213:left Napoleon66:34-41 Ragnorak60:right V-19:left BS_Galactica:left
+INFO - botbot as take botbot_Bismarck41 !
+INFO - botbot as take botbot_Fury209 !
+INFO - botbot as take botbot_Gray_Tiger65 !
+INFO - botbot as take botbot_Norad_III110 !
+INFO - bot as take bot_Bucephalus193 !
+INFO - botbot as take botbot_Aeneas39 !
+INFO - bot as take bot_Iron_Justice180 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Hoosier75 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Iron_Fist114 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Helios200 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Tahoe187 !
+INFO - botbot as take botbot_Iron_Fist31 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Cyrus142 !
+INFO - bot as take bot_Aeneas176 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Tahoe111 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Ragnorak182 !
+INFO - botbot as take botbot_Norad_III18 !
+INFO - botbot as take botbot_Phobos55 !
+INFO - bot as take bot_Antigone16 !
+WARN - NicolasLeRebelDeL'espace_Aeneas104 shot bot_Hephaestus159
+WARN - NicolasLeRebelDeL'espace_Napoleon47 shot bot_Valor_of_Vardona100
+WARN - NicolasLeRebelDeL'espace_Bucephalus124 shoot failed (20, 22)!
+WARN - NicolasLeRebelDeL'espace_Ragnorak73 shoot failed (21, 23)!
+WARN - NicolasLeRebelDeL'espace_Phobos45 shoot failed (18, 8)!
+WARN - NicolasLeRebelDeL'espace_Kimeran_Juggernaut46 shoot failed (0, 12)!
+WARN - NicolasLeRebelDeL'espace_Gray_Tiger72 shoot failed (7, 9)!
+WARN - A.I.C.I.S._Loki87 shot NicolasLeRebelDeL'espace_ISS_Europa
+WARN - A.I.C.I.S._Loki87 shot NicolasLeRebelDeL'espace_Helios88
+WARN - A.I.C.I.S._Loki87 shot NicolasLeRebelDeL'espace_Tahoe111
+WARN - A.I.C.I.S._Iron_Fist148 shot bot_Cerberus168
+WARN - A.I.C.I.S._ISS_Europa shoot failed (26, 4)!
+WARN - A.I.C.I.S._Thunder_Child102 shoot failed (16, 20)!
+WARN - A.I.C.I.S._BS_Galactica shoot failed (12, 2)!
+WARN - A.I.C.I.S._The_Watcher shoot failed (39, 11)!
+WARN - A.I.C.I.S._Hephaestus78 shot bot_Valor_of_Vardona100
+WARN - bot_Cerberus168 shot A.I.C.I.S._Iron_Fist148
+WARN - bot_Valor_of_Vardona100 shoot failed (15, 20)!
+WARN - bot_White_Star80 kill A.I.C.I.S._Iron_Fist148
+WARN - bot_Hephaestus159 shoot failed (16, 20)!
+WARN - bot_Meleager36 shoot failed (9, 33)!
+WARN - bot_Circe94 shoot failed (15, 32)!
+WARN - bot_Leviathan158 shot bot_Circe135
+WARN - bot_Leviathan158 kill NicolasLeRebelDeL'espace_Ragnorak73
+WARN - botbot_ARC-170 shoot failed (14, 4)!
+WARN - botbot_Theodore_G._Bilbo35 shoot failed (13, 34)!
+WARN - botbot_Leviathan26 shoot failed (13, 34)!
+WARN - botbot_Norad_III134 shot NicolasLeRebelDeL'espace_Helios88
+WARN - botbot_Norad_III134 shot NicolasLeRebelDeL'espace_Tahoe111
+WARN - botbot_Norad_III134 kill NicolasLeRebelDeL'espace_ISS_Europa
+WARN - botbot_Merrimack37 shoot failed (5, 35)!
+WARN - botbot_Ragnorak84 shot NicolasLeRebelDeL'espace_Iron_Fist64
+WARN - botbot_Huey_Long32 shoot failed (13, 34)!
+WARN - botbot_Emperor's_Fury27 shoot failed (5, 35)!
+WARN - botbot_Norad_III10 shoot failed (38, 14)!
+WARN - botbot_Napoleon66 shoot failed (40, 33)!
 INFO - It's turn nb 11
-INPU - [A.I.C.I.S] SC_Juggernaut:slower b1:12-19 ISS_Europa:faster Hurricane:slower TIE-FIGHTER:faster d2:right
-INPU - [FrenayAcceleray] HisFather:left The_Simpsons:left ShootingStar:slower Amiiii:left Speedy:10-15 BB-8:15-26
-INFO - A.I.C.I.S as take A.I.C.I.S_f3 !
-WARN - A.I.C.I.S_b1 shoot failed (18, 11)!
-WARN - FrenayAcceleray_Speedy shot A.I.C.I.S_b1
-WARN - FrenayAcceleray_BB-8 shoot failed (25, 14)!
+INPU - [NicolasLeRebelDeL'espace] ISS_Adventurer:faster Hoosier82:faster ARC-170:left White_Star93:left Geisha:right Ragnorak182:7-40 Patroclus108:left Helios88:right Hoosier75:faster Eos20:faster Phobos45:7-23 BC_Pilgrim:left Helios200:faster DROID-starfighter:left Patroclus54:faster Amphitrite25:20-39 Iron_Fist64:left Hurricane22:faster Kimeran_Juggernaut46:18-38 SC_Juggernaut:slower Alexander:faster Valor_of_Vardona90:right BS_Galactica:faster Scion68:right Bucephalus124:right Antigone92:faster Palatine70:faster Iron_Fist62:faster Leviathan79:slower Aeneas104:left Tahoe111:faster Puddle_Jumper:right Gray_Tiger72:6-11 Napoleon47:left
+INPU - [A.I.C.I.S.] Bismarck156:slower Adventurer:right X-WINGS:faster Thunder_Child102:18-13 Hephaestus78:25-9 BS_Galactica:right Alexander:faster DROID-starfighter:6-35 ARC-170:faster Palatine146:19-20 Iron_Fist114:faster Circe141:right Merrimack211:left Metis4:right BC_Pilgrim:left The_Watcher:left Circe169:left Norad_III5:left Scion103:faster Hoosier126:left Hoosier199:right Cyrus142:faster ISS_Europa:slower Aeneas172:right Valor_of_Vardona119:faster Loki87:faster Herakles205:faster Leviathan71:faster Iron_Fist7:right Helios147:faster Hurricane208:slower Victory210:left Puddle_Jumper:left Tahoe187:2-39
+INPU - [bot] Aeneas176:faster Circe135:right Geisha:right Saragossa:left Dart:right Titan0:right Patroclus101:left Ragnorak139:right Cyrus44:faster ISS_Adventurer:left Kimera67:left Meleager36:37-14 White_Star80:17-30 Norad_II192:left Leviathan158:27-24 Bucephalus171:right Norad_III198:faster ARC-170:left Puddle_Jumper:slower Hoosier3:left Gray_Tiger116:left Helios96:faster Hyperion81:faster Bucephalus193:faster Antigone16:faster Cerberus168:17-30 Kimeran_Juggernaut196:faster Ha'tak:slower Valor_of_Vardona100:right Hephaestus159:left V-WINGS:right Napoleon133:faster Circe94:37-14 Metis195:faster Iron_Justice180:faster Aeneas160:left Eos197:faster Jackson_V149:left V-19:left Bismarck1:right Helios207:right
+INPU - [botbot] White_Star97:25-9 Norad_II2:faster Theodore_G._Bilbo35:36-10 Kimera11:faster Napoleon66:3-41 Ha'tak:right Cerberus56:36-10 Norad_II40:34-3 White_Star58:slower SC_Juggernaut:left BS_Galactica:slower Aleksander30:right Dart:slower Huey_Long32:37-14 Merrimack37:left Loki49:faster Ragnorak60:faster V-19:faster ARC-170:right TIE-FIGHTER:right Fury209:faster Leviathan26:36-10 Antigone8:right Iron_Justice83:slower Bismarck41:faster Norad_III110:faster Gray_Tiger65:faster Aeneas39:faster Geisha:left Norad_II57:40-2 White_Star42:faster Ragnorak84:40-18 Adventurer:left Phobos55:faster Leviathan136:right Loki52:faster Norad_III18:faster Norad_III10:9-37 Emperor's_Fury27:40-2 Norad_II95:faster Hurricane34:faster Iron_Fist31:faster Hurricane213:left Fury107:right
+INFO - bot as take bot_Titan177 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Herakles137 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Meleager201 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Fury145 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Leviathan19 !
+INFO - botbot as take botbot_Napoleon59 !
+INFO - botbot as take botbot_Jackson's_Revenge43 !
+INFO - bot as take bot_Patroclus185 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Tahoe206 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Jackson's_Revenge113 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_White_Star106 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Bucephalus12 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Hephaestus130 !
+WARN - NicolasLeRebelDeL'espace_Ragnorak182 kill A.I.C.I.S._DROID-starfighter
+WARN - NicolasLeRebelDeL'espace_Ragnorak182 kill A.I.C.I.S._Meleager201
+WARN - NicolasLeRebelDeL'espace_Phobos45 shoot failed (22, 6)!
+WARN - NicolasLeRebelDeL'espace_Amphitrite25 shoot failed (38, 19)!
+WARN - NicolasLeRebelDeL'espace_Kimeran_Juggernaut46 shoot failed (37, 17)!
+WARN - NicolasLeRebelDeL'espace_Gray_Tiger72 shoot failed (10, 5)!
+WARN - A.I.C.I.S._Thunder_Child102 shoot failed (12, 17)!
+WARN - A.I.C.I.S._Hephaestus78 shoot failed (8, 24)!
+WARN - A.I.C.I.S._Palatine146 shoot failed (19, 18)!
+WARN - A.I.C.I.S._Tahoe187 shoot failed (38, 1)!
+WARN - bot_Meleager36 shoot failed (13, 36)!
+WARN - bot_Circe94 shoot failed (13, 36)!
+WARN - botbot_White_Star97 shoot failed (8, 24)!
+WARN - botbot_Theodore_G._Bilbo35 shot bot_Circe94
+WARN - botbot_Napoleon66 shoot failed (40, 2)!
+WARN - botbot_Cerberus56 shot bot_Circe94
+WARN - botbot_Norad_II40 shoot failed (2, 33)!
+WARN - botbot_Huey_Long32 shoot failed (13, 36)!
+WARN - botbot_Leviathan26 kill bot_Circe94
+WARN - botbot_Norad_II57 shoot failed (1, 39)!
+WARN - botbot_Ragnorak84 shoot failed (17, 39)!
+WARN - botbot_Norad_III10 shoot failed (36, 8)!
+WARN - botbot_Emperor's_Fury27 shoot failed (1, 39)!
 INFO - It's turn nb 12
-INPU - [A.I.C.I.S] b1:11-18 Hurricane:faster Nimrod:right f3:faster d2:faster d1:left
-INPU - [FrenayAcceleray] HisFather:left The_Simpsons:19-19 ShootingStar:slower Amiiii:left Speedy:10-15 BB-8:12-27
-INFO - A.I.C.I.S as take A.I.C.I.S_f2 !
-WARN - A.I.C.I.S_b1 shoot failed (17, 10)!
-WARN - FrenayAcceleray_The_Simpsons shot A.I.C.I.S_Hurricane
-WARN - FrenayAcceleray_Speedy shoot failed (14, 9)!
-WARN - FrenayAcceleray_BB-8 shot A.I.C.I.S_d1
+INPU - [NicolasLeRebelDeL'espace] ISS_Adventurer:right Hoosier82:slower ARC-170:faster White_Star93:left Geisha:right White_Star106:faster Ragnorak182:faster Patroclus108:faster Helios88:left Hoosier75:right Eos20:38-4 Phobos45:3-25 BC_Pilgrim:left Helios200:right Tahoe206:faster DROID-starfighter:left Patroclus54:right Amphitrite25:right Iron_Fist64:faster Hurricane22:right Kimeran_Juggernaut46:19-39 SC_Juggernaut:slower Alexander:slower Valor_of_Vardona90:right Scion68:right Bucephalus124:left Antigone92:slower Palatine70:11-12 Iron_Fist62:slower Leviathan79:faster Aeneas104:left Tahoe111:left Puddle_Jumper:left Gray_Tiger72:7-6 Napoleon47:right
+INPU - [A.I.C.I.S.] Bismarck156:38-16 Adventurer:faster X-WINGS:faster Thunder_Child102:25-13 Hephaestus78:23-7 BS_Galactica:faster Alexander:7-11 Herakles137:faster ARC-170:left Palatine146:23-24 Hephaestus130:faster Iron_Fist114:slower Circe141:left Merrimack211:left Metis4:left BC_Pilgrim:slower The_Watcher:left Bucephalus12:faster Circe169:faster Norad_III5:left Scion103:slower Hoosier126:left Hoosier199:right Cyrus142:left ISS_Europa:right Aeneas172:right Fury145:faster Loki87:right Leviathan19:faster Herakles205:left Leviathan71:slower Iron_Fist7:faster Helios147:17-31 Hurricane208:left Jackson's_Revenge113:faster Victory210:faster Puddle_Jumper:left Tahoe187:8-35
+INPU - [bot] Patroclus185:faster Aeneas176:faster Circe135:faster Geisha:right Saragossa:right Dart:right Titan0:faster Patroclus101:23-24 Ragnorak139:20-33 Cyrus44:slower ISS_Adventurer:left Kimera67:left X-WINGS:slower Meleager36:38-16 White_Star80:11-27 Norad_II192:20-39 Leviathan158:29-25 Bucephalus171:10-22 Norad_III198:faster ARC-170:left Puddle_Jumper:faster Hoosier3:6-2 Gray_Tiger116:faster Helios96:left Hyperion81:21-20 Bucephalus193:left Antigone16:faster Cerberus168:20-33 Kimeran_Juggernaut196:right Ha'tak:slower Valor_of_Vardona100:left Hephaestus159:left V-WINGS:right Titan177:faster Napoleon133:right Metis195:right Iron_Justice180:right Aeneas160:11-27 Eos197:39-35 Jackson_V149:left V-19:slower Bismarck1:faster Norad_III184:faster Helios207:faster
+INPU - [botbot] White_Star97:23-7 Norad_II2:faster Theodore_G._Bilbo35:27-16 Saragossa:right Kimera11:11-35 Napoleon66:2-38 Ha'tak:right Jackson's_Revenge43:faster Norad_II40:39-3 White_Star58:faster SC_Juggernaut:slower BS_Galactica:left Aleksander30:faster Dart:left Merrimack37:left Loki49:faster Ragnorak60:right V-19:slower ARC-170:right TIE-FIGHTER:right Leviathan26:23-16 Antigone8:7-41 Iron_Justice83:faster Bismarck41:right Norad_III110:left Gray_Tiger65:right Aeneas39:right Geisha:left Norad_II57:40-3 White_Star42:faster Ragnorak84:38-16 Norad_III134:left Phobos55:right Leviathan136:faster Loki52:slower Napoleon59:faster Norad_III18:faster Norad_III10:slower Emperor's_Fury27:36-4 Norad_II95:25-13 Iron_Fist31:right Hurricane213:left Fury107:faster
+INFO - A.I.C.I.S. as take A.I.C.I.S._Norad_III157 !
+INFO - botbot as take botbot_Amphitrite89 !
+INFO - botbot as take botbot_Valor_of_Vardona202 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Theodore_G._Bilbo109 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Helios204 !
+INFO - NicolasLeRebelDeL'espace as take NicolasLeRebelDeL'espace_Norad_II105 !
+INFO - botbot as take botbot_Amphitrite28 !
+INFO - bot as take bot_Hurricane143 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Jackson_V131 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Cerberus38 !
+INFO - botbot as take botbot_Metis53 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Emperor's_Fury129 !
+INFO - bot as take bot_Emperor's_Fury13 !
+INFO - botbot as take botbot_Patroclus153 !
+INFO - botbot as take botbot_Palatine50 !
+WARN - NicolasLeRebelDeL'espace_Eos20 shoot failed (3, 37)!
+WARN - NicolasLeRebelDeL'espace_Phobos45 shot bot_V-19
+WARN - NicolasLeRebelDeL'espace_Kimeran_Juggernaut46 shoot failed (38, 18)!
+WARN - NicolasLeRebelDeL'espace_Palatine70 shoot failed (11, 10)!
+WARN - NicolasLeRebelDeL'espace_Gray_Tiger72 shoot failed (5, 6)!
+WARN - A.I.C.I.S._Bismarck156 shoot failed (15, 37)!
+WARN - A.I.C.I.S._Thunder_Child102 shoot failed (12, 24)!
+WARN - A.I.C.I.S._Hephaestus78 shoot failed (6, 22)!
+WARN - A.I.C.I.S._Alexander shoot failed (10, 6)!
+WARN - A.I.C.I.S._Palatine146 shoot failed (23, 22)!
+WARN - A.I.C.I.S._Helios147 shot bot_Cerberus168
+WARN - A.I.C.I.S._Tahoe187 shoot failed (34, 7)!
+WARN - bot_Patroclus101 shoot failed (23, 22)!
+WARN - bot_Ragnorak139 shot A.I.C.I.S._Helios147
+WARN - bot_Meleager36 shoot failed (15, 37)!
+WARN - bot_White_Star80 shoot failed (26, 10)!
+WARN - bot_Norad_II192 shot NicolasLeRebelDeL'espace_Tahoe206
+WARN - bot_Leviathan158 shoot failed (24, 28)!
+WARN - bot_Bucephalus171 shoot failed (21, 9)!
+WARN - bot_Hoosier3 shoot failed (1, 5)!
+WARN - bot_Hyperion81 shot bot_Helios96
+WARN - bot_Cerberus168 shot A.I.C.I.S._Helios147
+WARN - bot_Aeneas160 shoot failed (26, 10)!
+WARN - bot_Eos197 shoot failed (34, 38)!
+WARN - botbot_White_Star97 shoot failed (6, 22)!
+WARN - botbot_Theodore_G._Bilbo35 shoot failed (15, 26)!
+WARN - botbot_Kimera11 shoot failed (34, 10)!
+WARN - botbot_Napoleon66 shoot failed (37, 1)!
+WARN - botbot_Norad_II40 kill NicolasLeRebelDeL'espace_Eos20
+WARN - botbot_Leviathan26 shoot failed (15, 22)!
+WARN - botbot_Antigone8 shoot failed (40, 6)!
+WARN - botbot_Norad_II57 shoot failed (2, 39)!
+WARN - botbot_Ragnorak84 shoot failed (15, 37)!
+WARN - botbot_Emperor's_Fury27 shoot failed (3, 35)!
+WARN - botbot_Norad_II95 shoot failed (12, 24)!
 INFO - It's turn nb 13
-INPU - [A.I.C.I.S] b1:slower Hurricane:slower d2:left d1:left Nimrod:right
-INPU - [FrenayAcceleray] HisFather:faster The_Simpsons:20-20 ShootingStar:right Amiiii:right Speedy:9-14 BB-8:19-19
-WARN - FrenayAcceleray_The_Simpsons shoot failed (19, 19)!
-WARN - FrenayAcceleray_Speedy shot A.I.C.I.S_b1
-WARN - FrenayAcceleray_BB-8 shot A.I.C.I.S_Hurricane
-INFO - It's turn nb 14
-INPU - [A.I.C.I.S] b1:faster Hurricane:faster TIE-FIGHTER:slower f3:left d2:right d1:left Nimrod:right ISS_Europa:slower
-INPU - [FrenayAcceleray] HisFather:left The_Simpsons:20-20 ShootingStar:right Amiiii:slower Speedy:8-13 BB-8:20-19
-INFO - A.I.C.I.S as take A.I.C.I.S_f4 !
-WARN - FrenayAcceleray_The_Simpsons shot A.I.C.I.S_Hurricane
-WARN - FrenayAcceleray_Speedy shot A.I.C.I.S_b1
-WARN - FrenayAcceleray_BB-8 shoot failed (18, 19)!
-INFO - It's turn nb 15
-INPU - [A.I.C.I.S] b1:right Hurricane:slower f3:left d2:left d1:left f4:faster
-INPU - [FrenayAcceleray] HisFather:slower The_Simpsons:27-18 ShootingStar:slower Amiiii:faster Speedy:3-5 BB-8:20-20
-INFO - A.I.C.I.S as take A.I.C.I.S_f1 !
-WARN - FrenayAcceleray_The_Simpsons shot A.I.C.I.S_SC_Juggernaut
-WARN - FrenayAcceleray_Speedy shoot failed (4, 2)!
-WARN - FrenayAcceleray_BB-8 shot A.I.C.I.S_Hurricane
-INFO - It's turn nb 16
-INPU - [A.I.C.I.S] SC_Juggernaut:faster b1:right Hurricane:faster TIE-FIGHTER:right f2:faster f3:right f1:2-2 d2:left d1:left f4:left ISS_Europa:left
-INPU - [FrenayAcceleray] HisFather:slower The_Simpsons:25-13 ShootingStar:faster Amiiii:7-14 Speedy:1-2 BB-8:20-21
-WARN - A.I.C.I.S_f1 shot A.I.C.I.S_f1
-WARN - A.I.C.I.S_f1 shot FrenayAcceleray_Speedy
-WARN - FrenayAcceleray_The_Simpsons shoot failed (12, 24)!
-WARN - FrenayAcceleray_Amiiii shoot failed (13, 6)!
-WARN - FrenayAcceleray_Speedy shoot failed (1, 0)!
-WARN - FrenayAcceleray_BB-8 shoot failed (20, 19)!
-INFO - It's turn nb 17
-INPU - [A.I.C.I.S] b1:7-17 Hurricane:slower TIE-FIGHTER:faster f2:right f3:right f1:40-40 d2:left d1:left f4:left Nimrod:21-13 ISS_Europa:faster
-INPU - [FrenayAcceleray] HisFather:faster The_Simpsons:24-11 ShootingStar:23-11 Amiiii:6-15 Speedy:40-4 BB-8:16-23
-WARN - A.I.C.I.S_b1 kill FrenayAcceleray_Amiiii
-WARN - A.I.C.I.S_f1 shot FrenayAcceleray_Speedy
-WARN - A.I.C.I.S_Nimrod shot FrenayAcceleray_ShootingStar
-WARN - FrenayAcceleray_The_Simpsons shoot failed (10, 23)!
-WARN - FrenayAcceleray_ShootingStar shot A.I.C.I.S_Nimrod
-WARN - FrenayAcceleray_Speedy shot A.I.C.I.S_f2
-WARN - FrenayAcceleray_BB-8 kill A.I.C.I.S_d1
-INFO - It's turn nb 18
-INPU - [A.I.C.I.S] SC_Juggernaut:14-28 TIE-FIGHTER:left f2:faster f3:faster d2:left f4:faster Nimrod:20-14 ISS_Europa:faster
-INPU - [FrenayAcceleray] HisFather:right The_Simpsons:21-13 ShootingStar:21-13 Speedy:2-2 BB-8:12-33
-WARN - A.I.C.I.S_SC_Juggernaut shot FrenayAcceleray_BB-8
-WARN - A.I.C.I.S_Nimrod kill FrenayAcceleray_ShootingStar
-WARN - FrenayAcceleray_The_Simpsons shoot failed (12, 20)!
-WARN - FrenayAcceleray_Speedy kill A.I.C.I.S_f1
-WARN - FrenayAcceleray_BB-8 kill A.I.C.I.S_SC_Juggernaut
-INFO - It's turn nb 19
-INPU - [A.I.C.I.S] b1:right TIE-FIGHTER:left f2:faster f3:left f4:faster Nimrod:left ISS_Europa:left
-INPU - [FrenayAcceleray] HisFather:5-35 The_Simpsons:27-18 Speedy:left BB-8:right
-WARN - FrenayAcceleray_HisFather shoot failed (34, 4)!
-WARN - FrenayAcceleray_The_Simpsons shoot failed (17, 26)!
-INFO - It's turn nb 20
-INPU - [A.I.C.I.S] b1:right TIE-FIGHTER:faster f2:faster f3:left f4:faster ISS_Europa:left
-INPU - [FrenayAcceleray] HisFather:11-32 The_Simpsons:21-13 Speedy:slower BB-8:11-32
-WARN - FrenayAcceleray_HisFather shoot failed (31, 10)!
-WARN - FrenayAcceleray_The_Simpsons shot A.I.C.I.S_ISS_Europa
-WARN - FrenayAcceleray_BB-8 shoot failed (31, 10)!
-INFO - It's turn nb 21
-INPU - [A.I.C.I.S] TIE-FIGHTER:slower f2:left f3:left d2:right f4:11-31 ISS_Europa:23-12
-INPU - [FrenayAcceleray] HisFather:faster The_Simpsons:27-13 Speedy:37-30 BB-8:16-31
-WARN - A.I.C.I.S_f4 shot FrenayAcceleray_BB-8
-WARN - A.I.C.I.S_ISS_Europa shot FrenayAcceleray_The_Simpsons
-WARN - FrenayAcceleray_The_Simpsons kill A.I.C.I.S_f2
-WARN - FrenayAcceleray_Speedy shot A.I.C.I.S_TIE-FIGHTER
-WARN - FrenayAcceleray_BB-8 shoot failed (30, 15)!
-INFO - It's turn nb 22
-INPU - [A.I.C.I.S] Hurricane:faster f3:left d2:right f4:left Nimrod:left ISS_Europa:left
-INPU - [FrenayAcceleray] HisFather:20-31 The_Simpsons:16-12 Speedy:37-34 BB-8:20-31
-WARN - FrenayAcceleray_HisFather shoot failed (30, 19)!
-WARN - FrenayAcceleray_The_Simpsons shot A.I.C.I.S_d2
-WARN - FrenayAcceleray_Speedy shoot failed (33, 36)!
-WARN - FrenayAcceleray_BB-8 shoot failed (30, 19)!
-INFO - It's turn nb 23
-INPU - [A.I.C.I.S] Hurricane:right TIE-FIGHTER:left f3:faster d2:left f4:left Nimrod:left ISS_Europa:left
-INPU - [FrenayAcceleray] HisFather:28-34 The_Simpsons:18-10 Speedy:36-37 BB-8:right
-WARN - FrenayAcceleray_HisFather shot FrenayAcceleray_HisFather
-WARN - FrenayAcceleray_The_Simpsons shoot failed (9, 17)!
-WARN - FrenayAcceleray_Speedy shot A.I.C.I.S_f3
-INFO - It's turn nb 24
-INPU - [A.I.C.I.S] Hurricane:right TIE-FIGHTER:slower f3:faster f4:left ISS_Europa:left
-INPU - [FrenayAcceleray] HisFather:28-35 The_Simpsons:20-12 Speedy:40-37 BB-8:40-33
-WARN - FrenayAcceleray_HisFather shoot failed (34, 27)!
-WARN - FrenayAcceleray_The_Simpsons shot A.I.C.I.S_d2
-WARN - FrenayAcceleray_Speedy shoot failed (36, 39)!
-WARN - FrenayAcceleray_BB-8 kill A.I.C.I.S_f3
-INFO - It's turn nb 25
-INPU - [A.I.C.I.S] b1:left Hurricane:right TIE-FIGHTER:left d2:23-8 f4:left ISS_Europa:left
-INPU - [FrenayAcceleray] HisFather:slower The_Simpsons:22-14 Speedy:faster BB-8:right
-WARN - A.I.C.I.S_d2 shot FrenayAcceleray_The_Simpsons
-WARN - FrenayAcceleray_The_Simpsons shoot failed (13, 21)!
-INFO - It's turn nb 26
-INPU - [A.I.C.I.S] b1:left Hurricane:right TIE-FIGHTER:left f4:left ISS_Europa:left
-INPU - [FrenayAcceleray] HisFather:faster The_Simpsons:23-12 Speedy:right BB-8:16-35
-WARN - FrenayAcceleray_The_Simpsons shoot failed (11, 22)!
-WARN - FrenayAcceleray_BB-8 shoot failed (34, 15)!
-INFO - It's turn nb 27
-INPU - [A.I.C.I.S] Hurricane:left TIE-FIGHTER:left f4:left Nimrod:left ISS_Europa:left
-INPU - [FrenayAcceleray] HisFather:left The_Simpsons:26-8 Speedy:right BB-8:13-36
-WARN - FrenayAcceleray_The_Simpsons shoot failed (7, 25)!
-WARN - FrenayAcceleray_BB-8 shoot failed (35, 12)!
-INFO - It's turn nb 28
-INPU - [A.I.C.I.S] b1:right TIE-FIGHTER:left d2:right f4:14-38 Nimrod:left ISS_Europa:left
-INPU - [FrenayAcceleray] HisFather:8-35 The_Simpsons:21-8 Speedy:30-25 BB-8:12-31
-WARN - A.I.C.I.S_f4 shot FrenayAcceleray_BB-8
-WARN - FrenayAcceleray_HisFather shoot failed (34, 7)!
-WARN - FrenayAcceleray_The_Simpsons shoot failed (7, 20)!
-WARN - FrenayAcceleray_Speedy shoot failed (24, 29)!
-WARN - FrenayAcceleray_BB-8 shoot failed (30, 11)!
-INFO - It's turn nb 29
-INPU - [A.I.C.I.S] b1:right d2:right f4:left Nimrod:left ISS_Europa:left
-INPU - [FrenayAcceleray] HisFather:right The_Simpsons:21-8 Speedy:32-25 BB-8:right
-WARN - FrenayAcceleray_The_Simpsons shoot failed (7, 20)!
-WARN - FrenayAcceleray_Speedy kill A.I.C.I.S_TIE-FIGHTER
-INFO - It's turn nb 30
-INPU - [A.I.C.I.S] d2:right f4:left Nimrod:left ISS_Europa:left
-INPU - [FrenayAcceleray] HisFather:16-4 The_Simpsons:26-8 Speedy:slower BB-8:11-3
-WARN - FrenayAcceleray_HisFather shoot failed (3, 15)!
-WARN - FrenayAcceleray_The_Simpsons shoot failed (7, 25)!
-WARN - FrenayAcceleray_BB-8 shoot failed (2, 10)!
-INFO - It's turn nb 31
-INPU - [A.I.C.I.S] d2:23-2 f4:left Nimrod:27-4 ISS_Europa:left
-INPU - [FrenayAcceleray] HisFather:23-1 The_Simpsons:24-2 Speedy:slower BB-8:21-38
-WARN - A.I.C.I.S_d2 shot FrenayAcceleray_The_Simpsons
-WARN - A.I.C.I.S_Nimrod kill FrenayAcceleray_HisFather
-WARN - FrenayAcceleray_The_Simpsons shoot failed (1, 23)!
-WARN - FrenayAcceleray_BB-8 kill A.I.C.I.S_ISS_Europa
-INFO - It's turn nb 32
-INPU - [A.I.C.I.S] d2:23-1 f4:left Nimrod:left
-INPU - [FrenayAcceleray] The_Simpsons:21-5 Speedy:faster BB-8:22-2
-WARN - A.I.C.I.S_d2 shot FrenayAcceleray_The_Simpsons
-WARN - FrenayAcceleray_The_Simpsons shoot failed (4, 20)!
-WARN - FrenayAcceleray_BB-8 kill A.I.C.I.S_d2
-INFO - It's turn nb 33
-INPU - [A.I.C.I.S] f4:left Nimrod:left
-INPU - [FrenayAcceleray] The_Simpsons:19-1 Speedy:right BB-8:20-31
-WARN - FrenayAcceleray_The_Simpsons shot A.I.C.I.S_Nimrod
-WARN - FrenayAcceleray_BB-8 kill A.I.C.I.S_f4
-INFO - It's turn nb 34
-INPU - [A.I.C.I.S] Nimrod:20-38
-INPU - [FrenayAcceleray] The_Simpsons:17-1 Speedy:right BB-8:19-39
-WARN - A.I.C.I.S_Nimrod shot FrenayAcceleray_BB-8
-WARN - FrenayAcceleray_The_Simpsons shoot failed (0, 16)!
-WARN - FrenayAcceleray_BB-8 shoot failed (38, 18)!
-INFO - It's turn nb 35
-INPU - [A.I.C.I.S] Nimrod:21-38
-INPU - [FrenayAcceleray] The_Simpsons:left Speedy:right BB-8:15-37
-WARN - A.I.C.I.S_Nimrod shot FrenayAcceleray_BB-8
-WARN - FrenayAcceleray_BB-8 kill A.I.C.I.S_Nimrod
-INFO - It's turn nb 36
-INPU - [A.I.C.I.S] Hurricane:left
-INPU - [FrenayAcceleray] The_Simpsons:right Speedy:left BB-8:15-34
-WARN - FrenayAcceleray_BB-8 shot A.I.C.I.S_b1
-INFO - It's turn nb 37
-INPU - [A.I.C.I.S] Hurricane:right
-INPU - [FrenayAcceleray] The_Simpsons:faster Speedy:right BB-8:16-35
-WARN - FrenayAcceleray_BB-8 shot A.I.C.I.S_b1
-INFO - It's turn nb 38
-INPU - [A.I.C.I.S] 
-INPU - [FrenayAcceleray] The_Simpsons:17-35 Speedy:right BB-8:17-35
-WARN - FrenayAcceleray_The_Simpsons shoot failed (34, 16)!
-WARN - FrenayAcceleray_BB-8 shoot failed (34, 16)!
-INFO - It's turn nb 39
-INPU - [A.I.C.I.S] 
-INPU - [FrenayAcceleray] The_Simpsons:right Speedy:faster BB-8:17-37
-WARN - FrenayAcceleray_BB-8 shoot failed (36, 16)!
-INFO - It's turn nb 40
-INPU - [A.I.C.I.S] Hurricane:right
-INPU - [FrenayAcceleray] The_Simpsons:left Speedy:slower BB-8:19-38
-WARN - FrenayAcceleray_BB-8 shot A.I.C.I.S_b1
-INFO - It's turn nb 41
-INPU - [A.I.C.I.S] b1:right
-INPU - [FrenayAcceleray] The_Simpsons:right Speedy:right BB-8:20-39
-WARN - FrenayAcceleray_BB-8 shoot failed (38, 19)!
-INFO - It's turn nb 42
-INPU - [A.I.C.I.S] b1:right
-INPU - [FrenayAcceleray] The_Simpsons:slower Speedy:right BB-8:21-37
-WARN - FrenayAcceleray_BB-8 kill A.I.C.I.S_b1
-INFO - It's turn nb 43
-INPU - [A.I.C.I.S] 
-INPU - [FrenayAcceleray] The_Simpsons:slower Speedy:slower BB-8:right
-INFO - It's turn nb 44
-INPU - [A.I.C.I.S] 
-INPU - [FrenayAcceleray] The_Simpsons:faster Speedy:faster BB-8:right
-INFO - It's turn nb 45
-INPU - [A.I.C.I.S] 
-INPU - [FrenayAcceleray] The_Simpsons:slower Speedy:faster BB-8:right
-INFO - It's turn nb 46
-INPU - [A.I.C.I.S] Hurricane:left
-INPU - [FrenayAcceleray] The_Simpsons:faster Speedy:right BB-8:right
-INFO - It's turn nb 47
-INPU - [A.I.C.I.S] Hurricane:right
-INPU - [FrenayAcceleray] The_Simpsons:right Speedy:slower BB-8:right
-INFO - It's turn nb 48
-INPU - [A.I.C.I.S] 
-INPU - [FrenayAcceleray] The_Simpsons:right Speedy:right BB-8:17-37
-WARN - FrenayAcceleray_BB-8 shoot failed (36, 16)!
-INFO - It's turn nb 49
-INPU - [A.I.C.I.S] 
-INPU - [FrenayAcceleray] The_Simpsons:right Speedy:faster BB-8:16-37
-WARN - FrenayAcceleray_BB-8 shoot failed (36, 15)!
-INFO - It's turn nb 50
-INPU - [A.I.C.I.S] 
-INPU - [FrenayAcceleray] The_Simpsons:left Speedy:right BB-8:right
-INFO - It's turn nb 51
-INPU - [A.I.C.I.S] 
-INPU - [FrenayAcceleray] The_Simpsons:14-34 Speedy:right BB-8:right
-WARN - FrenayAcceleray_The_Simpsons shoot failed (33, 13)!
-INFO - It's turn nb 52
-INPU - [A.I.C.I.S] 
-INPU - [FrenayAcceleray] The_Simpsons:12-34 Speedy:left BB-8:slower
-WARN - FrenayAcceleray_The_Simpsons shoot failed (33, 11)!
-INFO - It's turn nb 53
-INPU - [A.I.C.I.S] Hurricane:11-30
-INPU - [FrenayAcceleray] The_Simpsons:11-32 Speedy:slower BB-8:faster
-WARN - A.I.C.I.S_Hurricane kill FrenayAcceleray_The_Simpsons
-INFO - It's turn nb 54
-INPU - [A.I.C.I.S] Hurricane:slower
-INPU - [FrenayAcceleray] Speedy:right BB-8:slower
-INFO - It's turn nb 55
-INPU - [A.I.C.I.S] Hurricane:faster
-INPU - [FrenayAcceleray] Speedy:right BB-8:faster
-INFO - It's turn nb 56
-INPU - [A.I.C.I.S] Hurricane:slower
-INPU - [FrenayAcceleray] Speedy:right BB-8:left
-INFO - It's turn nb 57
-INPU - [A.I.C.I.S] Hurricane:faster
-INPU - [FrenayAcceleray] Speedy:faster BB-8:slower
-INFO - It's turn nb 58
-INPU - [A.I.C.I.S] Hurricane:slower
-INPU - [FrenayAcceleray] Speedy:right BB-8:faster
-INFO - It's turn nb 59
-INPU - [A.I.C.I.S] Hurricane:faster
-INPU - [FrenayAcceleray] Speedy:left BB-8:left
-INFO - It's turn nb 60
-INPU - [A.I.C.I.S] Hurricane:slower
-INPU - [FrenayAcceleray] Speedy:right BB-8:slower
-INFO - It's turn nb 61
-INPU - [A.I.C.I.S] Hurricane:faster
-INPU - [FrenayAcceleray] Speedy:right BB-8:faster
-INFO - It's turn nb 62
-INPU - [A.I.C.I.S] Hurricane:slower
-INPU - [FrenayAcceleray] Speedy:slower BB-8:left
-INFO - It's turn nb 63
-INPU - [A.I.C.I.S] Hurricane:faster
-INPU - [FrenayAcceleray] Speedy:faster BB-8:left
-INFO - It's turn nb 64
-INPU - [A.I.C.I.S] Hurricane:slower
-INPU - [FrenayAcceleray] Speedy:right BB-8:right
-INFO - It's turn nb 65
-INPU - [A.I.C.I.S] Hurricane:faster
-INPU - [FrenayAcceleray] Speedy:slower BB-8:right
-INFO - It's turn nb 66
-INPU - [A.I.C.I.S] Hurricane:left
-INPU - [FrenayAcceleray] Speedy:right BB-8:left
-INFO - It's turn nb 67
-INPU - [A.I.C.I.S] Hurricane:left
-INPU - [FrenayAcceleray] Speedy:right BB-8:slower
-INFO - It's turn nb 68
-INPU - [A.I.C.I.S] 
-INPU - [FrenayAcceleray] Speedy:left BB-8:faster
-INFO - It's turn nb 69
-INPU - [A.I.C.I.S] 
-INPU - [FrenayAcceleray] Speedy:faster BB-8:right
-INFO - It's turn nb 70
-INPU - [A.I.C.I.S] 
-INPU - [FrenayAcceleray] Speedy:slower BB-8:slower
-INFO - It's turn nb 71
-INPU - [A.I.C.I.S] 
-INPU - [FrenayAcceleray] Speedy:slower BB-8:faster
-INFO - It's turn nb 72
-INPU - [A.I.C.I.S] 
-INPU - [FrenayAcceleray] Speedy:faster BB-8:left
+INPU - [NicolasLeRebelDeL'espace] ISS_Adventurer:slower Hoosier82:faster ARC-170:left White_Star93:left Norad_II105:faster Geisha:faster White_Star106:right Ragnorak182:3-32 Patroclus108:27-31 Helios88:16-24 Hoosier75:right Phobos45:6-28 Helios204:faster BC_Pilgrim:left Helios200:right Tahoe206:faster DROID-starfighter:left Patroclus54:left Amphitrite25:left Iron_Fist64:left Hurricane22:left Kimeran_Juggernaut46:21-38 SC_Juggernaut:left Alexander:left Valor_of_Vardona90:right BS_Galactica:slower Scion68:left Bucephalus124:left Antigone92:faster Palatine70:right Iron_Fist62:faster Leviathan79:right Aeneas104:28-11 Tahoe111:faster Puddle_Jumper:left Gray_Tiger72:5-2 Napoleon47:27-21
+INPU - [A.I.C.I.S.] Bismarck156:slower Norad_III157:faster Theodore_G._Bilbo109:faster Adventurer:34-23 X-WINGS:faster Thunder_Child102:29-11 Hephaestus78:27-5 BS_Galactica:slower Alexander:left Herakles137:faster ARC-170:left Emperor's_Fury129:faster Palatine146:right Hephaestus130:right Iron_Fist114:faster Circe141:left Cerberus38:faster Merrimack211:left Metis4:right BC_Pilgrim:left The_Watcher:left Bucephalus12:left Circe169:slower Norad_III5:right Scion103:faster Hoosier126:right Jackson_V131:faster Hoosier199:right Cyrus142:6-28 ISS_Europa:left Aeneas172:right Fury145:faster Valor_of_Vardona119:left Loki87:faster Leviathan19:faster Herakles205:37-15 Leviathan71:faster Iron_Fist7:21-38 Helios147:left Hurricane208:left Jackson's_Revenge113:right Victory210:faster Puddle_Jumper:left Tahoe187:8-35
