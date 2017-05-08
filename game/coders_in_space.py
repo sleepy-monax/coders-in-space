@@ -1180,13 +1180,9 @@ def show_splash_game(game_data, is_remote_game=False):
     c = put_text(c, text_location[0] + text_width - len(game_copyright), text_location[1] + 9, game_copyright, color='yellow')
     print_canvas(c)
 
-    screen_size = get_terminal_size()
     game_screen = render_game_screen(game_data)
-    title_screen = create_canvas(*screen_size)
-    title_screen = put_box(title_screen, 0, 0, screen_size[0], screen_size[1])
-    title_screen = put_stars_field(title_screen, 1, 1, screen_size[0] - 2, screen_size[1] - 2, 0)
 
-    slide_animation(title_screen, game_screen)
+    slide_animation(c, game_screen)
 
 
 def show_game_screen(game_data):
