@@ -755,15 +755,15 @@ def get_battleship_action(game_data, ship_name, owner):
     # Get the objective of the ship.
     if not ship['objective'] in game_data['ships']:
         # Get the close
-        close_objectives = get_nearby_ship(game_data, ship_name, game_data['model_ship'][game_data['ships'][ship_name]['type']])
+        close_objectives = get_nearby_ship(game_data, ship_name, game_data['model_ship'][game_data['ships'][ship_name]['type']]['range'])
         final_objective = []
-        for ship in close_objectives:
-            ship_owner = game_data['ships'][ship]['owner']
+        for ship_object in close_objectives:
+            ship_owner = game_data['ships'][ship_object]['owner']
             if not ship_owner in ['none', owner]:
-                final_objective.append(ship)
+                final_objective.append(ship_object)
 
         if len(final_objective) > 0:
-            ship['objective'] = objectives[1]
+            ship['objective'] = final_objective[0]
         else:
             # Get a random objective.
             objectives = filter_ships(game_data['ships'], owner)
