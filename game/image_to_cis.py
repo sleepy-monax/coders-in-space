@@ -2,18 +2,29 @@ from PIL import Image
 import random
 
 def convert(file_name, output):
-    im = Image.open(file_name)  # Can be many different formats.
+	"""
+	Convert a image to a CIS file.
+	
+	Parameters
+	----------
+	file_name: path to the IMG (str).
+	out_put: name of the cis file (str).
+	
+	Notes
+	-----
+	pillow need to be intalled (pip install pillow) !.
+	image only on ".PNG" format.
+	"""
+    im = Image.open(file_name)
     pix = im.load()
 
-
-
     ships_names = ['Aeneas', 'Aleksander', 'Amphitrite', 'Antigone', 'Bismarck', 'Bucephalus', 'Cerberus',
-                            'Circe', 'Cyrus', 'Emperor\'s_Fury', 'Eos', 'Fury', 'Gray_Tiger', 'Helios', 'Hephaestus',
-                            'Herakles', 'Hoosier', 'Huey_Long', 'Hurricane', 'Hyperion', 'Iron_Fist', 'Iron_Justice',
-                            'Jackson_V', 'Jackson\'s_Revenge', 'Kimera', 'Kimeran_Juggernaut', 'Leviathan', 'Loki',
-                            'Meleager', 'Merrimack', 'Metis', 'Napoleon', 'Norad_II', 'Norad_III', 'Palatine',
-                            'Patroclus', 'Phobos', 'Ragnorak', 'Scion', 'Tahoe', 'Theodore_G._Bilbo', 'Thunder_Child',
-                            'Titan', 'Valor_of_Vardona', 'Victory', 'White_Star']
+				   'Circe', 'Cyrus', 'Emperor\'s_Fury', 'Eos', 'Fury', 'Gray_Tiger', 'Helios', 'Hephaestus',
+				   'Herakles', 'Hoosier', 'Huey_Long', 'Hurricane', 'Hyperion', 'Iron_Fist', 'Iron_Justice',
+				   'Jackson_V', 'Jackson\'s_Revenge', 'Kimera', 'Kimeran_Juggernaut', 'Leviathan', 'Loki',
+				   'Meleager', 'Merrimack', 'Metis', 'Napoleon', 'Norad_II', 'Norad_III', 'Palatine',
+				   'Patroclus', 'Phobos', 'Ragnorak', 'Scion', 'Tahoe', 'Theodore_G._Bilbo', 'Thunder_Child',
+				   'Titan', 'Valor_of_Vardona', 'Victory', 'White_Star']
 
     ship_facing = ['up', 'up-left', 'up-right', 'left', 'right', 'down', 'down-left', 'down-right']
 

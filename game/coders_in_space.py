@@ -2201,4 +2201,4 @@ def dict_sort(items, key):
 # Use for quick debuging.
 
 if __name__ == '__main__':
-    play_game('board/mum.cis', ('NicolasLeRebelDeL\'espace', 'A.I.C.I.S.', 'bot', 'botbot'), ('ai','ai','ai','ai'))
+    play_game('board/frenaysie.cis', ('NicolasLeRebelDeL\'espace', 'A.I.C.I.S.', 'bot', 'botbot'), ('ai','ai','ai','ai'))
