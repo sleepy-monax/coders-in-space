@@ -92,7 +92,6 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
 
         # Show the game board to the human player.
         show_game_screen(game_data)
-        raw_input()
         
 		# getting players input.
         for player in players_names:

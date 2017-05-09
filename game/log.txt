@@ -1,13 +1,131 @@
-INPU - [A.I.C.I.S] f:fighter f_:fighter
-INPU - [FrenayAcceleray] ship_moua_1:battlecruiser ship_moua_2:destroyer ship_moua_3:destroyer ship_moua_4:fighter ship_moua_5:fighter ship_moua_6:fighter
+INPU - [A.I.C.I.S] Agrippa:fighter Nemesis:fighter Aeneas:fighter Alexander:fighter Bismarck:fighter Herakles:destroyer Palatine:battlecruiser
+INPU - [FrenayAcceleray] ship_moua_1:battlecruiser ship_moua_2:battlecruiser ship_moua_3:destroyer ship_moua_4:fighter ship_moua_5:fighter
 INFO - It's turn nb 0
-INPU - [A.I.C.I.S] f:faster f_:faster
-INPU - [FrenayAcceleray] ship_moua_1:faster ship_moua_2:right ship_moua_3:right ship_moua_4:right ship_moua_5:right ship_moua_6:right
+INPU - [A.I.C.I.S] Nemesis:faster Aeneas:faster Palatine:faster Bismarck:faster Agrippa:faster Alexander:faster Herakles:faster
+INPU - [FrenayAcceleray] ship_moua_1:faster ship_moua_2:right ship_moua_3:right ship_moua_4:right ship_moua_5:right
 INFO - FrenayAcceleray as take FrenayAcceleray_ship_10 !
 INFO - It's turn nb 1
-INPU - [A.I.C.I.S] f:faster f_:faster
-INPU - [FrenayAcceleray] ship_moua_1:left ship_moua_2:faster ship_moua_3:right ship_moua_4:faster ship_moua_5:faster ship_moua_6:faster ship_10:right
+INPU - [A.I.C.I.S] Nemesis:right Aeneas:faster Palatine:left Bismarck:left Agrippa:right Alexander:left Herakles:faster
+INPU - [FrenayAcceleray] ship_moua_1:slower ship_moua_2:faster ship_moua_3:right ship_moua_4:faster ship_moua_5:faster ship_10:faster
 INFO - It's turn nb 2
-INPU - [A.I.C.I.S] f:faster f_:faster
-INPU - [FrenayAcceleray] ship_moua_1:left ship_moua_2:right ship_moua_3:right ship_moua_4:right ship_moua_5:right ship_moua_6:right ship_10:right
+INPU - [A.I.C.I.S] Nemesis:right Aeneas:faster Palatine:left Bismarck:faster Agrippa:faster Alexander:faster
+INPU - [FrenayAcceleray] ship_moua_1:right ship_moua_2:right ship_moua_3:right ship_moua_4:right ship_moua_5:right ship_10:right
 INFO - It's turn nb 3
+INPU - [A.I.C.I.S] Aeneas:faster Bismarck:faster Agrippa:right Alexander:faster
+INPU - [FrenayAcceleray] ship_moua_1:right ship_moua_2:right ship_moua_3:faster ship_moua_4:right ship_moua_5:right ship_10:right
+INFO - It's turn nb 4
+INPU - [A.I.C.I.S] Nemesis:faster Aeneas:21-23 Bismarck:faster Alexander:faster Herakles:20-20
+INPU - [FrenayAcceleray] ship_moua_1:right ship_moua_2:right ship_moua_3:right ship_moua_4:right ship_moua_5:right ship_10:24-24
+WARN - A.I.C.I.S_Aeneas shoot failed (22, 20)!
+WARN - A.I.C.I.S_Herakles shot FrenayAcceleray_ship_moua_1
+KILL - FrenayAcceleray_ship_10 kill A.I.C.I.S_Aeneas
+INFO - It's turn nb 5
+INPU - [A.I.C.I.S] Nemesis:faster Bismarck:left Alexander:left Herakles:20-20
+INPU - [FrenayAcceleray] ship_moua_1:faster ship_moua_2:slower ship_moua_3:left ship_moua_4:left ship_moua_5:left ship_10:21-21
+INFO - FrenayAcceleray as take FrenayAcceleray_ship_20 !
+INFO - FrenayAcceleray as take FrenayAcceleray_ship_9 !
+WARN - A.I.C.I.S_Herakles shoot failed (19, 19)!
+WARN - FrenayAcceleray_ship_10 shot A.I.C.I.S_Herakles
+INFO - It's turn nb 6
+INPU - [A.I.C.I.S] Nemesis:right Bismarck:right Agrippa:left Alexander:right Herakles:22-24
+INPU - [FrenayAcceleray] ship_moua_1:23-23 ship_moua_2:right ship_moua_3:right ship_moua_4:right ship_moua_5:23-23 ship_10:23-23 ship_20:23-23 ship_9:faster
+INFO - FrenayAcceleray as take FrenayAcceleray_ship_19 !
+INFO - FrenayAcceleray as take FrenayAcceleray_ship_12 !
+INFO - A.I.C.I.S as take A.I.C.I.S_ship_23 !
+INFO - A.I.C.I.S as take A.I.C.I.S_ship_2 !
+INFO - A.I.C.I.S as take A.I.C.I.S_ship_4 !
+WARN - A.I.C.I.S_Herakles shot FrenayAcceleray_ship_20
+KILL - FrenayAcceleray_ship_moua_1 kill A.I.C.I.S_Herakles
+WARN - FrenayAcceleray_ship_moua_5 shoot failed (22, 22)!
+WARN - FrenayAcceleray_ship_10 shoot failed (22, 22)!
+WARN - FrenayAcceleray_ship_20 shoot failed (22, 22)!
+INFO - It's turn nb 7
+INPU - [A.I.C.I.S] Nemesis:right ship_2:faster ship_4:faster ship_23:faster Agrippa:left Alexander:right
+INPU - [FrenayAcceleray] ship_moua_1:16-28 ship_moua_2:right ship_moua_3:right ship_moua_4:left ship_moua_5:faster ship_9:right ship_12:faster ship_19:right
+INFO - FrenayAcceleray as take FrenayAcceleray_ship_0 !
+INFO - FrenayAcceleray as take FrenayAcceleray_ship_17 !
+KILL - FrenayAcceleray_ship_moua_1 kill A.I.C.I.S_Nemesis
+INFO - It's turn nb 8
+INPU - [A.I.C.I.S] ship_2:faster ship_4:right ship_23:right Bismarck:faster Agrippa:faster Alexander:faster
+INPU - [FrenayAcceleray] ship_moua_2:right ship_moua_3:right ship_moua_4:faster ship_moua_5:faster ship_10:slower ship_9:slower ship_12:left ship_19:faster ship_17:faster
+INFO - A.I.C.I.S as take A.I.C.I.S_ship_1 !
+INFO - It's turn nb 9
+INPU - [A.I.C.I.S] ship_2:left ship_1:20-12 ship_4:faster ship_23:faster Bismarck:right Agrippa:slower Alexander:right
+INPU - [FrenayAcceleray] ship_moua_1:19-1 ship_moua_2:faster ship_moua_3:left ship_moua_4:19-1 ship_moua_5:19-1 ship_10:29-12 ship_9:right ship_12:right ship_19:right ship_17:29-12
+INFO - FrenayAcceleray as take FrenayAcceleray_ship_3 !
+INFO - FrenayAcceleray as take FrenayAcceleray_ship_25 !
+INFO - FrenayAcceleray as take FrenayAcceleray_ship_16 !
+WARN - A.I.C.I.S_ship_1 shot FrenayAcceleray_ship_17
+WARN - FrenayAcceleray_ship_moua_1 shot A.I.C.I.S_ship_4
+WARN - FrenayAcceleray_ship_moua_4 shot A.I.C.I.S_ship_4
+WARN - FrenayAcceleray_ship_moua_5 shot A.I.C.I.S_ship_4
+KILL - FrenayAcceleray_ship_10 kill A.I.C.I.S_Agrippa
+WARN - FrenayAcceleray_ship_17 shoot failed (11, 28)!
+INFO - It's turn nb 10
+INPU - [A.I.C.I.S] ship_2:faster ship_1:20-7 ship_4:left ship_23:faster Bismarck:right
+INPU - [FrenayAcceleray] ship_moua_1:19-29 ship_moua_2:right ship_moua_3:faster ship_moua_4:right ship_moua_5:right ship_10:26-8 ship_12:right ship_19:faster ship_17:26-8 ship_3:left ship_16:left ship_25:faster
+INFO - FrenayAcceleray as take FrenayAcceleray_ship_5 !
+WARN - A.I.C.I.S_ship_1 shoot failed (6, 19)!
+KILL - FrenayAcceleray_ship_moua_1 kill A.I.C.I.S_ship_4
+KILL - FrenayAcceleray_ship_10 kill A.I.C.I.S_Alexander
+WARN - FrenayAcceleray_ship_17 shoot failed (7, 25)!
+INFO - It's turn nb 11
+INPU - [A.I.C.I.S] ship_1:18-10 Palatine:30-24 ship_23:faster Bismarck:right
+INPU - [FrenayAcceleray] ship_moua_3:left ship_moua_4:left ship_moua_5:right ship_10:22-8 ship_12:right ship_19:left ship_17:22-8 ship_3:left ship_16:faster ship_5:faster
+INFO - A.I.C.I.S as take A.I.C.I.S_ship_18 !
+WARN - A.I.C.I.S_ship_1 shot FrenayAcceleray_ship_17
+WARN - A.I.C.I.S_Palatine shoot failed (23, 29)!
+KILL - FrenayAcceleray_ship_10 kill A.I.C.I.S_Bismarck
+WARN - FrenayAcceleray_ship_17 shoot failed (7, 21)!
+INFO - It's turn nb 12
+INPU - [A.I.C.I.S] ship_18:faster ship_2:faster ship_1:17-9 Palatine:2-28 ship_23:left
+INPU - [FrenayAcceleray] ship_moua_3:30-23 ship_moua_4:right ship_moua_5:faster ship_10:17-14 ship_12:left ship_19:faster ship_17:right ship_3:faster ship_16:left ship_5:30-23
+WARN - A.I.C.I.S_ship_1 shoot failed (8, 16)!
+WARN - A.I.C.I.S_Palatine shot FrenayAcceleray_ship_moua_3
+WARN - FrenayAcceleray_ship_moua_3 shot A.I.C.I.S_Palatine
+KILL - FrenayAcceleray_ship_10 kill A.I.C.I.S_ship_23
+WARN - FrenayAcceleray_ship_5 shot A.I.C.I.S_Palatine
+INFO - It's turn nb 13
+INPU - [A.I.C.I.S] ship_18:left ship_2:right ship_1:17-5 Palatine:25-21
+INPU - [FrenayAcceleray] ship_moua_4:right ship_moua_5:faster ship_12:faster ship_19:slower ship_17:right ship_3:left ship_25:16-8 ship_5:29-24
+INFO - A.I.C.I.S as take A.I.C.I.S_ship_22 !
+WARN - A.I.C.I.S_ship_1 shot FrenayAcceleray_ship_25
+WARN - A.I.C.I.S_Palatine shot FrenayAcceleray_ship_5
+WARN - FrenayAcceleray_ship_25 shot A.I.C.I.S_ship_1
+WARN - FrenayAcceleray_ship_5 shot A.I.C.I.S_Palatine
+INFO - It's turn nb 14
+INPU - [A.I.C.I.S] ship_18:faster ship_2:left ship_1:16-6 Palatine:29-28 ship_22:29-7
+INPU - [FrenayAcceleray] ship_moua_4:right ship_9:28-25 ship_12:28-25 ship_19:slower ship_17:16-8 ship_3:16-8 ship_25:16-8 ship_5:28-25
+INFO - FrenayAcceleray as take FrenayAcceleray_ship_21 !
+KILL - A.I.C.I.S_ship_1 kill FrenayAcceleray_ship_25
+WARN - A.I.C.I.S_Palatine shot FrenayAcceleray_ship_12
+KILL - A.I.C.I.S_Palatine kill FrenayAcceleray_ship_21
+WARN - A.I.C.I.S_ship_22 shoot failed (6, 28)!
+WARN - FrenayAcceleray_ship_9 shot A.I.C.I.S_Palatine
+WARN - FrenayAcceleray_ship_12 shot A.I.C.I.S_Palatine
+WARN - FrenayAcceleray_ship_17 shot A.I.C.I.S_ship_1
+WARN - FrenayAcceleray_ship_3 shot A.I.C.I.S_ship_1
+WARN - FrenayAcceleray_ship_5 shot A.I.C.I.S_Palatine
+INFO - It's turn nb 15
+INPU - [A.I.C.I.S] ship_18:slower ship_2:right ship_1:14-13 Palatine:slower ship_22:1-3
+INPU - [FrenayAcceleray] ship_moua_4:slower ship_moua_5:12-6 ship_10:22-12 ship_9:28-25 ship_12:right ship_19:right ship_17:16-8 ship_3:16-8 ship_5:28-25
+INFO - FrenayAcceleray as take FrenayAcceleray_ship_8 !
+WARN - A.I.C.I.S_ship_1 shot FrenayAcceleray_ship_17
+WARN - A.I.C.I.S_ship_22 shoot failed (2, 0)!
+WARN - FrenayAcceleray_ship_moua_5 shot A.I.C.I.S_ship_18
+KILL - FrenayAcceleray_ship_10 kill A.I.C.I.S_ship_2
+KILL - FrenayAcceleray_ship_9 kill A.I.C.I.S_Palatine
+WARN - FrenayAcceleray_ship_17 shot A.I.C.I.S_ship_1
+WARN - FrenayAcceleray_ship_3 shot A.I.C.I.S_ship_1
+WARN - FrenayAcceleray_ship_5 shoot failed (24, 27)!
+INFO - It's turn nb 16
+INPU - [A.I.C.I.S] ship_18:right ship_1:20-7 ship_22:1-3
+INPU - [FrenayAcceleray] 
+KILL - A.I.C.I.S_ship_1 kill FrenayAcceleray_ship_moua_5
+KILL - A.I.C.I.S_ship_22 kill FrenayAcceleray_ship_moua_4
+INFO - It's turn nb 17
+INPU - [A.I.C.I.S] ship_18:right ship_1:14-11 ship_22:30-4
+INPU - [FrenayAcceleray] 
+KILL - A.I.C.I.S_ship_1 kill FrenayAcceleray_ship_19
+KILL - A.I.C.I.S_ship_22 kill FrenayAcceleray_ship_8
+INFO - It's turn nb 18
