@@ -88,7 +88,7 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
         pending_command = []
 
         if total_turn > -1:
-            write_log(game_data, u'It\'s turn nb %d' % (total_turn), log_info)
+            write_log(game_data, u'It\'s turn nb %d (%d)' % (total_turn, game_data['nb_rounds']), log_info)
 
         # Show the game board to the human player.
         show_game_screen(game_data)
@@ -1559,6 +1559,8 @@ def parse_command(commands, player_name, game_data):
                         if len(attack_location) == 2:
                             attack_location = (int(attack_location[1]) - 1, int(attack_location[0]) - 1)
                             game_data['pending_attacks'].append((ship_name, game_data['ships'][ship_name]['location'], attack_location))
+                else:
+                    write_log(game_data, 'This ship (%s) does\'t exist !!!' % ship_name, log_error)
 
     return game_data
 
@@ -2206,4 +2208,4 @@ def dict_sort(items, key):
 # Use for quick debuging.
 
 if __name__ == '__main__':
-    play_game('board/random.cis', ('NicolasLeRebelDeL\'espace', 'A.I.C.I.S.'), ai_vs_ai)
+    play_game('board/urss.cis', ('NicolasLeRebelDeL\'espace', 'A.I.C.I.S.'), ai_vs_ai)

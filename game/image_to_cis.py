@@ -37,18 +37,11 @@ def convert(file_name, output):
         for y in range(im.size[1]):
             pixel_value = pix[x, y]
 
-            r = pixel_value[0]
-            g = pixel_value[1]
-            b = pixel_value[2]
-
             ship_type = ''
 
-            if r == 255:
-                ship_type = 'battlecruiser'
-            elif g == 255:
-                ship_type = 'destroyer'
-            elif b == 255:
-                ship_type = 'fighter'
+            if pixel_value[0] == 255: ship_type = 'battlecruiser'
+            elif pixel_value[1] == 255: ship_type = 'destroyer'
+            elif pixel_value[2] == 255: ship_type = 'fighter'
             else: continue
 
             buffer += '%d %d %s:%s %s\n' % (y + 1,  # Y coodinate of the ship.

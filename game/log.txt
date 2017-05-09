@@ -1,131 +1,226 @@
-INPU - [A.I.C.I.S] Agrippa:fighter Nemesis:fighter Aeneas:fighter Alexander:fighter Bismarck:fighter Herakles:destroyer Palatine:battlecruiser
-INPU - [FrenayAcceleray] ship_moua_1:battlecruiser ship_moua_2:battlecruiser ship_moua_3:destroyer ship_moua_4:fighter ship_moua_5:fighter
-INFO - It's turn nb 0
-INPU - [A.I.C.I.S] Nemesis:faster Aeneas:faster Palatine:faster Bismarck:faster Agrippa:faster Alexander:faster Herakles:faster
-INPU - [FrenayAcceleray] ship_moua_1:faster ship_moua_2:right ship_moua_3:right ship_moua_4:right ship_moua_5:right
-INFO - FrenayAcceleray as take FrenayAcceleray_ship_10 !
-INFO - It's turn nb 1
-INPU - [A.I.C.I.S] Nemesis:right Aeneas:faster Palatine:left Bismarck:left Agrippa:right Alexander:left Herakles:faster
-INPU - [FrenayAcceleray] ship_moua_1:slower ship_moua_2:faster ship_moua_3:right ship_moua_4:faster ship_moua_5:faster ship_10:faster
-INFO - It's turn nb 2
-INPU - [A.I.C.I.S] Nemesis:right Aeneas:faster Palatine:left Bismarck:faster Agrippa:faster Alexander:faster
-INPU - [FrenayAcceleray] ship_moua_1:right ship_moua_2:right ship_moua_3:right ship_moua_4:right ship_moua_5:right ship_10:right
-INFO - It's turn nb 3
-INPU - [A.I.C.I.S] Aeneas:faster Bismarck:faster Agrippa:right Alexander:faster
-INPU - [FrenayAcceleray] ship_moua_1:right ship_moua_2:right ship_moua_3:faster ship_moua_4:right ship_moua_5:right ship_10:right
-INFO - It's turn nb 4
-INPU - [A.I.C.I.S] Nemesis:faster Aeneas:21-23 Bismarck:faster Alexander:faster Herakles:20-20
-INPU - [FrenayAcceleray] ship_moua_1:right ship_moua_2:right ship_moua_3:right ship_moua_4:right ship_moua_5:right ship_10:24-24
-WARN - A.I.C.I.S_Aeneas shoot failed (22, 20)!
-WARN - A.I.C.I.S_Herakles shot FrenayAcceleray_ship_moua_1
-KILL - FrenayAcceleray_ship_10 kill A.I.C.I.S_Aeneas
-INFO - It's turn nb 5
-INPU - [A.I.C.I.S] Nemesis:faster Bismarck:left Alexander:left Herakles:20-20
-INPU - [FrenayAcceleray] ship_moua_1:faster ship_moua_2:slower ship_moua_3:left ship_moua_4:left ship_moua_5:left ship_10:21-21
-INFO - FrenayAcceleray as take FrenayAcceleray_ship_20 !
-INFO - FrenayAcceleray as take FrenayAcceleray_ship_9 !
-WARN - A.I.C.I.S_Herakles shoot failed (19, 19)!
-WARN - FrenayAcceleray_ship_10 shot A.I.C.I.S_Herakles
-INFO - It's turn nb 6
-INPU - [A.I.C.I.S] Nemesis:right Bismarck:right Agrippa:left Alexander:right Herakles:22-24
-INPU - [FrenayAcceleray] ship_moua_1:23-23 ship_moua_2:right ship_moua_3:right ship_moua_4:right ship_moua_5:23-23 ship_10:23-23 ship_20:23-23 ship_9:faster
-INFO - FrenayAcceleray as take FrenayAcceleray_ship_19 !
-INFO - FrenayAcceleray as take FrenayAcceleray_ship_12 !
-INFO - A.I.C.I.S as take A.I.C.I.S_ship_23 !
-INFO - A.I.C.I.S as take A.I.C.I.S_ship_2 !
-INFO - A.I.C.I.S as take A.I.C.I.S_ship_4 !
-WARN - A.I.C.I.S_Herakles shot FrenayAcceleray_ship_20
-KILL - FrenayAcceleray_ship_moua_1 kill A.I.C.I.S_Herakles
-WARN - FrenayAcceleray_ship_moua_5 shoot failed (22, 22)!
-WARN - FrenayAcceleray_ship_10 shoot failed (22, 22)!
-WARN - FrenayAcceleray_ship_20 shoot failed (22, 22)!
-INFO - It's turn nb 7
-INPU - [A.I.C.I.S] Nemesis:right ship_2:faster ship_4:faster ship_23:faster Agrippa:left Alexander:right
-INPU - [FrenayAcceleray] ship_moua_1:16-28 ship_moua_2:right ship_moua_3:right ship_moua_4:left ship_moua_5:faster ship_9:right ship_12:faster ship_19:right
-INFO - FrenayAcceleray as take FrenayAcceleray_ship_0 !
-INFO - FrenayAcceleray as take FrenayAcceleray_ship_17 !
-KILL - FrenayAcceleray_ship_moua_1 kill A.I.C.I.S_Nemesis
-INFO - It's turn nb 8
-INPU - [A.I.C.I.S] ship_2:faster ship_4:right ship_23:right Bismarck:faster Agrippa:faster Alexander:faster
-INPU - [FrenayAcceleray] ship_moua_2:right ship_moua_3:right ship_moua_4:faster ship_moua_5:faster ship_10:slower ship_9:slower ship_12:left ship_19:faster ship_17:faster
-INFO - A.I.C.I.S as take A.I.C.I.S_ship_1 !
-INFO - It's turn nb 9
-INPU - [A.I.C.I.S] ship_2:left ship_1:20-12 ship_4:faster ship_23:faster Bismarck:right Agrippa:slower Alexander:right
-INPU - [FrenayAcceleray] ship_moua_1:19-1 ship_moua_2:faster ship_moua_3:left ship_moua_4:19-1 ship_moua_5:19-1 ship_10:29-12 ship_9:right ship_12:right ship_19:right ship_17:29-12
-INFO - FrenayAcceleray as take FrenayAcceleray_ship_3 !
-INFO - FrenayAcceleray as take FrenayAcceleray_ship_25 !
-INFO - FrenayAcceleray as take FrenayAcceleray_ship_16 !
-WARN - A.I.C.I.S_ship_1 shot FrenayAcceleray_ship_17
-WARN - FrenayAcceleray_ship_moua_1 shot A.I.C.I.S_ship_4
-WARN - FrenayAcceleray_ship_moua_4 shot A.I.C.I.S_ship_4
-WARN - FrenayAcceleray_ship_moua_5 shot A.I.C.I.S_ship_4
-KILL - FrenayAcceleray_ship_10 kill A.I.C.I.S_Agrippa
-WARN - FrenayAcceleray_ship_17 shoot failed (11, 28)!
-INFO - It's turn nb 10
-INPU - [A.I.C.I.S] ship_2:faster ship_1:20-7 ship_4:left ship_23:faster Bismarck:right
-INPU - [FrenayAcceleray] ship_moua_1:19-29 ship_moua_2:right ship_moua_3:faster ship_moua_4:right ship_moua_5:right ship_10:26-8 ship_12:right ship_19:faster ship_17:26-8 ship_3:left ship_16:left ship_25:faster
-INFO - FrenayAcceleray as take FrenayAcceleray_ship_5 !
-WARN - A.I.C.I.S_ship_1 shoot failed (6, 19)!
-KILL - FrenayAcceleray_ship_moua_1 kill A.I.C.I.S_ship_4
-KILL - FrenayAcceleray_ship_10 kill A.I.C.I.S_Alexander
-WARN - FrenayAcceleray_ship_17 shoot failed (7, 25)!
-INFO - It's turn nb 11
-INPU - [A.I.C.I.S] ship_1:18-10 Palatine:30-24 ship_23:faster Bismarck:right
-INPU - [FrenayAcceleray] ship_moua_3:left ship_moua_4:left ship_moua_5:right ship_10:22-8 ship_12:right ship_19:left ship_17:22-8 ship_3:left ship_16:faster ship_5:faster
-INFO - A.I.C.I.S as take A.I.C.I.S_ship_18 !
-WARN - A.I.C.I.S_ship_1 shot FrenayAcceleray_ship_17
-WARN - A.I.C.I.S_Palatine shoot failed (23, 29)!
-KILL - FrenayAcceleray_ship_10 kill A.I.C.I.S_Bismarck
-WARN - FrenayAcceleray_ship_17 shoot failed (7, 21)!
-INFO - It's turn nb 12
-INPU - [A.I.C.I.S] ship_18:faster ship_2:faster ship_1:17-9 Palatine:2-28 ship_23:left
-INPU - [FrenayAcceleray] ship_moua_3:30-23 ship_moua_4:right ship_moua_5:faster ship_10:17-14 ship_12:left ship_19:faster ship_17:right ship_3:faster ship_16:left ship_5:30-23
-WARN - A.I.C.I.S_ship_1 shoot failed (8, 16)!
-WARN - A.I.C.I.S_Palatine shot FrenayAcceleray_ship_moua_3
-WARN - FrenayAcceleray_ship_moua_3 shot A.I.C.I.S_Palatine
-KILL - FrenayAcceleray_ship_10 kill A.I.C.I.S_ship_23
-WARN - FrenayAcceleray_ship_5 shot A.I.C.I.S_Palatine
-INFO - It's turn nb 13
-INPU - [A.I.C.I.S] ship_18:left ship_2:right ship_1:17-5 Palatine:25-21
-INPU - [FrenayAcceleray] ship_moua_4:right ship_moua_5:faster ship_12:faster ship_19:slower ship_17:right ship_3:left ship_25:16-8 ship_5:29-24
-INFO - A.I.C.I.S as take A.I.C.I.S_ship_22 !
-WARN - A.I.C.I.S_ship_1 shot FrenayAcceleray_ship_25
-WARN - A.I.C.I.S_Palatine shot FrenayAcceleray_ship_5
-WARN - FrenayAcceleray_ship_25 shot A.I.C.I.S_ship_1
-WARN - FrenayAcceleray_ship_5 shot A.I.C.I.S_Palatine
-INFO - It's turn nb 14
-INPU - [A.I.C.I.S] ship_18:faster ship_2:left ship_1:16-6 Palatine:29-28 ship_22:29-7
-INPU - [FrenayAcceleray] ship_moua_4:right ship_9:28-25 ship_12:28-25 ship_19:slower ship_17:16-8 ship_3:16-8 ship_25:16-8 ship_5:28-25
-INFO - FrenayAcceleray as take FrenayAcceleray_ship_21 !
-KILL - A.I.C.I.S_ship_1 kill FrenayAcceleray_ship_25
-WARN - A.I.C.I.S_Palatine shot FrenayAcceleray_ship_12
-KILL - A.I.C.I.S_Palatine kill FrenayAcceleray_ship_21
-WARN - A.I.C.I.S_ship_22 shoot failed (6, 28)!
-WARN - FrenayAcceleray_ship_9 shot A.I.C.I.S_Palatine
-WARN - FrenayAcceleray_ship_12 shot A.I.C.I.S_Palatine
-WARN - FrenayAcceleray_ship_17 shot A.I.C.I.S_ship_1
-WARN - FrenayAcceleray_ship_3 shot A.I.C.I.S_ship_1
-WARN - FrenayAcceleray_ship_5 shot A.I.C.I.S_Palatine
-INFO - It's turn nb 15
-INPU - [A.I.C.I.S] ship_18:slower ship_2:right ship_1:14-13 Palatine:slower ship_22:1-3
-INPU - [FrenayAcceleray] ship_moua_4:slower ship_moua_5:12-6 ship_10:22-12 ship_9:28-25 ship_12:right ship_19:right ship_17:16-8 ship_3:16-8 ship_5:28-25
-INFO - FrenayAcceleray as take FrenayAcceleray_ship_8 !
-WARN - A.I.C.I.S_ship_1 shot FrenayAcceleray_ship_17
-WARN - A.I.C.I.S_ship_22 shoot failed (2, 0)!
-WARN - FrenayAcceleray_ship_moua_5 shot A.I.C.I.S_ship_18
-KILL - FrenayAcceleray_ship_10 kill A.I.C.I.S_ship_2
-KILL - FrenayAcceleray_ship_9 kill A.I.C.I.S_Palatine
-WARN - FrenayAcceleray_ship_17 shot A.I.C.I.S_ship_1
-WARN - FrenayAcceleray_ship_3 shot A.I.C.I.S_ship_1
-WARN - FrenayAcceleray_ship_5 shoot failed (24, 27)!
-INFO - It's turn nb 16
-INPU - [A.I.C.I.S] ship_18:right ship_1:20-7 ship_22:1-3
-INPU - [FrenayAcceleray] 
-KILL - A.I.C.I.S_ship_1 kill FrenayAcceleray_ship_moua_5
-KILL - A.I.C.I.S_ship_22 kill FrenayAcceleray_ship_moua_4
-INFO - It's turn nb 17
-INPU - [A.I.C.I.S] ship_18:right ship_1:14-11 ship_22:30-4
-INPU - [FrenayAcceleray] 
-KILL - A.I.C.I.S_ship_1 kill FrenayAcceleray_ship_19
-KILL - A.I.C.I.S_ship_22 kill FrenayAcceleray_ship_8
-INFO - It's turn nb 18
+INPU - [A.I.C.I.S] Bucephalus:fighter Jackson_V:fighter Scion:fighter Herakles:destroyer Amphitrite:battlecruiser Kimera:battlecruiser
+INPU - [FrenayAcceleray] AI2_1:fighter AI2_2:fighter AI2_3:destroyer AI2_4:battlecruiser AI2_5:battlecruiser
+INFO - It's turn nb 0 (0)
+INPU - [A.I.C.I.S] Herakles:faster Bucephalus:faster Scion:faster Jackson_V:faster Amphitrite:faster
+INPU - [FrenayAcceleray] AI2_4:faster AI2_1:faster AI2_2:left AI2_3:faster
+INFO - It's turn nb 1 (1)
+INPU - [A.I.C.I.S] Herakles:faster Bucephalus:faster Scion:faster Jackson_V:left Amphitrite:slower
+INPU - [FrenayAcceleray] AI2_5:faster AI2_2:left
+INFO - It's turn nb 2 (2)
+INPU - [A.I.C.I.S] Jackson_V:left Amphitrite:faster
+INPU - [FrenayAcceleray] AI2_2:left AI2_3:slower
+INFO - It's turn nb 3 (3)
+INPU - [A.I.C.I.S] Bucephalus:slower Scion:slower Jackson_V:right Amphitrite:slower
+INPU - [FrenayAcceleray] AI2_2:faster
+INFO - A.I.C.I.S as take A.I.C.I.S_d1 !
+INFO - It's turn nb 4 (4)
+INPU - [A.I.C.I.S] Bucephalus:left Scion:left Jackson_V:left Amphitrite:faster d1:faster
+INPU - [FrenayAcceleray] AI2_2:left AI2_3:faster
+INFO - A.I.C.I.S as take A.I.C.I.S_b1 !
+INFO - It's turn nb 5 (5)
+INPU - [A.I.C.I.S] b1:faster Bucephalus:faster Scion:faster Jackson_V:left Amphitrite:slower d1:right
+INPU - [FrenayAcceleray] AI2_4:21-21 AI2_2:faster AI2_3:faster
+WARN - FrenayAcceleray_AI2_4 shot A.I.C.I.S_Herakles
+INFO - It's turn nb 6 (1)
+INPU - [A.I.C.I.S] b1:left Bucephalus:left Scion:left Jackson_V:left Amphitrite:faster d1:right
+INPU - [FrenayAcceleray] AI2_4:23-23 AI2_5:21-23 AI2_1:slower AI2_2:faster AI2_3:23-23
+KILL - FrenayAcceleray_AI2_4 kill A.I.C.I.S_Herakles
+WARN - FrenayAcceleray_AI2_5 shoot failed (22, 20)!
+WARN - FrenayAcceleray_AI2_3 shoot failed (22, 22)!
+INFO - It's turn nb 7 (1)
+INPU - [A.I.C.I.S] b1:left Bucephalus:faster Scion:faster Jackson_V:faster Amphitrite:slower d1:right
+INPU - [FrenayAcceleray] AI2_1:faster AI2_3:left
+INFO - It's turn nb 8 (2)
+INPU - [A.I.C.I.S] b1:left Bucephalus:faster Scion:faster Jackson_V:faster Amphitrite:faster d1:faster
+INPU - [FrenayAcceleray] AI2_2:slower AI2_3:right
+INFO - FrenayAcceleray as take FrenayAcceleray_f3 !
+INFO - It's turn nb 9 (3)
+INPU - [A.I.C.I.S] Bucephalus:faster Scion:faster Jackson_V:left Amphitrite:slower
+INPU - [FrenayAcceleray] f3:faster AI2_2:left AI2_3:right
+INFO - FrenayAcceleray as take FrenayAcceleray_f2 !
+INFO - It's turn nb 10 (4)
+INPU - [A.I.C.I.S] b1:slower Bucephalus:right Scion:right Jackson_V:faster Amphitrite:18-20
+INPU - [FrenayAcceleray] AI2_4:16-16 f2:right f3:right AI2_2:7-5
+INFO - A.I.C.I.S as take A.I.C.I.S_f1 !
+WARN - A.I.C.I.S_Amphitrite shot FrenayAcceleray_AI2_3
+WARN - FrenayAcceleray_AI2_4 shoot failed (15, 15)!
+WARN - FrenayAcceleray_AI2_2 shoot failed (4, 6)!
+INFO - It's turn nb 11 (1)
+INPU - [A.I.C.I.S] f1:faster Bucephalus:right Scion:right Jackson_V:left Amphitrite:16-20 d1:3-8
+INPU - [FrenayAcceleray] AI2_4:16-16 AI2_5:16-16 f2:right f3:faster AI2_1:slower AI2_2:3-3 AI2_3:16-16
+INFO - A.I.C.I.S as take A.I.C.I.S_f4 !
+KILL - A.I.C.I.S_Amphitrite kill FrenayAcceleray_AI2_3
+WARN - A.I.C.I.S_d1 shot FrenayAcceleray_AI2_2
+WARN - FrenayAcceleray_AI2_4 shoot failed (15, 15)!
+WARN - FrenayAcceleray_AI2_5 shoot failed (15, 15)!
+WARN - FrenayAcceleray_AI2_2 shot A.I.C.I.S_d1
+WARN - FrenayAcceleray_AI2_2 shot A.I.C.I.S_f4
+INFO - It's turn nb 12 (1)
+INPU - [A.I.C.I.S] f1:right f4:faster b1:faster Bucephalus:left Scion:left Jackson_V:right Amphitrite:18-18 d1:2-3
+INPU - [FrenayAcceleray] AI2_4:17-12 AI2_5:15-15 f2:faster f3:2-2 AI2_1:faster AI2_2:8-7 AI2_3:17-12
+ERRO - This ship (FrenayAcceleray_AI2_3) does't exist !!!
+WARN - A.I.C.I.S_Amphitrite shot FrenayAcceleray_AI2_4
+WARN - A.I.C.I.S_d1 shoot failed (2, 1)!
+WARN - FrenayAcceleray_AI2_4 shoot failed (11, 16)!
+WARN - FrenayAcceleray_AI2_5 shot A.I.C.I.S_Amphitrite
+WARN - FrenayAcceleray_f3 shot A.I.C.I.S_f4
+ERRO - FrenayAcceleray_AI2_2 shoot out of range !
+INFO - It's turn nb 13 (1)
+INPU - [A.I.C.I.S] f1:faster f4:faster b1:slower Bucephalus:slower Scion:slower Jackson_V:slower Amphitrite:19-19 d1:left
+INPU - [FrenayAcceleray] AI2_4:16-11 AI2_5:15-15 f2:faster f3:13-2 AI2_2:13-2 AI2_3:16-11
+ERRO - This ship (FrenayAcceleray_AI2_3) does't exist !!!
+KILL - A.I.C.I.S_Amphitrite kill FrenayAcceleray_AI2_1
+WARN - FrenayAcceleray_AI2_4 shoot failed (10, 15)!
+WARN - FrenayAcceleray_AI2_5 shot A.I.C.I.S_Amphitrite
+ERRO - FrenayAcceleray_f3 shoot out of range !
+ERRO - FrenayAcceleray_AI2_2 shoot out of range !
+INFO - It's turn nb 14 (1)
+INPU - [A.I.C.I.S] f1:right f4:left b1:faster Bucephalus:slower Scion:slower Jackson_V:right Amphitrite:16-16 d1:left
+INPU - [FrenayAcceleray] AI2_4:15-10 AI2_5:16-11 f2:faster f3:right AI2_2:16-3 AI2_3:16-11
+ERRO - This ship (FrenayAcceleray_AI2_3) does't exist !!!
+WARN - A.I.C.I.S_Amphitrite shot FrenayAcceleray_AI2_4
+WARN - FrenayAcceleray_AI2_4 shoot failed (9, 14)!
+WARN - FrenayAcceleray_AI2_5 shoot failed (10, 15)!
+ERRO - FrenayAcceleray_AI2_2 shoot out of range !
+INFO - It's turn nb 15 (1)
+INPU - [A.I.C.I.S] f1:faster f4:faster Bucephalus:slower Scion:slower Jackson_V:left Amphitrite:15-15 d1:left
+INPU - [FrenayAcceleray] AI2_4:15-10 AI2_5:14-10 f2:9-38 AI2_2:18-4 AI2_3:17-7
+ERRO - This ship (FrenayAcceleray_AI2_3) does't exist !!!
+WARN - A.I.C.I.S_Amphitrite shot A.I.C.I.S_Amphitrite
+WARN - A.I.C.I.S_Amphitrite shot FrenayAcceleray_AI2_4
+WARN - FrenayAcceleray_AI2_4 shoot failed (9, 14)!
+WARN - FrenayAcceleray_AI2_5 shoot failed (9, 13)!
+ERRO - FrenayAcceleray_f2 shoot out of range !
+ERRO - FrenayAcceleray_AI2_2 shoot out of range !
+INFO - It's turn nb 16 (1)
+INPU - [A.I.C.I.S] f1:right f4:faster b1:8-16 Bucephalus:left Scion:left Jackson_V:slower Amphitrite:14-14 d1:left
+INPU - [FrenayAcceleray] AI2_4:14-9 AI2_5:13-9 f2:13-38 f3:13-8 AI2_2:21-3 AI2_3:22-3
+ERRO - This ship (FrenayAcceleray_AI2_3) does't exist !!!
+KILL - A.I.C.I.S_b1 kill FrenayAcceleray_f3
+WARN - A.I.C.I.S_Amphitrite shot FrenayAcceleray_AI2_4
+WARN - FrenayAcceleray_AI2_4 shoot failed (8, 13)!
+WARN - FrenayAcceleray_AI2_5 shoot failed (8, 12)!
+ERRO - FrenayAcceleray_f2 shoot out of range !
+ERRO - FrenayAcceleray_AI2_2 shoot out of range !
+INFO - It's turn nb 17 (1)
+INPU - [A.I.C.I.S] f1:faster f4:faster Bucephalus:right Scion:right Jackson_V:left Amphitrite:13-13 d1:left
+INPU - [FrenayAcceleray] AI2_4:13-7 AI2_5:12-8 f2:19-3 f3:12-8 AI2_2:21-5 AI2_3:21-5
+ERRO - This ship (FrenayAcceleray_f3) does't exist !!!
+ERRO - This ship (FrenayAcceleray_AI2_3) does't exist !!!
+INFO - A.I.C.I.S as take A.I.C.I.S_d2 !
+KILL - A.I.C.I.S_Amphitrite kill FrenayAcceleray_AI2_4
+WARN - FrenayAcceleray_AI2_5 shoot failed (7, 11)!
+ERRO - FrenayAcceleray_f2 shoot out of range !
+ERRO - FrenayAcceleray_AI2_2 shoot out of range !
+INFO - It's turn nb 18 (1)
+INPU - [A.I.C.I.S] f4:left b1:right Bucephalus:3-22 Scion:3-22 Jackson_V:3-22 d2:3-22 Amphitrite:13-13 d1:left
+INPU - [FrenayAcceleray] AI2_5:12-6 f2:faster f3:faster AI2_2:faster AI2_3:21-5
+ERRO - This ship (FrenayAcceleray_f3) does't exist !!!
+ERRO - This ship (FrenayAcceleray_AI2_3) does't exist !!!
+WARN - A.I.C.I.S_Bucephalus shoot failed (21, 2)!
+WARN - A.I.C.I.S_Scion shoot failed (21, 2)!
+WARN - A.I.C.I.S_Jackson_V shoot failed (21, 2)!
+WARN - A.I.C.I.S_d2 shoot failed (21, 2)!
+WARN - A.I.C.I.S_Amphitrite shot FrenayAcceleray_AI2_5
+WARN - FrenayAcceleray_AI2_5 shoot failed (5, 11)!
+INFO - It's turn nb 19 (1)
+INPU - [A.I.C.I.S] f1:left b1:right Bucephalus:3-26 Scion:3-26 Jackson_V:left d2:3-26 Amphitrite:12-12
+INPU - [FrenayAcceleray] AI2_5:12-6 f2:faster f3:faster AI2_2:faster AI2_3:21-5
+ERRO - This ship (FrenayAcceleray_f3) does't exist !!!
+ERRO - This ship (FrenayAcceleray_AI2_3) does't exist !!!
+WARN - A.I.C.I.S_Bucephalus shoot failed (25, 2)!
+WARN - A.I.C.I.S_Scion shoot failed (25, 2)!
+WARN - A.I.C.I.S_d2 shoot failed (25, 2)!
+WARN - A.I.C.I.S_Amphitrite shot FrenayAcceleray_AI2_5
+WARN - FrenayAcceleray_AI2_5 shoot failed (5, 11)!
+INFO - It's turn nb 20 (1)
+INPU - [A.I.C.I.S] f1:left f4:slower Jackson_V:left d2:faster Amphitrite:11-11 d1:left
+INPU - [FrenayAcceleray] AI2_5:13-4 f2:slower f3:slower AI2_2:slower AI2_3:21-5
+ERRO - This ship (FrenayAcceleray_f3) does't exist !!!
+ERRO - This ship (FrenayAcceleray_AI2_3) does't exist !!!
+WARN - A.I.C.I.S_Amphitrite shot FrenayAcceleray_AI2_5
+WARN - FrenayAcceleray_AI2_5 shoot failed (3, 12)!
+INFO - It's turn nb 21 (1)
+INPU - [A.I.C.I.S] Jackson_V:left d2:left Amphitrite:10-10 d1:left
+INPU - [FrenayAcceleray] AI2_5:14-4 f2:slower f3:slower AI2_2:slower AI2_3:right
+ERRO - This ship (FrenayAcceleray_f3) does't exist !!!
+ERRO - This ship (FrenayAcceleray_AI2_3) does't exist !!!
+WARN - A.I.C.I.S_Amphitrite shot FrenayAcceleray_AI2_5
+WARN - FrenayAcceleray_AI2_5 shoot failed (3, 13)!
+INFO - It's turn nb 22 (1)
+INPU - [A.I.C.I.S] f1:3-34 f4:left Jackson_V:left d2:left d1:left
+INPU - [FrenayAcceleray] AI2_5:15-15 f2:slower f3:slower AI2_2:slower AI2_3:right
+ERRO - This ship (FrenayAcceleray_f3) does't exist !!!
+ERRO - This ship (FrenayAcceleray_AI2_3) does't exist !!!
+WARN - A.I.C.I.S_f1 shoot failed (33, 2)!
+WARN - FrenayAcceleray_AI2_5 shot A.I.C.I.S_Amphitrite
+INFO - It's turn nb 23 (1)
+INPU - [A.I.C.I.S] f1:left f4:slower b1:right Bucephalus:3-34 Scion:3-34 Jackson_V:faster d2:left Amphitrite:faster d1:left
+INPU - [FrenayAcceleray] AI2_5:right f2:slower f3:slower AI2_2:slower AI2_3:right
+ERRO - This ship (FrenayAcceleray_f3) does't exist !!!
+ERRO - This ship (FrenayAcceleray_AI2_3) does't exist !!!
+WARN - A.I.C.I.S_Bucephalus shoot failed (33, 2)!
+WARN - A.I.C.I.S_Scion shoot failed (33, 2)!
+INFO - It's turn nb 24 (2)
+INPU - [A.I.C.I.S] f1:left f4:faster Bucephalus:3-33 Scion:3-33 Jackson_V:faster d2:faster Amphitrite:slower d1:2-38
+INPU - [FrenayAcceleray] AI2_5:right f2:slower f3:right AI2_2:right AI2_3:26-4
+ERRO - This ship (FrenayAcceleray_f3) does't exist !!!
+ERRO - This ship (FrenayAcceleray_AI2_3) does't exist !!!
+KILL - A.I.C.I.S_Bucephalus kill FrenayAcceleray_AI2_2
+WARN - A.I.C.I.S_Scion shoot failed (32, 2)!
+WARN - A.I.C.I.S_d1 shoot failed (37, 1)!
+INFO - It's turn nb 25 (1)
+INPU - [A.I.C.I.S] f1:right f4:faster Jackson_V:right Amphitrite:faster d1:2-37
+INPU - [FrenayAcceleray] f2:right f3:right AI2_2:right AI2_3:28-2
+ERRO - This ship (FrenayAcceleray_f3) does't exist !!!
+ERRO - This ship (FrenayAcceleray_AI2_2) does't exist !!!
+ERRO - This ship (FrenayAcceleray_AI2_3) does't exist !!!
+WARN - A.I.C.I.S_d1 shot FrenayAcceleray_f2
+INFO - It's turn nb 26 (1)
+INPU - [A.I.C.I.S] f1:right f4:left Jackson_V:right d2:right Amphitrite:slower d1:2-37
+INPU - [FrenayAcceleray] f2:right f3:right AI2_2:right AI2_3:33-5
+ERRO - This ship (FrenayAcceleray_f3) does't exist !!!
+ERRO - This ship (FrenayAcceleray_AI2_2) does't exist !!!
+ERRO - This ship (FrenayAcceleray_AI2_3) does't exist !!!
+KILL - A.I.C.I.S_d1 kill FrenayAcceleray_f2
+INFO - It's turn nb 27 (1)
+INPU - [A.I.C.I.S] f1:faster f4:right b1:right Bucephalus:faster Scion:faster Jackson_V:left d2:right Amphitrite:faster d1:right
+INPU - [FrenayAcceleray] f2:right f3:right AI2_2:right AI2_3:31-7
+ERRO - This ship (FrenayAcceleray_f2) does't exist !!!
+ERRO - This ship (FrenayAcceleray_f3) does't exist !!!
+ERRO - This ship (FrenayAcceleray_AI2_2) does't exist !!!
+ERRO - This ship (FrenayAcceleray_AI2_3) does't exist !!!
+INFO - It's turn nb 28 (2)
+INPU - [A.I.C.I.S] f4:3-14 Bucephalus:faster Scion:faster Jackson_V:faster d2:left Amphitrite:slower d1:right
+INPU - [FrenayAcceleray] AI2_5:22-4 f2:right f3:right AI2_2:right AI2_3:30-7
+ERRO - This ship (FrenayAcceleray_f2) does't exist !!!
+ERRO - This ship (FrenayAcceleray_f3) does't exist !!!
+ERRO - This ship (FrenayAcceleray_AI2_2) does't exist !!!
+ERRO - This ship (FrenayAcceleray_AI2_3) does't exist !!!
+WARN - A.I.C.I.S_f4 shot FrenayAcceleray_AI2_5
+ERRO - FrenayAcceleray_AI2_5 shoot out of range !
+INFO - It's turn nb 29 (1)
+INPU - [A.I.C.I.S] f4:slower Bucephalus:faster Scion:faster Jackson_V:left d2:left Amphitrite:faster
+INPU - [FrenayAcceleray] AI2_5:23-4 f2:right f3:right AI2_2:right AI2_3:left
+ERRO - This ship (FrenayAcceleray_f2) does't exist !!!
+ERRO - This ship (FrenayAcceleray_f3) does't exist !!!
+ERRO - This ship (FrenayAcceleray_AI2_2) does't exist !!!
+ERRO - This ship (FrenayAcceleray_AI2_3) does't exist !!!
+ERRO - FrenayAcceleray_AI2_5 shoot out of range !
+INFO - It's turn nb 30 (2)
+INPU - [A.I.C.I.S] f1:slower f4:slower b1:slower Bucephalus:left Scion:left Jackson_V:1-16 d2:right Amphitrite:slower d1:left
+INPU - [FrenayAcceleray] AI2_5:16-2 f2:right f3:right AI2_2:right
+ERRO - This ship (FrenayAcceleray_f2) does't exist !!!
+ERRO - This ship (FrenayAcceleray_f3) does't exist !!!
+ERRO - This ship (FrenayAcceleray_AI2_2) does't exist !!!
+WARN - A.I.C.I.S_Jackson_V shot FrenayAcceleray_AI2_5
+ERRO - FrenayAcceleray_AI2_5 shoot out of range !
+INFO - It's turn nb 31 (1)
+INPU - [A.I.C.I.S] f1:40-17 f4:left b1:faster Bucephalus:40-17 Scion:40-17 Jackson_V:left d2:left Amphitrite:faster d1:right
+INPU - [FrenayAcceleray] AI2_5:24-3 f2:right f3:right AI2_2:right
+ERRO - This ship (FrenayAcceleray_f2) does't exist !!!
+ERRO - This ship (FrenayAcceleray_f3) does't exist !!!
+ERRO - This ship (FrenayAcceleray_AI2_2) does't exist !!!
+WARN - A.I.C.I.S_f1 shot FrenayAcceleray_AI2_5
+KILL - A.I.C.I.S_Bucephalus kill FrenayAcceleray_AI2_5
+WARN - A.I.C.I.S_Scion shoot failed (16, 39)!
