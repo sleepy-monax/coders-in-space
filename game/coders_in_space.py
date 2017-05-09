@@ -24,6 +24,7 @@ log_info = 0
 log_warning = 1
 log_error = 2
 log_input = 3
+log_death = 4
 
 
 # +------------------------------------------------------------------------------------------------------------------+ #
@@ -80,18 +81,20 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
     total_turn = -1
 
     # The main game loop.
-    while game_running:        
-        if total_turn > -1:
-            write_log(game_data, u'It\'s turn nb %d' % (total_turn), log_info)
-
-        # Show the game board to the human player.
-        show_game_screen(game_data)
+    while game_running:  
 
         # Cleaning the pending_attack list.
         game_data['pending_attacks'] = []
         pending_command = []
 
-        # getting players input.
+        if total_turn > -1:
+            write_log(game_data, u'It\'s turn nb %d' % (total_turn), log_info)
+
+        # Show the game board to the human player.
+        show_game_screen(game_data)
+        raw_input()
+        
+		# getting players input.
         for player in players_names:
             if is_ship_buy or game_data['players'][player]['nb_ships'] > 0:
                 pending_command.append((player, get_game_input(player, is_ship_buy, game_data)))
@@ -108,14 +111,14 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
         is_ship_buy = False
 
         # Show the game board to the human player.
-
         show_game_screen(game_data)
 
         # Do game loop.
         game_data = do_moves(game_data)
         game_data = take_abandoned_ship(game_data)
         game_data = do_attack(game_data)
-
+		
+		
         # Increment the round counter.
         game_data['nb_rounds'] += 1
         total_turn += 1
@@ -208,7 +211,7 @@ def initialize_game(level_name, players_names, players_types, max_rounds_count, 
     for player in players_names:
         # Create new player.
         if index_player < 4:
-            game_data['players'][player] = {'name': player, 'money': 100, 'nb_ships': 0}
+            game_data['players'][player] = {'name': player, 'money': 100, 'nb_ships': 0, 'objectives': []}
 
             # Set the player type.
             game_data['players'][player]['type'] = players_types[index_player]
@@ -576,7 +579,7 @@ def get_ai_input(game_data, player_name):
         if ship['type'] == 'fighter':
             abandoned_ships = get_ship_by_owner(game_data['ships'], 'none')
             if len(abandoned_ships) > 0:
-                ship_order = get_fighter_action(game_data, ship_name)
+                ship_order = get_fighter_action(game_data, ship_name, player_name)
             else:
                 ship_order = get_battleship_action(game_data, ship_name, player_name)
         else:
@@ -610,26 +613,20 @@ def get_ai_spaceships(player_name, game_data):
     """
     ship_type_name = {'f': 'fighter', 'b': 'battlecruiser', 'd': 'destroyer'}
 
-    fighters_names = ['ARC-170', 'V-19', 'V-WINGS', 'X-WINGS', 'TIE-FIGHTER', 'DROID-starfighter', 'Ha\'tak', 'Dart',
-                      'Puddle_Jumper', 'Geisha', 'Saragossa', 'Adventurer', 'The_Watcher', 'Alexander',
-                      'ISS_Adventurer', 'BS_Galactica', 'SC_Juggernaut', 'ISS_Europa', 'BC_Pilgrim']
+    ships_names = ['ARC-170', 'V-19', 'V-WINGS', 'X-WINGS', 'TIE-FIGHTER', 'DROID-starfighter', 'Dart', 'Eos', 'Furies', 
+                   'Hoosier', 'Huey_Long', 'Hurricane', 'Hyperion', 'Iron_Fist', 'Iron_Justice', 'Jackson_V', 'Ha\'tak',
+                   'Heracles', 'Heraclion', 'Hermes', 'Hydra', 'Juno', 'Medusa', 'Nemesis', 'Nimrod', 'Olympic', 'Fury',
+                   'Apollo', 'Cadmus', 'Cerberus', 'Charon', 'Churchill', 'Damocles', 'Delphi', 'Excalibur', 'Herakles',
+                   'Norad_II', 'Puddle_Jumper', 'Saragossa', 'Adventurer', 'The_Watcher', 'Alexander', 'ISS_Adventurer',
+                   'BS_Galactica', 'SC_Juggernaut', 'Victory', 'BC_Pilgrim', 'Achilles', 'Agamemnon', 'Emperor\'s_Fury',
+                   'Jackson\'s_Revenge', 'ISS_Europa', 'Orion', 'Persephone', 'Pollux', 'Pournelle', 'Roanoke', 'Talos',
+                   'Theseus', 'Vesta', 'Zeus', 'Agrippa', 'Aeneas', 'Aleksander', 'Amphitrite', 'Antigone', 'Leviathan',
+                   'Bucephalus', 'Circe', 'Bismarck', 'Gray_Tiger', 'Helios', 'Hephaestus', 'Titan',  'Cyrus', 'Geisha',
+                   'Palatine', 'Patroclus', 'Thunder_Child', 'Theodore_G._Bilbo', 'Kimeran_Juggernaut', 'Scion', 'Loki', 
+                   'Valor_of_Vardona','Napoleon', 'Ragnorak', 'Metis', 'Merrimack', 'Norad_III', 'Phobos', 'Tahoe', 'B',
+                   'Kimera', 'Meleager']
 
-    destroyers_names = ['Achilles', 'Agamemnon', 'Agrippa', 'Apollo', 'Cadmus', 'Cerberus', 'Charon',
-                        'Churchill', 'Damocles', 'Delphi', 'Excalibur', 'Furies', 'Heracles', 'Heraclion', 'Hermes',
-                        'Hydra', 'Juno', 'Medusa', 'Nemesis', 'Nimrod', 'Olympic', 'Orion', 'Persephone', 'Pollux',
-                        'Pournelle', 'Roanoke', 'Talos', 'Theseus', 'Vesta', 'Zeus']
-
-    battlecruisers_names = ['Aeneas', 'Aleksander', 'Amphitrite', 'Antigone', 'Bismarck', 'Bucephalus', 'Cerberus',
-                            'Circe', 'Cyrus', 'Emperor\'s_Fury', 'Eos', 'Fury', 'Gray_Tiger', 'Helios', 'Hephaestus',
-                            'Herakles', 'Hoosier', 'Huey_Long', 'Hurricane', 'Hyperion', 'Iron_Fist', 'Iron_Justice',
-                            'Jackson_V', 'Jackson\'s_Revenge', 'Kimera', 'Kimeran_Juggernaut', 'Leviathan', 'Loki',
-                            'Meleager', 'Merrimack', 'Metis', 'Napoleon', 'Norad_II', 'Norad_III', 'Palatine',
-                            'Patroclus', 'Phobos', 'Ragnorak', 'Scion', 'Tahoe', 'Theodore_G._Bilbo', 'Thunder_Child',
-                            'Titan', 'Valor_of_Vardona', 'Victory', 'White_Star']
-
-    random.shuffle(fighters_names)
-    random.shuffle(destroyers_names)
-    random.shuffle(battlecruisers_names)
+    random.shuffle(ships_names)
 
     ships_patern = []
     abandonned_ships_count = len(get_ship_by_owner(game_data['ships'], 'none'))
@@ -651,16 +648,7 @@ def get_ai_spaceships(player_name, game_data):
 
     while len(ships_patern) > 0:
         ship_type = ship_type_name[ships_patern.pop()]
-
-        ship_name = ''
-
-        if ship_type == 'fighter':
-            ship_name = fighters_names.pop()
-        elif ship_type == 'destroyer':
-            ship_name = destroyers_names.pop()
-        elif ship_type == 'battlecruiser':
-            ship_name = battlecruisers_names.pop()
-
+        ship_name = ships_names.pop()
         ai_input += '%s:%s ' % (ship_name, ship_type)
 
     return ai_input[:-1]
@@ -670,7 +658,7 @@ def get_ai_spaceships(player_name, game_data):
 # | Artificial Intelligence                                                                                          | #
 # +------------------------------------------------------------------------------------------------------------------+ #
 
-def get_fighter_action(game_data, ship_name):
+def get_fighter_action(game_data, ship_name, owner):
     """
     Get action for a fighter.
     
@@ -729,6 +717,7 @@ def get_fighter_action(game_data, ship_name):
         return attack(game_data, ship_name)
     else:
         return action
+
 
 
 def get_battleship_action(game_data, ship_name, owner):
@@ -909,12 +898,40 @@ def do_random_action(game_data, ship_name):
     action = random.choice(actions)
     if action == 'faster' or action == 'slower':
         return speed(game_data, ship_name, action)
-    elif action == 'attack':
+    if action == 'attack':
         return attack(game_data, ship_name)
 
     return action
 
+def speed(game_data, ship, change):
+    """
+    Check if LAICIS can increase/decrease the speed of its ship
+    parameters
+    ----------
+    game_data: game's data (dic).
+    ship: targeted ship (str).
+    change: change applied by LAICIS to the ship (str).
+    return
+    ------
+    '%s:%s' % (ship, change): regular input for the game loop (str).
+    Version
+    -------
+    Specification: Bayron Mahy (v1. 20/03/17)
+    Implementation: Bayron Mahy (v1. 20/03/17)
+                    Nicolas Van Bossuyt (v2. 29/03/17)
+    """
 
+    ship_type = game_data['ships'][ship]['type']
+    ship_speed = game_data['ships'][ship]['speed']
+    ship_max_speed = game_data['model_ship'][ship_type]['max_speed']
+
+    if (change == 'faster' and ship_speed + 1 > ship_max_speed):
+        return 'slower'
+    elif (change == 'slower' and ship_speed - 1 < 0):
+        return 'faster'
+    else:
+        return change
+    
 def attack(game_data, ship):
     """
     Attack command of AICIS.
@@ -1166,26 +1183,14 @@ def show_splash_game(game_data, is_remote_game=False):
     print_canvas(c)
     sleep(1)
 
-    # Print Groupe 24 logo.
-    c = clear_canvas(c)
-    c = put_ascii_art(c, screen_size[0] / 2 - 53, screen_size[1] / 2 - 5, 'groupe24')
-    print_canvas(c)
-    sleep(1)
-
-    # Print coders in space logo.
-    padding = 0
-
-    if is_remote_game:
-        padding = 61
-
     c = create_canvas(screen_size[0], screen_size[1])
-    c = clear_canvas(c, padding)
+    c = clear_canvas(c)
 
     game_title = 'Coders In Space'
     game_copyright = '(c) 2017 - 3342 Groupe24 corp.'
     font_standard = load_ascii_font('font_standard.txt')
     text_width = mesure_ascii_text(font_standard, game_title)
-    text_location = ((screen_size[0] - padding) / 2 - text_width / 2 + padding, screen_size[1] / 2 - 5)
+    text_location = ((screen_size[0]) / 2 - text_width / 2, screen_size[1] / 2 - 5)
 
     c = put_ascii_text(c, font_standard, game_title, text_location[0], text_location[1], 'yellow')
     c = put_text(c, text_location[0], text_location[1] + 7, '-' * text_width)
@@ -1436,8 +1441,8 @@ def render_game_logs(game_data, width, height):
     c = create_canvas(width, height)
     y = 0
 
-    message_color = ['blue', 'yellow', 'red', None]
-    message_prefix = ['  I ', ' /!\\', ' !!!', '  > ']
+    message_color = ['blue', 'yellow', 'red', None, 'red']
+    message_prefix = ['  I ', ' /!\\', ' !!!', '  > ', ' X.X']
 
     # Put all message in the logs screen.
     for message in game_data['game_logs'][-height:]:
@@ -1717,11 +1722,12 @@ def command_attack(ship, ship_coordinate, target_coordinate, game_data):
 
             # Remove ships from the game.
             for death_ship in ships_to_remove:
-                write_log(game_data, '%s kill %s' % (ship, death_ship), log_warning)
                 game_data['board'][target_coordinate].remove(death_ship)
                 game_data['players'][game_data['ships'][death_ship]['owner']]['nb_ships'] -= 1
-
                 del game_data['ships'][death_ship]
+                
+                write_log(game_data, '%s kill %s' % (ship, death_ship), log_death)
+                
         else:
             write_log(game_data, '%s shoot failed %s!' % (ship, str(target_coordinate)), log_warning)
     else:
@@ -2155,7 +2161,7 @@ def write_log(game_data, message, type=0):
     Specification: Nicolas Van Bossuyt (v1. 18/04/2017)
     Implementation: Nicolas Van Bossuyt (v1. 18/04/2017)
     """
-    prefix = ['INFO', 'WARN', 'ERRO', 'INPU']
+    prefix = ['INFO', 'WARN', 'ERRO', 'INPU', 'KILL']
     game_data['game_logs'].append((type, message))
 
 
@@ -2201,4 +2207,4 @@ def dict_sort(items, key):
 # Use for quick debuging.
 
 if __name__ == '__main__':
-    play_game('board/frenaysie.cis', ('NicolasLeRebelDeL\'espace', 'A.I.C.I.S.', 'bot', 'botbot'), ('ai','ai','ai','ai'))
+    play_game('board/random.cis', ('NicolasLeRebelDeL\'espace', 'A.I.C.I.S.'), ai_vs_ai)

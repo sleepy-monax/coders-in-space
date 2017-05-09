@@ -531,7 +531,7 @@ def slide_animation(canvas_foreground, canvas_background):
         put_canvas(out_canvas, canvas_background, 0, 0)
         put_canvas(out_canvas, canvas_foreground, 0, 0 - slide_value)
         print_canvas(out_canvas)
-        slide_value += 2
+        slide_value += 10
 
 # ======================================================================================================================
 # ======================================================================================================================
