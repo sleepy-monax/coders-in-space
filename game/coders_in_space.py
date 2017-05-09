@@ -93,7 +93,7 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
         # Show the game board to the human player.
         show_game_screen(game_data)
 
-		# getting players input.
+        # getting players input.
         for player in players_names:
             if is_ship_buy or game_data['players'][player]['nb_ships'] > 0:
                 pending_command.append((player, get_game_input(player, is_ship_buy, game_data)))
@@ -403,8 +403,7 @@ def is_game_continue(game_data):
         if winners[player] > max_value:
 
             max_value = winners[player]
-            max_value_owners = []
-            max_value_owners.append(player)
+            max_value_owners = [player]
 
         elif winners[player] == max_value:
             max_value_owners.append(player)
@@ -490,7 +489,7 @@ def get_human_input(player_name, buy_ship, game_data):
     Parameters
     ----------
     player_name: Name of the player to get input from (str).
-    buy_ships: True, if players buy their boats (bool).
+    buy_ship: True, if players buy their boats (bool).
     game_data: data of the game (dic).
 
     Returns
@@ -626,7 +625,6 @@ def get_ai_spaceships(player_name, game_data):
 
     random.shuffle(ships_names)
 
-    ships_patern = []
     abandonned_ships_count = len(get_ship_by_owner(game_data['ships'], 'none'))
 
     if abandonned_ships_count == 0:
@@ -678,7 +676,7 @@ def get_fighter_action(game_data, ship_name, owner):
     ship = game_data['ships'][ship_name]
 
     # If the ship as no objective or no path to it, find a new one.
-    if ship['objective'] == 'none' or len(ship['objective_path']) == 0 or not ship['objective'] in game_data['ships']:
+    if len(ship['objective_path']) == 0 or not ship['objective'] in game_data['ships']:
 
         # Get abandoned ships.
         abandoned_ships = get_ship_by_owner(game_data['ships'], 'none')
@@ -717,10 +715,10 @@ def get_fighter_action(game_data, ship_name, owner):
         return action
 
 
-
 def get_battleship_action(game_data, ship_name, owner):
     """
     Get action for a battlecruiser.
+    
     Parameters
     ----------
     game_data: data of the game (dic).
@@ -746,7 +744,7 @@ def get_battleship_action(game_data, ship_name, owner):
         final_objective = []
         for ship_object in close_objectives:
             ship_owner = game_data['ships'][ship_object]['owner']
-            if not ship_owner in ['none', owner]:
+            if not (ship_owner in ['none', owner]):
                 final_objective.append(ship_object)
 
         if len(final_objective) > 0:
@@ -760,10 +758,19 @@ def get_battleship_action(game_data, ship_name, owner):
     # Get ship object from objective name.
     objective = game_data['ships'][ship['objective']]
 
-    if get_distance(ship['location'], objective['location'], game_data['board_size']) <= \
-            game_data['model_ship'][ship['type']]['range']:
+    if game_data['ships'][ship_name]['speed'] == 0:
+        return 'faster'
+
+    # Shoot if enemy ship nearby.
+    nearby_ships = get_nearby_ship(game_data, ship_name, game_data['model_ship'][game_data['ships'][ship_name]['type']]['range'])
+    for n in nearby_ships:
+        if not game_data['ships'][n]['owner'] in ['none', owner]:
+            return attack(game_data, ship_name)
+
+    if get_distance(ship['location'], objective['location'], game_data['board_size']) <= game_data['model_ship'][ship['type']]['range']:
         return attack(game_data, ship_name)
     else:
+
         action = get_closer(game_data, ship_name, objective['location'])
 
         if action == 'none':
@@ -797,7 +804,7 @@ def get_nearby_ship(game_data, target_ship, search_range):
     dy = -1
     nearby_ships = []
 
-    for i in range((search_range) ** 2):
+    for i in range(search_range ** 2):
         if (-search_range < x <= search_range) and (-search_range < y <= search_range) and abs(x) + abs(y) <= search_range:
 
             location = convert_coordinates((ship_location[0] + x, ship_location[1] + y), game_data['board_size'])
@@ -1174,14 +1181,6 @@ def show_splash_game(game_data, is_remote_game=False):
     rows, columns = get_terminal_size()
     screen_size = (int(rows), int(columns))
     c = create_canvas(screen_size[0], screen_size[1])
-
-    # print the alien.
-    c = clear_canvas(c)
-    c = put_ascii_art(c, screen_size[0] / 2 - 17, screen_size[1] / 2 - 12, 'alien', 'green')
-    print_canvas(c)
-    sleep(1)
-
-    c = create_canvas(screen_size[0], screen_size[1])
     c = clear_canvas(c)
 
     game_title = 'Coders In Space'
@@ -1196,7 +1195,7 @@ def show_splash_game(game_data, is_remote_game=False):
     print_canvas(c)
 
     game_screen = render_game_screen(game_data)
-
+    sleep(.5)
     slide_animation(c, game_screen)
 
 
@@ -1380,6 +1379,8 @@ def render_ship_list(game_data, width, height):
     Specification:  Nicolas Van Bossuyt (v1. 10/04/17)
     Implementation: Nicolas Van Bossuyt (v1. 10/04/17)
     """
+    max_ship = (height - 1 - len(game_data['players']) * 4) / len(game_data['players'])
+
     # Setup the drawing canvas.
     c = create_canvas(width, height)
     ship_index = 0
@@ -1392,16 +1393,20 @@ def render_ship_list(game_data, width, height):
 
         # Put all information about the players.
         put_text(c, 1, y, '%s (t:%s s:%d)' % (
-            player, game_data['players'][player]['type'], game_data['players'][player]['nb_ships']))
+            player[:16], game_data['players'][player]['type'], game_data['players'][player]['nb_ships']))
         put_text(c, 0, y + 1, '-' * width)
         ship_index += 2
+        line_count = 0
 
         # get all space ship of a player.
         for ship in get_ship_by_owner(game_data['ships'], player):
             y = ship_index + 1
 
             # Put information about the selected spaceship.
-
+            if line_count >= max_ship:
+                put_text(c, 1, y, '...')
+                line_count = 0
+                break
             # Ship type.
             put_text(c, 1, y, game_data['ships'][ship]['type'].upper()[0])
 
@@ -1418,6 +1423,7 @@ def render_ship_list(game_data, width, height):
                      game_data['players'][game_data['ships'][ship]['owner']]['color'])
 
             ship_index += 1
+            line_count += 1
 
     return c
 
@@ -2211,4 +2217,4 @@ def dict_sort(items, key):
 # Use for quick debuging.
 
 if __name__ == '__main__':
-    play_game('board/deathly_hallows.cis', ('NicolasLeRebelDeL\'espace', 'A.I.C.I.S.'), ai_vs_ai)
+    play_game('board/Yin_Yang.cis', ('NicolasLeRebelDeL\'espace', 'A.I.C.I.S.'), ai_vs_ai)
