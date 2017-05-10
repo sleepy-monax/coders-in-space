@@ -1,0 +1,3 @@
+INPU - [NicolasLeRebelDeL'espace] Hoosier:fighter Amphitrite:fighter Aeneas:fighter Iron_Justice:fighter Ha'tak:fighter ISS_Adventurer:fighter Eos:fighter V-19:fighter Phobos:fighter Huey_Long:fighter
+INPU - [A.I.C.I.S.] Delphi:fighter Hyperion:fighter Victory:fighter Saragossa:fighter Hermes:fighter Zeus:fighter Amphitrite:fighter DROID-starfighter:fighter Adventurer:fighter Hoosier:fighter
+INFO - It's turn nb 0 (0)

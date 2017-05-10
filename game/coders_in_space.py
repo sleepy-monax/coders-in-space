@@ -31,7 +31,7 @@ log_death = 4
 # | Game Loop                                                                                                        | #
 # +------------------------------------------------------------------------------------------------------------------+ #
 
-def play_game(level_name, players_names, players_types, remote_id=None, remote_ip=None, max_rounds_count=20):
+def play_game(level_name, players_names, players_types, remote_ip=None, max_rounds_count=20):
     """
     Main function which executes the game loop.
 
@@ -60,15 +60,13 @@ def play_game(level_name, players_names, players_types, remote_id=None, remote_i
     """
 
     # Create the new game.
-    is_remote_game = (remote_id != None and remote_ip != None)
-
-
+    is_remote_game = (remote_ip != None and 'remote' in players_types)
+    remote_id = players_types.index('remote') if is_remote_game else 0
 
     # Connected to the remote player.
     if is_remote_game:
         print "CodersInSpace - Online multiplayer : Initialazing..."
-        game_data = initialize_game(level_name, players_names, players_types, max_rounds_count,
-                                    connect_to_player(remote_id, remote_ip, True))
+        game_data = initialize_game(level_name, players_names, players_types, max_rounds_count, connect_to_player(remote_id, remote_ip, True))
     else:
         game_data = initialize_game(level_name, players_names, players_types, max_rounds_count)
 
@@ -701,6 +699,9 @@ def get_fighter_action(game_data, ship_name, owner):
 
                 if success:
                     ship['objective_path'] = path
+
+            if not success:
+                return do_random_action(game_data, ship_name)
         else:
             # If there are no abandoned ships, do random action.
             return do_random_action(game_data, ship_name)
@@ -1272,7 +1273,7 @@ def render_game_board(game_data):
     Return
     ------
     game_board_canvas: rendered game board (dic)
-    
+
     Version
     -------
     Specification:  Nicolas Van Bossuyt (v1. 10/04/17)
@@ -2217,4 +2218,4 @@ def dict_sort(items, key):
 # Use for quick debuging.
 
 if __name__ == '__main__':
-    play_game('board/Yin_Yang.cis', ('NicolasLeRebelDeL\'espace', 'A.I.C.I.S.'), ai_vs_ai)
+    play_game('board/Yin_Yang.cis', ('Llamax', 'A.I.C.I.S.'), remote_vs_ai, 1, '138.48.160.120')
