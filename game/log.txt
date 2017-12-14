@@ -1,3 +1,108 @@
-INPU - [NicolasLeRebelDeL'espace] Hoosier:fighter Amphitrite:fighter Aeneas:fighter Iron_Justice:fighter Ha'tak:fighter ISS_Adventurer:fighter Eos:fighter V-19:fighter Phobos:fighter Huey_Long:fighter
-INPU - [A.I.C.I.S.] Delphi:fighter Hyperion:fighter Victory:fighter Saragossa:fighter Hermes:fighter Zeus:fighter Amphitrite:fighter DROID-starfighter:fighter Adventurer:fighter Hoosier:fighter
+INPU - [Llamax] Loki:fighter Heraclion:fighter ARC-170:fighter Vesta:fighter Titan:fighter B:fighter Fury:fighter Herakles:fighter Cadmus:fighter Cerberus:fighter
+INPU - [A.I.C.I.S.] Puddle_Jumper:fighter Charon:fighter Heracles:fighter Jackson_V:fighter Herakles:fighter Titan:fighter Hermes:fighter Antigone:fighter Valor_of_Vardona:fighter V-WINGS:fighter
 INFO - It's turn nb 0 (0)
+INPU - [Llamax] Titan:faster Fury:faster Heraclion:faster Cerberus:faster Loki:faster ARC-170:faster Vesta:faster Cadmus:faster Herakles:faster B:faster
+INPU - [A.I.C.I.S.] Heracles:faster V-WINGS:faster Charon:faster Titan:faster Valor_of_Vardona:faster Antigone:faster Herakles:faster Puddle_Jumper:faster Hermes:faster Jackson_V:faster
+INFO - It's turn nb 1 (1)
+INPU - [Llamax] Titan:faster Fury:faster Heraclion:faster Cerberus:faster Loki:faster ARC-170:faster Vesta:faster Cadmus:faster Herakles:faster B:faster
+INPU - [A.I.C.I.S.] Heracles:faster V-WINGS:faster Charon:faster Titan:right Valor_of_Vardona:faster Antigone:left Herakles:faster Puddle_Jumper:faster Hermes:right Jackson_V:right
+INFO - It's turn nb 2 (2)
+INPU - [Llamax] Titan:faster Fury:faster Cerberus:faster Loki:left ARC-170:faster Vesta:faster Herakles:faster B:faster
+INPU - [A.I.C.I.S.] Heracles:faster V-WINGS:left Charon:left Titan:right Valor_of_Vardona:faster Antigone:faster Herakles:faster Puddle_Jumper:faster Hermes:faster Jackson_V:right
+INFO - Llamax as take Llamax_Phobos50 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Leviathan107 !
+INFO - It's turn nb 3 (3)
+INPU - [Llamax] Titan:left Phobos50:faster ARC-170:slower Vesta:faster Cadmus:faster
+INPU - [A.I.C.I.S.] V-WINGS:right Titan:right Valor_of_Vardona:faster Antigone:faster Puddle_Jumper:slower Jackson_V:right Leviathan107:faster
+INFO - A.I.C.I.S. as take A.I.C.I.S._Norad_II109 !
+INFO - Llamax as take Llamax_Herakles75 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Hurricane82 !
+INFO - It's turn nb 4 (4)
+INPU - [Llamax] Titan:faster Fury:right Heraclion:slower Cerberus:slower Loki:slower Phobos50:faster ARC-170:left Vesta:right Cadmus:right Herakles:right B:right Herakles75:faster
+INPU - [A.I.C.I.S.] Heracles:slower V-WINGS:faster Titan:faster Valor_of_Vardona:left Norad_II109:faster Herakles:right Puddle_Jumper:left Jackson_V:right Hurricane82:faster Leviathan107:right
+INFO - A.I.C.I.S. as take A.I.C.I.S._Norad_III85 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Cerberus121 !
+INFO - Llamax as take Llamax_Hyperion96 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Huey_Long92 !
+INFO - It's turn nb 5 (5)
+INPU - [Llamax] Titan:right Fury:faster Heraclion:left Cerberus:slower Loki:left Phobos50:left ARC-170:slower Vesta:slower Hyperion96:faster Cadmus:faster Herakles:faster B:20-18 Herakles75:18-18
+INPU - [A.I.C.I.S.] Heracles:19-19 V-WINGS:faster Charon:left Titan:right Valor_of_Vardona:slower Norad_II109:faster Cerberus121:faster Norad_III85:faster Antigone:slower Herakles:faster Puddle_Jumper:slower Hermes:faster Jackson_V:faster Huey_Long92:faster Hurricane82:23-23 Leviathan107:right
+INFO - A.I.C.I.S. as take A.I.C.I.S._Fury84 !
+INFO - Llamax as take Llamax_Ragnorak66 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Thunder_Child78 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Metis134 !
+INFO - Llamax as take Llamax_Hephaestus68 !
+INFO - Llamax as take Llamax_Napoleon61 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Hurricane71 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Jackson's_Revenge118 !
+INFO - Llamax as take Llamax_Jackson's_Revenge69 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Iron_Fist88 !
+WARN - Llamax_B shot Llamax_Herakles75
+WARN - Llamax_Herakles75 shot A.I.C.I.S._Heracles
+WARN - A.I.C.I.S._Heracles shoot failed (18, 18)!
+WARN - A.I.C.I.S._Hurricane82 shoot failed (22, 22)!
+INFO - It's turn nb 6 (1)
+INPU - [Llamax] Jackson's_Revenge69:faster Titan:slower Fury:right Napoleon61:faster Heraclion:left Cerberus:right Loki:right Hephaestus68:faster Phobos50:faster ARC-170:left Vesta:right Hyperion96:11-22 Cadmus:faster Ragnorak66:faster Herakles:slower B:left Herakles75:16-16
+INPU - [A.I.C.I.S.] Hurricane71:faster Fury84:faster Heracles:right V-WINGS:18-20 Charon:faster Norad_II109:right Iron_Fist88:faster Cerberus121:faster Norad_III85:right Thunder_Child78:faster Antigone:left Herakles:right Puddle_Jumper:left Metis134:faster Hermes:faster Jackson_V:slower Huey_Long92:30-20 Hurricane82:23-23 Jackson's_Revenge118:faster Leviathan107:faster
+INFO - A.I.C.I.S. as take A.I.C.I.S._Circe141 !
+INFO - Llamax as take Llamax_Napoleon90 !
+INFO - Llamax as take Llamax_Bismarck33 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Valor_of_Vardona39 !
+INFO - Llamax as take Llamax_Valor_of_Vardona70 !
+INFO - Llamax as take Llamax_Aeneas63 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Merrimack59 !
+INFO - Llamax as take Llamax_Iron_Justice73 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Jackson's_Revenge93 !
+INFO - Llamax as take Llamax_Kimera91 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Titan46 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Metis150 !
+INFO - Llamax as take Llamax_Scion60 !
+WARN - Llamax_Herakles75 shoot failed (15, 15)!
+WARN - A.I.C.I.S._V-WINGS shoot failed (19, 17)!
+WARN - A.I.C.I.S._Huey_Long92 shot A.I.C.I.S._Hurricane71
+WARN - A.I.C.I.S._Hurricane82 shoot failed (22, 22)!
+INFO - It's turn nb 7 (1)
+INPU - [Llamax] Jackson's_Revenge69:30-21 Titan:right Fury:34-15 Napoleon61:25-18 Napoleon90:faster Kimera91:faster Aeneas63:faster Heraclion:faster Cerberus:faster Loki:left Hephaestus68:25-18 Phobos50:faster ARC-170:left Vesta:faster Hyperion96:13-22 Cadmus:30-21 Valor_of_Vardona70:faster Ragnorak66:14-18 Herakles:left B:left Iron_Justice73:faster Bismarck33:faster Scion60:faster
+INPU - [A.I.C.I.S.] Hurricane71:left Titan46:faster Valor_of_Vardona39:faster Fury84:32-19 Jackson's_Revenge93:faster Heracles:left V-WINGS:left Metis150:faster Titan:faster Valor_of_Vardona:right Norad_II109:faster Iron_Fist88:12-21 Circe141:faster Thunder_Child78:faster Antigone:faster Herakles:faster Puddle_Jumper:faster Metis134:faster Hermes:right Jackson_V:right Huey_Long92:31-25 Hurricane82:24-22 Merrimack59:faster Jackson's_Revenge118:left Leviathan107:left
+INFO - Llamax as take Llamax_Norad_III79 !
+INFO - Llamax as take Llamax_Jackson's_Revenge18 !
+INFO - Llamax as take Llamax_Jackson_V67 !
+INFO - Llamax as take Llamax_Loki77 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Titan100 !
+INFO - Llamax as take Llamax_Tahoe89 !
+WARN - Llamax_Jackson's_Revenge69 shoot failed (20, 29)!
+WARN - Llamax_Fury shoot failed (14, 33)!
+WARN - Llamax_Napoleon61 shoot failed (17, 24)!
+WARN - Llamax_Hephaestus68 shoot failed (17, 24)!
+WARN - Llamax_Hyperion96 shot A.I.C.I.S._Iron_Fist88
+WARN - Llamax_Cadmus shoot failed (20, 29)!
+WARN - A.I.C.I.S._Fury84 shoot failed (18, 31)!
+WARN - A.I.C.I.S._Huey_Long92 shoot failed (24, 30)!
+WARN - A.I.C.I.S._Hurricane82 shot Llamax_Kimera91
+INFO - It's turn nb 8 (1)
+INPU - [Llamax] Jackson's_Revenge18:faster Jackson's_Revenge69:28-22 Titan:right Fury:slower Napoleon61:28-15 Napoleon90:21-26 Kimera91:26-24 Aeneas63:right Heraclion:left Cerberus:right Loki:left Hephaestus68:26-24 Phobos50:faster ARC-170:left Vesta:faster Hyperion96:14-20 Tahoe89:faster Cadmus:slower Jackson_V67:faster Valor_of_Vardona70:28-22 Ragnorak66:12-14 Herakles:left B:left Iron_Justice73:12-22 Norad_III79:faster Loki77:faster Bismarck33:left Scion60:14-20 Herakles75:right
+INPU - [A.I.C.I.S.] Hurricane71:faster Titan46:left Valor_of_Vardona39:right Fury84:28-20 Titan100:faster Jackson's_Revenge93:faster Heracles:left V-WINGS:left Charon:faster Metis150:faster Valor_of_Vardona:right Iron_Fist88:13-24 Cerberus121:right Circe141:left Norad_III85:faster Thunder_Child78:faster Antigone:faster Herakles:slower Puddle_Jumper:faster Metis134:faster Jackson_V:right Huey_Long92:35-25 Hurricane82:25-22 Merrimack59:13-24 Jackson's_Revenge118:left Leviathan107:left
+INFO - A.I.C.I.S. as take A.I.C.I.S._Victory48 !
+INFO - Llamax as take Llamax_Ragnorak83 !
+INFO - Llamax as take Llamax_Cyrus12 !
+INFO - Llamax as take Llamax_Palatine95 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Fury87 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Phobos136 !
+INFO - Llamax as take Llamax_Amphitrite86 !
+WARN - Llamax_Jackson's_Revenge69 shoot failed (21, 27)!
+WARN - Llamax_Napoleon90 shot A.I.C.I.S._Hurricane82
+WARN - Llamax_Kimera91 shot A.I.C.I.S._Titan100
+WARN - Llamax_Hephaestus68 shot A.I.C.I.S._Titan100
+WARN - Llamax_Hyperion96 shot A.I.C.I.S._Merrimack59
+WARN - Llamax_Valor_of_Vardona70 shoot failed (21, 27)!
+WARN - Llamax_Ragnorak66 shoot failed (13, 11)!
+WARN - Llamax_Iron_Justice73 shot A.I.C.I.S._Iron_Fist88
+WARN - Llamax_Iron_Justice73 shot A.I.C.I.S._Fury87
+WARN - Llamax_Scion60 shot A.I.C.I.S._Merrimack59
+WARN - A.I.C.I.S._Fury84 shot Llamax_Loki77
+WARN - A.I.C.I.S._Iron_Fist88 shoot failed (23, 12)!
+WARN - A.I.C.I.S._Huey_Long92 shoot failed (24, 34)!
+WARN - A.I.C.I.S._Hurricane82 shot Llamax_Kimera91
+WARN - A.I.C.I.S._Merrimack59 shoot failed (23, 12)!
+INFO - It's turn nb 9 (1)
+INPU - [Llamax] Jackson's_Revenge18:left Jackson's_Revenge69:25-25 Titan:right Fury:right Napoleon61:25-25 Napoleon90:13-21 Kimera91:25-25 Aeneas63:faster Heraclion:faster Cerberus:25-17 Loki:left Hephaestus68:25-25 ARC-170:faster Ragnorak83:faster Vesta:slower Hyperion96:13-21 Tahoe89:13-21 Cadmus:right Jackson_V67:25-25 Palatine95:faster Valor_of_Vardona70:33-22 Ragnorak66:14-12 Herakles:slower Cyrus12:faster B:slower Iron_Justice73:12-22 Norad_III79:right Loki77:25-17 Amphitrite86:faster Bismarck33:faster Scion60:13-21 Herakles75:18-15

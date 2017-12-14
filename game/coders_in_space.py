@@ -65,7 +65,7 @@ def play_game(level_name, players_names, players_types, remote_ip=None, max_roun
 
     # Connected to the remote player.
     if is_remote_game:
-        print "CodersInSpace - Online multiplayer : Initialazing..."
+        print("CodersInSpace - Online multiplayer : Initialazing...")
         game_data = initialize_game(level_name, players_names, players_types, max_rounds_count, connect_to_player(remote_id, remote_ip, True))
     else:
         game_data = initialize_game(level_name, players_names, players_types, max_rounds_count)
@@ -86,7 +86,7 @@ def play_game(level_name, players_names, players_types, remote_ip=None, max_roun
         pending_command = []
 
         if total_turn > -1:
-            write_log(game_data, u'It\'s turn nb %d (%d)' % (total_turn, game_data['nb_rounds']), log_info)
+            write_log(game_data, 'It\'s turn nb %d (%d)' % (total_turn, game_data['nb_rounds']), log_info)
 
         # Show the game board to the human player.
         show_game_screen(game_data)
@@ -128,7 +128,7 @@ def play_game(level_name, players_names, players_types, remote_ip=None, max_roun
 
     # Show the end game screen.
     show_end_game(game_data)
-    raw_input()
+    input()
 
     return game_data
 
@@ -182,12 +182,12 @@ def initialize_game(level_name, players_names, players_types, max_rounds_count, 
                  'is_remote_game': connection is not None,
                  'max_nb_rounds': max_rounds_count}
 
-    # Create ship specs sheet.
-    game_data['model_ship']['fighter'] = {'icon': u'F', 'max_heal': 3, 'max_speed': 5, 'damages': 1, 'range': 5,
+    # Create ship specsheets.
+    game_data['model_ship']['fighter'] = {'icon': 'F', 'max_heal': 3, 'max_speed': 5, 'damages': 1, 'range': 5,
                                           'price': 10}
-    game_data['model_ship']['destroyer'] = {'icon': u'D', 'max_heal': 8, 'max_speed': 2, 'damages': 2, 'range': 7,
+    game_data['model_ship']['destroyer'] = {'icon': 'D', 'max_heal': 8, 'max_speed': 2, 'damages': 2, 'range': 7,
                                             'price': 20}
-    game_data['model_ship']['battlecruiser'] = {'icon': u'B', 'max_heal': 20, 'max_speed': 1, 'damages': 4, 'range': 10,
+    game_data['model_ship']['battlecruiser'] = {'icon': 'B', 'max_heal': 20, 'max_speed': 1, 'damages': 4, 'range': 10,
                                                 'price': 30}
 
     # Create the game board.
@@ -387,7 +387,7 @@ def is_game_continue(game_data):
             not_loser.append(player)
 
     # Check if the game continue.
-    if len(not_loser) > 1 and game_data['nb_rounds'] < game_data['max_nb_rounds']:
+    if len(not_loser) > 1 and game_data['nb_rounds'] < int(game_data['max_nb_rounds']):
         return True
 
     winners = {}
@@ -512,7 +512,7 @@ def get_human_input(player_name, buy_ship, game_data):
     print_canvas(c, screen_size[1] - 4, 0)
 
     # Getting human player input.
-    player_input = raw_input(set_color('\033[%d;%dH %s>' % (screen_size[1] - 2, 3, player_name),
+    player_input = input(set_color('\033[%d;%dH %s>' % (screen_size[1] - 2, 3, player_name),
                                        game_data['players'][player_name]['color'], 'white'))
     return player_input
 
@@ -537,23 +537,23 @@ def get_remote_input(game_data, player_name):
     Implementation: Nicolas Van Bossuyt (v1. 03/03/17)
     """
 
-    print '[ WAITING FOR INPUT from %s ]' % player_name
+    print('[ WAITING FOR INPUT from %s ]' % player_name)
     return get_remote_orders(game_data['connection'])
 
 
 def get_ai_input(game_data, player_name):
     """
     Get input from an AI player.
-    
+
     Parameter
     ---------
     player_name: name of the player (str).
     game_data:   state of the game (dic).
-    
+
     Return
     ------
     ai_input: game input from AI (str).
-    
+
     Version
     -------
     Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 10/02/17)
@@ -568,8 +568,8 @@ def get_ai_input(game_data, player_name):
         ship_index += 1
         ship = game_data['ships'][ship_name]
 
-        print '\033[0;0H[ ' + player_name + ' ]' + ' ' * 3
-        print '[ Thinking : %d/%d ]' % (ship_index, len(ai_ships))
+        print('\033[0;0H[ ' + player_name + ' ]' + ' ' * 3)
+        print('[ Thinking : %d/%d ]' % (ship_index, len(ai_ships)))
 
         if ship['type'] == 'fighter':
             abandoned_ships = get_ship_by_owner(game_data['ships'], 'none')
@@ -608,7 +608,7 @@ def get_ai_spaceships(player_name, game_data):
     """
     ship_type_name = {'f': 'fighter', 'b': 'battlecruiser', 'd': 'destroyer'}
 
-    ships_names = ['ARC-170', 'V-19', 'V-WINGS', 'X-WINGS', 'TIE-FIGHTER', 'DROID-starfighter', 'Dart', 'Eos', 'Furies', 
+    ships_names = ['ARC-170', 'V-19', 'V-WINGS', 'X-WINGS', 'TIE-FIGHTER', 'DROID-starfighter', 'Dart', 'Eos', 'Furies',
                    'Hoosier', 'Huey_Long', 'Hurricane', 'Hyperion', 'Iron_Fist', 'Iron_Justice', 'Jackson_V', 'Ha\'tak',
                    'Heracles', 'Heraclion', 'Hermes', 'Hydra', 'Juno', 'Medusa', 'Nemesis', 'Nimrod', 'Olympic', 'Fury',
                    'Apollo', 'Cadmus', 'Cerberus', 'Charon', 'Churchill', 'Damocles', 'Delphi', 'Excalibur', 'Herakles',
@@ -617,7 +617,7 @@ def get_ai_spaceships(player_name, game_data):
                    'Jackson\'s_Revenge', 'ISS_Europa', 'Orion', 'Persephone', 'Pollux', 'Pournelle', 'Roanoke', 'Talos',
                    'Theseus', 'Vesta', 'Zeus', 'Agrippa', 'Aeneas', 'Aleksander', 'Amphitrite', 'Antigone', 'Leviathan',
                    'Bucephalus', 'Circe', 'Bismarck', 'Gray_Tiger', 'Helios', 'Hephaestus', 'Titan',  'Cyrus', 'Geisha',
-                   'Palatine', 'Patroclus', 'Thunder_Child', 'Theodore_G._Bilbo', 'Kimeran_Juggernaut', 'Scion', 'Loki', 
+                   'Palatine', 'Patroclus', 'Thunder_Child', 'Theodore_G._Bilbo', 'Kimeran_Juggernaut', 'Scion', 'Loki',
                    'Valor_of_Vardona','Napoleon', 'Ragnorak', 'Metis', 'Merrimack', 'Norad_III', 'Phobos', 'Tahoe', 'B',
                    'Kimera', 'Meleager']
 
@@ -655,16 +655,16 @@ def get_ai_spaceships(player_name, game_data):
 def get_fighter_action(game_data, ship_name, owner):
     """
     Get action for a fighter.
-    
+
     Parameters
     ----------
     game_data: data of the game (dic).
     ship_name: name of the ship to get input from (str).
-    
+
     Return
     ------
     action: action for this ship(str).
-    
+
     Version
     -------
     Specification:  Alisson Leist, Bayron Mahy, Nicolas Van Bossuyt (v1. 31/03/17)
@@ -719,7 +719,7 @@ def get_fighter_action(game_data, ship_name, owner):
 def get_battleship_action(game_data, ship_name, owner):
     """
     Get action for a battlecruiser.
-    
+
     Parameters
     ----------
     game_data: data of the game (dic).
@@ -837,7 +837,7 @@ def follow_path(game_data, ship_name):
     Return
     ------
     order: the order to do in order to follow the path <none|left|right|faster|slower>(str).
-    
+
     Version
     -------
     Specification:  Nicolas Van Bossuyt (v1. 28/04/17)
@@ -1089,7 +1089,7 @@ def get_next_step(start_node, end_node, max_speed, board_size):
 
 def node(location, facing=(0, 0), distance=0, speed=0, to_do='none'):
     """
-    Create a new path finding node.
+    Node object constructor.
 
     Parameters
     ----------
@@ -1098,11 +1098,11 @@ def node(location, facing=(0, 0), distance=0, speed=0, to_do='none'):
     distance: distance to the objective (int).
     speed: speed of the node.
     to_do: Order to do.
-    
+
     Return
     ------
     node: path finding node (dic).
-    
+
     Version
     -------
     Specification:  Nicolas Van Bossuyt (v1. 28/04/17)
@@ -1188,7 +1188,7 @@ def show_splash_game(game_data, is_remote_game=False):
     game_copyright = '(c) 2017 - 3342 Groupe24 corp.'
     font_standard = load_ascii_font('font_standard.txt')
     text_width = mesure_ascii_text(font_standard, game_title)
-    text_location = ((screen_size[0]) / 2 - text_width / 2, screen_size[1] / 2 - 5)
+    text_location = ((screen_size[0]) // 2 - text_width // 2, screen_size[1] // 2 - 5)
 
     c = put_ascii_text(c, font_standard, game_title, text_location[0], text_location[1], 'yellow')
     c = put_text(c, text_location[0], text_location[1] + 7, '-' * text_width)
@@ -1222,11 +1222,11 @@ def show_game_screen(game_data):
 def render_game_screen(game_data):
     """
     Render the game screen.
-    
+
     Parameter
     ---------
     game_data: data of the game (dic).
-    
+
     Return
     ------
     game_screen: rendered game_screen (canvas).
@@ -1242,14 +1242,15 @@ def render_game_screen(game_data):
 
     # Put some nice decoration.
     c = put_ascii_art(c, 1, screen_size[1] - 25, 'planet')
-    if screen_size > 190:
+    if screen_size[0] > 190:
+        # If the screen is too large, add a another one.
         c = put_ascii_art(c, 185, screen_size[1] - 25, 'planet')
 
     c = put_box(c, 0, 0, screen_size[0], screen_size[1], 'single')
 
     # Put child canvas in the main canvas.
-    game_board_pos = (((screen_size[0] - c_ship_list['size'][0]) / 2 - (c_game_board['size'][0] + 2) / 2) + c_ship_list['size'][0],
-                      screen_size[1] / 2 - (c_game_board['size'][1] + 2) / 2 - (c_game_logs['size'][1] + 2) / 2)
+    game_board_pos = (((screen_size[0] - c_ship_list['size'][0]) // 2 - (c_game_board['size'][0] + 2) // 2) + c_ship_list['size'][0],
+                      screen_size[1] // 2 - (c_game_board['size'][1] + 2) // 2 - (c_game_logs['size'][1] + 2) // 2)
 
     c = put_window(c, c_game_board, 'GAME BOARD', game_board_pos[0], game_board_pos[1], c_game_board['size'][0] + 2,
                    c_game_board['size'][1] + 2)
@@ -1282,7 +1283,7 @@ def render_game_board(game_data):
     # Setup the drawing canvas.
     board_size = game_data['board_size']
     c = create_canvas(board_size[0] * 3 + 3, board_size[1] + 1)
-    # c = put_stars_field(c, 0, 0, *c['size'])
+    # c = put_stars_field(c, 0, 0, *c['size']) # Disable cause of readability.
     offset = 0
 
     # Put coordinates.
@@ -1336,7 +1337,7 @@ def render_game_board(game_data):
             elif ship_facing == (1, -1) or ship_facing == (-1, 1):
                 facing_char = '/'  # The ship is facing 'up-right' or 'down-left'.
             elif ship_facing == (1, 0) or ship_facing == (-1, 0):
-                facing_char = u'─'  # The ship is facing 'left' or 'right'.
+                facing_char = '─'  # The ship is facing 'left' or 'right'.
 
             # Put the ship and the facing line on the game board.
             put_text(c, on_canvas_location[0] + 1, on_canvas_location[1], ship_icon, 1, 0, ship_color, None)
@@ -1374,7 +1375,7 @@ def render_ship_list(game_data, width, height):
     Return
     ------
     ship_list_canvas: rendered ship list (dic).
-    
+
     Version
     -------
     Specification:  Nicolas Van Bossuyt (v1. 10/04/17)
@@ -1440,7 +1441,7 @@ def render_game_logs(game_data, width, height):
     Return
     ------
     game_logs_canvas: rendered game logs (dic).
-    
+
     Version
     -------
     Specification:  Nicolas Van Bossuyt (v1. 10/04/17)
@@ -1506,7 +1507,7 @@ def show_end_game(game_data):
                 text_font = font_small
                 text_color = 'white'
 
-            text_location = (screen_size[0] / 2 - int(text_length / 2), line_index * 11 + 2)
+            text_location = (screen_size[0] // 2 - int(text_length // 2), line_index * 11 + 2)
 
             # Put player information.
             c = put_ascii_text(c, text_font, player, text_location[0], text_location[1], text_color)
@@ -2218,4 +2219,4 @@ def dict_sort(items, key):
 # Use for quick debuging.
 
 if __name__ == '__main__':
-    play_game('board/Yin_Yang.cis', ('Llamax', 'A.I.C.I.S.'), remote_vs_ai, 1, '138.48.160.120')
+    play_game('board/Yin_Yang.cis', ('Llamax', 'A.I.C.I.S.'), ai_vs_ai,'138.48.160.120')

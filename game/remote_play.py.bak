@@ -60,7 +60,7 @@ def connect_to_player(player_id, remote_IP='127.0.0.1', verbose=False):
     
     # init verbose display
     if verbose:
-        print('\n-------------------------------------------------------------')
+        print '\n-------------------------------------------------------------'
         
     # open socket (as server) to receive orders
     socket_in = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -74,17 +74,17 @@ def connect_to_player(player_id, remote_IP='127.0.0.1', verbose=False):
     
     try:
         if verbose:
-            print('binding on %s:%d to receive orders from player %d...' % (local_IP, local_port, player_id))
+            print 'binding on %s:%d to receive orders from player %d...' % (local_IP, local_port, player_id)
         socket_in.bind((local_IP, local_port))
     except:
         local_port = 42000 + 100+ (3-player_id)
         if verbose:
-            print('   referee detected, binding instead on %s:%d...' % (local_IP, local_port))
+            print '   referee detected, binding instead on %s:%d...' % (local_IP, local_port)
         socket_in.bind((local_IP, local_port))
 
     socket_in.listen(1)
     if verbose:
-        print('   done -> now waiting for a connection on %s:%d\n' % (local_IP, local_port))
+        print '   done -> now waiting for a connection on %s:%d\n' % (local_IP, local_port)
 
     # open client socket used to send orders
     socket_out = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -97,30 +97,30 @@ def connect_to_player(player_id, remote_IP='127.0.0.1', verbose=False):
     while not connected:
         try:
             if verbose and not msg_shown:
-                print('connecting on %s:%d to send orders to player %d...' % (remote_IP, remote_port, player_id))
+                print 'connecting on %s:%d to send orders to player %d...' % (remote_IP, remote_port, player_id)
             socket_out.connect((remote_IP, remote_port))
             connected = True
             if verbose:
-                print('   done -> now sending orders to player %d on %s:%d' % (player_id, remote_IP, remote_port))
+                print '   done -> now sending orders to player %d on %s:%d' % (player_id, remote_IP, remote_port)
         except:
             if verbose and not msg_shown:
-                print('   connection failed -> will try again every 100 msec...')
+                print '   connection failed -> will try again every 100 msec...'
             time.sleep(.1)
 
             msg_shown = True
             
     if verbose:
-        print()        
+        print        
 
     # accept connection to the server socket to receive orders from remote player
-    print('stuck on accept')
+    print 'stuck on accept'
     socket_in, remote_address = socket_in.accept()
     if verbose:
-        print('now listening to orders from player %d' % (player_id))
+        print 'now listening to orders from player %d' % (player_id)
             
     # end verbose display
     if verbose:
-        print('\nconnection to remote player %d successful\n-------------------------------------------------------------\n' % player_id)
+        print '\nconnection to remote player %d successful\n-------------------------------------------------------------\n' % player_id
 
     # return sockets for further use     
     return (socket_in, socket_out)
@@ -174,7 +174,7 @@ def notify_remote_orders(connection, orders):
     try:
         socket_out.sendall(orders)
     except:
-        raise IOError('remote player cannot be reached')
+        raise IOError, 'remote player cannot be reached'
 
 
 def get_remote_orders(connection):
@@ -202,7 +202,7 @@ def get_remote_orders(connection):
     try:
         orders = socket_in.recv(4096)
     except:
-        raise IOError('remote player cannot be reached')
+        raise IOError, 'remote player cannot be reached'
         
     # deal with null orders
     if orders == 'null':

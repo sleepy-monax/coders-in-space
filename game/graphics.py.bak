@@ -85,7 +85,7 @@ def print_canvas(canvas, x = 0, y = 0):
         line += '\n'
 
     # Print, remove the laste \n et reset the print cursor..
-    print(line[:-1] + '\033[?25h\033[0;0H')
+    print line[:-1] + '\033[?25h\033[0;0H'
 
 
 # Canvas drawing.
@@ -149,10 +149,12 @@ def put_ascii_art(canvas, x, y, ascii_art_name, color = None, back_color = None,
     Implementation: Nicolas Van Bossuyt (V1. 15/02/17)
                     Nicolas Van Bossuyt (v2. 26/02/17)
     """
+    
+    
     art_path = 'art/' + ascii_art_name + '.txt'
     if not path.isfile(art_path):
         return canvas
-
+    
     art_file = open(art_path,'r')
 
     line_index = 0
@@ -194,7 +196,7 @@ def put_ascii_text(canvas, font, text, x, y, color = None, back_color = None):
     if font is None:
         canvas = put_text(canvas, x, y, text, 1, 0, color, back_color)
         return canvas
-
+    
     for char in text:
         char_ascii = font[char]
         char_width = char_ascii['width']
@@ -370,9 +372,9 @@ def put_box(canvas, x, y, width, height, mode = 'double', color = None, back_col
     rec_char = ()
 
     if mode == 'double':
-        rect_char = ('═', '║', '╔', '╚', '╗', '╝')
+        rect_char = (u'═', u'║', u'╔', u'╚', u'╗', u'╝')
     elif mode == 'single':
-        rect_char = ('─', '│', '┌', '└', '┐', '┘')
+        rect_char = (u'─', u'│', u'┌', u'└', u'┐', u'┘')
 
     # Put borders.
     put_rectangle(canvas, x, y, width, 1, rect_char[0], color, back_color)
