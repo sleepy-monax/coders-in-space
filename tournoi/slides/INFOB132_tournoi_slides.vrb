@@ -1,0 +1,23 @@
+\frametitle{Le tournoi en pratique}
+	\begin{center}
+		\includegraphics[width=.85\textwidth]{images/tournoi_4.png}
+        \vspace{.4cm}
+
+        {\normalsize orders of player 1:
+	        \verb|dave:scout olivaw:*32-4 robbie:lock speedy:release dave:@21-4|
+	    }
+	\end{center}
+%	\vspace{.2cm}
+
+	\begin{block}{Déroulement du tournoi}
+		\begin{itemize}
+			\item tournoi en phases: premières phases BO3 et dernières phases BO5
+			\begin{itemize}
+				\item best of 3 = premier joueur à gagner 2 parties (3 parties max.)
+				\item best of 5 = premier joueur à gagner 3 parties (5 parties max.)
+			\end{itemize}
+			\item à chaque partie, le premier joueur et la taille du plateau sont aléatoires
+			\item IA bloquée (60 sec. max.) ou crashée (exception) $\Rightarrow$ partie perdue
+			\item grande et petite finale pour déterminer les trois premières places
+		\end{itemize}
+	\end{block}

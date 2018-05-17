@@ -1,0 +1,204 @@
+\title{Laboratoire de dévelopement de programme}
+\subtitle{\vspace{.1cm}Mining Wars}
+\date{}
+
+\usepackage{fancyvrb}
+\usepackage{listings}
+
+\begin{document}
+
+%\renewcommand{\commonimages}{../../../../common/images}
+
+\titleframe
+
+
+
+% outline
+% history of OR
+% success stories
+% definition of OR
+% content and overview of the course
+% expectations w.r.t. students 
+
+% main part
+
+
+\frame{\frametitle{Cette année : dévelopement d'un jeu et d'une IA}
+	\begin{block}{Le projet en quelques mots}
+		par groupes (libres !) de 3 étudiants, implémenter
+		\begin{itemize}
+			\item un programme permettant de jouer à un jeu raisonnablement complexe
+			\item une intelligence artificielle (IA) contre laquelle jouer à ce jeu
+		\end{itemize}
+		\vspace{.2cm}
+		
+		le jeu était imposé $\Rightarrow$ découverte de l'énoncé en groupe début février
+	\end{block}
+	\vspace{.2cm}
+	
+	\begin{block}{Organisation du quadrimestre}
+		\begin{itemize}
+			\item le laboratoire est l'aboutissement d'INFOB131 et des mini-projets
+			\item uniquement des séances en groupe encadrées par les assistants
+			\item pas assez $\Rightarrow$ cours de 3 ECTS = 90 heures de travail/étudiant
+			\item les étapes du laboratoire étaient soigneusement balisées
+%			\item<3-> il était \textbf{impossible} de faire le projet tout seul : prévu pour 3 personnes
+		\end{itemize}
+	\end{block}
+}
+
+\frame{%https://www.youtube.com/watch?v=8TQIvdFl4aU
+	\begin{center}
+		\includegraphics<1>[width=\textwidth]{images/pvt-monlyth01.jpg}
+	\end{center}
+}
+
+\frame<handout:0>{%https://www.youtube.com/watch?v=8TQIvdFl4aU
+	\begin{center}
+		\includegraphics<+>[width=.8\textwidth]{images/portals.png}
+		\includegraphics<+>[width=.6\textwidth]{images/phases.png}
+	\end{center}
+}
+
+{\usebackgroundtemplate{\includegraphics[height=\textheight]{images/BB-ASCII-art-screenshot-zebra.png}}
+\begin{frame}[fragile]
+%	\begin{center}
+%		\includegraphics[width=\textwidth]{images/BB-ASCII-art-screenshot-zebra.png}
+%	\end{center}
+    
+%    \begin{verbatim}
+%    $$$$$$$$$$$$$$$$$.....OOOOOOOOZZZZZZ$OO.
+%$$$$$$$$$$$$$$$$$$...OOOOOOOOOOOOZZOOZO.
+%$$$$$$$$$$$$$$$$$$$.OOOOOOOOOOOOOOOZOOO.
+%$$$$$=....$$$$$$$$$.?=,.......OOOOOZ$OZ.
+%$$$$$.....$$$$$$$$$.?=,.........ZZZZOZO.
+%$$$$$.....7$$$$$$$$.?=:OOO.......$ZOZZO.
+%$$$$$.....7$$$$$$$$.?OOOOOOO ....$OOZOO.
+%$$$$$.....$$$$$$$$$.OO$ZZZZZZ ....OOZOO.
+%$$$$$ ....7$$$$$$$$.OOOOOO$ZZ.....ZOZOO.
+%$$$$$I....7$$$$$$$$.OOOOOOOOO.....OOZOO.
+%$$$$$$.....7$$$$$$+ OOOOOOOOO.....ZOOZO.
+%$$$$$$$.........,~+ OOOOOOOOZ.....OOOZZ.
+%$$$$$$$$........,~+ OOOOZZOOO.....ZOOO$.
+%$$$$$$$$$$7.....,~I.OOOOOOOOO....8O$ZZO.
+%.$$$$$$$$$$$$$$$$$$.OOOOOOOOOOOO$ZOOOO..
+%...$$$$$$$$$$$$$$$$.OOOOOOOO$ZZZZOOOZ...
+%.................7$.OOI.................
+%..................,.O...................
+%  ...... .................. ............
+%    \end{verbatim}
+\end{frame}
+}
+
+\frame{\frametitle{Le projet en pratique}
+	\begin{block}{}
+		\begin{itemize}
+			\item découverte du projet
+			\item design UI et structures de données
+			\item découpage et spécification des fonctions
+			\item implémentation du jeu avec IA naïve
+			\item réflexion algorithmique pour l'IA
+			\item implémentation et test de l'IA
+			\item tournoi opposant les IAs
+		\end{itemize}
+	\end{block}
+	\vspace{.2cm}
+	
+	\begin{block}{Réalisation du projet}
+		\begin{itemize}
+			\item outils de INFOB131 (boucles, structures de données, algorithmes\dots)
+			\item séances encadrées par les assistants pour guider
+%			\item deux outils : règlement de groupe + analyse réflexive
+		\end{itemize}
+	\end{block}
+}
+
+\begin{frame}[fragile]
+	\frametitle{Quelques détails sur l'intelligence artificielle}
+	\begin{block}{}
+		intelligence artificielle = joueur dont les coups sont choisis par l'ordinateur automatiquement en fonction de l'état actuel du jeu et d'une stratégie
+	\end{block}
+	
+	\begin{block}{}
+		\begin{lstlisting}
+			def get_IA_orders(game, player_id):
+			    """Returns orders chosen by IA player.
+			    
+			    Parameters
+			    ----------
+			    game: game data structure (dict)
+			    player_id: id of player, 1 or 2 (int)
+			    
+			    Returns
+			    -------
+			    orders: orders chosen by IA player (str)
+			    
+			    """
+		\end{lstlisting}
+	\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Le tournoi en pratique}
+	\begin{center}
+		\includegraphics[width=.85\textwidth]{images/tournoi_4.png}
+        \vspace{.4cm}
+        
+        {\normalsize orders of player 1:
+	        \verb|dave:scout olivaw:*32-4 robbie:lock speedy:release dave:@21-4|
+	    }
+	\end{center}
+%	\vspace{.2cm}
+
+	\begin{block}{Déroulement du tournoi}
+		\begin{itemize}
+			\item tournoi en phases: premières phases BO3 et dernières phases BO5
+			\begin{itemize}
+				\item best of 3 = premier joueur à gagner 2 parties (3 parties max.)
+				\item best of 5 = premier joueur à gagner 3 parties (5 parties max.)
+			\end{itemize}
+			\item à chaque partie, le premier joueur et la taille du plateau sont aléatoires
+			\item IA bloquée (60 sec. max.) ou crashée (exception) $\Rightarrow$ partie perdue
+			\item grande et petite finale pour déterminer les trois premières places
+		\end{itemize}
+	\end{block}	
+\end{frame}
+
+\frame{%https://www.youtube.com/watch?v=8TQIvdFl4aU
+	\begin{center}
+		\includegraphics<1|handout:1>[height=.8\textheight]{images/far_away.png}\only<1|handout:1>{\linebreak \large far\_away}
+		\includegraphics<2|handout:2>[height=.8\textheight]{images/shattered.png}\only<2|handout:2>{\linebreak \large shattered}
+		\includegraphics<3|handout:3>[height=.8\textheight]{images/sofa.png}\only<3|handout:3>{\linebreak \large sofa}
+		\includegraphics<4|handout:4>[height=.8\textheight]{images/squares.png}\only<4|handout:4>{\linebreak \large squares}
+		\includegraphics<5|handout:5>[height=.8\textheight]{images/target.png}\only<5|handout:5>{\linebreak \large target}
+		\includegraphics<6|handout:6>[height=.8\textheight]{images/cross.png}\only<6|handout:6>{\linebreak \large cross}
+		\includegraphics<7|handout:7>[height=.6\textheight]{images/fastest_possible_map.png}\only<7|handout:7>{\linebreak \large fastest\_possible\_map}
+		\includegraphics<8|handout:8>[height=.8\textheight]{images/lost_temple.png}\only<8|handout:8>{\linebreak \large lost\_temple}
+	\end{center}
+}
+
+%\frame{\frametitle{L'équipe pédagogique}
+%	\begin{columns}
+%		\begin{column}{.49\textwidth}
+%			\begin{center}
+%				\includegraphics[height=2.5cm]{staff_frenay.jpeg}\\
+%				Benoît Frénay - bureau n°408\\
+%				\url{benoit.frenay@unamur.be}
+%				\vspace{.5cm}
+%	
+%				\includegraphics[height=2.5cm]{staff_henry.jpg}\\
+%				Julie Henry - bureau n°426\\
+%				\url{julie.henry@unamur.be}
+%			\end{center}
+%		\end{column}
+%		\begin{column}{.49\textwidth}
+%			\begin{center}
+%				\includegraphics[height=2.5cm]{staff_idri.jpeg}\\
+%				Mouad Idri  - bureau n°220\\
+%				\url{nesrine.noughi@unamur.be}			
+%			\end{center}
+%		\end{column}
+%	\end{columns}
+%}
+
+\end{document}

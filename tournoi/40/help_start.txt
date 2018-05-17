@@ -1,0 +1,2 @@
+Joueur 2 : game.start_game('maps/name.mw', 'remote', 'ia', 1, ip)
+Joueur 1 : game.start_game('maps/name.mw', 'ia', 'remote', 2, ip)
