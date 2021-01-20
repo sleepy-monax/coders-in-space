@@ -2219,4 +2219,4 @@ def dict_sort(items, key):
 # Use for quick debuging.
 
 if __name__ == '__main__':
-    play_game('board/Yin_Yang.cis', ('Llamax', 'A.I.C.I.S.'), ai_vs_ai,'138.48.160.120')
+    play_game('../maps/Yin_Yang.cis', ('Llamax', 'A.I.C.I.S.'), ai_vs_ai,'138.48.160.120')

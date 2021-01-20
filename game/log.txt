@@ -1,108 +1,1163 @@
-INPU - [Llamax] Loki:fighter Heraclion:fighter ARC-170:fighter Vesta:fighter Titan:fighter B:fighter Fury:fighter Herakles:fighter Cadmus:fighter Cerberus:fighter
-INPU - [A.I.C.I.S.] Puddle_Jumper:fighter Charon:fighter Heracles:fighter Jackson_V:fighter Herakles:fighter Titan:fighter Hermes:fighter Antigone:fighter Valor_of_Vardona:fighter V-WINGS:fighter
+INPU - [Llamax] Kimera:fighter Phobos:fighter Furies:fighter SC_Juggernaut:fighter Zeus:fighter Jackson's_Revenge:fighter Damocles:fighter Achilles:fighter Excalibur:fighter Jackson_V:fighter
+INPU - [A.I.C.I.S.] Napoleon:fighter Nemesis:fighter The_Watcher:fighter Damocles:fighter Agamemnon:fighter Excalibur:fighter ISS_Europa:fighter Kimeran_Juggernaut:fighter Saragossa:fighter Hydra:fighter
 INFO - It's turn nb 0 (0)
-INPU - [Llamax] Titan:faster Fury:faster Heraclion:faster Cerberus:faster Loki:faster ARC-170:faster Vesta:faster Cadmus:faster Herakles:faster B:faster
-INPU - [A.I.C.I.S.] Heracles:faster V-WINGS:faster Charon:faster Titan:faster Valor_of_Vardona:faster Antigone:faster Herakles:faster Puddle_Jumper:faster Hermes:faster Jackson_V:faster
+INPU - [Llamax] Kimera:faster Phobos:faster Furies:faster SC_Juggernaut:faster Zeus:faster Jackson's_Revenge:faster Damocles:faster Achilles:faster Excalibur:faster Jackson_V:faster
+INPU - [A.I.C.I.S.] Napoleon:faster Nemesis:faster The_Watcher:faster Damocles:faster Agamemnon:faster Excalibur:faster ISS_Europa:faster Kimeran_Juggernaut:faster Saragossa:faster Hydra:faster
 INFO - It's turn nb 1 (1)
-INPU - [Llamax] Titan:faster Fury:faster Heraclion:faster Cerberus:faster Loki:faster ARC-170:faster Vesta:faster Cadmus:faster Herakles:faster B:faster
-INPU - [A.I.C.I.S.] Heracles:faster V-WINGS:faster Charon:faster Titan:right Valor_of_Vardona:faster Antigone:left Herakles:faster Puddle_Jumper:faster Hermes:right Jackson_V:right
+INPU - [Llamax] Kimera:faster Phobos:faster Furies:left SC_Juggernaut:right Zeus:left Jackson's_Revenge:faster Damocles:right Achilles:faster Excalibur:left Jackson_V:faster
+INPU - [A.I.C.I.S.] Napoleon:faster Nemesis:faster The_Watcher:faster Damocles:faster Agamemnon:faster Excalibur:right ISS_Europa:faster Kimeran_Juggernaut:faster Saragossa:faster Hydra:right
 INFO - It's turn nb 2 (2)
-INPU - [Llamax] Titan:faster Fury:faster Cerberus:faster Loki:left ARC-170:faster Vesta:faster Herakles:faster B:faster
-INPU - [A.I.C.I.S.] Heracles:faster V-WINGS:left Charon:left Titan:right Valor_of_Vardona:faster Antigone:faster Herakles:faster Puddle_Jumper:faster Hermes:faster Jackson_V:right
+INPU - [Llamax] Kimera:faster Furies:faster SC_Juggernaut:faster Zeus:faster Jackson's_Revenge:faster Damocles:right Achilles:left Excalibur:faster Jackson_V:left
+INPU - [A.I.C.I.S.] Napoleon:left Nemesis:faster Damocles:right Agamemnon:faster Excalibur:right ISS_Europa:left Saragossa:left Hydra:faster
 INFO - Llamax as take Llamax_Phobos50 !
 INFO - A.I.C.I.S. as take A.I.C.I.S._Leviathan107 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Kimera111 !
 INFO - It's turn nb 3 (3)
-INPU - [Llamax] Titan:left Phobos50:faster ARC-170:slower Vesta:faster Cadmus:faster
-INPU - [A.I.C.I.S.] V-WINGS:right Titan:right Valor_of_Vardona:faster Antigone:faster Puddle_Jumper:slower Jackson_V:right Leviathan107:faster
-INFO - A.I.C.I.S. as take A.I.C.I.S._Norad_II109 !
+INPU - [Llamax] Kimera:faster Phobos:faster Furies:faster SC_Juggernaut:faster Zeus:faster Jackson's_Revenge:slower Damocles:right Achilles:left Excalibur:faster Jackson_V:slower Phobos50:faster
+INPU - [A.I.C.I.S.] Napoleon:right The_Watcher:slower Damocles:left Agamemnon:slower Excalibur:right ISS_Europa:faster Kimeran_Juggernaut:faster Hydra:faster Leviathan107:faster Kimera111:faster
 INFO - Llamax as take Llamax_Herakles75 !
-INFO - A.I.C.I.S. as take A.I.C.I.S._Hurricane82 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Norad_II109 !
 INFO - It's turn nb 4 (4)
-INPU - [Llamax] Titan:faster Fury:right Heraclion:slower Cerberus:slower Loki:slower Phobos50:faster ARC-170:left Vesta:right Cadmus:right Herakles:right B:right Herakles75:faster
-INPU - [A.I.C.I.S.] Heracles:slower V-WINGS:faster Titan:faster Valor_of_Vardona:left Norad_II109:faster Herakles:right Puddle_Jumper:left Jackson_V:right Hurricane82:faster Leviathan107:right
-INFO - A.I.C.I.S. as take A.I.C.I.S._Norad_III85 !
-INFO - A.I.C.I.S. as take A.I.C.I.S._Cerberus121 !
-INFO - Llamax as take Llamax_Hyperion96 !
+INPU - [Llamax] Kimera:slower Phobos:right Furies:slower Jackson's_Revenge:left Damocles:right Achilles:right Jackson_V:left Phobos50:left Herakles75:faster
+INPU - [A.I.C.I.S.] Napoleon:right Nemesis:slower Damocles:faster Agamemnon:slower Excalibur:right ISS_Europa:slower Kimeran_Juggernaut:faster Leviathan107:faster Kimera111:faster Norad_II109:faster
+INFO - Llamax as take Llamax_Victory38 !
+INFO - Llamax as take Llamax_Fury54 !
+INFO - Llamax as take Llamax_Kimeran_Juggernaut64 !
+INFO - Llamax as take Llamax_Hoosier72 !
 INFO - A.I.C.I.S. as take A.I.C.I.S._Huey_Long92 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Hyperion115 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Circe119 !
 INFO - It's turn nb 5 (5)
-INPU - [Llamax] Titan:right Fury:faster Heraclion:left Cerberus:slower Loki:left Phobos50:left ARC-170:slower Vesta:slower Hyperion96:faster Cadmus:faster Herakles:faster B:20-18 Herakles75:18-18
-INPU - [A.I.C.I.S.] Heracles:19-19 V-WINGS:faster Charon:left Titan:right Valor_of_Vardona:slower Norad_II109:faster Cerberus121:faster Norad_III85:faster Antigone:slower Herakles:faster Puddle_Jumper:slower Hermes:faster Jackson_V:faster Huey_Long92:faster Hurricane82:23-23 Leviathan107:right
-INFO - A.I.C.I.S. as take A.I.C.I.S._Fury84 !
-INFO - Llamax as take Llamax_Ragnorak66 !
-INFO - A.I.C.I.S. as take A.I.C.I.S._Thunder_Child78 !
-INFO - A.I.C.I.S. as take A.I.C.I.S._Metis134 !
-INFO - Llamax as take Llamax_Hephaestus68 !
+INPU - [Llamax] Kimera:right Phobos:faster Furies:left SC_Juggernaut:right Zeus:slower Jackson's_Revenge:slower Damocles:right Achilles:slower Excalibur:right Jackson_V:right Phobos50:faster Herakles75:18-18 Victory38:faster Fury54:faster Kimeran_Juggernaut64:faster Hoosier72:faster
+INPU - [A.I.C.I.S.] Napoleon:right Nemesis:slower The_Watcher:left Agamemnon:left Excalibur:faster ISS_Europa:slower Kimeran_Juggernaut:left Saragossa:left Hydra:slower Leviathan107:faster Kimera111:faster Norad_II109:right Huey_Long92:faster Hyperion115:faster Circe119:faster
+INFO - Llamax as take Llamax_Jackson_V37 !
+INFO - Llamax as take Llamax_Bucephalus52 !
 INFO - Llamax as take Llamax_Napoleon61 !
-INFO - A.I.C.I.S. as take A.I.C.I.S._Hurricane71 !
-INFO - A.I.C.I.S. as take A.I.C.I.S._Jackson's_Revenge118 !
-INFO - Llamax as take Llamax_Jackson's_Revenge69 !
-INFO - A.I.C.I.S. as take A.I.C.I.S._Iron_Fist88 !
-WARN - Llamax_B shot Llamax_Herakles75
-WARN - Llamax_Herakles75 shot A.I.C.I.S._Heracles
-WARN - A.I.C.I.S._Heracles shoot failed (18, 18)!
-WARN - A.I.C.I.S._Hurricane82 shoot failed (22, 22)!
-INFO - It's turn nb 6 (1)
-INPU - [Llamax] Jackson's_Revenge69:faster Titan:slower Fury:right Napoleon61:faster Heraclion:left Cerberus:right Loki:right Hephaestus68:faster Phobos50:faster ARC-170:left Vesta:right Hyperion96:11-22 Cadmus:faster Ragnorak66:faster Herakles:slower B:left Herakles75:16-16
-INPU - [A.I.C.I.S.] Hurricane71:faster Fury84:faster Heracles:right V-WINGS:18-20 Charon:faster Norad_II109:right Iron_Fist88:faster Cerberus121:faster Norad_III85:right Thunder_Child78:faster Antigone:left Herakles:right Puddle_Jumper:left Metis134:faster Hermes:faster Jackson_V:slower Huey_Long92:30-20 Hurricane82:23-23 Jackson's_Revenge118:faster Leviathan107:faster
-INFO - A.I.C.I.S. as take A.I.C.I.S._Circe141 !
-INFO - Llamax as take Llamax_Napoleon90 !
-INFO - Llamax as take Llamax_Bismarck33 !
-INFO - A.I.C.I.S. as take A.I.C.I.S._Valor_of_Vardona39 !
-INFO - Llamax as take Llamax_Valor_of_Vardona70 !
-INFO - Llamax as take Llamax_Aeneas63 !
-INFO - A.I.C.I.S. as take A.I.C.I.S._Merrimack59 !
-INFO - Llamax as take Llamax_Iron_Justice73 !
-INFO - A.I.C.I.S. as take A.I.C.I.S._Jackson's_Revenge93 !
-INFO - Llamax as take Llamax_Kimera91 !
-INFO - A.I.C.I.S. as take A.I.C.I.S._Titan46 !
-INFO - A.I.C.I.S. as take A.I.C.I.S._Metis150 !
-INFO - Llamax as take Llamax_Scion60 !
-WARN - Llamax_Herakles75 shoot failed (15, 15)!
-WARN - A.I.C.I.S._V-WINGS shoot failed (19, 17)!
-WARN - A.I.C.I.S._Huey_Long92 shot A.I.C.I.S._Hurricane71
-WARN - A.I.C.I.S._Hurricane82 shoot failed (22, 22)!
-INFO - It's turn nb 7 (1)
-INPU - [Llamax] Jackson's_Revenge69:30-21 Titan:right Fury:34-15 Napoleon61:25-18 Napoleon90:faster Kimera91:faster Aeneas63:faster Heraclion:faster Cerberus:faster Loki:left Hephaestus68:25-18 Phobos50:faster ARC-170:left Vesta:faster Hyperion96:13-22 Cadmus:30-21 Valor_of_Vardona70:faster Ragnorak66:14-18 Herakles:left B:left Iron_Justice73:faster Bismarck33:faster Scion60:faster
-INPU - [A.I.C.I.S.] Hurricane71:left Titan46:faster Valor_of_Vardona39:faster Fury84:32-19 Jackson's_Revenge93:faster Heracles:left V-WINGS:left Metis150:faster Titan:faster Valor_of_Vardona:right Norad_II109:faster Iron_Fist88:12-21 Circe141:faster Thunder_Child78:faster Antigone:faster Herakles:faster Puddle_Jumper:faster Metis134:faster Hermes:right Jackson_V:right Huey_Long92:31-25 Hurricane82:24-22 Merrimack59:faster Jackson's_Revenge118:left Leviathan107:left
-INFO - Llamax as take Llamax_Norad_III79 !
-INFO - Llamax as take Llamax_Jackson's_Revenge18 !
-INFO - Llamax as take Llamax_Jackson_V67 !
-INFO - Llamax as take Llamax_Loki77 !
-INFO - A.I.C.I.S. as take A.I.C.I.S._Titan100 !
-INFO - Llamax as take Llamax_Tahoe89 !
-WARN - Llamax_Jackson's_Revenge69 shoot failed (20, 29)!
-WARN - Llamax_Fury shoot failed (14, 33)!
-WARN - Llamax_Napoleon61 shoot failed (17, 24)!
-WARN - Llamax_Hephaestus68 shoot failed (17, 24)!
-WARN - Llamax_Hyperion96 shot A.I.C.I.S._Iron_Fist88
-WARN - Llamax_Cadmus shoot failed (20, 29)!
-WARN - A.I.C.I.S._Fury84 shoot failed (18, 31)!
-WARN - A.I.C.I.S._Huey_Long92 shoot failed (24, 30)!
-WARN - A.I.C.I.S._Hurricane82 shot Llamax_Kimera91
-INFO - It's turn nb 8 (1)
-INPU - [Llamax] Jackson's_Revenge18:faster Jackson's_Revenge69:28-22 Titan:right Fury:slower Napoleon61:28-15 Napoleon90:21-26 Kimera91:26-24 Aeneas63:right Heraclion:left Cerberus:right Loki:left Hephaestus68:26-24 Phobos50:faster ARC-170:left Vesta:faster Hyperion96:14-20 Tahoe89:faster Cadmus:slower Jackson_V67:faster Valor_of_Vardona70:28-22 Ragnorak66:12-14 Herakles:left B:left Iron_Justice73:12-22 Norad_III79:faster Loki77:faster Bismarck33:left Scion60:14-20 Herakles75:right
-INPU - [A.I.C.I.S.] Hurricane71:faster Titan46:left Valor_of_Vardona39:right Fury84:28-20 Titan100:faster Jackson's_Revenge93:faster Heracles:left V-WINGS:left Charon:faster Metis150:faster Valor_of_Vardona:right Iron_Fist88:13-24 Cerberus121:right Circe141:left Norad_III85:faster Thunder_Child78:faster Antigone:faster Herakles:slower Puddle_Jumper:faster Metis134:faster Jackson_V:right Huey_Long92:35-25 Hurricane82:25-22 Merrimack59:13-24 Jackson's_Revenge118:left Leviathan107:left
-INFO - A.I.C.I.S. as take A.I.C.I.S._Victory48 !
-INFO - Llamax as take Llamax_Ragnorak83 !
-INFO - Llamax as take Llamax_Cyrus12 !
-INFO - Llamax as take Llamax_Palatine95 !
-INFO - A.I.C.I.S. as take A.I.C.I.S._Fury87 !
-INFO - A.I.C.I.S. as take A.I.C.I.S._Phobos136 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Thunder_Child78 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Ragnorak83 !
 INFO - Llamax as take Llamax_Amphitrite86 !
-WARN - Llamax_Jackson's_Revenge69 shoot failed (21, 27)!
-WARN - Llamax_Napoleon90 shot A.I.C.I.S._Hurricane82
-WARN - Llamax_Kimera91 shot A.I.C.I.S._Titan100
-WARN - Llamax_Hephaestus68 shot A.I.C.I.S._Titan100
-WARN - Llamax_Hyperion96 shot A.I.C.I.S._Merrimack59
-WARN - Llamax_Valor_of_Vardona70 shoot failed (21, 27)!
-WARN - Llamax_Ragnorak66 shoot failed (13, 11)!
-WARN - Llamax_Iron_Justice73 shot A.I.C.I.S._Iron_Fist88
-WARN - Llamax_Iron_Justice73 shot A.I.C.I.S._Fury87
-WARN - Llamax_Scion60 shot A.I.C.I.S._Merrimack59
-WARN - A.I.C.I.S._Fury84 shot Llamax_Loki77
-WARN - A.I.C.I.S._Iron_Fist88 shoot failed (23, 12)!
-WARN - A.I.C.I.S._Huey_Long92 shoot failed (24, 34)!
-WARN - A.I.C.I.S._Hurricane82 shot Llamax_Kimera91
-WARN - A.I.C.I.S._Merrimack59 shoot failed (23, 12)!
+INFO - A.I.C.I.S. as take A.I.C.I.S._Hurricane97 !
+INFO - Llamax as take Llamax_Herakles99 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Kimera117 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Jackson's_Revenge118 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Metis134 !
+WARN - Llamax_Herakles75 shoot failed (17, 17)!
+INFO - It's turn nb 6 (6)
+INPU - [Llamax] Kimera:slower Phobos:faster Furies:faster SC_Juggernaut:faster Zeus:right Jackson's_Revenge:left Damocles:faster Achilles:right Excalibur:left Jackson_V:right Phobos50:faster Herakles75:18-18 Victory38:left Fury54:left Kimeran_Juggernaut64:faster Hoosier72:faster Jackson_V37:faster Bucephalus52:faster Napoleon61:faster Amphitrite86:faster Herakles99:faster
+INPU - [A.I.C.I.S.] Nemesis:right The_Watcher:left Damocles:slower Agamemnon:left Excalibur:faster ISS_Europa:left Kimeran_Juggernaut:right Saragossa:right Hydra:left Leviathan107:faster Kimera111:faster Norad_II109:faster Huey_Long92:29-23 Hyperion115:right Circe119:right Thunder_Child78:faster Ragnorak83:faster Hurricane97:faster Kimera117:faster Jackson's_Revenge118:faster Metis134:faster
+INFO - Llamax as take Llamax_Antigone29 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Merrimack59 !
+INFO - Llamax as take Llamax_Jackson_V65 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Ragnorak66 !
+INFO - Llamax as take Llamax_Jackson_V67 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Valor_of_Vardona70 !
+INFO - Llamax as take Llamax_Patroclus80 !
+INFO - Llamax as take Llamax_Napoleon90 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Jackson's_Revenge93 !
+INFO - Llamax as take Llamax_Palatine95 !
+WARN - Llamax_Herakles75 shoot failed (17, 17)!
+WARN - A.I.C.I.S._Huey_Long92 shoot failed (22, 28)!
+INFO - It's turn nb 7 (7)
+INPU - [Llamax] Kimera:30-22 Phobos:right Furies:faster SC_Juggernaut:slower Zeus:right Jackson's_Revenge:faster Damocles:left Achilles:left Excalibur:left Jackson_V:faster Herakles75:17-19 Victory38:faster Fury54:faster Kimeran_Juggernaut64:right Hoosier72:14-16 Jackson_V37:faster Bucephalus52:faster Napoleon61:24-19 Amphitrite86:right Herakles99:26-21 Antigone29:faster Jackson_V65:faster Jackson_V67:faster Patroclus80:faster Napoleon90:faster Palatine95:faster
+INPU - [A.I.C.I.S.] Napoleon:left Nemesis:left The_Watcher:faster Damocles:16-15 Agamemnon:faster Excalibur:left ISS_Europa:left Kimeran_Juggernaut:right Saragossa:left Hydra:left Leviathan107:faster Norad_II109:right Huey_Long92:30-23 Hyperion115:faster Circe119:faster Thunder_Child78:faster Ragnorak83:20-16 Hurricane97:30-23 Kimera117:left Jackson's_Revenge118:faster Metis134:right Merrimack59:faster Ragnorak66:faster Valor_of_Vardona70:faster Jackson's_Revenge93:faster
+INFO - Llamax as take Llamax_Metis21 !
+INFO - Llamax as take Llamax_Titan46 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Scion60 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Hurricane71 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Loki77 !
+INFO - Llamax as take Llamax_Norad_III79 !
+INFO - Llamax as take Llamax_Fury87 !
+INFO - Llamax as take Llamax_Circe101 !
+WARN - Llamax_Kimera shoot failed (21, 29)!
+WARN - Llamax_Herakles75 shoot failed (18, 16)!
+WARN - Llamax_Hoosier72 shot A.I.C.I.S._Damocles
+WARN - Llamax_Napoleon61 shoot failed (18, 23)!
+WARN - Llamax_Herakles99 shot A.I.C.I.S._Hurricane97
+WARN - A.I.C.I.S._Damocles shot Llamax_Hoosier72
+WARN - A.I.C.I.S._Huey_Long92 shot Llamax_Kimera
+WARN - A.I.C.I.S._Huey_Long92 shot Llamax_Circe101
+WARN - A.I.C.I.S._Ragnorak83 shot Llamax_Herakles75
+KILL - A.I.C.I.S._Hurricane97 kill Llamax_Kimera
+KILL - A.I.C.I.S._Hurricane97 kill Llamax_Circe101
+INFO - It's turn nb 8 (1)
+INPU - [Llamax] Phobos:slower Furies:slower Zeus:right Jackson's_Revenge:faster Damocles:slower Achilles:faster Excalibur:faster Jackson_V:14-20 Phobos50:faster Herakles75:16-17 Victory38:right Fury54:faster Hoosier72:12-14 Bucephalus52:faster Napoleon61:27-16 Amphitrite86:faster Herakles99:27-20 Antigone29:left Jackson_V65:12-14 Jackson_V67:27-16 Patroclus80:left Napoleon90:17-24 Palatine95:right Metis21:faster Titan46:faster Norad_III79:faster Fury87:faster
+INPU - [A.I.C.I.S.] Napoleon:faster Nemesis:faster The_Watcher:faster Damocles:left Agamemnon:faster Excalibur:faster ISS_Europa:left Kimeran_Juggernaut:slower Saragossa:left Hydra:left Leviathan107:right Kimera111:slower Huey_Long92:right Hyperion115:faster Circe119:right Thunder_Child78:faster Ragnorak83:20-15 Hurricane97:23-20 Kimera117:faster Jackson's_Revenge118:left Metis134:right Merrimack59:17-21 Ragnorak66:18-13 Valor_of_Vardona70:right Jackson's_Revenge93:faster Scion60:faster Hurricane71:faster Loki77:faster
+INFO - A.I.C.I.S. as take A.I.C.I.S._Theodore_G._Bilbo13 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Victory48 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Napoleon51 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Norad_III85 !
+INFO - Llamax as take Llamax_Eos102 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._White_Star110 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Iron_Fist122 !
+WARN - Llamax_Jackson_V shot A.I.C.I.S._Merrimack59
+WARN - Llamax_Herakles75 shot A.I.C.I.S._Ragnorak66
+WARN - Llamax_Hoosier72 shoot failed (13, 11)!
+WARN - Llamax_Napoleon61 shoot failed (15, 26)!
+WARN - Llamax_Herakles99 shot A.I.C.I.S._Hurricane97
+WARN - Llamax_Jackson_V65 shoot failed (13, 11)!
+WARN - Llamax_Jackson_V67 shoot failed (15, 26)!
+WARN - Llamax_Napoleon90 shot Llamax_Napoleon90
+WARN - A.I.C.I.S._Ragnorak83 shot Llamax_Herakles75
+WARN - A.I.C.I.S._Hurricane97 shot Llamax_Herakles99
+WARN - A.I.C.I.S._Merrimack59 shoot failed (20, 16)!
+KILL - A.I.C.I.S._Ragnorak66 kill Llamax_Hoosier72
 INFO - It's turn nb 9 (1)
-INPU - [Llamax] Jackson's_Revenge18:left Jackson's_Revenge69:25-25 Titan:right Fury:right Napoleon61:25-25 Napoleon90:13-21 Kimera91:25-25 Aeneas63:faster Heraclion:faster Cerberus:25-17 Loki:left Hephaestus68:25-25 ARC-170:faster Ragnorak83:faster Vesta:slower Hyperion96:13-21 Tahoe89:13-21 Cadmus:right Jackson_V67:25-25 Palatine95:faster Valor_of_Vardona70:33-22 Ragnorak66:14-12 Herakles:slower Cyrus12:faster B:slower Iron_Justice73:12-22 Norad_III79:right Loki77:25-17 Amphitrite86:faster Bismarck33:faster Scion60:13-21 Herakles75:18-15
+INPU - [Llamax] Phobos:left Furies:right SC_Juggernaut:right Zeus:right Jackson's_Revenge:slower Damocles:left Achilles:faster Excalibur:left Jackson_V:left Phobos50:left Herakles75:18-17 Victory38:left Fury54:left Kimeran_Juggernaut64:faster Bucephalus52:faster Napoleon61:16-19 Amphitrite86:faster Herakles99:left Antigone29:faster Jackson_V65:14-12 Jackson_V67:16-19 Patroclus80:faster Napoleon90:21-22 Palatine95:right Titan46:faster Norad_III79:left Fury87:13-21 Eos102:faster
+INPU - [A.I.C.I.S.] Napoleon:left Nemesis:faster The_Watcher:faster Damocles:right Agamemnon:faster Excalibur:left ISS_Europa:faster Kimeran_Juggernaut:left Saragossa:left Hydra:right Leviathan107:right Kimera111:faster Huey_Long92:faster Hyperion115:21-25 Circe119:faster Thunder_Child78:left Ragnorak83:20-14 Jackson's_Revenge118:faster Metis134:faster Merrimack59:17-23 Ragnorak66:13-16 Valor_of_Vardona70:right Jackson's_Revenge93:left Scion60:19-20 Theodore_G._Bilbo13:faster Victory48:faster Napoleon51:faster Norad_III85:faster White_Star110:faster Iron_Fist122:faster
+INFO - Llamax as take Llamax_Patroclus9 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Kimera14 !
+INFO - Llamax as take Llamax_Bucephalus30 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Antigone36 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Fury84 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Phobos104 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Bismarck124 !
+INFO - Llamax as take Llamax_Theodore_G._Bilbo132 !
+INFO - Llamax as take Llamax_Bismarck135 !
+INFO - Llamax as take Llamax_Hyperion151 !
+WARN - Llamax_Herakles75 shot A.I.C.I.S._Ragnorak83
+KILL - Llamax_Napoleon61 kill A.I.C.I.S._Hyperion115
+WARN - Llamax_Jackson_V65 shoot failed (11, 13)!
+WARN - Llamax_Jackson_V67 shoot failed (18, 15)!
+WARN - Llamax_Napoleon90 shot Llamax_Napoleon61
+WARN - Llamax_Fury87 shot A.I.C.I.S._Merrimack59
+WARN - A.I.C.I.S._Ragnorak83 shot Llamax_Herakles75
+WARN - A.I.C.I.S._Merrimack59 shoot failed (22, 16)!
+WARN - A.I.C.I.S._Ragnorak66 shot Llamax_Jackson_V65
+INFO - It's turn nb 10 (1)
+INPU - [Llamax] Phobos:faster Furies:right Zeus:faster Jackson's_Revenge:left Damocles:left Achilles:left Excalibur:left Herakles75:23-16 Victory38:slower Fury54:slower Kimeran_Juggernaut64:right Jackson_V37:right Bucephalus52:faster Napoleon61:19-20 Amphitrite86:faster Herakles99:left Antigone29:right Jackson_V65:12-16 Jackson_V67:19-20 Patroclus80:right Napoleon90:17-28 Palatine95:9-22 Metis21:5-5 Titan46:faster Norad_III79:left Fury87:9-22 Eos102:right Patroclus9:faster Bucephalus30:faster Theodore_G._Bilbo132:faster Bismarck135:faster Hyperion151:faster
+INPU - [A.I.C.I.S.] Napoleon:left Nemesis:slower The_Watcher:slower Damocles:faster Agamemnon:faster Excalibur:faster ISS_Europa:faster Kimeran_Juggernaut:faster Saragossa:left Hydra:faster Leviathan107:right Kimera111:slower Norad_II109:faster Circe119:right Thunder_Child78:faster Ragnorak83:20-13 Hurricane97:28-20 Metis134:faster Merrimack59:9-24 Ragnorak66:13-15 Valor_of_Vardona70:right Jackson's_Revenge93:faster Scion60:17-18 Hurricane71:faster Loki77:28-20 Theodore_G._Bilbo13:6-3 Victory48:left Napoleon51:left Norad_III85:left White_Star110:left Iron_Fist122:right Kimera14:faster Antigone36:faster Fury84:faster Phobos104:faster Bismarck124:faster
+INFO - A.I.C.I.S. as take A.I.C.I.S._Kimera8 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Aeneas15 !
+INFO - Llamax as take Llamax_Thunder_Child31 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Thunder_Child41 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Eos62 !
+INFO - Llamax as take Llamax_Iron_Fist88 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Palatine113 !
+INFO - Llamax as take Llamax_Cyrus126 !
+WARN - Llamax_Herakles75 shoot failed (15, 22)!
+WARN - Llamax_Jackson_V65 shoot failed (15, 11)!
+WARN - Llamax_Napoleon90 shoot failed (27, 16)!
+WARN - Llamax_Palatine95 shoot failed (21, 8)!
+WARN - Llamax_Metis21 shot A.I.C.I.S._Theodore_G._Bilbo13
+WARN - Llamax_Metis21 shot A.I.C.I.S._Aeneas15
+WARN - Llamax_Fury87 shoot failed (21, 8)!
+KILL - A.I.C.I.S._Ragnorak83 kill Llamax_Herakles75
+WARN - A.I.C.I.S._Hurricane97 shot A.I.C.I.S._Norad_III85
+WARN - A.I.C.I.S._Hurricane97 shot A.I.C.I.S._Fury84
+WARN - A.I.C.I.S._Merrimack59 shoot failed (23, 8)!
+WARN - A.I.C.I.S._Ragnorak66 shot Llamax_Jackson_V65
+WARN - A.I.C.I.S._Scion60 shoot failed (17, 16)!
+WARN - A.I.C.I.S._Loki77 shot A.I.C.I.S._Fury84
+KILL - A.I.C.I.S._Loki77 kill A.I.C.I.S._Norad_III85
+WARN - A.I.C.I.S._Theodore_G._Bilbo13 shoot failed (2, 5)!
+INFO - It's turn nb 11 (1)
+INPU - [Llamax] Phobos:right Furies:faster SC_Juggernaut:34-33 Zeus:slower Jackson's_Revenge:left Damocles:left Achilles:faster Excalibur:faster Jackson_V:left Phobos50:left Victory38:right Fury54:left Jackson_V37:left Napoleon61:19-16 Amphitrite86:faster Herakles99:26-18 Antigone29:faster Jackson_V65:11-15 Jackson_V67:19-16 Patroclus80:right Napoleon90:18-30 Palatine95:faster Metis21:6-5 Titan46:right Norad_III79:left Fury87:12-19 Eos102:right Patroclus9:6-6 Bucephalus30:right Theodore_G._Bilbo132:34-33 Bismarck135:34-33 Hyperion151:left Thunder_Child31:faster Iron_Fist88:faster Cyrus126:faster
+INPU - [A.I.C.I.S.] Napoleon:left Nemesis:faster The_Watcher:left Damocles:left Agamemnon:right Excalibur:right Kimeran_Juggernaut:left Saragossa:left Hydra:right Leviathan107:right Kimera111:slower Norad_II109:right Circe119:left Thunder_Child78:left Ragnorak83:17-14 Hurricane97:30-18 Kimera117:right Jackson's_Revenge118:right Merrimack59:15-25 Ragnorak66:17-14 Valor_of_Vardona70:faster Jackson's_Revenge93:faster Scion60:16-22 Hurricane71:faster Loki77:30-18 Theodore_G._Bilbo13:8-2 Victory48:left Napoleon51:left White_Star110:right Iron_Fist122:right Kimera14:5-7 Antigone36:right Fury84:30-18 Phobos104:left Bismarck124:faster Kimera8:faster Aeneas15:faster Thunder_Child41:faster Eos62:faster Palatine113:faster
+INFO - Llamax as take Llamax_Cyrus2 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Loki6 !
+INFO - Llamax as take Llamax_Phobos17 !
+INFO - Llamax as take Llamax_Hoosier26 !
+INFO - Llamax as take Llamax_Theodore_G._Bilbo35 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Helios42 !
+INFO - Llamax as take Llamax_Theodore_G._Bilbo45 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Hephaestus68 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._White_Star76 !
+INFO - Llamax as take Llamax_Tahoe89 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Cerberus94 !
+INFO - Llamax as take Llamax_Titan100 !
+INFO - Llamax as take Llamax_Metis114 !
+INFO - Llamax as take Llamax_Circe141 !
+INFO - Llamax as take Llamax_Tahoe143 !
+WARN - Llamax_SC_Juggernaut shot Llamax_Cyrus126
+WARN - Llamax_Napoleon61 shoot failed (15, 18)!
+WARN - Llamax_Herakles99 shoot failed (17, 25)!
+WARN - Llamax_Jackson_V65 shoot failed (14, 10)!
+WARN - Llamax_Jackson_V67 shoot failed (15, 18)!
+WARN - Llamax_Metis21 shot A.I.C.I.S._Theodore_G._Bilbo13
+WARN - Llamax_Fury87 shoot failed (18, 11)!
+KILL - Llamax_Theodore_G._Bilbo132 kill Llamax_Cyrus126
+WARN - Llamax_Bismarck135 shoot failed (32, 33)!
+WARN - A.I.C.I.S._Ragnorak83 shoot failed (13, 16)!
+WARN - A.I.C.I.S._Merrimack59 shoot failed (24, 14)!
+WARN - A.I.C.I.S._Ragnorak66 shoot failed (13, 16)!
+WARN - A.I.C.I.S._Scion60 shot Llamax_Fury87
+WARN - A.I.C.I.S._Scion60 shot Llamax_Tahoe89
+WARN - A.I.C.I.S._Kimera14 shoot failed (6, 4)!
+INFO - It's turn nb 12 (1)
+INPU - [Llamax] Phobos:12-7 SC_Juggernaut:slower Zeus:left Jackson's_Revenge:left Damocles:right Achilles:right Excalibur:slower Jackson_V:faster Phobos50:left Victory38:9-3 Fury54:left Kimeran_Juggernaut64:left Jackson_V37:left Bucephalus52:left Napoleon61:15-27 Amphitrite86:right Herakles99:25-17 Antigone29:15-13 Jackson_V65:14-16 Jackson_V67:18-16 Napoleon90:15-27 Palatine95:left Metis21:7-5 Titan46:faster Norad_III79:left Fury87:17-23 Eos102:faster Patroclus9:9-3 Bucephalus30:faster Theodore_G._Bilbo132:slower Bismarck135:33-38 Hyperion151:left Thunder_Child31:left Iron_Fist88:18-16 Cyrus2:faster Phobos17:faster Hoosier26:faster Theodore_G._Bilbo35:faster Theodore_G._Bilbo45:faster Tahoe89:faster Titan100:faster Metis114:faster Circe141:faster Tahoe143:faster
+INPU - [A.I.C.I.S.] Napoleon:slower Nemesis:left The_Watcher:faster Damocles:9-5 Agamemnon:right Excalibur:slower ISS_Europa:left Kimeran_Juggernaut:left Saragossa:left Hydra:faster Leviathan107:left Kimera111:13-13 Norad_II109:left Huey_Long92:right Circe119:faster Thunder_Child78:right Ragnorak83:17-13 Hurricane97:32-22 Kimera117:30-35 Jackson's_Revenge118:right Metis134:right Merrimack59:7-21 Ragnorak66:13-13 Jackson's_Revenge93:faster Scion60:16-23 Hurricane71:faster Loki77:26-16 Theodore_G._Bilbo13:9-3 Victory48:faster Napoleon51:right White_Star110:left Iron_Fist122:left Kimera14:4-6 Antigone36:faster Fury84:26-16 Phobos104:faster Bismarck124:right Kimera8:right Aeneas15:9-3 Thunder_Child41:faster Eos62:26-16 Palatine113:left Loki6:faster Helios42:faster Hephaestus68:faster White_Star76:faster Cerberus94:faster
+INFO - Llamax as take Llamax_Antigone1 !
+INFO - Llamax as take Llamax_Scion3 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Valor_of_Vardona4 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Patroclus7 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Cyrus12 !
+INFO - Llamax as take Llamax_Loki16 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Norad_II19 !
+INFO - Llamax as take Llamax_Gray_Tiger27 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Cyrus32 !
+INFO - Llamax as take Llamax_Napoleon34 !
+INFO - Llamax as take Llamax_Valor_of_Vardona39 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._White_Star56 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Titan98 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Victory146 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Valor_of_Vardona152 !
+WARN - Llamax_Phobos shoot failed (6, 11)!
+WARN - Llamax_Victory38 shot A.I.C.I.S._Damocles
+WARN - Llamax_Victory38 shot A.I.C.I.S._Patroclus7
+WARN - Llamax_Napoleon61 shoot failed (26, 14)!
+WARN - Llamax_Herakles99 shoot failed (16, 24)!
+WARN - Llamax_Antigone29 shoot failed (12, 14)!
+WARN - Llamax_Jackson_V65 shot A.I.C.I.S._Kimera111
+WARN - Llamax_Jackson_V67 shoot failed (15, 17)!
+WARN - Llamax_Napoleon90 shoot failed (26, 14)!
+WARN - Llamax_Metis21 shot A.I.C.I.S._Nemesis
+WARN - Llamax_Metis21 shot A.I.C.I.S._Theodore_G._Bilbo13
+WARN - Llamax_Fury87 shot A.I.C.I.S._Scion60
+KILL - Llamax_Patroclus9 kill A.I.C.I.S._Damocles
+KILL - Llamax_Patroclus9 kill A.I.C.I.S._Patroclus7
+WARN - Llamax_Bismarck135 shoot failed (37, 32)!
+WARN - Llamax_Iron_Fist88 shoot failed (15, 17)!
+WARN - A.I.C.I.S._Kimera111 shot Llamax_Jackson_V65
+WARN - A.I.C.I.S._Ragnorak83 shoot failed (12, 16)!
+WARN - A.I.C.I.S._Hurricane97 shot A.I.C.I.S._Saragossa
+WARN - A.I.C.I.S._Kimera117 shot Llamax_Bismarck135
+WARN - A.I.C.I.S._Merrimack59 shoot failed (20, 6)!
+WARN - A.I.C.I.S._Ragnorak66 shot Llamax_Jackson_V65
+WARN - A.I.C.I.S._Loki77 shot Llamax_Herakles99
+WARN - A.I.C.I.S._Theodore_G._Bilbo13 shoot failed (2, 8)!
+WARN - A.I.C.I.S._Kimera14 shoot failed (5, 3)!
+WARN - A.I.C.I.S._Fury84 shot Llamax_Herakles99
+WARN - A.I.C.I.S._Aeneas15 shoot failed (2, 8)!
+KILL - A.I.C.I.S._Eos62 kill Llamax_Herakles99
+INFO - It's turn nb 13 (1)
+INPU - [Llamax] Phobos:right SC_Juggernaut:right Zeus:left Damocles:faster Achilles:right Excalibur:right Phobos50:slower Victory38:right Fury54:left Kimeran_Juggernaut64:left Jackson_V37:left Bucephalus52:left Napoleon61:16-26 Amphitrite86:right Antigone29:right Jackson_V65:12-16 Jackson_V67:16-18 Patroclus80:left Napoleon90:16-26 Palatine95:8-28 Metis21:8-2 Titan46:slower Norad_III79:left Fury87:17-24 Eos102:faster Patroclus9:7-2 Bucephalus30:right Theodore_G._Bilbo132:faster Bismarck135:33-37 Hyperion151:faster Thunder_Child31:left Iron_Fist88:13-23 Cyrus2:right Phobos17:faster Hoosier26:7-2 Theodore_G._Bilbo35:left Theodore_G._Bilbo45:left Tahoe89:13-23 Titan100:25-27 Metis114:right Circe141:33-38 Antigone1:faster Scion3:faster Loki16:faster Gray_Tiger27:faster Napoleon34:faster Valor_of_Vardona39:faster
+INPU - [A.I.C.I.S.] Napoleon:faster Nemesis:left The_Watcher:right Agamemnon:right Excalibur:left ISS_Europa:faster Kimeran_Juggernaut:left Saragossa:left Hydra:slower Leviathan107:slower Kimera111:left Norad_II109:2-26 Huey_Long92:right Circe119:right Thunder_Child78:right Ragnorak83:13-12 Kimera117:faster Jackson's_Revenge118:faster Metis134:right Merrimack59:8-20 Ragnorak66:13-12 Valor_of_Vardona70:right Jackson's_Revenge93:left Scion60:19-20 Hurricane71:faster Loki77:left Theodore_G._Bilbo13:8-5 Victory48:left Napoleon51:faster White_Star110:17-29 Iron_Fist122:faster Kimera14:4-3 Antigone36:right Fury84:slower Phobos104:faster Bismarck124:32-34 Kimera8:right Aeneas15:8-5 Thunder_Child41:faster Eos62:26-16 Palatine113:left Loki6:left Helios42:left Hephaestus68:25-25 White_Star76:25-25 Cerberus94:faster Valor_of_Vardona4:faster Cyrus12:faster Norad_II19:faster Cyrus32:faster White_Star56:faster Titan98:faster Victory146:faster Valor_of_Vardona152:faster
+INFO - A.I.C.I.S. as take A.I.C.I.S._Metis5 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Jackson's_Revenge18 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Meleager44 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Napoleon57 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Jackson's_Revenge138 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Victory148 !
+WARN - Llamax_Napoleon61 shoot failed (25, 15)!
+WARN - Llamax_Jackson_V65 shoot failed (15, 11)!
+WARN - Llamax_Jackson_V67 shoot failed (17, 15)!
+WARN - Llamax_Napoleon90 shoot failed (25, 15)!
+WARN - Llamax_Palatine95 shot A.I.C.I.S._Norad_II109
+WARN - Llamax_Metis21 shot A.I.C.I.S._Aeneas15
+WARN - Llamax_Metis21 shot A.I.C.I.S._Metis5
+WARN - Llamax_Fury87 shot A.I.C.I.S._Scion60
+WARN - Llamax_Patroclus9 shoot failed (1, 6)!
+WARN - Llamax_Bismarck135 shoot failed (36, 32)!
+WARN - Llamax_Iron_Fist88 shoot failed (22, 12)!
+WARN - Llamax_Hoosier26 shoot failed (1, 6)!
+WARN - Llamax_Tahoe89 shoot failed (22, 12)!
+WARN - Llamax_Titan100 shoot failed (26, 24)!
+WARN - Llamax_Circe141 shot A.I.C.I.S._Bismarck124
+WARN - A.I.C.I.S._Norad_II109 shot Llamax_Palatine95
+KILL - A.I.C.I.S._Ragnorak83 kill Llamax_Jackson_V65
+WARN - A.I.C.I.S._Merrimack59 shoot failed (19, 7)!
+WARN - A.I.C.I.S._Ragnorak66 shoot failed (11, 12)!
+KILL - A.I.C.I.S._Theodore_G._Bilbo13 kill A.I.C.I.S._Theodore_G._Bilbo13
+WARN - A.I.C.I.S._White_Star110 shot Llamax_Napoleon90
+WARN - A.I.C.I.S._Kimera14 shoot failed (2, 3)!
+WARN - A.I.C.I.S._Bismarck124 shot Llamax_Circe141
+WARN - A.I.C.I.S._Aeneas15 shoot failed (4, 7)!
+WARN - A.I.C.I.S._Eos62 shoot failed (15, 25)!
+WARN - A.I.C.I.S._Hephaestus68 shot Llamax_Titan100
+KILL - A.I.C.I.S._White_Star76 kill Llamax_Titan100
+INFO - It's turn nb 14 (1)
+INPU - [Llamax] Phobos:slower Furies:slower SC_Juggernaut:right Zeus:left Jackson's_Revenge:left Damocles:13-39 Achilles:faster Excalibur:26-18 Jackson_V:right Phobos50:left Victory38:right Fury54:left Kimeran_Juggernaut64:left Jackson_V37:faster Bucephalus52:slower Napoleon61:18-25 Amphitrite86:right Antigone29:faster Jackson_V67:14-20 Patroclus80:left Napoleon90:21-32 Palatine95:left Metis21:8-2 Norad_III79:left Fury87:17-25 Patroclus9:6-6 Bucephalus30:faster Theodore_G._Bilbo132:33-40 Bismarck135:30-40 Hyperion151:faster Thunder_Child31:faster Iron_Fist88:14-20 Cyrus2:faster Phobos17:faster Hoosier26:6-8 Theodore_G._Bilbo35:faster Theodore_G._Bilbo45:left Tahoe89:14-20 Metis114:right Circe141:34-37 Tahoe143:39-39 Antigone1:faster Scion3:faster Loki16:8-2 Gray_Tiger27:right Napoleon34:faster Valor_of_Vardona39:left
+INPU - [A.I.C.I.S.] Napoleon:left Nemesis:faster The_Watcher:right Agamemnon:right Excalibur:slower ISS_Europa:slower Kimeran_Juggernaut:slower Saragossa:slower Hydra:left Kimera111:right Norad_II109:faster Circe119:faster Thunder_Child78:faster Ragnorak83:left Hurricane97:32-8 Kimera117:slower Jackson's_Revenge118:slower Metis134:left Merrimack59:6-21 Ragnorak66:10-9 Valor_of_Vardona70:right Scion60:19-22 Hurricane71:right Loki77:22-20 Victory48:left Napoleon51:right White_Star110:faster Iron_Fist122:29-23 Kimera14:40-1 Antigone36:faster Fury84:faster Bismarck124:right Kimera8:faster Aeneas15:5-39 Thunder_Child41:16-19 Eos62:22-20 Palatine113:faster Loki6:left Helios42:faster Hephaestus68:22-20 White_Star76:22-20 Cerberus94:13-22 Valor_of_Vardona4:faster Cyrus12:faster Norad_II19:40-1 Cyrus32:faster White_Star56:right Titan98:26-26 Valor_of_Vardona152:right Metis5:faster Jackson's_Revenge18:faster Meleager44:faster Napoleon57:faster Jackson's_Revenge138:faster Victory148:faster
+INFO - Llamax as take Llamax_Jackson's_Revenge43 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Victory55 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Merrimack58 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Kimera91 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Hyperion96 !
+INFO - Llamax as take Llamax_Leviathan105 !
+INFO - Llamax as take Llamax_Hephaestus128 !
+INFO - Llamax as take Llamax_Jackson_V154 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Herakles155 !
+WARN - Llamax_Damocles shoot failed (38, 12)!
+WARN - Llamax_Excalibur shoot failed (17, 25)!
+WARN - Llamax_Napoleon61 shoot failed (24, 17)!
+KILL - Llamax_Jackson_V67 kill A.I.C.I.S._Thunder_Child41
+WARN - Llamax_Napoleon90 shoot failed (31, 20)!
+WARN - Llamax_Metis21 shot A.I.C.I.S._The_Watcher
+WARN - Llamax_Fury87 shot A.I.C.I.S._Scion60
+WARN - Llamax_Theodore_G._Bilbo132 shoot failed (39, 32)!
+WARN - Llamax_Bismarck135 shoot failed (39, 29)!
+WARN - Llamax_Iron_Fist88 shoot failed (19, 13)!
+WARN - Llamax_Hoosier26 shoot failed (7, 5)!
+WARN - Llamax_Tahoe89 shoot failed (19, 13)!
+WARN - Llamax_Circe141 shoot failed (36, 33)!
+WARN - Llamax_Tahoe143 shot A.I.C.I.S._Kimera8
+KILL - Llamax_Loki16 kill A.I.C.I.S._The_Watcher
+WARN - A.I.C.I.S._Hurricane97 shoot failed (7, 31)!
+WARN - A.I.C.I.S._Merrimack59 shoot failed (20, 5)!
+WARN - A.I.C.I.S._Ragnorak66 shoot failed (8, 9)!
+WARN - A.I.C.I.S._Scion60 shot Llamax_Fury87
+WARN - A.I.C.I.S._Loki77 shot Llamax_Excalibur
+WARN - A.I.C.I.S._Loki77 shot A.I.C.I.S._White_Star76
+WARN - A.I.C.I.S._Iron_Fist122 shoot failed (22, 28)!
+WARN - A.I.C.I.S._Kimera14 shoot failed (0, 39)!
+WARN - A.I.C.I.S._Aeneas15 shoot failed (38, 4)!
+WARN - A.I.C.I.S._Eos62 shot A.I.C.I.S._White_Star76
+KILL - A.I.C.I.S._Eos62 kill Llamax_Excalibur
+WARN - A.I.C.I.S._Hephaestus68 shot A.I.C.I.S._White_Star76
+WARN - A.I.C.I.S._White_Star76 shot A.I.C.I.S._White_Star76
+WARN - A.I.C.I.S._Cerberus94 shot Llamax_Tahoe89
+WARN - A.I.C.I.S._Norad_II19 shoot failed (0, 39)!
+WARN - A.I.C.I.S._Titan98 shoot failed (25, 25)!
+INFO - It's turn nb 15 (1)
+INPU - [Llamax] Phobos:right Furies:right SC_Juggernaut:left Zeus:faster Jackson's_Revenge:left Damocles:right Achilles:slower Phobos50:left Victory38:left Fury54:faster Kimeran_Juggernaut64:right Jackson_V37:left Bucephalus52:right Napoleon61:16-28 Jackson_V67:18-22 Patroclus80:right Napoleon90:15-33 Palatine95:left Metis21:10-2 Titan46:37-2 Norad_III79:left Fury87:18-22 Eos102:26-14 Patroclus9:13-6 Bucephalus30:left Theodore_G._Bilbo132:37-2 Hyperion151:slower Thunder_Child31:faster Iron_Fist88:18-22 Cyrus2:slower Phobos17:faster Hoosier26:6-10 Theodore_G._Bilbo35:left Tahoe89:18-22 Metis114:right Circe141:right Tahoe143:37-37 Antigone1:right Scion3:faster Loki16:10-2 Gray_Tiger27:faster Napoleon34:9-10 Valor_of_Vardona39:left Jackson's_Revenge43:faster Leviathan105:faster Hephaestus128:faster Jackson_V154:faster
+INPU - [A.I.C.I.S.] Napoleon:faster Nemesis:15-36 Agamemnon:left Excalibur:left ISS_Europa:slower Kimeran_Juggernaut:faster Saragossa:right Hydra:slower Leviathan107:slower Kimera111:left Norad_II109:left Huey_Long92:right Ragnorak83:19-14 Hurricane97:right Kimera117:34-39 Jackson's_Revenge118:right Metis134:slower Merrimack59:slower Ragnorak66:11-15 Valor_of_Vardona70:right Scion60:20-22 Hurricane71:slower Loki77:19-16 Victory48:right Napoleon51:left White_Star110:faster Iron_Fist122:27-25 Kimera14:1-8 Antigone36:faster Fury84:25-17 Phobos104:left Bismarck124:right Kimera8:36-37 Aeneas15:10-1 Eos62:26-13 Palatine113:right Loki6:faster Helios42:left Hephaestus68:22-30 White_Star76:19-16 Cerberus94:left Valor_of_Vardona4:10-1 Cyrus12:faster Norad_II19:1-8 Cyrus32:faster White_Star56:faster Titan98:27-25 Victory146:right Valor_of_Vardona152:right Metis5:right Jackson's_Revenge18:faster Meleager44:right Napoleon57:15-19 Victory148:37-37 Victory55:faster Merrimack58:faster Kimera91:faster Hyperion96:faster Herakles155:faster
+INFO - A.I.C.I.S. as take A.I.C.I.S._Eos10 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Cyrus11 !
+INFO - Llamax as take Llamax_Cyrus24 !
+INFO - Llamax as take Llamax_Antigone47 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Aleksander49 !
+INFO - Llamax as take Llamax_Hephaestus103 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Victory129 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Cerberus139 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Gray_Tiger147 !
+WARN - Llamax_Napoleon61 shoot failed (27, 15)!
+WARN - Llamax_Jackson_V67 shoot failed (21, 17)!
+WARN - Llamax_Napoleon90 shoot failed (32, 14)!
+WARN - Llamax_Metis21 shoot failed (1, 9)!
+WARN - Llamax_Titan46 shoot failed (1, 36)!
+WARN - Llamax_Fury87 shoot failed (21, 17)!
+WARN - Llamax_Eos102 shoot failed (13, 25)!
+WARN - Llamax_Patroclus9 shoot failed (5, 12)!
+WARN - Llamax_Theodore_G._Bilbo132 shoot failed (1, 36)!
+WARN - Llamax_Iron_Fist88 shoot failed (21, 17)!
+WARN - Llamax_Hoosier26 shoot failed (9, 5)!
+WARN - Llamax_Tahoe89 shoot failed (21, 17)!
+WARN - Llamax_Tahoe143 shot Llamax_Titan46
+KILL - Llamax_Tahoe143 kill A.I.C.I.S._Kimera8
+WARN - Llamax_Loki16 shoot failed (1, 9)!
+WARN - Llamax_Napoleon34 shot A.I.C.I.S._Ragnorak66
+WARN - A.I.C.I.S._Nemesis shoot failed (35, 14)!
+WARN - A.I.C.I.S._Ragnorak83 shoot failed (13, 18)!
+WARN - A.I.C.I.S._Kimera117 shot Llamax_Theodore_G._Bilbo132
+WARN - A.I.C.I.S._Ragnorak66 shot Llamax_Napoleon34
+WARN - A.I.C.I.S._Scion60 shot Llamax_Fury87
+WARN - A.I.C.I.S._Loki77 shoot failed (15, 18)!
+WARN - A.I.C.I.S._Iron_Fist122 shoot failed (24, 26)!
+WARN - A.I.C.I.S._Kimera14 shoot failed (7, 0)!
+WARN - A.I.C.I.S._Fury84 shoot failed (16, 24)!
+KILL - A.I.C.I.S._Aeneas15 kill A.I.C.I.S._Metis5
+WARN - A.I.C.I.S._Eos62 shot Llamax_Eos102
+WARN - A.I.C.I.S._Eos62 shot Llamax_Antigone47
+WARN - A.I.C.I.S._White_Star76 shoot failed (15, 18)!
+WARN - A.I.C.I.S._Valor_of_Vardona4 shoot failed (0, 9)!
+WARN - A.I.C.I.S._Norad_II19 shoot failed (7, 0)!
+WARN - A.I.C.I.S._Titan98 shoot failed (24, 26)!
+WARN - A.I.C.I.S._Napoleon57 shot Llamax_Jackson_V67
+WARN - A.I.C.I.S._Napoleon57 shot A.I.C.I.S._White_Star56
+KILL - A.I.C.I.S._Victory148 kill Llamax_Titan46
+INFO - It's turn nb 16 (1)
+INPU - [Llamax] Phobos:right Furies:right SC_Juggernaut:left Zeus:faster Jackson's_Revenge:left Damocles:faster Achilles:left Jackson_V:left Phobos50:left Victory38:left Fury54:left Kimeran_Juggernaut64:right Jackson_V37:left Bucephalus52:slower Napoleon61:17-27 Amphitrite86:left Antigone29:left Jackson_V67:17-19 Napoleon90:20-36 Palatine95:left Metis21:11-39 Norad_III79:faster Fury87:19-20 Eos102:faster Patroclus9:11-4 Bucephalus30:left Theodore_G._Bilbo132:39-40 Bismarck135:28-39 Hyperion151:left Thunder_Child31:1-1 Iron_Fist88:17-19 Cyrus2:right Phobos17:slower Hoosier26:10-14 Theodore_G._Bilbo35:faster Theodore_G._Bilbo45:left Tahoe89:17-19 Metis114:faster Circe141:faster Tahoe143:39-40 Antigone1:faster Scion3:faster Loki16:10-2 Gray_Tiger27:faster Napoleon34:left Valor_of_Vardona39:right Jackson's_Revenge43:faster Leviathan105:right Hephaestus128:right Jackson_V154:faster Cyrus24:faster Antigone47:faster Hephaestus103:faster
+INPU - [A.I.C.I.S.] Napoleon:right Nemesis:slower Excalibur:slower ISS_Europa:left Kimeran_Juggernaut:faster Saragossa:right Leviathan107:right Kimera111:faster Norad_II109:right Huey_Long92:right Circe119:slower Thunder_Child78:left Ragnorak83:15-13 Hurricane97:right Kimera117:slower Jackson's_Revenge118:right Metis134:slower Merrimack59:faster Ragnorak66:6-9 Valor_of_Vardona70:30-14 Jackson's_Revenge93:left Scion60:14-29 Hurricane71:faster Loki77:24-19 Victory48:right Napoleon51:left White_Star110:faster Iron_Fist122:25-21 Kimera14:37-1 Antigone36:11-22 Fury84:26-13 Phobos104:slower Bismarck124:right Aeneas15:12-37 Palatine113:21-22 Helios42:right Hephaestus68:21-22 White_Star76:21-22 Cerberus94:left Valor_of_Vardona4:faster Norad_II19:1-9 Cyrus32:faster White_Star56:14-19 Titan98:29-23 Victory146:right Valor_of_Vardona152:right Jackson's_Revenge18:left Meleager44:right Napoleon57:15-16 Jackson's_Revenge138:38-32 Victory148:32-38 Victory55:faster Merrimack58:15-16 Kimera91:25-21 Hyperion96:21-22 Herakles155:left Eos10:faster Cyrus11:faster Aleksander49:faster Victory129:faster Cerberus139:faster Gray_Tiger147:faster
+INFO - Llamax as take Llamax_Tahoe25 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Antigone74 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Fury108 !
+INFO - Llamax as take Llamax_Antigone125 !
+INFO - Llamax as take Llamax_Iron_Justice156 !
+KILL - Llamax_Napoleon61 kill A.I.C.I.S._Scion60
+KILL - Llamax_Jackson_V67 kill A.I.C.I.S._White_Star56
+WARN - Llamax_Napoleon90 shoot failed (35, 19)!
+WARN - Llamax_Metis21 shot A.I.C.I.S._Aeneas15
+WARN - Llamax_Fury87 shot A.I.C.I.S._Palatine113
+WARN - Llamax_Fury87 shot A.I.C.I.S._Antigone74
+WARN - Llamax_Patroclus9 shoot failed (3, 10)!
+WARN - Llamax_Theodore_G._Bilbo132 shoot failed (39, 38)!
+WARN - Llamax_Bismarck135 shoot failed (38, 27)!
+WARN - Llamax_Thunder_Child31 shoot failed (0, 0)!
+WARN - Llamax_Iron_Fist88 shoot failed (18, 16)!
+KILL - Llamax_Hoosier26 kill A.I.C.I.S._Cyrus12
+WARN - Llamax_Tahoe89 shoot failed (18, 16)!
+WARN - Llamax_Tahoe143 shoot failed (39, 38)!
+WARN - Llamax_Loki16 shoot failed (1, 9)!
+WARN - A.I.C.I.S._Ragnorak83 shot Llamax_Fury54
+WARN - A.I.C.I.S._Ragnorak66 shoot failed (8, 5)!
+WARN - A.I.C.I.S._Valor_of_Vardona70 shoot failed (13, 29)!
+WARN - A.I.C.I.S._Loki77 shoot failed (18, 23)!
+WARN - A.I.C.I.S._Iron_Fist122 shoot failed (20, 24)!
+WARN - A.I.C.I.S._Kimera14 shot Llamax_Thunder_Child31
+WARN - A.I.C.I.S._Kimera14 shot Llamax_Tahoe143
+WARN - A.I.C.I.S._Antigone36 shot Llamax_Tahoe89
+WARN - A.I.C.I.S._Fury84 shot A.I.C.I.S._Aleksander49
+WARN - A.I.C.I.S._Aeneas15 shoot failed (36, 11)!
+WARN - A.I.C.I.S._Palatine113 shot Llamax_Fury87
+KILL - A.I.C.I.S._Hephaestus68 kill Llamax_Fury87
+WARN - A.I.C.I.S._White_Star76 shoot failed (21, 20)!
+WARN - A.I.C.I.S._Norad_II19 shoot failed (8, 0)!
+WARN - A.I.C.I.S._Titan98 shot A.I.C.I.S._Titan98
+WARN - A.I.C.I.S._Napoleon57 shot A.I.C.I.S._Merrimack58
+WARN - A.I.C.I.S._Merrimack58 shot A.I.C.I.S._Merrimack58
+WARN - A.I.C.I.S._Kimera91 shoot failed (20, 24)!
+WARN - A.I.C.I.S._Hyperion96 shoot failed (21, 20)!
+INFO - It's turn nb 17 (1)
+INPU - [Llamax] Phobos:right Furies:faster SC_Juggernaut:left Zeus:left Jackson's_Revenge:slower Damocles:faster Achilles:faster Jackson_V:left Phobos50:slower Victory38:faster Fury54:faster Kimeran_Juggernaut64:right Jackson_V37:17-24 Bucephalus52:slower Napoleon61:16-28 Amphitrite86:slower Antigone29:slower Jackson_V67:19-18 Patroclus80:left Napoleon90:24-32 Palatine95:left Norad_III79:left Eos102:slower Patroclus9:8-14 Bucephalus30:faster Theodore_G._Bilbo132:32-38 Bismarck135:slower Hyperion151:right Thunder_Child31:slower Iron_Fist88:14-27 Cyrus2:left Phobos17:right Hoosier26:9-14 Theodore_G._Bilbo35:left Theodore_G._Bilbo45:faster Tahoe89:14-27 Metis114:faster Tahoe143:35-4 Antigone1:right Scion3:faster Loki16:10-40 Gray_Tiger27:left Napoleon34:slower Valor_of_Vardona39:faster Jackson's_Revenge43:left Leviathan105:faster Hephaestus128:right Jackson_V154:left Cyrus24:right Antigone47:right Hephaestus103:faster Tahoe25:faster Antigone125:faster Iron_Justice156:faster
+INPU - [A.I.C.I.S.] Napoleon:slower Nemesis:right Agamemnon:slower Excalibur:faster ISS_Europa:left Kimeran_Juggernaut:22-33 Saragossa:faster Hydra:faster Leviathan107:right Kimera111:faster Huey_Long92:28-13 Circe119:slower Thunder_Child78:slower Ragnorak83:12-10 Hurricane97:29-15 Kimera117:right Jackson's_Revenge118:faster Metis134:left Merrimack59:6-26 Ragnorak66:5-8 Valor_of_Vardona70:28-13 Jackson's_Revenge93:slower Hurricane71:5-8 Loki77:17-15 Victory48:faster Napoleon51:left White_Star110:right Iron_Fist122:left Kimera14:left Antigone36:left Fury84:23-20 Phobos104:slower Bismarck124:right Aeneas15:7-2 Eos62:26-21 Palatine113:left Loki6:faster Helios42:faster Hephaestus68:16-21 White_Star76:26-21 Cerberus94:left Valor_of_Vardona4:right Norad_II19:37-11 Cyrus32:right Titan98:27-22 Victory146:right Valor_of_Vardona152:right Jackson's_Revenge18:faster Meleager44:faster Napoleon57:18-19 Jackson's_Revenge138:37-31 Victory148:29-35 Victory55:faster Merrimack58:19-17 Kimera91:27-19 Hyperion96:15-25 Herakles155:32-1 Cyrus11:faster Aleksander49:left Victory129:left Gray_Tiger147:29-35 Antigone74:faster Fury108:faster
+INFO - Llamax as take Llamax_Leviathan28 !
+INFO - Llamax as take Llamax_Victory53 !
+INFO - Llamax as take Llamax_White_Star81 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Hyperion112 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Thunder_Child145 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Metis150 !
+WARN - Llamax_Jackson_V37 shoot failed (23, 16)!
+WARN - Llamax_Napoleon61 shoot failed (27, 15)!
+WARN - Llamax_Jackson_V67 shoot failed (17, 18)!
+KILL - Llamax_Napoleon90 kill A.I.C.I.S._Norad_II109
+WARN - Llamax_Patroclus9 shoot failed (13, 7)!
+WARN - Llamax_Theodore_G._Bilbo132 shot A.I.C.I.S._Herakles155
+WARN - Llamax_Theodore_G._Bilbo132 shot A.I.C.I.S._Metis150
+WARN - Llamax_Iron_Fist88 shoot failed (26, 13)!
+KILL - Llamax_Hoosier26 kill A.I.C.I.S._Jackson's_Revenge93
+KILL - Llamax_Hoosier26 kill A.I.C.I.S._Hurricane71
+WARN - Llamax_Tahoe89 shoot failed (26, 13)!
+WARN - Llamax_Tahoe143 shoot failed (3, 34)!
+WARN - Llamax_Loki16 shoot failed (39, 9)!
+WARN - A.I.C.I.S._Kimeran_Juggernaut shoot failed (32, 21)!
+WARN - A.I.C.I.S._Huey_Long92 shot A.I.C.I.S._Huey_Long92
+WARN - A.I.C.I.S._Ragnorak83 shot A.I.C.I.S._Loki6
+WARN - A.I.C.I.S._Hurricane97 shoot failed (14, 28)!
+WARN - A.I.C.I.S._Merrimack59 shoot failed (25, 5)!
+WARN - A.I.C.I.S._Ragnorak66 shoot failed (7, 4)!
+WARN - A.I.C.I.S._Valor_of_Vardona70 shot A.I.C.I.S._Huey_Long92
+WARN - A.I.C.I.S._Loki77 shoot failed (14, 16)!
+WARN - A.I.C.I.S._Fury84 shoot failed (19, 22)!
+WARN - A.I.C.I.S._Aeneas15 shoot failed (1, 6)!
+WARN - A.I.C.I.S._Eos62 shot Llamax_Leviathan105
+WARN - A.I.C.I.S._Eos62 shot Llamax_Hephaestus103
+WARN - A.I.C.I.S._Hephaestus68 shot Llamax_White_Star81
+KILL - A.I.C.I.S._Hephaestus68 kill Llamax_Jackson_V37
+KILL - A.I.C.I.S._White_Star76 kill Llamax_Leviathan105
+KILL - A.I.C.I.S._White_Star76 kill Llamax_Hephaestus103
+WARN - A.I.C.I.S._Norad_II19 shoot failed (10, 36)!
+WARN - A.I.C.I.S._Titan98 shoot failed (21, 26)!
+WARN - A.I.C.I.S._Napoleon57 shoot failed (18, 17)!
+WARN - A.I.C.I.S._Jackson's_Revenge138 shoot failed (30, 36)!
+WARN - A.I.C.I.S._Victory148 shoot failed (34, 28)!
+WARN - A.I.C.I.S._Merrimack58 shoot failed (16, 18)!
+WARN - A.I.C.I.S._Kimera91 shoot failed (18, 26)!
+WARN - A.I.C.I.S._Hyperion96 shoot failed (24, 14)!
+WARN - A.I.C.I.S._Herakles155 shot Llamax_Theodore_G._Bilbo132
+WARN - A.I.C.I.S._Gray_Tiger147 shoot failed (34, 28)!
+INFO - It's turn nb 18 (1)
+INPU - [Llamax] Phobos:slower Furies:faster SC_Juggernaut:faster Zeus:left Jackson's_Revenge:left Damocles:slower Achilles:15-20 Jackson_V:left Phobos50:right Victory38:left Fury54:slower Kimeran_Juggernaut64:right Bucephalus52:left Napoleon61:16-33 Antigone29:slower Jackson_V67:15-20 Napoleon90:16-33 Palatine95:left Metis21:9-35 Norad_III79:faster Patroclus9:15-13 Bucephalus30:faster Theodore_G._Bilbo132:31-37 Bismarck135:faster Hyperion151:right Thunder_Child31:left Iron_Fist88:12-23 Cyrus2:left Phobos17:faster Hoosier26:right Theodore_G._Bilbo35:15-14 Theodore_G._Bilbo45:right Tahoe89:12-23 Metis114:right Circe141:right Tahoe143:36-40 Antigone1:faster Loki16:3-38 Gray_Tiger27:left Napoleon34:right Valor_of_Vardona39:15-14 Jackson's_Revenge43:faster Hephaestus128:right Jackson_V154:slower Cyrus24:faster Antigone47:faster Antigone125:right Iron_Justice156:left Leviathan28:faster Victory53:faster White_Star81:faster
+INPU - [A.I.C.I.S.] Napoleon:slower Nemesis:faster Agamemnon:6-3 Excalibur:faster ISS_Europa:left Kimeran_Juggernaut:26-35 Saragossa:faster Hydra:left Leviathan107:slower Kimera111:left Huey_Long92:29-11 Circe119:left Thunder_Child78:left Ragnorak83:16-13 Hurricane97:29-11 Kimera117:left Jackson's_Revenge118:slower Metis134:left Merrimack59:10-26 Ragnorak66:2-8 Valor_of_Vardona70:29-11 Victory48:slower Napoleon51:faster White_Star110:33-37 Iron_Fist122:left Kimera14:36-3 Fury84:slower Phobos104:right Bismarck124:right Aeneas15:faster Eos62:23-21 Palatine113:faster Loki6:faster Helios42:right Hephaestus68:17-18 White_Star76:17-18 Cerberus94:faster Valor_of_Vardona4:faster Norad_II19:39-8 Cyrus32:left Titan98:30-30 Victory146:right Valor_of_Vardona152:faster Jackson's_Revenge18:faster Meleager44:right Napoleon57:18-25 Jackson's_Revenge138:35-29 Victory148:33-37 Victory55:faster Merrimack58:14-18 Kimera91:23-21 Hyperion96:14-25 Eos10:6-3 Cyrus11:faster Aleksander49:faster Victory129:left Cerberus139:left Gray_Tiger147:33-37 Antigone74:17-18 Fury108:right Hyperion112:faster Thunder_Child145:faster Metis150:faster
+INFO - A.I.C.I.S. as take A.I.C.I.S._Huey_Long0 !
+INFO - Llamax as take Llamax_Leviathan22 !
+INFO - Llamax as take Llamax_Aeneas63 !
+INFO - Llamax as take Llamax_Hurricane82 !
+INFO - Llamax as take Llamax_Cyrus106 !
+INFO - Llamax as take Llamax_Metis120 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Huey_Long127 !
+INFO - Llamax as take Llamax_Jackson_V130 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Jackson_V131 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Tahoe140 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Emperor's_Fury142 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Herakles157 !
+WARN - Llamax_Achilles shoot failed (19, 14)!
+WARN - Llamax_Napoleon61 shoot failed (32, 15)!
+WARN - Llamax_Jackson_V67 shoot failed (19, 14)!
+WARN - Llamax_Napoleon90 shoot failed (32, 15)!
+WARN - Llamax_Metis21 shoot failed (34, 8)!
+WARN - Llamax_Patroclus9 shoot failed (12, 14)!
+KILL - Llamax_Theodore_G._Bilbo132 kill A.I.C.I.S._Herakles155
+WARN - Llamax_Iron_Fist88 shot A.I.C.I.S._Hyperion96
+WARN - Llamax_Theodore_G._Bilbo35 shot A.I.C.I.S._Merrimack58
+WARN - Llamax_Tahoe89 shot A.I.C.I.S._Hyperion96
+WARN - Llamax_Tahoe143 shoot failed (39, 35)!
+WARN - Llamax_Loki16 shoot failed (37, 2)!
+WARN - Llamax_Valor_of_Vardona39 shot A.I.C.I.S._Merrimack58
+WARN - A.I.C.I.S._Agamemnon shoot failed (2, 5)!
+WARN - A.I.C.I.S._Kimeran_Juggernaut shoot failed (34, 25)!
+WARN - A.I.C.I.S._Huey_Long92 shoot failed (10, 28)!
+WARN - A.I.C.I.S._Ragnorak83 shot Llamax_Patroclus9
+WARN - A.I.C.I.S._Hurricane97 shoot failed (10, 28)!
+WARN - A.I.C.I.S._Merrimack59 shoot failed (25, 9)!
+WARN - A.I.C.I.S._Ragnorak66 shoot failed (7, 1)!
+WARN - A.I.C.I.S._Valor_of_Vardona70 shoot failed (10, 28)!
+WARN - A.I.C.I.S._White_Star110 shoot failed (36, 32)!
+KILL - A.I.C.I.S._Kimera14 kill Llamax_Eos102
+WARN - A.I.C.I.S._Eos62 shoot failed (20, 22)!
+WARN - A.I.C.I.S._Hephaestus68 shoot failed (17, 16)!
+WARN - A.I.C.I.S._White_Star76 shoot failed (17, 16)!
+WARN - A.I.C.I.S._Norad_II19 shoot failed (7, 38)!
+WARN - A.I.C.I.S._Titan98 shoot failed (29, 29)!
+WARN - A.I.C.I.S._Napoleon57 shot Llamax_Achilles
+WARN - A.I.C.I.S._Jackson's_Revenge138 shoot failed (28, 34)!
+WARN - A.I.C.I.S._Victory148 shoot failed (36, 32)!
+WARN - A.I.C.I.S._Merrimack58 shot Llamax_Valor_of_Vardona39
+WARN - A.I.C.I.S._Kimera91 shoot failed (20, 22)!
+WARN - A.I.C.I.S._Hyperion96 shoot failed (24, 13)!
+WARN - A.I.C.I.S._Eos10 shoot failed (2, 5)!
+WARN - A.I.C.I.S._Gray_Tiger147 shoot failed (36, 32)!
+WARN - A.I.C.I.S._Antigone74 shoot failed (17, 16)!
+INFO - It's turn nb 19 (1)
+INPU - [Llamax] Phobos:slower Furies:left SC_Juggernaut:right Zeus:right Jackson's_Revenge:left Damocles:right Achilles:17-27 Jackson_V:slower Phobos50:slower Victory38:faster Fury54:5-6 Kimeran_Juggernaut64:31-38 Bucephalus52:left Napoleon61:8-37 Amphitrite86:faster Antigone29:right Jackson_V67:11-16 Patroclus80:30-17 Napoleon90:16-34 Metis21:7-36 Norad_III79:left Patroclus9:20-18 Bucephalus30:left Theodore_G._Bilbo132:31-38 Bismarck135:slower Hyperion151:left Thunder_Child31:35-37 Iron_Fist88:11-23 Cyrus2:left Phobos17:right Theodore_G._Bilbo35:slower Theodore_G._Bilbo45:faster Tahoe89:11-16 Metis114:slower Circe141:19-28 Tahoe143:38-3 Antigone1:right Scion3:28-22 Loki16:2-37 Gray_Tiger27:faster Napoleon34:left Valor_of_Vardona39:11-16 Jackson's_Revenge43:faster Hephaestus128:faster Jackson_V154:right Cyrus24:left Antigone47:faster Antigone125:faster Iron_Justice156:left Leviathan28:right Victory53:right White_Star81:11-16 Leviathan22:faster Aeneas63:faster Hurricane82:faster Cyrus106:faster Metis120:faster Jackson_V130:faster
+INPU - [A.I.C.I.S.] Napoleon:faster Nemesis:right Agamemnon:slower Excalibur:faster ISS_Europa:left Kimeran_Juggernaut:left Saragossa:slower Hydra:right Leviathan107:faster Kimera111:11-32 Huey_Long92:29-14 Circe119:left Thunder_Child78:38-7 Ragnorak83:right Hurricane97:32-8 Kimera117:right Jackson's_Revenge118:37-4 Metis134:left Ragnorak66:5-3 Valor_of_Vardona70:29-14 Loki77:17-14 Victory48:right Napoleon51:faster White_Star110:slower Iron_Fist122:faster Kimera14:36-38 Antigone36:right Fury84:faster Phobos104:right Bismarck124:faster Aeneas15:17-35 Eos62:19-23 Palatine113:left Loki6:faster Helios42:faster Hephaestus68:18-30 White_Star76:12-20 Cerberus94:faster Valor_of_Vardona4:faster Norad_II19:38-7 Cyrus32:17-35 Titan98:left Victory146:faster Valor_of_Vardona152:right Meleager44:left Napoleon57:19-23 Jackson's_Revenge138:right Victory148:37-35 Merrimack58:17-14 Hyperion96:13-20 Eos10:slower Cyrus11:faster Aleksander49:left Victory129:faster Cerberus139:right Gray_Tiger147:35-35 Antigone74:19-23 Fury108:13-31 Hyperion112:left Thunder_Child145:left Metis150:left Huey_Long0:faster Huey_Long127:faster Jackson_V131:faster Tahoe140:faster Emperor's_Fury142:faster Herakles157:faster
+INFO - Llamax as take Llamax_Iron_Justice73 !
+INFO - Llamax as take Llamax_Tahoe116 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Cerberus121 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Napoleon133 !
+INFO - Llamax as take Llamax_Herakles137 !
+INFO - Llamax as take Llamax_Hyperion153 !
+WARN - Llamax_Achilles shot A.I.C.I.S._Hephaestus68
+WARN - Llamax_Fury54 shot A.I.C.I.S._Ragnorak66
+WARN - Llamax_Kimeran_Juggernaut64 shoot failed (37, 30)!
+KILL - Llamax_Napoleon61 kill A.I.C.I.S._Kimera111
+WARN - Llamax_Jackson_V67 shoot failed (15, 10)!
+WARN - Llamax_Patroclus80 shoot failed (16, 29)!
+KILL - Llamax_Napoleon90 kill A.I.C.I.S._Aeneas15
+WARN - Llamax_Metis21 shoot failed (35, 6)!
+WARN - Llamax_Patroclus9 shot A.I.C.I.S._Eos62
+WARN - Llamax_Patroclus9 shot A.I.C.I.S._Napoleon57
+WARN - Llamax_Theodore_G._Bilbo132 shoot failed (37, 30)!
+WARN - Llamax_Thunder_Child31 shoot failed (36, 34)!
+WARN - Llamax_Iron_Fist88 shot A.I.C.I.S._Hyperion96
+WARN - Llamax_Tahoe89 shoot failed (15, 10)!
+WARN - Llamax_Circe141 shoot failed (27, 18)!
+WARN - Llamax_Tahoe143 shoot failed (2, 37)!
+WARN - Llamax_Scion3 shot A.I.C.I.S._Kimera91
+WARN - Llamax_Loki16 shoot failed (36, 1)!
+WARN - Llamax_Valor_of_Vardona39 shoot failed (15, 10)!
+WARN - Llamax_White_Star81 shoot failed (15, 10)!
+WARN - A.I.C.I.S._Huey_Long92 shoot failed (13, 28)!
+WARN - A.I.C.I.S._Thunder_Child78 shoot failed (6, 37)!
+WARN - A.I.C.I.S._Hurricane97 shoot failed (7, 31)!
+WARN - A.I.C.I.S._Jackson's_Revenge118 shot Llamax_Tahoe143
+KILL - A.I.C.I.S._Ragnorak66 kill Llamax_Fury54
+WARN - A.I.C.I.S._Valor_of_Vardona70 shoot failed (13, 28)!
+WARN - A.I.C.I.S._Loki77 shot Llamax_Patroclus9
+WARN - A.I.C.I.S._Kimera14 shot Llamax_Kimeran_Juggernaut64
+WARN - A.I.C.I.S._Eos62 shoot failed (22, 18)!
+KILL - A.I.C.I.S._Hephaestus68 kill Llamax_Achilles
+KILL - A.I.C.I.S._Hephaestus68 kill Llamax_Tahoe116
+WARN - A.I.C.I.S._White_Star76 shot Llamax_Iron_Justice73
+KILL - A.I.C.I.S._White_Star76 kill Llamax_Napoleon34
+KILL - A.I.C.I.S._White_Star76 kill Llamax_Valor_of_Vardona39
+WARN - A.I.C.I.S._Norad_II19 shoot failed (6, 37)!
+WARN - A.I.C.I.S._Cyrus32 shot Llamax_Napoleon90
+WARN - A.I.C.I.S._Napoleon57 shoot failed (22, 18)!
+WARN - A.I.C.I.S._Victory148 shoot failed (34, 36)!
+WARN - A.I.C.I.S._Merrimack58 shot Llamax_Patroclus9
+WARN - A.I.C.I.S._Hyperion96 shoot failed (19, 12)!
+WARN - A.I.C.I.S._Gray_Tiger147 shot Llamax_Herakles137
+KILL - A.I.C.I.S._Gray_Tiger147 kill Llamax_Thunder_Child31
+WARN - A.I.C.I.S._Antigone74 shoot failed (22, 18)!
+WARN - A.I.C.I.S._Fury108 shoot failed (30, 12)!
+INFO - It's turn nb 20 (1)
+INPU - [Llamax] Phobos:slower Furies:slower SC_Juggernaut:right Zeus:slower Jackson's_Revenge:faster Damocles:faster Jackson_V:faster Phobos50:right Victory38:38-1 Kimeran_Juggernaut64:slower Bucephalus52:left Napoleon61:12-30 Amphitrite86:23-24 Antigone29:right Jackson_V67:10-23 Patroclus80:30-15 Napoleon90:17-32 Palatine95:10-23 Metis21:7-32 Norad_III79:12-30 Patroclus9:15-12 Bucephalus30:left Theodore_G._Bilbo132:slower Bismarck135:faster Hyperion151:faster Iron_Fist88:10-23 Cyrus2:left Hoosier26:6-11 Theodore_G._Bilbo35:right Theodore_G._Bilbo45:left Tahoe89:10-23 Metis114:right Circe141:18-29 Tahoe143:1-6 Antigone1:10-23 Scion3:left Loki16:40-39 Gray_Tiger27:left Jackson's_Revenge43:faster Hephaestus128:faster Jackson_V154:left Cyrus24:slower Antigone47:slower Antigone125:right Iron_Justice156:36-38 Leviathan28:right Victory53:right White_Star81:13-16 Leviathan22:10-7 Aeneas63:right Hurricane82:26-24 Cyrus106:left Metis120:right Jackson_V130:right Iron_Justice73:faster Herakles137:faster Hyperion153:faster
+INPU - [A.I.C.I.S.] Napoleon:slower Nemesis:16-24 Agamemnon:slower Excalibur:right ISS_Europa:faster Kimeran_Juggernaut:36-37 Saragossa:right Hydra:right Leviathan107:right Circe119:right Thunder_Child78:left Ragnorak83:faster Hurricane97:right Kimera117:faster Jackson's_Revenge118:left Metis134:left Merrimack59:faster Ragnorak66:9-4 Valor_of_Vardona70:left Loki77:18-15 Victory48:left Napoleon51:left White_Star110:right Iron_Fist122:faster Kimera14:37-5 Fury84:17-11 Phobos104:left Bismarck124:slower Eos62:17-21 Palatine113:left Loki6:right Helios42:left Hephaestus68:21-25 White_Star76:16-24 Cerberus94:slower Valor_of_Vardona4:slower Norad_II19:36-4 Cyrus32:slower Titan98:37-24 Victory146:right Valor_of_Vardona152:39-35 Jackson's_Revenge18:faster Meleager44:faster Napoleon57:17-21 Jackson's_Revenge138:right Victory148:30-36 Victory55:left Merrimack58:18-15 Kimera91:28-20 Hyperion96:7-20 Eos10:faster Cyrus11:39-37 Aleksander49:left Victory129:left Gray_Tiger147:2-40 Antigone74:22-20 Fury108:right Hyperion112:right Thunder_Child145:right Metis150:left Huey_Long0:left Huey_Long127:right Jackson_V131:39-35 Tahoe140:right Emperor's_Fury142:39-35 Herakles157:left Cerberus121:faster Napoleon133:faster
+INFO - A.I.C.I.S. as take A.I.C.I.S._Jackson's_Revenge23 !
+INFO - Llamax as take Llamax_Napoleon40 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Jackson's_Revenge69 !
+INFO - Llamax as take Llamax_Phobos136 !
+INFO - Llamax as take Llamax_Cyrus144 !
+INFO - A.I.C.I.S. as take A.I.C.I.S._Bucephalus149 !
+WARN - Llamax_Victory38 shoot failed (0, 37)!
+WARN - Llamax_Napoleon61 shoot failed (29, 11)!
+WARN - Llamax_Amphitrite86 shot A.I.C.I.S._Antigone74
+WARN - Llamax_Jackson_V67 shot A.I.C.I.S._Hyperion96
+WARN - Llamax_Patroclus80 shoot failed (14, 29)!
+WARN - Llamax_Napoleon90 shoot failed (31, 16)!
+WARN - Llamax_Palatine95 shot A.I.C.I.S._Hyperion96
+WARN - Llamax_Metis21 shoot failed (31, 6)!
+WARN - Llamax_Norad_III79 shoot failed (29, 11)!
+KILL - Llamax_Patroclus9 kill A.I.C.I.S._Merrimack58
+KILL - Llamax_Iron_Fist88 kill A.I.C.I.S._Hyperion96
+WARN - Llamax_Hoosier26 shoot failed (10, 5)!
+WARN - Llamax_Tahoe89 shoot failed (22, 9)!
+WARN - Llamax_Circe141 shoot failed (28, 17)!
+WARN - Llamax_Tahoe143 shot A.I.C.I.S._Kimeran_Juggernaut
+WARN - Llamax_Antigone1 shoot failed (22, 9)!
+WARN - Llamax_Loki16 shoot failed (38, 39)!
+WARN - Llamax_Iron_Justice156 shoot failed (37, 35)!
+KILL - Llamax_White_Star81 kill A.I.C.I.S._Nemesis
+WARN - Llamax_Leviathan22 shoot failed (6, 9)!
+WARN - Llamax_Hurricane82 shoot failed (23, 25)!
+WARN - A.I.C.I.S._Kimeran_Juggernaut shoot failed (36, 35)!
+WARN - A.I.C.I.S._Ragnorak66 shoot failed (3, 8)!
+WARN - A.I.C.I.S._Loki77 shot Llamax_Patroclus9
+WARN - A.I.C.I.S._Kimera14 shot Llamax_Tahoe143
+WARN - A.I.C.I.S._Fury84 shoot failed (10, 16)!
+WARN - A.I.C.I.S._Eos62 shoot failed (20, 16)!
+WARN - A.I.C.I.S._Hephaestus68 shoot failed (24, 20)!
+WARN - A.I.C.I.S._White_Star76 shoot failed (23, 15)!
+WARN - A.I.C.I.S._Norad_II19 shoot failed (3, 35)!
+WARN - A.I.C.I.S._Titan98 shoot failed (23, 36)!
+WARN - A.I.C.I.S._Valor_of_Vardona152 shoot failed (34, 38)!
+WARN - A.I.C.I.S._Napoleon57 shoot failed (20, 16)!
+KILL - A.I.C.I.S._Victory148 kill A.I.C.I.S._Metis150
+WARN - A.I.C.I.S._Kimera91 shoot failed (19, 27)!
+WARN - A.I.C.I.S._Cyrus11 shoot failed (36, 38)!
+WARN - A.I.C.I.S._Gray_Tiger147 shoot failed (39, 1)!
+WARN - A.I.C.I.S._Antigone74 shot Llamax_Amphitrite86
+WARN - A.I.C.I.S._Jackson_V131 shoot failed (34, 38)!
+WARN - A.I.C.I.S._Emperor's_Fury142 shoot failed (34, 38)!
+INFO - It's turn nb 21 (1)
+INPU - [Llamax] Phobos:right Furies:right SC_Juggernaut:left Zeus:right Jackson's_Revenge:faster Damocles:slower Jackson_V:left Phobos50:left Victory38:left Kimeran_Juggernaut64:right Bucephalus52:faster Napoleon61:6-27 Amphitrite86:right Antigone29:right Jackson_V67:left Patroclus80:27-9 Napoleon90:19-33 Metis21:6-27 Norad_III79:right Patroclus9:18-18 Bucephalus30:left Theodore_G._Bilbo132:faster Bismarck135:21-39 Hyperion151:right Iron_Fist88:right Cyrus2:right Theodore_G._Bilbo35:left Theodore_G._Bilbo45:right Tahoe89:right Metis114:faster Circe141:20-31 Tahoe143:2-6 Antigone1:left Scion3:left Loki16:38-35 Gray_Tiger27:left Jackson's_Revenge43:slower Hephaestus128:right Jackson_V154:faster Cyrus24:left Antigone47:right Tahoe25:right Iron_Justice156:left Leviathan28:right White_Star81:15-20 Leviathan22:9-6 Aeneas63:right Hurricane82:24-20 Cyrus106:15-29 Metis120:right Jackson_V130:33-32 Iron_Justice73:faster Herakles137:34-34 Hyperion153:left Napoleon40:faster Phobos136:faster Cyrus144:faster
+INPU - [A.I.C.I.S.] Napoleon:left Agamemnon:right Excalibur:right ISS_Europa:slower Kimeran_Juggernaut:right Saragossa:left Hydra:faster Leviathan107:faster Huey_Long92:22-15 Circe119:right Thunder_Child78:left Ragnorak83:10-6 Hurricane97:26-7 Kimera117:faster Jackson's_Revenge118:left Metis134:faster Ragnorak66:faster Valor_of_Vardona70:22-6 Loki77:19-16 Victory48:left Napoleon51:slower White_Star110:right Iron_Fist122:slower Kimera14:33-37 Antigone36:slower Fury84:22-11 Phobos104:left Bismarck124:left Eos62:22-15 Palatine113:right Loki6:right Helios42:38-4 Hephaestus68:14-29 White_Star76:15-17 Cerberus94:right Valor_of_Vardona4:faster Norad_II19:37-3 Cyrus32:faster Titan98:34-27 Victory146:faster Valor_of_Vardona152:left Jackson's_Revenge18:right Meleager44:right Napoleon57:22-15 Jackson's_Revenge138:right Victory148:26-40 Victory55:faster Kimera91:29-21 Eos10:right Cyrus11:left Aleksander49:left Victory129:faster Cerberus139:faster Gray_Tiger147:37-3 Antigone74:21-24 Fury108:left Hyperion112:right Thunder_Child145:right Huey_Long0:right Huey_Long127:right Jackson_V131:40-34 Tahoe140:right Emperor's_Fury142:40-34 Herakles157:left Cerberus121:left Napoleon133:right Jackson's_Revenge23:left Jackson's_Revenge69:faster Bucephalus149:faster
+INFO - A.I.C.I.S. as take A.I.C.I.S._Fury20 !
+INFO - Llamax as take Llamax_Napoleon123 !
+WARN - Llamax_Napoleon61 shoot failed (26, 5)!
+WARN - Llamax_Patroclus80 shot A.I.C.I.S._Hurricane97
+WARN - Llamax_Napoleon90 shoot failed (32, 18)!
+WARN - Llamax_Metis21 shoot failed (26, 5)!
+KILL - Llamax_Patroclus9 kill A.I.C.I.S._Eos62
+WARN - Llamax_Bismarck135 shoot failed (38, 20)!
+WARN - Llamax_Circe141 shoot failed (30, 19)!
+WARN - Llamax_Tahoe143 shot Llamax_Phobos17
+WARN - Llamax_Tahoe143 shot A.I.C.I.S._Helios42
+WARN - Llamax_Loki16 shoot failed (34, 37)!
+WARN - Llamax_White_Star81 shot A.I.C.I.S._White_Star76
+WARN - Llamax_Leviathan22 shot Llamax_Phobos50
+WARN - Llamax_Hurricane82 shoot failed (19, 23)!
+WARN - Llamax_Cyrus106 shot A.I.C.I.S._Hephaestus68
+WARN - Llamax_Jackson_V130 shoot failed (31, 32)!
+WARN - Llamax_Herakles137 shoot failed (33, 33)!
+WARN - A.I.C.I.S._Huey_Long92 shoot failed (14, 21)!
+WARN - A.I.C.I.S._Ragnorak83 shot A.I.C.I.S._Jackson's_Revenge23
+WARN - A.I.C.I.S._Hurricane97 shoot failed (6, 25)!
+WARN - A.I.C.I.S._Valor_of_Vardona70 shoot failed (5, 21)!
+WARN - A.I.C.I.S._Loki77 shot Llamax_Patroclus9
+WARN - A.I.C.I.S._Kimera14 shot Llamax_Jackson_V130
+WARN - A.I.C.I.S._Fury84 shoot failed (10, 21)!
+WARN - A.I.C.I.S._Helios42 shoot failed (3, 37)!
+KILL - A.I.C.I.S._Hephaestus68 kill Llamax_Cyrus106
+WARN - A.I.C.I.S._White_Star76 shoot failed (16, 14)!
+WARN - A.I.C.I.S._Norad_II19 shot A.I.C.I.S._Agamemnon
+WARN - A.I.C.I.S._Titan98 shoot failed (26, 33)!
+WARN - A.I.C.I.S._Napoleon57 shoot failed (14, 21)!
+WARN - A.I.C.I.S._Victory148 shoot failed (39, 25)!
+WARN - A.I.C.I.S._Kimera91 shot A.I.C.I.S._Cyrus32
+KILL - A.I.C.I.S._Gray_Tiger147 kill A.I.C.I.S._Agamemnon
+WARN - A.I.C.I.S._Antigone74 shot Llamax_Hurricane82
+WARN - A.I.C.I.S._Jackson_V131 shot A.I.C.I.S._Merrimack59
+KILL - A.I.C.I.S._Emperor's_Fury142 kill A.I.C.I.S._Merrimack59
+INFO - It's turn nb 22 (1)
+INPU - [Llamax] Phobos:right Furies:left SC_Juggernaut:left Zeus:faster Jackson's_Revenge:faster Damocles:slower Jackson_V:left Phobos50:left Victory38:faster Kimeran_Juggernaut64:left Napoleon61:10-27 Amphitrite86:left Antigone29:left Patroclus80:26-9 Napoleon90:15-5 Palatine95:14-30 Norad_III79:left Patroclus9:19-15 Bucephalus30:left Theodore_G._Bilbo132:slower Bismarck135:24-33 Hyperion151:right Iron_Fist88:1-22 Cyrus2:38-3 Phobos17:left Hoosier26:left Theodore_G._Bilbo35:left Theodore_G._Bilbo45:faster Tahoe89:1-22 Metis114:left Circe141:19-32 Tahoe143:38-3 Scion3:left Loki16:40-33 Gray_Tiger27:slower Jackson's_Revenge43:faster Hephaestus128:faster Jackson_V154:left Cyrus24:left Antigone47:left Tahoe25:left Antigone125:right Iron_Justice156:left Leviathan28:right Victory53:faster White_Star81:14-30 Leviathan22:10-6 Aeneas63:right Hurricane82:18-23 Metis120:left Jackson_V130:faster Herakles137:34-30 Hyperion153:right Napoleon40:right Phobos136:34-38 Cyrus144:38-37 Napoleon123:faster
+INPU - [A.I.C.I.S.] Napoleon:left Excalibur:slower ISS_Europa:left Kimeran_Juggernaut:right Saragossa:faster Hydra:left Leviathan107:left Huey_Long92:21-25 Thunder_Child78:left Ragnorak83:9-7 Hurricane97:29-4 Kimera117:7-31 Jackson's_Revenge118:slower Metis134:right Ragnorak66:6-2 Valor_of_Vardona70:20-9 Victory48:faster Napoleon51:slower White_Star110:left Iron_Fist122:left Kimera14:35-1 Antigone36:slower Fury84:20-9 Phobos104:left Bismarck124:left Palatine113:right Loki6:slower Helios42:slower Hephaestus68:18-28 White_Star76:20-17 Valor_of_Vardona4:slower Norad_II19:35-1 Cyrus32:31-22 Victory146:left Valor_of_Vardona152:left Meleager44:right Napoleon57:20-17 Jackson's_Revenge138:39-27 Victory148:27-36 Kimera91:31-22 Eos10:right Cyrus11:left Aleksander49:right Victory129:right Cerberus139:left Gray_Tiger147:35-1 Antigone74:21-25 Fury108:left Hyperion112:slower Thunder_Child145:left Huey_Long0:right Huey_Long127:left Jackson_V131:38-32 Tahoe140:left Emperor's_Fury142:40-38 Herakles157:faster Cerberus121:faster Napoleon133:faster Jackson's_Revenge23:faster Jackson's_Revenge69:31-22 Bucephalus149:right Fury20:faster
+KILL - Llamax_Napoleon61 kill A.I.C.I.S._Kimera117
+KILL - Llamax_Patroclus80 kill A.I.C.I.S._Hurricane97
+KILL - Llamax_Napoleon90 kill A.I.C.I.S._Victory55
+WARN - Llamax_Palatine95 shot Llamax_Palatine95
+WARN - Llamax_Palatine95 shot A.I.C.I.S._Hephaestus68
+KILL - Llamax_Patroclus9 kill A.I.C.I.S._Jackson's_Revenge18
+WARN - Llamax_Bismarck135 shoot failed (32, 23)!
+WARN - Llamax_Iron_Fist88 shoot failed (21, 0)!
+WARN - Llamax_Cyrus2 shoot failed (2, 37)!
+WARN - Llamax_Tahoe89 shoot failed (21, 0)!
+WARN - Llamax_Circe141 shot A.I.C.I.S._Hyperion112
+WARN - Llamax_Tahoe143 shoot failed (2, 37)!
+WARN - Llamax_Loki16 shoot failed (32, 39)!
+WARN - Llamax_White_Star81 shot Llamax_Palatine95
+WARN - Llamax_White_Star81 shot A.I.C.I.S._Hephaestus68
+WARN - Llamax_Leviathan22 shot A.I.C.I.S._Napoleon51
+WARN - Llamax_Hurricane82 shot A.I.C.I.S._Huey_Long92
+WARN - Llamax_Herakles137 shoot failed (29, 33)!
+WARN - Llamax_Phobos136 shoot failed (37, 33)!
+WARN - Llamax_Cyrus144 shoot failed (36, 37)!
+WARN - A.I.C.I.S._Huey_Long92 shot Llamax_Hurricane82
+WARN - A.I.C.I.S._Ragnorak83 shoot failed (6, 8)!
+WARN - A.I.C.I.S._Ragnorak66 shoot failed (1, 5)!
+WARN - A.I.C.I.S._Valor_of_Vardona70 shoot failed (8, 19)!
+WARN - A.I.C.I.S._Kimera14 shot Llamax_Hyperion153
+WARN - A.I.C.I.S._Fury84 shoot failed (8, 19)!
+WARN - A.I.C.I.S._Hephaestus68 shoot failed (27, 17)!
+WARN - A.I.C.I.S._White_Star76 shot Llamax_Patroclus9
+KILL - A.I.C.I.S._Norad_II19 kill Llamax_Hyperion153
+WARN - A.I.C.I.S._Cyrus32 shot A.I.C.I.S._Kimera91
+WARN - A.I.C.I.S._Napoleon57 shot Llamax_Patroclus9
+WARN - A.I.C.I.S._Jackson's_Revenge138 shoot failed (26, 38)!
+WARN - A.I.C.I.S._Victory148 shoot failed (35, 26)!
+WARN - A.I.C.I.S._Kimera91 shot A.I.C.I.S._Kimera91
+WARN - A.I.C.I.S._Gray_Tiger147 shoot failed (0, 34)!
+WARN - A.I.C.I.S._Antigone74 shot Llamax_Hurricane82
+WARN - A.I.C.I.S._Jackson_V131 shoot failed (31, 37)!
+WARN - A.I.C.I.S._Emperor's_Fury142 shoot failed (37, 39)!
+KILL - A.I.C.I.S._Jackson's_Revenge69 kill A.I.C.I.S._Kimera91
+INFO - It's turn nb 23 (1)
+INPU - [Llamax] Phobos:faster Furies:left SC_Juggernaut:left Zeus:slower Jackson's_Revenge:right Damocles:left Jackson_V:faster Phobos50:faster Victory38:left Kimeran_Juggernaut64:40-29 Napoleon61:9-28 Amphitrite86:slower Antigone29:faster Jackson_V67:5-18 Patroclus80:left Napoleon90:12-37 Palatine95:13-31 Metis21:9-28 Norad_III79:right Patroclus9:24-18 Bucephalus30:slower Theodore_G._Bilbo132:faster Bismarck135:19-32 Hyperion151:right Iron_Fist88:5-18 Cyrus2:faster Phobos17:left Hoosier26:5-18 Theodore_G._Bilbo35:left Theodore_G._Bilbo45:40-30 Tahoe89:5-18 Metis114:left Circe141:13-31 Tahoe143:39-6 Antigone1:slower Scion3:31-6 Loki16:3-33 Gray_Tiger27:left Jackson's_Revenge43:slower Jackson_V154:faster Cyrus24:left Antigone47:left Tahoe25:left Antigone125:right Iron_Justice156:37-39 Leviathan28:left Victory53:faster White_Star81:13-31 Aeneas63:right Hurricane82:16-25 Metis120:faster Jackson_V130:faster Herakles137:32-36 Napoleon40:faster Phobos136:35-34 Cyrus144:35-34 Napoleon123:right
+INPU - [A.I.C.I.S.] Napoleon:left Excalibur:slower ISS_Europa:faster Kimeran_Juggernaut:left Saragossa:faster Hydra:faster Huey_Long92:21-26 Circe119:slower Jackson's_Revenge118:left Metis134:slower Ragnorak66:39-39 Loki77:8-10 Victory48:faster Napoleon51:right White_Star110:right Iron_Fist122:37-8 Kimera14:29-38 Antigone36:slower Fury84:17-5 Phobos104:left Bismarck124:faster Palatine113:35-14 Loki6:left Helios42:10-6 Hephaestus68:16-32 White_Star76:left Cerberus94:slower Valor_of_Vardona4:slower Norad_II19:37-6 Titan98:1-27 Victory146:faster Valor_of_Vardona152:left Napoleon57:21-18 Jackson's_Revenge138:35-33 Victory148:29-38 Eos10:13-36 Cyrus11:slower Aleksander49:faster Victory129:left Cerberus139:left Gray_Tiger147:39-39 Antigone74:faster Fury108:faster Hyperion112:right Thunder_Child145:faster Huey_Long0:faster Huey_Long127:faster Jackson_V131:35-33 Tahoe140:faster Emperor's_Fury142:39-39 Herakles157:faster Cerberus121:left Napoleon133:left Jackson's_Revenge23:left Jackson's_Revenge69:21-18 Bucephalus149:right Fury20:7-8
+INFO - Llamax as take Llamax_Bismarck33 !
+WARN - Llamax_Kimeran_Juggernaut64 shot Llamax_Victory38
+WARN - Llamax_Kimeran_Juggernaut64 shot A.I.C.I.S._Thunder_Child145
+WARN - Llamax_Napoleon61 shoot failed (27, 8)!
+WARN - Llamax_Jackson_V67 shoot failed (17, 4)!
+WARN - Llamax_Napoleon90 shoot failed (36, 11)!
+WARN - Llamax_Palatine95 shot A.I.C.I.S._Hephaestus68
+WARN - Llamax_Metis21 shoot failed (27, 8)!
+KILL - Llamax_Patroclus9 kill A.I.C.I.S._Napoleon57
+KILL - Llamax_Bismarck135 kill A.I.C.I.S._Hyperion112
+WARN - Llamax_Iron_Fist88 shoot failed (17, 4)!
+WARN - Llamax_Hoosier26 shoot failed (17, 4)!
+WARN - Llamax_Theodore_G._Bilbo45 shoot failed (29, 39)!
+WARN - Llamax_Tahoe89 shoot failed (17, 4)!
+WARN - Llamax_Circe141 shot A.I.C.I.S._Hephaestus68
+WARN - Llamax_Tahoe143 shoot failed (5, 38)!
+WARN - Llamax_Scion3 shot A.I.C.I.S._Norad_II19
+WARN - Llamax_Loki16 shoot failed (32, 2)!
+WARN - Llamax_Iron_Justice156 shoot failed (38, 36)!
+WARN - Llamax_White_Star81 shot A.I.C.I.S._Hephaestus68
+KILL - Llamax_Hurricane82 kill A.I.C.I.S._Huey_Long92
+WARN - Llamax_Herakles137 shoot failed (35, 31)!
+WARN - Llamax_Phobos136 shoot failed (33, 34)!
+WARN - Llamax_Cyrus144 shoot failed (33, 34)!
+WARN - A.I.C.I.S._Ragnorak66 shoot failed (38, 38)!
+WARN - A.I.C.I.S._Loki77 shot Llamax_Bucephalus52
+WARN - A.I.C.I.S._Iron_Fist122 shot Llamax_Tahoe143
+WARN - A.I.C.I.S._Kimera14 shoot failed (37, 28)!
+WARN - A.I.C.I.S._Fury84 shoot failed (4, 16)!
+WARN - A.I.C.I.S._Palatine113 shoot failed (13, 34)!
+WARN - A.I.C.I.S._Helios42 shoot failed (5, 9)!
+KILL - A.I.C.I.S._Hephaestus68 kill Llamax_Palatine95
+WARN - A.I.C.I.S._Norad_II19 shot Llamax_Scion3
+WARN - A.I.C.I.S._Titan98 shoot failed (26, 0)!
+WARN - A.I.C.I.S._Jackson's_Revenge138 shot A.I.C.I.S._Herakles157
+WARN - A.I.C.I.S._Victory148 shoot failed (37, 28)!
+WARN - A.I.C.I.S._Eos10 shoot failed (35, 12)!
+WARN - A.I.C.I.S._Gray_Tiger147 shoot failed (38, 38)!
+KILL - A.I.C.I.S._Jackson_V131 kill A.I.C.I.S._Herakles157
+WARN - A.I.C.I.S._Emperor's_Fury142 shoot failed (38, 38)!
+KILL - A.I.C.I.S._Jackson's_Revenge69 kill Llamax_Patroclus9
+WARN - A.I.C.I.S._Fury20 shoot failed (7, 6)!
+INFO - It's turn nb 24 (1)
+INPU - [Llamax] Phobos:3-37 Zeus:36-10 Jackson's_Revenge:3-37 Damocles:3-10 Jackson_V:40-24 Phobos50:6-10 Victory38:40-27 Kimeran_Juggernaut64:40-27 Bucephalus52:6-10 Napoleon61:7-2 Antigone29:40-27 Jackson_V67:5-12 Patroclus80:left Napoleon90:21-1 Metis21:6-25 Norad_III79:5-6 Bucephalus30:left Theodore_G._Bilbo132:30-6 Bismarck135:20-38 Hyperion151:right Iron_Fist88:40-27 Phobos17:11-9 Hoosier26:5-12 Theodore_G._Bilbo35:right Theodore_G._Bilbo45:5-37 Tahoe89:40-27 Metis114:left Circe141:12-32 Tahoe143:40-10 Antigone1:6-10 Scion3:36-10 Loki16:left Jackson's_Revenge43:faster Jackson_V154:31-25 Cyrus24:11-6 Antigone47:38-40 Tahoe25:2-9 Antigone125:33-35 Iron_Justice156:38-40 Leviathan28:6-10 Victory53:left White_Star81:6-25 Leviathan22:7-2 Hurricane82:right Metis120:18-36 Jackson_V130:38-3 Iron_Justice73:6-25 Herakles137:33-35 Napoleon40:16-8 Phobos136:33-35 Cyrus144:33-35 Napoleon123:33-33 Bismarck33:faster
+INPU - [A.I.C.I.S.] Napoleon:4-6 Excalibur:37-9 Kimeran_Juggernaut:17-40 Hydra:6-15 Leviathan107:left Circe119:7-8 Thunder_Child78:33-19 Ragnorak83:3-3 Jackson's_Revenge118:4-11 Metis134:4-11 Ragnorak66:1-1 Valor_of_Vardona70:17-2 Loki77:14-14 Victory48:4-28 Napoleon51:left White_Star110:3-29 Iron_Fist122:left Kimera14:33-40 Antigone36:4-11 Fury84:17-2 Phobos104:33-40 Bismarck124:left Palatine113:38-11 Loki6:37-9 Helios42:7-8 Hephaestus68:12-28 White_Star76:13-15 Cerberus94:7-8 Valor_of_Vardona4:38-11 Norad_II19:27-6 Cyrus32:38-11 Victory146:1-26 Meleager44:1-15 Jackson's_Revenge138:37-34 Victory148:20-35 Aleksander49:37-9 Victory129:7-8 Cerberus139:38-22 Gray_Tiger147:1-5 Thunder_Child145:4-28 Huey_Long0:7-8 Jackson_V131:37-34 Emperor's_Fury142:1-1 Cerberus121:20-35 Napoleon133:faster Bucephalus149:1-1 Fury20:5-7
+WARN - Llamax_Phobos shot A.I.C.I.S._Ragnorak83
+WARN - Llamax_Zeus shot A.I.C.I.S._Excalibur
+WARN - Llamax_Jackson's_Revenge shot A.I.C.I.S._Ragnorak83
+KILL - Llamax_Damocles kill A.I.C.I.S._Loki6
+WARN - Llamax_Jackson_V shot A.I.C.I.S._Victory48
+WARN - Llamax_Phobos50 shot A.I.C.I.S._Jackson's_Revenge118
+WARN - Llamax_Phobos50 shot A.I.C.I.S._Antigone36
+WARN - Llamax_Phobos50 shot Llamax_Leviathan28
+WARN - Llamax_Victory38 shot A.I.C.I.S._Thunder_Child145
+KILL - Llamax_Kimeran_Juggernaut64 kill A.I.C.I.S._Thunder_Child145
+WARN - Llamax_Bucephalus52 shot A.I.C.I.S._Jackson's_Revenge118
+WARN - Llamax_Bucephalus52 shot A.I.C.I.S._Antigone36
+WARN - Llamax_Bucephalus52 shot Llamax_Leviathan28
+KILL - Llamax_Napoleon61 kill A.I.C.I.S._Saragossa
+WARN - Llamax_Antigone29 shoot failed (26, 39)!
+KILL - Llamax_Jackson_V67 kill A.I.C.I.S._Hydra
+KILL - Llamax_Napoleon90 kill A.I.C.I.S._Kimeran_Juggernaut
+WARN - Llamax_Metis21 shot A.I.C.I.S._White_Star110
+WARN - Llamax_Norad_III79 shot A.I.C.I.S._Napoleon
+WARN - Llamax_Theodore_G._Bilbo132 shot A.I.C.I.S._Norad_II19
+WARN - Llamax_Bismarck135 shot A.I.C.I.S._Cerberus121
+WARN - Llamax_Iron_Fist88 shoot failed (26, 39)!
+KILL - Llamax_Phobos17 kill A.I.C.I.S._Jackson's_Revenge23
+WARN - Llamax_Hoosier26 shoot failed (11, 4)!
+WARN - Llamax_Theodore_G._Bilbo45 shot A.I.C.I.S._Valor_of_Vardona152
+WARN - Llamax_Tahoe89 shoot failed (26, 39)!
+WARN - Llamax_Circe141 shot A.I.C.I.S._Hephaestus68
+KILL - Llamax_Tahoe143 kill A.I.C.I.S._Aleksander49
+KILL - Llamax_Antigone1 kill A.I.C.I.S._Jackson's_Revenge118
+KILL - Llamax_Antigone1 kill A.I.C.I.S._Antigone36
+KILL - Llamax_Antigone1 kill Llamax_Leviathan28
+WARN - Llamax_Scion3 shot A.I.C.I.S._Excalibur
+WARN - Llamax_Jackson_V154 shot A.I.C.I.S._Huey_Long127
+KILL - Llamax_Cyrus24 kill A.I.C.I.S._Helios42
+WARN - Llamax_Antigone47 shot A.I.C.I.S._Bucephalus149
+KILL - Llamax_Tahoe25 kill A.I.C.I.S._Palatine113
+WARN - Llamax_Antigone125 shot A.I.C.I.S._Phobos104
+WARN - Llamax_Iron_Justice156 shot A.I.C.I.S._Bucephalus149
+KILL - Llamax_White_Star81 kill A.I.C.I.S._White_Star110
+WARN - Llamax_Leviathan22 shoot failed (1, 6)!
+WARN - Llamax_Metis120 shot A.I.C.I.S._Fury108
+WARN - Llamax_Jackson_V130 shot A.I.C.I.S._Tahoe140
+WARN - Llamax_Iron_Justice73 shoot failed (24, 5)!
+KILL - Llamax_Herakles137 kill A.I.C.I.S._Phobos104
+WARN - Llamax_Napoleon40 shot A.I.C.I.S._Fury84
+WARN - Llamax_Phobos136 shoot failed (34, 32)!
+WARN - Llamax_Cyrus144 shoot failed (34, 32)!
+WARN - Llamax_Napoleon123 shot A.I.C.I.S._Jackson's_Revenge138
+WARN - A.I.C.I.S._Napoleon shot Llamax_Norad_III79
+WARN - A.I.C.I.S._Excalibur shot Llamax_Tahoe143
+WARN - A.I.C.I.S._Circe119 shot Llamax_Cyrus24
+WARN - A.I.C.I.S._Thunder_Child78 shot Llamax_Aeneas63
+WARN - A.I.C.I.S._Ragnorak83 shot Llamax_Jackson's_Revenge
+KILL - A.I.C.I.S._Metis134 kill Llamax_Phobos50
+KILL - A.I.C.I.S._Ragnorak66 kill Llamax_Antigone47
+KILL - A.I.C.I.S._Valor_of_Vardona70 kill Llamax_Amphitrite86
+KILL - A.I.C.I.S._Loki77 kill Llamax_Phobos17
+KILL - A.I.C.I.S._Victory48 kill Llamax_Kimeran_Juggernaut64
+WARN - A.I.C.I.S._Kimera14 shot Llamax_Antigone125
+WARN - A.I.C.I.S._Fury84 shoot failed (1, 16)!
+WARN - A.I.C.I.S._Hephaestus68 shoot failed (27, 11)!
+WARN - A.I.C.I.S._White_Star76 shoot failed (14, 12)!
+WARN - A.I.C.I.S._Cerberus94 shot Llamax_Cyrus24
+WARN - A.I.C.I.S._Valor_of_Vardona4 shot Llamax_Gray_Tiger27
+WARN - A.I.C.I.S._Norad_II19 shot Llamax_Theodore_G._Bilbo132
+WARN - A.I.C.I.S._Cyrus32 shot Llamax_Gray_Tiger27
+WARN - A.I.C.I.S._Victory146 shot Llamax_Antigone29
+WARN - A.I.C.I.S._Victory146 shot Llamax_Iron_Fist88
+WARN - A.I.C.I.S._Meleager44 shot Llamax_Tahoe25
+WARN - A.I.C.I.S._Jackson's_Revenge138 shot Llamax_Napoleon123
+WARN - A.I.C.I.S._Victory148 shot Llamax_Bismarck135
+KILL - A.I.C.I.S._Victory129 kill Llamax_Cyrus24
+WARN - A.I.C.I.S._Cerberus139 shot Llamax_Jackson_V154
+WARN - A.I.C.I.S._Cerberus139 shot A.I.C.I.S._Cerberus139
+KILL - A.I.C.I.S._Gray_Tiger147 kill Llamax_Jackson_V130
+WARN - A.I.C.I.S._Huey_Long0 shoot failed (7, 6)!
+KILL - A.I.C.I.S._Jackson_V131 kill Llamax_Napoleon123
+WARN - A.I.C.I.S._Emperor's_Fury142 shoot failed (0, 0)!
+WARN - A.I.C.I.S._Cerberus121 shot Llamax_Bismarck135
+WARN - A.I.C.I.S._Bucephalus149 shoot failed (0, 0)!
+WARN - A.I.C.I.S._Fury20 shot Llamax_Antigone1
+KILL - A.I.C.I.S._Fury20 kill Llamax_Bucephalus52
+INFO - It's turn nb 25 (1)
+INPU - [Llamax] Phobos:left Furies:right SC_Juggernaut:40-5 Jackson's_Revenge:3-3 Victory38:faster Napoleon61:8-40 Jackson_V67:9-13 Patroclus80:left Napoleon90:18-40 Metis21:right Norad_III79:5-8 Bucephalus30:8-40 Theodore_G._Bilbo132:29-6 Bismarck135:18-40 Hyperion151:right Iron_Fist88:3-22 Cyrus2:left Hoosier26:9-18 Theodore_G._Bilbo35:11-33 Theodore_G._Bilbo45:left Tahoe89:3-22 Circe141:left Tahoe143:36-13 Antigone1:5-8 Scion3:2-7 Loki16:left Gray_Tiger27:36-13 Jackson's_Revenge43:right Hephaestus128:left Jackson_V154:3-22 Antigone125:left Iron_Justice156:1-35 Victory53:left White_Star81:11-33 Leviathan22:12-40 Aeneas63:slower Hurricane82:faster Herakles137:32-34 Napoleon40:15-7 Phobos136:34-35 Cyrus144:34-35 Bismarck33:3-11
+INPU - [A.I.C.I.S.] Napoleon:5-4 Excalibur:37-10 ISS_Europa:1-23 Leviathan107:5-14 Circe119:left Thunder_Child78:slower Ragnorak83:2-40 Metis134:3-8 Ragnorak66:35-2 Valor_of_Vardona70:15-39 Loki77:7-9 Victory48:1-23 Iron_Fist122:3-8 Kimera14:30-37 Fury84:14-10 Bismarck124:1-19 Hephaestus68:10-32 White_Star76:10-12 Cerberus94:3-8 Valor_of_Vardona4:1-8 Norad_II19:26-7 Cyrus32:1-8 Titan98:faster Valor_of_Vardona152:5-38 Meleager44:5-14 Jackson's_Revenge138:29-35 Victory148:19-35 Cyrus11:5-14 Gray_Tiger147:7-6 Antigone74:right Fury108:19-35 Huey_Long0:left Huey_Long127:left Tahoe140:1-4 Emperor's_Fury142:3-7 Napoleon133:faster Jackson's_Revenge69:slower Bucephalus149:right Fury20:slower
+WARN - Llamax_SC_Juggernaut shot A.I.C.I.S._Tahoe140
+WARN - Llamax_Jackson's_Revenge shot A.I.C.I.S._Emperor's_Fury142
+KILL - Llamax_Napoleon61 kill A.I.C.I.S._Napoleon51
+KILL - Llamax_Jackson_V67 kill A.I.C.I.S._Cyrus11
+KILL - Llamax_Napoleon90 kill A.I.C.I.S._Cerberus121
+WARN - Llamax_Norad_III79 shot A.I.C.I.S._Napoleon
+WARN - Llamax_Norad_III79 shot A.I.C.I.S._Valor_of_Vardona4
+WARN - Llamax_Bucephalus30 shoot failed (39, 7)!
+WARN - Llamax_Theodore_G._Bilbo132 shot A.I.C.I.S._Norad_II19
+WARN - Llamax_Bismarck135 shoot failed (39, 17)!
+KILL - Llamax_Iron_Fist88 kill A.I.C.I.S._Bismarck124
+KILL - Llamax_Hoosier26 kill A.I.C.I.S._Victory146
+WARN - Llamax_Theodore_G._Bilbo35 shot A.I.C.I.S._Hephaestus68
+WARN - Llamax_Tahoe89 shoot failed (21, 2)!
+KILL - Llamax_Tahoe143 kill A.I.C.I.S._Excalibur
+WARN - Llamax_Antigone1 shot A.I.C.I.S._Valor_of_Vardona4
+KILL - Llamax_Antigone1 kill A.I.C.I.S._Napoleon
+WARN - Llamax_Scion3 shot A.I.C.I.S._Gray_Tiger147
+WARN - Llamax_Gray_Tiger27 shoot failed (12, 35)!
+WARN - Llamax_Jackson_V154 shoot failed (21, 2)!
+WARN - Llamax_Iron_Justice156 shot A.I.C.I.S._Ragnorak83
+KILL - Llamax_White_Star81 kill A.I.C.I.S._Hephaestus68
+WARN - Llamax_Leviathan22 shot A.I.C.I.S._Valor_of_Vardona70
+WARN - Llamax_Herakles137 shot A.I.C.I.S._Jackson's_Revenge138
+WARN - Llamax_Napoleon40 shot A.I.C.I.S._Fury84
+WARN - Llamax_Phobos136 shot A.I.C.I.S._Ragnorak66
+KILL - Llamax_Cyrus144 kill A.I.C.I.S._Ragnorak66
+WARN - Llamax_Bismarck33 shot A.I.C.I.S._Metis134
+WARN - A.I.C.I.S._ISS_Europa shot Llamax_Antigone29
+WARN - A.I.C.I.S._Leviathan107 shot Llamax_Jackson_V67
+WARN - A.I.C.I.S._Ragnorak83 shot Llamax_Iron_Justice156
+WARN - A.I.C.I.S._Metis134 shot Llamax_Bismarck33
+WARN - A.I.C.I.S._Valor_of_Vardona70 shot Llamax_Leviathan22
+WARN - A.I.C.I.S._Loki77 shoot failed (8, 6)!
+KILL - A.I.C.I.S._Victory48 kill Llamax_Antigone29
+WARN - A.I.C.I.S._Iron_Fist122 shot Llamax_Bismarck33
+WARN - A.I.C.I.S._Kimera14 shoot failed (36, 29)!
+WARN - A.I.C.I.S._Fury84 shot Llamax_Napoleon40
+WARN - A.I.C.I.S._White_Star76 shoot failed (11, 9)!
+KILL - A.I.C.I.S._Cerberus94 kill Llamax_Bismarck33
+WARN - A.I.C.I.S._Valor_of_Vardona4 shot Llamax_Damocles
+WARN - A.I.C.I.S._Norad_II19 shot Llamax_Theodore_G._Bilbo132
+WARN - A.I.C.I.S._Cyrus32 shot Llamax_Damocles
+WARN - A.I.C.I.S._Valor_of_Vardona152 shot Llamax_Napoleon61
+WARN - A.I.C.I.S._Meleager44 shot Llamax_Jackson_V67
+WARN - A.I.C.I.S._Jackson's_Revenge138 shot Llamax_Herakles137
+KILL - A.I.C.I.S._Victory148 kill Llamax_Bismarck135
+KILL - A.I.C.I.S._Gray_Tiger147 kill Llamax_Scion3
+WARN - A.I.C.I.S._Fury108 shoot failed (34, 18)!
+WARN - A.I.C.I.S._Tahoe140 shot Llamax_SC_Juggernaut
+KILL - A.I.C.I.S._Emperor's_Fury142 kill Llamax_Jackson's_Revenge
+INFO - It's turn nb 26 (1)
+INPU - [Llamax] Phobos:4-4 Furies:right SC_Juggernaut:2-7 Zeus:2-12 Damocles:3-8 Jackson_V:10-16 Victory38:right Napoleon61:9-1 Jackson_V67:2-12 Patroclus80:28-6 Napoleon90:18-40 Metis21:left Norad_III79:2-12 Bucephalus30:4-4 Theodore_G._Bilbo132:28-6 Hyperion151:7-15 Iron_Fist88:1-33 Cyrus2:left Hoosier26:7-19 Theodore_G._Bilbo35:faster Theodore_G._Bilbo45:slower Tahoe89:1-33 Metis114:left Tahoe143:right Antigone1:4-4 Loki16:39-33 Gray_Tiger27:left Jackson's_Revenge43:8-13 Jackson_V154:40-16 Tahoe25:slower Antigone125:left Iron_Justice156:right Victory53:left White_Star81:slower Leviathan22:18-40 Aeneas63:faster Hurricane82:right Metis120:10-38 Iron_Justice73:1-33 Herakles137:31-35 Phobos136:right Cyrus144:31-35
+INPU - [A.I.C.I.S.] ISS_Europa:faster Circe119:4-9 Thunder_Child78:slower Ragnorak83:40-31 Metis134:4-12 Valor_of_Vardona70:11-1 Loki77:12-10 Iron_Fist122:4-13 Kimera14:28-35 Fury84:12-10 White_Star76:14-15 Cerberus94:4-12 Valor_of_Vardona4:4-12 Norad_II19:25-8 Cyrus32:5-1 Titan98:39-33 Valor_of_Vardona152:4-39 Meleager44:4-9 Jackson's_Revenge138:32-35 Victory148:right Eos10:8-34 Victory129:4-13 Gray_Tiger147:1-6 Antigone74:right Fury108:left Huey_Long0:9-7 Huey_Long127:left Tahoe140:4-4 Emperor's_Fury142:5-1 Napoleon133:faster Jackson's_Revenge69:faster Bucephalus149:left Fury20:faster
+WARN - Llamax_Phobos shot Llamax_SC_Juggernaut
+WARN - Llamax_Phobos shot A.I.C.I.S._Emperor's_Fury142
+KILL - Llamax_SC_Juggernaut kill A.I.C.I.S._Tahoe140
+WARN - Llamax_Zeus shot A.I.C.I.S._Metis134
+WARN - Llamax_Damocles shot A.I.C.I.S._Gray_Tiger147
+WARN - Llamax_Jackson_V shot A.I.C.I.S._White_Star76
+KILL - Llamax_Napoleon61 kill A.I.C.I.S._Cyrus32
+KILL - Llamax_Napoleon61 kill A.I.C.I.S._Valor_of_Vardona152
+KILL - Llamax_Jackson_V67 kill A.I.C.I.S._Metis134
+WARN - Llamax_Patroclus80 shot A.I.C.I.S._Norad_II19
+WARN - Llamax_Napoleon90 shoot failed (39, 17)!
+WARN - Llamax_Norad_III79 shoot failed (11, 1)!
+WARN - Llamax_Bucephalus30 shot A.I.C.I.S._Emperor's_Fury142
+KILL - Llamax_Bucephalus30 kill Llamax_SC_Juggernaut
+KILL - Llamax_Theodore_G._Bilbo132 kill A.I.C.I.S._Norad_II19
+WARN - Llamax_Hyperion151 shot A.I.C.I.S._Victory129
+WARN - Llamax_Iron_Fist88 shot A.I.C.I.S._Titan98
+WARN - Llamax_Hoosier26 shoot failed (18, 6)!
+KILL - Llamax_Tahoe89 kill A.I.C.I.S._Titan98
+WARN - Llamax_Antigone1 shot A.I.C.I.S._Emperor's_Fury142
+WARN - Llamax_Loki16 shot A.I.C.I.S._Ragnorak83
+WARN - Llamax_Loki16 shot Llamax_Iron_Justice73
+WARN - Llamax_Jackson's_Revenge43 shot A.I.C.I.S._Huey_Long0
+WARN - Llamax_Jackson_V154 shot A.I.C.I.S._Victory48
+WARN - Llamax_Jackson_V154 shot Llamax_Tahoe25
+WARN - Llamax_Leviathan22 shoot failed (39, 17)!
+WARN - Llamax_Metis120 shot A.I.C.I.S._Valor_of_Vardona70
+WARN - Llamax_Iron_Justice73 shoot failed (32, 0)!
+WARN - Llamax_Herakles137 shot A.I.C.I.S._Jackson's_Revenge138
+WARN - Llamax_Cyrus144 shot A.I.C.I.S._Jackson's_Revenge138
+WARN - A.I.C.I.S._Circe119 shot Llamax_Hyperion151
+WARN - A.I.C.I.S._Ragnorak83 shot Llamax_Loki16
+WARN - A.I.C.I.S._Valor_of_Vardona70 shot Llamax_Metis120
+KILL - A.I.C.I.S._Loki77 kill Llamax_Napoleon40
+WARN - A.I.C.I.S._Iron_Fist122 shot Llamax_Jackson_V67
+WARN - A.I.C.I.S._Kimera14 shot Llamax_Herakles137
+WARN - A.I.C.I.S._Fury84 shoot failed (9, 11)!
+WARN - A.I.C.I.S._White_Star76 shoot failed (14, 13)!
+WARN - A.I.C.I.S._Cerberus94 shot Llamax_Norad_III79
+KILL - A.I.C.I.S._Valor_of_Vardona4 kill Llamax_Norad_III79
+WARN - A.I.C.I.S._Meleager44 shot Llamax_Hyperion151
+WARN - A.I.C.I.S._Jackson's_Revenge138 shoot failed (34, 31)!
+WARN - A.I.C.I.S._Eos10 shot A.I.C.I.S._Eos10
+WARN - A.I.C.I.S._Victory129 shot Llamax_Jackson_V67
+KILL - A.I.C.I.S._Gray_Tiger147 kill Llamax_Damocles
+WARN - A.I.C.I.S._Huey_Long0 shot Llamax_Jackson's_Revenge43
+KILL - A.I.C.I.S._Emperor's_Fury142 kill Llamax_Antigone1
+INFO - It's turn nb 27 (1)
+INPU - [Llamax] Phobos:5-5 Furies:left Zeus:7-18 Jackson_V:left Victory38:8-15 Napoleon61:5-5 Jackson_V67:40-12 Patroclus80:right Napoleon90:14-2 Metis21:left Bucephalus30:39-3 Theodore_G._Bilbo132:left Hyperion151:4-9 Iron_Fist88:37-31 Cyrus2:right Theodore_G._Bilbo35:7-33 Theodore_G._Bilbo45:9-5 Tahoe89:37-31 Metis114:7-18 Tahoe143:right Loki16:37-31 Gray_Tiger27:left Jackson's_Revenge43:9-5 Hephaestus128:5-5 Jackson_V154:4-16 Tahoe25:faster Antigone125:left Iron_Justice156:right Victory53:right White_Star81:faster Leviathan22:14-2 Aeneas63:slower Hurricane82:28-25 Metis120:left Iron_Justice73:37-31 Herakles137:30-36 Phobos136:faster Cyrus144:30-36
+INPU - [A.I.C.I.S.] Leviathan107:left Circe119:10-11 Thunder_Child78:left Ragnorak83:37-35 Valor_of_Vardona70:9-3 Loki77:9-2 Victory48:40-16 Kimera14:27-35 Fury84:right White_Star76:9-10 Cerberus94:3-12 Valor_of_Vardona4:9-2 Meleager44:9-9 Jackson's_Revenge138:27-35 Victory148:29-36 Victory129:8-19 Cerberus139:40-16 Gray_Tiger147:1-6 Fury108:17-37 Huey_Long0:9-10 Huey_Long127:faster Jackson_V131:28-29 Emperor's_Fury142:4-2 Napoleon133:left Jackson's_Revenge69:left Bucephalus149:36-4
+WARN - Llamax_Phobos shot A.I.C.I.S._Emperor's_Fury142
+WARN - Llamax_Zeus shot A.I.C.I.S._Victory129
+WARN - Llamax_Victory38 shot A.I.C.I.S._Huey_Long0
+KILL - Llamax_Napoleon61 kill A.I.C.I.S._Emperor's_Fury142
+KILL - Llamax_Jackson_V67 kill A.I.C.I.S._Victory48
+KILL - Llamax_Napoleon90 kill A.I.C.I.S._Fury108
+KILL - Llamax_Bucephalus30 kill A.I.C.I.S._Bucephalus149
+WARN - Llamax_Hyperion151 shot A.I.C.I.S._Gray_Tiger147
+KILL - Llamax_Iron_Fist88 kill A.I.C.I.S._Ragnorak83
+WARN - Llamax_Theodore_G._Bilbo35 shot A.I.C.I.S._Eos10
+WARN - Llamax_Theodore_G._Bilbo45 shot A.I.C.I.S._Loki77
+WARN - Llamax_Tahoe89 shoot failed (30, 36)!
+KILL - Llamax_Metis114 kill A.I.C.I.S._Victory129
+WARN - Llamax_Loki16 shoot failed (30, 36)!
+WARN - Llamax_Jackson's_Revenge43 shot A.I.C.I.S._Loki77
+WARN - Llamax_Hephaestus128 shoot failed (4, 4)!
+WARN - Llamax_Jackson_V154 shot A.I.C.I.S._Cerberus139
+WARN - Llamax_Leviathan22 shoot failed (1, 13)!
+WARN - Llamax_Hurricane82 shot A.I.C.I.S._Jackson_V131
+WARN - Llamax_Iron_Justice73 shoot failed (30, 36)!
+KILL - Llamax_Herakles137 kill A.I.C.I.S._Jackson's_Revenge138
+WARN - Llamax_Cyrus144 shoot failed (35, 29)!
+WARN - A.I.C.I.S._Circe119 shot Llamax_Metis114
+WARN - A.I.C.I.S._Valor_of_Vardona70 shoot failed (2, 8)!
+KILL - A.I.C.I.S._Loki77 kill Llamax_Jackson's_Revenge43
+KILL - A.I.C.I.S._Kimera14 kill Llamax_Herakles137
+KILL - A.I.C.I.S._White_Star76 kill Llamax_Victory38
+WARN - A.I.C.I.S._Cerberus94 shot Llamax_Jackson_V67
+WARN - A.I.C.I.S._Valor_of_Vardona4 shoot failed (1, 8)!
+WARN - A.I.C.I.S._Meleager44 shot Llamax_Theodore_G._Bilbo45
+WARN - A.I.C.I.S._Victory148 shoot failed (35, 28)!
+WARN - A.I.C.I.S._Cerberus139 shoot failed (15, 39)!
+KILL - A.I.C.I.S._Gray_Tiger147 kill Llamax_Hyperion151
+WARN - A.I.C.I.S._Huey_Long0 shoot failed (9, 8)!
+KILL - A.I.C.I.S._Jackson_V131 kill Llamax_Hurricane82
+INFO - It's turn nb 28 (1)
+INPU - [Llamax] Phobos:5-10 Furies:left Zeus:right Jackson_V:slower Napoleon61:6-34 Jackson_V67:6-14 Patroclus80:right Napoleon90:12-6 Metis21:faster Bucephalus30:faster Theodore_G._Bilbo132:right Iron_Fist88:37-24 Cyrus2:right Hoosier26:right Theodore_G._Bilbo35:right Tahoe89:slower Metis114:12-12 Circe141:left Loki16:faster Gray_Tiger27:right Hephaestus128:left Jackson_V154:8-17 Tahoe25:39-15 Antigone125:left Iron_Justice156:left White_Star81:6-32 Leviathan22:19-40 Aeneas63:faster Iron_Justice73:right Cyrus144:left
+INPU - [A.I.C.I.S.] ISS_Europa:right Leviathan107:left Thunder_Child78:left Valor_of_Vardona70:right Loki77:right Iron_Fist122:left Kimera14:faster Fury84:right White_Star76:10-10 Valor_of_Vardona4:7-1 Meleager44:left Victory148:21-39 Eos10:6-31 Cerberus139:faster Gray_Tiger147:5-10 Antigone74:37-30 Huey_Long127:34-18 Jackson_V131:left Napoleon133:2-11 Jackson's_Revenge69:22-14 Fury20:13-8
+WARN - Llamax_Phobos shot Llamax_Phobos
+WARN - Llamax_Phobos shot A.I.C.I.S._Gray_Tiger147
+WARN - Llamax_Napoleon61 shoot failed (33, 5)!
+WARN - Llamax_Jackson_V67 shoot failed (13, 5)!
+WARN - Llamax_Napoleon90 shoot failed (5, 11)!
+WARN - Llamax_Iron_Fist88 shot A.I.C.I.S._Antigone74
+WARN - Llamax_Metis114 shot A.I.C.I.S._Fury20
+KILL - Llamax_Jackson_V154 kill A.I.C.I.S._Huey_Long0
+KILL - Llamax_Tahoe25 kill A.I.C.I.S._Huey_Long127
+WARN - Llamax_White_Star81 shot A.I.C.I.S._Eos10
+WARN - Llamax_Leviathan22 shot A.I.C.I.S._Victory148
+KILL - A.I.C.I.S._White_Star76 kill Llamax_Jackson_V154
+KILL - A.I.C.I.S._Valor_of_Vardona4 kill Llamax_Metis120
+KILL - A.I.C.I.S._Victory148 kill Llamax_Victory53
+WARN - A.I.C.I.S._Eos10 shot Llamax_White_Star81
+WARN - A.I.C.I.S._Gray_Tiger147 shot A.I.C.I.S._Gray_Tiger147
+KILL - A.I.C.I.S._Gray_Tiger147 kill Llamax_Phobos
+WARN - A.I.C.I.S._Antigone74 shot Llamax_Iron_Fist88
+WARN - A.I.C.I.S._Napoleon133 shot Llamax_Jackson_V67
+WARN - A.I.C.I.S._Jackson's_Revenge69 shoot failed (13, 21)!
+KILL - A.I.C.I.S._Fury20 kill Llamax_Metis114
+INFO - It's turn nb 29 (1)
+INPU - [Llamax] Furies:faster Jackson_V:24-16 Napoleon61:12-1 Jackson_V67:10-10 Patroclus80:right Napoleon90:20-4 Bucephalus30:right Iron_Fist88:right Cyrus2:faster Hoosier26:13-24 Theodore_G._Bilbo35:right Theodore_G._Bilbo45:10-10 Tahoe89:faster Circe141:6-19 Gray_Tiger27:faster Hephaestus128:left Tahoe25:slower Antigone125:faster Iron_Justice156:left White_Star81:5-31 Aeneas63:right Iron_Justice73:slower Cyrus144:faster
+INPU - [A.I.C.I.S.] ISS_Europa:right Circe119:right Valor_of_Vardona70:6-39 Iron_Fist122:14-19 Fury84:faster White_Star76:9-15 Cerberus94:right Valor_of_Vardona4:left Meleager44:17-5 Victory148:19-35 Eos10:5-32 Cerberus139:9-15 Gray_Tiger147:1-10 Jackson_V131:right Jackson's_Revenge69:24-14 Fury20:9-15
+WARN - Llamax_Jackson_V shot A.I.C.I.S._Leviathan107
+KILL - Llamax_Napoleon61 kill A.I.C.I.S._Napoleon133
+KILL - Llamax_Jackson_V67 kill A.I.C.I.S._Cerberus139
+KILL - Llamax_Napoleon90 kill A.I.C.I.S._Meleager44
+KILL - Llamax_Hoosier26 kill A.I.C.I.S._Iron_Fist122
+WARN - Llamax_Theodore_G._Bilbo45 shoot failed (9, 9)!
+WARN - Llamax_Circe141 shoot failed (18, 5)!
+KILL - Llamax_White_Star81 kill A.I.C.I.S._Eos10
+WARN - A.I.C.I.S._Valor_of_Vardona70 shoot failed (38, 5)!
+KILL - A.I.C.I.S._White_Star76 kill Llamax_Theodore_G._Bilbo45
+WARN - A.I.C.I.S._Victory148 shot Llamax_Leviathan22
+WARN - A.I.C.I.S._Gray_Tiger147 shot Llamax_Jackson_V67
+KILL - A.I.C.I.S._Jackson's_Revenge69 kill Llamax_Jackson_V
+WARN - A.I.C.I.S._Fury20 shoot failed (14, 8)!
+INFO - It's turn nb 30 (1)
+INPU - [Llamax] Furies:slower Zeus:left Napoleon61:right Jackson_V67:7-12 Patroclus80:right Napoleon90:17-2 Metis21:10-21 Bucephalus30:left Theodore_G._Bilbo132:right Iron_Fist88:right Cyrus2:faster Hoosier26:slower Theodore_G._Bilbo35:4-2 Tahoe89:slower Circe141:10-21 Gray_Tiger27:left Hephaestus128:left Tahoe25:faster Antigone125:faster Iron_Justice156:faster White_Star81:2-36 Aeneas63:right Iron_Justice73:right
+INPU - [A.I.C.I.S.] ISS_Europa:10-7 Leviathan107:faster Thunder_Child78:left Loki77:10-7 Fury84:right White_Star76:7-16 Cerberus94:7-16 Valor_of_Vardona4:slower Victory148:17-6 Antigone74:left Jackson_V131:26-25 Jackson's_Revenge69:17-19 Fury20:faster
+KILL - Llamax_Jackson_V67 kill A.I.C.I.S._Gray_Tiger147
+WARN - Llamax_Napoleon90 shot A.I.C.I.S._Victory148
+WARN - Llamax_Metis21 shot A.I.C.I.S._Cerberus94
+WARN - Llamax_Theodore_G._Bilbo35 shot A.I.C.I.S._ISS_Europa
+KILL - Llamax_Circe141 kill A.I.C.I.S._Cerberus94
+WARN - Llamax_White_Star81 shot A.I.C.I.S._Valor_of_Vardona70
+WARN - A.I.C.I.S._ISS_Europa shot Llamax_Theodore_G._Bilbo35
+KILL - A.I.C.I.S._Loki77 kill Llamax_Theodore_G._Bilbo35
+WARN - A.I.C.I.S._White_Star76 shot Llamax_Circe141
+WARN - A.I.C.I.S._Victory148 shot Llamax_Napoleon90
+WARN - A.I.C.I.S._Jackson_V131 shoot failed (24, 25)!
+WARN - A.I.C.I.S._Jackson's_Revenge69 shoot failed (18, 16)!
+INFO - It's turn nb 31 (1)
+INPU - [Llamax] Furies:right Zeus:left Napoleon61:40-38 Jackson_V67:right Patroclus80:right Napoleon90:16-3 Metis21:14-22 Theodore_G._Bilbo132:23-10 Iron_Fist88:40-36 Cyrus2:25-21 Hoosier26:faster Tahoe89:faster Circe141:left Tahoe143:left Loki16:right Hephaestus128:left Tahoe25:faster Antigone125:left Iron_Justice156:right White_Star81:40-36 Leviathan22:slower Aeneas63:faster Iron_Justice73:right Phobos136:5-11
+INPU - [A.I.C.I.S.] Circe119:15-18 Thunder_Child78:22-12 Valor_of_Vardona70:3-34 Loki77:10-4 Fury84:right White_Star76:3-11 Victory148:19-38 Antigone74:left Jackson_V131:21-20 Jackson's_Revenge69:22-12
+KILL - Llamax_Napoleon61 kill A.I.C.I.S._ISS_Europa
+WARN - Llamax_Napoleon90 shot A.I.C.I.S._Victory148
+WARN - Llamax_Metis21 shot A.I.C.I.S._Circe119
+WARN - Llamax_Theodore_G._Bilbo132 shot A.I.C.I.S._Thunder_Child78
+KILL - Llamax_Iron_Fist88 kill A.I.C.I.S._Valor_of_Vardona70
+WARN - Llamax_Cyrus2 shot A.I.C.I.S._Jackson_V131
+WARN - Llamax_White_Star81 shoot failed (35, 39)!
+WARN - Llamax_Phobos136 shot A.I.C.I.S._White_Star76
+WARN - Llamax_Phobos136 shot Llamax_Phobos136
+WARN - A.I.C.I.S._Circe119 shot Llamax_Metis21
+WARN - A.I.C.I.S._Thunder_Child78 shot Llamax_Theodore_G._Bilbo132
+WARN - A.I.C.I.S._Loki77 shoot failed (3, 9)!
+WARN - A.I.C.I.S._White_Star76 shoot failed (10, 2)!
+KILL - A.I.C.I.S._Victory148 kill Llamax_Gray_Tiger27
+KILL - A.I.C.I.S._Jackson_V131 kill Llamax_Cyrus2
+KILL - A.I.C.I.S._Jackson's_Revenge69 kill Llamax_Theodore_G._Bilbo132
+INFO - It's turn nb 32 (1)
+INPU - [Llamax] Furies:4-10 Zeus:16-24 Napoleon61:4-5 Jackson_V67:right Patroclus80:23-39 Napoleon90:15-4 Metis21:19-19 Bucephalus30:right Hoosier26:16-24 Circe141:14-15 Tahoe143:4-10 Loki16:right Hephaestus128:right Antigone125:faster Iron_Justice156:faster Leviathan22:faster Aeneas63:faster Iron_Justice73:right Phobos136:4-10
+INPU - [A.I.C.I.S.] Thunder_Child78:left Loki77:left Kimera14:17-28 Fury84:11-12 White_Star76:4-13 Valor_of_Vardona4:left Victory148:17-8 Antigone74:left Jackson_V131:right Jackson's_Revenge69:17-16 Fury20:17-16
+KILL - Llamax_Furies kill A.I.C.I.S._White_Star76
+WARN - Llamax_Zeus shot A.I.C.I.S._Kimera14
+KILL - Llamax_Zeus kill A.I.C.I.S._Circe119
+WARN - Llamax_Napoleon61 shoot failed (4, 3)!
+WARN - Llamax_Patroclus80 shoot failed (38, 22)!
+WARN - Llamax_Napoleon90 shot A.I.C.I.S._Victory148
+WARN - Llamax_Metis21 shot A.I.C.I.S._Fury20
+WARN - Llamax_Hoosier26 shot A.I.C.I.S._Kimera14
+KILL - Llamax_Circe141 kill A.I.C.I.S._Fury84
+WARN - Llamax_Tahoe143 shoot failed (9, 3)!
+WARN - Llamax_Phobos136 shoot failed (9, 3)!
+WARN - A.I.C.I.S._Kimera14 shot Llamax_Zeus
+WARN - A.I.C.I.S._Victory148 shot Llamax_Napoleon90
+WARN - A.I.C.I.S._Jackson's_Revenge69 shot Llamax_Metis21
+WARN - A.I.C.I.S._Fury20 shot Llamax_Metis21
+INFO - It's turn nb 33 (1)
+INPU - [Llamax] Furies:left Zeus:left Napoleon61:3-3 Jackson_V67:right Patroclus80:25-3 Napoleon90:14-5 Metis21:14-12 Bucephalus30:right Iron_Fist88:4-36 Hoosier26:14-22 Circe141:right Tahoe143:right Loki16:left Hephaestus128:faster Antigone125:right Iron_Justice156:14-5 White_Star81:4-36 Leviathan22:slower Iron_Justice73:faster
+INPU - [A.I.C.I.S.] Leviathan107:36-33 Loki77:1-6 Victory148:16-2 Antigone74:left Jackson_V131:20-21 Jackson's_Revenge69:19-14 Fury20:19-14
+WARN - Llamax_Napoleon61 shot A.I.C.I.S._Loki77
+KILL - Llamax_Patroclus80 kill A.I.C.I.S._Valor_of_Vardona4
+WARN - Llamax_Napoleon90 shot A.I.C.I.S._Victory148
+WARN - Llamax_Metis21 shot A.I.C.I.S._Jackson's_Revenge69
+KILL - Llamax_Iron_Fist88 kill A.I.C.I.S._Leviathan107
+KILL - Llamax_Hoosier26 kill A.I.C.I.S._Kimera14
+WARN - Llamax_Iron_Justice156 shot A.I.C.I.S._Victory148
+WARN - Llamax_White_Star81 shoot failed (35, 3)!
+WARN - A.I.C.I.S._Loki77 shot Llamax_Napoleon61
+KILL - A.I.C.I.S._Victory148 kill Llamax_Iron_Justice156
+WARN - A.I.C.I.S._Jackson_V131 shoot failed (20, 19)!
+KILL - A.I.C.I.S._Jackson's_Revenge69 kill Llamax_Metis21
+WARN - A.I.C.I.S._Fury20 shoot failed (13, 18)!
+INFO - It's turn nb 34 (1)
+INPU - [Llamax] Furies:faster Zeus:left Napoleon61:2-2 Jackson_V67:right Napoleon90:13-6 Bucephalus30:right Iron_Fist88:right Circe141:13-11 Tahoe143:right Loki16:left Hephaestus128:slower Antigone125:left Leviathan22:faster Iron_Justice73:right
+INPU - [A.I.C.I.S.] Loki77:1-7 Victory148:11-8 Jackson_V131:18-23 Jackson's_Revenge69:11-8 Fury20:right
+KILL - Llamax_Napoleon61 kill A.I.C.I.S._Loki77
+KILL - Llamax_Napoleon90 kill A.I.C.I.S._Victory148
+WARN - Llamax_Circe141 shot A.I.C.I.S._Jackson's_Revenge69
+WARN - A.I.C.I.S._Jackson_V131 shot Llamax_Cyrus144
+KILL - A.I.C.I.S._Jackson's_Revenge69 kill Llamax_Circe141
+INFO - It's turn nb 35 (1)
+INPU - [Llamax] Zeus:faster Napoleon61:left Jackson_V67:left Napoleon90:12-10 Bucephalus30:right Iron_Fist88:right Hoosier26:right Tahoe89:37-32 Tahoe143:faster Loki16:left Hephaestus128:left Tahoe25:left Antigone125:left Leviathan22:slower Aeneas63:left
+INPU - [A.I.C.I.S.] Thunder_Child78:right Antigone74:right Jackson_V131:24-27 Jackson's_Revenge69:15-11 Fury20:right
+WARN - Llamax_Napoleon90 shot A.I.C.I.S._Jackson's_Revenge69
+WARN - Llamax_Tahoe89 shoot failed (31, 36)!
+KILL - A.I.C.I.S._Jackson_V131 kill Llamax_Furies
+WARN - A.I.C.I.S._Jackson's_Revenge69 shoot failed (10, 14)!
+INFO - It's turn nb 36 (1)
+INPU - [Llamax] Zeus:faster Bucephalus30:right Iron_Fist88:39-34 Hoosier26:left Tahoe89:39-34 Loki16:left Hephaestus128:20-21 Tahoe25:left Antigone125:slower Leviathan22:faster Aeneas63:left Iron_Justice73:39-34
+INPU - [A.I.C.I.S.] Thunder_Child78:right Antigone74:2-30 Jackson_V131:24-20 Jackson's_Revenge69:10-8
+KILL - Llamax_Iron_Fist88 kill A.I.C.I.S._Antigone74
+WARN - Llamax_Tahoe89 shoot failed (33, 38)!
+WARN - Llamax_Hephaestus128 shot A.I.C.I.S._Jackson_V131
+WARN - Llamax_Iron_Justice73 shoot failed (33, 38)!
+KILL - A.I.C.I.S._Jackson_V131 kill Llamax_Hephaestus128
+KILL - A.I.C.I.S._Jackson's_Revenge69 kill Llamax_Tahoe143
+INFO - It's turn nb 37 (1)
+INPU - [Llamax] Zeus:left Napoleon61:left Jackson_V67:left Patroclus80:10-8 Iron_Fist88:right Loki16:right Tahoe25:left Antigone125:left Leviathan22:slower Aeneas63:left Iron_Justice73:right
+INPU - [A.I.C.I.S.] Thunder_Child78:right Jackson_V131:23-23 Jackson's_Revenge69:12-12 Fury20:31-14
+WARN - Llamax_Patroclus80 shot A.I.C.I.S._Jackson's_Revenge69
+WARN - A.I.C.I.S._Jackson_V131 shoot failed (22, 22)!
+WARN - A.I.C.I.S._Jackson's_Revenge69 shot Llamax_Patroclus80
+WARN - A.I.C.I.S._Fury20 shot Llamax_Bucephalus30
+INFO - It's turn nb 38 (1)
+INPU - [Llamax] Napoleon61:left Jackson_V67:left Napoleon90:left Bucephalus30:31-13 Iron_Fist88:right Loki16:right Tahoe25:left Leviathan22:faster Aeneas63:left Phobos136:18-21
+INPU - [A.I.C.I.S.] Thunder_Child78:left Jackson_V131:19-25 Jackson's_Revenge69:10-14
+WARN - Llamax_Bucephalus30 shot A.I.C.I.S._Fury20
+WARN - Llamax_Phobos136 shot A.I.C.I.S._Jackson_V131
+WARN - A.I.C.I.S._Jackson_V131 shot Llamax_Phobos136
+KILL - A.I.C.I.S._Jackson's_Revenge69 kill Llamax_Patroclus80
+INFO - It's turn nb 39 (1)
+INPU - [Llamax] Zeus:left Jackson_V67:left Napoleon90:left Bucephalus30:right Tahoe89:29-40 Antigone125:right Leviathan22:slower Cyrus144:left
+INPU - [A.I.C.I.S.] Jackson_V131:21-27 Fury20:left
+KILL - Llamax_Tahoe89 kill A.I.C.I.S._Thunder_Child78
+KILL - A.I.C.I.S._Jackson_V131 kill Llamax_Phobos136
+INFO - It's turn nb 40 (1)
+INPU - [Llamax] Napoleon61:right Jackson_V67:35-13 Napoleon90:left Bucephalus30:right Hoosier26:slower Tahoe89:left Loki16:left Antigone125:faster Leviathan22:faster Aeneas63:left Cyrus144:right
+INPU - [A.I.C.I.S.] Jackson_V131:left Fury20:32-11
+WARN - Llamax_Jackson_V67 shot Llamax_Jackson_V67
+KILL - Llamax_Jackson_V67 kill A.I.C.I.S._Fury20
+INFO - It's turn nb 41 (1)
+INPU - [Llamax] Zeus:left Napoleon61:right Jackson_V67:left Bucephalus30:right Iron_Fist88:slower Hoosier26:faster Tahoe89:left Loki16:right Leviathan22:slower Aeneas63:right Iron_Justice73:left
+INPU - [A.I.C.I.S.] Jackson_V131:left Jackson's_Revenge69:right
+INFO - It's turn nb 42 (2)
+INPU - [Llamax] Zeus:left Jackson_V67:left Bucephalus30:right Iron_Fist88:faster Hoosier26:slower Loki16:right Leviathan22:faster Aeneas63:right Iron_Justice73:left
+INPU - [A.I.C.I.S.] Jackson_V131:right Jackson's_Revenge69:4-7
+KILL - A.I.C.I.S._Jackson's_Revenge69 kill Llamax_Cyrus144
+INFO - It's turn nb 43 (1)
+INPU - [Llamax] Bucephalus30:left Iron_Fist88:slower Hoosier26:faster Loki16:right Antigone125:slower Leviathan22:left Aeneas63:right
+INPU - [A.I.C.I.S.] Jackson's_Revenge69:7-6
+KILL - A.I.C.I.S._Jackson's_Revenge69 kill Llamax_Zeus
+INFO - It's turn nb 44 (1)
+INPU - [Llamax] Iron_Fist88:faster Hoosier26:slower Antigone125:right Leviathan22:left Aeneas63:3-5
+INPU - [A.I.C.I.S.] Jackson's_Revenge69:7-4
+WARN - Llamax_Aeneas63 shot A.I.C.I.S._Jackson's_Revenge69
+KILL - A.I.C.I.S._Jackson's_Revenge69 kill Llamax_Aeneas63
+INFO - It's turn nb 45 (1)
+INPU - [Llamax] Jackson_V67:2-5 Iron_Fist88:slower Hoosier26:faster Loki16:right Antigone125:right Leviathan22:faster
+INPU - [A.I.C.I.S.] Jackson_V131:15-16 Jackson's_Revenge69:1-7
+WARN - Llamax_Jackson_V67 shot A.I.C.I.S._Jackson's_Revenge69
+WARN - A.I.C.I.S._Jackson_V131 shoot failed (15, 14)!
+WARN - A.I.C.I.S._Jackson's_Revenge69 shot Llamax_Tahoe25
+INFO - It's turn nb 46 (1)
+INPU - [Llamax] Jackson_V67:1-5 Iron_Fist88:faster Hoosier26:left Loki16:left Tahoe25:1-5 Antigone125:11-14
+INPU - [A.I.C.I.S.] Jackson_V131:7-12 Jackson's_Revenge69:1-4
+WARN - Llamax_Jackson_V67 shot A.I.C.I.S._Jackson's_Revenge69
+KILL - Llamax_Tahoe25 kill A.I.C.I.S._Jackson's_Revenge69
+WARN - Llamax_Antigone125 shot A.I.C.I.S._Jackson_V131
+KILL - A.I.C.I.S._Jackson_V131 kill Llamax_Antigone125
+INFO - It's turn nb 47 (1)
+INPU - [Llamax] Jackson_V67:left Bucephalus30:right Iron_Fist88:left Hoosier26:left Loki16:right Tahoe25:left Leviathan22:right Iron_Justice73:left
+INPU - [A.I.C.I.S.] 
+INFO - It's turn nb 48 (2)
+INPU - [Llamax] Napoleon61:left Jackson_V67:left Bucephalus30:right Iron_Fist88:left Loki16:right Tahoe25:left Leviathan22:left
+INPU - [A.I.C.I.S.] Jackson_V131:8-10
+KILL - A.I.C.I.S._Jackson_V131 kill Llamax_Iron_Justice73
+INFO - It's turn nb 49 (1)
+INPU - [Llamax] Napoleon61:left Bucephalus30:right
+INPU - [A.I.C.I.S.] 
+INFO - It's turn nb 50 (2)
+INPU - [Llamax] Jackson_V67:7-10 Bucephalus30:right Loki16:7-10 Tahoe25:7-10 White_Star81:left
+INPU - [A.I.C.I.S.] Jackson_V131:11-11
+WARN - Llamax_Jackson_V67 shot A.I.C.I.S._Jackson_V131
+WARN - Llamax_Loki16 shot A.I.C.I.S._Jackson_V131
+WARN - Llamax_Tahoe25 shot A.I.C.I.S._Jackson_V131
+KILL - A.I.C.I.S._Jackson_V131 kill Llamax_Tahoe25
+INFO - It's turn nb 51 (1)
+INPU - [Llamax] Jackson_V67:6-9 Bucephalus30:right Loki16:6-9 White_Star81:left
+INPU - [A.I.C.I.S.] Jackson_V131:3-12
+WARN - Llamax_Jackson_V67 shot A.I.C.I.S._Jackson_V131
+KILL - Llamax_Loki16 kill A.I.C.I.S._Jackson_V131
